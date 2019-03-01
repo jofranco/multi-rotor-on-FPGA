@@ -4,7 +4,7 @@
 #include <ap_fixed.h>
 
 #define GYRO_ODR_HZ 10
-#define dt 1/GYRO_ODR_HZ
+#define dt 0.01
 
 // corresponding value of one LSB unit according to the range set
 #define GRANGE_LSB 	0.000061	// g/LSB
