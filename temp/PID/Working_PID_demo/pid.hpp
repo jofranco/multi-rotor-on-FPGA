@@ -52,7 +52,7 @@ typedef ap_fixed<16,1> F16_t;
 
 typedef ap_uint<6> uint6_t;
 
-/* (not used for LED demo)
+/* (not used for PID demo)
 const F19_t MIX_C[6][3] = {
 	{.5,	-0.57735026919,	1},
 	{1,		0,							-1},
@@ -63,7 +63,7 @@ const F19_t MIX_C[6][3] = {
 };
 */
 
-// PID LED demo fucntion definition
+// PID demo function definition
 //void pid (F16_t rcCmdIn[4],F16_t measured[4],F32_t kp[3],F32_t kd[2],F32_t ki[2],F16_t pid_o[3]);
 void pid (float rcCmdIn[4],float measured[4],float kp[3],float kd[2],float ki[2],float commandOut[3]);
 

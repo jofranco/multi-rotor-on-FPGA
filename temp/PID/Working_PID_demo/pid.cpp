@@ -91,7 +91,7 @@
 //void pid (F16_t rcCmdIn[5],F16_t measured[4],F32_t kp[3],F32_t kd[2],F32_t ki[2],F16_t commandOut[4096])
 
 
-// PID LED demo function call
+// PID demo function call
 // 16 bit input, 16 bit output
 //void pid (F16_t rcCmdIn[4],F16_t measured[4],F32_t kp[3],F32_t kd[2],F32_t ki[2],F16_t commandOut[3])
 void pid (float rcCmdIn[4],float measured[4],float kp[3],float kd[2],float ki[2],float commandOut[3])
@@ -156,10 +156,10 @@ void pid (float rcCmdIn[4],float measured[4],float kp[3],float kd[2],float ki[2]
 
 
 	/********************************************************
-      motor command output scaling (not used for LED demo)
+      motor command output scaling (not used for demo)
 	*********************************************************/
 /*
-	// mixed _in contains noramlized values for each channel
+	// mixed _in contains normalized values for each channel
 	// lets convert those to what we want to use
 	// change all to F19_t and make sure thrust is scaled to [0,1)
 	F19_t r_c = pid_o[0];
@@ -179,7 +179,7 @@ void pid (float rcCmdIn[4],float measured[4],float kp[3],float kd[2],float ki[2]
 	commandOut[6]=rcCmdIn[4];
 */
 
-// PID LED demo output scaling [0,1) and conversion to 16 bit output format
+// PID demo output scaling [0,1) and conversion to 16 bit output format
 
 	// change all to F19_t and make sure thrust is scaled to [0,1)
 

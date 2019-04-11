@@ -40,12 +40,12 @@
 int main()
 {
 
-		int num_iterations = 20;
+		int num_iterations = 30;
 
 		// setting PID gain values
-		float kp[3] = {0.5, 0.5, 0.5};	// proportional gain
+		float kp[3] = {0.55, 0.55, 0.55};	// proportional gain
 		float kd[2] = {0.1, 0.1};		// derivative gain
-		float ki[2] = {0.1, 0.1};		// integral gain
+		float ki[2] = {0.15, 0.15};		// integral gain
 
 		float rcCmdIn[4] = {0.5, 0.5, 1.0, 0.5}; // setting target output values
 
