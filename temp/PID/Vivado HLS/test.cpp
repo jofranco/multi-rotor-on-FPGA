@@ -3,12 +3,20 @@
 #include <stdio.h>
 //#include "pid.cpp"
 int main(){
+//just focus on horizon mode.
+	// give it certain modes like " hey its pitched forwared" that gives you
+	// expected pitch and roll values.
+	// then you can graph both PID's of pitch/roll
+	//{r,p,t,y}
+	F16_t obj_avd_cmd[0]=0;
+	F16_t horizon_cmd[0]=1;
+	F16_t obj_avd_flag[0]=0;
 
-	F16_t desired_value[4]= {0.20,0.2,0.2,0.2};
-	F16_t measured[4]={0.17,0.17,0.17,0.17};
-	F32_t kp[3]={1,1,0.5};
-	F32_t kd[2]={1,1};
-	F32_t ki[2]={1,1};
+	F16_t rcCmdIn[5]= {0.0,0.0,0.0,0.0,0.0};
+	F16_t measured[4]={0.1,0.8,0.0,0.0};
+	F32_t kp[3]={0.5,0.5,0.5};
+	F32_t kd[3]={0.1,.1,.1};
+	F32_t ki[3]={0,0,0};
 	F16_t commandOut[4096];
 	F19_t r_c=0;
 	F19_t t_c=0;
@@ -24,26 +32,23 @@ int main(){
 	 * commandOut[7] {m0,m1,m2,m3,m4,m5,kill channel} [0,1)
 	*/
 
-for( int i =1; i<=200; i++){
+ flightmain( rcCmdIn, obj_avd_cmd,horizon_cmd, obj_avd_flag);
 
-	pid(desired_value,measured,kp,kd, ki,commandOut); //
-    //printf( "desired: %g|, measured: %g  ", float(desired_value), float(measured));
-/*
-    printf( "iterations: %g| ", float(i));
-	printf( "r %g| ", float(commandOut[0]));
-	printf( "p %g| ", float(commandOut[1]));
-	printf( "t %g| ", float(commandOut[2]));
-	printf( "y %g|\n ", float(commandOut[3]));
-	*/
-		printf( "%g, ", float(i));
-		printf( " %g, \n", float(commandOut[0])); //r
+for( int i =1; i<=10; i++){
+	printf("HORIZON COMMAND %g |",float(horizon_cmd[0]));
+	printf("%g,  ", float(measured[0]));//R,P,T,Y
+	printf("%g; \n ", float(measured[1]));
+
+	pid(rcCmdIn,measured,kp,kd, ki,commandOut);//
 		/*
 		printf( " %g, ", float(commandOut[1])); //p
 		printf( " %g, ", float(commandOut[2])); //t....thrust=rcCmdin...no PID
 		printf( " %g; \n ", float(commandOut[3]));//y
 		*/
 		measured[0]= measured[0]+commandOut[0];
-	}
+		measured[1]= measured[1]+commandOut[1];
+
+}
 
 	return 0;
 }

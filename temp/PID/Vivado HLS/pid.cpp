@@ -39,10 +39,11 @@ void pid (F16_t rcCmdIn[5],
 						ROLL PID CONTROLLER
 	*****************************************/
 
-	curr_error[0]= rcCmdIn[0] - measured[0]*5;
+	curr_error[0]= rcCmdIn[0] - measured[0]*1;// changed from 5 to 1
 	integral[0] =  clip(F32_t(integral[0] + curr_error[0]),F32_t(-100),F32_t(100));
 	deriv[0] = (curr_error[0]-last_error[0]);
 	correction[0] = (kp[0] * curr_error[0]) + (ki[0] * integral[0]) + (kd[0] * deriv[0]);
+	//pid_o[0]=correction[0];
 	pid_o[0] = clip(correction[0],F32_t(-1),F32_t(.999));
 	last_error[0] = curr_error[0];
 
@@ -50,8 +51,9 @@ void pid (F16_t rcCmdIn[5],
 						pitch PID CONTROLLER
 	*****************************************/
 
-	curr_error[1] = rcCmdIn[1] - measured[1]*5;
+	curr_error[1] = rcCmdIn[1] - measured[1]*1;// changed from 5 to 1
 	integral[1] =  clip(F32_t(integral[1] + curr_error[1]),F32_t(-100),F32_t(100));
+
 	deriv[1] = (curr_error[1]-last_error[1]);
 	correction[1] = (kp[1] * curr_error[1]) + (ki[1] * integral[1]) + (kd[1] * deriv[1]);
 	pid_o[1] = clip(correction[1],F32_t(-1),F32_t(.999));
@@ -60,27 +62,29 @@ void pid (F16_t rcCmdIn[5],
 	/****************************************
 						yaw P CONTROLLER
 	*****************************************/
+	pid_o[2] = kp[2]*(rcCmdIn[3] - measured[3]);
 
 	// mixed _in contains noramlized values for each channel
 	// lets convert those to what we want to use
 	// change all to F19_t and make sure thrust is scaled to [0,1)
 	F19_t r_c = pid_o[0];
 	F19_t p_c = pid_o[1];
-	F19_t t_c = rcCmdIn[2];//*F16_t(.5)+F16_t(.5);//move scale to [-.5,.5) then [0,1)
-	//for t_c why are we scaling to (0,1]? it should already be scaled...
-	F19_t y_c = pid_o[2];
+	F19_t t_c = rcCmdIn[2]*F16_t(.5)+F16_t(.5);//move scale to [-.5,.5) then [0,1)
 
+	//for t_c why are we scaling to (0,1]? it should already be scaled...
+	F19_t y_c = pid_o[2]; //
 
  //I'M TAKING THIS OUT BECAUSE I WANT TO KNOW ROLL,PITCH,THRUST,YAW AND *NOT* MOTOR VALUES
 /*
 	for(char i=0; i < 6; i++) {
 	#pragma HLS unroll
-		F19_t scaled_power =   t_c\
-							 +(r_c*MIX_C[i][0]\
-	                         + p_c*MIX_C[i][1]\
-						     + y_c*MIX_C[i][2])*F19_t(.33);
+		F19_t scaled_power = t_c\
+							+(r_c*MIX_C[i][0]+\
+							p_c*MIX_C[i][1]+\
+						    y_c*MIX_C[i][2])*F19_t(.33);
 		commandOut[i]=F16_t(clip(scaled_power,F19_t(0),F19_t(.999)));
 	}
+	commandOut[6]=rcCmdIn[4];
 	*/
 	//{r,p,t,y}
 	commandOut[0]=r_c;
@@ -88,7 +92,4 @@ void pid (F16_t rcCmdIn[5],
 	commandOut[2]=t_c;
 	commandOut[3]=y_c;
 
-
-
-	//commandOut[6]=rcCmdIn[4]; //why is this here...i took it out.
 }
