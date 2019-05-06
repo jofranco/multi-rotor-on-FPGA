@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"imu_spi": {
+			"proto_instances": {
+			}
+		}
+	}
+}

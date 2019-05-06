@@ -1,0 +1,3 @@
+imu_spi_AXILiteS_s_axi
+imu_spi_spi_bus_m_axi
+imu_spi

@@ -1,0 +1,202 @@
+
+
+================================================================
+== Vivado HLS Report for 'imu_spi'
+================================================================
+* Date:           Sun May  5 15:54:39 2019
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        AXI_SPI_Driver
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   16|   16|   16|   16|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|      2|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        2|      -|     592|    684|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|    203|
+|Register         |        -|      -|      36|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        2|      0|     628|    889|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |    ~0   |      0|   ~0   |      1|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+------------------------+---------+-------+-----+-----+
+    |         Instance         |         Module         | BRAM_18K| DSP48E|  FF | LUT |
+    +--------------------------+------------------------+---------+-------+-----+-----+
+    |imu_spi_AXILiteS_s_axi_U  |imu_spi_AXILiteS_s_axi  |        0|      0|   80|  104|
+    |imu_spi_spi_bus_m_axi_U   |imu_spi_spi_bus_m_axi   |        2|      0|  512|  580|
+    +--------------------------+------------------------+---------+-------+-----+-----+
+    |Total                     |                        |        2|      0|  592|  684|
+    +--------------------------+------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------+----------+-------+---+----+------------+------------+
+    |    Variable Name   | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------+----------+-------+---+----+------------+------------+
+    |ap_block_state2_io  |    or    |      0|  0|   2|           1|           1|
+    +--------------------+----------+-------+---+----+------------+------------+
+    |Total               |          |      0|  0|   2|           1|           1|
+    +--------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------------+----+-----------+-----+-----------+
+    |              Name              | LUT| Input Size| Bits| Total Bits|
+    +--------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                       |  89|         18|    1|         18|
+    |ap_sig_ioackin_spi_bus_ARREADY  |   9|          2|    1|          2|
+    |ap_sig_ioackin_spi_bus_AWREADY  |   9|          2|    1|          2|
+    |ap_sig_ioackin_spi_bus_WREADY   |   9|          2|    1|          2|
+    |spi_bus_AWADDR                  |  21|          4|   32|        128|
+    |spi_bus_WDATA                   |  21|          4|   32|        128|
+    |spi_bus_blk_n_AR                |   9|          2|    1|          2|
+    |spi_bus_blk_n_AW                |   9|          2|    1|          2|
+    |spi_bus_blk_n_B                 |   9|          2|    1|          2|
+    |spi_bus_blk_n_R                 |   9|          2|    1|          2|
+    |spi_bus_blk_n_W                 |   9|          2|    1|          2|
+    +--------------------------------+----+-----------+-----+-----------+
+    |Total                           | 203|         42|   73|        290|
+    +--------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------+----+----+-----+-----------+
+    |              Name              | FF | LUT| Bits| Const Bits|
+    +--------------------------------+----+----+-----+-----------+
+    |TX_message_read_reg_168         |  16|   0|   16|          0|
+    |ap_CS_fsm                       |  17|   0|   17|          0|
+    |ap_reg_ioackin_spi_bus_ARREADY  |   1|   0|    1|          0|
+    |ap_reg_ioackin_spi_bus_AWREADY  |   1|   0|    1|          0|
+    |ap_reg_ioackin_spi_bus_WREADY   |   1|   0|    1|          0|
+    +--------------------------------+----+----+-----+-----------+
+    |Total                           |  36|   0|   36|          0|
+    +--------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+--------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  | Source Object|    C Type    |
++------------------------+-----+-----+------------+--------------+--------------+
+|s_axi_AXILiteS_AWVALID  |  in |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_AWREADY  | out |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_AWADDR   |  in |    5|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_WVALID   |  in |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_WREADY   | out |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_WDATA    |  in |   32|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_WSTRB    |  in |    4|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_ARVALID  |  in |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_ARREADY  | out |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_ARADDR   |  in |    5|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_RVALID   | out |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_RREADY   |  in |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_RDATA    | out |   32|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_RRESP    | out |    2|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_BVALID   | out |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_BREADY   |  in |    1|    s_axi   |   AXILiteS   |    scalar    |
+|s_axi_AXILiteS_BRESP    | out |    2|    s_axi   |   AXILiteS   |    scalar    |
+|ap_clk                  |  in |    1| ap_ctrl_hs |    imu_spi   | return value |
+|ap_rst_n                |  in |    1| ap_ctrl_hs |    imu_spi   | return value |
+|interrupt               | out |    1| ap_ctrl_hs |    imu_spi   | return value |
+|m_axi_spi_bus_AWVALID   | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWREADY   |  in |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWADDR    | out |   32|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWID      | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWLEN     | out |    8|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWSIZE    | out |    3|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWBURST   | out |    2|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWLOCK    | out |    2|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWCACHE   | out |    4|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWPROT    | out |    3|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWQOS     | out |    4|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWREGION  | out |    4|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_AWUSER    | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_WVALID    | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_WREADY    |  in |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_WDATA     | out |   32|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_WSTRB     | out |    4|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_WLAST     | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_WID       | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_WUSER     | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARVALID   | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARREADY   |  in |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARADDR    | out |   32|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARID      | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARLEN     | out |    8|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARSIZE    | out |    3|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARBURST   | out |    2|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARLOCK    | out |    2|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARCACHE   | out |    4|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARPROT    | out |    3|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARQOS     | out |    4|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARREGION  | out |    4|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_ARUSER    | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_RVALID    |  in |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_RREADY    | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_RDATA     |  in |   32|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_RLAST     |  in |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_RID       |  in |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_RUSER     |  in |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_RRESP     |  in |    2|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_BVALID    |  in |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_BREADY    | out |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_BRESP     |  in |    2|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_BID       |  in |    1|    m_axi   |    spi_bus   |    pointer   |
+|m_axi_spi_bus_BUSER     |  in |    1|    m_axi   |    spi_bus   |    pointer   |
++------------------------+-----+-----+------------+--------------+--------------+
+

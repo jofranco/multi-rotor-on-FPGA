@@ -1,0 +1,184 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'imu_spi'" level="0">
+<item name = "Date">Sun May  5 15:54:39 2019
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">AXI_SPI_Driver</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.750, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">16, 16, 16, 16, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 2</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">2, -, 592, 684</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 203</column>
+<column name="Register">-, -, 36, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">~0, 0, ~0, 1</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="imu_spi_AXILiteS_s_axi_U">imu_spi_AXILiteS_s_axi, 0, 0, 80, 104</column>
+<column name="imu_spi_spi_bus_m_axi_U">imu_spi_spi_bus_m_axi, 2, 0, 512, 580</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="ap_block_state2_io">or, 0, 0, 2, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">89, 18, 1, 18</column>
+<column name="ap_sig_ioackin_spi_bus_ARREADY">9, 2, 1, 2</column>
+<column name="ap_sig_ioackin_spi_bus_AWREADY">9, 2, 1, 2</column>
+<column name="ap_sig_ioackin_spi_bus_WREADY">9, 2, 1, 2</column>
+<column name="spi_bus_AWADDR">21, 4, 32, 128</column>
+<column name="spi_bus_WDATA">21, 4, 32, 128</column>
+<column name="spi_bus_blk_n_AR">9, 2, 1, 2</column>
+<column name="spi_bus_blk_n_AW">9, 2, 1, 2</column>
+<column name="spi_bus_blk_n_B">9, 2, 1, 2</column>
+<column name="spi_bus_blk_n_R">9, 2, 1, 2</column>
+<column name="spi_bus_blk_n_W">9, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="TX_message_read_reg_168">16, 0, 16, 0</column>
+<column name="ap_CS_fsm">17, 0, 17, 0</column>
+<column name="ap_reg_ioackin_spi_bus_ARREADY">1, 0, 1, 0</column>
+<column name="ap_reg_ioackin_spi_bus_AWREADY">1, 0, 1, 0</column>
+<column name="ap_reg_ioackin_spi_bus_WREADY">1, 0, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_AXILiteS_AWVALID">in, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_AWREADY">out, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_AWADDR">in, 5, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_WVALID">in, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_WREADY">out, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_WDATA">in, 32, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_WSTRB">in, 4, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_ARVALID">in, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_ARREADY">out, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_ARADDR">in, 5, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_RVALID">out, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_RREADY">in, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_RDATA">out, 32, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_RRESP">out, 2, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_BVALID">out, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_BREADY">in, 1, s_axi, AXILiteS, scalar</column>
+<column name="s_axi_AXILiteS_BRESP">out, 2, s_axi, AXILiteS, scalar</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, imu_spi, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, imu_spi, return value</column>
+<column name="interrupt">out, 1, ap_ctrl_hs, imu_spi, return value</column>
+<column name="m_axi_spi_bus_AWVALID">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWREADY">in, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWADDR">out, 32, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWID">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWLEN">out, 8, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWSIZE">out, 3, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWBURST">out, 2, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWLOCK">out, 2, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWCACHE">out, 4, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWPROT">out, 3, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWQOS">out, 4, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWREGION">out, 4, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_AWUSER">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_WVALID">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_WREADY">in, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_WDATA">out, 32, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_WSTRB">out, 4, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_WLAST">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_WID">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_WUSER">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARVALID">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARREADY">in, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARADDR">out, 32, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARID">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARLEN">out, 8, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARSIZE">out, 3, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARBURST">out, 2, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARLOCK">out, 2, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARCACHE">out, 4, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARPROT">out, 3, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARQOS">out, 4, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARREGION">out, 4, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_ARUSER">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_RVALID">in, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_RREADY">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_RDATA">in, 32, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_RLAST">in, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_RID">in, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_RUSER">in, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_RRESP">in, 2, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_BVALID">in, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_BREADY">out, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_BRESP">in, 2, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_BID">in, 1, m_axi, spi_bus, pointer</column>
+<column name="m_axi_spi_bus_BUSER">in, 1, m_axi, spi_bus, pointer</column>
+</table>
+</item>
+</section>
+</profile>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="AXI_SPI_Driver.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Jupyter_Demos\AXI_SPI_Driver\AXI_SPI_Driver.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Jupyter_Demos\AXI_SPI_Driver\main.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
