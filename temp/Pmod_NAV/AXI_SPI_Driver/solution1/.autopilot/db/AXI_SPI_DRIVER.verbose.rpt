@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'AXI_SPI_DRIVER'
 ================================================================
-* Date:           Wed May  8 01:39:22 2019
+* Date:           Wed May  8 02:28:29 2019
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        AXI_SPI_Driver
@@ -25,12 +25,12 @@
 
 + Latency (clock cycles): 
     * Summary: 
-    +-----+-----+-----+-----+----------+
-    |  Latency  |  Interval | Pipeline |
-    | min | max | min | max |   Type   |
-    +-----+-----+-----+-----+----------+
-    |    7|    7|    8|    8| function |
-    +-----+-----+-----+-----+----------+
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    6|    6|    6|    6|   none  |
+    +-----+-----+-----+-----+---------+
 
     + Detail: 
         * Instance: 
@@ -49,14 +49,14 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
 +-----------------+---------+-------+--------+-------+
 |DSP              |        -|      -|       -|      -|
-|Expression       |        -|      -|       0|      8|
+|Expression       |        -|      -|       0|     12|
 |FIFO             |        -|      -|       -|      -|
-|Instance         |        2|      -|     512|    580|
+|Instance         |        2|      -|     618|    748|
 |Memory           |        -|      -|       -|      -|
-|Multiplexer      |        -|      -|       -|    140|
-|Register         |        -|      -|      14|      -|
+|Multiplexer      |        -|      -|       -|    185|
+|Register         |        -|      -|      55|      -|
 +-----------------+---------+-------+--------+-------+
-|Total            |        2|      0|     526|    728|
+|Total            |        2|      0|     673|    945|
 +-----------------+---------+-------+--------+-------+
 |Available        |      280|    220|  106400|  53200|
 +-----------------+---------+-------+--------+-------+
@@ -68,9 +68,10 @@
     +---------------------------------+-------------------------------+---------+-------+-----+-----+
     |             Instance            |             Module            | BRAM_18K| DSP48E|  FF | LUT |
     +---------------------------------+-------------------------------+---------+-------+-----+-----+
+    |AXI_SPI_DRIVER_debug_s_axi_U     |AXI_SPI_DRIVER_debug_s_axi     |        0|      0|  106|  168|
     |AXI_SPI_DRIVER_spi_core_m_axi_U  |AXI_SPI_DRIVER_spi_core_m_axi  |        2|      0|  512|  580|
     +---------------------------------+-------------------------------+---------+-------+-----+-----+
-    |Total                            |                               |        2|      0|  512|  580|
+    |Total                            |                               |        2|      0|  618|  748|
     +---------------------------------+-------------------------------+---------+-------+-----+-----+
 
     * DSP48: 
@@ -83,22 +84,24 @@
     N/A
 
     * Expression: 
-    +-----------------------------------+----------+-------+---+----+------------+------------+
-    |           Variable Name           | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +-----------------------------------+----------+-------+---+----+------------+------------+
-    |ap_predicate_op24_writereq_state2  |    and   |      0|  0|   2|           1|           1|
-    |ap_block_state2_io                 |    or    |      0|  0|   2|           1|           1|
-    |ap_block_state3_io                 |    or    |      0|  0|   2|           1|           1|
-    |ap_block_state8                    |    or    |      0|  0|   2|           1|           1|
-    +-----------------------------------+----------+-------+---+----+------------+------------+
-    |Total                              |          |      0|  0|   8|           4|           4|
-    +-----------------------------------+----------+-------+---+----+------------+------------+
+    +------------------------------------+----------+-------+---+----+------------+------------+
+    |            Variable Name           | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------------+----------+-------+---+----+------------+------------+
+    |ap_condition_274                    |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_439                    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op37_writereq_state1   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op47_writeresp_state7  |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state1_io                  |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state7                     |    or    |      0|  0|   2|           1|           1|
+    +------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                               |          |      0|  0|  12|           6|           6|
+    +------------------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
     +---------------------------------+----+-----------+-----+-----------+
     |               Name              | LUT| Input Size| Bits| Total Bits|
     +---------------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                        |  44|          9|    1|          9|
+    |ap_NS_fsm                        |  89|         18|    1|         18|
     |ap_sig_ioackin_spi_core_AWREADY  |   9|          2|    1|          2|
     |ap_sig_ioackin_spi_core_WREADY   |   9|          2|    1|          2|
     |spi_core_AWADDR                  |  21|          4|   32|        128|
@@ -108,21 +111,22 @@
     |spi_core_blk_n_W                 |   9|          2|    1|          2|
     |state                            |   9|          2|    2|          4|
     +---------------------------------+----+-----------+-----+-----------+
-    |Total                            | 140|         29|   72|        279|
+    |Total                            | 185|         38|   72|        288|
     +---------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +---------------------------------+---+----+-----+-----------+
-    |               Name              | FF| LUT| Bits| Const Bits|
-    +---------------------------------+---+----+-----+-----------+
-    |ap_CS_fsm                        |  8|   0|    8|          0|
-    |ap_reg_ioackin_spi_core_AWREADY  |  1|   0|    1|          0|
-    |ap_reg_ioackin_spi_core_WREADY   |  1|   0|    1|          0|
-    |state                            |  2|   0|    4|          2|
-    |state_load_reg_154               |  2|   0|    4|          2|
-    +---------------------------------+---+----+-----+-----------+
-    |Total                            | 14|   0|   18|          4|
-    +---------------------------------+---+----+-----+-----------+
+    +---------------------------------+----+----+-----+-----------+
+    |               Name              | FF | LUT| Bits| Const Bits|
+    +---------------------------------+----+----+-----+-----------+
+    |TX_message_V_read_reg_161        |  32|   0|   32|          0|
+    |ap_CS_fsm                        |  17|   0|   17|          0|
+    |ap_reg_ioackin_spi_core_AWREADY  |   1|   0|    1|          0|
+    |ap_reg_ioackin_spi_core_WREADY   |   1|   0|    1|          0|
+    |state                            |   2|   0|    4|          2|
+    |state_load_reg_166               |   2|   0|    4|          2|
+    +---------------------------------+----+----+-----+-----------+
+    |Total                            |  55|   0|   59|          4|
+    +---------------------------------+----+----+-----+-----------+
 
 
 
@@ -133,6 +137,23 @@
 +-------------------------+-----+-----+------------+----------------+--------------+
 |        RTL Ports        | Dir | Bits|  Protocol  |  Source Object |    C Type    |
 +-------------------------+-----+-----+------------+----------------+--------------+
+|s_axi_debug_AWVALID      |  in |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_AWREADY      | out |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_AWADDR       |  in |    5|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_WVALID       |  in |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_WREADY       | out |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_WDATA        |  in |   32|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_WSTRB        |  in |    4|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_ARVALID      |  in |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_ARREADY      | out |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_ARADDR       |  in |    5|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_RVALID       | out |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_RREADY       |  in |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_RDATA        | out |   32|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_RRESP        | out |    2|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_BVALID       | out |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_BREADY       |  in |    1|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_BRESP        | out |    2|    s_axi   |      debug     |    scalar    |
 |ap_clk                   |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
 |ap_rst_n                 |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
 |ap_start                 |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
@@ -199,30 +220,28 @@ ResetActiveHigh: 1
 IsCombinational: 2
 IsDatapathOnly: 2
 HasWiredReturn: 1
-HasMFsm: 1
-HasVarLatency: 0
-IsPipeline: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
 IsRtlPipelined: 0
 IsInstanceOverlapped: 0
 IsDontTouch: 0
 HasImplIP: 0
 IsGatedGlobalClock: 0
 
-+ Individual pipeline summary: 
-  * Pipeline-0: initiation interval (II) = 8, depth = 8
-
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 8
-* Pipeline : 1
-  Pipeline-0 : II = 8, D = 8, States = { 1 2 3 4 5 6 7 8 }
+* Number of FSM states : 17
+* Pipeline : 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 
-	2  / true
+	2  / (state_load == 1)
+	8  / (state_load == 0)
+	13  / (state_load != 0 & state_load != 1)
 2 --> 
 	3  / true
 3 --> 
@@ -234,67 +253,107 @@ IsGatedGlobalClock: 0
 6 --> 
 	7  / true
 7 --> 
-	8  / true
 8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	7  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	7  / true
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 1.76>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecClockDomain([8 x i8]* @default, [1 x i8]* @empty)"   --->   Operation 9 'specclockdomain' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %spi_core), !map !27"   --->   Operation 10 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @AXI_SPI_DRIVER_str) nounwind"   --->   Operation 11 'spectopmodule' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 8, i32 2, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:12]   --->   Operation 12 'specpipeline' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %spi_core, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [9 x i8]* @p_str2, [4 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 13 'specinterface' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecReset(i4* @state, i32 1, [1 x i8]* @p_str) nounwind" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:27]   --->   Operation 14 'specreset' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%state_load = load i4* @state, align 1"   --->   Operation 15 'load' 'state_load' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (1.13ns)   --->   "switch i4 %state_load, label %3 [
+State 1 <SV = 0> <Delay = 8.75>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecClockDomain([8 x i8]* @default, [1 x i8]* @empty)"   --->   Operation 18 'specclockdomain' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %spi_core), !map !29"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %TX_message_V), !map !35"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %RX_message_V), !map !41"   --->   Operation 21 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @AXI_SPI_DRIVER_str) nounwind"   --->   Operation 22 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (1.00ns)   --->   "%TX_message_V_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %TX_message_V)"   --->   Operation 23 'read' 'TX_message_V_read' <Predicate = true> <Delay = 1.00> <Core = "s_axilite">   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %TX_message_V, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [6 x i8]* @p_str2, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:20]   --->   Operation 24 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %RX_message_V, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [6 x i8]* @p_str2, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:21]   --->   Operation 25 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %spi_core, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [9 x i8]* @p_str4, [4 x i8]* @p_str5, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 26 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecReset(i4* @state, i32 1, [1 x i8]* @p_str) nounwind" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:29]   --->   Operation 27 'specreset' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%state_load = load i4* @state, align 1"   --->   Operation 28 'load' 'state_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (1.13ns)   --->   "switch i4 %state_load, label %3 [
     i4 0, label %1
     i4 1, label %2
-  ]" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:29]   --->   Operation 16 'switch' <Predicate = true> <Delay = 1.13>
-ST_1 : Operation 17 [1/1] (1.76ns)   --->   "store i4 2, i4* @state, align 1" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:38]   --->   Operation 17 'store' <Predicate = (state_load == 1)> <Delay = 1.76>
-ST_1 : Operation 18 [1/1] (1.76ns)   --->   "store i4 1, i4* @state, align 1" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:34]   --->   Operation 18 'store' <Predicate = (state_load == 0)> <Delay = 1.76>
+  ]" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:31]   --->   Operation 29 'switch' <Predicate = true> <Delay = 1.13>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%spi_core_addr_2 = getelementptr i32* %spi_core, i64 28"   --->   Operation 30 'getelementptr' 'spi_core_addr_2' <Predicate = (state_load == 1)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (8.75ns)   --->   "%spi_core_addr_2_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %spi_core_addr_2, i32 1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:39]   --->   Operation 31 'writereq' 'spi_core_addr_2_req' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_1 : Operation 32 [1/1] (1.76ns)   --->   "store i4 2, i4* @state, align 1" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:40]   --->   Operation 32 'store' <Predicate = (state_load == 1)> <Delay = 1.76>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%spi_core_addr_1 = getelementptr i32* %spi_core, i64 24"   --->   Operation 33 'getelementptr' 'spi_core_addr_1' <Predicate = (state_load == 0)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (8.75ns)   --->   "%spi_core_addr_1_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %spi_core_addr_1, i32 1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:34]   --->   Operation 34 'writereq' 'spi_core_addr_1_req' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_1 : Operation 35 [1/1] (1.76ns)   --->   "store i4 1, i4* @state, align 1" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:36]   --->   Operation 35 'store' <Predicate = (state_load == 0)> <Delay = 1.76>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%spi_core_addr = getelementptr i32* %spi_core, i64 26"   --->   Operation 36 'getelementptr' 'spi_core_addr' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (8.75ns)   --->   "%spi_core_addr_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %spi_core_addr, i32 1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:47]   --->   Operation 37 'writereq' 'spi_core_addr_req' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
 
 State 2 <SV = 1> <Delay = 8.75>
-ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%spi_core_addr_2 = getelementptr i32* %spi_core, i64 28"   --->   Operation 19 'getelementptr' 'spi_core_addr_2' <Predicate = (state_load == 1)> <Delay = 0.00>
-ST_2 : Operation 20 [1/1] (8.75ns)   --->   "%spi_core_addr_2_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %spi_core_addr_2, i32 1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:37]   --->   Operation 20 'writereq' 'spi_core_addr_2_req' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%spi_core_addr_1 = getelementptr i32* %spi_core, i64 24"   --->   Operation 21 'getelementptr' 'spi_core_addr_1' <Predicate = (state_load == 0)> <Delay = 0.00>
-ST_2 : Operation 22 [1/1] (8.75ns)   --->   "%spi_core_addr_1_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %spi_core_addr_1, i32 1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:32]   --->   Operation 22 'writereq' 'spi_core_addr_1_req' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%spi_core_addr = getelementptr i32* %spi_core, i64 7"   --->   Operation 23 'getelementptr' 'spi_core_addr' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (8.75ns)   --->   "%spi_core_addr_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %spi_core_addr, i32 1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:42]   --->   Operation 24 'writereq' 'spi_core_addr_req' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_2 : Operation 38 [1/1] (8.75ns)   --->   "call void @_ssdm_op_Write.m_axi.i32P(i32* %spi_core_addr_2, i32 65534, i4 -1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:39]   --->   Operation 38 'write' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
 
 State 3 <SV = 2> <Delay = 8.75>
-ST_3 : Operation 25 [1/1] (8.75ns)   --->   "call void @_ssdm_op_Write.m_axi.i32P(i32* %spi_core_addr_2, i32 65534, i4 -1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:37]   --->   Operation 25 'write' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_3 : Operation 26 [1/1] (8.75ns)   --->   "call void @_ssdm_op_Write.m_axi.i32P(i32* %spi_core_addr_1, i32 6, i4 -1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:32]   --->   Operation 26 'write' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_3 : Operation 27 [1/1] (8.75ns)   --->   "call void @_ssdm_op_Write.m_axi.i32P(i32* %spi_core_addr, i32 21845, i4 -1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:42]   --->   Operation 27 'write' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_3 : Operation 39 [5/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:39]   --->   Operation 39 'writeresp' 'spi_core_addr_2_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
 
 State 4 <SV = 3> <Delay = 8.75>
-ST_4 : Operation 28 [5/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:37]   --->   Operation 28 'writeresp' 'spi_core_addr_2_resp' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_4 : Operation 29 [5/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:32]   --->   Operation 29 'writeresp' 'spi_core_addr_1_resp' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_4 : Operation 30 [5/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:42]   --->   Operation 30 'writeresp' 'spi_core_addr_resp' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_4 : Operation 40 [4/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:39]   --->   Operation 40 'writeresp' 'spi_core_addr_2_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
 
 State 5 <SV = 4> <Delay = 8.75>
-ST_5 : Operation 31 [4/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:37]   --->   Operation 31 'writeresp' 'spi_core_addr_2_resp' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_5 : Operation 32 [4/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:32]   --->   Operation 32 'writeresp' 'spi_core_addr_1_resp' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_5 : Operation 33 [4/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:42]   --->   Operation 33 'writeresp' 'spi_core_addr_resp' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 41 [3/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:39]   --->   Operation 41 'writeresp' 'spi_core_addr_2_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
 
 State 6 <SV = 5> <Delay = 8.75>
-ST_6 : Operation 34 [3/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:37]   --->   Operation 34 'writeresp' 'spi_core_addr_2_resp' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_6 : Operation 35 [3/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:32]   --->   Operation 35 'writeresp' 'spi_core_addr_1_resp' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_6 : Operation 36 [3/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:42]   --->   Operation 36 'writeresp' 'spi_core_addr_resp' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 42 [2/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:39]   --->   Operation 42 'writeresp' 'spi_core_addr_2_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
 
 State 7 <SV = 6> <Delay = 8.75>
-ST_7 : Operation 37 [2/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:37]   --->   Operation 37 'writeresp' 'spi_core_addr_2_resp' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_7 : Operation 38 [2/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:32]   --->   Operation 38 'writeresp' 'spi_core_addr_1_resp' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_7 : Operation 39 [2/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:42]   --->   Operation 39 'writeresp' 'spi_core_addr_resp' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 43 [1/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:39]   --->   Operation 43 'writeresp' 'spi_core_addr_2_resp' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 44 [1/1] (0.00ns)   --->   "br label %4" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:41]   --->   Operation 44 'br' <Predicate = (state_load == 1)> <Delay = 0.00>
+ST_7 : Operation 45 [1/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:34]   --->   Operation 45 'writeresp' 'spi_core_addr_1_resp' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 46 [1/1] (0.00ns)   --->   "br label %4" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:37]   --->   Operation 46 'br' <Predicate = (state_load == 0)> <Delay = 0.00>
+ST_7 : Operation 47 [1/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:47]   --->   Operation 47 'writeresp' 'spi_core_addr_resp' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 48 [1/1] (0.00ns)   --->   "br label %4" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:55]   --->   Operation 48 'br' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 0.00>
+ST_7 : Operation 49 [1/1] (0.00ns)   --->   "ret void" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:60]   --->   Operation 49 'ret' <Predicate = true> <Delay = 0.00>
 
-State 8 <SV = 7> <Delay = 8.75>
-ST_8 : Operation 40 [1/5] (8.75ns)   --->   "%spi_core_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_2)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:37]   --->   Operation 40 'writeresp' 'spi_core_addr_2_resp' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_8 : Operation 41 [1/1] (0.00ns)   --->   "br label %4" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:39]   --->   Operation 41 'br' <Predicate = (state_load == 1)> <Delay = 0.00>
-ST_8 : Operation 42 [1/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:32]   --->   Operation 42 'writeresp' 'spi_core_addr_1_resp' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_8 : Operation 43 [1/1] (0.00ns)   --->   "br label %4" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 43 'br' <Predicate = (state_load == 0)> <Delay = 0.00>
-ST_8 : Operation 44 [1/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:42]   --->   Operation 44 'writeresp' 'spi_core_addr_resp' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
-ST_8 : Operation 45 [1/1] (0.00ns)   --->   "br label %4" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:44]   --->   Operation 45 'br' <Predicate = (state_load != 0 & state_load != 1)> <Delay = 0.00>
-ST_8 : Operation 46 [1/1] (0.00ns)   --->   "ret void" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:54]   --->   Operation 46 'ret' <Predicate = true> <Delay = 0.00>
+State 8 <SV = 1> <Delay = 8.75>
+ST_8 : Operation 50 [1/1] (8.75ns)   --->   "call void @_ssdm_op_Write.m_axi.i32P(i32* %spi_core_addr_1, i32 6, i4 -1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:34]   --->   Operation 50 'write' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 2> <Delay = 8.75>
+ST_9 : Operation 51 [5/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:34]   --->   Operation 51 'writeresp' 'spi_core_addr_1_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 3> <Delay = 8.75>
+ST_10 : Operation 52 [4/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:34]   --->   Operation 52 'writeresp' 'spi_core_addr_1_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 11 <SV = 4> <Delay = 8.75>
+ST_11 : Operation 53 [3/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:34]   --->   Operation 53 'writeresp' 'spi_core_addr_1_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 12 <SV = 5> <Delay = 8.75>
+ST_12 : Operation 54 [2/5] (8.75ns)   --->   "%spi_core_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:34]   --->   Operation 54 'writeresp' 'spi_core_addr_1_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 13 <SV = 1> <Delay = 8.75>
+ST_13 : Operation 55 [1/1] (8.75ns)   --->   "call void @_ssdm_op_Write.m_axi.i32P(i32* %spi_core_addr, i32 %TX_message_V_read, i4 -1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:47]   --->   Operation 55 'write' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 14 <SV = 2> <Delay = 8.75>
+ST_14 : Operation 56 [5/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:47]   --->   Operation 56 'writeresp' 'spi_core_addr_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 15 <SV = 3> <Delay = 8.75>
+ST_15 : Operation 57 [4/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:47]   --->   Operation 57 'writeresp' 'spi_core_addr_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 16 <SV = 4> <Delay = 8.75>
+ST_16 : Operation 58 [3/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:47]   --->   Operation 58 'writeresp' 'spi_core_addr_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 17 <SV = 5> <Delay = 8.75>
+ST_17 : Operation 59 [2/5] (8.75ns)   --->   "%spi_core_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %spi_core_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:47]   --->   Operation 59 'writeresp' 'spi_core_addr_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
 
 
 ============================================================
@@ -305,10 +364,12 @@ STG Binding:
 - Is combinational: 0
 - Is one-state seq: 0
 - Is datapath-only: 0
-- Is pipelined: 1
+- Is pipelined: 0
 - Is top level: 1
 Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
 Port [ spi_core]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ TX_message_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ RX_message_V]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ state]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
 ---------------- STG Properties END ------------------
 
@@ -316,32 +377,36 @@ Port [ state]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; exte
 
 <LifeTime>
 <method=bitvector/>
-StgValue_9           (specclockdomain) [ 000000000]
-StgValue_10          (specbitsmap    ) [ 000000000]
-StgValue_11          (spectopmodule  ) [ 000000000]
-StgValue_12          (specpipeline   ) [ 000000000]
-StgValue_13          (specinterface  ) [ 000000000]
-StgValue_14          (specreset      ) [ 000000000]
-state_load           (load           ) [ 011111111]
-StgValue_16          (switch         ) [ 000000000]
-StgValue_17          (store          ) [ 000000000]
-StgValue_18          (store          ) [ 000000000]
-spi_core_addr_2      (getelementptr  ) [ 000111111]
-spi_core_addr_2_req  (writereq       ) [ 000000000]
-spi_core_addr_1      (getelementptr  ) [ 000111111]
-spi_core_addr_1_req  (writereq       ) [ 000000000]
-spi_core_addr        (getelementptr  ) [ 000111111]
-spi_core_addr_req    (writereq       ) [ 000000000]
-StgValue_25          (write          ) [ 000000000]
-StgValue_26          (write          ) [ 000000000]
-StgValue_27          (write          ) [ 000000000]
-spi_core_addr_2_resp (writeresp      ) [ 000000000]
-StgValue_41          (br             ) [ 000000000]
-spi_core_addr_1_resp (writeresp      ) [ 000000000]
-StgValue_43          (br             ) [ 000000000]
-spi_core_addr_resp   (writeresp      ) [ 000000000]
-StgValue_45          (br             ) [ 000000000]
-StgValue_46          (ret            ) [ 000000000]
+StgValue_18          (specclockdomain) [ 000000000000000000]
+StgValue_19          (specbitsmap    ) [ 000000000000000000]
+StgValue_20          (specbitsmap    ) [ 000000000000000000]
+StgValue_21          (specbitsmap    ) [ 000000000000000000]
+StgValue_22          (spectopmodule  ) [ 000000000000000000]
+TX_message_V_read    (read           ) [ 000000000000010000]
+StgValue_24          (specinterface  ) [ 000000000000000000]
+StgValue_25          (specinterface  ) [ 000000000000000000]
+StgValue_26          (specinterface  ) [ 000000000000000000]
+StgValue_27          (specreset      ) [ 000000000000000000]
+state_load           (load           ) [ 011111111111111111]
+StgValue_29          (switch         ) [ 000000000000000000]
+spi_core_addr_2      (getelementptr  ) [ 001111111111111111]
+spi_core_addr_2_req  (writereq       ) [ 000000000000000000]
+StgValue_32          (store          ) [ 000000000000000000]
+spi_core_addr_1      (getelementptr  ) [ 001111111111111111]
+spi_core_addr_1_req  (writereq       ) [ 000000000000000000]
+StgValue_35          (store          ) [ 000000000000000000]
+spi_core_addr        (getelementptr  ) [ 001111111111111111]
+spi_core_addr_req    (writereq       ) [ 000000000000000000]
+StgValue_38          (write          ) [ 000000000000000000]
+spi_core_addr_2_resp (writeresp      ) [ 000000000000000000]
+StgValue_44          (br             ) [ 000000000000000000]
+spi_core_addr_1_resp (writeresp      ) [ 000000000000000000]
+StgValue_46          (br             ) [ 000000000000000000]
+spi_core_addr_resp   (writeresp      ) [ 000000000000000000]
+StgValue_48          (br             ) [ 000000000000000000]
+StgValue_49          (ret            ) [ 000000000000000000]
+StgValue_50          (write          ) [ 000000000000000000]
+StgValue_55          (write          ) [ 000000000000000000]
 </LifeTime>
 
 <model>
@@ -356,30 +421,30 @@ StgValue_46          (ret            ) [ 000000000]
 </bind>
 </comp>
 
-<comp id="2" class="1000" name="state">
+<comp id="2" class="1000" name="TX_message_V">
 <pin_list>
 <pin id="3" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="state"/></StgValue>
+<StgValue><ssdm name="TX_message_V"/></StgValue>
 </bind>
 </comp>
 
-<comp id="4" class="1001" name="const_4">
+<comp id="4" class="1000" name="RX_message_V">
 <pin_list>
 <pin id="5" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecClockDomain"/></StgValue>
+<StgValue><ssdm name="RX_message_V"/></StgValue>
 </bind>
 </comp>
 
-<comp id="6" class="1001" name="const_6">
+<comp id="6" class="1000" name="state">
 <pin_list>
-<pin id="7" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="default"/></StgValue>
+<StgValue><ssdm name="state"/></StgValue>
 </bind>
 </comp>
 
@@ -388,7 +453,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="9" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecClockDomain"/></StgValue>
 </bind>
 </comp>
 
@@ -397,7 +462,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="11" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+<StgValue><ssdm name="default"/></StgValue>
 </bind>
 </comp>
 
@@ -406,7 +471,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+<StgValue><ssdm name="empty"/></StgValue>
 </bind>
 </comp>
 
@@ -415,7 +480,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="AXI_SPI_DRIVER_str"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
 </bind>
 </comp>
 
@@ -424,7 +489,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecPipeline"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
 </bind>
 </comp>
 
@@ -433,25 +498,25 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="AXI_SPI_DRIVER_str"/></StgValue>
 </bind>
 </comp>
 
 <comp id="20" class="1001" name="const_20">
 <pin_list>
-<pin id="21" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_Read.s_axilite.i32"/></StgValue>
 </bind>
 </comp>
 
 <comp id="22" class="1001" name="const_22">
 <pin_list>
-<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+<pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
 </bind>
 </comp>
 
@@ -460,7 +525,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="p_str1"/></StgValue>
 </bind>
 </comp>
 
@@ -469,7 +534,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -478,7 +543,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+<StgValue><ssdm name="p_str"/></StgValue>
 </bind>
 </comp>
 
@@ -487,7 +552,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str1"/></StgValue>
+<StgValue><ssdm name="p_str2"/></StgValue>
 </bind>
 </comp>
 
@@ -496,7 +561,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str2"/></StgValue>
+<StgValue><ssdm name="p_str3"/></StgValue>
 </bind>
 </comp>
 
@@ -505,7 +570,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str3"/></StgValue>
+<StgValue><ssdm name="p_str4"/></StgValue>
 </bind>
 </comp>
 
@@ -514,7 +579,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="p_str5"/></StgValue>
 </bind>
 </comp>
 
@@ -523,7 +588,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecReset"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -532,7 +597,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecReset"/></StgValue>
 </bind>
 </comp>
 
@@ -547,7 +612,7 @@ StgValue_46          (ret            ) [ 000000000]
 
 <comp id="44" class="1001" name="const_44">
 <pin_list>
-<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+<pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name=""/></StgValue>
@@ -568,7 +633,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="49" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_WriteReq.m_axi.i32P"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -577,7 +642,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="51" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_WriteReq.m_axi.i32P"/></StgValue>
 </bind>
 </comp>
 
@@ -595,7 +660,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="55" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_Write.m_axi.i32P"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -613,7 +678,7 @@ StgValue_46          (ret            ) [ 000000000]
 <pin id="59" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_Write.m_axi.i32P"/></StgValue>
 </bind>
 </comp>
 
@@ -644,91 +709,112 @@ StgValue_46          (ret            ) [ 000000000]
 </bind>
 </comp>
 
-<comp id="66" class="1004" name="grp_writeresp_fu_66">
+<comp id="66" class="1001" name="const_66">
 <pin_list>
-<pin id="67" dir="0" index="0" bw="1" slack="0"/>
-<pin id="68" dir="0" index="1" bw="32" slack="0"/>
-<pin id="69" dir="0" index="2" bw="1" slack="0"/>
-<pin id="70" dir="1" index="3" bw="1" slack="2147483647"/>
+<pin id="67" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<opcode="writereq(1155) writeresp(1158) " fcode="writeresp"/>
-<opset="spi_core_addr_2_req/2 spi_core_addr_2_resp/4 "/>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
-<comp id="73" class="1004" name="grp_writeresp_fu_73">
+<comp id="68" class="1004" name="TX_message_V_read_read_fu_68">
 <pin_list>
-<pin id="74" dir="0" index="0" bw="1" slack="0"/>
-<pin id="75" dir="0" index="1" bw="32" slack="0"/>
-<pin id="76" dir="0" index="2" bw="1" slack="0"/>
-<pin id="77" dir="1" index="3" bw="1" slack="2147483647"/>
+<pin id="69" dir="0" index="0" bw="32" slack="0"/>
+<pin id="70" dir="0" index="1" bw="32" slack="0"/>
+<pin id="71" dir="1" index="2" bw="32" slack="1"/>
 </pin_list>
 <bind>
-<opcode="writereq(1155) writeresp(1158) " fcode="writeresp"/>
-<opset="spi_core_addr_1_req/2 spi_core_addr_1_resp/4 "/>
+<opcode="read(1150) " fcode="read"/>
+<opset="TX_message_V_read/1 "/>
 </bind>
 </comp>
 
-<comp id="80" class="1004" name="grp_writeresp_fu_80">
+<comp id="74" class="1004" name="grp_writeresp_fu_74">
 <pin_list>
-<pin id="81" dir="0" index="0" bw="1" slack="0"/>
-<pin id="82" dir="0" index="1" bw="32" slack="0"/>
-<pin id="83" dir="0" index="2" bw="1" slack="0"/>
-<pin id="84" dir="1" index="3" bw="1" slack="2147483647"/>
+<pin id="75" dir="0" index="0" bw="1" slack="0"/>
+<pin id="76" dir="0" index="1" bw="32" slack="0"/>
+<pin id="77" dir="0" index="2" bw="1" slack="0"/>
+<pin id="78" dir="1" index="3" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="writereq(1155) writeresp(1158) " fcode="writeresp"/>
-<opset="spi_core_addr_req/2 spi_core_addr_resp/4 "/>
+<opset="spi_core_addr_2_req/1 spi_core_addr_2_resp/3 "/>
 </bind>
 </comp>
 
-<comp id="87" class="1004" name="StgValue_25_write_fu_87">
+<comp id="81" class="1004" name="grp_writeresp_fu_81">
 <pin_list>
-<pin id="88" dir="0" index="0" bw="0" slack="0"/>
-<pin id="89" dir="0" index="1" bw="32" slack="1"/>
-<pin id="90" dir="0" index="2" bw="17" slack="0"/>
-<pin id="91" dir="0" index="3" bw="1" slack="0"/>
-<pin id="92" dir="1" index="4" bw="0" slack="2147483647"/>
+<pin id="82" dir="0" index="0" bw="1" slack="0"/>
+<pin id="83" dir="0" index="1" bw="32" slack="0"/>
+<pin id="84" dir="0" index="2" bw="1" slack="0"/>
+<pin id="85" dir="1" index="3" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="writereq(1155) writeresp(1158) " fcode="writeresp"/>
+<opset="spi_core_addr_1_req/1 spi_core_addr_1_resp/9 "/>
+</bind>
+</comp>
+
+<comp id="88" class="1004" name="grp_writeresp_fu_88">
+<pin_list>
+<pin id="89" dir="0" index="0" bw="1" slack="0"/>
+<pin id="90" dir="0" index="1" bw="32" slack="0"/>
+<pin id="91" dir="0" index="2" bw="1" slack="0"/>
+<pin id="92" dir="1" index="3" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="writereq(1155) writeresp(1158) " fcode="writeresp"/>
+<opset="spi_core_addr_req/1 spi_core_addr_resp/14 "/>
+</bind>
+</comp>
+
+<comp id="95" class="1004" name="StgValue_38_write_fu_95">
+<pin_list>
+<pin id="96" dir="0" index="0" bw="0" slack="0"/>
+<pin id="97" dir="0" index="1" bw="32" slack="1"/>
+<pin id="98" dir="0" index="2" bw="17" slack="0"/>
+<pin id="99" dir="0" index="3" bw="1" slack="0"/>
+<pin id="100" dir="1" index="4" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="write(1151) " fcode="write"/>
-<opset="StgValue_25/3 "/>
+<opset="StgValue_38/2 "/>
 </bind>
 </comp>
 
-<comp id="96" class="1004" name="StgValue_26_write_fu_96">
-<pin_list>
-<pin id="97" dir="0" index="0" bw="0" slack="0"/>
-<pin id="98" dir="0" index="1" bw="32" slack="1"/>
-<pin id="99" dir="0" index="2" bw="4" slack="0"/>
-<pin id="100" dir="0" index="3" bw="1" slack="0"/>
-<pin id="101" dir="1" index="4" bw="0" slack="2147483647"/>
-</pin_list>
-<bind>
-<opcode="write(1151) " fcode="write"/>
-<opset="StgValue_26/3 "/>
-</bind>
-</comp>
-
-<comp id="105" class="1004" name="StgValue_27_write_fu_105">
+<comp id="105" class="1004" name="StgValue_50_write_fu_105">
 <pin_list>
 <pin id="106" dir="0" index="0" bw="0" slack="0"/>
 <pin id="107" dir="0" index="1" bw="32" slack="1"/>
-<pin id="108" dir="0" index="2" bw="16" slack="0"/>
+<pin id="108" dir="0" index="2" bw="4" slack="0"/>
 <pin id="109" dir="0" index="3" bw="1" slack="0"/>
 <pin id="110" dir="1" index="4" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="write(1151) " fcode="write"/>
-<opset="StgValue_27/3 "/>
+<opset="StgValue_50/8 "/>
 </bind>
 </comp>
 
-<comp id="117" class="1004" name="state_load_load_fu_117">
+<comp id="115" class="1004" name="StgValue_55_write_fu_115">
 <pin_list>
-<pin id="118" dir="0" index="0" bw="4" slack="0"/>
-<pin id="119" dir="1" index="1" bw="4" slack="1"/>
+<pin id="116" dir="0" index="0" bw="0" slack="0"/>
+<pin id="117" dir="0" index="1" bw="32" slack="1"/>
+<pin id="118" dir="0" index="2" bw="32" slack="1"/>
+<pin id="119" dir="0" index="3" bw="1" slack="0"/>
+<pin id="120" dir="1" index="4" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="StgValue_55/13 "/>
+</bind>
+</comp>
+
+<comp id="124" class="1004" name="state_load_load_fu_124">
+<pin_list>
+<pin id="125" dir="0" index="0" bw="4" slack="0"/>
+<pin id="126" dir="1" index="1" bw="4" slack="6"/>
 </pin_list>
 <bind>
 <opcode="load(27) " fcode="load"/>
@@ -736,100 +822,110 @@ StgValue_46          (ret            ) [ 000000000]
 </bind>
 </comp>
 
-<comp id="121" class="1004" name="StgValue_17_store_fu_121">
+<comp id="128" class="1004" name="spi_core_addr_2_fu_128">
 <pin_list>
-<pin id="122" dir="0" index="0" bw="3" slack="0"/>
-<pin id="123" dir="0" index="1" bw="4" slack="0"/>
-<pin id="124" dir="1" index="2" bw="0" slack="2147483647"/>
+<pin id="129" dir="0" index="0" bw="32" slack="0"/>
+<pin id="130" dir="0" index="1" bw="32" slack="0"/>
+<pin id="131" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="spi_core_addr_2/1 "/>
+</bind>
+</comp>
+
+<comp id="135" class="1004" name="StgValue_32_store_fu_135">
+<pin_list>
+<pin id="136" dir="0" index="0" bw="3" slack="0"/>
+<pin id="137" dir="0" index="1" bw="4" slack="0"/>
+<pin id="138" dir="1" index="2" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="StgValue_17/1 "/>
+<opset="StgValue_32/1 "/>
 </bind>
 </comp>
 
-<comp id="127" class="1004" name="StgValue_18_store_fu_127">
+<comp id="141" class="1004" name="spi_core_addr_1_fu_141">
 <pin_list>
-<pin id="128" dir="0" index="0" bw="1" slack="0"/>
-<pin id="129" dir="0" index="1" bw="4" slack="0"/>
-<pin id="130" dir="1" index="2" bw="0" slack="2147483647"/>
+<pin id="142" dir="0" index="0" bw="32" slack="0"/>
+<pin id="143" dir="0" index="1" bw="32" slack="0"/>
+<pin id="144" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="spi_core_addr_1/1 "/>
+</bind>
+</comp>
+
+<comp id="148" class="1004" name="StgValue_35_store_fu_148">
+<pin_list>
+<pin id="149" dir="0" index="0" bw="1" slack="0"/>
+<pin id="150" dir="0" index="1" bw="4" slack="0"/>
+<pin id="151" dir="1" index="2" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="StgValue_18/1 "/>
+<opset="StgValue_35/1 "/>
 </bind>
 </comp>
 
-<comp id="133" class="1004" name="spi_core_addr_2_fu_133">
+<comp id="154" class="1004" name="spi_core_addr_fu_154">
 <pin_list>
-<pin id="134" dir="0" index="0" bw="32" slack="0"/>
-<pin id="135" dir="0" index="1" bw="32" slack="0"/>
-<pin id="136" dir="1" index="2" bw="32" slack="0"/>
+<pin id="155" dir="0" index="0" bw="32" slack="0"/>
+<pin id="156" dir="0" index="1" bw="32" slack="0"/>
+<pin id="157" dir="1" index="2" bw="32" slack="0"/>
 </pin_list>
 <bind>
 <opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="spi_core_addr_2/2 "/>
+<opset="spi_core_addr/1 "/>
 </bind>
 </comp>
 
-<comp id="140" class="1004" name="spi_core_addr_1_fu_140">
+<comp id="161" class="1005" name="TX_message_V_read_reg_161">
 <pin_list>
-<pin id="141" dir="0" index="0" bw="32" slack="0"/>
-<pin id="142" dir="0" index="1" bw="32" slack="0"/>
-<pin id="143" dir="1" index="2" bw="32" slack="0"/>
+<pin id="162" dir="0" index="0" bw="32" slack="1"/>
+<pin id="163" dir="1" index="1" bw="32" slack="1"/>
 </pin_list>
 <bind>
-<opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="spi_core_addr_1/2 "/>
+<opset="TX_message_V_read "/>
 </bind>
 </comp>
 
-<comp id="147" class="1004" name="spi_core_addr_fu_147">
+<comp id="166" class="1005" name="state_load_reg_166">
 <pin_list>
-<pin id="148" dir="0" index="0" bw="32" slack="0"/>
-<pin id="149" dir="0" index="1" bw="32" slack="0"/>
-<pin id="150" dir="1" index="2" bw="32" slack="0"/>
-</pin_list>
-<bind>
-<opcode="getelementptr(29) " fcode="getelementptr"/>
-<opset="spi_core_addr/2 "/>
-</bind>
-</comp>
-
-<comp id="154" class="1005" name="state_load_reg_154">
-<pin_list>
-<pin id="155" dir="0" index="0" bw="4" slack="1"/>
-<pin id="156" dir="1" index="1" bw="4" slack="2147483647"/>
+<pin id="167" dir="0" index="0" bw="4" slack="6"/>
+<pin id="168" dir="1" index="1" bw="4" slack="2147483647"/>
 </pin_list>
 <bind>
 <opset="state_load "/>
 </bind>
 </comp>
 
-<comp id="158" class="1005" name="spi_core_addr_2_reg_158">
+<comp id="170" class="1005" name="spi_core_addr_2_reg_170">
 <pin_list>
-<pin id="159" dir="0" index="0" bw="32" slack="1"/>
-<pin id="160" dir="1" index="1" bw="32" slack="1"/>
+<pin id="171" dir="0" index="0" bw="32" slack="1"/>
+<pin id="172" dir="1" index="1" bw="32" slack="1"/>
 </pin_list>
 <bind>
 <opset="spi_core_addr_2 "/>
 </bind>
 </comp>
 
-<comp id="164" class="1005" name="spi_core_addr_1_reg_164">
+<comp id="176" class="1005" name="spi_core_addr_1_reg_176">
 <pin_list>
-<pin id="165" dir="0" index="0" bw="32" slack="1"/>
-<pin id="166" dir="1" index="1" bw="32" slack="1"/>
+<pin id="177" dir="0" index="0" bw="32" slack="1"/>
+<pin id="178" dir="1" index="1" bw="32" slack="1"/>
 </pin_list>
 <bind>
 <opset="spi_core_addr_1 "/>
 </bind>
 </comp>
 
-<comp id="170" class="1005" name="spi_core_addr_reg_170">
+<comp id="182" class="1005" name="spi_core_addr_reg_182">
 <pin_list>
-<pin id="171" dir="0" index="0" bw="32" slack="1"/>
-<pin id="172" dir="1" index="1" bw="32" slack="1"/>
+<pin id="183" dir="0" index="0" bw="32" slack="1"/>
+<pin id="184" dir="1" index="1" bw="32" slack="1"/>
 </pin_list>
 <bind>
 <opset="spi_core_addr "/>
@@ -839,89 +935,95 @@ StgValue_46          (ret            ) [ 000000000]
 </comp_list>
 
 <net_list>
-<net id="71"><net_src comp="48" pin="0"/><net_sink comp="66" pin=0"/></net>
+<net id="72"><net_src comp="20" pin="0"/><net_sink comp="68" pin=0"/></net>
 
-<net id="72"><net_src comp="22" pin="0"/><net_sink comp="66" pin=2"/></net>
+<net id="73"><net_src comp="2" pin="0"/><net_sink comp="68" pin=1"/></net>
 
-<net id="78"><net_src comp="48" pin="0"/><net_sink comp="73" pin=0"/></net>
+<net id="79"><net_src comp="50" pin="0"/><net_sink comp="74" pin=0"/></net>
 
-<net id="79"><net_src comp="22" pin="0"/><net_sink comp="73" pin=2"/></net>
+<net id="80"><net_src comp="42" pin="0"/><net_sink comp="74" pin=2"/></net>
 
-<net id="85"><net_src comp="48" pin="0"/><net_sink comp="80" pin=0"/></net>
+<net id="86"><net_src comp="50" pin="0"/><net_sink comp="81" pin=0"/></net>
 
-<net id="86"><net_src comp="22" pin="0"/><net_sink comp="80" pin=2"/></net>
+<net id="87"><net_src comp="42" pin="0"/><net_sink comp="81" pin=2"/></net>
 
-<net id="93"><net_src comp="54" pin="0"/><net_sink comp="87" pin=0"/></net>
+<net id="93"><net_src comp="50" pin="0"/><net_sink comp="88" pin=0"/></net>
 
-<net id="94"><net_src comp="56" pin="0"/><net_sink comp="87" pin=2"/></net>
+<net id="94"><net_src comp="42" pin="0"/><net_sink comp="88" pin=2"/></net>
 
-<net id="95"><net_src comp="58" pin="0"/><net_sink comp="87" pin=3"/></net>
+<net id="101"><net_src comp="58" pin="0"/><net_sink comp="95" pin=0"/></net>
 
-<net id="102"><net_src comp="54" pin="0"/><net_sink comp="96" pin=0"/></net>
+<net id="102"><net_src comp="60" pin="0"/><net_sink comp="95" pin=2"/></net>
 
-<net id="103"><net_src comp="60" pin="0"/><net_sink comp="96" pin=2"/></net>
+<net id="103"><net_src comp="62" pin="0"/><net_sink comp="95" pin=3"/></net>
 
-<net id="104"><net_src comp="58" pin="0"/><net_sink comp="96" pin=3"/></net>
+<net id="104"><net_src comp="64" pin="0"/><net_sink comp="74" pin=0"/></net>
 
-<net id="111"><net_src comp="54" pin="0"/><net_sink comp="105" pin=0"/></net>
+<net id="111"><net_src comp="58" pin="0"/><net_sink comp="105" pin=0"/></net>
 
-<net id="112"><net_src comp="62" pin="0"/><net_sink comp="105" pin=2"/></net>
+<net id="112"><net_src comp="66" pin="0"/><net_sink comp="105" pin=2"/></net>
 
-<net id="113"><net_src comp="58" pin="0"/><net_sink comp="105" pin=3"/></net>
+<net id="113"><net_src comp="62" pin="0"/><net_sink comp="105" pin=3"/></net>
 
-<net id="114"><net_src comp="64" pin="0"/><net_sink comp="66" pin=0"/></net>
+<net id="114"><net_src comp="64" pin="0"/><net_sink comp="81" pin=0"/></net>
 
-<net id="115"><net_src comp="64" pin="0"/><net_sink comp="73" pin=0"/></net>
+<net id="121"><net_src comp="58" pin="0"/><net_sink comp="115" pin=0"/></net>
 
-<net id="116"><net_src comp="64" pin="0"/><net_sink comp="80" pin=0"/></net>
+<net id="122"><net_src comp="62" pin="0"/><net_sink comp="115" pin=3"/></net>
 
-<net id="120"><net_src comp="2" pin="0"/><net_sink comp="117" pin=0"/></net>
+<net id="123"><net_src comp="64" pin="0"/><net_sink comp="88" pin=0"/></net>
 
-<net id="125"><net_src comp="44" pin="0"/><net_sink comp="121" pin=0"/></net>
+<net id="127"><net_src comp="6" pin="0"/><net_sink comp="124" pin=0"/></net>
 
-<net id="126"><net_src comp="2" pin="0"/><net_sink comp="121" pin=1"/></net>
+<net id="132"><net_src comp="0" pin="0"/><net_sink comp="128" pin=0"/></net>
 
-<net id="131"><net_src comp="42" pin="0"/><net_sink comp="127" pin=0"/></net>
+<net id="133"><net_src comp="48" pin="0"/><net_sink comp="128" pin=1"/></net>
 
-<net id="132"><net_src comp="2" pin="0"/><net_sink comp="127" pin=1"/></net>
+<net id="134"><net_src comp="128" pin="2"/><net_sink comp="74" pin=1"/></net>
 
-<net id="137"><net_src comp="0" pin="0"/><net_sink comp="133" pin=0"/></net>
+<net id="139"><net_src comp="52" pin="0"/><net_sink comp="135" pin=0"/></net>
 
-<net id="138"><net_src comp="46" pin="0"/><net_sink comp="133" pin=1"/></net>
+<net id="140"><net_src comp="6" pin="0"/><net_sink comp="135" pin=1"/></net>
 
-<net id="139"><net_src comp="133" pin="2"/><net_sink comp="66" pin=1"/></net>
+<net id="145"><net_src comp="0" pin="0"/><net_sink comp="141" pin=0"/></net>
 
-<net id="144"><net_src comp="0" pin="0"/><net_sink comp="140" pin=0"/></net>
+<net id="146"><net_src comp="54" pin="0"/><net_sink comp="141" pin=1"/></net>
 
-<net id="145"><net_src comp="50" pin="0"/><net_sink comp="140" pin=1"/></net>
+<net id="147"><net_src comp="141" pin="2"/><net_sink comp="81" pin=1"/></net>
 
-<net id="146"><net_src comp="140" pin="2"/><net_sink comp="73" pin=1"/></net>
+<net id="152"><net_src comp="46" pin="0"/><net_sink comp="148" pin=0"/></net>
 
-<net id="151"><net_src comp="0" pin="0"/><net_sink comp="147" pin=0"/></net>
+<net id="153"><net_src comp="6" pin="0"/><net_sink comp="148" pin=1"/></net>
 
-<net id="152"><net_src comp="52" pin="0"/><net_sink comp="147" pin=1"/></net>
+<net id="158"><net_src comp="0" pin="0"/><net_sink comp="154" pin=0"/></net>
 
-<net id="153"><net_src comp="147" pin="2"/><net_sink comp="80" pin=1"/></net>
+<net id="159"><net_src comp="56" pin="0"/><net_sink comp="154" pin=1"/></net>
 
-<net id="157"><net_src comp="117" pin="1"/><net_sink comp="154" pin=0"/></net>
+<net id="160"><net_src comp="154" pin="2"/><net_sink comp="88" pin=1"/></net>
 
-<net id="161"><net_src comp="133" pin="2"/><net_sink comp="158" pin=0"/></net>
+<net id="164"><net_src comp="68" pin="2"/><net_sink comp="161" pin=0"/></net>
 
-<net id="162"><net_src comp="158" pin="1"/><net_sink comp="87" pin=1"/></net>
+<net id="165"><net_src comp="161" pin="1"/><net_sink comp="115" pin=2"/></net>
 
-<net id="163"><net_src comp="158" pin="1"/><net_sink comp="66" pin=1"/></net>
+<net id="169"><net_src comp="124" pin="1"/><net_sink comp="166" pin=0"/></net>
 
-<net id="167"><net_src comp="140" pin="2"/><net_sink comp="164" pin=0"/></net>
+<net id="173"><net_src comp="128" pin="2"/><net_sink comp="170" pin=0"/></net>
 
-<net id="168"><net_src comp="164" pin="1"/><net_sink comp="96" pin=1"/></net>
+<net id="174"><net_src comp="170" pin="1"/><net_sink comp="95" pin=1"/></net>
 
-<net id="169"><net_src comp="164" pin="1"/><net_sink comp="73" pin=1"/></net>
+<net id="175"><net_src comp="170" pin="1"/><net_sink comp="74" pin=1"/></net>
 
-<net id="173"><net_src comp="147" pin="2"/><net_sink comp="170" pin=0"/></net>
+<net id="179"><net_src comp="141" pin="2"/><net_sink comp="176" pin=0"/></net>
 
-<net id="174"><net_src comp="170" pin="1"/><net_sink comp="105" pin=1"/></net>
+<net id="180"><net_src comp="176" pin="1"/><net_sink comp="81" pin=1"/></net>
 
-<net id="175"><net_src comp="170" pin="1"/><net_sink comp="80" pin=1"/></net>
+<net id="181"><net_src comp="176" pin="1"/><net_sink comp="105" pin=1"/></net>
+
+<net id="185"><net_src comp="154" pin="2"/><net_sink comp="182" pin=0"/></net>
+
+<net id="186"><net_src comp="182" pin="1"/><net_sink comp="88" pin=1"/></net>
+
+<net id="187"><net_src comp="182" pin="1"/><net_sink comp="115" pin=1"/></net>
 
 </net_list>
 
@@ -930,23 +1032,33 @@ StgValue_46          (ret            ) [ 000000000]
 
 * FSMD analyzer results:
   - Output states:
-	Port: spi_core | {2 3 4 5 6 7 8 }
+	Port: spi_core | {1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 }
 	Port: state | {1 }
  - Input state : 
+	Port: AXI_SPI_DRIVER : TX_message_V | {1 }
 	Port: AXI_SPI_DRIVER : state | {1 }
   - Chain level:
 	State 1
-		StgValue_16 : 1
-	State 2
+		StgValue_29 : 1
 		spi_core_addr_2_req : 1
 		spi_core_addr_1_req : 1
 		spi_core_addr_req : 1
+	State 2
 	State 3
 	State 4
 	State 5
 	State 6
 	State 7
 	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
 
 
 ============================================================
@@ -954,45 +1066,48 @@ StgValue_46          (ret            ) [ 000000000]
 ============================================================
 
 * Functional unit list:
-|----------|--------------------------|
-| Operation|      Functional Unit     |
-|----------|--------------------------|
-|          |    grp_writeresp_fu_66   |
-| writeresp|    grp_writeresp_fu_73   |
-|          |    grp_writeresp_fu_80   |
-|----------|--------------------------|
-|          |  StgValue_25_write_fu_87 |
-|   write  |  StgValue_26_write_fu_96 |
-|          | StgValue_27_write_fu_105 |
-|----------|--------------------------|
-|   Total  |                          |
-|----------|--------------------------|
+|----------|------------------------------|
+| Operation|        Functional Unit       |
+|----------|------------------------------|
+|   read   | TX_message_V_read_read_fu_68 |
+|----------|------------------------------|
+|          |      grp_writeresp_fu_74     |
+| writeresp|      grp_writeresp_fu_81     |
+|          |      grp_writeresp_fu_88     |
+|----------|------------------------------|
+|          |    StgValue_38_write_fu_95   |
+|   write  |   StgValue_50_write_fu_105   |
+|          |   StgValue_55_write_fu_115   |
+|----------|------------------------------|
+|   Total  |                              |
+|----------|------------------------------|
 
 Memories:
 N/A
 
 * Register list:
-+-----------------------+--------+
-|                       |   FF   |
-+-----------------------+--------+
-|spi_core_addr_1_reg_164|   32   |
-|spi_core_addr_2_reg_158|   32   |
-| spi_core_addr_reg_170 |   32   |
-|   state_load_reg_154  |    4   |
-+-----------------------+--------+
-|         Total         |   100  |
-+-----------------------+--------+
++-------------------------+--------+
+|                         |   FF   |
++-------------------------+--------+
+|TX_message_V_read_reg_161|   32   |
+| spi_core_addr_1_reg_176 |   32   |
+| spi_core_addr_2_reg_170 |   32   |
+|  spi_core_addr_reg_182  |   32   |
+|    state_load_reg_166   |    4   |
++-------------------------+--------+
+|          Total          |   132  |
++-------------------------+--------+
 
 * Multiplexer (MUX) list: 
 |---------------------|------|------|------|--------||---------||---------|
 |         Comp        |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
 |---------------------|------|------|------|--------||---------||---------|
-| grp_writeresp_fu_66 |  p0  |   2  |   1  |    2   |
-| grp_writeresp_fu_66 |  p1  |   2  |  32  |   64   ||    9    |
-| grp_writeresp_fu_73 |  p0  |   2  |   1  |    2   |
-| grp_writeresp_fu_73 |  p1  |   2  |  32  |   64   ||    9    |
-| grp_writeresp_fu_80 |  p0  |   2  |   1  |    2   |
-| grp_writeresp_fu_80 |  p1  |   2  |  32  |   64   ||    9    |
+| grp_writeresp_fu_74 |  p0  |   2  |   1  |    2   |
+| grp_writeresp_fu_74 |  p1  |   2  |  32  |   64   ||    9    |
+| grp_writeresp_fu_81 |  p0  |   2  |   1  |    2   |
+| grp_writeresp_fu_81 |  p1  |   2  |  32  |   64   ||    9    |
+| grp_writeresp_fu_88 |  p0  |   2  |   1  |    2   |
+| grp_writeresp_fu_88 |  p1  |   2  |  32  |   64   ||    9    |
 |---------------------|------|------|------|--------||---------||---------|
 |        Total        |      |      |      |   198  ||  10.614 ||    27   |
 |---------------------|------|------|------|--------||---------||---------|
@@ -1006,7 +1121,7 @@ N/A
 |  Function |    -   |    -   |    -   |
 |   Memory  |    -   |    -   |    -   |
 |Multiplexer|   10   |    -   |   27   |
-|  Register |    -   |   100  |    -   |
+|  Register |    -   |   132  |    -   |
 +-----------+--------+--------+--------+
-|   Total   |   10   |   100  |   27   |
+|   Total   |   10   |   132  |   27   |
 +-----------+--------+--------+--------+

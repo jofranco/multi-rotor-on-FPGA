@@ -11,6 +11,7 @@
 #include "systemc.h"
 #include "AESL_pkg.h"
 
+#include "AXI_SPI_DRIVER_debug_s_axi.h"
 #include "AXI_SPI_DRIVER_spi_core_m_axi.h"
 
 namespace ap_rtl {
@@ -22,9 +23,11 @@ template<unsigned int C_M_AXI_SPI_CORE_ADDR_WIDTH = 32,
          unsigned int C_M_AXI_SPI_CORE_WUSER_WIDTH = 1,
          unsigned int C_M_AXI_SPI_CORE_ARUSER_WIDTH = 1,
          unsigned int C_M_AXI_SPI_CORE_RUSER_WIDTH = 1,
-         unsigned int C_M_AXI_SPI_CORE_BUSER_WIDTH = 1>
+         unsigned int C_M_AXI_SPI_CORE_BUSER_WIDTH = 1,
+         unsigned int C_S_AXI_DEBUG_ADDR_WIDTH = 5,
+         unsigned int C_S_AXI_DEBUG_DATA_WIDTH = 32>
 struct AXI_SPI_DRIVER : public sc_module {
-    // Port declarations 51
+    // Port declarations 68
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst_n;
     sc_in< sc_logic > ap_start;
@@ -76,6 +79,23 @@ struct AXI_SPI_DRIVER : public sc_module {
     sc_in< sc_lv<2> > m_axi_spi_core_BRESP;
     sc_in< sc_uint<C_M_AXI_SPI_CORE_ID_WIDTH> > m_axi_spi_core_BID;
     sc_in< sc_uint<C_M_AXI_SPI_CORE_BUSER_WIDTH> > m_axi_spi_core_BUSER;
+    sc_in< sc_logic > s_axi_debug_AWVALID;
+    sc_out< sc_logic > s_axi_debug_AWREADY;
+    sc_in< sc_uint<C_S_AXI_DEBUG_ADDR_WIDTH> > s_axi_debug_AWADDR;
+    sc_in< sc_logic > s_axi_debug_WVALID;
+    sc_out< sc_logic > s_axi_debug_WREADY;
+    sc_in< sc_uint<C_S_AXI_DEBUG_DATA_WIDTH> > s_axi_debug_WDATA;
+    sc_in< sc_uint<C_S_AXI_DEBUG_DATA_WIDTH/8> > s_axi_debug_WSTRB;
+    sc_in< sc_logic > s_axi_debug_ARVALID;
+    sc_out< sc_logic > s_axi_debug_ARREADY;
+    sc_in< sc_uint<C_S_AXI_DEBUG_ADDR_WIDTH> > s_axi_debug_ARADDR;
+    sc_out< sc_logic > s_axi_debug_RVALID;
+    sc_in< sc_logic > s_axi_debug_RREADY;
+    sc_out< sc_uint<C_S_AXI_DEBUG_DATA_WIDTH> > s_axi_debug_RDATA;
+    sc_out< sc_lv<2> > s_axi_debug_RRESP;
+    sc_out< sc_logic > s_axi_debug_BVALID;
+    sc_in< sc_logic > s_axi_debug_BREADY;
+    sc_out< sc_lv<2> > s_axi_debug_BRESP;
     sc_signal< sc_logic > ap_var_for_const0;
     sc_signal< sc_logic > ap_var_for_const1;
     sc_signal< sc_lv<32> > ap_var_for_const2;
@@ -97,18 +117,22 @@ struct AXI_SPI_DRIVER : public sc_module {
 
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
+    AXI_SPI_DRIVER_debug_s_axi<C_S_AXI_DEBUG_ADDR_WIDTH,C_S_AXI_DEBUG_DATA_WIDTH>* AXI_SPI_DRIVER_debug_s_axi_U;
     AXI_SPI_DRIVER_spi_core_m_axi<0,32,32,5,16,16,16,16,C_M_AXI_SPI_CORE_ID_WIDTH,C_M_AXI_SPI_CORE_ADDR_WIDTH,C_M_AXI_SPI_CORE_DATA_WIDTH,C_M_AXI_SPI_CORE_AWUSER_WIDTH,C_M_AXI_SPI_CORE_ARUSER_WIDTH,C_M_AXI_SPI_CORE_WUSER_WIDTH,C_M_AXI_SPI_CORE_RUSER_WIDTH,C_M_AXI_SPI_CORE_BUSER_WIDTH,C_M_AXI_SPI_CORE_TARGET_ADDR,C_M_AXI_SPI_CORE_USER_VALUE,C_M_AXI_SPI_CORE_PROT_VALUE,C_M_AXI_SPI_CORE_CACHE_VALUE>* AXI_SPI_DRIVER_spi_core_m_axi_U;
     sc_signal< sc_logic > ap_rst_n_inv;
-    sc_signal< sc_lv<8> > ap_CS_fsm;
+    sc_signal< sc_lv<17> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;
+    sc_signal< sc_lv<32> > TX_message_V;
+    sc_signal< sc_lv<32> > RX_message_V;
     sc_signal< sc_lv<4> > state;
     sc_signal< sc_logic > spi_core_blk_n_AW;
-    sc_signal< sc_logic > ap_CS_fsm_state2;
-    sc_signal< sc_lv<4> > state_load_reg_154;
     sc_signal< sc_logic > spi_core_blk_n_W;
-    sc_signal< sc_logic > ap_CS_fsm_state3;
-    sc_signal< sc_logic > spi_core_blk_n_B;
     sc_signal< sc_logic > ap_CS_fsm_state8;
+    sc_signal< sc_logic > spi_core_blk_n_B;
+    sc_signal< sc_logic > ap_CS_fsm_state7;
+    sc_signal< sc_lv<4> > state_load_reg_166;
+    sc_signal< sc_logic > ap_CS_fsm_state2;
+    sc_signal< sc_logic > ap_CS_fsm_state13;
     sc_signal< sc_logic > spi_core_AWVALID;
     sc_signal< sc_logic > spi_core_AWREADY;
     sc_signal< sc_lv<32> > spi_core_AWADDR;
@@ -127,51 +151,59 @@ struct AXI_SPI_DRIVER : public sc_module {
     sc_signal< sc_lv<2> > spi_core_BRESP;
     sc_signal< sc_lv<1> > spi_core_BID;
     sc_signal< sc_lv<1> > spi_core_BUSER;
-    sc_signal< sc_lv<4> > state_load_load_fu_117_p1;
+    sc_signal< sc_lv<32> > TX_message_V_read_reg_161;
     sc_signal< sc_logic > ap_sig_ioackin_spi_core_AWREADY;
-    sc_signal< bool > ap_predicate_op24_writereq_state2;
-    sc_signal< bool > ap_block_state2_io;
+    sc_signal< bool > ap_predicate_op37_writereq_state1;
+    sc_signal< bool > ap_block_state1_io;
     sc_signal< sc_logic > ap_reg_ioackin_spi_core_AWREADY;
-    sc_signal< bool > ap_predicate_op44_writeresp_state8;
-    sc_signal< bool > ap_block_state8;
+    sc_signal< bool > ap_predicate_op47_writeresp_state7;
+    sc_signal< bool > ap_block_state7;
     sc_signal< sc_logic > ap_reg_ioackin_spi_core_WREADY;
     sc_signal< sc_logic > ap_sig_ioackin_spi_core_WREADY;
-    sc_signal< bool > ap_predicate_op27_write_state3;
-    sc_signal< bool > ap_block_state3_io;
-    sc_signal< sc_lv<8> > ap_NS_fsm;
+    sc_signal< sc_lv<17> > ap_NS_fsm;
+    sc_signal< bool > ap_condition_439;
+    sc_signal< bool > ap_condition_274;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
-    static const sc_lv<8> ap_ST_fsm_state1;
-    static const sc_lv<8> ap_ST_fsm_state2;
-    static const sc_lv<8> ap_ST_fsm_state3;
-    static const sc_lv<8> ap_ST_fsm_state4;
-    static const sc_lv<8> ap_ST_fsm_state5;
-    static const sc_lv<8> ap_ST_fsm_state6;
-    static const sc_lv<8> ap_ST_fsm_state7;
-    static const sc_lv<8> ap_ST_fsm_state8;
+    static const sc_lv<17> ap_ST_fsm_state1;
+    static const sc_lv<17> ap_ST_fsm_state2;
+    static const sc_lv<17> ap_ST_fsm_state3;
+    static const sc_lv<17> ap_ST_fsm_state4;
+    static const sc_lv<17> ap_ST_fsm_state5;
+    static const sc_lv<17> ap_ST_fsm_state6;
+    static const sc_lv<17> ap_ST_fsm_state7;
+    static const sc_lv<17> ap_ST_fsm_state8;
+    static const sc_lv<17> ap_ST_fsm_state9;
+    static const sc_lv<17> ap_ST_fsm_state10;
+    static const sc_lv<17> ap_ST_fsm_state11;
+    static const sc_lv<17> ap_ST_fsm_state12;
+    static const sc_lv<17> ap_ST_fsm_state13;
+    static const sc_lv<17> ap_ST_fsm_state14;
+    static const sc_lv<17> ap_ST_fsm_state15;
+    static const sc_lv<17> ap_ST_fsm_state16;
+    static const sc_lv<17> ap_ST_fsm_state17;
     static const sc_lv<32> ap_const_lv32_0;
     static const bool ap_const_boolean_1;
     static const sc_lv<4> ap_const_lv4_0;
-    static const sc_lv<32> ap_const_lv32_1;
-    static const sc_lv<32> ap_const_lv32_2;
     static const sc_lv<32> ap_const_lv32_7;
+    static const sc_lv<32> ap_const_lv32_6;
     static const sc_lv<4> ap_const_lv4_1;
+    static const sc_lv<32> ap_const_lv32_1;
+    static const sc_lv<32> ap_const_lv32_C;
+    static const int C_S_AXI_DATA_WIDTH;
     static const int C_M_AXI_SPI_CORE_TARGET_ADDR;
     static const int C_M_AXI_SPI_CORE_USER_VALUE;
     static const int C_M_AXI_SPI_CORE_PROT_VALUE;
     static const int C_M_AXI_SPI_CORE_CACHE_VALUE;
     static const int C_M_AXI_DATA_WIDTH;
-    static const bool ap_const_boolean_0;
     static const sc_lv<64> ap_const_lv64_1C;
     static const sc_lv<64> ap_const_lv64_18;
-    static const sc_lv<64> ap_const_lv64_7;
+    static const sc_lv<64> ap_const_lv64_1A;
     static const sc_lv<1> ap_const_lv1_0;
     static const sc_lv<3> ap_const_lv3_0;
     static const sc_lv<2> ap_const_lv2_0;
     static const sc_lv<32> ap_const_lv32_FFFE;
     static const sc_lv<4> ap_const_lv4_F;
-    static const sc_lv<32> ap_const_lv32_6;
-    static const sc_lv<32> ap_const_lv32_5555;
     static const sc_lv<4> ap_const_lv4_2;
     // Thread declarations
     void thread_ap_var_for_const0();
@@ -185,17 +217,18 @@ struct AXI_SPI_DRIVER : public sc_module {
     void thread_ap_var_for_const8();
     void thread_ap_clk_no_reset_();
     void thread_ap_CS_fsm_state1();
+    void thread_ap_CS_fsm_state13();
     void thread_ap_CS_fsm_state2();
-    void thread_ap_CS_fsm_state3();
+    void thread_ap_CS_fsm_state7();
     void thread_ap_CS_fsm_state8();
-    void thread_ap_block_state2_io();
-    void thread_ap_block_state3_io();
-    void thread_ap_block_state8();
+    void thread_ap_block_state1_io();
+    void thread_ap_block_state7();
+    void thread_ap_condition_274();
+    void thread_ap_condition_439();
     void thread_ap_done();
     void thread_ap_idle();
-    void thread_ap_predicate_op24_writereq_state2();
-    void thread_ap_predicate_op27_write_state3();
-    void thread_ap_predicate_op44_writeresp_state8();
+    void thread_ap_predicate_op37_writereq_state1();
+    void thread_ap_predicate_op47_writeresp_state7();
     void thread_ap_ready();
     void thread_ap_rst_n_inv();
     void thread_ap_sig_ioackin_spi_core_AWREADY();
@@ -208,7 +241,6 @@ struct AXI_SPI_DRIVER : public sc_module {
     void thread_spi_core_blk_n_AW();
     void thread_spi_core_blk_n_B();
     void thread_spi_core_blk_n_W();
-    void thread_state_load_load_fu_117_p1();
     void thread_ap_NS_fsm();
     void thread_hdltv_gen();
 };

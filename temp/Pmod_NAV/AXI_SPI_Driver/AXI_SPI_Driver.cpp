@@ -7,17 +7,17 @@
 
 
 
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] /*volatile uint32_t data, uint16_t *TX_message, uint16_t *RX_message */)
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message /*volatile uint32_t data*/)
 {
-	#pragma HLS PIPELINE II=8 enable_flush
+	#pragma HLS PIPELINE II=10 enable_flush off
 
 	//#pragma HLS INTERFACE ap_none port=data
+
 	//#pragma HLS INTERFACE ap_ctrl_none port=return
-	//#pragma HLS INTERFACE s_axilite port=data bundle=data
-	/*
-	 * #pragma HLS INTERFACE s_axilite port=TX_message
-	 * #pragma HLS INTERFACE s_axilite port=RX_message
-	 */
+
+	#pragma HLS INTERFACE s_axilite port=TX_message bundle=debug
+	#pragma HLS INTERFACE s_axilite port=RX_message bundle=debug
+
 	#pragma HLS INTERFACE m_axi port=spi_bus offset=off bundle=spi_core
 
 
@@ -39,18 +39,18 @@ void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] /*volatile uint32_t data, uint16_t
 			break;
 		default:
 
-			*(spi_bus + (0x1C >> 2)) = 0x5555;	// enable SS 0 - PMODNav ACC/GYRO
-
-			break;
-
+			// -- *(spi_bus + (0x1C >> 2)) = 0xDEADBEEF;	// test write
 
 			// testing write capability
-			//*(spi_bus + SPI_DTR) = *TX_message;
+			*(spi_bus + SPI_DTR) = TX_message;
 
+			//delay_until_ms<1>();
 
 			// testing read capability
-			//*RX_message = *(spi_bus + SPI_DRR);
+			RX_message = *(spi_bus + SPI_DTR);
+			//RX_message = *(spi_bus + SPI_DRR);
 
+			break;
 
 
 	} // end switch

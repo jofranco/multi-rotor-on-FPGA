@@ -51,6 +51,25 @@ add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/m_axi_spi_core_AWID 
 add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/m_axi_spi_core_AWADDR -into $wdata_group -radix hex
 add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/m_axi_spi_core_AWREADY -into $ctrl_group -color #ffff00 -radix hex
 add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/m_axi_spi_core_AWVALID -into $ctrl_group -color #ffff00 -radix hex
+set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+set TX_message__RX_message_group [add_wave_group TX_message__RX_message(axi_slave) -into $cinputgroup]
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_BRESP -into $TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_BREADY -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_BVALID -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_RRESP -into $TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_RDATA -into $TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_RREADY -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_RVALID -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_ARREADY -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_ARVALID -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_ARADDR -into $TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_WSTRB -into $TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_WDATA -into $TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_WREADY -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_WVALID -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_AWREADY -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_AWVALID -into $TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_AWADDR -into $TX_message__RX_message_group -radix hex
 set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
 add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/ap_start -into $blocksiggroup
 add_wave /apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/ap_done -into $blocksiggroup
@@ -68,6 +87,7 @@ add_wave /apatb_AXI_SPI_DRIVER_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_gr
 add_wave /apatb_AXI_SPI_DRIVER_top/ready_cnt -into $tb_simstatus_group -radix hex
 add_wave /apatb_AXI_SPI_DRIVER_top/done_cnt -into $tb_simstatus_group -radix hex
 add_wave /apatb_AXI_SPI_DRIVER_top/LENGTH_spi_core -into $tb_portdepth_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/LENGTH_TX_message_V -into $tb_portdepth_group -radix hex
 set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
 set tb_spi_bus_group [add_wave_group spi_bus(axi_master) -into $tbcoutputgroup]
 set rdata_group [add_wave_group "Read Channel" -into $tb_spi_bus_group]
@@ -118,6 +138,25 @@ add_wave /apatb_AXI_SPI_DRIVER_top/spi_core_AWID -into $wdata_group -radix hex
 add_wave /apatb_AXI_SPI_DRIVER_top/spi_core_AWADDR -into $wdata_group -radix hex
 add_wave /apatb_AXI_SPI_DRIVER_top/spi_core_AWREADY -into $ctrl_group -color #ffff00 -radix hex
 add_wave /apatb_AXI_SPI_DRIVER_top/spi_core_AWVALID -into $ctrl_group -color #ffff00 -radix hex
+set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
+set tb_TX_message__RX_message_group [add_wave_group TX_message__RX_message(axi_slave) -into $tbcinputgroup]
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_BRESP -into $tb_TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_BREADY -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_BVALID -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_RRESP -into $tb_TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_RDATA -into $tb_TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_RREADY -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_RVALID -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_ARREADY -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_ARVALID -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_ARADDR -into $tb_TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_WSTRB -into $tb_TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_WDATA -into $tb_TX_message__RX_message_group -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_WREADY -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_WVALID -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_AWREADY -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_AWVALID -into $tb_TX_message__RX_message_group -color #ffff00 -radix hex
+add_wave /apatb_AXI_SPI_DRIVER_top/debug_AWADDR -into $tb_TX_message__RX_message_group -radix hex
 save_wave_config AXI_SPI_DRIVER.wcfg
 run all
 quit

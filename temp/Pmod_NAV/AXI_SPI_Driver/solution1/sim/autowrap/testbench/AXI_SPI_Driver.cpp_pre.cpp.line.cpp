@@ -61843,7 +61843,7 @@ inline bool operator!=(const ap_int<_AP_W> &__x, const complex<ap_int<_AP_W> > &
 #pragma empty_line
 using namespace std;
 #pragma line 76 "C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/AXI_SPI_Driver.h"
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] );
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -61866,10 +61866,19 @@ void delay_until_ms(){
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] )
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message )
 {
-#pragma HLS PIPELINE II=8 enable_flush
-#pragma line 21 "C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/AXI_SPI_Driver.cpp"
+#pragma HLS PIPELINE II=8 enable_flush off
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma HLS INTERFACE s_axilite port=TX_message bundle=debug
+#pragma HLS INTERFACE s_axilite port=RX_message bundle=debug
+#pragma empty_line
 #pragma HLS INTERFACE m_axi port=spi_bus offset=off bundle=spi_core
 #pragma empty_line
 #pragma empty_line
@@ -61891,14 +61900,18 @@ void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] )
    break;
   default:
 #pragma empty_line
-   *(spi_bus + (0x1C >> 2)) = 0x5555;
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+   *(spi_bus + (0x00000068 >> 2)) = TX_message;
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+#pragma empty_line
+   RX_message = *(spi_bus + (0x00000068 >> 2));
+#pragma empty_line
 #pragma empty_line
    break;
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
-#pragma empty_line
 #pragma empty_line
 #pragma empty_line
  }

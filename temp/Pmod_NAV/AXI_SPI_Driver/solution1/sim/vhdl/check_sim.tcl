@@ -83,6 +83,7 @@ proc check_tvin_file {} {
 		puts stdout "[debug_prompt arg check_sim.tcl] start...";
 	}
     set rtlfilelist {
+         "c.AXI_SPI_DRIVER.autotvin_TX_message_V.dat"
          "c.AXI_SPI_DRIVER.autotvout_spi_core.dat"
     }
     foreach rtlfile $rtlfilelist {

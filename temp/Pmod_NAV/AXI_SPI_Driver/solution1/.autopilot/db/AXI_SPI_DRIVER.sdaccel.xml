@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'AXI_SPI_DRIVER'" level="0">
-<item name = "Date">Wed May  8 01:39:22 2019
+<item name = "Date">Wed May  8 02:28:29 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">AXI_SPI_Driver</item>
@@ -15,7 +15,6 @@
 <section name = "" level="1">
 <item name = "Target clock period (ns)">10.00</item>
 <item name = "Clock uncertainty (ns)">1.25</item>
-<item name = "Target initiation interval">8</item>
 <item name = "Estimated clock period (ns)">8.750</item>
 </section>
 </item>
@@ -23,7 +22,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">7, 7, 8, 8, function</column>
+<column name="">6, 6, 6, 6, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -46,12 +45,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 0, 8</column>
+<column name="Expression">-, -, 0, 12</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">2, -, 512, 580</column>
+<column name="Instance">2, -, 618, 748</column>
 <column name="Memory">-, -, -, -</column>
-<column name="Multiplexer">-, -, -, 140</column>
-<column name="Register">-, -, 14, -</column>
+<column name="Multiplexer">-, -, -, 185</column>
+<column name="Register">-, -, 55, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
 <specialColumn name="Utilization (%)">~0, 0, ~0, 1</specialColumn>
 </table>
@@ -60,6 +59,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="AXI_SPI_DRIVER_debug_s_axi_U">AXI_SPI_DRIVER_debug_s_axi, 0, 0, 106, 168</column>
 <column name="AXI_SPI_DRIVER_spi_core_m_axi_U">AXI_SPI_DRIVER_spi_core_m_axi, 2, 0, 512, 580</column>
 </table>
 </item>
@@ -77,15 +77,17 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="ap_predicate_op24_writereq_state2">and, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state2_io">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state3_io">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state8">or, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_274">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_439">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op37_writereq_state1">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op47_writeresp_state7">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state1_io">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state7">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">44, 9, 1, 9</column>
+<column name="ap_NS_fsm">89, 18, 1, 18</column>
 <column name="ap_sig_ioackin_spi_core_AWREADY">9, 2, 1, 2</column>
 <column name="ap_sig_ioackin_spi_core_WREADY">9, 2, 1, 2</column>
 <column name="spi_core_AWADDR">21, 4, 32, 128</column>
@@ -98,11 +100,12 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">8, 0, 8, 0</column>
+<column name="TX_message_V_read_reg_161">32, 0, 32, 0</column>
+<column name="ap_CS_fsm">17, 0, 17, 0</column>
 <column name="ap_reg_ioackin_spi_core_AWREADY">1, 0, 1, 0</column>
 <column name="ap_reg_ioackin_spi_core_WREADY">1, 0, 1, 0</column>
 <column name="state">2, 0, 4, 2</column>
-<column name="state_load_reg_154">2, 0, 4, 2</column>
+<column name="state_load_reg_166">2, 0, 4, 2</column>
 </table>
 </item>
 </section>
@@ -112,6 +115,23 @@
 <section name = "Interface" level="0">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_debug_AWVALID">in, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_AWREADY">out, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_AWADDR">in, 5, s_axi, debug, scalar</column>
+<column name="s_axi_debug_WVALID">in, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_WREADY">out, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_WDATA">in, 32, s_axi, debug, scalar</column>
+<column name="s_axi_debug_WSTRB">in, 4, s_axi, debug, scalar</column>
+<column name="s_axi_debug_ARVALID">in, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_ARREADY">out, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_ARADDR">in, 5, s_axi, debug, scalar</column>
+<column name="s_axi_debug_RVALID">out, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_RREADY">in, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_RDATA">out, 32, s_axi, debug, scalar</column>
+<column name="s_axi_debug_RRESP">out, 2, s_axi, debug, scalar</column>
+<column name="s_axi_debug_BVALID">out, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_BREADY">in, 1, s_axi, debug, scalar</column>
+<column name="s_axi_debug_BRESP">out, 2, s_axi, debug, scalar</column>
 <column name="ap_clk">in, 1, ap_ctrl_hs, AXI_SPI_DRIVER, return value</column>
 <column name="ap_rst_n">in, 1, ap_ctrl_hs, AXI_SPI_DRIVER, return value</column>
 <column name="ap_start">in, 1, ap_ctrl_hs, AXI_SPI_DRIVER, return value</column>
@@ -172,7 +192,7 @@
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
 <column name="'spi_core_addr_2'">getelementptr, 0.00, 0.00, -, -, -, -, -, -, -, -, -, -, -</column>
-<column name="'spi_core_addr_2_req', AXI_SPI_Driver/AXI_SPI_Driver.cpp:37">writereq, 8.75, 8.75, -, -, -, m_axi, request, &apos;spi_core&apos;, -, -, -, -, -</column>
+<column name="'spi_core_addr_2_req', AXI_SPI_Driver/AXI_SPI_Driver.cpp:39">writereq, 8.75, 8.75, -, -, -, m_axi, request, &apos;spi_core&apos;, -, -, -, -, -</column>
 </table>
 </item>
 </section>

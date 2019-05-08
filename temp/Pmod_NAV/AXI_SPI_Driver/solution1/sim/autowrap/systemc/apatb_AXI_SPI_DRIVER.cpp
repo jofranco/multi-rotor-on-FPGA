@@ -36,6 +36,8 @@ using namespace sc_dt;
 // wrapc file define: "spi_core"
 #define AUTOTB_TVOUT_spi_core  "../tv/cdatafile/c.AXI_SPI_DRIVER.autotvout_spi_core.dat"
 #define AUTOTB_TVIN_spi_core  "../tv/cdatafile/c.AXI_SPI_DRIVER.autotvin_spi_core.dat"
+// wrapc file define: "TX_message_V"
+#define AUTOTB_TVIN_TX_message_V  "../tv/cdatafile/c.AXI_SPI_DRIVER.autotvin_TX_message_V.dat"
 
 #define INTER_TCL  "../tv/cdatafile/ref.tcl"
 
@@ -47,6 +49,7 @@ class INTER_TCL_FILE {
 		INTER_TCL_FILE(const char* name) {
 			mName = name;
 			spi_core_depth = 0;
+			TX_message_V_depth = 0;
 			trans_num =0;
 		}
 
@@ -67,6 +70,7 @@ class INTER_TCL_FILE {
 		string get_depth_list () {
 			stringstream total_list;
 			total_list << "{spi_core " << spi_core_depth << "}\n";
+			total_list << "{TX_message_V " << TX_message_V_depth << "}\n";
 			return total_list.str();
 		}
 
@@ -75,6 +79,7 @@ class INTER_TCL_FILE {
 		}
 	public:
 		int spi_core_depth;
+		int TX_message_V_depth;
 		int trans_num;
 
 	private:
@@ -83,10 +88,14 @@ class INTER_TCL_FILE {
 };
 
 extern void AXI_SPI_DRIVER (
-ap_uint<32> spi_bus[4096]);
+ap_uint<32> spi_bus[4096],
+ap_uint<32> TX_message,
+ap_uint<32> RX_message);
 
 void AESL_WRAP_AXI_SPI_DRIVER (
-ap_uint<32> spi_bus[4096])
+ap_uint<32> spi_bus[4096],
+ap_uint<32> TX_message,
+ap_uint<32> RX_message)
 {
 	refine_signal_handler();
 	fstream wrapc_switch_file_token;
@@ -251,6 +260,10 @@ ap_uint<32> spi_bus[4096])
 		char* tvout_spi_core = new char[50];
 		aesl_fh.touch(AUTOTB_TVOUT_spi_core);
 
+		// "TX_message_V"
+		char* tvin_TX_message_V = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_TX_message_V);
+
 		CodeState = DUMP_INPUTS;
 		static INTER_TCL_FILE tcl_file(INTER_TCL);
 		int leading_zero;
@@ -303,10 +316,52 @@ ap_uint<32> spi_bus[4096])
 		// release memory allocation
 		delete [] spi_core_tvin_wrapc_buffer;
 
+		// [[transaction]]
+		sprintf(tvin_TX_message_V, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_TX_message_V, tvin_TX_message_V);
+
+		sc_bv<32> TX_message_V_tvin_wrapc_buffer;
+
+		// RTL Name: TX_message_V
+		{
+			// bitslice(31, 0)
+			{
+				// celement: TX_message.V(31, 0)
+				{
+					// carray: (0) => (0) @ (0)
+					{
+						// sub                   : 
+						// ori_name              : TX_message
+						// sub_1st_elem          : 
+						// ori_name_1st_elem     : TX_message
+						// regulate_c_name       : TX_message_V
+						// input_type_conversion : (TX_message).to_string(2).c_str()
+						if (&(TX_message) != NULL) // check the null address if the c port is array or others
+						{
+							sc_lv<32> TX_message_V_tmp_mem;
+							TX_message_V_tmp_mem = (TX_message).to_string(2).c_str();
+							TX_message_V_tvin_wrapc_buffer.range(31, 0) = TX_message_V_tmp_mem.range(31, 0);
+						}
+					}
+				}
+			}
+		}
+
+		// dump tv to file
+		for (int i = 0; i < 1; i++)
+		{
+			sprintf(tvin_TX_message_V, "%s\n", (TX_message_V_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_TX_message_V, tvin_TX_message_V);
+		}
+
+		tcl_file.set_num(1, &tcl_file.TX_message_V_depth);
+		sprintf(tvin_TX_message_V, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_TX_message_V, tvin_TX_message_V);
+
 // [call_c_dut] ---------->
 
 		CodeState = CALL_C_DUT;
-		AXI_SPI_DRIVER(spi_bus);
+		AXI_SPI_DRIVER(spi_bus, TX_message, RX_message);
 
 		CodeState = DUMP_OUTPUTS;
 
@@ -362,6 +417,8 @@ ap_uint<32> spi_bus[4096])
 		// release memory allocation: "spi_core"
 		delete [] tvout_spi_core;
 		delete [] tvin_spi_core;
+		// release memory allocation: "TX_message_V"
+		delete [] tvin_TX_message_V;
 
 		AESL_transaction++;
 

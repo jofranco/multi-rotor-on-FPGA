@@ -26,7 +26,6 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.647024362" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1637157730" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
-									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
@@ -44,7 +43,6 @@
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.131498387" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1203860488" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
-									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
@@ -127,7 +125,6 @@
 								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.601280462" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.2056963256" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
-									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
@@ -140,7 +137,6 @@
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.45795555" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.603971581" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
-									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>

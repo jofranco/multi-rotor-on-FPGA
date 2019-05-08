@@ -1,2 +1,3 @@
+AXI_SPI_DRIVER_debug_s_axi
 AXI_SPI_DRIVER_spi_core_m_axi
 AXI_SPI_DRIVER

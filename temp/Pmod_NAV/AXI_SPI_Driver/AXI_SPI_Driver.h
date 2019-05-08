@@ -73,7 +73,7 @@ using namespace std;
  */
 
 // main driver
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] /*volatile uint32_t data, uint16_t *TX_message, uint16_t *RX_message */);
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message);
 
 
 //delay function in milliseconds

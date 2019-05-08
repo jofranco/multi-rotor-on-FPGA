@@ -24392,7 +24392,7 @@ __extension__ typedef unsigned long long uintmax_t;
 
 using namespace std;
 # 76 "AXI_SPI_Driver/AXI_SPI_Driver.h"
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] );
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message);
 
 
 
@@ -24415,9 +24415,9 @@ void delay_until_ms(){
 
 
 
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] )
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message )
 {_ssdm_SpecArrayDimSize(spi_bus, 4096);
-#pragma HLS PIPELINE II=8 enable_flush
+#pragma HLS PIPELINE II=8 enable_flush off
 
 
 
@@ -24425,6 +24425,8 @@ void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] )
 
 
 
+#pragma HLS INTERFACE s_axilite port=&TX_message bundle=debug
+#pragma HLS INTERFACE s_axilite port=&RX_message bundle=debug
 
 #pragma HLS INTERFACE m_axi port=&spi_bus offset=off bundle=spi_core
 
@@ -24447,14 +24449,18 @@ void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] )
    break;
   default:
 
-   *(spi_bus + (0x1C >> 2)) = 0x5555;
+
+
+
+   *(spi_bus + (0x00000068 >> 2)) = TX_message;
+
+
+
+
+   RX_message = *(spi_bus + (0x00000068 >> 2));
+
 
    break;
-
-
-
-
-
 
 
  }

@@ -276,6 +276,109 @@
          </wvobject>
       </wvobject>
       <wvobject fp_name="group52" type="group">
+         <obj_property name="label">C Inputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group53" type="group">
+            <obj_property name="label">TX_message__RX_message(axi_slave)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_BRESP" type="array">
+               <obj_property name="ElementShortName">s_axi_debug_BRESP[1:0]</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_BRESP[1:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_BREADY" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_BREADY</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_BREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_BVALID" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_BVALID</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_BVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_RRESP" type="array">
+               <obj_property name="ElementShortName">s_axi_debug_RRESP[1:0]</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_RRESP[1:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_RDATA" type="array">
+               <obj_property name="ElementShortName">s_axi_debug_RDATA[31:0]</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_RDATA[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_RREADY" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_RREADY</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_RREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_RVALID" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_RVALID</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_RVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_ARREADY" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_ARREADY</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_ARREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_ARVALID" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_ARVALID</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_ARVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_ARADDR" type="array">
+               <obj_property name="ElementShortName">s_axi_debug_ARADDR[4:0]</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_ARADDR[4:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_WSTRB" type="array">
+               <obj_property name="ElementShortName">s_axi_debug_WSTRB[3:0]</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_WSTRB[3:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_WDATA" type="array">
+               <obj_property name="ElementShortName">s_axi_debug_WDATA[31:0]</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_WDATA[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_WREADY" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_WREADY</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_WREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_WVALID" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_WVALID</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_WVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_AWREADY" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_AWREADY</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_AWREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_AWVALID" type="logic">
+               <obj_property name="ElementShortName">s_axi_debug_AWVALID</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_AWVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/s_axi_debug_AWADDR" type="array">
+               <obj_property name="ElementShortName">s_axi_debug_AWADDR[4:0]</obj_property>
+               <obj_property name="ObjectShortName">s_axi_debug_AWADDR[4:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group71" type="group">
          <obj_property name="label">Block-level IO Handshake</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/ap_start" type="logic">
@@ -295,7 +398,7 @@
             <obj_property name="ObjectShortName">ap_ready</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject fp_name="group57" type="group">
+      <wvobject fp_name="group76" type="group">
          <obj_property name="label">Reset</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/ap_rst_n" type="logic">
@@ -303,7 +406,7 @@
             <obj_property name="ObjectShortName">ap_rst_n</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject fp_name="group59" type="group">
+      <wvobject fp_name="group78" type="group">
          <obj_property name="label">Clock</obj_property>
          <obj_property name="DisplayName">label</obj_property>
          <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AESL_inst_AXI_SPI_DRIVER/ap_clk" type="logic">
@@ -312,13 +415,13 @@
          </wvobject>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group61" type="group">
+   <wvobject fp_name="group80" type="group">
       <obj_property name="label">Test Bench Signals</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="group62" type="group">
+      <wvobject fp_name="group81" type="group">
          <obj_property name="label">Internal Signals</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject fp_name="group63" type="group">
+         <wvobject fp_name="group82" type="group">
             <obj_property name="label">Simulation Status</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/AUTOTB_TRANSACTION_NUM" type="other">
@@ -337,7 +440,7 @@
                <obj_property name="Radix">HEXRADIX</obj_property>
             </wvobject>
          </wvobject>
-         <wvobject fp_name="group64" type="group">
+         <wvobject fp_name="group83" type="group">
             <obj_property name="label">Port Depth</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/LENGTH_spi_core" type="other">
@@ -345,15 +448,20 @@
                <obj_property name="ObjectShortName">LENGTH_spi_core</obj_property>
                <obj_property name="Radix">HEXRADIX</obj_property>
             </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/LENGTH_TX_message_V" type="other">
+               <obj_property name="ElementShortName">LENGTH_TX_message_V</obj_property>
+               <obj_property name="ObjectShortName">LENGTH_TX_message_V</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
          </wvobject>
       </wvobject>
-      <wvobject fp_name="group69" type="group">
+      <wvobject fp_name="group89" type="group">
          <obj_property name="label">C Outputs</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject fp_name="group70" type="group">
+         <wvobject fp_name="group90" type="group">
             <obj_property name="label">spi_bus(axi_master)</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject fp_name="group71" type="group">
+            <wvobject fp_name="group91" type="group">
                <obj_property name="label">Read Channel</obj_property>
                <obj_property name="DisplayName">label</obj_property>
                <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/spi_core_RRESP" type="array">
@@ -432,7 +540,7 @@
                   <obj_property name="Radix">HEXRADIX</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject fp_name="group72" type="group">
+            <wvobject fp_name="group92" type="group">
                <obj_property name="label">Write Channel</obj_property>
                <obj_property name="DisplayName">label</obj_property>
                <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/spi_core_BUSER" type="array">
@@ -526,7 +634,7 @@
                   <obj_property name="Radix">HEXRADIX</obj_property>
                </wvobject>
             </wvobject>
-            <wvobject fp_name="group73" type="group">
+            <wvobject fp_name="group93" type="group">
                <obj_property name="label">Handshakes</obj_property>
                <obj_property name="DisplayName">label</obj_property>
                <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/spi_core_BREADY" type="logic">
@@ -601,6 +709,109 @@
                   <obj_property name="CustomSignalColor">#ffff00</obj_property>
                   <obj_property name="UseCustomSignalColor">true</obj_property>
                </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group139" type="group">
+         <obj_property name="label">C Inputs</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group140" type="group">
+            <obj_property name="label">TX_message__RX_message(axi_slave)</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_BRESP" type="array">
+               <obj_property name="ElementShortName">debug_BRESP[1:0]</obj_property>
+               <obj_property name="ObjectShortName">debug_BRESP[1:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_BREADY" type="logic">
+               <obj_property name="ElementShortName">debug_BREADY</obj_property>
+               <obj_property name="ObjectShortName">debug_BREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_BVALID" type="logic">
+               <obj_property name="ElementShortName">debug_BVALID</obj_property>
+               <obj_property name="ObjectShortName">debug_BVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_RRESP" type="array">
+               <obj_property name="ElementShortName">debug_RRESP[1:0]</obj_property>
+               <obj_property name="ObjectShortName">debug_RRESP[1:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_RDATA" type="array">
+               <obj_property name="ElementShortName">debug_RDATA[31:0]</obj_property>
+               <obj_property name="ObjectShortName">debug_RDATA[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_RREADY" type="logic">
+               <obj_property name="ElementShortName">debug_RREADY</obj_property>
+               <obj_property name="ObjectShortName">debug_RREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_RVALID" type="logic">
+               <obj_property name="ElementShortName">debug_RVALID</obj_property>
+               <obj_property name="ObjectShortName">debug_RVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_ARREADY" type="logic">
+               <obj_property name="ElementShortName">debug_ARREADY</obj_property>
+               <obj_property name="ObjectShortName">debug_ARREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_ARVALID" type="logic">
+               <obj_property name="ElementShortName">debug_ARVALID</obj_property>
+               <obj_property name="ObjectShortName">debug_ARVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_ARADDR" type="array">
+               <obj_property name="ElementShortName">debug_ARADDR[4:0]</obj_property>
+               <obj_property name="ObjectShortName">debug_ARADDR[4:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_WSTRB" type="array">
+               <obj_property name="ElementShortName">debug_WSTRB[3:0]</obj_property>
+               <obj_property name="ObjectShortName">debug_WSTRB[3:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_WDATA" type="array">
+               <obj_property name="ElementShortName">debug_WDATA[31:0]</obj_property>
+               <obj_property name="ObjectShortName">debug_WDATA[31:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_WREADY" type="logic">
+               <obj_property name="ElementShortName">debug_WREADY</obj_property>
+               <obj_property name="ObjectShortName">debug_WREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_WVALID" type="logic">
+               <obj_property name="ElementShortName">debug_WVALID</obj_property>
+               <obj_property name="ObjectShortName">debug_WVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_AWREADY" type="logic">
+               <obj_property name="ElementShortName">debug_AWREADY</obj_property>
+               <obj_property name="ObjectShortName">debug_AWREADY</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_AWVALID" type="logic">
+               <obj_property name="ElementShortName">debug_AWVALID</obj_property>
+               <obj_property name="ObjectShortName">debug_AWVALID</obj_property>
+               <obj_property name="CustomSignalColor">#ffff00</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+            </wvobject>
+            <wvobject fp_name="/apatb_AXI_SPI_DRIVER_top/debug_AWADDR" type="array">
+               <obj_property name="ElementShortName">debug_AWADDR[4:0]</obj_property>
+               <obj_property name="ObjectShortName">debug_AWADDR[4:0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
             </wvobject>
          </wvobject>
       </wvobject>

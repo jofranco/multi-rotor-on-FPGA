@@ -61839,7 +61839,7 @@ inline bool operator!=(const ap_int<_AP_W> &__x, const complex<ap_int<_AP_W> > &
 #pragma empty_line
 using namespace std;
 #pragma line 76 "C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/AXI_SPI_Driver.h"
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] );
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message);
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
@@ -61862,17 +61862,26 @@ void delay_until_ms(){
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
+#pragma empty_line
 int main()
 {
  ap_uint<32> test[4096] = {0};
+ ap_uint<32> tx = {0};
+ ap_uint<32> rx = {0};
 #pragma empty_line
  int count = 0;
 #pragma empty_line
  while(count < 10)
  {
-  AXI_SPI_DRIVER(test);
+  AXI_SPI_DRIVER(test, tx, rx);
 #pragma empty_line
   count++;
+#pragma empty_line
+  tx++;
+#pragma empty_line
+#pragma empty_line
+  printf("tx:  %d \n", tx);
+  printf("rx:  %d \n\n", rx);
  }
 #pragma empty_line
 #pragma empty_line

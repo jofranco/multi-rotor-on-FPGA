@@ -17,11 +17,14 @@ use std.textio.all;
 entity apatb_AXI_SPI_DRIVER_top is
   generic (
        AUTOTB_CLOCK_PERIOD_DIV2 :   TIME := 5.00 ns;
+       AUTOTB_TVIN_TX_message_V : STRING := "../tv/cdatafile/c.AXI_SPI_DRIVER.autotvin_TX_message_V.dat";
+       AUTOTB_TVIN_TX_message_V_out_wrapc : STRING := "../tv/rtldatafile/rtl.AXI_SPI_DRIVER.autotvin_TX_message_V.dat";
        AUTOTB_TVOUT_spi_core : STRING := "../tv/cdatafile/c.AXI_SPI_DRIVER.autotvout_spi_core.dat";
        AUTOTB_TVOUT_spi_core_out_wrapc : STRING := "../tv/rtldatafile/rtl.AXI_SPI_DRIVER.autotvout_spi_core.dat";
       AUTOTB_LAT_RESULT_FILE    : STRING  := "AXI_SPI_DRIVER.result.lat.rb";
       AUTOTB_PER_RESULT_TRANS_FILE    : STRING  := "AXI_SPI_DRIVER.performance.result.transaction.xml";
       LENGTH_spi_core     : INTEGER := 4096;
+      LENGTH_TX_message_V     : INTEGER := 1;
 	    AUTOTB_TRANSACTION_NUM    : INTEGER := 10
 );
 
@@ -46,6 +49,23 @@ architecture behav of apatb_AXI_SPI_DRIVER_top is
   signal ready :   STD_LOGIC := '0';
   signal ready_wire :   STD_LOGIC := '0';
 
+  signal debug_AWADDR:  STD_LOGIC_VECTOR (4 DOWNTO 0);
+  signal debug_AWVALID:  STD_LOGIC;
+  signal debug_AWREADY:  STD_LOGIC;
+  signal debug_WVALID:  STD_LOGIC;
+  signal debug_WREADY:  STD_LOGIC;
+  signal debug_WDATA:  STD_LOGIC_VECTOR (31 DOWNTO 0);
+  signal debug_WSTRB:  STD_LOGIC_VECTOR (3 DOWNTO 0);
+  signal debug_ARADDR:  STD_LOGIC_VECTOR (4 DOWNTO 0);
+  signal debug_ARVALID:  STD_LOGIC;
+  signal debug_ARREADY:  STD_LOGIC;
+  signal debug_RVALID:  STD_LOGIC;
+  signal debug_RREADY:  STD_LOGIC;
+  signal debug_RDATA:  STD_LOGIC_VECTOR (31 DOWNTO 0);
+  signal debug_RRESP:  STD_LOGIC_VECTOR (1 DOWNTO 0);
+  signal debug_BVALID:  STD_LOGIC;
+  signal debug_BREADY:  STD_LOGIC;
+  signal debug_BRESP:  STD_LOGIC_VECTOR (1 DOWNTO 0);
   signal ap_clk :  STD_LOGIC;
   signal ap_rst_n :  STD_LOGIC;
   signal ap_start :  STD_LOGIC;
@@ -170,11 +190,32 @@ port (
     m_axi_spi_core_BREADY :  OUT STD_LOGIC;
     m_axi_spi_core_BRESP :  IN STD_LOGIC_VECTOR (1 DOWNTO 0);
     m_axi_spi_core_BID :  IN STD_LOGIC_VECTOR (0 DOWNTO 0);
-    m_axi_spi_core_BUSER :  IN STD_LOGIC_VECTOR (0 DOWNTO 0));
+    m_axi_spi_core_BUSER :  IN STD_LOGIC_VECTOR (0 DOWNTO 0);
+    s_axi_debug_AWVALID :  IN STD_LOGIC;
+    s_axi_debug_AWREADY :  OUT STD_LOGIC;
+    s_axi_debug_AWADDR :  IN STD_LOGIC_VECTOR (4 DOWNTO 0);
+    s_axi_debug_WVALID :  IN STD_LOGIC;
+    s_axi_debug_WREADY :  OUT STD_LOGIC;
+    s_axi_debug_WDATA :  IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+    s_axi_debug_WSTRB :  IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+    s_axi_debug_ARVALID :  IN STD_LOGIC;
+    s_axi_debug_ARREADY :  OUT STD_LOGIC;
+    s_axi_debug_ARADDR :  IN STD_LOGIC_VECTOR (4 DOWNTO 0);
+    s_axi_debug_RVALID :  OUT STD_LOGIC;
+    s_axi_debug_RREADY :  IN STD_LOGIC;
+    s_axi_debug_RDATA :  OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
+    s_axi_debug_RRESP :  OUT STD_LOGIC_VECTOR (1 DOWNTO 0);
+    s_axi_debug_BVALID :  OUT STD_LOGIC;
+    s_axi_debug_BREADY :  IN STD_LOGIC;
+    s_axi_debug_BRESP :  OUT STD_LOGIC_VECTOR (1 DOWNTO 0));
 end component;
 
 -- The signal of port spi_core
 shared variable AESL_REG_spi_core : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+-- The signal of port TX_message_V
+shared variable AESL_REG_TX_message_V : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+-- The signal of port RX_message_V
+shared variable AESL_REG_RX_message_V : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 signal	AESL_axi_master_spi_core_ready : STD_LOGIC;
 signal	AESL_axi_master_spi_core_done  : STD_LOGIC;
 component AESL_axi_master_spi_core is
@@ -229,6 +270,49 @@ component AESL_axi_master_spi_core is
     ready        :    IN  STD_LOGIC;
     done         :    IN  STD_LOGIC
   );
+end component;
+
+    signal AESL_slave_output_done : STD_LOGIC;
+    signal AESL_slave_start : STD_LOGIC;
+    signal AESL_slave_start_lock : STD_LOGIC := '0';
+    signal AESL_slave_write_start_in : STD_LOGIC;
+    signal AESL_slave_write_start_finish : STD_LOGIC;
+    signal AESL_slave_ready : STD_LOGIC;
+    signal AESL_slave_done : STD_LOGIC;
+    signal slave_start_status : STD_LOGIC := '0';
+    signal start_rise : STD_LOGIC := '0';
+    signal ready_rise : STD_LOGIC := '0';
+    signal slave_done_status : STD_LOGIC := '0';
+    signal ap_done_lock : STD_LOGIC := '0';
+    signal debug_write_data_finish : STD_LOGIC;
+component AESL_AXI_SLAVE_debug is
+  port(
+    clk   :   IN STD_LOGIC;
+    reset :   IN STD_LOGIC;
+    TRAN_s_axi_debug_AWADDR : OUT STD_LOGIC_VECTOR;
+    TRAN_s_axi_debug_AWVALID : OUT STD_LOGIC;
+    TRAN_s_axi_debug_AWREADY : IN STD_LOGIC;
+    TRAN_s_axi_debug_WVALID : OUT STD_LOGIC;
+    TRAN_s_axi_debug_WREADY : IN STD_LOGIC;
+    TRAN_s_axi_debug_WDATA : OUT STD_LOGIC_VECTOR;
+    TRAN_s_axi_debug_WSTRB : OUT STD_LOGIC_VECTOR;
+    TRAN_s_axi_debug_ARADDR : OUT STD_LOGIC_VECTOR;
+    TRAN_s_axi_debug_ARVALID : OUT STD_LOGIC;
+    TRAN_s_axi_debug_ARREADY : IN STD_LOGIC;
+    TRAN_s_axi_debug_RVALID : IN STD_LOGIC;
+    TRAN_s_axi_debug_RREADY : OUT STD_LOGIC;
+    TRAN_s_axi_debug_RDATA : IN STD_LOGIC_VECTOR;
+    TRAN_s_axi_debug_RRESP : IN STD_LOGIC_VECTOR;
+    TRAN_s_axi_debug_BVALID : IN STD_LOGIC;
+    TRAN_s_axi_debug_BREADY : OUT STD_LOGIC;
+    TRAN_s_axi_debug_BRESP : IN STD_LOGIC_VECTOR;
+    TRAN_debug_write_data_finish : OUT STD_LOGIC;
+    TRAN_debug_ready_in  : IN STD_LOGIC;
+    TRAN_debug_done_in  : IN STD_LOGIC;
+    TRAN_debug_idle_in  : IN STD_LOGIC;
+    TRAN_debug_transaction_done_in    : IN STD_LOGIC;
+    TRAN_debug_start_in    : IN STD_LOGIC
+);
 end component;
 
       procedure esl_read_token (file textfile: TEXT; textline: inout LINE; token: out STRING; token_len: out INTEGER) is
@@ -545,6 +629,23 @@ end component;
 
 begin
 AESL_inst_AXI_SPI_DRIVER    :   AXI_SPI_DRIVER port map (
+   s_axi_debug_AWADDR  =>  debug_AWADDR,
+   s_axi_debug_AWVALID  =>  debug_AWVALID,
+   s_axi_debug_AWREADY  =>  debug_AWREADY,
+   s_axi_debug_WVALID  =>  debug_WVALID,
+   s_axi_debug_WREADY  =>  debug_WREADY,
+   s_axi_debug_WDATA  =>  debug_WDATA,
+   s_axi_debug_WSTRB  =>  debug_WSTRB,
+   s_axi_debug_ARADDR  =>  debug_ARADDR,
+   s_axi_debug_ARVALID  =>  debug_ARVALID,
+   s_axi_debug_ARREADY  =>  debug_ARREADY,
+   s_axi_debug_RVALID  =>  debug_RVALID,
+   s_axi_debug_RREADY  =>  debug_RREADY,
+   s_axi_debug_RDATA  =>  debug_RDATA,
+   s_axi_debug_RRESP  =>  debug_RRESP,
+   s_axi_debug_BVALID  =>  debug_BVALID,
+   s_axi_debug_BREADY  =>  debug_BREADY,
+   s_axi_debug_BRESP  =>  debug_BRESP,
    ap_clk  =>  ap_clk,
    ap_rst_n  =>  ap_rst_n,
    ap_start  =>  ap_start,
@@ -602,13 +703,99 @@ AESL_inst_AXI_SPI_DRIVER    :   AXI_SPI_DRIVER port map (
   ap_clk <= AESL_clock;
   ap_rst_n <= AESL_reset;
   AESL_reset <= rst;
-  ap_start <= AESL_start;
+  ap_start <= AESL_slave_start or AESL_slave_start_lock;
   AESL_start <= start;
-  AESL_done <= ap_done;
   AESL_idle <= ap_idle;
   AESL_ready <= ap_ready;
   AESL_ce <= ce;
   AESL_continue <= continue;
+  AESL_slave_write_start_in <= slave_start_status  and debug_write_data_finish;
+  AESL_slave_write_start_finish <= AESL_slave_write_start_in;
+  AESL_slave_start <= AESL_slave_write_start_finish;
+  AESL_slave_done <=  '1' ;
+  AESL_done <= (ap_done_lock or ap_done) and AESL_slave_done and slave_done_status;
+
+slave_start_lock_proc : process(AESL_clock)
+begin
+  if (AESL_clock'event and AESL_clock = '1') then
+    if(AESL_reset = '0') then
+        AESL_slave_start_lock <= '0';
+    else
+        if (AESL_ready = '1' ) then
+            AESL_slave_start_lock <= '0';
+        elsif (AESL_slave_start = '1') then
+            AESL_slave_start_lock <= '1';
+        end if;
+    end if;
+  end if;
+end process;
+
+ap_done_lock_proc : process(AESL_clock)
+begin
+  if (AESL_clock'event and AESL_clock = '1') then
+    if(AESL_reset = '0') then
+         ap_done_lock <= '0';
+    else
+        if (AESL_done = '1' ) then
+            ap_done_lock <= '0';
+        elsif (ap_done = '1') then
+            ap_done_lock <= '1';
+        end if;
+    end if;
+  end if;
+end process;
+
+slave_start_proc : process(AESL_clock)
+begin
+  if (AESL_clock'event and AESL_clock = '1') then
+    if(AESL_reset = '0') then
+        slave_start_status <= '1';
+    else
+        if (AESL_start = '1' ) then
+            start_rise <= '1';
+        end if;
+        if (start_rise = '1' and AESL_done = '1' ) then
+            slave_start_status <= '1';
+        end if;
+        if (AESL_slave_write_start_in = '1' and AESL_done = '0') then 
+            slave_start_status <= '0';
+            start_rise <= '0';
+        end if;
+    end if;
+  end if;
+end process;
+
+slave_ready_proc : process(AESL_clock)
+begin
+  if (AESL_clock'event and AESL_clock = '1') then
+    if(AESL_reset = '0') then
+        AESL_slave_ready <= '0';
+        ready_rise <= '0';
+    else
+        if (AESL_ready = '1' ) then
+            ready_rise <= '1';
+        end if;
+        if (ready_rise = '1' and AESL_done_delay = '1' ) then
+            AESL_slave_ready <= '1';
+        end if;
+        if (AESL_slave_ready = '1') then 
+            AESL_slave_ready <= '0';
+            ready_rise <= '0';
+        end if;
+    end if;
+  end if;
+end process;
+
+slave_done_proc : process(AESL_clock)
+begin
+  if (AESL_clock'event and AESL_clock = '1') then
+    if (AESL_done = '1') then
+        slave_done_status <= '0';
+    elsif (AESL_slave_done = '1' ) then
+        slave_done_status <= '1';
+    end if;
+  end if;
+end process;
 gen_check_strlSignal_AESL_done_proc : process(AESL_clock)
 begin
   if (AESL_clock'event and AESL_clock = '1') then
@@ -686,6 +873,34 @@ AESL_axi_master_inst_spi_core : AESL_axi_master_spi_core port map (
 );
 AESL_axi_master_spi_core_ready	<=   ready;
 AESL_axi_master_spi_core_done	<=   AESL_done_delay;
+
+AESL_axi_slave_inst_debug : AESL_AXI_SLAVE_debug port map (
+    clk   =>  AESL_clock,
+    reset =>  AESL_reset,
+    TRAN_s_axi_debug_AWADDR => debug_AWADDR,
+    TRAN_s_axi_debug_AWVALID => debug_AWVALID,
+    TRAN_s_axi_debug_AWREADY => debug_AWREADY,
+    TRAN_s_axi_debug_WVALID => debug_WVALID,
+    TRAN_s_axi_debug_WREADY => debug_WREADY,
+    TRAN_s_axi_debug_WDATA => debug_WDATA,
+    TRAN_s_axi_debug_WSTRB => debug_WSTRB,
+    TRAN_s_axi_debug_ARADDR => debug_ARADDR,
+    TRAN_s_axi_debug_ARVALID => debug_ARVALID,
+    TRAN_s_axi_debug_ARREADY => debug_ARREADY,
+    TRAN_s_axi_debug_RVALID => debug_RVALID,
+    TRAN_s_axi_debug_RREADY => debug_RREADY,
+    TRAN_s_axi_debug_RDATA => debug_RDATA,
+    TRAN_s_axi_debug_RRESP => debug_RRESP,
+    TRAN_s_axi_debug_BVALID => debug_BVALID,
+    TRAN_s_axi_debug_BREADY => debug_BREADY,
+    TRAN_s_axi_debug_BRESP => debug_BRESP,
+    TRAN_debug_write_data_finish => debug_write_data_finish,
+    TRAN_debug_ready_in => AESL_slave_ready,
+    TRAN_debug_done_in => AESL_slave_output_done,
+    TRAN_debug_idle_in => AESL_idle,
+    TRAN_debug_transaction_done_in => AESL_done_delay,
+    TRAN_debug_start_in  => AESL_slave_start
+);
 
 generate_ready_cnt_proc : process(ready_initial, AESL_clock)
 begin
@@ -901,15 +1116,6 @@ begin
               AESL_mLatCnterOut(AESL_mLatCnterOut_addr) := AESL_clk_counter;
               AESL_mLatCnterOut_addr := AESL_mLatCnterOut_addr + 1;
               reported_stuck <= '0';
-          elsif (reported_stuck = '0' and reported_stuck_cnt < 4) then
-              if ( AESL_mLatCnterIn_addr > AESL_mLatCnterOut_addr ) then
-                  -- if ( AESL_clk_counter - AESL_mLatCnterIn(AESL_mLatCnterOut_addr) > 10000 and AESL_clk_counter - AESL_mLatCnterIn(AESL_mLatCnterOut_addr) > 10 * 7 ) then
-                  if ( AESL_clk_counter - AESL_mLatCnterIn(AESL_mLatCnterOut_addr) > 10000 and AESL_clk_counter - AESL_mLatCnterIn(AESL_mLatCnterOut_addr) > 10000000 ) then
-                      report "WARNING: The latency is much larger than expected. Simulation may be stuck.";
-                      reported_stuck <= '1';
-                      reported_stuck_cnt := reported_stuck_cnt + 1;
-                  end if;
-              end if;
           end if;
       end if;
   end if;
@@ -921,10 +1127,7 @@ begin
     if(AESL_reset = '0') then
           AESL_mLatCnterIn_addr := 0;
       else
-    if (AESL_start = '1' and AESL_mLatCnterIn_addr = 0) then
-        AESL_mLatCnterIn(AESL_mLatCnterIn_addr) := AESL_clk_counter;
-        AESL_mLatCnterIn_addr := AESL_mLatCnterIn_addr + 1;
-    elsif (AESL_ready = '1' and AESL_mLatCnterIn_addr < AUTOTB_TRANSACTION_NUM + 1 ) then
+    if (AESL_slave_write_start_finish = '1' and AESL_mLatCnterIn_addr < AUTOTB_TRANSACTION_NUM + 1) then
         AESL_mLatCnterIn(AESL_mLatCnterIn_addr) := AESL_clk_counter;
         AESL_mLatCnterIn_addr := AESL_mLatCnterIn_addr + 1;
     end if;
@@ -1032,11 +1235,11 @@ begin
         writeline(fp, token_line);
         write(token_line, "$AVER_LATENCY = " & '"' & integer'image(lataver) & '"');
         writeline(fp, token_line);
-        write(token_line, "$MAX_THROUGHPUT = " & '"' & integer'image(thrmax) & '"');
+        write(token_line, "$MAX_THROUGHPUT = " & '"' & integer'image(latmax) & '"');
         writeline(fp, token_line);
-        write(token_line, "$MIN_THROUGHPUT = " & '"' & integer'image(thrmin) & '"');
+        write(token_line, "$MIN_THROUGHPUT = " & '"' & integer'image(latmin) & '"');
         writeline(fp, token_line);
-        write(token_line, "$AVER_THROUGHPUT = " & '"' & integer'image(thraver) & '"');
+        write(token_line, "$AVER_THROUGHPUT = " & '"' & integer'image(lataver) & '"');
         writeline(fp, token_line);
     end if;
 

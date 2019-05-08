@@ -5,4 +5,6 @@
 // ==============================================================
 
 extern void AESL_WRAP_AXI_SPI_DRIVER (
-ap_uint<32> spi_bus[4096]);
+ap_uint<32> spi_bus[4096],
+ap_uint<32> TX_message,
+ap_uint<32> RX_message);
