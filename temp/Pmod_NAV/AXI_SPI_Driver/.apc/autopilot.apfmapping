@@ -2,6 +2,7 @@
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
     <originFiles name="AXI_SPI_Driver.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Jupyter_Demos\AXI_SPI_Driver\AXI_SPI_Driver.cpp"/>
+    <originFiles name="AXI_SPI_Driver.h" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Jupyter_Demos\AXI_SPI_Driver\AXI_SPI_Driver.h"/>
   </source>
   <testbench>
     <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Jupyter_Demos\AXI_SPI_Driver\main.cpp"/>

@@ -47,6 +47,11 @@
 			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/AXI_SPI_Driver.cpp</location>
 		</link>
 		<link>
+			<name>source/AXI_SPI_Driver.h</name>
+			<type>1</type>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/AXI_SPI_Driver.h</location>
+		</link>
+		<link>
 			<name>testbench/main.cpp</name>
 			<type>1</type>
 			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/main.cpp</location>

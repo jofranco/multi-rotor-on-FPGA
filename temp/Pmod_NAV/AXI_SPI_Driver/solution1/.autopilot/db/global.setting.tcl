@@ -1,13 +1,13 @@
 
-set TopModule "imu_spi"
+set TopModule "AXI_SPI_DRIVER"
 set ClockPeriod "10.000000"
 set ClockList {ap_clk}
 set multiClockList {}
 set PortClockMap {}
 set CombLogicFlag 0
-set PipelineFlag 0
+set PipelineFlag 1
 set DataflowTaskPipelineFlag  1
-set TrivialPipelineFlag 0
+set TrivialPipelineFlag 1
 set noPortSwitchingFlag 0
 set FloatingPointFlag 0
 set FftOrFirFlag 0
@@ -19,7 +19,7 @@ set ResetLevelFlag 0
 set ResetStyle "control"
 set ResetSyncFlag 1
 set ResetRegisterFlag 0
-set ResetVariableFlag 0
+set ResetVariableFlag 1
 set fsmEncStyle "onehot"
 set maxFanout "0"
 set RtlPrefix ""

@@ -1,0 +1,188 @@
+
+
+================================================================
+== Vivado HLS Report for 'AXI_SPI_DRIVER'
+================================================================
+* Date:           Wed May  8 01:39:22 2019
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        AXI_SPI_Driver
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    7|    7|    8|    8| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|      8|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        2|      -|     512|    580|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|    140|
+|Register         |        -|      -|      14|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        2|      0|     526|    728|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |    ~0   |      0|   ~0   |      1|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +---------------------------------+-------------------------------+---------+-------+-----+-----+
+    |             Instance            |             Module            | BRAM_18K| DSP48E|  FF | LUT |
+    +---------------------------------+-------------------------------+---------+-------+-----+-----+
+    |AXI_SPI_DRIVER_spi_core_m_axi_U  |AXI_SPI_DRIVER_spi_core_m_axi  |        2|      0|  512|  580|
+    +---------------------------------+-------------------------------+---------+-------+-----+-----+
+    |Total                            |                               |        2|      0|  512|  580|
+    +---------------------------------+-------------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name           | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+    |ap_predicate_op24_writereq_state2  |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state2_io                 |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state3_io                 |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state8                    |    or    |      0|  0|   2|           1|           1|
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                              |          |      0|  0|   8|           4|           4|
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------+----+-----------+-----+-----------+
+    |               Name              | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                        |  44|          9|    1|          9|
+    |ap_sig_ioackin_spi_core_AWREADY  |   9|          2|    1|          2|
+    |ap_sig_ioackin_spi_core_WREADY   |   9|          2|    1|          2|
+    |spi_core_AWADDR                  |  21|          4|   32|        128|
+    |spi_core_WDATA                   |  21|          4|   32|        128|
+    |spi_core_blk_n_AW                |   9|          2|    1|          2|
+    |spi_core_blk_n_B                 |   9|          2|    1|          2|
+    |spi_core_blk_n_W                 |   9|          2|    1|          2|
+    |state                            |   9|          2|    2|          4|
+    +---------------------------------+----+-----------+-----+-----------+
+    |Total                            | 140|         29|   72|        279|
+    +---------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------+---+----+-----+-----------+
+    |               Name              | FF| LUT| Bits| Const Bits|
+    +---------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                        |  8|   0|    8|          0|
+    |ap_reg_ioackin_spi_core_AWREADY  |  1|   0|    1|          0|
+    |ap_reg_ioackin_spi_core_WREADY   |  1|   0|    1|          0|
+    |state                            |  2|   0|    4|          2|
+    |state_load_reg_154               |  2|   0|    4|          2|
+    +---------------------------------+---+----+-----+-----------+
+    |Total                            | 14|   0|   18|          4|
+    +---------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------+-----+-----+------------+----------------+--------------+
+|        RTL Ports        | Dir | Bits|  Protocol  |  Source Object |    C Type    |
++-------------------------+-----+-----+------------+----------------+--------------+
+|ap_clk                   |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
+|ap_rst_n                 |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
+|ap_start                 |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
+|ap_done                  | out |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
+|ap_idle                  | out |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
+|ap_ready                 | out |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
+|m_axi_spi_core_AWVALID   | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWREADY   |  in |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWADDR    | out |   32|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWID      | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWLEN     | out |    8|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWSIZE    | out |    3|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWBURST   | out |    2|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWLOCK    | out |    2|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWCACHE   | out |    4|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWPROT    | out |    3|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWQOS     | out |    4|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWREGION  | out |    4|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_AWUSER    | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_WVALID    | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_WREADY    |  in |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_WDATA     | out |   32|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_WSTRB     | out |    4|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_WLAST     | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_WID       | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_WUSER     | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARVALID   | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARREADY   |  in |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARADDR    | out |   32|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARID      | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARLEN     | out |    8|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARSIZE    | out |    3|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARBURST   | out |    2|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARLOCK    | out |    2|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARCACHE   | out |    4|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARPROT    | out |    3|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARQOS     | out |    4|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARREGION  | out |    4|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_ARUSER    | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_RVALID    |  in |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_RREADY    | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_RDATA     |  in |   32|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_RLAST     |  in |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_RID       |  in |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_RUSER     |  in |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_RRESP     |  in |    2|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_BVALID    |  in |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_BREADY    | out |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_BRESP     |  in |    2|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_BID       |  in |    1|    m_axi   |    spi_core    |    pointer   |
+|m_axi_spi_core_BUSER     |  in |    1|    m_axi   |    spi_core    |    pointer   |
++-------------------------+-----+-----+------------+----------------+--------------+
+

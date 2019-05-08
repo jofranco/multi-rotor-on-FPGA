@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed May  8 01:40:18 2019
+# Process ID: 26488
+# Current directory: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/sim/vhdl
+# Command line: xsim.exe -mode tcl -source {xsim.dir/AXI_SPI_DRIVER/xsim_script.tcl}
+# Log file: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/sim/vhdl/xsim.log
+# Journal file: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/sim/vhdl\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/AXI_SPI_DRIVER/xsim_script.tcl
+source AXI_SPI_DRIVER.tcl

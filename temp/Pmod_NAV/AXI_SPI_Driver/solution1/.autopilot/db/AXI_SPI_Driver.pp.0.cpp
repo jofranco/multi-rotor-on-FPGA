@@ -24384,7 +24384,18 @@ __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 2 3 4
 # 5 "AXI_SPI_Driver/AXI_SPI_Driver.cpp" 2
-# 64 "AXI_SPI_Driver/AXI_SPI_Driver.cpp"
+# 1 "AXI_SPI_Driver/AXI_SPI_Driver.h" 1
+
+
+
+
+
+using namespace std;
+# 76 "AXI_SPI_Driver/AXI_SPI_Driver.h"
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] );
+
+
+
 template <unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL>
 void delay_until_ms(){
 
@@ -24399,31 +24410,53 @@ void delay_until_ms(){
  return;
 
 }
+# 6 "AXI_SPI_Driver/AXI_SPI_Driver.cpp" 2
 
 
-void imu_spi(volatile uint32_t spi_bus[4096], uint16_t TX_message, uint16_t RX_message)
+
+
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096] )
 {_ssdm_SpecArrayDimSize(spi_bus, 4096);
-
-
-#pragma HLS INTERFACE s_axilite port=return
-
-#pragma HLS INTERFACE s_axilite port=&TX_message
-#pragma HLS INTERFACE s_axilite port=&RX_message
-#pragma HLS INTERFACE m_axi depth=32 port=&spi_bus offset=off
+#pragma HLS PIPELINE II=8 enable_flush
 
 
 
- spi_bus[(0x60)] = 0x006;
- spi_bus[(0x70)] = 0xFFFE;
 
 
 
- spi_bus[(0x68)] = TX_message;
+
+
+#pragma HLS INTERFACE m_axi port=&spi_bus offset=off bundle=spi_core
 
 
 
- RX_message = spi_bus[(0x6C)];
+
+ static unsigned char state = 0;
+#pragma HLS RESET variable=&state
+
+ switch (state)
+ {
+  case 0:
+   *(spi_bus + ((0x00000060 >> 2))) = 0x0006;
+
+   state++;
+   break;
+  case 1:
+   *(spi_bus + ((0x00000070 >> 2))) = 0xFFFE;
+   state++;
+   break;
+  default:
+
+   *(spi_bus + (0x1C >> 2)) = 0x5555;
+
+   break;
 
 
+
+
+
+
+
+ }
 
 }

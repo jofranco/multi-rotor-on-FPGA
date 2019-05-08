@@ -1,30 +1,10 @@
 <InterfaceSummary>
 <RtlPorts>
-<name>spi_bus</name>
+<name>spi_core</name>
 <CType>
-<TypeName>unsigned int</TypeName>
+<TypeName>ap_uint 32</TypeName>
 <TypeWidth>32</TypeWidth>
 <PhysicalWidth>32</PhysicalWidth>
-</CType>
-<CFractionWidth>0</CFractionWidth>
-<InvalidType>0</InvalidType>
-</RtlPorts>
-<RtlPorts>
-<name>TX_message</name>
-<CType>
-<TypeName>unsigned short</TypeName>
-<TypeWidth>16</TypeWidth>
-<PhysicalWidth>16</PhysicalWidth>
-</CType>
-<CFractionWidth>0</CFractionWidth>
-<InvalidType>0</InvalidType>
-</RtlPorts>
-<RtlPorts>
-<name>RX_message</name>
-<CType>
-<TypeName>unsigned short</TypeName>
-<TypeWidth>16</TypeWidth>
-<PhysicalWidth>16</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>
