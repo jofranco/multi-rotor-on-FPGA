@@ -5,9 +5,9 @@
 #include "AXI_SPI_Driver.h"
 
 
+uint8_t state = 0;
 
-
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message /*volatile uint32_t data*/)
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> *RX_message /*volatile uint32_t data*/)
 {
 	#pragma HLS PIPELINE II=10 enable_flush off
 
@@ -23,18 +23,18 @@ void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<3
 
 	// configuring AXI QUAD SPI Core
 
-	static unsigned char state = 0;
+
 	#pragma HLS RESET variable=state
 
 	switch (state)
 	{
 		case 0: // SPI Control Register setup
-			*(spi_bus + (SPICR)) = 0x0006;		// enable SPI core in master mode, auto SS
+			spi_bus[SPICR] = 0x0006;		// enable SPI core in master mode, auto SS
 			// -- *(m+SPICR_OFFSET) = 0x4 | 0x8 | 0x2; // Master, CPOL, SPE
 			state++;
 			break;
 		case 1: // SPI Slave select Register setup (active low)
-			*(spi_bus + (SPISSR)) = 0xFFFE;	// enable SS 0 - PMODNav ACC/GYRO
+			spi_bus[SPISSR] = 0xFFFE;	// enable SS 0 - PMODNav ACC/GYRO
 			state++;
 			break;
 		default:
@@ -42,14 +42,14 @@ void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<3
 			// -- *(spi_bus + (0x1C >> 2)) = 0xDEADBEEF;	// test write
 
 			// testing write capability
-			*(spi_bus + SPI_DTR) = TX_message;
+			spi_bus[SPI_DTR] = TX_message;
 
 			//delay_until_ms<1>();
 
 			// testing read capability
-			RX_message = *(spi_bus + SPI_DTR);
+			*RX_message = *(spi_bus +SPI_DTR);
 			//RX_message = *(spi_bus + SPI_DRR);
-
+			state++;
 			break;
 
 
