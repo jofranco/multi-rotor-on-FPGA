@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sun May  5 16:21:47 2019
+-- Date        : Sun May 12 12:58:28 2019
 -- Host        : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top design_1_axi_quad_spi_0_0 -prefix
---               design_1_axi_quad_spi_0_0_ design_1_axi_quad_spi_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_BUS_PMOD_NAV/AXI_SPI_BUS_PMOD_NAV.srcs/sources_1/bd/design_1/ip/design_1_axi_quad_spi_0_0/design_1_axi_quad_spi_0_0_sim_netlist.vhdl
 -- Design      : design_1_axi_quad_spi_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -552,6 +552,8 @@ entity design_1_axi_quad_spi_0_0_cdc_sync is
     prmry_in : in STD_LOGIC;
     ext_spi_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_cdc_sync : entity is "cdc_sync";
 end design_1_axi_quad_spi_0_0_cdc_sync;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_cdc_sync is
@@ -662,18 +664,19 @@ entity design_1_axi_quad_spi_0_0_counter_f is
     \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.tx_fifo_count_d1_reg[2]\ : out STD_LOGIC;
     tx_occ_msb_1 : out STD_LOGIC;
     \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\ : out STD_LOGIC;
-    \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\ : in STD_LOGIC;
-    \RESET_FLOPS[15].RST_FLOPS\ : in STD_LOGIC;
+    \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\ : in STD_LOGIC;
     bus2ip_reset_ipif_inverted : in STD_LOGIC;
+    \RESET_FLOPS[15].RST_FLOPS\ : in STD_LOGIC;
     \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ : in STD_LOGIC;
     reset2ip_reset_int : in STD_LOGIC;
-    spiXfer_done_d3 : in STD_LOGIC;
-    spiXfer_done_d2 : in STD_LOGIC;
-    IP2Bus_WrAck_transmit_enable : in STD_LOGIC;
+    \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]_0\ : in STD_LOGIC;
+    wr_en : in STD_LOGIC;
     Tx_FIFO_Full_i : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\ : in STD_LOGIC;
+    \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\ : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_counter_f : entity is "counter_f";
 end design_1_axi_quad_spi_0_0_counter_f;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_counter_f is
@@ -683,7 +686,6 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_counter_f is
   signal \icount_out[1]_i_1_n_0\ : STD_LOGIC;
   signal \icount_out[2]_i_1_n_0\ : STD_LOGIC;
   signal \icount_out[3]_i_2_n_0\ : STD_LOGIC;
-  signal \icount_out[3]_i_3_n_0\ : STD_LOGIC;
   signal \^tx_fifo_count\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^tx_occ_msb_1\ : STD_LOGIC;
 begin
@@ -700,7 +702,7 @@ begin
       I1 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[1]\,
       I2 => \^tx_occ_msb_1\,
       I3 => \^tx_fifo_count\(0),
-      I4 => IP2Bus_WrAck_transmit_enable,
+      I4 => wr_en,
       I5 => Tx_FIFO_Full_i,
       O => \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\
     );
@@ -710,8 +712,8 @@ begin
     )
         port map (
       I0 => \^tx_fifo_count\(0),
-      I1 => \RESET_FLOPS[15].RST_FLOPS\,
-      I2 => bus2ip_reset_ipif_inverted,
+      I1 => bus2ip_reset_ipif_inverted,
+      I2 => \RESET_FLOPS[15].RST_FLOPS\,
       I3 => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
       O => \icount_out[0]_i_1_n_0\
     );
@@ -721,55 +723,43 @@ begin
     )
         port map (
       I0 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[1]\,
-      I1 => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\,
+      I1 => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\,
       I2 => \^tx_fifo_count\(0),
-      I3 => \RESET_FLOPS[15].RST_FLOPS\,
-      I4 => bus2ip_reset_ipif_inverted,
+      I3 => bus2ip_reset_ipif_inverted,
+      I4 => \RESET_FLOPS[15].RST_FLOPS\,
       I5 => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
       O => \icount_out[1]_i_1_n_0\
     );
 \icount_out[2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFFFFFC96C"
+      INIT => X"FFFFFFFFFFFFC69C"
     )
         port map (
       I0 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[1]\,
       I1 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[2]\,
-      I2 => \^tx_fifo_count\(0),
-      I3 => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\,
+      I2 => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\,
+      I3 => \^tx_fifo_count\(0),
       I4 => reset2ip_reset_int,
       I5 => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
       O => \icount_out[2]_i_1_n_0\
     );
 \icount_out[3]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFFFFFDB24"
+      INIT => X"D7DDDDDDDDDDDD7D"
     )
         port map (
-      I0 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[2]\,
-      I1 => \icount_out[3]_i_3_n_0\,
-      I2 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[1]\,
-      I3 => \^tx_occ_msb_1\,
-      I4 => reset2ip_reset_int,
-      I5 => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
+      I0 => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]_0\,
+      I1 => \^tx_occ_msb_1\,
+      I2 => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\,
+      I3 => \^tx_fifo_count\(0),
+      I4 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[2]\,
+      I5 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[1]\,
       O => \icount_out[3]_i_2_n_0\
-    );
-\icount_out[3]_i_3\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"557D0014"
-    )
-        port map (
-      I0 => \^tx_fifo_count\(0),
-      I1 => spiXfer_done_d3,
-      I2 => spiXfer_done_d2,
-      I3 => IP2Bus_WrAck_transmit_enable,
-      I4 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[1]\,
-      O => \icount_out[3]_i_3_n_0\
     );
 \icount_out_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
-      CE => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\,
+      CE => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\,
       D => \icount_out[0]_i_1_n_0\,
       Q => \^tx_fifo_count\(0),
       R => '0'
@@ -777,7 +767,7 @@ begin
 \icount_out_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
-      CE => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\,
+      CE => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\,
       D => \icount_out[1]_i_1_n_0\,
       Q => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[1]\,
       R => '0'
@@ -785,7 +775,7 @@ begin
 \icount_out_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
-      CE => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\,
+      CE => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\,
       D => \icount_out[2]_i_1_n_0\,
       Q => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_count_d1_reg[2]\,
       R => '0'
@@ -793,7 +783,7 @@ begin
 \icount_out_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
-      CE => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\,
+      CE => \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\,
       D => \icount_out[3]_i_2_n_0\,
       Q => \^tx_occ_msb_1\,
       R => '0'
@@ -805,13 +795,11 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
   port (
-    \ip_irpt_enable_reg_reg[8]\ : out STD_LOGIC;
+    spisel_d1_reg_to_axi_clk : out STD_LOGIC;
     \LOGIC_GENERATION_FDR.SPISEL_PULSE_S2AX_1_CDC_0\ : out STD_LOGIC;
     \LOGIC_GENERATION_FDR.MODF_STROBE_S2AX_1_CDC_0\ : out STD_LOGIC;
     tx_FIFO_Occpncy_MSB_d1_reg : out STD_LOGIC;
     \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_1_CDC_0\ : out STD_LOGIC;
-    spiXfer_done_d2 : out STD_LOGIC;
-    spiXfer_done_d3 : out STD_LOGIC;
     dtr_underrun_to_axi_clk : out STD_LOGIC;
     spicr_0_loop_to_spi_clk : out STD_LOGIC;
     spicr_1_spe_to_spi_clk : out STD_LOGIC;
@@ -826,24 +814,20 @@ entity design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
     \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\ : out STD_LOGIC;
     \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_int_reg\ : out STD_LOGIC;
     modf_reg : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg_reg[8]\ : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[7].GEN_REG_STATUS.ip_irpt_status_reg_reg[7]\ : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\ : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[5].GEN_REG_STATUS.ip_irpt_status_reg_reg[5]\ : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ : out STD_LOGIC;
     \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ : out STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ : out STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[5].GEN_REG_STATUS.ip_irpt_status_reg_reg[5]\ : out STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[7].GEN_REG_STATUS.ip_irpt_status_reg_reg[7]\ : out STD_LOGIC;
     Tx_FIFO_Empty_intr : out STD_LOGIC;
     tx_occ_msb : out STD_LOGIC;
-    D : out STD_LOGIC_VECTOR ( 0 to 0 );
     \icount_out_reg[1]\ : out STD_LOGIC;
     spiXfer_done_to_axi_1 : out STD_LOGIC;
     R : out STD_LOGIC;
     transfer_start_reg : out STD_LOGIC;
     Slave_MODF_strobe0 : out STD_LOGIC;
     MODF_strobe0 : out STD_LOGIC;
-    \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg\ : out STD_LOGIC;
-    \OTHER_RATIO_GENERATE.Shift_Reg_reg[7]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[7]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    D : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[15]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \OTHER_RATIO_GENERATE.sck_o_int_reg\ : out STD_LOGIC;
     rst : out STD_LOGIC;
     \SS_O_reg[0]\ : out STD_LOGIC;
@@ -858,7 +842,7 @@ entity design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
     dtr_underrun_int : in STD_LOGIC;
     spicr_0_loop_frm_axi_clk : in STD_LOGIC;
     spicr_1_spe_frm_axi_clk : in STD_LOGIC;
-    \CONTROL_REG_5_9_GENERATE[7].SPICR_data_int_reg[7]\ : in STD_LOGIC;
+    spicr_2_mst_n_slv_frm_axi_clk : in STD_LOGIC;
     spicr_3_cpol_frm_axi_clk : in STD_LOGIC;
     spicr_4_cpha_frm_axi_clk : in STD_LOGIC;
     spicr_7_ss_frm_axi_clk : in STD_LOGIC;
@@ -871,9 +855,9 @@ entity design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
     p_5_out : in STD_LOGIC;
     p_2_out : in STD_LOGIC;
     p_0_out : in STD_LOGIC;
-    IP2Bus_WrAck_transmit_enable : in STD_LOGIC;
-    \RESET_FLOPS[15].RST_FLOPS\ : in STD_LOGIC;
+    wr_en : in STD_LOGIC;
     bus2ip_reset_ipif_inverted : in STD_LOGIC;
+    \RESET_FLOPS[15].RST_FLOPS\ : in STD_LOGIC;
     \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ : in STD_LOGIC;
     Allow_Slave_MODF_Strobe : in STD_LOGIC;
     spicr_6_rxfifo_rst_frm_axi_clk : in STD_LOGIC;
@@ -882,30 +866,23 @@ entity design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
     Tx_FIFO_Full_int : in STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ : in STD_LOGIC;
     Bus_RNW_reg_reg : in STD_LOGIC;
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 3 downto 0 );
     irpt_wrack_d1_reg : in STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    p_1_in14_in : in STD_LOGIC;
-    p_1_in17_in : in STD_LOGIC;
-    tx_occ_msb_4 : in STD_LOGIC;
-    tx_FIFO_Occpncy_MSB_d1 : in STD_LOGIC;
-    p_1_in20_in : in STD_LOGIC;
-    p_1_in23_in : in STD_LOGIC;
-    p_1_in35_in : in STD_LOGIC;
     \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0\ : in STD_LOGIC;
+    p_1_in35_in : in STD_LOGIC;
+    p_1_in23_in : in STD_LOGIC;
+    p_1_in17_in : in STD_LOGIC;
     tx_fifo_count_d2 : in STD_LOGIC_VECTOR ( 3 downto 0 );
     spiXfer_done_to_axi_d1 : in STD_LOGIC;
-    data_Exists_RcFIFO_int_d1 : in STD_LOGIC;
-    almost_full : in STD_LOGIC;
-    p_6_in : in STD_LOGIC;
+    tx_occ_msb_4 : in STD_LOGIC;
     Bus_RNW_reg : in STD_LOGIC;
+    p_6_in : in STD_LOGIC;
+    almost_full : in STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ : in STD_LOGIC;
     slave_MODF_strobe_int : in STD_LOGIC;
     \LOGIC_GENERATION_FDR.SPICR_0_LOOP_AX2S_2_0\ : in STD_LOGIC;
     Allow_MODF_Strobe : in STD_LOGIC;
-    Count_trigger : in STD_LOGIC;
-    \OTHER_RATIO_GENERATE.Ratio_Count_reg[0]\ : in STD_LOGIC;
-    \OTHER_RATIO_GENERATE.Count_reg[1]\ : in STD_LOGIC;
-    SPIXfer_done_int_d1_reg : in STD_LOGIC;
+    \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg\ : in STD_LOGIC;
     dout : in STD_LOGIC_VECTOR ( 1 downto 0 );
     transfer_start_d1 : in STD_LOGIC;
     \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg_0\ : in STD_LOGIC;
@@ -915,10 +892,11 @@ entity design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
     modf_strobe_int : in STD_LOGIC;
     SPISEL_sync : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 : entity is "cross_clk_sync_fifo_1";
 end design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
-  signal \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2_n_0\ : STD_LOGIC;
   signal \^logic_generation_fdr.drr_overrun_s2ax_1_cdc_0\ : STD_LOGIC;
   signal \^logic_generation_fdr.modf_strobe_s2ax_1_cdc_0\ : STD_LOGIC;
   signal \LOGIC_GENERATION_FDR.SPICR_RX_FIFO_Rst_en_d1_i_1_n_0\ : STD_LOGIC;
@@ -926,7 +904,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
   signal \^logic_generation_fdr.spisel_pulse_s2ax_1_cdc_0\ : STD_LOGIC;
   signal \^logic_generation_fdr.sync_spixfer_done_s2ax_1_cdc_0\ : STD_LOGIC;
   signal \LOGIC_GENERATION_FDR.Slave_MODF_strobe_cdc_from_spi_int_2_reg_n_0\ : STD_LOGIC;
-  signal \^other_ratio_generate.rx_shft_reg_s_reg[7]\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \^other_ratio_generate.rx_shft_reg_s_reg[15]\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal Q : STD_LOGIC;
   signal SPICR_0_LOOP_cdc_from_axi_d1 : STD_LOGIC;
   signal SPICR_1_SPE_cdc_from_axi_d1 : STD_LOGIC;
@@ -945,7 +923,6 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
   signal drr_Overrun_int_cdc_from_spi_d2 : STD_LOGIC;
   signal drr_Overrun_int_cdc_from_spi_d3 : STD_LOGIC;
   signal dtr_underrun_cdc_from_spi_d1 : STD_LOGIC;
-  signal \^ip_irpt_enable_reg_reg[8]\ : STD_LOGIC;
   signal modf_strobe_cdc_from_spi_d1 : STD_LOGIC;
   signal modf_strobe_cdc_from_spi_d2 : STD_LOGIC;
   signal modf_strobe_cdc_from_spi_d3 : STD_LOGIC;
@@ -957,8 +934,8 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
   signal slave_MODF_strobe_cdc_from_spi_d2 : STD_LOGIC;
   signal slave_MODF_strobe_cdc_from_spi_d3 : STD_LOGIC;
   signal spiXfer_done_d1 : STD_LOGIC;
-  signal \^spixfer_done_d2\ : STD_LOGIC;
-  signal \^spixfer_done_d3\ : STD_LOGIC;
+  signal spiXfer_done_d2 : STD_LOGIC;
+  signal spiXfer_done_d3 : STD_LOGIC;
   signal \^spicr_0_loop_to_spi_clk\ : STD_LOGIC;
   signal \^spicr_1_spe_to_spi_clk\ : STD_LOGIC;
   signal \^spicr_3_cpol_to_spi_clk\ : STD_LOGIC;
@@ -976,7 +953,6 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
   signal \^tx_fifo_occpncy_msb_d1_reg\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of Allow_Slave_MODF_Strobe_i_1 : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2\ : label is "soft_lutpair24";
   attribute XILINX_LEGACY_PRIM : string;
   attribute XILINX_LEGACY_PRIM of \LOGIC_GENERATION_FDR.DRR_OVERRUN_S2AX_1_CDC\ : label is "FDR";
   attribute box_type : string;
@@ -1078,18 +1054,14 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_cross_clk_sync_fifo_1 is
   attribute XILINX_LEGACY_PRIM of \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ : label is "FDR";
   attribute box_type of \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ : label is "PRIMITIVE";
   attribute SOFT_HLUTNM of Slave_MODF_strobe_i_2 : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \ip_irpt_enable_reg[8]_i_2\ : label is "soft_lutpair24";
 begin
   \LOGIC_GENERATION_FDR.DRR_OVERRUN_S2AX_1_CDC_0\ <= \^logic_generation_fdr.drr_overrun_s2ax_1_cdc_0\;
   \LOGIC_GENERATION_FDR.MODF_STROBE_S2AX_1_CDC_0\ <= \^logic_generation_fdr.modf_strobe_s2ax_1_cdc_0\;
   \LOGIC_GENERATION_FDR.SPISEL_PULSE_S2AX_1_CDC_0\ <= \^logic_generation_fdr.spisel_pulse_s2ax_1_cdc_0\;
   \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_1_CDC_0\ <= \^logic_generation_fdr.sync_spixfer_done_s2ax_1_cdc_0\;
-  \OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[7]\(0) <= \^other_ratio_generate.rx_shft_reg_s_reg[7]\(0);
+  \OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[15]\(0) <= \^other_ratio_generate.rx_shft_reg_s_reg[15]\(0);
   SPICR_2_MST_N_SLV_to_spi_clk <= \^spicr_2_mst_n_slv_to_spi_clk\;
-  \ip_irpt_enable_reg_reg[8]\ <= \^ip_irpt_enable_reg_reg[8]\;
   register_Data_slvsel_int <= \^register_data_slvsel_int\;
-  spiXfer_done_d2 <= \^spixfer_done_d2\;
-  spiXfer_done_d3 <= \^spixfer_done_d3\;
   spicr_0_loop_to_spi_clk <= \^spicr_0_loop_to_spi_clk\;
   spicr_1_spe_to_spi_clk <= \^spicr_1_spe_to_spi_clk\;
   spicr_3_cpol_to_spi_clk <= \^spicr_3_cpol_to_spi_clk\;
@@ -1111,11 +1083,11 @@ Allow_Slave_MODF_Strobe_i_1: unisim.vcomponents.LUT3
       INIT => X"FFFFFFFFFFFFFF90"
     )
         port map (
-      I0 => \^spixfer_done_d2\,
-      I1 => \^spixfer_done_d3\,
+      I0 => spiXfer_done_d3,
+      I1 => spiXfer_done_d2,
       I2 => \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg_0\,
-      I3 => \RESET_FLOPS[15].RST_FLOPS\,
-      I4 => bus2ip_reset_ipif_inverted,
+      I3 => bus2ip_reset_ipif_inverted,
+      I4 => \RESET_FLOPS[15].RST_FLOPS\,
       I5 => spicr_6_rxfifo_rst_frm_axi_clk,
       O => \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\
     );
@@ -1124,8 +1096,8 @@ Allow_Slave_MODF_Strobe_i_1: unisim.vcomponents.LUT3
       INIT => X"00090009000F0000"
     )
         port map (
-      I0 => \^spixfer_done_d2\,
-      I1 => \^spixfer_done_d3\,
+      I0 => spiXfer_done_d3,
+      I1 => spiXfer_done_d2,
       I2 => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
       I3 => reset2ip_reset_int,
       I4 => Tx_FIFO_Full_i,
@@ -1137,94 +1109,57 @@ Allow_Slave_MODF_Strobe_i_1: unisim.vcomponents.LUT3
       INIT => X"6"
     )
         port map (
-      I0 => \^spixfer_done_d2\,
-      I1 => \^spixfer_done_d3\,
+      I0 => spiXfer_done_d3,
+      I1 => spiXfer_done_d2,
       O => spiXfer_done_to_axi_1
     );
 \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg[0]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"BEFF7D3C"
+      INIT => X"78FFFF78"
     )
         port map (
-      I0 => irpt_wrack_d1_reg,
-      I1 => modf_strobe_cdc_from_spi_d2,
-      I2 => modf_strobe_cdc_from_spi_d3,
-      I3 => s_axi_wdata(0),
-      I4 => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0\,
+      I0 => s_axi_wdata(0),
+      I1 => irpt_wrack_d1_reg,
+      I2 => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0\,
+      I3 => modf_strobe_cdc_from_spi_d3,
+      I4 => modf_strobe_cdc_from_spi_d2,
       O => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\
     );
 \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg[1]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"BEFF7D3C"
+      INIT => X"78FFFF78"
     )
         port map (
-      I0 => irpt_wrack_d1_reg,
-      I1 => slave_MODF_strobe_cdc_from_spi_d2,
-      I2 => slave_MODF_strobe_cdc_from_spi_d3,
-      I3 => s_axi_wdata(1),
-      I4 => p_1_in35_in,
+      I0 => s_axi_wdata(1),
+      I1 => irpt_wrack_d1_reg,
+      I2 => p_1_in35_in,
+      I3 => slave_MODF_strobe_cdc_from_spi_d3,
+      I4 => slave_MODF_strobe_cdc_from_spi_d2,
       O => \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\
     );
 \GEN_IP_IRPT_STATUS_REG[5].GEN_REG_STATUS.ip_irpt_status_reg[5]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"BEFF7D3C"
+      INIT => X"78FFFF78"
     )
         port map (
-      I0 => irpt_wrack_d1_reg,
-      I1 => drr_Overrun_int_cdc_from_spi_d2,
-      I2 => drr_Overrun_int_cdc_from_spi_d3,
-      I3 => s_axi_wdata(2),
-      I4 => p_1_in23_in,
+      I0 => s_axi_wdata(2),
+      I1 => irpt_wrack_d1_reg,
+      I2 => p_1_in23_in,
+      I3 => drr_Overrun_int_cdc_from_spi_d3,
+      I4 => drr_Overrun_int_cdc_from_spi_d2,
       O => \GEN_IP_IRPT_STATUS_REG[5].GEN_REG_STATUS.ip_irpt_status_reg_reg[5]\
-    );
-\GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg[6]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FBAAFFFFF755F300"
-    )
-        port map (
-      I0 => irpt_wrack_d1_reg,
-      I1 => tx_occ_msb_4,
-      I2 => \^tx_fifo_occpncy_msb_d1_reg\,
-      I3 => tx_FIFO_Occpncy_MSB_d1,
-      I4 => s_axi_wdata(3),
-      I5 => p_1_in20_in,
-      O => \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\
     );
 \GEN_IP_IRPT_STATUS_REG[7].GEN_REG_STATUS.ip_irpt_status_reg[7]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"BEFF7D3C"
+      INIT => X"78FFFF78"
     )
         port map (
-      I0 => irpt_wrack_d1_reg,
-      I1 => spisel_pulse_cdc_from_spi_d2,
-      I2 => spisel_pulse_cdc_from_spi_d3,
-      I3 => s_axi_wdata(4),
-      I4 => p_1_in17_in,
+      I0 => s_axi_wdata(3),
+      I1 => irpt_wrack_d1_reg,
+      I2 => p_1_in17_in,
+      I3 => spisel_pulse_cdc_from_spi_d3,
+      I4 => spisel_pulse_cdc_from_spi_d2,
       O => \GEN_IP_IRPT_STATUS_REG[7].GEN_REG_STATUS.ip_irpt_status_reg_reg[7]\
-    );
-\GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFEFEFEFCCDCDCDC"
-    )
-        port map (
-      I0 => irpt_wrack_d1_reg,
-      I1 => \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2_n_0\,
-      I2 => s_axi_wdata(5),
-      I3 => \^ip_irpt_enable_reg_reg[8]\,
-      I4 => \CONTROL_REG_5_9_GENERATE[7].SPICR_data_int_reg[7]\,
-      I5 => p_1_in14_in,
-      O => \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg_reg[8]\
-    );
-\GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0111"
-    )
-        port map (
-      I0 => data_Exists_RcFIFO_int_d1,
-      I1 => \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg_0\,
-      I2 => \^ip_irpt_enable_reg_reg[8]\,
-      I3 => \CONTROL_REG_5_9_GENERATE[7].SPICR_data_int_reg[7]\,
-      O => \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2_n_0\
     );
 \LOGIC_GENERATION_FDR.DRR_OVERRUN_S2AX_1_CDC\: unisim.vcomponents.FDRE
     generic map(
@@ -1420,7 +1355,7 @@ Allow_Slave_MODF_Strobe_i_1: unisim.vcomponents.LUT3
         port map (
       C => ext_spi_clk,
       CE => '1',
-      D => \CONTROL_REG_5_9_GENERATE[7].SPICR_data_int_reg[7]\,
+      D => spicr_2_mst_n_slv_frm_axi_clk,
       Q => SPICR_2_MST_N_SLV_cdc_from_axi_d1,
       R => Rst_to_spi
     );
@@ -1625,7 +1560,7 @@ Allow_Slave_MODF_Strobe_i_1: unisim.vcomponents.LUT3
       C => s_axi_aclk,
       CE => '1',
       D => spisel_d1_reg_cdc_from_spi_d1,
-      Q => \^ip_irpt_enable_reg_reg[8]\,
+      Q => spisel_d1_reg_to_axi_clk,
       R => reset2ip_reset_int
     );
 \LOGIC_GENERATION_FDR.SPISEL_PULSE_S2AX_1_CDC\: unisim.vcomponents.FDRE
@@ -1724,7 +1659,7 @@ Allow_Slave_MODF_Strobe_i_1: unisim.vcomponents.LUT3
       C => s_axi_aclk,
       CE => '1',
       D => spiXfer_done_d1,
-      Q => \^spixfer_done_d2\,
+      Q => spiXfer_done_d2,
       R => reset2ip_reset_int
     );
 \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\: unisim.vcomponents.FDRE
@@ -1734,8 +1669,8 @@ Allow_Slave_MODF_Strobe_i_1: unisim.vcomponents.LUT3
         port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \^spixfer_done_d2\,
-      Q => \^spixfer_done_d3\,
+      D => spiXfer_done_d2,
+      Q => spiXfer_done_d3,
       R => reset2ip_reset_int
     );
 \LOGIC_GENERATION_FDR.Slave_MODF_strobe_cdc_from_spi_int_2_i_1\: unisim.vcomponents.LUT2
@@ -1818,19 +1753,28 @@ MODF_strobe_i_1: unisim.vcomponents.LUT2
       I1 => Allow_MODF_Strobe,
       O => MODF_strobe0
     );
-\OTHER_RATIO_GENERATE.Shift_Reg[7]_i_1\: unisim.vcomponents.LUT5
+\OTHER_RATIO_GENERATE.Shift_Reg[15]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"B8BBB888"
     )
         port map (
-      I0 => \^other_ratio_generate.rx_shft_reg_s_reg[7]\(0),
-      I1 => SPIXfer_done_int_d1_reg,
+      I0 => \^other_ratio_generate.rx_shft_reg_s_reg[15]\(0),
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg\,
       I2 => dout(1),
       I3 => \^spicr_9_lsb_to_spi_clk\,
       I4 => dout(0),
-      O => \OTHER_RATIO_GENERATE.Shift_Reg_reg[7]\(0)
+      O => D(0)
     );
-\OTHER_RATIO_GENERATE.rx_shft_reg_s[7]_i_1\: unisim.vcomponents.LUT5
+\OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \^spicr_3_cpol_to_spi_clk\,
+      I1 => \^spicr_4_cpha_to_spi_clk\,
+      O => \OTHER_RATIO_GENERATE.sck_o_int_reg\
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_s[15]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"B8FFB800"
     )
@@ -1840,16 +1784,7 @@ MODF_strobe_i_1: unisim.vcomponents.LUT2
       I2 => io1_i_sync,
       I3 => \^spicr_2_mst_n_slv_to_spi_clk\,
       I4 => io0_i_sync,
-      O => \^other_ratio_generate.rx_shft_reg_s_reg[7]\(0)
-    );
-\OTHER_RATIO_GENERATE.sck_o_int_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => \^spicr_3_cpol_to_spi_clk\,
-      I1 => \^spicr_4_cpha_to_spi_clk\,
-      O => \OTHER_RATIO_GENERATE.sck_o_int_reg\
+      O => \^other_ratio_generate.rx_shft_reg_s_reg[15]\(0)
     );
 \RATIO_NOT_EQUAL_4_GENERATE.SCK_O_NQ_4_NO_STARTUP_USED.SCK_O_NE_4_FDRE_INST_i_1\: unisim.vcomponents.LUT1
     generic map(
@@ -1858,19 +1793,6 @@ MODF_strobe_i_1: unisim.vcomponents.LUT2
         port map (
       I0 => \^spicr_2_mst_n_slv_to_spi_clk\,
       O => R
-    );
-\RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000000000F60000"
-    )
-        port map (
-      I0 => \^spicr_3_cpol_to_spi_clk\,
-      I1 => \^spicr_4_cpha_to_spi_clk\,
-      I2 => Count_trigger,
-      I3 => \OTHER_RATIO_GENERATE.Ratio_Count_reg[0]\,
-      I4 => \^spicr_2_mst_n_slv_to_spi_clk\,
-      I5 => \OTHER_RATIO_GENERATE.Count_reg[1]\,
-      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg\
     );
 SPI_TRISTATE_CONTROL_III_i_1: unisim.vcomponents.LUT5
     generic map(
@@ -1927,41 +1849,31 @@ Slave_MODF_strobe_i_2: unisim.vcomponents.LUT3
       I2 => reset_RcFIFO_ptr_cdc_from_axi_d1,
       O => rst
     );
-\icount_out[2]_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"6666606666666666"
-    )
-        port map (
-      I0 => \^spixfer_done_d3\,
-      I1 => \^spixfer_done_d2\,
-      I2 => almost_full,
-      I3 => p_6_in,
-      I4 => Bus_RNW_reg,
-      I5 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\,
-      O => \icount_out_reg[1]\
-    );
 \icount_out[3]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FFFFFFFFFFFFFF96"
     )
         port map (
-      I0 => IP2Bus_WrAck_transmit_enable,
-      I1 => \^spixfer_done_d2\,
-      I2 => \^spixfer_done_d3\,
-      I3 => \RESET_FLOPS[15].RST_FLOPS\,
-      I4 => bus2ip_reset_ipif_inverted,
+      I0 => wr_en,
+      I1 => spiXfer_done_d3,
+      I2 => spiXfer_done_d2,
+      I3 => bus2ip_reset_ipif_inverted,
+      I4 => \RESET_FLOPS[15].RST_FLOPS\,
       I5 => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
       O => \icount_out_reg[0]\
     );
-\ip_irpt_enable_reg[8]_i_2\: unisim.vcomponents.LUT3
+\icount_out[3]_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"2A"
+      INIT => X"6666606666666666"
     )
         port map (
-      I0 => s_axi_wdata(5),
-      I1 => \^ip_irpt_enable_reg_reg[8]\,
-      I2 => \CONTROL_REG_5_9_GENERATE[7].SPICR_data_int_reg[7]\,
-      O => D(0)
+      I0 => spiXfer_done_d2,
+      I1 => spiXfer_done_d3,
+      I2 => Bus_RNW_reg,
+      I3 => p_6_in,
+      I4 => almost_full,
+      I5 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\,
+      O => \icount_out_reg[1]\
     );
 modf_i_1: unisim.vcomponents.LUT6
     generic map(
@@ -1970,8 +1882,8 @@ modf_i_1: unisim.vcomponents.LUT6
         port map (
       I0 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
       I1 => Bus_RNW_reg_reg,
-      I2 => modf_strobe_cdc_from_spi_d2,
-      I3 => modf_strobe_cdc_from_spi_d3,
+      I2 => modf_strobe_cdc_from_spi_d3,
+      I3 => modf_strobe_cdc_from_spi_d2,
       I4 => sr_3_MODF_int,
       I5 => reset2ip_reset_int,
       O => modf_reg
@@ -2006,10 +1918,10 @@ tx_FIFO_Empty_d1_i_1: unisim.vcomponents.LUT6
     )
         port map (
       I0 => tx_fifo_count_d2(1),
-      I1 => tx_fifo_count_d2(2),
-      I2 => tx_fifo_count_d2(0),
+      I1 => tx_fifo_count_d2(3),
+      I2 => tx_fifo_count_d2(2),
       I3 => \^tx_fifo_occpncy_msb_d1_reg\,
-      I4 => tx_fifo_count_d2(3),
+      I4 => tx_fifo_count_d2(0),
       I5 => spiXfer_done_to_axi_d1,
       O => Tx_FIFO_Empty_intr
     );
@@ -2039,42 +1951,51 @@ entity design_1_axi_quad_spi_0_0_interrupt_control is
     p_1_in20_in : out STD_LOGIC;
     p_1_in17_in : out STD_LOGIC;
     p_1_in14_in : out STD_LOGIC;
-    p_2_in : out STD_LOGIC;
+    p_2_in_0 : out STD_LOGIC;
     irpt_rdack_d1 : out STD_LOGIC;
     ipif_glbl_irpt_enable_reg : out STD_LOGIC;
-    D : out STD_LOGIC_VECTOR ( 0 to 0 );
     ip2intc_irpt : out STD_LOGIC;
     Q : out STD_LOGIC_VECTOR ( 8 downto 0 );
     IP2Bus_RdAck_1 : out STD_LOGIC;
     reset2ip_reset_int : in STD_LOGIC;
     irpt_wrack : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.MODF_STROBE_S2AX_2\ : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.SLV_MODF_STRB_S2AX_2\ : in STD_LOGIC;
-    tx_FIFO_Empty_d1_reg : in STD_LOGIC;
-    dtr_underrun_d1_reg : in STD_LOGIC;
-    rc_FIFO_Full_d1_reg : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.DRR_OVERRUN_S2AX_2\ : in STD_LOGIC;
-    \FIFO_EXISTS.tx_occ_msb_4_reg\ : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.SPISEL_PULSE_S2AX_2\ : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2\ : in STD_LOGIC;
-    interrupt_wrce_strb : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_1\ : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]_0\ : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[5].GEN_REG_STATUS.ip_irpt_status_reg_reg[5]_0\ : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[7].GEN_REG_STATUS.ip_irpt_status_reg_reg[7]_0\ : in STD_LOGIC;
+    \CONTROL_REG_5_9_GENERATE[7].SPICR_data_int_reg[7]\ : in STD_LOGIC;
+    irpt_wrack_d1_reg_0 : in STD_LOGIC;
     irpt_rdack : in STD_LOGIC;
     intr2bus_rdack0 : in STD_LOGIC;
     Bus_RNW_reg_reg : in STD_LOGIC;
-    \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ : in STD_LOGIC;
-    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ : in STD_LOGIC;
-    \gwdc.wr_data_count_i_reg[3]\ : in STD_LOGIC;
-    \grdc.rd_data_count_i_reg[4]\ : in STD_LOGIC;
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    irpt_wrack_d1_reg_1 : in STD_LOGIC;
+    tx_FIFO_Empty_d1 : in STD_LOGIC;
+    Tx_FIFO_Empty_intr : in STD_LOGIC;
+    dtr_underrun_d1 : in STD_LOGIC;
+    dtr_underrun_to_axi_clk : in STD_LOGIC;
+    rc_FIFO_Full_d1 : in STD_LOGIC;
+    scndry_out : in STD_LOGIC;
+    empty : in STD_LOGIC;
+    tx_occ_msb_4 : in STD_LOGIC;
+    Tx_FIFO_Empty_SPISR_to_axi_clk : in STD_LOGIC;
+    tx_FIFO_Occpncy_MSB_d1 : in STD_LOGIC;
     ip2Bus_RdAck_intr_reg_hole : in STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ : in STD_LOGIC;
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
-    \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\ : in STD_LOGIC_VECTOR ( 8 downto 0 )
+    D : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_interrupt_control : entity is "interrupt_control";
 end design_1_axi_quad_spi_0_0_interrupt_control;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_interrupt_control is
   signal \^gen_ip_irpt_status_reg[0].gen_reg_status.ip_irpt_status_reg_reg[0]_0\ : STD_LOGIC;
+  signal \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg[2]_i_1_n_0\ : STD_LOGIC;
+  signal \GEN_IP_IRPT_STATUS_REG[3].GEN_REG_STATUS.ip_irpt_status_reg[3]_i_1_n_0\ : STD_LOGIC;
+  signal \GEN_IP_IRPT_STATUS_REG[4].GEN_REG_STATUS.ip_irpt_status_reg[4]_i_1_n_0\ : STD_LOGIC;
+  signal \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg[6]_i_1_n_0\ : STD_LOGIC;
   signal \^q\ : STD_LOGIC_VECTOR ( 8 downto 0 );
   signal ip2intc_irpt_INST_0_i_1_n_0 : STD_LOGIC;
   signal ip2intc_irpt_INST_0_i_2_n_0 : STD_LOGIC;
@@ -2106,7 +2027,7 @@ begin
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \LOGIC_GENERATION_FDR.MODF_STROBE_S2AX_2\,
+      D => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_1\,
       Q => \^gen_ip_irpt_status_reg[0].gen_reg_status.ip_irpt_status_reg_reg[0]_0\,
       R => reset2ip_reset_int
     );
@@ -2114,31 +2035,68 @@ begin
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \LOGIC_GENERATION_FDR.SLV_MODF_STRB_S2AX_2\,
+      D => \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]_0\,
       Q => \^p_1_in35_in\,
       R => reset2ip_reset_int
+    );
+\GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg[2]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"78FF7878"
+    )
+        port map (
+      I0 => s_axi_wdata(2),
+      I1 => irpt_wrack_d1_reg_1,
+      I2 => \^p_1_in32_in\,
+      I3 => tx_FIFO_Empty_d1,
+      I4 => Tx_FIFO_Empty_intr,
+      O => \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg[2]_i_1_n_0\
     );
 \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => tx_FIFO_Empty_d1_reg,
+      D => \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg[2]_i_1_n_0\,
       Q => \^p_1_in32_in\,
       R => reset2ip_reset_int
+    );
+\GEN_IP_IRPT_STATUS_REG[3].GEN_REG_STATUS.ip_irpt_status_reg[3]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"78FF7878"
+    )
+        port map (
+      I0 => s_axi_wdata(3),
+      I1 => irpt_wrack_d1_reg_1,
+      I2 => \^p_1_in29_in\,
+      I3 => dtr_underrun_d1,
+      I4 => dtr_underrun_to_axi_clk,
+      O => \GEN_IP_IRPT_STATUS_REG[3].GEN_REG_STATUS.ip_irpt_status_reg[3]_i_1_n_0\
     );
 \GEN_IP_IRPT_STATUS_REG[3].GEN_REG_STATUS.ip_irpt_status_reg_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => dtr_underrun_d1_reg,
+      D => \GEN_IP_IRPT_STATUS_REG[3].GEN_REG_STATUS.ip_irpt_status_reg[3]_i_1_n_0\,
       Q => \^p_1_in29_in\,
       R => reset2ip_reset_int
+    );
+\GEN_IP_IRPT_STATUS_REG[4].GEN_REG_STATUS.ip_irpt_status_reg[4]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"7878787878FF7878"
+    )
+        port map (
+      I0 => s_axi_wdata(4),
+      I1 => irpt_wrack_d1_reg_1,
+      I2 => \^p_1_in26_in\,
+      I3 => rc_FIFO_Full_d1,
+      I4 => scndry_out,
+      I5 => empty,
+      O => \GEN_IP_IRPT_STATUS_REG[4].GEN_REG_STATUS.ip_irpt_status_reg[4]_i_1_n_0\
     );
 \GEN_IP_IRPT_STATUS_REG[4].GEN_REG_STATUS.ip_irpt_status_reg_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => rc_FIFO_Full_d1_reg,
+      D => \GEN_IP_IRPT_STATUS_REG[4].GEN_REG_STATUS.ip_irpt_status_reg[4]_i_1_n_0\,
       Q => \^p_1_in26_in\,
       R => reset2ip_reset_int
     );
@@ -2146,15 +2104,28 @@ begin
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \LOGIC_GENERATION_FDR.DRR_OVERRUN_S2AX_2\,
+      D => \GEN_IP_IRPT_STATUS_REG[5].GEN_REG_STATUS.ip_irpt_status_reg_reg[5]_0\,
       Q => \^p_1_in23_in\,
       R => reset2ip_reset_int
+    );
+\GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg[6]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFF78FF78787878"
+    )
+        port map (
+      I0 => s_axi_wdata(6),
+      I1 => irpt_wrack_d1_reg_1,
+      I2 => \^p_1_in20_in\,
+      I3 => tx_occ_msb_4,
+      I4 => Tx_FIFO_Empty_SPISR_to_axi_clk,
+      I5 => tx_FIFO_Occpncy_MSB_d1,
+      O => \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg[6]_i_1_n_0\
     );
 \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \FIFO_EXISTS.tx_occ_msb_4_reg\,
+      D => \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg[6]_i_1_n_0\,
       Q => \^p_1_in20_in\,
       R => reset2ip_reset_int
     );
@@ -2162,7 +2133,7 @@ begin
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \LOGIC_GENERATION_FDR.SPISEL_PULSE_S2AX_2\,
+      D => \GEN_IP_IRPT_STATUS_REG[7].GEN_REG_STATUS.ip_irpt_status_reg_reg[7]_0\,
       Q => \^p_1_in17_in\,
       R => reset2ip_reset_int
     );
@@ -2170,21 +2141,9 @@ begin
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2\,
+      D => \CONTROL_REG_5_9_GENERATE[7].SPICR_data_int_reg[7]\,
       Q => \^p_1_in14_in\,
       R => reset2ip_reset_int
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_1\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFFFF4"
-    )
-        port map (
-      I0 => \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\,
-      I1 => \^p_1_in29_in\,
-      I2 => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\,
-      I3 => \gwdc.wr_data_count_i_reg[3]\,
-      I4 => \grdc.rd_data_count_i_reg[4]\,
-      O => D(0)
     );
 \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_RdAck_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -2208,8 +2167,8 @@ intr2bus_wrack_reg: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => interrupt_wrce_strb,
-      Q => p_2_in,
+      D => irpt_wrack_d1_reg_0,
+      Q => p_2_in_0,
       R => reset2ip_reset_int
     );
 ip2intc_irpt_INST_0: unisim.vcomponents.LUT5
@@ -2229,10 +2188,10 @@ ip2intc_irpt_INST_0_i_1: unisim.vcomponents.LUT4
       INIT => X"F888"
     )
         port map (
-      I0 => \^q\(4),
-      I1 => \^p_1_in26_in\,
-      I2 => \^q\(1),
-      I3 => \^p_1_in35_in\,
+      I0 => \^q\(6),
+      I1 => \^p_1_in20_in\,
+      I2 => \^q\(2),
+      I3 => \^p_1_in32_in\,
       O => ip2intc_irpt_INST_0_i_1_n_0
     );
 ip2intc_irpt_INST_0_i_2: unisim.vcomponents.LUT4
@@ -2242,8 +2201,8 @@ ip2intc_irpt_INST_0_i_2: unisim.vcomponents.LUT4
         port map (
       I0 => \^q\(8),
       I1 => \^p_1_in14_in\,
-      I2 => \^q\(2),
-      I3 => \^p_1_in32_in\,
+      I2 => \^q\(0),
+      I3 => \^gen_ip_irpt_status_reg[0].gen_reg_status.ip_irpt_status_reg_reg[0]_0\,
       O => ip2intc_irpt_INST_0_i_2_n_0
     );
 ip2intc_irpt_INST_0_i_3: unisim.vcomponents.LUT4
@@ -2251,10 +2210,10 @@ ip2intc_irpt_INST_0_i_3: unisim.vcomponents.LUT4
       INIT => X"F888"
     )
         port map (
-      I0 => \^q\(6),
-      I1 => \^p_1_in20_in\,
-      I2 => \^q\(7),
-      I3 => \^p_1_in17_in\,
+      I0 => \^q\(5),
+      I1 => \^p_1_in23_in\,
+      I2 => \^q\(4),
+      I3 => \^p_1_in26_in\,
       O => ip2intc_irpt_INST_0_i_3_n_0
     );
 ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
@@ -2262,19 +2221,19 @@ ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
       INIT => X"0000077707770777"
     )
         port map (
-      I0 => \^q\(0),
-      I1 => \^gen_ip_irpt_status_reg[0].gen_reg_status.ip_irpt_status_reg_reg[0]_0\,
-      I2 => \^p_1_in23_in\,
-      I3 => \^q\(5),
-      I4 => \^p_1_in29_in\,
-      I5 => \^q\(3),
+      I0 => \^q\(3),
+      I1 => \^p_1_in29_in\,
+      I2 => \^p_1_in35_in\,
+      I3 => \^q\(1),
+      I4 => \^p_1_in17_in\,
+      I5 => \^q\(7),
       O => ip2intc_irpt_INST_0_i_4_n_0
     );
 \ip_irpt_enable_reg_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => E(0),
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(0),
+      D => s_axi_wdata(0),
       Q => \^q\(0),
       R => reset2ip_reset_int
     );
@@ -2282,7 +2241,7 @@ ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
      port map (
       C => s_axi_aclk,
       CE => E(0),
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(1),
+      D => s_axi_wdata(1),
       Q => \^q\(1),
       R => reset2ip_reset_int
     );
@@ -2290,7 +2249,7 @@ ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
      port map (
       C => s_axi_aclk,
       CE => E(0),
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(2),
+      D => s_axi_wdata(2),
       Q => \^q\(2),
       R => reset2ip_reset_int
     );
@@ -2298,7 +2257,7 @@ ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
      port map (
       C => s_axi_aclk,
       CE => E(0),
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(3),
+      D => s_axi_wdata(3),
       Q => \^q\(3),
       R => reset2ip_reset_int
     );
@@ -2306,7 +2265,7 @@ ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
      port map (
       C => s_axi_aclk,
       CE => E(0),
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(4),
+      D => s_axi_wdata(4),
       Q => \^q\(4),
       R => reset2ip_reset_int
     );
@@ -2314,7 +2273,7 @@ ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
      port map (
       C => s_axi_aclk,
       CE => E(0),
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(5),
+      D => s_axi_wdata(5),
       Q => \^q\(5),
       R => reset2ip_reset_int
     );
@@ -2322,7 +2281,7 @@ ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
      port map (
       C => s_axi_aclk,
       CE => E(0),
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(6),
+      D => s_axi_wdata(6),
       Q => \^q\(6),
       R => reset2ip_reset_int
     );
@@ -2330,7 +2289,7 @@ ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
      port map (
       C => s_axi_aclk,
       CE => E(0),
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(7),
+      D => s_axi_wdata(7),
       Q => \^q\(7),
       R => reset2ip_reset_int
     );
@@ -2338,7 +2297,7 @@ ip2intc_irpt_INST_0_i_4: unisim.vcomponents.LUT6
      port map (
       C => s_axi_aclk,
       CE => E(0),
-      D => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(8),
+      D => D(0),
       Q => \^q\(8),
       R => reset2ip_reset_int
     );
@@ -2382,35 +2341,48 @@ entity design_1_axi_quad_spi_0_0_qspi_cntrl_reg is
     spicr_7_ss_frm_axi_clk : out STD_LOGIC;
     spicr_8_tr_inhibit_frm_axi_clk : out STD_LOGIC;
     spicr_9_lsb_frm_axi_clk : out STD_LOGIC;
-    \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]_0\ : out STD_LOGIC;
-    \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]_0\ : out STD_LOGIC;
+    \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\ : out STD_LOGIC;
+    spicr_6_rxfifo_rst_frm_axi_clk : out STD_LOGIC;
+    \icount_out_reg[3]\ : out STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg_reg[8]\ : out STD_LOGIC;
+    D : out STD_LOGIC_VECTOR ( 0 to 0 );
     reset2ip_reset_int : in STD_LOGIC;
     bus2ip_wrce_int : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_aclk : in STD_LOGIC;
     SPICR_data_int_reg0 : in STD_LOGIC;
-    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ : in STD_LOGIC;
-    p_8_in : in STD_LOGIC;
-    Bus_RNW_reg : in STD_LOGIC
+    \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]_0\ : in STD_LOGIC;
+    \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]_0\ : in STD_LOGIC;
+    \RESET_FLOPS[15].RST_FLOPS\ : in STD_LOGIC;
+    bus2ip_reset_ipif_inverted : in STD_LOGIC;
+    \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2\ : in STD_LOGIC;
+    irpt_wrack_d1_reg : in STD_LOGIC;
+    p_1_in14_in : in STD_LOGIC;
+    \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\ : in STD_LOGIC;
+    data_Exists_RcFIFO_int_d1 : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_qspi_cntrl_reg : entity is "qspi_cntrl_reg";
 end design_1_axi_quad_spi_0_0_qspi_cntrl_reg;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_cntrl_reg is
-  signal \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int[3]_i_1_n_0\ : STD_LOGIC;
-  signal \^control_reg_3_4_generate[3].spicr_data_int_reg[3]_0\ : STD_LOGIC;
-  signal \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int[4]_i_1_n_0\ : STD_LOGIC;
-  signal \^control_reg_3_4_generate[4].spicr_data_int_reg[4]_0\ : STD_LOGIC;
+  signal \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\ : STD_LOGIC;
+  signal \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2_n_0\ : STD_LOGIC;
+  signal \^logic_generation_fdr.spicr_2_mst_n_slv_ax2s_1_cdc\ : STD_LOGIC;
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2\ : label is "soft_lutpair24";
   attribute box_type : string;
   attribute box_type of \SPICR_REG_78_GENERATE[7].SPI_TRISTATE_CONTROL_I\ : label is "PRIMITIVE";
   attribute box_type of \SPICR_REG_78_GENERATE[8].SPI_TRISTATE_CONTROL_I\ : label is "PRIMITIVE";
+  attribute SOFT_HLUTNM of \ip_irpt_enable_reg[8]_i_2\ : label is "soft_lutpair24";
 begin
-  \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]_0\ <= \^control_reg_3_4_generate[3].spicr_data_int_reg[3]_0\;
-  \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]_0\ <= \^control_reg_3_4_generate[4].spicr_data_int_reg[4]_0\;
+  \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\ <= \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\;
+  \LOGIC_GENERATION_FDR.SPICR_2_MST_N_SLV_AX2S_1_CDC\ <= \^logic_generation_fdr.spicr_2_mst_n_slv_ax2s_1_cdc\;
 \CONTROL_REG_1_2_GENERATE[1].SPICR_data_int_reg[1]\: unisim.vcomponents.FDSE
      port map (
       C => s_axi_aclk,
       CE => SPICR_data_int_reg0,
-      D => s_axi_wdata(8),
+      D => s_axi_wdata(6),
       Q => spicr_8_tr_inhibit_frm_axi_clk,
       S => reset2ip_reset_int
     );
@@ -2418,50 +2390,24 @@ begin
      port map (
       C => s_axi_aclk,
       CE => SPICR_data_int_reg0,
-      D => s_axi_wdata(7),
+      D => s_axi_wdata(5),
       Q => spicr_7_ss_frm_axi_clk,
       S => reset2ip_reset_int
-    );
-\CONTROL_REG_3_4_GENERATE[3].SPICR_data_int[3]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"000000000000E200"
-    )
-        port map (
-      I0 => \^control_reg_3_4_generate[3].spicr_data_int_reg[3]_0\,
-      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\,
-      I2 => s_axi_wdata(6),
-      I3 => p_8_in,
-      I4 => Bus_RNW_reg,
-      I5 => reset2ip_reset_int,
-      O => \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int[3]_i_1_n_0\
     );
 \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int[3]_i_1_n_0\,
-      Q => \^control_reg_3_4_generate[3].spicr_data_int_reg[3]_0\,
+      D => \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]_0\,
+      Q => spicr_6_rxfifo_rst_frm_axi_clk,
       R => '0'
-    );
-\CONTROL_REG_3_4_GENERATE[4].SPICR_data_int[4]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"000000000000E200"
-    )
-        port map (
-      I0 => \^control_reg_3_4_generate[4].spicr_data_int_reg[4]_0\,
-      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\,
-      I2 => s_axi_wdata(5),
-      I3 => p_8_in,
-      I4 => Bus_RNW_reg,
-      I5 => reset2ip_reset_int,
-      O => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int[4]_i_1_n_0\
     );
 \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int[4]_i_1_n_0\,
-      Q => \^control_reg_3_4_generate[4].spicr_data_int_reg[4]_0\,
+      D => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]_0\,
+      Q => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\,
       R => '0'
     );
 \CONTROL_REG_5_9_GENERATE[5].SPICR_data_int_reg[5]\: unisim.vcomponents.FDRE
@@ -2485,7 +2431,7 @@ begin
       C => s_axi_aclk,
       CE => SPICR_data_int_reg0,
       D => s_axi_wdata(2),
-      Q => \LOGIC_GENERATION_FDR.SPICR_2_MST_N_SLV_AX2S_1_CDC\,
+      Q => \^logic_generation_fdr.spicr_2_mst_n_slv_ax2s_1_cdc\,
       R => reset2ip_reset_int
     );
 \CONTROL_REG_5_9_GENERATE[8].SPICR_data_int_reg[8]\: unisim.vcomponents.FDRE
@@ -2503,6 +2449,30 @@ begin
       D => s_axi_wdata(0),
       Q => spicr_0_loop_frm_axi_clk,
       R => reset2ip_reset_int
+    );
+\GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFD5FF2A00"
+    )
+        port map (
+      I0 => s_axi_wdata(6),
+      I1 => \^logic_generation_fdr.spicr_2_mst_n_slv_ax2s_1_cdc\,
+      I2 => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2\,
+      I3 => irpt_wrack_d1_reg,
+      I4 => p_1_in14_in,
+      I5 => \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2_n_0\,
+      O => \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg_reg[8]\
+    );
+\GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0111"
+    )
+        port map (
+      I0 => \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\,
+      I1 => data_Exists_RcFIFO_int_d1,
+      I2 => \^logic_generation_fdr.spicr_2_mst_n_slv_ax2s_1_cdc\,
+      I3 => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2\,
+      O => \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg[8]_i_2_n_0\
     );
 \SPICR_REG_78_GENERATE[7].SPI_TRISTATE_CONTROL_I\: unisim.vcomponents.FDRE
     generic map(
@@ -2536,9 +2506,29 @@ begin
      port map (
       C => s_axi_aclk,
       CE => SPICR_data_int_reg0,
-      D => s_axi_wdata(9),
+      D => s_axi_wdata(7),
       Q => spicr_9_lsb_frm_axi_clk,
       R => reset2ip_reset_int
+    );
+\icount_out[3]_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"01"
+    )
+        port map (
+      I0 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\,
+      I1 => \RESET_FLOPS[15].RST_FLOPS\,
+      I2 => bus2ip_reset_ipif_inverted,
+      O => \icount_out_reg[3]\
+    );
+\ip_irpt_enable_reg[8]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"2A"
+    )
+        port map (
+      I0 => s_axi_wdata(6),
+      I1 => \^logic_generation_fdr.spicr_2_mst_n_slv_ax2s_1_cdc\,
+      I2 => \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2\,
+      O => D(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -2547,70 +2537,25 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_axi_quad_spi_0_0_qspi_fifo_ifmodule is
   port (
+    rc_FIFO_Full_d1 : out STD_LOGIC;
+    tx_FIFO_Empty_d1 : out STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_reg\ : out STD_LOGIC;
     tx_FIFO_Occpncy_MSB_d1 : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[4].GEN_REG_STATUS.ip_irpt_status_reg_reg[4]\ : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[3].GEN_REG_STATUS.ip_irpt_status_reg_reg[3]\ : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\ : out STD_LOGIC;
+    dtr_underrun_d1 : out STD_LOGIC;
     reset2ip_reset_int : in STD_LOGIC;
     Rx_FIFO_Full_Fifo_d1_synced_i : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
     Tx_FIFO_Empty_intr : in STD_LOGIC;
     Receive_ip2bus_error0 : in STD_LOGIC;
     tx_occ_msb : in STD_LOGIC;
-    dtr_underrun_to_axi_clk : in STD_LOGIC;
-    irpt_wrack_d1_reg : in STD_LOGIC;
-    scndry_out : in STD_LOGIC;
-    prmry_in : in STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    p_1_in26_in : in STD_LOGIC;
-    p_1_in29_in : in STD_LOGIC;
-    p_1_in32_in : in STD_LOGIC
+    dtr_underrun_to_axi_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_qspi_fifo_ifmodule : entity is "qspi_fifo_ifmodule";
 end design_1_axi_quad_spi_0_0_qspi_fifo_ifmodule;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_fifo_ifmodule is
-  signal dtr_underrun_d1 : STD_LOGIC;
-  signal rc_FIFO_Full_d1 : STD_LOGIC;
-  signal tx_FIFO_Empty_d1 : STD_LOGIC;
 begin
-\GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg[2]_i_1\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"BAFF7530"
-    )
-        port map (
-      I0 => irpt_wrack_d1_reg,
-      I1 => tx_FIFO_Empty_d1,
-      I2 => Tx_FIFO_Empty_intr,
-      I3 => s_axi_wdata(0),
-      I4 => p_1_in32_in,
-      O => \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\
-    );
-\GEN_IP_IRPT_STATUS_REG[3].GEN_REG_STATUS.ip_irpt_status_reg[3]_i_1\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"BAFF7530"
-    )
-        port map (
-      I0 => irpt_wrack_d1_reg,
-      I1 => dtr_underrun_d1,
-      I2 => dtr_underrun_to_axi_clk,
-      I3 => s_axi_wdata(1),
-      I4 => p_1_in29_in,
-      O => \GEN_IP_IRPT_STATUS_REG[3].GEN_REG_STATUS.ip_irpt_status_reg_reg[3]\
-    );
-\GEN_IP_IRPT_STATUS_REG[4].GEN_REG_STATUS.ip_irpt_status_reg[4]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"AABAFFFF55750030"
-    )
-        port map (
-      I0 => irpt_wrack_d1_reg,
-      I1 => rc_FIFO_Full_d1,
-      I2 => scndry_out,
-      I3 => prmry_in,
-      I4 => s_axi_wdata(2),
-      I5 => p_1_in26_in,
-      O => \GEN_IP_IRPT_STATUS_REG[4].GEN_REG_STATUS.ip_irpt_status_reg_reg[4]\
-    );
 Receive_ip2bus_error_reg: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
@@ -2673,21 +2618,18 @@ entity design_1_axi_quad_spi_0_0_qspi_mode_0_module is
     transfer_start_d1_reg_0 : out STD_LOGIC;
     Allow_Slave_MODF_Strobe : out STD_LOGIC;
     Allow_MODF_Strobe : out STD_LOGIC;
-    Count_trigger : out STD_LOGIC;
     io1_o : out STD_LOGIC;
     serial_dout_int : out STD_LOGIC;
     dtr_underrun_int : out STD_LOGIC;
     ss_o : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \OTHER_RATIO_GENERATE.Serial_Dout_reg_0\ : out STD_LOGIC;
     p_9_out : out STD_LOGIC;
     rd_en : out STD_LOGIC;
     p_5_out : out STD_LOGIC;
     p_2_out : out STD_LOGIC;
     p_0_out : out STD_LOGIC;
-    \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg_0\ : out STD_LOGIC;
-    \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg_1\ : out STD_LOGIC;
+    \OTHER_RATIO_GENERATE.Shift_Reg_reg[14]_0\ : out STD_LOGIC;
     \LOCAL_TX_EMPTY_FIFO_12_GEN.stop_clock_reg_reg_0\ : out STD_LOGIC;
-    Q : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    Q : out STD_LOGIC_VECTOR ( 15 downto 0 );
     D_0 : in STD_LOGIC;
     ext_spi_clk : in STD_LOGIC;
     \LOGIC_GENERATION_FDR.SPICR_BITS_7_8_SYNC_GEN[0].SPICR_BITS_7_8_AX2S_2\ : in STD_LOGIC;
@@ -2704,18 +2646,17 @@ entity design_1_axi_quad_spi_0_0_qspi_mode_0_module is
     \LOGIC_GENERATION_FDR.SPICR_7_SS_AX2S_2\ : in STD_LOGIC;
     SPICR_2_MST_N_SLV_to_spi_clk : in STD_LOGIC;
     \LOGIC_GENERATION_FDR.SPICR_3_CPOL_AX2S_2\ : in STD_LOGIC;
-    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][0]\ : in STD_LOGIC;
     spicr_1_spe_to_spi_clk : in STD_LOGIC;
     \LOGIC_GENERATION_FDR.spisel_pulse_cdc_from_spi_int_2_reg\ : in STD_LOGIC;
     \LOGIC_GENERATION_FDR.modf_strobe_cdc_from_spi_int_2_reg\ : in STD_LOGIC;
     \LOGIC_GENERATION_FDR.spiXfer_done_cdc_from_spi_int_2_reg\ : in STD_LOGIC;
     \LOGIC_GENERATION_FDR.drr_Overrun_int_cdc_from_spi_int_2_reg\ : in STD_LOGIC;
     p_6_out : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.SPICR_3_CPOL_AX2S_2_0\ : in STD_LOGIC;
     spicr_3_cpol_to_spi_clk : in STD_LOGIC;
     spicr_4_cpha_to_spi_clk : in STD_LOGIC;
-    dout : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    dout : in STD_LOGIC_VECTOR ( 13 downto 0 );
     spicr_9_lsb_to_spi_clk : in STD_LOGIC;
+    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][0]\ : in STD_LOGIC;
     scndry_out : in STD_LOGIC;
     almost_full : in STD_LOGIC;
     spicr_0_loop_to_spi_clk : in STD_LOGIC;
@@ -2723,13 +2664,15 @@ entity design_1_axi_quad_spi_0_0_qspi_mode_0_module is
     D : in STD_LOGIC_VECTOR ( 0 to 0 );
     \OTHER_RATIO_GENERATE.serial_dout_int_reg_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_qspi_mode_0_module : entity is "qspi_mode_0_module";
 end design_1_axi_quad_spi_0_0_qspi_mode_0_module;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_mode_0_module is
   signal \^allow_modf_strobe\ : STD_LOGIC;
   signal Allow_MODF_Strobe_i_1_n_0 : STD_LOGIC;
-  signal Count : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \^count_trigger\ : STD_LOGIC;
+  signal Count : STD_LOGIC_VECTOR ( 5 downto 0 );
+  signal Count_trigger : STD_LOGIC;
   signal Count_trigger_d1 : STD_LOGIC;
   signal \DTR_UNDERRUN_FIFO_EXIST_GEN.DTR_underrun_i_1_n_0\ : STD_LOGIC;
   signal \DTR_UNDERRUN_FIFO_EXIST_GEN.DTR_underrun_i_2_n_0\ : STD_LOGIC;
@@ -2741,32 +2684,50 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_mode_0_module is
   signal \OTHER_RATIO_GENERATE.Count[2]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Count[3]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Count[4]_i_1_n_0\ : STD_LOGIC;
-  signal \OTHER_RATIO_GENERATE.Count[4]_i_2_n_0\ : STD_LOGIC;
-  signal \OTHER_RATIO_GENERATE.Count[4]_i_3_n_0\ : STD_LOGIC;
-  signal \OTHER_RATIO_GENERATE.Count[4]_i_4_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Count[5]_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Count[5]_i_2_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Count_reg_n_0_[1]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Count_reg_n_0_[3]\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Count_reg_n_0_[4]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Count_trigger_d1_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Count_trigger_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Ratio_Count[0]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Ratio_Count[1]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Ratio_Count[2]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Serial_Dout_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Serial_Dout_i_2_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Serial_Dout_i_3_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Serial_Dout_i_4_n_0\ : STD_LOGIC;
-  signal \^other_ratio_generate.serial_dout_reg_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_2_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_3_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_5_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_6_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_8_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[10]_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[11]_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[12]_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[13]_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[14]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[1]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[2]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[3]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[4]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[5]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg[6]_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[7]_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[8]_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg[9]_i_1_n_0\ : STD_LOGIC;
+  signal \^other_ratio_generate.shift_reg_reg[14]_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[10]\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[11]\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[12]\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[13]\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[14]\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[15]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[1]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[2]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[3]\ : STD_LOGIC;
@@ -2774,17 +2735,27 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_mode_0_module is
   signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[5]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[6]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[7]\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[8]\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[9]\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.sck_o_int_i_1_n_0\ : STD_LOGIC;
+  signal \OTHER_RATIO_GENERATE.sck_o_int_i_2_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.sck_o_int_i_3_n_0\ : STD_LOGIC;
-  signal \OTHER_RATIO_GENERATE.sck_o_int_i_4_n_0\ : STD_LOGIC;
   signal \OTHER_RATIO_GENERATE.serial_dout_int_i_1_n_0\ : STD_LOGIC;
   signal \RATIO_NOT_EQUAL_4_GENERATE.SCK_O_NQ_4_NO_STARTUP_USED.SCK_O_NE_4_FDRE_INST_i_2_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_2_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_3_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_4_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_1_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_2_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_3_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[10]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[11]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[12]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[13]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[14]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[15]_i_1_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_1_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_2_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_3_n_0\ : STD_LOGIC;
@@ -2795,9 +2766,19 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_mode_0_module is
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_2_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_3_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_2_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_3_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_2_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_3_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_2_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_3_n_0\ : STD_LOGIC;
   signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_2_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_3_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[8]_i_1_n_0\ : STD_LOGIC;
+  signal \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[9]_i_1_n_0\ : STD_LOGIC;
   signal Ratio_Count : STD_LOGIC_VECTOR ( 0 to 2 );
   signal SCK_I_sync : STD_LOGIC;
   signal \^spisel_sync\ : STD_LOGIC;
@@ -2819,9 +2800,9 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_mode_0_module is
   signal p_19_out20_out : STD_LOGIC;
   signal p_37_out : STD_LOGIC;
   signal p_3_in : STD_LOGIC;
-  signal rx_shft_reg_mode_0011 : STD_LOGIC_VECTOR ( 0 to 7 );
-  signal rx_shft_reg_mode_0110 : STD_LOGIC_VECTOR ( 0 to 7 );
-  signal rx_shft_reg_s : STD_LOGIC_VECTOR ( 0 to 7 );
+  signal rx_shft_reg_mode_0011 : STD_LOGIC_VECTOR ( 0 to 15 );
+  signal rx_shft_reg_mode_0110 : STD_LOGIC_VECTOR ( 0 to 15 );
+  signal rx_shft_reg_s : STD_LOGIC_VECTOR ( 0 to 15 );
   signal sck_d1 : STD_LOGIC;
   signal sck_d2 : STD_LOGIC;
   signal sck_i_d1 : STD_LOGIC;
@@ -2839,41 +2820,45 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_mode_0_module is
   signal \^transfer_start_d1\ : STD_LOGIC;
   signal \^transfer_start_d1_reg_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \DTR_UNDERRUN_FIFO_EXIST_GEN.DTR_underrun_i_2\ : label is "soft_lutpair81";
-  attribute SOFT_HLUTNM of \FSM_sequential_LOCAL_TX_EMPTY_FIFO_12_GEN.spi_cntrl_ps[0]_i_2\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \DTR_UNDERRUN_FIFO_EXIST_GEN.DTR_underrun_i_2\ : label is "soft_lutpair86";
+  attribute SOFT_HLUTNM of \FSM_sequential_LOCAL_TX_EMPTY_FIFO_12_GEN.spi_cntrl_ps[0]_i_2\ : label is "soft_lutpair76";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_sequential_LOCAL_TX_EMPTY_FIFO_12_GEN.spi_cntrl_ps_reg[0]\ : label is "transfer_okay:01,temp_transfer_okay:10,idle:00";
   attribute KEEP : string;
   attribute KEEP of \FSM_sequential_LOCAL_TX_EMPTY_FIFO_12_GEN.spi_cntrl_ps_reg[0]\ : label is "yes";
   attribute FSM_ENCODED_STATES of \FSM_sequential_LOCAL_TX_EMPTY_FIFO_12_GEN.spi_cntrl_ps_reg[1]\ : label is "transfer_okay:01,temp_transfer_okay:10,idle:00";
   attribute KEEP of \FSM_sequential_LOCAL_TX_EMPTY_FIFO_12_GEN.spi_cntrl_ps_reg[1]\ : label is "yes";
-  attribute SOFT_HLUTNM of \LOCAL_TX_EMPTY_FIFO_12_GEN.DRR_Overrun_reg_int_i_1\ : label is "soft_lutpair75";
-  attribute SOFT_HLUTNM of \LOGIC_GENERATION_FDR.spiXfer_done_cdc_from_spi_int_2_i_1\ : label is "soft_lutpair75";
-  attribute SOFT_HLUTNM of \LOGIC_GENERATION_FDR.spisel_pulse_cdc_from_spi_int_2_i_1\ : label is "soft_lutpair78";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count[1]_i_1\ : label is "soft_lutpair77";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count[2]_i_1\ : label is "soft_lutpair77";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count[3]_i_1\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count[4]_i_3\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count_trigger_d1_i_1\ : label is "soft_lutpair79";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Ratio_Count[0]_i_1\ : label is "soft_lutpair71";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Ratio_Count[1]_i_1\ : label is "soft_lutpair71";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Ratio_Count[2]_i_1\ : label is "soft_lutpair79";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4\ : label is "soft_lutpair80";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.sck_o_int_i_4\ : label is "soft_lutpair80";
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.serial_dout_int_i_1\ : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \LOCAL_TX_EMPTY_FIFO_12_GEN.DRR_Overrun_reg_int_i_1\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \LOGIC_GENERATION_FDR.spiXfer_done_cdc_from_spi_int_2_i_1\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \LOGIC_GENERATION_FDR.spisel_pulse_cdc_from_spi_int_2_i_1\ : label is "soft_lutpair82";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count[0]_i_1\ : label is "soft_lutpair85";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count[1]_i_1\ : label is "soft_lutpair85";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count[2]_i_1\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count[3]_i_1\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Count_trigger_d1_i_1\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Ratio_Count[0]_i_1\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Ratio_Count[1]_i_1\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Ratio_Count[2]_i_1\ : label is "soft_lutpair84";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Serial_Dout_i_3\ : label is "soft_lutpair77";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Serial_Dout_i_4\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_5\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_6\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_8\ : label is "soft_lutpair77";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.Shift_Reg[1]_i_2\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.sck_o_int_i_3\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.serial_dout_int_i_1\ : label is "soft_lutpair86";
   attribute IOB : string;
   attribute IOB of \RATIO_NOT_EQUAL_4_GENERATE.SCK_O_NQ_4_NO_STARTUP_USED.SCK_O_NE_4_FDRE_INST\ : label is "TRUE";
   attribute box_type : string;
   attribute box_type of \RATIO_NOT_EQUAL_4_GENERATE.SCK_O_NQ_4_NO_STARTUP_USED.SCK_O_NE_4_FDRE_INST\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RATIO_NOT_EQUAL_4_GENERATE.SCK_O_NQ_4_NO_STARTUP_USED.SCK_O_NE_4_FDRE_INST_i_2\ : label is "soft_lutpair72";
-  attribute SOFT_HLUTNM of \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_3\ : label is "soft_lutpair74";
-  attribute SOFT_HLUTNM of \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_5\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \RATIO_NOT_EQUAL_4_GENERATE.SCK_O_NQ_4_NO_STARTUP_USED.SCK_O_NE_4_FDRE_INST_i_2\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_4\ : label is "soft_lutpair84";
   attribute XILINX_LEGACY_PRIM : string;
   attribute XILINX_LEGACY_PRIM of SCK_I_REG : label is "FD";
   attribute box_type of SCK_I_REG : label is "PRIMITIVE";
   attribute XILINX_LEGACY_PRIM of SPISEL_REG : label is "FD";
   attribute box_type of SPISEL_REG : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of SPIXfer_done_int_pulse_d1_i_1 : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of SPIXfer_done_int_pulse_d1_i_1 : label is "soft_lutpair81";
   attribute XILINX_LEGACY_PRIM of SPI_TRISTATE_CONTROL_II : label is "FD";
   attribute box_type of SPI_TRISTATE_CONTROL_II : label is "PRIMITIVE";
   attribute XILINX_LEGACY_PRIM of SPI_TRISTATE_CONTROL_III : label is "FD";
@@ -2882,15 +2867,14 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_mode_0_module is
   attribute box_type of SPI_TRISTATE_CONTROL_IV : label is "PRIMITIVE";
   attribute XILINX_LEGACY_PRIM of SPI_TRISTATE_CONTROL_V : label is "FD";
   attribute box_type of SPI_TRISTATE_CONTROL_V : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of SR_5_Tx_comeplete_Empty_i_1 : label is "soft_lutpair76";
-  attribute SOFT_HLUTNM of \SS_O[0]_i_3\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of \SS_O[0]_i_4\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of spisel_once_1_i_1 : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of SR_5_Tx_comeplete_Empty_i_1 : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \SS_O[0]_i_3\ : label is "soft_lutpair79";
+  attribute SOFT_HLUTNM of \SS_O[0]_i_4\ : label is "soft_lutpair79";
+  attribute SOFT_HLUTNM of spisel_once_1_i_1 : label is "soft_lutpair82";
 begin
   Allow_MODF_Strobe <= \^allow_modf_strobe\;
-  Count_trigger <= \^count_trigger\;
   \LOCAL_TX_EMPTY_FIFO_12_GEN.stop_clock_reg_reg_0\ <= \^local_tx_empty_fifo_12_gen.stop_clock_reg_reg_0\;
-  \OTHER_RATIO_GENERATE.Serial_Dout_reg_0\ <= \^other_ratio_generate.serial_dout_reg_0\;
+  \OTHER_RATIO_GENERATE.Shift_Reg_reg[14]_0\ <= \^other_ratio_generate.shift_reg_reg[14]_0\;
   SPISEL_sync <= \^spisel_sync\;
   SPIXfer_done_int_d1_reg_0 <= \^spixfer_done_int_d1_reg_0\;
   dtr_underrun_int <= \^dtr_underrun_int\;
@@ -3133,13 +3117,26 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => load,
-      I1 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[1]\,
-      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
-      I3 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\,
+      I1 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
+      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\,
+      I3 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[1]\,
       I4 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[3]\,
       O => \OTHER_RATIO_GENERATE.Count[3]_i_1_n_0\
     );
-\OTHER_RATIO_GENERATE.Count[4]_i_1\: unisim.vcomponents.LUT5
+\OTHER_RATIO_GENERATE.Count[4]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"1555555540000000"
+    )
+        port map (
+      I0 => load,
+      I1 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[1]\,
+      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\,
+      I3 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
+      I4 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[3]\,
+      I5 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[4]\,
+      O => \OTHER_RATIO_GENERATE.Count[4]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Count[5]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFDDFD"
     )
@@ -3149,41 +3146,33 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       I2 => \^spisel_sync\,
       I3 => SPICR_2_MST_N_SLV_to_spi_clk,
       I4 => \^spixfer_done_int_d1_reg_0\,
-      O => \OTHER_RATIO_GENERATE.Count[4]_i_1_n_0\
+      O => \OTHER_RATIO_GENERATE.Count[5]_i_1_n_0\
     );
-\OTHER_RATIO_GENERATE.Count[4]_i_2\: unisim.vcomponents.LUT6
+\OTHER_RATIO_GENERATE.Count[5]_i_2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"20202020202F2F20"
     )
         port map (
-      I0 => \OTHER_RATIO_GENERATE.Count[4]_i_4_n_0\,
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4_n_0\,
       I1 => load,
       I2 => SPICR_2_MST_N_SLV_to_spi_clk,
       I3 => SCK_I_sync,
       I4 => sck_i_d1,
       I5 => \^spisel_sync\,
-      O => \OTHER_RATIO_GENERATE.Count[4]_i_2_n_0\
+      O => \OTHER_RATIO_GENERATE.Count[5]_i_2_n_0\
     );
-\OTHER_RATIO_GENERATE.Count[4]_i_3\: unisim.vcomponents.LUT5
+\OTHER_RATIO_GENERATE.Count[5]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"40000000"
+      INIT => X"0000000080000000"
     )
         port map (
-      I0 => load,
-      I1 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\,
-      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[3]\,
-      I3 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
-      I4 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[1]\,
-      O => \OTHER_RATIO_GENERATE.Count[4]_i_3_n_0\
-    );
-\OTHER_RATIO_GENERATE.Count[4]_i_4\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"6"
-    )
-        port map (
-      I0 => Count_trigger_d1,
-      I1 => \^count_trigger\,
-      O => \OTHER_RATIO_GENERATE.Count[4]_i_4_n_0\
+      I0 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[3]\,
+      I1 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[4]\,
+      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[1]\,
+      I3 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\,
+      I4 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
+      I5 => load,
+      O => Count(5)
     );
 \OTHER_RATIO_GENERATE.Count_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -3191,10 +3180,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => ext_spi_clk,
-      CE => \OTHER_RATIO_GENERATE.Count[4]_i_2_n_0\,
+      CE => \OTHER_RATIO_GENERATE.Count[5]_i_2_n_0\,
       D => Count(0),
       Q => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
-      R => \OTHER_RATIO_GENERATE.Count[4]_i_1_n_0\
+      R => \OTHER_RATIO_GENERATE.Count[5]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Count_reg[1]\: unisim.vcomponents.FDRE
     generic map(
@@ -3202,10 +3191,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => ext_spi_clk,
-      CE => \OTHER_RATIO_GENERATE.Count[4]_i_2_n_0\,
+      CE => \OTHER_RATIO_GENERATE.Count[5]_i_2_n_0\,
       D => Count(1),
       Q => \OTHER_RATIO_GENERATE.Count_reg_n_0_[1]\,
-      R => \OTHER_RATIO_GENERATE.Count[4]_i_1_n_0\
+      R => \OTHER_RATIO_GENERATE.Count[5]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Count_reg[2]\: unisim.vcomponents.FDRE
     generic map(
@@ -3213,10 +3202,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => ext_spi_clk,
-      CE => \OTHER_RATIO_GENERATE.Count[4]_i_2_n_0\,
+      CE => \OTHER_RATIO_GENERATE.Count[5]_i_2_n_0\,
       D => \OTHER_RATIO_GENERATE.Count[2]_i_1_n_0\,
       Q => \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\,
-      R => \OTHER_RATIO_GENERATE.Count[4]_i_1_n_0\
+      R => \OTHER_RATIO_GENERATE.Count[5]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Count_reg[3]\: unisim.vcomponents.FDRE
     generic map(
@@ -3224,10 +3213,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => ext_spi_clk,
-      CE => \OTHER_RATIO_GENERATE.Count[4]_i_2_n_0\,
+      CE => \OTHER_RATIO_GENERATE.Count[5]_i_2_n_0\,
       D => \OTHER_RATIO_GENERATE.Count[3]_i_1_n_0\,
       Q => \OTHER_RATIO_GENERATE.Count_reg_n_0_[3]\,
-      R => \OTHER_RATIO_GENERATE.Count[4]_i_1_n_0\
+      R => \OTHER_RATIO_GENERATE.Count[5]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Count_reg[4]\: unisim.vcomponents.FDRE
     generic map(
@@ -3235,17 +3224,28 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => ext_spi_clk,
-      CE => \OTHER_RATIO_GENERATE.Count[4]_i_2_n_0\,
-      D => \OTHER_RATIO_GENERATE.Count[4]_i_3_n_0\,
+      CE => \OTHER_RATIO_GENERATE.Count[5]_i_2_n_0\,
+      D => \OTHER_RATIO_GENERATE.Count[4]_i_1_n_0\,
+      Q => \OTHER_RATIO_GENERATE.Count_reg_n_0_[4]\,
+      R => \OTHER_RATIO_GENERATE.Count[5]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Count_reg[5]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.Count[5]_i_2_n_0\,
+      D => Count(5),
       Q => load,
-      R => \OTHER_RATIO_GENERATE.Count[4]_i_1_n_0\
+      R => \OTHER_RATIO_GENERATE.Count[5]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Count_trigger_d1_i_1\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"08"
     )
         port map (
-      I0 => \^count_trigger\,
+      I0 => Count_trigger,
       I1 => \^transfer_start_d1_reg_0\,
       I2 => Rst_to_spi,
       O => \OTHER_RATIO_GENERATE.Count_trigger_d1_i_1_n_0\
@@ -3263,7 +3263,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       INIT => X"00000000AAA90000"
     )
         port map (
-      I0 => \^count_trigger\,
+      I0 => Count_trigger,
       I1 => Ratio_Count(0),
       I2 => Ratio_Count(1),
       I3 => Ratio_Count(2),
@@ -3276,7 +3276,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       C => ext_spi_clk,
       CE => '1',
       D => \OTHER_RATIO_GENERATE.Count_trigger_i_1_n_0\,
-      Q => \^count_trigger\,
+      Q => Count_trigger,
       R => '0'
     );
 \OTHER_RATIO_GENERATE.Ratio_Count[0]_i_1\: unisim.vcomponents.LUT5
@@ -3336,42 +3336,51 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       Q => Ratio_Count(2),
       R => '0'
     );
-\OTHER_RATIO_GENERATE.Serial_Dout_i_1\: unisim.vcomponents.LUT5
+\OTHER_RATIO_GENERATE.Serial_Dout_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"B8FFB800"
+      INIT => X"FBBBBBBB08888888"
     )
         port map (
-      I0 => p_3_in,
-      I1 => \^other_ratio_generate.serial_dout_reg_0\,
-      I2 => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][0]\,
-      I3 => \OTHER_RATIO_GENERATE.Serial_Dout_i_4_n_0\,
-      I4 => \^io1_o\,
+      I0 => \OTHER_RATIO_GENERATE.Serial_Dout_i_2_n_0\,
+      I1 => \OTHER_RATIO_GENERATE.Serial_Dout_i_3_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
+      I4 => \OTHER_RATIO_GENERATE.Serial_Dout_i_4_n_0\,
+      I5 => \^io1_o\,
       O => \OTHER_RATIO_GENERATE.Serial_Dout_i_1_n_0\
     );
-\OTHER_RATIO_GENERATE.Serial_Dout_i_2\: unisim.vcomponents.LUT6
+\OTHER_RATIO_GENERATE.Serial_Dout_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"101F1010101F101F"
+      INIT => X"F8FB7040"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Serial_Dout_i_4_n_0\,
+      I1 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I2 => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][0]\,
+      I3 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_8_n_0\,
+      I4 => p_3_in,
+      O => \OTHER_RATIO_GENERATE.Serial_Dout_i_2_n_0\
+    );
+\OTHER_RATIO_GENERATE.Serial_Dout_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFEFEE"
+    )
+        port map (
+      I0 => \^transfer_start_d1_reg_0\,
+      I1 => \^spixfer_done_int_d1_reg_0\,
+      I2 => empty,
+      I3 => SR_5_Tx_Empty_d1,
+      I4 => SPICR_2_MST_N_SLV_to_spi_clk,
+      O => \OTHER_RATIO_GENERATE.Serial_Dout_i_3_n_0\
+    );
+\OTHER_RATIO_GENERATE.Serial_Dout_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"45"
     )
         port map (
       I0 => SPIXfer_done_int_d1,
-      I1 => \FSM_sequential_LOCAL_TX_EMPTY_FIFO_12_GEN.spi_cntrl_ps[0]_i_2_n_0\,
-      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => \^spixfer_done_int_d1_reg_0\,
-      I4 => empty,
-      I5 => SR_5_Tx_Empty_d1,
-      O => \^other_ratio_generate.serial_dout_reg_0\
-    );
-\OTHER_RATIO_GENERATE.Serial_Dout_i_4\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"F7FFF500F7FFF5FF"
-    )
-        port map (
-      I0 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
       I1 => \^transfer_start_d1\,
-      I2 => SPIXfer_done_int_d1,
-      I3 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I4 => \^transfer_start_d1_reg_0\,
-      I5 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4_n_0\,
+      I2 => \^transfer_start_d1_reg_0\,
       O => \OTHER_RATIO_GENERATE.Serial_Dout_i_4_n_0\
     );
 \OTHER_RATIO_GENERATE.Serial_Dout_reg\: unisim.vcomponents.FDSE
@@ -3382,64 +3391,143 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       Q => \^io1_o\,
       S => Rst_to_spi
     );
-\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1\: unisim.vcomponents.LUT5
+\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"CACFC0CF"
+      INIT => X"40550000C0FFC0FF"
     )
         port map (
-      I0 => \^transfer_start_d1_reg_0\,
-      I1 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_3_n_0\,
-      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4_n_0\,
-      I4 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_5_n_0\,
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_3_n_0\,
+      I1 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4_n_0\,
+      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
+      I3 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_5_n_0\,
+      I4 => \^transfer_start_d1_reg_0\,
+      I5 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_6_n_0\,
       O => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"B8BBB888"
+      INIT => X"F8FB7040"
     )
         port map (
-      I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[1]\,
-      I1 => \^other_ratio_generate.serial_dout_reg_0\,
-      I2 => dout(0),
-      I3 => spicr_9_lsb_to_spi_clk,
-      I4 => dout(7),
+      I0 => \OTHER_RATIO_GENERATE.Serial_Dout_i_4_n_0\,
+      I1 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I2 => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][0]\,
+      I3 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_8_n_0\,
+      I4 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[1]\,
       O => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_2_n_0\
     );
-\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_3\: unisim.vcomponents.LUT6
+\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_3\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"F2FFFFF2F2F2F2F2"
-    )
-        port map (
-      I0 => \^transfer_start_d1_reg_0\,
-      I1 => \^transfer_start_d1\,
-      I2 => SPIXfer_done_int_d1,
-      I3 => Count_trigger_d1,
-      I4 => \^count_trigger\,
-      I5 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
-      O => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_3_n_0\
-    );
-\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"45"
-    )
-        port map (
-      I0 => \^spixfer_done_int_d1_reg_0\,
-      I1 => empty,
-      I2 => SR_5_Tx_Empty_d1,
-      O => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4_n_0\
-    );
-\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_5\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"00060900"
+      INIT => X"FFF6F9FF"
     )
         port map (
       I0 => spicr_3_cpol_to_spi_clk,
       I1 => spicr_4_cpha_to_spi_clk,
       I2 => \^spisel_sync\,
-      I3 => SCK_I_sync,
-      I4 => sck_i_d1,
+      I3 => sck_i_d1,
+      I4 => SCK_I_sync,
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_3_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => Count_trigger_d1,
+      I1 => Count_trigger,
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_4_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0D00"
+    )
+        port map (
+      I0 => \^transfer_start_d1_reg_0\,
+      I1 => \^transfer_start_d1\,
+      I2 => SPIXfer_done_int_d1,
+      I3 => SPICR_2_MST_N_SLV_to_spi_clk,
       O => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_5_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_6\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0051"
+    )
+        port map (
+      I0 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I1 => SR_5_Tx_Empty_d1,
+      I2 => empty,
+      I3 => \^spixfer_done_int_d1_reg_0\,
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_6_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_8\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"BA"
+    )
+        port map (
+      I0 => \^spixfer_done_int_d1_reg_0\,
+      I1 => empty,
+      I2 => SR_5_Tx_Empty_d1,
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_8_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[10]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[11]\,
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(9),
+      I3 => spicr_9_lsb_to_spi_clk,
+      I4 => dout(4),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[10]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[11]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[12]\,
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(10),
+      I3 => spicr_9_lsb_to_spi_clk,
+      I4 => dout(3),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[11]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[12]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[13]\,
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(11),
+      I3 => spicr_9_lsb_to_spi_clk,
+      I4 => dout(2),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[12]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[13]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[14]\,
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(12),
+      I3 => spicr_9_lsb_to_spi_clk,
+      I4 => dout(1),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[13]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[14]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[15]\,
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(13),
+      I3 => spicr_9_lsb_to_spi_clk,
+      I4 => dout(0),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[14]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Shift_Reg[1]_i_1\: unisim.vcomponents.LUT5
     generic map(
@@ -3447,11 +3535,23 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[2]\,
-      I1 => \^other_ratio_generate.serial_dout_reg_0\,
-      I2 => dout(1),
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(0),
       I3 => spicr_9_lsb_to_spi_clk,
-      I4 => dout(6),
+      I4 => dout(13),
       O => \OTHER_RATIO_GENERATE.Shift_Reg[1]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[1]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FF450045"
+    )
+        port map (
+      I0 => \^spixfer_done_int_d1_reg_0\,
+      I1 => empty,
+      I2 => SR_5_Tx_Empty_d1,
+      I3 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I4 => \OTHER_RATIO_GENERATE.Serial_Dout_i_4_n_0\,
+      O => \^other_ratio_generate.shift_reg_reg[14]_0\
     );
 \OTHER_RATIO_GENERATE.Shift_Reg[2]_i_1\: unisim.vcomponents.LUT5
     generic map(
@@ -3459,10 +3559,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[3]\,
-      I1 => \^other_ratio_generate.serial_dout_reg_0\,
-      I2 => dout(2),
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(1),
       I3 => spicr_9_lsb_to_spi_clk,
-      I4 => dout(5),
+      I4 => dout(12),
       O => \OTHER_RATIO_GENERATE.Shift_Reg[2]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Shift_Reg[3]_i_1\: unisim.vcomponents.LUT5
@@ -3471,10 +3571,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[4]\,
-      I1 => \^other_ratio_generate.serial_dout_reg_0\,
-      I2 => dout(3),
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(2),
       I3 => spicr_9_lsb_to_spi_clk,
-      I4 => dout(4),
+      I4 => dout(11),
       O => \OTHER_RATIO_GENERATE.Shift_Reg[3]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Shift_Reg[4]_i_1\: unisim.vcomponents.LUT5
@@ -3483,10 +3583,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[5]\,
-      I1 => \^other_ratio_generate.serial_dout_reg_0\,
-      I2 => dout(4),
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(3),
       I3 => spicr_9_lsb_to_spi_clk,
-      I4 => dout(3),
+      I4 => dout(10),
       O => \OTHER_RATIO_GENERATE.Shift_Reg[4]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Shift_Reg[5]_i_1\: unisim.vcomponents.LUT5
@@ -3495,10 +3595,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[6]\,
-      I1 => \^other_ratio_generate.serial_dout_reg_0\,
-      I2 => dout(5),
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(4),
       I3 => spicr_9_lsb_to_spi_clk,
-      I4 => dout(2),
+      I4 => dout(9),
       O => \OTHER_RATIO_GENERATE.Shift_Reg[5]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Shift_Reg[6]_i_1\: unisim.vcomponents.LUT5
@@ -3507,11 +3607,47 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[7]\,
-      I1 => \^other_ratio_generate.serial_dout_reg_0\,
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(5),
+      I3 => spicr_9_lsb_to_spi_clk,
+      I4 => dout(8),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[6]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[7]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[8]\,
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
       I2 => dout(6),
       I3 => spicr_9_lsb_to_spi_clk,
-      I4 => dout(1),
-      O => \OTHER_RATIO_GENERATE.Shift_Reg[6]_i_1_n_0\
+      I4 => dout(7),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[7]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[8]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[9]\,
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(7),
+      I3 => spicr_9_lsb_to_spi_clk,
+      I4 => dout(6),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[8]_i_1_n_0\
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[9]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"B8BBB888"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[10]\,
+      I1 => \^other_ratio_generate.shift_reg_reg[14]_0\,
+      I2 => dout(8),
+      I3 => spicr_9_lsb_to_spi_clk,
+      I4 => dout(5),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg[9]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.Shift_Reg_reg[0]\: unisim.vcomponents.FDRE
      port map (
@@ -3519,6 +3655,54 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
       D => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_2_n_0\,
       Q => p_3_in,
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg_reg[10]\: unisim.vcomponents.FDRE
+     port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
+      D => \OTHER_RATIO_GENERATE.Shift_Reg[10]_i_1_n_0\,
+      Q => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[10]\,
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg_reg[11]\: unisim.vcomponents.FDRE
+     port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
+      D => \OTHER_RATIO_GENERATE.Shift_Reg[11]_i_1_n_0\,
+      Q => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[11]\,
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg_reg[12]\: unisim.vcomponents.FDRE
+     port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
+      D => \OTHER_RATIO_GENERATE.Shift_Reg[12]_i_1_n_0\,
+      Q => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[12]\,
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg_reg[13]\: unisim.vcomponents.FDRE
+     port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
+      D => \OTHER_RATIO_GENERATE.Shift_Reg[13]_i_1_n_0\,
+      Q => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[13]\,
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg_reg[14]\: unisim.vcomponents.FDRE
+     port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
+      D => \OTHER_RATIO_GENERATE.Shift_Reg[14]_i_1_n_0\,
+      Q => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[14]\,
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg_reg[15]\: unisim.vcomponents.FDRE
+     port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
+      D => D(0),
+      Q => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[15]\,
       R => Rst_to_spi
     );
 \OTHER_RATIO_GENERATE.Shift_Reg_reg[1]\: unisim.vcomponents.FDSE
@@ -3573,8 +3757,24 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
      port map (
       C => ext_spi_clk,
       CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
-      D => D(0),
+      D => \OTHER_RATIO_GENERATE.Shift_Reg[7]_i_1_n_0\,
       Q => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[7]\,
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg_reg[8]\: unisim.vcomponents.FDRE
+     port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
+      D => \OTHER_RATIO_GENERATE.Shift_Reg[8]_i_1_n_0\,
+      Q => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[8]\,
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg_reg[9]\: unisim.vcomponents.FDRE
+     port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_1_n_0\,
+      D => \OTHER_RATIO_GENERATE.Shift_Reg[9]_i_1_n_0\,
+      Q => \OTHER_RATIO_GENERATE.Shift_Reg_reg_n_0_[9]\,
       R => Rst_to_spi
     );
 \OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011[0]_i_1\: unisim.vcomponents.LUT3
@@ -3596,6 +3796,72 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       CE => p_19_out20_out,
       D => rx_shft_reg_mode_0011(1),
       Q => rx_shft_reg_mode_0011(0),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011_reg[10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_19_out20_out,
+      D => rx_shft_reg_mode_0011(11),
+      Q => rx_shft_reg_mode_0011(10),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011_reg[11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_19_out20_out,
+      D => rx_shft_reg_mode_0011(12),
+      Q => rx_shft_reg_mode_0011(11),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011_reg[12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_19_out20_out,
+      D => rx_shft_reg_mode_0011(13),
+      Q => rx_shft_reg_mode_0011(12),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011_reg[13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_19_out20_out,
+      D => rx_shft_reg_mode_0011(14),
+      Q => rx_shft_reg_mode_0011(13),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_19_out20_out,
+      D => rx_shft_reg_mode_0011(15),
+      Q => rx_shft_reg_mode_0011(14),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_19_out20_out,
+      D => \OTHER_RATIO_GENERATE.serial_dout_int_reg_0\(0),
+      Q => rx_shft_reg_mode_0011(15),
       R => Rst_to_spi
     );
 \OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011_reg[1]\: unisim.vcomponents.FDRE
@@ -3671,8 +3937,30 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
         port map (
       C => ext_spi_clk,
       CE => p_19_out20_out,
-      D => \OTHER_RATIO_GENERATE.serial_dout_int_reg_0\(0),
+      D => rx_shft_reg_mode_0011(8),
       Q => rx_shft_reg_mode_0011(7),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011_reg[8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_19_out20_out,
+      D => rx_shft_reg_mode_0011(9),
+      Q => rx_shft_reg_mode_0011(8),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0011_reg[9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_19_out20_out,
+      D => rx_shft_reg_mode_0011(10),
+      Q => rx_shft_reg_mode_0011(9),
       R => Rst_to_spi
     );
 \OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110[0]_i_1\: unisim.vcomponents.LUT3
@@ -3694,6 +3982,72 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       CE => p_17_out,
       D => rx_shft_reg_mode_0110(1),
       Q => rx_shft_reg_mode_0110(0),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110_reg[10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_17_out,
+      D => rx_shft_reg_mode_0110(11),
+      Q => rx_shft_reg_mode_0110(10),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110_reg[11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_17_out,
+      D => rx_shft_reg_mode_0110(12),
+      Q => rx_shft_reg_mode_0110(11),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110_reg[12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_17_out,
+      D => rx_shft_reg_mode_0110(13),
+      Q => rx_shft_reg_mode_0110(12),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110_reg[13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_17_out,
+      D => rx_shft_reg_mode_0110(14),
+      Q => rx_shft_reg_mode_0110(13),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_17_out,
+      D => rx_shft_reg_mode_0110(15),
+      Q => rx_shft_reg_mode_0110(14),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_17_out,
+      D => \OTHER_RATIO_GENERATE.serial_dout_int_reg_0\(0),
+      Q => rx_shft_reg_mode_0110(15),
       R => Rst_to_spi
     );
 \OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110_reg[1]\: unisim.vcomponents.FDRE
@@ -3769,21 +4123,43 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
         port map (
       C => ext_spi_clk,
       CE => p_17_out,
-      D => \OTHER_RATIO_GENERATE.serial_dout_int_reg_0\(0),
+      D => rx_shft_reg_mode_0110(8),
       Q => rx_shft_reg_mode_0110(7),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110_reg[8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_17_out,
+      D => rx_shft_reg_mode_0110(9),
+      Q => rx_shft_reg_mode_0110(8),
+      R => Rst_to_spi
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_mode_0110_reg[9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => p_17_out,
+      D => rx_shft_reg_mode_0110(10),
+      Q => rx_shft_reg_mode_0110(9),
       R => Rst_to_spi
     );
 \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000002202"
+      INIT => X"0000040000000040"
     )
         port map (
-      I0 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_5_n_0\,
-      I1 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I2 => SR_5_Tx_Empty_d1,
-      I3 => empty,
-      I4 => \^spixfer_done_int_d1_reg_0\,
-      I5 => p_6_out,
+      I0 => p_6_out,
+      I1 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_6_n_0\,
+      I2 => SCK_I_sync,
+      I3 => sck_i_d1,
+      I4 => \^spisel_sync\,
+      I5 => \LOGIC_GENERATION_FDR.SPICR_3_CPOL_AX2S_2\,
       O => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\
     );
 \OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[0]\: unisim.vcomponents.FDRE
@@ -3795,6 +4171,72 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
       D => rx_shft_reg_s(1),
       Q => rx_shft_reg_s(0),
+      R => '0'
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
+      D => rx_shft_reg_s(11),
+      Q => rx_shft_reg_s(10),
+      R => '0'
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
+      D => rx_shft_reg_s(12),
+      Q => rx_shft_reg_s(11),
+      R => '0'
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
+      D => rx_shft_reg_s(13),
+      Q => rx_shft_reg_s(12),
+      R => '0'
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
+      D => rx_shft_reg_s(14),
+      Q => rx_shft_reg_s(13),
+      R => '0'
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
+      D => rx_shft_reg_s(15),
+      Q => rx_shft_reg_s(14),
+      R => '0'
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
+      D => \OTHER_RATIO_GENERATE.serial_dout_int_reg_0\(0),
+      Q => rx_shft_reg_s(15),
       R => '0'
     );
 \OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[1]\: unisim.vcomponents.FDRE
@@ -3870,8 +4312,30 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
         port map (
       C => ext_spi_clk,
       CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
-      D => \OTHER_RATIO_GENERATE.serial_dout_int_reg_0\(0),
+      D => rx_shft_reg_s(8),
       Q => rx_shft_reg_s(7),
+      R => '0'
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
+      D => rx_shft_reg_s(9),
+      Q => rx_shft_reg_s(8),
+      R => '0'
+    );
+\OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_1_n_0\,
+      D => rx_shft_reg_s(10),
+      Q => rx_shft_reg_s(9),
       R => '0'
     );
 \OTHER_RATIO_GENERATE.sck_d1_reg\: unisim.vcomponents.FDRE
@@ -3900,23 +4364,23 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       I2 => \FSM_sequential_LOCAL_TX_EMPTY_FIFO_12_GEN.spi_cntrl_ps[0]_i_2_n_0\,
       I3 => SPICR_2_MST_N_SLV_to_spi_clk,
       I4 => Rst_to_spi,
-      I5 => \OTHER_RATIO_GENERATE.sck_o_int_i_3_n_0\,
+      I5 => \OTHER_RATIO_GENERATE.sck_o_int_i_2_n_0\,
       O => \OTHER_RATIO_GENERATE.sck_o_int_i_1_n_0\
     );
-\OTHER_RATIO_GENERATE.sck_o_int_i_3\: unisim.vcomponents.LUT6
+\OTHER_RATIO_GENERATE.sck_o_int_i_2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"9FFF9F9F60FF6060"
     )
         port map (
       I0 => Count_trigger_d1,
-      I1 => \^count_trigger\,
+      I1 => Count_trigger,
       I2 => \^transfer_start_d1_reg_0\,
-      I3 => \OTHER_RATIO_GENERATE.sck_o_int_i_4_n_0\,
+      I3 => \OTHER_RATIO_GENERATE.sck_o_int_i_3_n_0\,
       I4 => \LOGIC_GENERATION_FDR.SPICR_3_CPOL_AX2S_2\,
       I5 => sck_o_int,
-      O => \OTHER_RATIO_GENERATE.sck_o_int_i_3_n_0\
+      O => \OTHER_RATIO_GENERATE.sck_o_int_i_2_n_0\
     );
-\OTHER_RATIO_GENERATE.sck_o_int_i_4\: unisim.vcomponents.LUT3
+\OTHER_RATIO_GENERATE.sck_o_int_i_3\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"45"
     )
@@ -3924,7 +4388,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       I0 => \^spixfer_done_int_d1_reg_0\,
       I1 => \^transfer_start_d1\,
       I2 => \^transfer_start_d1_reg_0\,
-      O => \OTHER_RATIO_GENERATE.sck_o_int_i_4_n_0\
+      O => \OTHER_RATIO_GENERATE.sck_o_int_i_3_n_0\
     );
 \OTHER_RATIO_GENERATE.sck_o_int_reg\: unisim.vcomponents.FDRE
      port map (
@@ -3980,25 +4444,38 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"000000000000DDD0"
+      INIT => X"0000000000000D00"
     )
         port map (
       I0 => \^transfer_start_d1_reg_0\,
       I1 => \^transfer_start_d1\,
-      I2 => \LOGIC_GENERATION_FDR.SPICR_3_CPOL_AX2S_2_0\,
+      I2 => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_2_n_0\,
       I3 => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_3_n_0\,
       I4 => \^spixfer_done_int_d1_reg_0\,
       I5 => Rst_to_spi,
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_1_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8AAA8AAA8AAAAAAA"
+    )
+        port map (
+      I0 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_3_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_4_n_0\,
+      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
+      I3 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I4 => Count_trigger,
+      I5 => \LOGIC_GENERATION_FDR.SPICR_3_CPOL_AX2S_2\,
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_2_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_3\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"8000"
     )
         port map (
-      I0 => \OTHER_RATIO_GENERATE.Shift_Reg[0]_i_5_n_0\,
+      I0 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\,
       I1 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[1]\,
-      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\,
+      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[4]\,
       I3 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[3]\,
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_3_n_0\
     );
@@ -4010,18 +4487,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       I0 => Ratio_Count(0),
       I1 => Ratio_Count(1),
       I2 => Ratio_Count(2),
-      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg_0\
-    );
-\RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_5\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"7FFF"
-    )
-        port map (
-      I0 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[1]\,
-      I1 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[0]\,
-      I2 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[3]\,
-      I3 => \OTHER_RATIO_GENERATE.Count_reg_n_0_[2]\,
-      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg_1\
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_i_4_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg\: unisim.vcomponents.FDRE
      port map (
@@ -4033,13 +4499,13 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"3F305F5F3F305050"
+      INIT => X"5F503F3F5F503030"
     )
         port map (
       I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_2_n_0\,
       I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_3_n_0\,
       I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => rx_shft_reg_s(7),
+      I3 => rx_shft_reg_s(15),
       I4 => spicr_9_lsb_to_spi_clk,
       I5 => rx_shft_reg_s(0),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_1_n_0\
@@ -4049,10 +4515,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       INIT => X"14D7"
     )
         port map (
-      I0 => rx_shft_reg_mode_0110(0),
+      I0 => rx_shft_reg_mode_0110(15),
       I1 => spicr_3_cpol_to_spi_clk,
       I2 => spicr_4_cpha_to_spi_clk,
-      I3 => rx_shft_reg_mode_0011(0),
+      I3 => rx_shft_reg_mode_0011(15),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_2_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_3\: unisim.vcomponents.LUT4
@@ -4060,21 +4526,99 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       INIT => X"14D7"
     )
         port map (
-      I0 => rx_shft_reg_mode_0110(7),
+      I0 => rx_shft_reg_mode_0110(0),
       I1 => spicr_3_cpol_to_spi_clk,
       I2 => spicr_4_cpha_to_spi_clk,
-      I3 => rx_shft_reg_mode_0011(7),
+      I3 => rx_shft_reg_mode_0011(0),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_3_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[10]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_2_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_3_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => rx_shft_reg_s(5),
+      I4 => spicr_9_lsb_to_spi_clk,
+      I5 => rx_shft_reg_s(10),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[10]_i_1_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[11]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_3_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_2_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => rx_shft_reg_s(4),
+      I4 => spicr_9_lsb_to_spi_clk,
+      I5 => rx_shft_reg_s(11),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[11]_i_1_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[12]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_3_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_2_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => rx_shft_reg_s(3),
+      I4 => spicr_9_lsb_to_spi_clk,
+      I5 => rx_shft_reg_s(12),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[12]_i_1_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[13]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_3_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_2_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => rx_shft_reg_s(2),
+      I4 => spicr_9_lsb_to_spi_clk,
+      I5 => rx_shft_reg_s(13),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[13]_i_1_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[14]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_3_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_2_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => rx_shft_reg_s(1),
+      I4 => spicr_9_lsb_to_spi_clk,
+      I5 => rx_shft_reg_s(14),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[14]_i_1_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[15]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_3_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_2_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => rx_shft_reg_s(0),
+      I4 => spicr_9_lsb_to_spi_clk,
+      I5 => rx_shft_reg_s(15),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[15]_i_1_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"3F305F5F3F305050"
+      INIT => X"5F503F3F5F503030"
     )
         port map (
       I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_2_n_0\,
       I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_3_n_0\,
       I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => rx_shft_reg_s(6),
+      I3 => rx_shft_reg_s(14),
       I4 => spicr_9_lsb_to_spi_clk,
       I5 => rx_shft_reg_s(1),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_1_n_0\
@@ -4084,10 +4628,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       INIT => X"14D7"
     )
         port map (
-      I0 => rx_shft_reg_mode_0110(1),
+      I0 => rx_shft_reg_mode_0110(14),
       I1 => spicr_3_cpol_to_spi_clk,
       I2 => spicr_4_cpha_to_spi_clk,
-      I3 => rx_shft_reg_mode_0011(1),
+      I3 => rx_shft_reg_mode_0011(14),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_2_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_3\: unisim.vcomponents.LUT4
@@ -4095,21 +4639,21 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       INIT => X"14D7"
     )
         port map (
-      I0 => rx_shft_reg_mode_0110(6),
+      I0 => rx_shft_reg_mode_0110(1),
       I1 => spicr_3_cpol_to_spi_clk,
       I2 => spicr_4_cpha_to_spi_clk,
-      I3 => rx_shft_reg_mode_0011(6),
+      I3 => rx_shft_reg_mode_0011(1),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_3_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"3F305F5F3F305050"
+      INIT => X"5F503F3F5F503030"
     )
         port map (
       I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_2_n_0\,
       I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_3_n_0\,
       I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => rx_shft_reg_s(5),
+      I3 => rx_shft_reg_s(13),
       I4 => spicr_9_lsb_to_spi_clk,
       I5 => rx_shft_reg_s(2),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_1_n_0\
@@ -4119,10 +4663,10 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       INIT => X"14D7"
     )
         port map (
-      I0 => rx_shft_reg_mode_0110(2),
+      I0 => rx_shft_reg_mode_0110(13),
       I1 => spicr_3_cpol_to_spi_clk,
       I2 => spicr_4_cpha_to_spi_clk,
-      I3 => rx_shft_reg_mode_0011(2),
+      I3 => rx_shft_reg_mode_0011(13),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_2_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_3\: unisim.vcomponents.LUT4
@@ -4130,21 +4674,21 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       INIT => X"14D7"
     )
         port map (
-      I0 => rx_shft_reg_mode_0110(5),
+      I0 => rx_shft_reg_mode_0110(2),
       I1 => spicr_3_cpol_to_spi_clk,
       I2 => spicr_4_cpha_to_spi_clk,
-      I3 => rx_shft_reg_mode_0011(5),
+      I3 => rx_shft_reg_mode_0011(2),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_3_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"3F305F5F3F305050"
+      INIT => X"5F503F3F5F503030"
     )
         port map (
       I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_2_n_0\,
       I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_3_n_0\,
       I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => rx_shft_reg_s(4),
+      I3 => rx_shft_reg_s(12),
       I4 => spicr_9_lsb_to_spi_clk,
       I5 => rx_shft_reg_s(3),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_1_n_0\
@@ -4154,13 +4698,48 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       INIT => X"14D7"
     )
         port map (
+      I0 => rx_shft_reg_mode_0110(12),
+      I1 => spicr_3_cpol_to_spi_clk,
+      I2 => spicr_4_cpha_to_spi_clk,
+      I3 => rx_shft_reg_mode_0011(12),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_2_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"14D7"
+    )
+        port map (
       I0 => rx_shft_reg_mode_0110(3),
       I1 => spicr_3_cpol_to_spi_clk,
       I2 => spicr_4_cpha_to_spi_clk,
       I3 => rx_shft_reg_mode_0011(3),
-      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_2_n_0\
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_3_n_0\
     );
-\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_3\: unisim.vcomponents.LUT4
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_2_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_3_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => rx_shft_reg_s(11),
+      I4 => spicr_9_lsb_to_spi_clk,
+      I5 => rx_shft_reg_s(4),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_1_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"14D7"
+    )
+        port map (
+      I0 => rx_shft_reg_mode_0110(11),
+      I1 => spicr_3_cpol_to_spi_clk,
+      I2 => spicr_4_cpha_to_spi_clk,
+      I3 => rx_shft_reg_mode_0011(11),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_2_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_3\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"14D7"
     )
@@ -4169,59 +4748,138 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       I1 => spicr_3_cpol_to_spi_clk,
       I2 => spicr_4_cpha_to_spi_clk,
       I3 => rx_shft_reg_mode_0011(4),
-      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_3_n_0\
-    );
-\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"3F305F5F3F305050"
-    )
-        port map (
-      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_3_n_0\,
-      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_2_n_0\,
-      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => rx_shft_reg_s(3),
-      I4 => spicr_9_lsb_to_spi_clk,
-      I5 => rx_shft_reg_s(4),
-      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_1_n_0\
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_3_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"3F305F5F3F305050"
     )
         port map (
-      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_3_n_0\,
-      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_2_n_0\,
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_2_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_3_n_0\,
       I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => rx_shft_reg_s(2),
+      I3 => rx_shft_reg_s(10),
       I4 => spicr_9_lsb_to_spi_clk,
       I5 => rx_shft_reg_s(5),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_1_n_0\
     );
-\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_1\: unisim.vcomponents.LUT6
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"3F305F5F3F305050"
+      INIT => X"14D7"
     )
         port map (
-      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_3_n_0\,
-      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_2_n_0\,
+      I0 => rx_shft_reg_mode_0110(5),
+      I1 => spicr_3_cpol_to_spi_clk,
+      I2 => spicr_4_cpha_to_spi_clk,
+      I3 => rx_shft_reg_mode_0011(5),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_2_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"14D7"
+    )
+        port map (
+      I0 => rx_shft_reg_mode_0110(10),
+      I1 => spicr_3_cpol_to_spi_clk,
+      I2 => spicr_4_cpha_to_spi_clk,
+      I3 => rx_shft_reg_mode_0011(10),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_3_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_2_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_3_n_0\,
       I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => rx_shft_reg_s(1),
+      I3 => rx_shft_reg_s(9),
       I4 => spicr_9_lsb_to_spi_clk,
       I5 => rx_shft_reg_s(6),
       O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_1_n_0\
     );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"14D7"
+    )
+        port map (
+      I0 => rx_shft_reg_mode_0110(9),
+      I1 => spicr_3_cpol_to_spi_clk,
+      I2 => spicr_4_cpha_to_spi_clk,
+      I3 => rx_shft_reg_mode_0011(9),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_2_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"14D7"
+    )
+        port map (
+      I0 => rx_shft_reg_mode_0110(6),
+      I1 => spicr_3_cpol_to_spi_clk,
+      I2 => spicr_4_cpha_to_spi_clk,
+      I3 => rx_shft_reg_mode_0011(6),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_3_n_0\
+    );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_2_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_3_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => rx_shft_reg_s(8),
+      I4 => spicr_9_lsb_to_spi_clk,
+      I5 => rx_shft_reg_s(7),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_1_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"14D7"
+    )
+        port map (
+      I0 => rx_shft_reg_mode_0110(8),
+      I1 => spicr_3_cpol_to_spi_clk,
+      I2 => spicr_4_cpha_to_spi_clk,
+      I3 => rx_shft_reg_mode_0011(8),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_2_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"14D7"
+    )
+        port map (
+      I0 => rx_shft_reg_mode_0110(7),
+      I1 => spicr_3_cpol_to_spi_clk,
+      I2 => spicr_4_cpha_to_spi_clk,
+      I3 => rx_shft_reg_mode_0011(7),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_3_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[8]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"3F305F5F3F305050"
     )
         port map (
-      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_3_n_0\,
-      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_2_n_0\,
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_2_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_3_n_0\,
       I2 => SPICR_2_MST_N_SLV_to_spi_clk,
-      I3 => rx_shft_reg_s(0),
+      I3 => rx_shft_reg_s(7),
       I4 => spicr_9_lsb_to_spi_clk,
-      I5 => rx_shft_reg_s(7),
-      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_1_n_0\
+      I5 => rx_shft_reg_s(8),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[8]_i_1_n_0\
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[9]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5F503F3F5F503030"
+    )
+        port map (
+      I0 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_3_n_0\,
+      I1 => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_2_n_0\,
+      I2 => SPICR_2_MST_N_SLV_to_spi_clk,
+      I3 => rx_shft_reg_s(6),
+      I4 => spicr_9_lsb_to_spi_clk,
+      I5 => rx_shft_reg_s(9),
+      O => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[9]_i_1_n_0\
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -4231,7 +4889,73 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       C => ext_spi_clk,
       CE => SPIXfer_done_int_pulse_d1,
       D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[0]_i_1_n_0\,
-      Q => Q(7),
+      Q => Q(15),
+      R => '0'
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => SPIXfer_done_int_pulse_d1,
+      D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[10]_i_1_n_0\,
+      Q => Q(5),
+      R => '0'
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => SPIXfer_done_int_pulse_d1,
+      D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[11]_i_1_n_0\,
+      Q => Q(4),
+      R => '0'
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => SPIXfer_done_int_pulse_d1,
+      D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[12]_i_1_n_0\,
+      Q => Q(3),
+      R => '0'
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => SPIXfer_done_int_pulse_d1,
+      D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[13]_i_1_n_0\,
+      Q => Q(2),
+      R => '0'
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => SPIXfer_done_int_pulse_d1,
+      D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[14]_i_1_n_0\,
+      Q => Q(1),
+      R => '0'
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => SPIXfer_done_int_pulse_d1,
+      D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[15]_i_1_n_0\,
+      Q => Q(0),
       R => '0'
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[1]\: unisim.vcomponents.FDRE
@@ -4242,7 +4966,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       C => ext_spi_clk,
       CE => SPIXfer_done_int_pulse_d1,
       D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[1]_i_1_n_0\,
-      Q => Q(6),
+      Q => Q(14),
       R => '0'
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[2]\: unisim.vcomponents.FDRE
@@ -4253,7 +4977,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       C => ext_spi_clk,
       CE => SPIXfer_done_int_pulse_d1,
       D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[2]_i_1_n_0\,
-      Q => Q(5),
+      Q => Q(13),
       R => '0'
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[3]\: unisim.vcomponents.FDRE
@@ -4264,7 +4988,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       C => ext_spi_clk,
       CE => SPIXfer_done_int_pulse_d1,
       D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[3]_i_1_n_0\,
-      Q => Q(4),
+      Q => Q(12),
       R => '0'
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[4]\: unisim.vcomponents.FDRE
@@ -4275,7 +4999,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       C => ext_spi_clk,
       CE => SPIXfer_done_int_pulse_d1,
       D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[4]_i_1_n_0\,
-      Q => Q(3),
+      Q => Q(11),
       R => '0'
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[5]\: unisim.vcomponents.FDRE
@@ -4286,7 +5010,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       C => ext_spi_clk,
       CE => SPIXfer_done_int_pulse_d1,
       D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[5]_i_1_n_0\,
-      Q => Q(2),
+      Q => Q(10),
       R => '0'
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[6]\: unisim.vcomponents.FDRE
@@ -4297,7 +5021,7 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       C => ext_spi_clk,
       CE => SPIXfer_done_int_pulse_d1,
       D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[6]_i_1_n_0\,
-      Q => Q(1),
+      Q => Q(9),
       R => '0'
     );
 \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[7]\: unisim.vcomponents.FDRE
@@ -4308,7 +5032,29 @@ MODF_strobe_reg: unisim.vcomponents.FDRE
       C => ext_spi_clk,
       CE => SPIXfer_done_int_pulse_d1,
       D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[7]_i_1_n_0\,
-      Q => Q(0),
+      Q => Q(8),
+      R => '0'
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => SPIXfer_done_int_pulse_d1,
+      D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[8]_i_1_n_0\,
+      Q => Q(7),
+      R => '0'
+    );
+\RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int_reg[9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => ext_spi_clk,
+      CE => SPIXfer_done_int_pulse_d1,
+      D => \RX_DATA_GEN_OTHER_SCK_RATIOS.receive_Data_int[9]_i_1_n_0\,
+      Q => Q(6),
       R => '0'
     );
 SCK_I_REG: unisim.vcomponents.FDRE
@@ -4571,9 +5317,11 @@ entity design_1_axi_quad_spi_0_0_qspi_status_slave_sel_reg is
     reset2ip_reset_int : in STD_LOGIC;
     s_axi_wdata : in STD_LOGIC_VECTOR ( 0 to 0 );
     \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ : in STD_LOGIC;
-    Bus_RNW_reg : in STD_LOGIC;
-    p_4_in : in STD_LOGIC
+    p_4_in : in STD_LOGIC;
+    Bus_RNW_reg : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_qspi_status_slave_sel_reg : entity is "qspi_status_slave_sel_reg";
 end design_1_axi_quad_spi_0_0_qspi_status_slave_sel_reg;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_status_slave_sel_reg is
@@ -4583,13 +5331,13 @@ begin
   SPISSR_frm_axi_clk <= \^spissr_frm_axi_clk\;
 \SPISSR_WR_GEN[0].SPISSR_Data_reg[0]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FBFF0800"
+      INIT => X"FFBF0080"
     )
         port map (
       I0 => s_axi_wdata(0),
       I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\,
-      I2 => Bus_RNW_reg,
-      I3 => p_4_in,
+      I2 => p_4_in,
+      I3 => Bus_RNW_reg,
       I4 => \^spissr_frm_axi_clk\,
       O => \SPISSR_WR_GEN[0].SPISSR_Data_reg[0]_i_1_n_0\
     );
@@ -4624,13 +5372,15 @@ entity design_1_axi_quad_spi_0_0_reset_sync_module is
     reset2ip_reset_int : in STD_LOGIC;
     ext_spi_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_reset_sync_module : entity is "reset_sync_module";
 end design_1_axi_quad_spi_0_0_reset_sync_module;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_reset_sync_module is
   signal \^rst_to_spi\ : STD_LOGIC;
   signal Soft_Reset_frm_axi_d1 : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_2\ : label is "soft_lutpair82";
+  attribute SOFT_HLUTNM of \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_2\ : label is "soft_lutpair87";
   attribute ASYNC_REG : boolean;
   attribute ASYNC_REG of RESET_SYNC_AX2S_1 : label is std.standard.true;
   attribute XILINX_LEGACY_PRIM : string;
@@ -4640,7 +5390,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_reset_sync_module is
   attribute ASYNC_REG of RESET_SYNC_AX2S_2 : label is std.standard.true;
   attribute XILINX_LEGACY_PRIM of RESET_SYNC_AX2S_2 : label is "FDR";
   attribute box_type of RESET_SYNC_AX2S_2 : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of Slave_MODF_strobe_i_1 : label is "soft_lutpair82";
+  attribute SOFT_HLUTNM of Slave_MODF_strobe_i_1 : label is "soft_lutpair87";
 begin
   Rst_to_spi <= \^rst_to_spi\;
 \OTHER_RATIO_GENERATE.rx_shft_reg_s[0]_i_2\: unisim.vcomponents.LUT2
@@ -4691,10 +5441,9 @@ use UNISIM.VCOMPONENTS.ALL;
 entity design_1_axi_quad_spi_0_0_soft_reset is
   port (
     sw_rst_cond_d1 : out STD_LOGIC;
+    FF_WRACK_0 : out STD_LOGIC;
     \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\ : out STD_LOGIC;
-    \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg_0\ : out STD_LOGIC;
     rst : out STD_LOGIC;
-    reset2ip_reset_int : out STD_LOGIC;
     IP2Bus_WrAck_1 : out STD_LOGIC;
     bus2ip_reset_ipif_inverted : in STD_LOGIC;
     sw_rst_cond : in STD_LOGIC;
@@ -4703,16 +5452,18 @@ entity design_1_axi_quad_spi_0_0_soft_reset is
     \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ : in STD_LOGIC;
     \icount_out_reg[2]\ : in STD_LOGIC;
     Tx_FIFO_Full_int : in STD_LOGIC;
-    \GEN_BKEND_CE_REGISTERS[16].ce_out_i_reg[16]\ : in STD_LOGIC;
-    p_2_in : in STD_LOGIC;
-    ip2Bus_WrAck_intr_reg_hole : in STD_LOGIC;
-    ip2Bus_WrAck_core_reg : in STD_LOGIC
+    Bus_RNW_reg_reg : in STD_LOGIC;
+    ip2Bus_WrAck_core_reg : in STD_LOGIC;
+    p_2_in_0 : in STD_LOGIC;
+    ip2Bus_WrAck_intr_reg_hole : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_soft_reset : entity is "soft_reset";
 end design_1_axi_quad_spi_0_0_soft_reset;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_soft_reset is
+  signal \^ff_wrack_0\ : STD_LOGIC;
   signal FF_WRACK_i_1_n_0 : STD_LOGIC;
-  signal \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\ : STD_LOGIC;
   signal \RESET_FLOPS[10].RST_FLOPS_i_1_n_0\ : STD_LOGIC;
   signal \RESET_FLOPS[11].RST_FLOPS_i_1_n_0\ : STD_LOGIC;
   signal \RESET_FLOPS[12].RST_FLOPS_i_1_n_0\ : STD_LOGIC;
@@ -4738,74 +5489,74 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_soft_reset is
   attribute box_type : string;
   attribute box_type of FF_WRACK : label is "PRIMITIVE";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of FF_WRACK_i_1 : label is "soft_lutpair84";
-  attribute SOFT_HLUTNM of \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_i_1\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of FF_WRACK_i_1 : label is "soft_lutpair89";
+  attribute SOFT_HLUTNM of \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_i_1\ : label is "soft_lutpair88";
   attribute IS_CE_INVERTED of \RESET_FLOPS[0].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[0].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[0].RST_FLOPS\ : label is "PRIMITIVE";
   attribute IS_CE_INVERTED of \RESET_FLOPS[10].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[10].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[10].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[10].RST_FLOPS_i_1\ : label is "soft_lutpair89";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[10].RST_FLOPS_i_1\ : label is "soft_lutpair94";
   attribute IS_CE_INVERTED of \RESET_FLOPS[11].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[11].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[11].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[11].RST_FLOPS_i_1\ : label is "soft_lutpair90";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[11].RST_FLOPS_i_1\ : label is "soft_lutpair95";
   attribute IS_CE_INVERTED of \RESET_FLOPS[12].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[12].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[12].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[12].RST_FLOPS_i_1\ : label is "soft_lutpair90";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[12].RST_FLOPS_i_1\ : label is "soft_lutpair95";
   attribute IS_CE_INVERTED of \RESET_FLOPS[13].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[13].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[13].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[13].RST_FLOPS_i_1\ : label is "soft_lutpair91";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[13].RST_FLOPS_i_1\ : label is "soft_lutpair96";
   attribute IS_CE_INVERTED of \RESET_FLOPS[14].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[14].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[14].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[14].RST_FLOPS_i_1\ : label is "soft_lutpair91";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[14].RST_FLOPS_i_1\ : label is "soft_lutpair96";
   attribute IS_CE_INVERTED of \RESET_FLOPS[15].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[15].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[15].RST_FLOPS\ : label is "PRIMITIVE";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[15].RST_FLOPS_i_1\ : label is "soft_lutpair89";
   attribute IS_CE_INVERTED of \RESET_FLOPS[1].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[1].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[1].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[1].RST_FLOPS_i_1\ : label is "soft_lutpair85";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[1].RST_FLOPS_i_1\ : label is "soft_lutpair90";
   attribute IS_CE_INVERTED of \RESET_FLOPS[2].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[2].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[2].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[2].RST_FLOPS_i_1\ : label is "soft_lutpair85";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[2].RST_FLOPS_i_1\ : label is "soft_lutpair90";
   attribute IS_CE_INVERTED of \RESET_FLOPS[3].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[3].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[3].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[3].RST_FLOPS_i_1\ : label is "soft_lutpair86";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[3].RST_FLOPS_i_1\ : label is "soft_lutpair91";
   attribute IS_CE_INVERTED of \RESET_FLOPS[4].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[4].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[4].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[4].RST_FLOPS_i_1\ : label is "soft_lutpair86";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[4].RST_FLOPS_i_1\ : label is "soft_lutpair91";
   attribute IS_CE_INVERTED of \RESET_FLOPS[5].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[5].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[5].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[5].RST_FLOPS_i_1\ : label is "soft_lutpair87";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[5].RST_FLOPS_i_1\ : label is "soft_lutpair92";
   attribute IS_CE_INVERTED of \RESET_FLOPS[6].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[6].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[6].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[6].RST_FLOPS_i_1\ : label is "soft_lutpair87";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[6].RST_FLOPS_i_1\ : label is "soft_lutpair92";
   attribute IS_CE_INVERTED of \RESET_FLOPS[7].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[7].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[7].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[7].RST_FLOPS_i_1\ : label is "soft_lutpair88";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[7].RST_FLOPS_i_1\ : label is "soft_lutpair93";
   attribute IS_CE_INVERTED of \RESET_FLOPS[8].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[8].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[8].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[8].RST_FLOPS_i_1\ : label is "soft_lutpair88";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[8].RST_FLOPS_i_1\ : label is "soft_lutpair93";
   attribute IS_CE_INVERTED of \RESET_FLOPS[9].RST_FLOPS\ : label is "1'b0";
   attribute IS_S_INVERTED of \RESET_FLOPS[9].RST_FLOPS\ : label is "1'b0";
   attribute box_type of \RESET_FLOPS[9].RST_FLOPS\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \RESET_FLOPS[9].RST_FLOPS_i_1\ : label is "soft_lutpair89";
-  attribute SOFT_HLUTNM of RESET_SYNC_AX2S_1_i_1 : label is "soft_lutpair84";
-  attribute SOFT_HLUTNM of \gnuram_async_fifo.xpm_fifo_base_inst_i_1\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of \RESET_FLOPS[9].RST_FLOPS_i_1\ : label is "soft_lutpair94";
+  attribute SOFT_HLUTNM of \gnuram_async_fifo.xpm_fifo_base_inst_i_1\ : label is "soft_lutpair88";
 begin
-  \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\ <= \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\;
+  FF_WRACK_0 <= \^ff_wrack_0\;
 FF_WRACK: unisim.vcomponents.FDRE
     generic map(
       INIT => '0',
@@ -4825,7 +5576,7 @@ FF_WRACK_i_1: unisim.vcomponents.LUT2
       INIT => X"2"
     )
         port map (
-      I0 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\,
+      I0 => \^ff_wrack_0\,
       I1 => flop_q_chain(15),
       O => FF_WRACK_i_1_n_0
     );
@@ -4834,23 +5585,23 @@ FF_WRACK_i_1: unisim.vcomponents.LUT2
       INIT => X"00000100"
     )
         port map (
-      I0 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\,
-      I1 => bus2ip_reset_ipif_inverted,
+      I0 => bus2ip_reset_ipif_inverted,
+      I1 => \^ff_wrack_0\,
       I2 => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
       I3 => \icount_out_reg[2]\,
       I4 => Tx_FIFO_Full_int,
-      O => \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg_0\
+      O => \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\
     );
 \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => \GEN_BKEND_CE_REGISTERS[16].ce_out_i_reg[16]\,
+      I0 => Bus_RNW_reg_reg,
       I1 => wrack,
-      I2 => p_2_in,
-      I3 => ip2Bus_WrAck_intr_reg_hole,
-      I4 => ip2Bus_WrAck_core_reg,
+      I2 => ip2Bus_WrAck_core_reg,
+      I3 => p_2_in_0,
+      I4 => ip2Bus_WrAck_intr_reg_hole,
       O => IP2Bus_WrAck_1
     );
 \RESET_FLOPS[0].RST_FLOPS\: unisim.vcomponents.FDRE
@@ -4993,7 +5744,7 @@ FF_WRACK_i_1: unisim.vcomponents.LUT2
       C => s_axi_aclk,
       CE => '1',
       D => \RESET_FLOPS[15].RST_FLOPS_i_1_n_0\,
-      Q => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\,
+      Q => \^ff_wrack_0\,
       R => bus2ip_reset_ipif_inverted
     );
 \RESET_FLOPS[15].RST_FLOPS_i_1\: unisim.vcomponents.LUT2
@@ -5212,22 +5963,13 @@ FF_WRACK_i_1: unisim.vcomponents.LUT2
       I1 => flop_q_chain(9),
       O => \RESET_FLOPS[9].RST_FLOPS_i_1_n_0\
     );
-RESET_SYNC_AX2S_1_i_1: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\,
-      I1 => bus2ip_reset_ipif_inverted,
-      O => reset2ip_reset_int
-    );
 \gnuram_async_fifo.xpm_fifo_base_inst_i_1\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"FE"
     )
         port map (
-      I0 => \^fifo_exists.tx_full_emp_intr_md_0_gen.tx_fifo_full_i_reg\,
-      I1 => bus2ip_reset_ipif_inverted,
+      I0 => bus2ip_reset_ipif_inverted,
+      I1 => \^ff_wrack_0\,
       I2 => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
       O => rst
     );
@@ -5263,6 +6005,8 @@ entity design_1_axi_quad_spi_0_0_xpm_cdc_gray is
   attribute DEST_SYNC_FF of design_1_axi_quad_spi_0_0_xpm_cdc_gray : entity is 2;
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of design_1_axi_quad_spi_0_0_xpm_cdc_gray : entity is 1;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_xpm_cdc_gray : entity is "xpm_cdc_gray";
   attribute REG_OUTPUT : integer;
   attribute REG_OUTPUT of design_1_axi_quad_spi_0_0_xpm_cdc_gray : entity is 0;
   attribute SIM_ASSERT_CHK : integer;
@@ -5320,8 +6064,8 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_cdc_gray is
   attribute KEEP of \dest_graysync_ff_reg[1][3]\ : label is "true";
   attribute XPM_CDC of \dest_graysync_ff_reg[1][3]\ : label is "GRAY";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \src_gray_ff[0]_i_1\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \src_gray_ff[1]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \src_gray_ff[0]_i_1\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \src_gray_ff[1]_i_1\ : label is "soft_lutpair54";
 begin
   dest_out_bin(3) <= \dest_graysync_ff[1]\(3);
   dest_out_bin(2 downto 0) <= \^dest_out_bin\(2 downto 0);
@@ -6019,8 +6763,8 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_cdc_gray__4\ is
   attribute KEEP of \dest_graysync_ff_reg[1][3]\ : label is "true";
   attribute XPM_CDC of \dest_graysync_ff_reg[1][3]\ : label is "GRAY";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \src_gray_ff[0]_i_1\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \src_gray_ff[1]_i_1\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \src_gray_ff[0]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \src_gray_ff[1]_i_1\ : label is "soft_lutpair51";
 begin
   dest_out_bin(3) <= \dest_graysync_ff[1]\(3);
   dest_out_bin(2 downto 0) <= \^dest_out_bin\(2 downto 0);
@@ -6296,10 +7040,10 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_cdc_gray__parameterized
   attribute KEEP of \dest_graysync_ff_reg[3][4]\ : label is "true";
   attribute XPM_CDC of \dest_graysync_ff_reg[3][4]\ : label is "GRAY";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \src_gray_ff[0]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \src_gray_ff[1]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \src_gray_ff[2]_i_1\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \src_gray_ff[3]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \src_gray_ff[0]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \src_gray_ff[1]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \src_gray_ff[2]_i_1\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \src_gray_ff[3]_i_1\ : label is "soft_lutpair53";
 begin
   dest_out_bin(4) <= \dest_graysync_ff[3]\(4);
   dest_out_bin(3 downto 0) <= \^dest_out_bin\(3 downto 0);
@@ -7066,10 +7810,10 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_cdc_gray__parameterized
   attribute KEEP of \dest_graysync_ff_reg[1][4]\ : label is "true";
   attribute XPM_CDC of \dest_graysync_ff_reg[1][4]\ : label is "GRAY";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \src_gray_ff[0]_i_1\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \src_gray_ff[1]_i_1\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \src_gray_ff[2]_i_1\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \src_gray_ff[3]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \src_gray_ff[0]_i_1\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \src_gray_ff[1]_i_1\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \src_gray_ff[2]_i_1\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \src_gray_ff[3]_i_1\ : label is "soft_lutpair55";
 begin
   dest_out_bin(4) <= \dest_graysync_ff[1]\(4);
   dest_out_bin(3 downto 0) <= \^dest_out_bin\(3 downto 0);
@@ -7576,6 +8320,8 @@ entity design_1_axi_quad_spi_0_0_xpm_cdc_sync_rst is
   attribute INIT of design_1_axi_quad_spi_0_0_xpm_cdc_sync_rst : entity is "0";
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of design_1_axi_quad_spi_0_0_xpm_cdc_sync_rst : entity is 1;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_xpm_cdc_sync_rst : entity is "xpm_cdc_sync_rst";
   attribute SIM_ASSERT_CHK : integer;
   attribute SIM_ASSERT_CHK of design_1_axi_quad_spi_0_0_xpm_cdc_sync_rst : entity is 0;
   attribute VERSION : integer;
@@ -7847,6 +8593,8 @@ entity design_1_axi_quad_spi_0_0_xpm_counter_updn is
     wr_pntr_plus1_pf_carry : in STD_LOGIC;
     wr_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_xpm_counter_updn : entity is "xpm_counter_updn";
 end design_1_axi_quad_spi_0_0_xpm_counter_updn;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_counter_updn is
@@ -7856,10 +8604,10 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_counter_updn is
   signal \count_value_i[2]_i_1__2_n_0\ : STD_LOGIC;
   signal \count_value_i[3]_i_1__2_n_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \count_value_i[0]_i_1__2\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \count_value_i[1]_i_1__2\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__2\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__2\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \count_value_i[0]_i_1__2\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \count_value_i[1]_i_1__2\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__2\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__2\ : label is "soft_lutpair57";
 begin
   Q(3 downto 0) <= \^q\(3 downto 0);
 \count_value_i[0]_i_1__2\: unisim.vcomponents.LUT1
@@ -8078,8 +8826,8 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_counter_updn__parameter
   signal \count_value_i[2]_i_1_n_0\ : STD_LOGIC;
   signal \count_value_i[3]_i_1_n_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \count_value_i[2]_i_1\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \count_value_i[3]_i_1\ : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of \count_value_i[2]_i_1\ : label is "soft_lutpair70";
+  attribute SOFT_HLUTNM of \count_value_i[3]_i_1\ : label is "soft_lutpair70";
 begin
   Q(3 downto 0) <= \^q\(3 downto 0);
 \count_value_i[0]_i_1\: unisim.vcomponents.LUT1
@@ -8579,14 +9327,14 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_counter_updn__parameter
   signal \grdc.rd_data_count_i[4]_i_3_n_0\ : STD_LOGIC;
   signal \^src_gray_ff_reg[3]\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \count_value_i[0]_i_1__4\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \count_value_i[1]_i_1__4\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__4\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__4\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \count_value_i[4]_i_1__0\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \gen_cdc_pntr.rd_pntr_cdc_dc_inst_i_3\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \gen_cdc_pntr.rd_pntr_cdc_dc_inst_i_6\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \grdc.rd_data_count_i[0]_i_1\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \count_value_i[0]_i_1__4\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \count_value_i[1]_i_1__4\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__4\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__4\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \count_value_i[4]_i_1__0\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \gen_cdc_pntr.rd_pntr_cdc_dc_inst_i_3\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \gen_cdc_pntr.rd_pntr_cdc_dc_inst_i_6\ : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of \grdc.rd_data_count_i[0]_i_1\ : label is "soft_lutpair63";
 begin
   \count_value_i_reg[0]_0\ <= \^count_value_i_reg[0]_0\;
   \src_gray_ff_reg[3]\(3 downto 0) <= \^src_gray_ff_reg[3]\(3 downto 0);
@@ -9380,12 +10128,12 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_counter_updn__parameter
   signal \count_value_i[3]_i_1__1_n_0\ : STD_LOGIC;
   signal \count_value_i[4]_i_1_n_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \count_value_i[0]_i_1__1\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \count_value_i[1]_i_1__1\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__1\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__1\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \count_value_i[4]_i_1\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \gwdc.wr_data_count_i[0]_i_1\ : label is "soft_lutpair65";
+  attribute SOFT_HLUTNM of \count_value_i[0]_i_1__1\ : label is "soft_lutpair68";
+  attribute SOFT_HLUTNM of \count_value_i[1]_i_1__1\ : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__1\ : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__1\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \count_value_i[4]_i_1\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \gwdc.wr_data_count_i[0]_i_1\ : label is "soft_lutpair68";
 begin
   Q(4 downto 0) <= \^q\(4 downto 0);
 \count_value_i[0]_i_1__1\: unisim.vcomponents.LUT1
@@ -9540,8 +10288,8 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_counter_updn__parameter
   signal \count_value_i[2]_i_1__3_n_0\ : STD_LOGIC;
   signal \count_value_i[3]_i_1__3_n_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__3\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__3\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__3\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__3\ : label is "soft_lutpair64";
 begin
   Q(3 downto 0) <= \^q\(3 downto 0);
 \count_value_i[0]_i_1__3\: unisim.vcomponents.LUT4
@@ -9881,8 +10629,8 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_counter_updn__parameter
   signal \count_value_i[2]_i_1__0_n_0\ : STD_LOGIC;
   signal \count_value_i[3]_i_1__0_n_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__0\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__0\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \count_value_i[2]_i_1__0\ : label is "soft_lutpair69";
+  attribute SOFT_HLUTNM of \count_value_i[3]_i_1__0\ : label is "soft_lutpair69";
 begin
   Q(3 downto 0) <= \^q\(3 downto 0);
 \count_value_i[0]_i_1__0\: unisim.vcomponents.LUT1
@@ -9986,13 +10734,15 @@ entity design_1_axi_quad_spi_0_0_xpm_fifo_reg_bit is
     prog_full : in STD_LOGIC;
     wr_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_xpm_fifo_reg_bit : entity is "xpm_fifo_reg_bit";
 end design_1_axi_quad_spi_0_0_xpm_fifo_reg_bit;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_reg_bit is
   signal \^rst_d1\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \gen_pf_ic_rc.gen_full_rst_val.ram_full_i_i_4\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \gof.overflow_i_i_1\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \gen_pf_ic_rc.gen_full_rst_val.ram_full_i_i_4\ : label is "soft_lutpair65";
+  attribute SOFT_HLUTNM of \gof.overflow_i_i_1\ : label is "soft_lutpair65";
 begin
   rst_d1 <= \^rst_d1\;
 d_out_reg: unisim.vcomponents.FDRE
@@ -10137,6 +10887,8 @@ entity design_1_axi_quad_spi_0_0_xpm_fifo_reg_vec is
     D : in STD_LOGIC_VECTOR ( 3 downto 0 );
     wr_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_xpm_fifo_reg_vec : entity is "xpm_fifo_reg_vec";
 end design_1_axi_quad_spi_0_0_xpm_fifo_reg_vec;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_reg_vec is
@@ -10821,8 +11573,8 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_reg_vec__parameter
   signal \reg_out_i_reg_n_0_[3]\ : STD_LOGIC;
   signal \reg_out_i_reg_n_0_[4]\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \gwdc.wr_data_count_i[3]_i_1\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \gwdc.wr_data_count_i[4]_i_1\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \gwdc.wr_data_count_i[3]_i_1\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \gwdc.wr_data_count_i[4]_i_1\ : label is "soft_lutpair59";
 begin
   Q(2 downto 0) <= \^q\(2 downto 0);
 \gwdc.wr_data_count_i[1]_i_1\: unisim.vcomponents.LUT4
@@ -11273,10 +12025,10 @@ entity design_1_axi_quad_spi_0_0_xpm_memory_base is
     regcea : in STD_LOGIC;
     wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
     injectsbiterra : in STD_LOGIC;
     injectdbiterra : in STD_LOGIC;
-    douta : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
     sbiterra : out STD_LOGIC;
     dbiterra : out STD_LOGIC;
     clkb : in STD_LOGIC;
@@ -11285,10 +12037,10 @@ entity design_1_axi_quad_spi_0_0_xpm_memory_base is
     regceb : in STD_LOGIC;
     web : in STD_LOGIC_VECTOR ( 0 to 0 );
     addrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    dinb : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    dinb : in STD_LOGIC_VECTOR ( 15 downto 0 );
     injectsbiterrb : in STD_LOGIC;
     injectdbiterrb : in STD_LOGIC;
-    doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 15 downto 0 );
     sbiterrb : out STD_LOGIC;
     dbiterrb : out STD_LOGIC
   );
@@ -11299,9 +12051,9 @@ entity design_1_axi_quad_spi_0_0_xpm_memory_base is
   attribute AUTO_SLEEP_TIME : integer;
   attribute AUTO_SLEEP_TIME of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 0;
   attribute BYTE_WRITE_WIDTH_A : integer;
-  attribute BYTE_WRITE_WIDTH_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute BYTE_WRITE_WIDTH_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute BYTE_WRITE_WIDTH_B : integer;
-  attribute BYTE_WRITE_WIDTH_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute BYTE_WRITE_WIDTH_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute CLOCKING_MODE : integer;
   attribute CLOCKING_MODE of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 1;
   attribute ECC_MODE : integer;
@@ -11317,13 +12069,15 @@ entity design_1_axi_quad_spi_0_0_xpm_memory_base is
   attribute MEMORY_PRIMITIVE : integer;
   attribute MEMORY_PRIMITIVE of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 0;
   attribute MEMORY_SIZE : integer;
-  attribute MEMORY_SIZE of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 128;
+  attribute MEMORY_SIZE of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 256;
   attribute MEMORY_TYPE : integer;
   attribute MEMORY_TYPE of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 1;
   attribute MESSAGE_CONTROL : integer;
   attribute MESSAGE_CONTROL of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 0;
   attribute NUM_CHAR_LOC : integer;
   attribute NUM_CHAR_LOC of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 0;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is "xpm_memory_base";
   attribute P_ECC_MODE : string;
   attribute P_ECC_MODE of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is "no_ecc";
   attribute P_ENABLE_BYTE_WRITE_A : integer;
@@ -11337,17 +12091,17 @@ entity design_1_axi_quad_spi_0_0_xpm_memory_base is
   attribute P_MEMORY_PRIMITIVE : string;
   attribute P_MEMORY_PRIMITIVE of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is "auto";
   attribute P_MIN_WIDTH_DATA : integer;
-  attribute P_MIN_WIDTH_DATA of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute P_MIN_WIDTH_DATA of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute P_MIN_WIDTH_DATA_A : integer;
-  attribute P_MIN_WIDTH_DATA_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute P_MIN_WIDTH_DATA_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute P_MIN_WIDTH_DATA_B : integer;
-  attribute P_MIN_WIDTH_DATA_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute P_MIN_WIDTH_DATA_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute P_MIN_WIDTH_DATA_ECC : integer;
-  attribute P_MIN_WIDTH_DATA_ECC of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute P_MIN_WIDTH_DATA_ECC of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute P_MIN_WIDTH_DATA_LDW : integer;
   attribute P_MIN_WIDTH_DATA_LDW of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 4;
   attribute P_MIN_WIDTH_DATA_SHFT : integer;
-  attribute P_MIN_WIDTH_DATA_SHFT of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute P_MIN_WIDTH_DATA_SHFT of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute P_NUM_COLS_WRITE_A : integer;
   attribute P_NUM_COLS_WRITE_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 1;
   attribute P_NUM_COLS_WRITE_B : integer;
@@ -11379,13 +12133,13 @@ entity design_1_axi_quad_spi_0_0_xpm_memory_base is
   attribute P_WIDTH_ADDR_WRITE_B : integer;
   attribute P_WIDTH_ADDR_WRITE_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 4;
   attribute P_WIDTH_COL_WRITE_A : integer;
-  attribute P_WIDTH_COL_WRITE_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute P_WIDTH_COL_WRITE_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute P_WIDTH_COL_WRITE_B : integer;
-  attribute P_WIDTH_COL_WRITE_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute P_WIDTH_COL_WRITE_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute READ_DATA_WIDTH_A : integer;
-  attribute READ_DATA_WIDTH_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute READ_DATA_WIDTH_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute READ_DATA_WIDTH_B : integer;
-  attribute READ_DATA_WIDTH_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute READ_DATA_WIDTH_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute READ_LATENCY_A : integer;
   attribute READ_LATENCY_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 2;
   attribute READ_LATENCY_B : integer;
@@ -11403,9 +12157,9 @@ entity design_1_axi_quad_spi_0_0_xpm_memory_base is
   attribute WAKEUP_TIME : integer;
   attribute WAKEUP_TIME of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 0;
   attribute WRITE_DATA_WIDTH_A : integer;
-  attribute WRITE_DATA_WIDTH_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute WRITE_DATA_WIDTH_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute WRITE_DATA_WIDTH_B : integer;
-  attribute WRITE_DATA_WIDTH_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 8;
+  attribute WRITE_DATA_WIDTH_B of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 16;
   attribute WRITE_MODE_A : integer;
   attribute WRITE_MODE_A of design_1_axi_quad_spi_0_0_xpm_memory_base : entity is 2;
   attribute WRITE_MODE_B : integer;
@@ -11416,8 +12170,14 @@ end design_1_axi_quad_spi_0_0_xpm_memory_base;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_memory_base is
   signal \<const0>\ : STD_LOGIC;
-  signal \gen_rd_b.doutb_reg0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \gen_rd_b.doutb_reg0\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \gen_rd_b.doutb_reg_reg_n_0_[0]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[10]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[11]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[12]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[13]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[14]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[15]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[1]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[2]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[3]\ : STD_LOGIC;
@@ -11425,12 +12185,20 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_memory_base is
   signal \gen_rd_b.doutb_reg_reg_n_0_[5]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[6]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[7]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[8]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[9]\ : STD_LOGIC;
   signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5_DOD_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOB_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOD_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15_DOC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15_DOD_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_11_DOD_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute dram_emb_xdc : string;
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[0]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[10]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[11]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[12]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[13]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[14]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[15]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[1]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[2]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[3]\ : label is "no";
@@ -11438,12 +12206,23 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_memory_base is
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[5]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[6]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[7]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[8]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[9]\ : label is "no";
   attribute METHODOLOGY_DRC_VIOS : string;
   attribute METHODOLOGY_DRC_VIOS of \gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5\ : label is "";
-  attribute METHODOLOGY_DRC_VIOS of \gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7\ : label is "";
+  attribute METHODOLOGY_DRC_VIOS of \gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15\ : label is "";
+  attribute METHODOLOGY_DRC_VIOS of \gen_wr_a.gen_word_narrow.mem_reg_0_15_6_11\ : label is "";
 begin
   dbiterra <= \<const0>\;
   dbiterrb <= \<const0>\;
+  douta(15) <= \<const0>\;
+  douta(14) <= \<const0>\;
+  douta(13) <= \<const0>\;
+  douta(12) <= \<const0>\;
+  douta(11) <= \<const0>\;
+  douta(10) <= \<const0>\;
+  douta(9) <= \<const0>\;
+  douta(8) <= \<const0>\;
   douta(7) <= \<const0>\;
   douta(6) <= \<const0>\;
   douta(5) <= \<const0>\;
@@ -11467,6 +12246,72 @@ GND: unisim.vcomponents.GND
       CE => enb,
       D => \gen_rd_b.doutb_reg0\(0),
       Q => \gen_rd_b.doutb_reg_reg_n_0_[0]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(10),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[10]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(11),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[11]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(12),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[12]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(13),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[13]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(14),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[14]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(15),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[15]\,
       R => '0'
     );
 \gen_rd_b.doutb_reg_reg[1]\: unisim.vcomponents.FDRE
@@ -11546,6 +12391,28 @@ GND: unisim.vcomponents.GND
       Q => \gen_rd_b.doutb_reg_reg_n_0_[7]\,
       R => '0'
     );
+\gen_rd_b.doutb_reg_reg[8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(8),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[8]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(9),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[9]\,
+      R => '0'
+    );
 \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][0]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
@@ -11555,6 +12422,72 @@ GND: unisim.vcomponents.GND
       CE => regceb,
       D => \gen_rd_b.doutb_reg_reg_n_0_[0]\,
       Q => doutb(0),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[10]\,
+      Q => doutb(10),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[11]\,
+      Q => doutb(11),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[12]\,
+      Q => doutb(12),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[13]\,
+      Q => doutb(13),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[14]\,
+      Q => doutb(14),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[15]\,
+      Q => doutb(15),
       R => rstb
     );
 \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][1]\: unisim.vcomponents.FDRE
@@ -11634,6 +12567,28 @@ GND: unisim.vcomponents.GND
       Q => doutb(7),
       R => rstb
     );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[8]\,
+      Q => doutb(8),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[9]\,
+      Q => doutb(9),
+      R => rstb
+    );
 \gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5\: unisim.vcomponents.RAM32M
     generic map(
       INIT_A => X"0000000000000000",
@@ -11661,7 +12616,34 @@ GND: unisim.vcomponents.GND
       WCLK => clka,
       WE => ena
     );
-\gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7\: unisim.vcomponents.RAM32M
+\gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15\: unisim.vcomponents.RAM32M
+    generic map(
+      INIT_A => X"0000000000000000",
+      INIT_B => X"0000000000000000",
+      INIT_C => X"0000000000000000",
+      INIT_D => X"0000000000000000"
+    )
+        port map (
+      ADDRA(4) => '0',
+      ADDRA(3 downto 0) => addrb(3 downto 0),
+      ADDRB(4) => '0',
+      ADDRB(3 downto 0) => addrb(3 downto 0),
+      ADDRC(4) => '0',
+      ADDRC(3 downto 0) => addrb(3 downto 0),
+      ADDRD(4) => '0',
+      ADDRD(3 downto 0) => addra(3 downto 0),
+      DIA(1 downto 0) => dina(13 downto 12),
+      DIB(1 downto 0) => dina(15 downto 14),
+      DIC(1 downto 0) => B"00",
+      DID(1 downto 0) => B"00",
+      DOA(1 downto 0) => \gen_rd_b.doutb_reg0\(13 downto 12),
+      DOB(1 downto 0) => \gen_rd_b.doutb_reg0\(15 downto 14),
+      DOC(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15_DOC_UNCONNECTED\(1 downto 0),
+      DOD(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15_DOD_UNCONNECTED\(1 downto 0),
+      WCLK => clka,
+      WE => ena
+    );
+\gen_wr_a.gen_word_narrow.mem_reg_0_15_6_11\: unisim.vcomponents.RAM32M
     generic map(
       INIT_A => X"0000000000000000",
       INIT_B => X"0000000000000000",
@@ -11678,13 +12660,13 @@ GND: unisim.vcomponents.GND
       ADDRD(4) => '0',
       ADDRD(3 downto 0) => addra(3 downto 0),
       DIA(1 downto 0) => dina(7 downto 6),
-      DIB(1 downto 0) => B"00",
-      DIC(1 downto 0) => B"00",
+      DIB(1 downto 0) => dina(9 downto 8),
+      DIC(1 downto 0) => dina(11 downto 10),
       DID(1 downto 0) => B"00",
       DOA(1 downto 0) => \gen_rd_b.doutb_reg0\(7 downto 6),
-      DOB(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOB_UNCONNECTED\(1 downto 0),
-      DOC(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOC_UNCONNECTED\(1 downto 0),
-      DOD(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOD_UNCONNECTED\(1 downto 0),
+      DOB(1 downto 0) => \gen_rd_b.doutb_reg0\(9 downto 8),
+      DOC(1 downto 0) => \gen_rd_b.doutb_reg0\(11 downto 10),
+      DOD(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_11_DOD_UNCONNECTED\(1 downto 0),
       WCLK => clka,
       WE => ena
     );
@@ -11702,10 +12684,10 @@ entity \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
     regcea : in STD_LOGIC;
     wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 15 downto 0 );
     injectsbiterra : in STD_LOGIC;
     injectdbiterra : in STD_LOGIC;
-    douta : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    douta : out STD_LOGIC_VECTOR ( 15 downto 0 );
     sbiterra : out STD_LOGIC;
     dbiterra : out STD_LOGIC;
     clkb : in STD_LOGIC;
@@ -11714,10 +12696,10 @@ entity \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
     regceb : in STD_LOGIC;
     web : in STD_LOGIC_VECTOR ( 0 to 0 );
     addrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    dinb : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    dinb : in STD_LOGIC_VECTOR ( 15 downto 0 );
     injectsbiterrb : in STD_LOGIC;
     injectdbiterrb : in STD_LOGIC;
-    doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 15 downto 0 );
     sbiterrb : out STD_LOGIC;
     dbiterrb : out STD_LOGIC
   );
@@ -11728,9 +12710,9 @@ entity \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
   attribute AUTO_SLEEP_TIME : integer;
   attribute AUTO_SLEEP_TIME of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 0;
   attribute BYTE_WRITE_WIDTH_A : integer;
-  attribute BYTE_WRITE_WIDTH_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute BYTE_WRITE_WIDTH_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute BYTE_WRITE_WIDTH_B : integer;
-  attribute BYTE_WRITE_WIDTH_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute BYTE_WRITE_WIDTH_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute CLOCKING_MODE : integer;
   attribute CLOCKING_MODE of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 1;
   attribute ECC_MODE : integer;
@@ -11746,7 +12728,7 @@ entity \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
   attribute MEMORY_PRIMITIVE : integer;
   attribute MEMORY_PRIMITIVE of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 0;
   attribute MEMORY_SIZE : integer;
-  attribute MEMORY_SIZE of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 128;
+  attribute MEMORY_SIZE of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 256;
   attribute MEMORY_TYPE : integer;
   attribute MEMORY_TYPE of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 1;
   attribute MESSAGE_CONTROL : integer;
@@ -11768,17 +12750,17 @@ entity \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
   attribute P_MEMORY_PRIMITIVE : string;
   attribute P_MEMORY_PRIMITIVE of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is "auto";
   attribute P_MIN_WIDTH_DATA : integer;
-  attribute P_MIN_WIDTH_DATA of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute P_MIN_WIDTH_DATA of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute P_MIN_WIDTH_DATA_A : integer;
-  attribute P_MIN_WIDTH_DATA_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute P_MIN_WIDTH_DATA_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute P_MIN_WIDTH_DATA_B : integer;
-  attribute P_MIN_WIDTH_DATA_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute P_MIN_WIDTH_DATA_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute P_MIN_WIDTH_DATA_ECC : integer;
-  attribute P_MIN_WIDTH_DATA_ECC of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute P_MIN_WIDTH_DATA_ECC of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute P_MIN_WIDTH_DATA_LDW : integer;
   attribute P_MIN_WIDTH_DATA_LDW of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 4;
   attribute P_MIN_WIDTH_DATA_SHFT : integer;
-  attribute P_MIN_WIDTH_DATA_SHFT of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute P_MIN_WIDTH_DATA_SHFT of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute P_NUM_COLS_WRITE_A : integer;
   attribute P_NUM_COLS_WRITE_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 1;
   attribute P_NUM_COLS_WRITE_B : integer;
@@ -11810,13 +12792,13 @@ entity \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
   attribute P_WIDTH_ADDR_WRITE_B : integer;
   attribute P_WIDTH_ADDR_WRITE_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 4;
   attribute P_WIDTH_COL_WRITE_A : integer;
-  attribute P_WIDTH_COL_WRITE_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute P_WIDTH_COL_WRITE_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute P_WIDTH_COL_WRITE_B : integer;
-  attribute P_WIDTH_COL_WRITE_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute P_WIDTH_COL_WRITE_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute READ_DATA_WIDTH_A : integer;
-  attribute READ_DATA_WIDTH_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute READ_DATA_WIDTH_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute READ_DATA_WIDTH_B : integer;
-  attribute READ_DATA_WIDTH_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute READ_DATA_WIDTH_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute READ_LATENCY_A : integer;
   attribute READ_LATENCY_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 2;
   attribute READ_LATENCY_B : integer;
@@ -11834,9 +12816,9 @@ entity \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
   attribute WAKEUP_TIME : integer;
   attribute WAKEUP_TIME of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 0;
   attribute WRITE_DATA_WIDTH_A : integer;
-  attribute WRITE_DATA_WIDTH_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute WRITE_DATA_WIDTH_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute WRITE_DATA_WIDTH_B : integer;
-  attribute WRITE_DATA_WIDTH_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 8;
+  attribute WRITE_DATA_WIDTH_B of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 16;
   attribute WRITE_MODE_A : integer;
   attribute WRITE_MODE_A of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ : entity is 2;
   attribute WRITE_MODE_B : integer;
@@ -11847,8 +12829,14 @@ end \design_1_axi_quad_spi_0_0_xpm_memory_base__2\;
 
 architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
   signal \<const0>\ : STD_LOGIC;
-  signal \gen_rd_b.doutb_reg0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \gen_rd_b.doutb_reg0\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \gen_rd_b.doutb_reg_reg_n_0_[0]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[10]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[11]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[12]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[13]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[14]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[15]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[1]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[2]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[3]\ : STD_LOGIC;
@@ -11856,12 +12844,20 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
   signal \gen_rd_b.doutb_reg_reg_n_0_[5]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[6]\ : STD_LOGIC;
   signal \gen_rd_b.doutb_reg_reg_n_0_[7]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[8]\ : STD_LOGIC;
+  signal \gen_rd_b.doutb_reg_reg_n_0_[9]\ : STD_LOGIC;
   signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5_DOD_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOB_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOD_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15_DOC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15_DOD_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_11_DOD_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute dram_emb_xdc : string;
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[0]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[10]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[11]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[12]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[13]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[14]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[15]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[1]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[2]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[3]\ : label is "no";
@@ -11869,12 +12865,23 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_memory_base__2\ is
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[5]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[6]\ : label is "no";
   attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[7]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[8]\ : label is "no";
+  attribute dram_emb_xdc of \gen_rd_b.doutb_reg_reg[9]\ : label is "no";
   attribute METHODOLOGY_DRC_VIOS : string;
   attribute METHODOLOGY_DRC_VIOS of \gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5\ : label is "";
-  attribute METHODOLOGY_DRC_VIOS of \gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7\ : label is "";
+  attribute METHODOLOGY_DRC_VIOS of \gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15\ : label is "";
+  attribute METHODOLOGY_DRC_VIOS of \gen_wr_a.gen_word_narrow.mem_reg_0_15_6_11\ : label is "";
 begin
   dbiterra <= \<const0>\;
   dbiterrb <= \<const0>\;
+  douta(15) <= \<const0>\;
+  douta(14) <= \<const0>\;
+  douta(13) <= \<const0>\;
+  douta(12) <= \<const0>\;
+  douta(11) <= \<const0>\;
+  douta(10) <= \<const0>\;
+  douta(9) <= \<const0>\;
+  douta(8) <= \<const0>\;
   douta(7) <= \<const0>\;
   douta(6) <= \<const0>\;
   douta(5) <= \<const0>\;
@@ -11898,6 +12905,72 @@ GND: unisim.vcomponents.GND
       CE => enb,
       D => \gen_rd_b.doutb_reg0\(0),
       Q => \gen_rd_b.doutb_reg_reg_n_0_[0]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(10),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[10]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(11),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[11]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(12),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[12]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(13),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[13]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(14),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[14]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(15),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[15]\,
       R => '0'
     );
 \gen_rd_b.doutb_reg_reg[1]\: unisim.vcomponents.FDRE
@@ -11977,6 +13050,28 @@ GND: unisim.vcomponents.GND
       Q => \gen_rd_b.doutb_reg_reg_n_0_[7]\,
       R => '0'
     );
+\gen_rd_b.doutb_reg_reg[8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(8),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[8]\,
+      R => '0'
+    );
+\gen_rd_b.doutb_reg_reg[9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => enb,
+      D => \gen_rd_b.doutb_reg0\(9),
+      Q => \gen_rd_b.doutb_reg_reg_n_0_[9]\,
+      R => '0'
+    );
 \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][0]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
@@ -11986,6 +13081,72 @@ GND: unisim.vcomponents.GND
       CE => regceb,
       D => \gen_rd_b.doutb_reg_reg_n_0_[0]\,
       Q => doutb(0),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[10]\,
+      Q => doutb(10),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[11]\,
+      Q => doutb(11),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[12]\,
+      Q => doutb(12),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[13]\,
+      Q => doutb(13),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[14]\,
+      Q => doutb(14),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[15]\,
+      Q => doutb(15),
       R => rstb
     );
 \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][1]\: unisim.vcomponents.FDRE
@@ -12065,6 +13226,28 @@ GND: unisim.vcomponents.GND
       Q => doutb(7),
       R => rstb
     );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][8]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[8]\,
+      Q => doutb(8),
+      R => rstb
+    );
+\gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][9]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => clkb,
+      CE => regceb,
+      D => \gen_rd_b.doutb_reg_reg_n_0_[9]\,
+      Q => doutb(9),
+      R => rstb
+    );
 \gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5\: unisim.vcomponents.RAM32M
     generic map(
       INIT_A => X"0000000000000000",
@@ -12092,7 +13275,34 @@ GND: unisim.vcomponents.GND
       WCLK => clka,
       WE => ena
     );
-\gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7\: unisim.vcomponents.RAM32M
+\gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15\: unisim.vcomponents.RAM32M
+    generic map(
+      INIT_A => X"0000000000000000",
+      INIT_B => X"0000000000000000",
+      INIT_C => X"0000000000000000",
+      INIT_D => X"0000000000000000"
+    )
+        port map (
+      ADDRA(4) => '0',
+      ADDRA(3 downto 0) => addrb(3 downto 0),
+      ADDRB(4) => '0',
+      ADDRB(3 downto 0) => addrb(3 downto 0),
+      ADDRC(4) => '0',
+      ADDRC(3 downto 0) => addrb(3 downto 0),
+      ADDRD(4) => '0',
+      ADDRD(3 downto 0) => addra(3 downto 0),
+      DIA(1 downto 0) => dina(13 downto 12),
+      DIB(1 downto 0) => dina(15 downto 14),
+      DIC(1 downto 0) => B"00",
+      DID(1 downto 0) => B"00",
+      DOA(1 downto 0) => \gen_rd_b.doutb_reg0\(13 downto 12),
+      DOB(1 downto 0) => \gen_rd_b.doutb_reg0\(15 downto 14),
+      DOC(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15_DOC_UNCONNECTED\(1 downto 0),
+      DOD(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_12_15_DOD_UNCONNECTED\(1 downto 0),
+      WCLK => clka,
+      WE => ena
+    );
+\gen_wr_a.gen_word_narrow.mem_reg_0_15_6_11\: unisim.vcomponents.RAM32M
     generic map(
       INIT_A => X"0000000000000000",
       INIT_B => X"0000000000000000",
@@ -12109,13 +13319,13 @@ GND: unisim.vcomponents.GND
       ADDRD(4) => '0',
       ADDRD(3 downto 0) => addra(3 downto 0),
       DIA(1 downto 0) => dina(7 downto 6),
-      DIB(1 downto 0) => B"00",
-      DIC(1 downto 0) => B"00",
+      DIB(1 downto 0) => dina(9 downto 8),
+      DIC(1 downto 0) => dina(11 downto 10),
       DID(1 downto 0) => B"00",
       DOA(1 downto 0) => \gen_rd_b.doutb_reg0\(7 downto 6),
-      DOB(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOB_UNCONNECTED\(1 downto 0),
-      DOC(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOC_UNCONNECTED\(1 downto 0),
-      DOD(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_7_DOD_UNCONNECTED\(1 downto 0),
+      DOB(1 downto 0) => \gen_rd_b.doutb_reg0\(9 downto 8),
+      DOC(1 downto 0) => \gen_rd_b.doutb_reg0\(11 downto 10),
+      DOD(1 downto 0) => \NLW_gen_wr_a.gen_word_narrow.mem_reg_0_15_6_11_DOD_UNCONNECTED\(1 downto 0),
       WCLK => clka,
       WE => ena
     );
@@ -12126,94 +13336,94 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_axi_quad_spi_0_0_address_decoder is
   port (
+    p_2_in : out STD_LOGIC;
     p_3_in : out STD_LOGIC;
+    p_4_in : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[22]\ : out STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg\ : out STD_LOGIC;
-    Receive_ip2bus_error_reg : out STD_LOGIC;
-    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg_0\ : out STD_LOGIC;
-    \SPICR_data_int_reg[0]\ : out STD_LOGIC;
     ipif_glbl_irpt_enable_reg_reg : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ : out STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\ : out STD_LOGIC;
+    intr2bus_wrack_reg : out STD_LOGIC;
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
     ip2Bus_WrAck_intr_reg_hole_d1_reg : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
     SPICR_data_int_reg0 : out STD_LOGIC;
-    wr_ce_or_reduce_core_cmb : out STD_LOGIC;
-    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ : out STD_LOGIC;
     bus2ip_wrce_int : out STD_LOGIC_VECTOR ( 0 to 0 );
     IP2Bus_Error_1 : out STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\ : out STD_LOGIC;
     reset_trig0 : out STD_LOGIC;
     sw_rst_cond : out STD_LOGIC;
-    irpt_wrack : out STD_LOGIC;
-    interrupt_wrce_strb : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\ : out STD_LOGIC;
-    D : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    D : out STD_LOGIC_VECTOR ( 6 downto 0 );
     irpt_rdack : out STD_LOGIC;
     intr2bus_rdack0 : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]_0\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ : out STD_LOGIC;
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ : out STD_LOGIC;
-    Receive_ip2bus_error0 : out STD_LOGIC;
+    irpt_wrack : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]_0\ : out STD_LOGIC;
     modf_reg : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
     ip2Bus_WrAck_intr_reg_hole0 : out STD_LOGIC;
     ip2Bus_RdAck_intr_reg_hole0 : out STD_LOGIC;
     intr_controller_rd_ce_or_reduce : out STD_LOGIC;
+    wr_ce_or_reduce_core_cmb : out STD_LOGIC;
+    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ : out STD_LOGIC;
     rd_ce_or_reduce_core_cmb : out STD_LOGIC;
     ipif_glbl_irpt_enable_reg_reg_0 : out STD_LOGIC;
+    \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\ : out STD_LOGIC;
+    \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ : out STD_LOGIC;
     s_axi_wready : out STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
     Q : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
     bus2ip_rnw_i_reg : in STD_LOGIC;
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 0 to 0 );
-    empty : in STD_LOGIC;
+    irpt_wrack_d1 : in STD_LOGIC;
+    bus2ip_rnw_i_reg_0 : in STD_LOGIC;
+    ip2Bus_RdAck_core_reg : in STD_LOGIC;
     \bus2ip_addr_i_reg[6]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     ip2Bus_WrAck_core_reg_1 : in STD_LOGIC;
-    almost_full : in STD_LOGIC;
-    ip2Bus_WrAck_core_reg_d1 : in STD_LOGIC;
-    Receive_ip2bus_error_reg_0 : in STD_LOGIC;
-    bus2ip_rnw_i_reg_0 : in STD_LOGIC;
-    sw_rst_cond_d1 : in STD_LOGIC;
-    irpt_wrack_d1 : in STD_LOGIC;
+    Receive_ip2bus_error_reg : in STD_LOGIC;
     bus2ip_rnw_i_reg_1 : in STD_LOGIC;
+    sw_rst_cond_d1 : in STD_LOGIC;
     ipif_glbl_irpt_enable_reg : in STD_LOGIC;
     irpt_rdack_d1 : in STD_LOGIC;
-    \ip_irpt_enable_reg_reg[8]\ : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    spicr_8_tr_inhibit_frm_axi_clk : in STD_LOGIC;
+    \ip_irpt_enable_reg_reg[8]\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
     p_1_in14_in : in STD_LOGIC;
     p_1_in17_in : in STD_LOGIC;
     p_1_in20_in : in STD_LOGIC;
     p_1_in23_in : in STD_LOGIC;
     p_1_in26_in : in STD_LOGIC;
+    dout : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    p_1_in29_in : in STD_LOGIC;
     p_1_in32_in : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ : in STD_LOGIC;
     p_1_in35_in : in STD_LOGIC;
-    dout : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ : in STD_LOGIC;
-    \grdc.rd_data_count_i_reg[0]\ : in STD_LOGIC;
-    wr_data_count : in STD_LOGIC_VECTOR ( 0 to 0 );
-    SPISSR_frm_axi_clk : in STD_LOGIC;
-    spicr_0_loop_frm_axi_clk : in STD_LOGIC;
-    rx_fifo_empty_i : in STD_LOGIC;
-    Tx_FIFO_Empty_SPISR_to_axi_clk : in STD_LOGIC;
-    spicr_2_mst_n_slv_frm_axi_clk : in STD_LOGIC;
-    Tx_FIFO_Full_int : in STD_LOGIC;
-    spicr_3_cpol_frm_axi_clk : in STD_LOGIC;
-    sr_3_MODF_int : in STD_LOGIC;
-    spicr_4_cpha_frm_axi_clk : in STD_LOGIC;
+    spicr_9_lsb_frm_axi_clk : in STD_LOGIC;
+    spicr_8_tr_inhibit_frm_axi_clk : in STD_LOGIC;
+    spicr_7_ss_frm_axi_clk : in STD_LOGIC;
+    spicr_6_rxfifo_rst_frm_axi_clk : in STD_LOGIC;
     spisel_d1_reg_to_axi_clk : in STD_LOGIC;
     spicr_5_txfifo_rst_frm_axi_clk : in STD_LOGIC;
-    spicr_6_rxfifo_rst_frm_axi_clk : in STD_LOGIC;
-    ip2Bus_RdAck_core_reg : in STD_LOGIC;
-    spicr_7_ss_frm_axi_clk : in STD_LOGIC;
+    spicr_4_cpha_frm_axi_clk : in STD_LOGIC;
+    sr_3_MODF_int : in STD_LOGIC;
+    spicr_0_loop_frm_axi_clk : in STD_LOGIC;
+    empty : in STD_LOGIC;
+    rx_fifo_empty_i : in STD_LOGIC;
     ip2Bus_WrAck_intr_reg_hole_d1 : in STD_LOGIC;
     ip2Bus_RdAck_intr_reg_hole_d1 : in STD_LOGIC;
-    scndry_out : in STD_LOGIC;
+    almost_full : in STD_LOGIC;
+    ip2Bus_WrAck_core_reg_d1 : in STD_LOGIC;
     spicr_1_spe_frm_axi_clk : in STD_LOGIC;
-    spicr_9_lsb_frm_axi_clk : in STD_LOGIC;
-    \gwdc.wr_data_count_i_reg[2]\ : in STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 0 to 0 );
+    scndry_out : in STD_LOGIC;
+    spicr_2_mst_n_slv_frm_axi_clk : in STD_LOGIC;
+    Tx_FIFO_Empty_SPISR_to_axi_clk : in STD_LOGIC;
+    Tx_FIFO_Full_int : in STD_LOGIC;
+    spicr_3_cpol_frm_axi_clk : in STD_LOGIC;
+    SPISSR_frm_axi_clk : in STD_LOGIC;
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    reset2ip_reset_int : in STD_LOGIC;
     s_axi_aresetn : in STD_LOGIC;
     p_15_out : in STD_LOGIC;
     is_read_reg : in STD_LOGIC;
@@ -12221,6 +13431,8 @@ entity design_1_axi_quad_spi_0_0_address_decoder is
     is_write_reg : in STD_LOGIC;
     \INCLUDE_DPHASE_TIMER.dpto_cnt_reg[5]\ : in STD_LOGIC_VECTOR ( 5 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_address_decoder : entity is "address_decoder";
 end design_1_axi_quad_spi_0_0_address_decoder;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_address_decoder is
@@ -12239,31 +13451,30 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_address_decoder is
   signal \GEN_BKEND_CE_REGISTERS[31].ce_out_i[31]_i_2_n_0\ : STD_LOGIC;
   signal \GEN_BKEND_CE_REGISTERS[31].ce_out_i_reg_n_0_[31]\ : STD_LOGIC;
   signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3_n_0\ : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[24]_i_2_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[25]_i_2_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_2_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\ : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_4_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[27]_i_2_n_0\ : STD_LOGIC;
-  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_2_n_0\ : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_6_n_0\ : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_6_n_0\ : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_7_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_5_n_0\ : STD_LOGIC;
-  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_2_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_4_n_0\ : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_5_n_0\ : STD_LOGIC;
+  signal \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[22]\ : STD_LOGIC;
   signal \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\ : STD_LOGIC;
-  signal \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]_0\ : STD_LOGIC;
-  signal \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[31]\ : STD_LOGIC;
   signal \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_3_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_4_n_0\ : STD_LOGIC;
   signal \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg\ : STD_LOGIC;
-  signal \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg_0\ : STD_LOGIC;
-  signal \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_i_2_n_0\ : STD_LOGIC;
   signal \MEM_DECODE_GEN[0].PER_CE_GEN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I_n_0\ : STD_LOGIC;
   signal \MEM_DECODE_GEN[1].PER_CE_GEN[2].MULTIPLE_CES_THIS_CS_GEN.CE_I_n_0\ : STD_LOGIC;
   signal \MEM_DECODE_GEN[1].PER_CE_GEN[6].MULTIPLE_CES_THIS_CS_GEN.CE_I_n_0\ : STD_LOGIC;
   signal \MEM_DECODE_GEN[2].PER_CE_GEN[2].MULTIPLE_CES_THIS_CS_GEN.CE_I_n_0\ : STD_LOGIC;
   signal \MEM_DECODE_GEN[2].PER_CE_GEN[6].MULTIPLE_CES_THIS_CS_GEN.CE_I_n_0\ : STD_LOGIC;
-  signal \^receive_ip2bus_error_reg\ : STD_LOGIC;
-  signal \^spicr_data_int_reg[0]\ : STD_LOGIC;
   signal cs_ce_clr : STD_LOGIC;
   signal \eqOp__4\ : STD_LOGIC;
   signal ip2Bus_WrAck_intr_reg_hole_d1_i_2_n_0 : STD_LOGIC;
@@ -12298,18 +13509,20 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_address_decoder is
   signal p_27_in : STD_LOGIC;
   signal p_28_in : STD_LOGIC;
   signal p_29_in : STD_LOGIC;
-  signal p_2_in : STD_LOGIC;
+  signal \^p_2_in\ : STD_LOGIC;
   signal p_2_out : STD_LOGIC;
   signal p_30_in : STD_LOGIC;
   signal p_31_in : STD_LOGIC;
   signal p_32_in : STD_LOGIC;
   signal \^p_3_in\ : STD_LOGIC;
   signal p_3_out : STD_LOGIC;
+  signal \^p_4_in\ : STD_LOGIC;
   signal p_4_out : STD_LOGIC;
   signal p_5_out : STD_LOGIC;
   signal p_6_out : STD_LOGIC;
   signal p_7_in : STD_LOGIC;
   signal p_7_out : STD_LOGIC;
+  signal p_8_in : STD_LOGIC;
   signal p_8_out : STD_LOGIC;
   signal p_9_in : STD_LOGIC;
   signal p_9_out : STD_LOGIC;
@@ -12317,54 +13530,52 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_address_decoder is
   signal \^s_axi_wready\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of Bus_RNW_reg_i_1 : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \CONTROL_REG_5_9_GENERATE[9].SPICR_data_int[9]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[15].ce_out_i[15]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[16].ce_out_i[16]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[17].ce_out_i[17]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[19].ce_out_i[19]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[20].ce_out_i[20]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[23].ce_out_i[23]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[24].ce_out_i[24]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[25].ce_out_i[25]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[27].ce_out_i[27]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[28].ce_out_i[28]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \CONTROL_REG_5_9_GENERATE[9].SPICR_data_int[9]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[15].ce_out_i[15]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[16].ce_out_i[16]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[17].ce_out_i[17]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[19].ce_out_i[19]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[20].ce_out_i[20]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[21].ce_out_i[21]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[23].ce_out_i[23]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[25].ce_out_i[25]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[27].ce_out_i[27]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[28].ce_out_i[28]_i_1\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[29].ce_out_i[29]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[31].ce_out_i[31]_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \GEN_BKEND_CE_REGISTERS[31].ce_out_i[31]_i_2\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg[0]_i_2\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[22]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_2\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_2\ : label is "soft_lutpair11";
   attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_6\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_3\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_5\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_i_2\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_i_2\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of Receive_ip2bus_error_i_1 : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \SPICR_REG_78_GENERATE[7].SPI_TRISTATE_CONTROL_I_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_4\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_6\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_7\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_5\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_i_2\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_srl4___NO_DUAL_QUAD_MODE.QSPI_NORMAL_QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_r_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \SPICR_REG_78_GENERATE[7].SPI_TRISTATE_CONTROL_I_i_1\ : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of ip2Bus_RdAck_intr_reg_hole_d1_i_1 : label is "soft_lutpair18";
   attribute SOFT_HLUTNM of ip2Bus_RdAck_intr_reg_hole_i_1 : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of ip2Bus_WrAck_intr_reg_hole_d1_i_1 : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of ip2Bus_WrAck_intr_reg_hole_d1_i_1 : label is "soft_lutpair14";
   attribute SOFT_HLUTNM of ip2Bus_WrAck_intr_reg_hole_i_1 : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \ip_irpt_enable_reg[8]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of modf_i_2 : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of reset_trig_i_1 : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of s_axi_arready_INST_0 : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of s_axi_wready_INST_0 : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of sw_rst_cond_d1_i_1 : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \ip_irpt_enable_reg[8]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of modf_i_2 : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of reset_trig_i_1 : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of s_axi_arready_INST_0 : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of s_axi_wready_INST_0 : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of sw_rst_cond_d1_i_1 : label is "soft_lutpair13";
 begin
+  \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[22]\ <= \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[22]\;
   \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ <= \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\;
-  \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]_0\ <= \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]_0\;
-  \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ <= \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[31]\;
   \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg\ <= \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg\;
-  \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg_0\ <= \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg_0\;
-  Receive_ip2bus_error_reg <= \^receive_ip2bus_error_reg\;
-  \SPICR_data_int_reg[0]\ <= \^spicr_data_int_reg[0]\;
   ipif_glbl_irpt_enable_reg_reg <= \^ipif_glbl_irpt_enable_reg_reg\;
   modf_reg <= \^modf_reg\;
+  p_2_in <= \^p_2_in\;
   p_3_in <= \^p_3_in\;
+  p_4_in <= \^p_4_in\;
   s_axi_arready <= \^s_axi_arready\;
   s_axi_wready <= \^s_axi_wready\;
 Bus_RNW_reg_i_1: unisim.vcomponents.LUT3
@@ -12385,6 +13596,32 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       Q => \^ipif_glbl_irpt_enable_reg_reg\,
       R => '0'
     );
+\CONTROL_REG_3_4_GENERATE[3].SPICR_data_int[3]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000000000000E200"
+    )
+        port map (
+      I0 => spicr_6_rxfifo_rst_frm_axi_clk,
+      I1 => ip2Bus_WrAck_core_reg_1,
+      I2 => s_axi_wdata(1),
+      I3 => p_8_in,
+      I4 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I5 => reset2ip_reset_int,
+      O => \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\
+    );
+\CONTROL_REG_3_4_GENERATE[4].SPICR_data_int[4]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"000000000000E200"
+    )
+        port map (
+      I0 => spicr_5_txfifo_rst_frm_axi_clk,
+      I1 => ip2Bus_WrAck_core_reg_1,
+      I2 => s_axi_wdata(0),
+      I3 => p_8_in,
+      I4 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I5 => reset2ip_reset_int,
+      O => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\
+    );
 \CONTROL_REG_5_9_GENERATE[9].SPICR_data_int[9]_i_1\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"20"
@@ -12392,7 +13629,7 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
         port map (
       I0 => ip2Bus_WrAck_core_reg_1,
       I1 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I2 => \^spicr_data_int_reg[0]\,
+      I2 => p_8_in,
       O => SPICR_data_int_reg0
     );
 \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]\: unisim.vcomponents.FDRE
@@ -12624,7 +13861,7 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       C => s_axi_aclk,
       CE => Q,
       D => \GEN_BKEND_CE_REGISTERS[24].ce_out_i[24]_i_1_n_0\,
-      Q => \^spicr_data_int_reg[0]\,
+      Q => p_8_in,
       R => cs_ce_clr
     );
 \GEN_BKEND_CE_REGISTERS[25].ce_out_i[25]_i_1\: unisim.vcomponents.LUT5
@@ -12652,7 +13889,7 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       C => s_axi_aclk,
       CE => Q,
       D => \MEM_DECODE_GEN[2].PER_CE_GEN[2].MULTIPLE_CES_THIS_CS_GEN.CE_I_n_0\,
-      Q => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg_0\,
+      Q => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg\,
       R => cs_ce_clr
     );
 \GEN_BKEND_CE_REGISTERS[27].ce_out_i[27]_i_1\: unisim.vcomponents.LUT5
@@ -12672,7 +13909,7 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       C => s_axi_aclk,
       CE => Q,
       D => \GEN_BKEND_CE_REGISTERS[27].ce_out_i[27]_i_1_n_0\,
-      Q => \^receive_ip2bus_error_reg\,
+      Q => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[22]\,
       R => cs_ce_clr
     );
 \GEN_BKEND_CE_REGISTERS[28].ce_out_i[28]_i_1\: unisim.vcomponents.LUT5
@@ -12692,7 +13929,7 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       C => s_axi_aclk,
       CE => Q,
       D => \GEN_BKEND_CE_REGISTERS[28].ce_out_i[28]_i_1_n_0\,
-      Q => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg\,
+      Q => \^p_4_in\,
       R => cs_ce_clr
     );
 \GEN_BKEND_CE_REGISTERS[29].ce_out_i[29]_i_1\: unisim.vcomponents.LUT5
@@ -12728,7 +13965,7 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       C => s_axi_aclk,
       CE => Q,
       D => \MEM_DECODE_GEN[2].PER_CE_GEN[6].MULTIPLE_CES_THIS_CS_GEN.CE_I_n_0\,
-      Q => p_2_in,
+      Q => \^p_2_in\,
       R => cs_ce_clr
     );
 \GEN_BKEND_CE_REGISTERS[31].ce_out_i[31]_i_1\: unisim.vcomponents.LUT3
@@ -12819,7 +14056,7 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
     );
 \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg[0]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFABFF"
+      INIT => X"00005400"
     )
         port map (
       I0 => irpt_wrack_d1,
@@ -12827,43 +14064,45 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       I2 => bus2ip_rnw_i_reg,
       I3 => p_24_in,
       I4 => \^ipif_glbl_irpt_enable_reg_reg\,
-      O => \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\
+      O => \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0000100000000000"
     )
         port map (
-      I0 => p_22_in,
-      I1 => p_24_in,
-      I2 => ipif_glbl_irpt_enable_reg,
-      I3 => p_25_in,
-      I4 => bus2ip_rnw_i_reg_1,
-      I5 => \^ipif_glbl_irpt_enable_reg_reg\,
-      O => D(8)
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[22]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"80"
-    )
-        port map (
-      I0 => spicr_9_lsb_frm_axi_clk,
-      I1 => \^spicr_data_int_reg[0]\,
+      I0 => p_24_in,
+      I1 => p_22_in,
       I2 => \^ipif_glbl_irpt_enable_reg_reg\,
-      O => D(7)
+      I3 => p_25_in,
+      I4 => bus2ip_rnw_i_reg_0,
+      I5 => ipif_glbl_irpt_enable_reg,
+      O => D(6)
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_1\: unisim.vcomponents.LUT6
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[22]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"44F444F4FFFF44F4"
+      INIT => X"FF00800080008000"
     )
         port map (
-      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]_0\,
-      I1 => \ip_irpt_enable_reg_reg[8]\(5),
-      I2 => spicr_8_tr_inhibit_frm_axi_clk,
-      I3 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3_n_0\,
-      I4 => p_1_in14_in,
-      I5 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
-      O => D(6)
+      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[22]\,
+      I1 => ip2Bus_RdAck_core_reg,
+      I2 => dout(9),
+      I3 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I4 => p_8_in,
+      I5 => spicr_9_lsb_frm_axi_clk,
+      O => D(5)
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"F4F4FFF4"
+    )
+        port map (
+      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
+      I1 => \ip_irpt_enable_reg_reg[8]\(7),
+      I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3_n_0\,
+      I3 => p_1_in14_in,
+      I4 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\,
+      O => D(4)
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_2\: unisim.vcomponents.LUT5
     generic map(
@@ -12875,15 +14114,19 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       I2 => s_axi_wstrb(0),
       I3 => bus2ip_rnw_i_reg,
       I4 => p_22_in,
-      O => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]_0\
+      O => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3\: unisim.vcomponents.LUT2
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"7"
+      INIT => X"FF00800080008000"
     )
         port map (
-      I0 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I1 => \^spicr_data_int_reg[0]\,
+      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[22]\,
+      I1 => ip2Bus_RdAck_core_reg,
+      I2 => dout(8),
+      I3 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I4 => p_8_in,
+      I5 => spicr_8_tr_inhibit_frm_axi_clk,
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3_n_0\
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4\: unisim.vcomponents.LUT4
@@ -12895,30 +14138,30 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       I1 => bus2ip_rnw_i_reg,
       I2 => s_axi_wstrb(0),
       I3 => \^ipif_glbl_irpt_enable_reg_reg\,
-      O => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[24]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"F4F4FFF4"
     )
         port map (
-      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]_0\,
-      I1 => \ip_irpt_enable_reg_reg[8]\(4),
+      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
+      I1 => \ip_irpt_enable_reg_reg[8]\(6),
       I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[24]_i_2_n_0\,
       I3 => p_1_in17_in,
-      I4 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
-      O => D(5)
+      I4 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\,
+      O => D(3)
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[24]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"F888000088880000"
+      INIT => X"F800880088008800"
     )
         port map (
-      I0 => \^spicr_data_int_reg[0]\,
+      I0 => p_8_in,
       I1 => spicr_7_ss_frm_axi_clk,
-      I2 => ip2Bus_RdAck_core_reg,
-      I3 => \^receive_ip2bus_error_reg\,
-      I4 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I2 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[22]\,
+      I3 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I4 => ip2Bus_RdAck_core_reg,
       I5 => dout(7),
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[24]_i_2_n_0\
     );
@@ -12927,24 +14170,24 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       INIT => X"F4F4FFF4"
     )
         port map (
-      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]_0\,
-      I1 => \ip_irpt_enable_reg_reg[8]\(3),
+      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
+      I1 => \ip_irpt_enable_reg_reg[8]\(5),
       I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[25]_i_2_n_0\,
       I3 => p_1_in20_in,
-      I4 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
-      O => D(4)
+      I4 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\,
+      O => D(2)
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[25]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"F888000088880000"
+      INIT => X"FF00800080008000"
     )
         port map (
-      I0 => \^spicr_data_int_reg[0]\,
-      I1 => spicr_6_rxfifo_rst_frm_axi_clk,
-      I2 => ip2Bus_RdAck_core_reg,
-      I3 => \^receive_ip2bus_error_reg\,
-      I4 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I5 => dout(6),
+      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[22]\,
+      I1 => ip2Bus_RdAck_core_reg,
+      I2 => dout(6),
+      I3 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I4 => p_8_in,
+      I5 => spicr_6_rxfifo_rst_frm_axi_clk,
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[25]_i_2_n_0\
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_1\: unisim.vcomponents.LUT5
@@ -12952,12 +14195,12 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       INIT => X"F4F4FFF4"
     )
         port map (
-      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]_0\,
-      I1 => \ip_irpt_enable_reg_reg[8]\(2),
+      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
+      I1 => \ip_irpt_enable_reg_reg[8]\(4),
       I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_2_n_0\,
       I3 => p_1_in23_in,
-      I4 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
-      O => D(3)
+      I4 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\,
+      O => D(1)
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_2\: unisim.vcomponents.LUT6
     generic map(
@@ -12969,7 +14212,7 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       I2 => spisel_d1_reg_to_axi_clk,
       I3 => \^modf_reg\,
       I4 => spicr_5_txfifo_rst_frm_axi_clk,
-      I5 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3_n_0\,
+      I5 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_4_n_0\,
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_2_n_0\
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3\: unisim.vcomponents.LUT3
@@ -12977,22 +14220,31 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       INIT => X"7F"
     )
         port map (
-      I0 => ip2Bus_RdAck_core_reg,
-      I1 => \^receive_ip2bus_error_reg\,
-      I2 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[22]\,
+      I1 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I2 => ip2Bus_RdAck_core_reg,
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"7"
+    )
+        port map (
+      I0 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I1 => p_8_in,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_4_n_0\
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[27]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"F4F4FFF4"
     )
         port map (
-      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]_0\,
-      I1 => \ip_irpt_enable_reg_reg[8]\(1),
+      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
+      I1 => \ip_irpt_enable_reg_reg[8]\(3),
       I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[27]_i_2_n_0\,
       I3 => p_1_in26_in,
-      I4 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
-      O => D(2)
+      I4 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\,
+      O => D(0)
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[27]_i_2\: unisim.vcomponents.LUT6
     generic map(
@@ -13001,191 +14253,216 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
         port map (
       I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\,
       I1 => dout(4),
-      I2 => sr_3_MODF_int,
-      I3 => \^modf_reg\,
-      I4 => spicr_4_cpha_frm_axi_clk,
-      I5 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3_n_0\,
+      I2 => spicr_4_cpha_frm_axi_clk,
+      I3 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_4_n_0\,
+      I4 => sr_3_MODF_int,
+      I5 => \^modf_reg\,
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[27]_i_2_n_0\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_2\: unisim.vcomponents.LUT6
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"44F444F4FFFF44F4"
+      INIT => X"AEFFAEAE"
     )
         port map (
-      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\,
+      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_6_n_0\,
       I1 => dout(3),
-      I2 => Tx_FIFO_Full_int,
-      I3 => \^modf_reg\,
-      I4 => spicr_3_cpol_frm_axi_clk,
-      I5 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3_n_0\,
+      I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\,
+      I3 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\,
+      I4 => p_1_in29_in,
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_6\: unisim.vcomponents.LUT3
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_6\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"40"
+      INIT => X"F0808080"
     )
         port map (
-      I0 => empty,
-      I1 => p_2_in,
+      I0 => p_7_in,
+      I1 => Tx_FIFO_Full_int,
       I2 => \^ipif_glbl_irpt_enable_reg_reg\,
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFFF4F4FFF4"
-    )
-        port map (
-      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
-      I1 => p_1_in32_in,
-      I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_2_n_0\,
-      I3 => \ip_irpt_enable_reg_reg[8]\(0),
-      I4 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]_0\,
-      I5 => \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\,
-      O => D(1)
+      I3 => p_8_in,
+      I4 => spicr_3_cpol_frm_axi_clk,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_6_n_0\
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"44F444F4FFFF44F4"
+      INIT => X"FFBAFFBAFFFFFFBA"
     )
         port map (
-      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\,
-      I1 => dout(2),
-      I2 => Tx_FIFO_Empty_SPISR_to_axi_clk,
-      I3 => \^modf_reg\,
-      I4 => spicr_2_mst_n_slv_frm_axi_clk,
-      I5 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_3_n_0\,
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_2_n_0\
+      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_6_n_0\,
+      I1 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\,
+      I2 => dout(2),
+      I3 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_7_n_0\,
+      I4 => p_1_in32_in,
+      I5 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_2\: unisim.vcomponents.LUT5
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_6\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000088800000"
+    )
+        port map (
+      I0 => \ip_irpt_enable_reg_reg[8]\(2),
+      I1 => p_22_in,
+      I2 => bus2ip_rnw_i_reg,
+      I3 => s_axi_wstrb(0),
+      I4 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I5 => p_24_in,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_6_n_0\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_7\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"F0808080"
+    )
+        port map (
+      I0 => p_8_in,
+      I1 => spicr_2_mst_n_slv_frm_axi_clk,
+      I2 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I3 => p_7_in,
+      I4 => Tx_FIFO_Empty_SPISR_to_axi_clk,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_7_n_0\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000088800000"
+    )
+        port map (
+      I0 => \ip_irpt_enable_reg_reg[8]\(1),
+      I1 => p_22_in,
+      I2 => bus2ip_rnw_i_reg,
+      I3 => s_axi_wstrb(0),
+      I4 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I5 => p_24_in,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]_0\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_3\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"F4F4FFF4"
     )
         port map (
-      I0 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
+      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\,
       I1 => p_1_in35_in,
       I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_5_n_0\,
       I3 => dout(1),
       I4 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\,
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_3\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0008"
-    )
-        port map (
-      I0 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I1 => \^p_3_in\,
-      I2 => Tx_FIFO_Empty_SPISR_to_axi_clk,
-      I3 => \gwdc.wr_data_count_i_reg[2]\,
-      O => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[31]\
-    );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_5\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"F0808080"
     )
         port map (
-      I0 => p_7_in,
-      I1 => scndry_out,
+      I0 => p_8_in,
+      I1 => spicr_1_spe_frm_axi_clk,
       I2 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I3 => \^spicr_data_int_reg[0]\,
-      I4 => spicr_1_spe_frm_axi_clk,
+      I3 => p_7_in,
+      I4 => scndry_out,
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_5_n_0\
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFAEFFAEFFFFFFAE"
-    )
-        port map (
-      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_2_n_0\,
-      I1 => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\,
-      I2 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[23]\,
-      I3 => \grdc.rd_data_count_i_reg[0]\,
-      I4 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[31]\,
-      I5 => wr_data_count(0),
-      O => D(0)
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFF4F4F4F4F4F4F4"
+      INIT => X"FFF4FFF4FFFFFFF4"
     )
         port map (
-      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\,
-      I1 => dout(0),
+      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[23]_i_4_n_0\,
+      I1 => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\,
       I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_4_n_0\,
-      I3 => SPISSR_frm_axi_clk,
-      I4 => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg\,
-      I5 => \^ipif_glbl_irpt_enable_reg_reg\,
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_2_n_0\
+      I3 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_5_n_0\,
+      I4 => dout(0),
+      I5 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[26]_i_3_n_0\,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_4\: unisim.vcomponents.LUT6
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000088800000"
+    )
+        port map (
+      I0 => \ip_irpt_enable_reg_reg[8]\(0),
+      I1 => p_22_in,
+      I2 => bus2ip_rnw_i_reg,
+      I3 => s_axi_wstrb(0),
+      I4 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I5 => p_24_in,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"80"
+    )
+        port map (
+      I0 => \^p_4_in\,
+      I1 => SPISSR_frm_axi_clk,
+      I2 => \^ipif_glbl_irpt_enable_reg_reg\,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_4_n_0\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"F080F080F0808080"
     )
         port map (
-      I0 => \^spicr_data_int_reg[0]\,
+      I0 => p_8_in,
       I1 => spicr_0_loop_frm_axi_clk,
       I2 => \^ipif_glbl_irpt_enable_reg_reg\,
       I3 => p_7_in,
-      I4 => rx_fifo_empty_i,
-      I5 => empty,
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_4_n_0\
+      I4 => empty,
+      I5 => rx_fifo_empty_i,
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_5_n_0\
     );
 \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"BAAA"
+      INIT => X"AAEA"
     )
         port map (
-      I0 => Receive_ip2bus_error_reg_0,
-      I1 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I0 => Receive_ip2bus_error_reg,
+      I1 => bus2ip_rnw_i_reg_1,
       I2 => p_16_in,
-      I3 => bus2ip_rnw_i_reg_0,
+      I3 => \^ipif_glbl_irpt_enable_reg_reg\,
       O => IP2Bus_Error_1
     );
 \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_i_2\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"08"
+      INIT => X"40"
     )
         port map (
-      I0 => bus2ip_rnw_i_reg_0,
+      I0 => \^ipif_glbl_irpt_enable_reg_reg\,
       I1 => p_16_in,
-      I2 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I2 => bus2ip_rnw_i_reg_1,
       O => \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\
     );
-\LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_1\: unisim.vcomponents.LUT6
+\LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"00FF00F200FF00FF"
+      INIT => X"1151"
     )
         port map (
-      I0 => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg_0\,
-      I1 => almost_full,
+      I0 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2_n_0\,
       I2 => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg\,
-      I3 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I4 => \^spicr_data_int_reg[0]\,
-      I5 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2_n_0\,
+      I3 => almost_full,
       O => wr_ce_or_reduce_core_cmb
     );
 \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2\: unisim.vcomponents.LUT6
     generic map(
+      INIT => X"0000000000000002"
+    )
+        port map (
+      I0 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_3_n_0\,
+      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_4_n_0\,
+      I2 => \GEN_BKEND_CE_REGISTERS[31].ce_out_i_reg_n_0_[31]\,
+      I3 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[22]\,
+      I4 => p_13_in,
+      I5 => p_8_in,
+      O => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2_n_0\
+    );
+\LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_3\: unisim.vcomponents.LUT6
+    generic map(
       INIT => X"0000000000000001"
     )
         port map (
-      I0 => \^receive_ip2bus_error_reg\,
-      I1 => p_13_in,
-      I2 => p_2_in,
-      I3 => p_14_in,
-      I4 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_3_n_0\,
-      I5 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_4_n_0\,
-      O => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2_n_0\
-    );
-\LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_3\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => p_9_in,
-      I1 => \GEN_BKEND_CE_REGISTERS[31].ce_out_i_reg_n_0_[31]\,
-      I2 => p_15_in,
-      I3 => p_11_in,
+      I0 => \^p_2_in\,
+      I1 => p_14_in,
+      I2 => p_11_in,
+      I3 => p_7_in,
+      I4 => p_9_in,
+      I5 => \^p_3_in\,
       O => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_3_n_0\
     );
 \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_4\: unisim.vcomponents.LUT4
@@ -13194,45 +14471,32 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => p_12_in,
-      I1 => p_10_in,
-      I2 => p_7_in,
-      I3 => \^p_3_in\,
+      I1 => \^p_4_in\,
+      I2 => p_10_in,
+      I3 => p_15_in,
       O => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_4_n_0\
     );
-\LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_i_1\: unisim.vcomponents.LUT6
+\LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"1155115111551155"
+      INIT => X"01011101"
     )
         port map (
       I0 => ip2Bus_WrAck_core_reg_d1,
-      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_i_2_n_0\,
-      I2 => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg\,
-      I3 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I4 => \^spicr_data_int_reg[0]\,
-      I5 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2_n_0\,
+      I1 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I2 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2_n_0\,
+      I3 => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg\,
+      I4 => almost_full,
       O => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\
     );
-\LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_i_2\: unisim.vcomponents.LUT3
+\LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_srl4___NO_DUAL_QUAD_MODE.QSPI_NORMAL_QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_r_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FB"
-    )
-        port map (
-      I0 => almost_full,
-      I1 => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg_0\,
-      I2 => \^ipif_glbl_irpt_enable_reg_reg\,
-      O => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_i_2_n_0\
-    );
-\LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_srl4___NO_DUAL_QUAD_MODE.QSPI_NORMAL_QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_r_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"AAAAAAA8AAAAAAAA"
+      INIT => X"A8AA"
     )
         port map (
       I0 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I1 => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg_0\,
+      I1 => p_16_in,
       I2 => \^legacy_md_wr_rd_ack_gen.ip2bus_wrack_core_reg_d1_reg\,
-      I3 => p_16_in,
-      I4 => \^spicr_data_int_reg[0]\,
-      I5 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2_n_0\,
+      I3 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_i_2_n_0\,
       O => rd_ce_or_reduce_core_cmb
     );
 \MEM_DECODE_GEN[0].PER_CE_GEN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I\: entity work.\design_1_axi_quad_spi_0_0_axi_lite_ipif_v3_0_4_pselect_f__parameterized0\
@@ -13330,37 +14594,26 @@ Bus_RNW_reg_reg: unisim.vcomponents.FDRE
       \GEN_BKEND_CE_REGISTERS[30].ce_out_i_reg[30]\ => \MEM_DECODE_GEN[2].PER_CE_GEN[6].MULTIPLE_CES_THIS_CS_GEN.CE_I_n_0\,
       \bus2ip_addr_i_reg[6]\(4 downto 0) => \bus2ip_addr_i_reg[6]\(4 downto 0)
     );
-Receive_ip2bus_error_i_1: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"8880"
-    )
-        port map (
-      I0 => \^receive_ip2bus_error_reg\,
-      I1 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I2 => empty,
-      I3 => rx_fifo_empty_i,
-      O => Receive_ip2bus_error0
-    );
 \SPICR_REG_78_GENERATE[7].SPI_TRISTATE_CONTROL_I_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"2"
     )
         port map (
-      I0 => \^spicr_data_int_reg[0]\,
+      I0 => p_8_in,
       I1 => \^ipif_glbl_irpt_enable_reg_reg\,
       O => bus2ip_wrce_int(0)
     );
 intr2bus_rdack_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0050005000500040"
+      INIT => X"0044004400440040"
     )
         port map (
       I0 => irpt_rdack_d1,
-      I1 => p_24_in,
-      I2 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I3 => bus2ip_rnw_i_reg_1,
+      I1 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I2 => p_25_in,
+      I3 => bus2ip_rnw_i_reg_0,
       I4 => p_22_in,
-      I5 => p_25_in,
+      I5 => p_24_in,
       O => intr2bus_rdack0
     );
 intr2bus_wrack_i_1: unisim.vcomponents.LUT6
@@ -13370,11 +14623,11 @@ intr2bus_wrack_i_1: unisim.vcomponents.LUT6
         port map (
       I0 => irpt_wrack_d1,
       I1 => p_22_in,
-      I2 => bus2ip_rnw_i_reg_1,
-      I3 => p_24_in,
+      I2 => bus2ip_rnw_i_reg_0,
+      I3 => p_25_in,
       I4 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I5 => p_25_in,
-      O => interrupt_wrce_strb
+      I5 => p_24_in,
+      O => intr2bus_wrack_reg
     );
 ip2Bus_RdAck_intr_reg_hole_d1_i_1: unisim.vcomponents.LUT2
     generic map(
@@ -13411,9 +14664,9 @@ ip2Bus_WrAck_intr_reg_hole_d1_i_2: unisim.vcomponents.LUT5
         port map (
       I0 => ip2Bus_WrAck_intr_reg_hole_d1_i_3_n_0,
       I1 => ip2Bus_WrAck_intr_reg_hole_d1_i_4_n_0,
-      I2 => p_19_in,
-      I3 => p_32_in,
-      I4 => p_17_in,
+      I2 => p_18_in,
+      I3 => p_26_in,
+      I4 => p_21_in,
       O => ip2Bus_WrAck_intr_reg_hole_d1_i_2_n_0
     );
 ip2Bus_WrAck_intr_reg_hole_d1_i_3: unisim.vcomponents.LUT6
@@ -13421,12 +14674,12 @@ ip2Bus_WrAck_intr_reg_hole_d1_i_3: unisim.vcomponents.LUT6
       INIT => X"0000000000000001"
     )
         port map (
-      I0 => p_31_in,
-      I1 => p_26_in,
-      I2 => p_20_in,
-      I3 => p_28_in,
-      I4 => p_27_in,
-      I5 => p_30_in,
+      I0 => p_17_in,
+      I1 => p_32_in,
+      I2 => p_29_in,
+      I3 => p_20_in,
+      I4 => p_30_in,
+      I5 => p_31_in,
       O => ip2Bus_WrAck_intr_reg_hole_d1_i_3_n_0
     );
 ip2Bus_WrAck_intr_reg_hole_d1_i_4: unisim.vcomponents.LUT4
@@ -13434,10 +14687,10 @@ ip2Bus_WrAck_intr_reg_hole_d1_i_4: unisim.vcomponents.LUT4
       INIT => X"FFFE"
     )
         port map (
-      I0 => p_29_in,
-      I1 => p_23_in,
-      I2 => p_21_in,
-      I3 => p_18_in,
+      I0 => p_27_in,
+      I1 => p_19_in,
+      I2 => p_28_in,
+      I3 => p_23_in,
       O => ip2Bus_WrAck_intr_reg_hole_d1_i_4_n_0
     );
 ip2Bus_WrAck_intr_reg_hole_i_1: unisim.vcomponents.LUT3
@@ -13466,7 +14719,7 @@ ipif_glbl_irpt_enable_reg_i_1: unisim.vcomponents.LUT6
       INIT => X"EFEFEFFF20202000"
     )
         port map (
-      I0 => s_axi_wdata(0),
+      I0 => s_axi_wdata(2),
       I1 => \^ipif_glbl_irpt_enable_reg_reg\,
       I2 => p_25_in,
       I3 => bus2ip_rnw_i_reg,
@@ -13476,15 +14729,15 @@ ipif_glbl_irpt_enable_reg_i_1: unisim.vcomponents.LUT6
     );
 irpt_rdack_d1_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"CCC0CCC0CCC08880"
+      INIT => X"AAA0AAA0AAA08880"
     )
         port map (
-      I0 => p_24_in,
-      I1 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I2 => s_axi_wstrb(0),
-      I3 => bus2ip_rnw_i_reg,
+      I0 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I1 => p_25_in,
+      I2 => bus2ip_rnw_i_reg,
+      I3 => s_axi_wstrb(0),
       I4 => p_22_in,
-      I5 => p_25_in,
+      I5 => p_24_in,
       O => irpt_rdack
     );
 irpt_wrack_d1_i_1: unisim.vcomponents.LUT6
@@ -13495,9 +14748,9 @@ irpt_wrack_d1_i_1: unisim.vcomponents.LUT6
       I0 => p_22_in,
       I1 => s_axi_wstrb(0),
       I2 => bus2ip_rnw_i_reg,
-      I3 => p_24_in,
+      I3 => p_25_in,
       I4 => \^ipif_glbl_irpt_enable_reg_reg\,
-      I5 => p_25_in,
+      I5 => p_24_in,
       O => irpt_wrack
     );
 modf_i_2: unisim.vcomponents.LUT2
@@ -13514,9 +14767,9 @@ reset_trig_i_1: unisim.vcomponents.LUT4
       INIT => X"0004"
     )
         port map (
-      I0 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I0 => bus2ip_rnw_i_reg_1,
       I1 => p_16_in,
-      I2 => bus2ip_rnw_i_reg_0,
+      I2 => \^ipif_glbl_irpt_enable_reg_reg\,
       I3 => sw_rst_cond_d1,
       O => reset_trig0
     );
@@ -13558,9 +14811,9 @@ sw_rst_cond_d1_i_1: unisim.vcomponents.LUT3
       INIT => X"04"
     )
         port map (
-      I0 => bus2ip_rnw_i_reg_0,
+      I0 => \^ipif_glbl_irpt_enable_reg_reg\,
       I1 => p_16_in,
-      I2 => \^ipif_glbl_irpt_enable_reg_reg\,
+      I2 => bus2ip_rnw_i_reg_1,
       O => sw_rst_cond
     );
 end STRUCTURE;
@@ -13587,6 +14840,8 @@ entity design_1_axi_quad_spi_0_0_xpm_fifo_rst is
     \gen_fwft.empty_fwft_i_reg\ : in STD_LOGIC;
     rd_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_xpm_fifo_rst : entity is "xpm_fifo_rst";
 end design_1_axi_quad_spi_0_0_xpm_fifo_rst;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_rst is
@@ -13664,8 +14919,8 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_rst is
   attribute XPM_CDC of \gen_rst_ic.wrst_rd_inst\ : label is "SYNC_RST";
   attribute XPM_MODULE of \gen_rst_ic.wrst_rd_inst\ : label is "TRUE";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \grdc.rd_data_count_i[4]_i_1\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \guf.underflow_i_i_1\ : label is "soft_lutpair68";
+  attribute SOFT_HLUTNM of \grdc.rd_data_count_i[4]_i_1\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \guf.underflow_i_i_1\ : label is "soft_lutpair71";
 begin
   \syncstages_ff_reg[0]\ <= \^syncstages_ff_reg[0]\;
   wrst_busy <= \^wrst_busy\;
@@ -14489,107 +15744,110 @@ use UNISIM.VCOMPONENTS.ALL;
 entity design_1_axi_quad_spi_0_0_slave_attachment is
   port (
     SR : out STD_LOGIC_VECTOR ( 0 to 0 );
+    p_2_in : out STD_LOGIC;
     p_3_in : out STD_LOGIC;
+    p_4_in : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[22]\ : out STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg\ : out STD_LOGIC;
-    Receive_ip2bus_error_reg : out STD_LOGIC;
-    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg_0\ : out STD_LOGIC;
-    \SPICR_data_int_reg[0]\ : out STD_LOGIC;
     s_axi_rresp : out STD_LOGIC_VECTOR ( 0 to 0 );
     ipif_glbl_irpt_enable_reg_reg : out STD_LOGIC;
     s_axi_rvalid : out STD_LOGIC;
     s_axi_bvalid : out STD_LOGIC;
     s_axi_bresp : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ : out STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\ : out STD_LOGIC;
+    intr2bus_wrack_reg : out STD_LOGIC;
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
     ip2Bus_WrAck_intr_reg_hole_d1_reg : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
     SPICR_data_int_reg0 : out STD_LOGIC;
-    wr_ce_or_reduce_core_cmb : out STD_LOGIC;
-    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ : out STD_LOGIC;
     bus2ip_wrce_int : out STD_LOGIC_VECTOR ( 0 to 0 );
+    reset2ip_reset_int : out STD_LOGIC;
     IP2Bus_Error_1 : out STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\ : out STD_LOGIC;
     reset_trig0 : out STD_LOGIC;
     sw_rst_cond : out STD_LOGIC;
-    irpt_wrack : out STD_LOGIC;
-    interrupt_wrce_strb : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\ : out STD_LOGIC;
-    D : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    D : out STD_LOGIC_VECTOR ( 6 downto 0 );
     irpt_rdack : out STD_LOGIC;
     intr2bus_rdack0 : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]_0\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ : out STD_LOGIC;
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ : out STD_LOGIC;
-    Receive_ip2bus_error0 : out STD_LOGIC;
+    irpt_wrack : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]_0\ : out STD_LOGIC;
     modf_reg : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
     ip2Bus_WrAck_intr_reg_hole0 : out STD_LOGIC;
     ip2Bus_RdAck_intr_reg_hole0 : out STD_LOGIC;
     intr_controller_rd_ce_or_reduce : out STD_LOGIC;
+    wr_ce_or_reduce_core_cmb : out STD_LOGIC;
+    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ : out STD_LOGIC;
     rd_ce_or_reduce_core_cmb : out STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
     s_axi_wready : out STD_LOGIC;
     ipif_glbl_irpt_enable_reg_reg_0 : out STD_LOGIC;
-    s_axi_rdata : out STD_LOGIC_VECTOR ( 10 downto 0 );
+    \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\ : out STD_LOGIC;
+    \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ : out STD_LOGIC;
+    s_axi_rdata : out STD_LOGIC_VECTOR ( 16 downto 0 );
     s_axi_aclk : in STD_LOGIC;
     p_1_in : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_arvalid : in STD_LOGIC;
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    empty : in STD_LOGIC;
-    ip2Bus_WrAck_core_reg_1 : in STD_LOGIC;
-    almost_full : in STD_LOGIC;
-    ip2Bus_WrAck_core_reg_d1 : in STD_LOGIC;
-    Receive_ip2bus_error_reg_0 : in STD_LOGIC;
-    sw_rst_cond_d1 : in STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 4 downto 0 );
     irpt_wrack_d1 : in STD_LOGIC;
+    ip2Bus_RdAck_core_reg : in STD_LOGIC;
+    ip2Bus_WrAck_core_reg_1 : in STD_LOGIC;
+    \RESET_FLOPS[15].RST_FLOPS\ : in STD_LOGIC;
+    Receive_ip2bus_error_reg : in STD_LOGIC;
+    sw_rst_cond_d1 : in STD_LOGIC;
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 6 downto 0 );
     ipif_glbl_irpt_enable_reg : in STD_LOGIC;
     irpt_rdack_d1 : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    spicr_8_tr_inhibit_frm_axi_clk : in STD_LOGIC;
+    Q : in STD_LOGIC_VECTOR ( 7 downto 0 );
     p_1_in14_in : in STD_LOGIC;
     p_1_in17_in : in STD_LOGIC;
     p_1_in20_in : in STD_LOGIC;
     p_1_in23_in : in STD_LOGIC;
     p_1_in26_in : in STD_LOGIC;
+    dout : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    p_1_in29_in : in STD_LOGIC;
     p_1_in32_in : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ : in STD_LOGIC;
     p_1_in35_in : in STD_LOGIC;
-    dout : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ : in STD_LOGIC;
-    \grdc.rd_data_count_i_reg[0]\ : in STD_LOGIC;
-    wr_data_count : in STD_LOGIC_VECTOR ( 0 to 0 );
-    SPISSR_frm_axi_clk : in STD_LOGIC;
-    spicr_0_loop_frm_axi_clk : in STD_LOGIC;
-    rx_fifo_empty_i : in STD_LOGIC;
-    Tx_FIFO_Empty_SPISR_to_axi_clk : in STD_LOGIC;
-    spicr_2_mst_n_slv_frm_axi_clk : in STD_LOGIC;
-    Tx_FIFO_Full_int : in STD_LOGIC;
-    spicr_3_cpol_frm_axi_clk : in STD_LOGIC;
-    sr_3_MODF_int : in STD_LOGIC;
-    spicr_4_cpha_frm_axi_clk : in STD_LOGIC;
+    spicr_9_lsb_frm_axi_clk : in STD_LOGIC;
+    spicr_8_tr_inhibit_frm_axi_clk : in STD_LOGIC;
+    spicr_7_ss_frm_axi_clk : in STD_LOGIC;
+    spicr_6_rxfifo_rst_frm_axi_clk : in STD_LOGIC;
     spisel_d1_reg_to_axi_clk : in STD_LOGIC;
     spicr_5_txfifo_rst_frm_axi_clk : in STD_LOGIC;
-    spicr_6_rxfifo_rst_frm_axi_clk : in STD_LOGIC;
-    ip2Bus_RdAck_core_reg : in STD_LOGIC;
-    spicr_7_ss_frm_axi_clk : in STD_LOGIC;
+    spicr_4_cpha_frm_axi_clk : in STD_LOGIC;
+    sr_3_MODF_int : in STD_LOGIC;
+    spicr_0_loop_frm_axi_clk : in STD_LOGIC;
+    empty : in STD_LOGIC;
+    rx_fifo_empty_i : in STD_LOGIC;
     ip2Bus_WrAck_intr_reg_hole_d1 : in STD_LOGIC;
     ip2Bus_RdAck_intr_reg_hole_d1 : in STD_LOGIC;
-    scndry_out : in STD_LOGIC;
+    almost_full : in STD_LOGIC;
+    ip2Bus_WrAck_core_reg_d1 : in STD_LOGIC;
     spicr_1_spe_frm_axi_clk : in STD_LOGIC;
-    spicr_9_lsb_frm_axi_clk : in STD_LOGIC;
-    \gwdc.wr_data_count_i_reg[2]\ : in STD_LOGIC;
+    scndry_out : in STD_LOGIC;
+    spicr_2_mst_n_slv_frm_axi_clk : in STD_LOGIC;
+    Tx_FIFO_Empty_SPISR_to_axi_clk : in STD_LOGIC;
+    Tx_FIFO_Full_int : in STD_LOGIC;
+    spicr_3_cpol_frm_axi_clk : in STD_LOGIC;
+    SPISSR_frm_axi_clk : in STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
     s_axi_awvalid : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\ : in STD_LOGIC_VECTOR ( 16 downto 0 );
     s_axi_aresetn : in STD_LOGIC;
     p_15_out : in STD_LOGIC;
     p_16_out : in STD_LOGIC;
     s_axi_araddr : in STD_LOGIC_VECTOR ( 4 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_slave_attachment : entity is "slave_attachment";
 end design_1_axi_quad_spi_0_0_slave_attachment;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_slave_attachment is
@@ -14628,6 +15886,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_slave_attachment is
   signal p_0_out : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal p_5_in : STD_LOGIC;
   signal plusOp : STD_LOGIC_VECTOR ( 5 downto 0 );
+  signal \^reset2ip_reset_int\ : STD_LOGIC;
   signal \^s_axi_arready\ : STD_LOGIC;
   signal \^s_axi_bresp\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal s_axi_bresp_i : STD_LOGIC;
@@ -14659,14 +15918,15 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_slave_attachment is
   attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[2]_i_1\ : label is "soft_lutpair21";
   attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[3]_i_1\ : label is "soft_lutpair20";
   attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[4]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \bus2ip_addr_i[3]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[2]_i_1\ : label is "soft_lutpair22";
   attribute SOFT_HLUTNM of \bus2ip_addr_i[4]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \bus2ip_addr_i[5]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[5]_i_1\ : label is "soft_lutpair23";
   attribute SOFT_HLUTNM of \bus2ip_addr_i[6]_i_2\ : label is "soft_lutpair22";
   attribute SOFT_HLUTNM of start2_i_1 : label is "soft_lutpair19";
   attribute SOFT_HLUTNM of \state[1]_i_2\ : label is "soft_lutpair19";
 begin
   SR(0) <= \^sr\(0);
+  reset2ip_reset_int <= \^reset2ip_reset_int\;
   s_axi_arready <= \^s_axi_arready\;
   s_axi_bresp(0) <= \^s_axi_bresp\(0);
   s_axi_bvalid <= \^s_axi_bvalid\;
@@ -14899,29 +16159,28 @@ begin
     );
 I_DECODER: entity work.design_1_axi_quad_spi_0_0_address_decoder
      port map (
-      D(8 downto 0) => D(8 downto 0),
+      \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\ => \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\,
+      \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
+      D(6 downto 0) => D(6 downto 0),
       E(0) => E(0),
       \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\,
-      \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\ => \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\,
+      \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\ => \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\,
       \INCLUDE_DPHASE_TIMER.dpto_cnt_reg[5]\(5 downto 0) => \INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0\(5 downto 0),
       IP2Bus_Error_1 => IP2Bus_Error_1,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[22]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[22]\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]_0\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]_0\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]_0\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]_0\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\,
       \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\ => \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg\ => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg\,
-      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg_0\ => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg_0\,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\,
-      \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ => \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\,
       Q => start2,
-      Receive_ip2bus_error0 => Receive_ip2bus_error0,
       Receive_ip2bus_error_reg => Receive_ip2bus_error_reg,
-      Receive_ip2bus_error_reg_0 => Receive_ip2bus_error_reg_0,
       SPICR_data_int_reg0 => SPICR_data_int_reg0,
-      \SPICR_data_int_reg[0]\ => \SPICR_data_int_reg[0]\,
       SPISSR_frm_axi_clk => SPISSR_frm_axi_clk,
       Tx_FIFO_Empty_SPISR_to_axi_clk => Tx_FIFO_Empty_SPISR_to_axi_clk,
       Tx_FIFO_Full_int => Tx_FIFO_Full_int,
@@ -14932,15 +16191,13 @@ I_DECODER: entity work.design_1_axi_quad_spi_0_0_address_decoder
       \bus2ip_addr_i_reg[6]\(1) => \bus2ip_addr_i_reg_n_0_[3]\,
       \bus2ip_addr_i_reg[6]\(0) => \bus2ip_addr_i_reg_n_0_[2]\,
       bus2ip_rnw_i_reg => bus2ip_rnw_i_reg_n_0,
-      bus2ip_rnw_i_reg_0 => \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_i_2_n_0\,
-      bus2ip_rnw_i_reg_1 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[0]_i_2_n_0\,
+      bus2ip_rnw_i_reg_0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[0]_i_2_n_0\,
+      bus2ip_rnw_i_reg_1 => \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_i_2_n_0\,
       bus2ip_wrce_int(0) => bus2ip_wrce_int(0),
-      dout(7 downto 0) => dout(7 downto 0),
+      dout(9 downto 0) => dout(9 downto 0),
       empty => empty,
-      \grdc.rd_data_count_i_reg[0]\ => \grdc.rd_data_count_i_reg[0]\,
-      \gwdc.wr_data_count_i_reg[2]\ => \gwdc.wr_data_count_i_reg[2]\,
-      interrupt_wrce_strb => interrupt_wrce_strb,
       intr2bus_rdack0 => intr2bus_rdack0,
+      intr2bus_wrack_reg => intr2bus_wrack_reg,
       intr_controller_rd_ce_or_reduce => intr_controller_rd_ce_or_reduce,
       ip2Bus_RdAck_core_reg => ip2Bus_RdAck_core_reg,
       ip2Bus_RdAck_intr_reg_hole0 => ip2Bus_RdAck_intr_reg_hole0,
@@ -14950,7 +16207,7 @@ I_DECODER: entity work.design_1_axi_quad_spi_0_0_address_decoder
       ip2Bus_WrAck_intr_reg_hole0 => ip2Bus_WrAck_intr_reg_hole0,
       ip2Bus_WrAck_intr_reg_hole_d1 => ip2Bus_WrAck_intr_reg_hole_d1,
       ip2Bus_WrAck_intr_reg_hole_d1_reg => ip2Bus_WrAck_intr_reg_hole_d1_reg,
-      \ip_irpt_enable_reg_reg[8]\(5 downto 0) => Q(5 downto 0),
+      \ip_irpt_enable_reg_reg[8]\(7 downto 0) => Q(7 downto 0),
       ipif_glbl_irpt_enable_reg => ipif_glbl_irpt_enable_reg,
       ipif_glbl_irpt_enable_reg_reg => ipif_glbl_irpt_enable_reg_reg,
       ipif_glbl_irpt_enable_reg_reg_0 => ipif_glbl_irpt_enable_reg_reg_0,
@@ -14968,16 +16225,20 @@ I_DECODER: entity work.design_1_axi_quad_spi_0_0_address_decoder
       p_1_in20_in => p_1_in20_in,
       p_1_in23_in => p_1_in23_in,
       p_1_in26_in => p_1_in26_in,
+      p_1_in29_in => p_1_in29_in,
       p_1_in32_in => p_1_in32_in,
       p_1_in35_in => p_1_in35_in,
+      p_2_in => p_2_in,
       p_3_in => p_3_in,
+      p_4_in => p_4_in,
       rd_ce_or_reduce_core_cmb => rd_ce_or_reduce_core_cmb,
+      reset2ip_reset_int => \^reset2ip_reset_int\,
       reset_trig0 => reset_trig0,
       rx_fifo_empty_i => rx_fifo_empty_i,
       s_axi_aclk => s_axi_aclk,
       s_axi_aresetn => s_axi_aresetn,
       s_axi_arready => \^s_axi_arready\,
-      s_axi_wdata(0) => s_axi_wdata(4),
+      s_axi_wdata(2 downto 0) => s_axi_wdata(6 downto 4),
       s_axi_wready => \^s_axi_wready\,
       s_axi_wstrb(0) => s_axi_wstrb(1),
       scndry_out => scndry_out,
@@ -14995,8 +16256,7 @@ I_DECODER: entity work.design_1_axi_quad_spi_0_0_address_decoder
       sr_3_MODF_int => sr_3_MODF_int,
       sw_rst_cond => sw_rst_cond,
       sw_rst_cond_d1 => sw_rst_cond_d1,
-      wr_ce_or_reduce_core_cmb => wr_ce_or_reduce_core_cmb,
-      wr_data_count(0) => wr_data_count(0)
+      wr_ce_or_reduce_core_cmb => wr_ce_or_reduce_core_cmb
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[0]_i_2\: unisim.vcomponents.LUT2
     generic map(
@@ -15012,13 +16272,22 @@ I_DECODER: entity work.design_1_axi_quad_spi_0_0_address_decoder
       INIT => X"FFF1FFFFFFFFFFFF"
     )
         port map (
-      I0 => bus2ip_rnw_i_reg_n_0,
-      I1 => s_axi_wstrb(0),
-      I2 => s_axi_wdata(0),
-      I3 => s_axi_wdata(2),
-      I4 => s_axi_wdata(1),
-      I5 => s_axi_wdata(3),
+      I0 => s_axi_wstrb(0),
+      I1 => bus2ip_rnw_i_reg_n_0,
+      I2 => s_axi_wdata(2),
+      I3 => s_axi_wdata(0),
+      I4 => s_axi_wdata(3),
+      I5 => s_axi_wdata(1),
       O => \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_i_2_n_0\
+    );
+RESET_SYNC_AX2S_1_i_1: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => \^sr\(0),
+      I1 => \RESET_FLOPS[15].RST_FLOPS\,
+      O => \^reset2ip_reset_int\
     );
 \bus2ip_addr_i[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -15256,6 +16525,72 @@ s_axi_bvalid_i_reg: unisim.vcomponents.FDRE
       Q => s_axi_rdata(0),
       R => \^sr\(0)
     );
+\s_axi_rdata_i_reg[10]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => s_axi_rresp_i,
+      D => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(10),
+      Q => s_axi_rdata(10),
+      R => \^sr\(0)
+    );
+\s_axi_rdata_i_reg[11]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => s_axi_rresp_i,
+      D => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(11),
+      Q => s_axi_rdata(11),
+      R => \^sr\(0)
+    );
+\s_axi_rdata_i_reg[12]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => s_axi_rresp_i,
+      D => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(12),
+      Q => s_axi_rdata(12),
+      R => \^sr\(0)
+    );
+\s_axi_rdata_i_reg[13]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => s_axi_rresp_i,
+      D => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(13),
+      Q => s_axi_rdata(13),
+      R => \^sr\(0)
+    );
+\s_axi_rdata_i_reg[14]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => s_axi_rresp_i,
+      D => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(14),
+      Q => s_axi_rdata(14),
+      R => \^sr\(0)
+    );
+\s_axi_rdata_i_reg[15]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => s_axi_aclk,
+      CE => s_axi_rresp_i,
+      D => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(15),
+      Q => s_axi_rdata(15),
+      R => \^sr\(0)
+    );
 \s_axi_rdata_i_reg[1]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
@@ -15285,8 +16620,8 @@ s_axi_bvalid_i_reg: unisim.vcomponents.FDRE
         port map (
       C => s_axi_aclk,
       CE => s_axi_rresp_i,
-      D => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(10),
-      Q => s_axi_rdata(10),
+      D => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(16),
+      Q => s_axi_rdata(16),
       R => \^sr\(0)
     );
 \s_axi_rdata_i_reg[3]\: unisim.vcomponents.FDRE
@@ -15481,7 +16816,7 @@ entity design_1_axi_quad_spi_0_0_xpm_fifo_base is
     rst : in STD_LOGIC;
     wr_clk : in STD_LOGIC;
     wr_en : in STD_LOGIC;
-    din : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     full : out STD_LOGIC;
     full_n : out STD_LOGIC;
     prog_full : out STD_LOGIC;
@@ -15492,7 +16827,7 @@ entity design_1_axi_quad_spi_0_0_xpm_fifo_base is
     wr_ack : out STD_LOGIC;
     rd_clk : in STD_LOGIC;
     rd_en : in STD_LOGIC;
-    dout : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     empty : out STD_LOGIC;
     prog_empty : out STD_LOGIC;
     rd_data_count : out STD_LOGIC_VECTOR ( 4 downto 0 );
@@ -15548,13 +16883,15 @@ entity design_1_axi_quad_spi_0_0_xpm_fifo_base is
   attribute FIFO_READ_LATENCY : integer;
   attribute FIFO_READ_LATENCY of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 0;
   attribute FIFO_SIZE : integer;
-  attribute FIFO_SIZE of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 128;
+  attribute FIFO_SIZE of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 256;
   attribute FIFO_WRITE_DEPTH : integer;
   attribute FIFO_WRITE_DEPTH of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 16;
   attribute FULL_RESET_VALUE : integer;
   attribute FULL_RESET_VALUE of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 1;
   attribute FULL_RST_VAL : string;
   attribute FULL_RST_VAL of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is "1'b1";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is "xpm_fifo_base";
   attribute PE_THRESH_ADJ : integer;
   attribute PE_THRESH_ADJ of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 8;
   attribute PE_THRESH_MAX : integer;
@@ -15582,7 +16919,7 @@ entity design_1_axi_quad_spi_0_0_xpm_fifo_base is
   attribute RD_PNTR_WIDTH : integer;
   attribute RD_PNTR_WIDTH of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 4;
   attribute READ_DATA_WIDTH : integer;
-  attribute READ_DATA_WIDTH of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 8;
+  attribute READ_DATA_WIDTH of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 16;
   attribute READ_MODE : integer;
   attribute READ_MODE of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 1;
   attribute RELATED_CLOCKS : integer;
@@ -15598,7 +16935,7 @@ entity design_1_axi_quad_spi_0_0_xpm_fifo_base is
   attribute WAKEUP_TIME : integer;
   attribute WAKEUP_TIME of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 0;
   attribute WRITE_DATA_WIDTH : integer;
-  attribute WRITE_DATA_WIDTH of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 8;
+  attribute WRITE_DATA_WIDTH of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 16;
   attribute WR_DATA_COUNT_WIDTH : integer;
   attribute WR_DATA_COUNT_WIDTH of design_1_axi_quad_spi_0_0_xpm_fifo_base : entity is 5;
   attribute WR_DC_WIDTH_EXT : integer;
@@ -15696,7 +17033,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_base is
   signal \NLW_gen_sdpram.xpm_memory_base_inst_dbiterrb_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_gen_sdpram.xpm_memory_base_inst_sbiterra_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_gen_sdpram.xpm_memory_base_inst_sbiterrb_UNCONNECTED\ : STD_LOGIC;
-  signal \NLW_gen_sdpram.xpm_memory_base_inst_douta_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \NLW_gen_sdpram.xpm_memory_base_inst_douta_UNCONNECTED\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_sequential_gen_fwft.curr_fwft_state_reg[0]\ : label is "invalid:00,stage1_valid:01,both_stages_valid:10,stage2_valid:11";
   attribute KEEP : string;
@@ -15752,9 +17089,9 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_base is
   attribute AUTO_SLEEP_TIME : integer;
   attribute AUTO_SLEEP_TIME of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
   attribute BYTE_WRITE_WIDTH_A : integer;
-  attribute BYTE_WRITE_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute BYTE_WRITE_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute BYTE_WRITE_WIDTH_B : integer;
-  attribute BYTE_WRITE_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute BYTE_WRITE_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute CLOCKING_MODE : integer;
   attribute CLOCKING_MODE of \gen_sdpram.xpm_memory_base_inst\ : label is 1;
   attribute ECC_MODE of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
@@ -15769,7 +17106,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_base is
   attribute MEMORY_PRIMITIVE : integer;
   attribute MEMORY_PRIMITIVE of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
   attribute MEMORY_SIZE : integer;
-  attribute MEMORY_SIZE of \gen_sdpram.xpm_memory_base_inst\ : label is 128;
+  attribute MEMORY_SIZE of \gen_sdpram.xpm_memory_base_inst\ : label is 256;
   attribute MEMORY_TYPE : integer;
   attribute MEMORY_TYPE of \gen_sdpram.xpm_memory_base_inst\ : label is 1;
   attribute MESSAGE_CONTROL : integer;
@@ -15789,17 +17126,17 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_base is
   attribute P_MEMORY_PRIMITIVE : string;
   attribute P_MEMORY_PRIMITIVE of \gen_sdpram.xpm_memory_base_inst\ : label is "auto";
   attribute P_MIN_WIDTH_DATA : integer;
-  attribute P_MIN_WIDTH_DATA of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_MIN_WIDTH_DATA_A : integer;
-  attribute P_MIN_WIDTH_DATA_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_MIN_WIDTH_DATA_B : integer;
-  attribute P_MIN_WIDTH_DATA_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_MIN_WIDTH_DATA_ECC : integer;
-  attribute P_MIN_WIDTH_DATA_ECC of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA_ECC of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_MIN_WIDTH_DATA_LDW : integer;
   attribute P_MIN_WIDTH_DATA_LDW of \gen_sdpram.xpm_memory_base_inst\ : label is 4;
   attribute P_MIN_WIDTH_DATA_SHFT : integer;
-  attribute P_MIN_WIDTH_DATA_SHFT of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA_SHFT of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_NUM_COLS_WRITE_A : integer;
   attribute P_NUM_COLS_WRITE_A of \gen_sdpram.xpm_memory_base_inst\ : label is 1;
   attribute P_NUM_COLS_WRITE_B : integer;
@@ -15831,13 +17168,13 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_base is
   attribute P_WIDTH_ADDR_WRITE_B : integer;
   attribute P_WIDTH_ADDR_WRITE_B of \gen_sdpram.xpm_memory_base_inst\ : label is 4;
   attribute P_WIDTH_COL_WRITE_A : integer;
-  attribute P_WIDTH_COL_WRITE_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_WIDTH_COL_WRITE_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_WIDTH_COL_WRITE_B : integer;
-  attribute P_WIDTH_COL_WRITE_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_WIDTH_COL_WRITE_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute READ_DATA_WIDTH_A : integer;
-  attribute READ_DATA_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute READ_DATA_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute READ_DATA_WIDTH_B : integer;
-  attribute READ_DATA_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute READ_DATA_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute READ_LATENCY_A : integer;
   attribute READ_LATENCY_A of \gen_sdpram.xpm_memory_base_inst\ : label is 2;
   attribute READ_LATENCY_B : integer;
@@ -15853,9 +17190,9 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_base is
   attribute VERSION of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
   attribute WAKEUP_TIME of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
   attribute WRITE_DATA_WIDTH_A : integer;
-  attribute WRITE_DATA_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute WRITE_DATA_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute WRITE_DATA_WIDTH_B : integer;
-  attribute WRITE_DATA_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute WRITE_DATA_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute WRITE_MODE_A : integer;
   attribute WRITE_MODE_A of \gen_sdpram.xpm_memory_base_inst\ : label is 2;
   attribute WRITE_MODE_B : integer;
@@ -16254,10 +17591,10 @@ GND: unisim.vcomponents.GND
       clkb => rd_clk,
       dbiterra => \NLW_gen_sdpram.xpm_memory_base_inst_dbiterra_UNCONNECTED\,
       dbiterrb => \NLW_gen_sdpram.xpm_memory_base_inst_dbiterrb_UNCONNECTED\,
-      dina(7 downto 0) => din(7 downto 0),
-      dinb(7 downto 0) => B"00000000",
-      douta(7 downto 0) => \NLW_gen_sdpram.xpm_memory_base_inst_douta_UNCONNECTED\(7 downto 0),
-      doutb(7 downto 0) => dout(7 downto 0),
+      dina(15 downto 0) => din(15 downto 0),
+      dinb(15 downto 0) => B"0000000000000000",
+      douta(15 downto 0) => \NLW_gen_sdpram.xpm_memory_base_inst_douta_UNCONNECTED\(15 downto 0),
+      doutb(15 downto 0) => dout(15 downto 0),
       ena => wr_pntr_plus1_pf_carry,
       enb => rdp_inst_n_6,
       injectdbiterra => '0',
@@ -16512,7 +17849,7 @@ entity \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ is
     rst : in STD_LOGIC;
     wr_clk : in STD_LOGIC;
     wr_en : in STD_LOGIC;
-    din : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    din : in STD_LOGIC_VECTOR ( 15 downto 0 );
     full : out STD_LOGIC;
     full_n : out STD_LOGIC;
     prog_full : out STD_LOGIC;
@@ -16523,7 +17860,7 @@ entity \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ is
     wr_ack : out STD_LOGIC;
     rd_clk : in STD_LOGIC;
     rd_en : in STD_LOGIC;
-    dout : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     empty : out STD_LOGIC;
     prog_empty : out STD_LOGIC;
     rd_data_count : out STD_LOGIC_VECTOR ( 4 downto 0 );
@@ -16579,7 +17916,7 @@ entity \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ is
   attribute FIFO_READ_LATENCY : integer;
   attribute FIFO_READ_LATENCY of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 0;
   attribute FIFO_SIZE : integer;
-  attribute FIFO_SIZE of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 128;
+  attribute FIFO_SIZE of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 256;
   attribute FIFO_WRITE_DEPTH : integer;
   attribute FIFO_WRITE_DEPTH of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 16;
   attribute FULL_RESET_VALUE : integer;
@@ -16615,7 +17952,7 @@ entity \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ is
   attribute RD_PNTR_WIDTH : integer;
   attribute RD_PNTR_WIDTH of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 4;
   attribute READ_DATA_WIDTH : integer;
-  attribute READ_DATA_WIDTH of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 8;
+  attribute READ_DATA_WIDTH of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 16;
   attribute READ_MODE : integer;
   attribute READ_MODE of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 1;
   attribute RELATED_CLOCKS : integer;
@@ -16631,7 +17968,7 @@ entity \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ is
   attribute WAKEUP_TIME : integer;
   attribute WAKEUP_TIME of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 0;
   attribute WRITE_DATA_WIDTH : integer;
-  attribute WRITE_DATA_WIDTH of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 8;
+  attribute WRITE_DATA_WIDTH of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 16;
   attribute WR_DATA_COUNT_WIDTH : integer;
   attribute WR_DATA_COUNT_WIDTH of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ : entity is 5;
   attribute WR_DC_WIDTH_EXT : integer;
@@ -16729,7 +18066,7 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ i
   signal \NLW_gen_sdpram.xpm_memory_base_inst_dbiterrb_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_gen_sdpram.xpm_memory_base_inst_sbiterra_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_gen_sdpram.xpm_memory_base_inst_sbiterrb_UNCONNECTED\ : STD_LOGIC;
-  signal \NLW_gen_sdpram.xpm_memory_base_inst_douta_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \NLW_gen_sdpram.xpm_memory_base_inst_douta_UNCONNECTED\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_sequential_gen_fwft.curr_fwft_state_reg[0]\ : label is "invalid:00,stage1_valid:01,both_stages_valid:10,stage2_valid:11";
   attribute KEEP : string;
@@ -16785,9 +18122,9 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ i
   attribute AUTO_SLEEP_TIME : integer;
   attribute AUTO_SLEEP_TIME of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
   attribute BYTE_WRITE_WIDTH_A : integer;
-  attribute BYTE_WRITE_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute BYTE_WRITE_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute BYTE_WRITE_WIDTH_B : integer;
-  attribute BYTE_WRITE_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute BYTE_WRITE_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute CLOCKING_MODE : integer;
   attribute CLOCKING_MODE of \gen_sdpram.xpm_memory_base_inst\ : label is 1;
   attribute ECC_MODE of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
@@ -16802,7 +18139,7 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ i
   attribute MEMORY_PRIMITIVE : integer;
   attribute MEMORY_PRIMITIVE of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
   attribute MEMORY_SIZE : integer;
-  attribute MEMORY_SIZE of \gen_sdpram.xpm_memory_base_inst\ : label is 128;
+  attribute MEMORY_SIZE of \gen_sdpram.xpm_memory_base_inst\ : label is 256;
   attribute MEMORY_TYPE : integer;
   attribute MEMORY_TYPE of \gen_sdpram.xpm_memory_base_inst\ : label is 1;
   attribute MESSAGE_CONTROL : integer;
@@ -16822,17 +18159,17 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ i
   attribute P_MEMORY_PRIMITIVE : string;
   attribute P_MEMORY_PRIMITIVE of \gen_sdpram.xpm_memory_base_inst\ : label is "auto";
   attribute P_MIN_WIDTH_DATA : integer;
-  attribute P_MIN_WIDTH_DATA of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_MIN_WIDTH_DATA_A : integer;
-  attribute P_MIN_WIDTH_DATA_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_MIN_WIDTH_DATA_B : integer;
-  attribute P_MIN_WIDTH_DATA_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_MIN_WIDTH_DATA_ECC : integer;
-  attribute P_MIN_WIDTH_DATA_ECC of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA_ECC of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_MIN_WIDTH_DATA_LDW : integer;
   attribute P_MIN_WIDTH_DATA_LDW of \gen_sdpram.xpm_memory_base_inst\ : label is 4;
   attribute P_MIN_WIDTH_DATA_SHFT : integer;
-  attribute P_MIN_WIDTH_DATA_SHFT of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_MIN_WIDTH_DATA_SHFT of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_NUM_COLS_WRITE_A : integer;
   attribute P_NUM_COLS_WRITE_A of \gen_sdpram.xpm_memory_base_inst\ : label is 1;
   attribute P_NUM_COLS_WRITE_B : integer;
@@ -16864,13 +18201,13 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ i
   attribute P_WIDTH_ADDR_WRITE_B : integer;
   attribute P_WIDTH_ADDR_WRITE_B of \gen_sdpram.xpm_memory_base_inst\ : label is 4;
   attribute P_WIDTH_COL_WRITE_A : integer;
-  attribute P_WIDTH_COL_WRITE_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_WIDTH_COL_WRITE_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute P_WIDTH_COL_WRITE_B : integer;
-  attribute P_WIDTH_COL_WRITE_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute P_WIDTH_COL_WRITE_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute READ_DATA_WIDTH_A : integer;
-  attribute READ_DATA_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute READ_DATA_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute READ_DATA_WIDTH_B : integer;
-  attribute READ_DATA_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute READ_DATA_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute READ_LATENCY_A : integer;
   attribute READ_LATENCY_A of \gen_sdpram.xpm_memory_base_inst\ : label is 2;
   attribute READ_LATENCY_B : integer;
@@ -16886,9 +18223,9 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\ i
   attribute VERSION of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
   attribute WAKEUP_TIME of \gen_sdpram.xpm_memory_base_inst\ : label is 0;
   attribute WRITE_DATA_WIDTH_A : integer;
-  attribute WRITE_DATA_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute WRITE_DATA_WIDTH_A of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute WRITE_DATA_WIDTH_B : integer;
-  attribute WRITE_DATA_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 8;
+  attribute WRITE_DATA_WIDTH_B of \gen_sdpram.xpm_memory_base_inst\ : label is 16;
   attribute WRITE_MODE_A : integer;
   attribute WRITE_MODE_A of \gen_sdpram.xpm_memory_base_inst\ : label is 2;
   attribute WRITE_MODE_B : integer;
@@ -17287,10 +18624,10 @@ GND: unisim.vcomponents.GND
       clkb => rd_clk,
       dbiterra => \NLW_gen_sdpram.xpm_memory_base_inst_dbiterra_UNCONNECTED\,
       dbiterrb => \NLW_gen_sdpram.xpm_memory_base_inst_dbiterrb_UNCONNECTED\,
-      dina(7 downto 0) => din(7 downto 0),
-      dinb(7 downto 0) => B"00000000",
-      douta(7 downto 0) => \NLW_gen_sdpram.xpm_memory_base_inst_douta_UNCONNECTED\(7 downto 0),
-      doutb(7 downto 0) => dout(7 downto 0),
+      dina(15 downto 0) => din(15 downto 0),
+      dinb(15 downto 0) => B"0000000000000000",
+      douta(15 downto 0) => \NLW_gen_sdpram.xpm_memory_base_inst_douta_UNCONNECTED\(15 downto 0),
+      doutb(15 downto 0) => dout(15 downto 0),
       ena => wr_pntr_plus1_pf_carry,
       enb => rdp_inst_n_6,
       injectdbiterra => '0',
@@ -17542,148 +18879,149 @@ use UNISIM.VCOMPONENTS.ALL;
 entity design_1_axi_quad_spi_0_0_axi_lite_ipif is
   port (
     bus2ip_reset_ipif_inverted : out STD_LOGIC;
+    p_2_in : out STD_LOGIC;
     p_3_in : out STD_LOGIC;
     p_4_in : out STD_LOGIC;
     p_5_in : out STD_LOGIC;
     p_6_in : out STD_LOGIC;
-    p_8_in : out STD_LOGIC;
     s_axi_rresp : out STD_LOGIC_VECTOR ( 0 to 0 );
     Bus_RNW_reg : out STD_LOGIC;
     s_axi_rvalid : out STD_LOGIC;
     s_axi_bvalid : out STD_LOGIC;
     s_axi_bresp : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ : out STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\ : out STD_LOGIC;
+    intr2bus_wrack_reg : out STD_LOGIC;
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
     ip2Bus_WrAck_intr_reg_hole_d1_reg : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
     SPICR_data_int_reg0 : out STD_LOGIC;
-    wr_ce_or_reduce_core_cmb : out STD_LOGIC;
-    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ : out STD_LOGIC;
     bus2ip_wrce_int : out STD_LOGIC_VECTOR ( 0 to 0 );
+    reset2ip_reset_int : out STD_LOGIC;
     IP2Bus_Error_1 : out STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\ : out STD_LOGIC;
     reset_trig0 : out STD_LOGIC;
     sw_rst_cond : out STD_LOGIC;
-    irpt_wrack : out STD_LOGIC;
-    interrupt_wrce_strb : out STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\ : out STD_LOGIC;
-    D : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    D : out STD_LOGIC_VECTOR ( 6 downto 0 );
     irpt_rdack : out STD_LOGIC;
     intr2bus_rdack0 : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]_0\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ : out STD_LOGIC;
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ : out STD_LOGIC;
-    Receive_ip2bus_error0 : out STD_LOGIC;
+    irpt_wrack : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]_0\ : out STD_LOGIC;
     modf_reg : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
     ip2Bus_WrAck_intr_reg_hole0 : out STD_LOGIC;
     ip2Bus_RdAck_intr_reg_hole0 : out STD_LOGIC;
     intr_controller_rd_ce_or_reduce : out STD_LOGIC;
+    wr_ce_or_reduce_core_cmb : out STD_LOGIC;
+    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ : out STD_LOGIC;
     rd_ce_or_reduce_core_cmb : out STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
     s_axi_wready : out STD_LOGIC;
     ipif_glbl_irpt_enable_reg_reg : out STD_LOGIC;
-    s_axi_rdata : out STD_LOGIC_VECTOR ( 10 downto 0 );
+    \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\ : out STD_LOGIC;
+    \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ : out STD_LOGIC;
+    s_axi_rdata : out STD_LOGIC_VECTOR ( 16 downto 0 );
     s_axi_aclk : in STD_LOGIC;
     p_1_in : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_arvalid : in STD_LOGIC;
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    empty : in STD_LOGIC;
+    irpt_wrack_d1 : in STD_LOGIC;
+    ip2Bus_RdAck_core_reg : in STD_LOGIC;
     ip2Bus_WrAck_core_reg_1 : in STD_LOGIC;
-    almost_full : in STD_LOGIC;
-    ip2Bus_WrAck_core_reg_d1 : in STD_LOGIC;
+    \RESET_FLOPS[15].RST_FLOPS\ : in STD_LOGIC;
     Receive_ip2bus_error_reg : in STD_LOGIC;
     sw_rst_cond_d1 : in STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    irpt_wrack_d1 : in STD_LOGIC;
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 6 downto 0 );
     ipif_glbl_irpt_enable_reg : in STD_LOGIC;
     irpt_rdack_d1 : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    spicr_8_tr_inhibit_frm_axi_clk : in STD_LOGIC;
+    Q : in STD_LOGIC_VECTOR ( 7 downto 0 );
     p_1_in14_in : in STD_LOGIC;
     p_1_in17_in : in STD_LOGIC;
     p_1_in20_in : in STD_LOGIC;
     p_1_in23_in : in STD_LOGIC;
     p_1_in26_in : in STD_LOGIC;
+    dout : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    p_1_in29_in : in STD_LOGIC;
     p_1_in32_in : in STD_LOGIC;
-    \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ : in STD_LOGIC;
     p_1_in35_in : in STD_LOGIC;
-    dout : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ : in STD_LOGIC;
-    \grdc.rd_data_count_i_reg[0]\ : in STD_LOGIC;
-    wr_data_count : in STD_LOGIC_VECTOR ( 0 to 0 );
-    SPISSR_frm_axi_clk : in STD_LOGIC;
-    spicr_0_loop_frm_axi_clk : in STD_LOGIC;
-    rx_fifo_empty_i : in STD_LOGIC;
-    Tx_FIFO_Empty_SPISR_to_axi_clk : in STD_LOGIC;
-    spicr_2_mst_n_slv_frm_axi_clk : in STD_LOGIC;
-    Tx_FIFO_Full_int : in STD_LOGIC;
-    spicr_3_cpol_frm_axi_clk : in STD_LOGIC;
-    sr_3_MODF_int : in STD_LOGIC;
-    spicr_4_cpha_frm_axi_clk : in STD_LOGIC;
+    spicr_9_lsb_frm_axi_clk : in STD_LOGIC;
+    spicr_8_tr_inhibit_frm_axi_clk : in STD_LOGIC;
+    spicr_7_ss_frm_axi_clk : in STD_LOGIC;
+    spicr_6_rxfifo_rst_frm_axi_clk : in STD_LOGIC;
     spisel_d1_reg_to_axi_clk : in STD_LOGIC;
     spicr_5_txfifo_rst_frm_axi_clk : in STD_LOGIC;
-    spicr_6_rxfifo_rst_frm_axi_clk : in STD_LOGIC;
-    ip2Bus_RdAck_core_reg : in STD_LOGIC;
-    spicr_7_ss_frm_axi_clk : in STD_LOGIC;
+    spicr_4_cpha_frm_axi_clk : in STD_LOGIC;
+    sr_3_MODF_int : in STD_LOGIC;
+    spicr_0_loop_frm_axi_clk : in STD_LOGIC;
+    empty : in STD_LOGIC;
+    rx_fifo_empty_i : in STD_LOGIC;
     ip2Bus_WrAck_intr_reg_hole_d1 : in STD_LOGIC;
     ip2Bus_RdAck_intr_reg_hole_d1 : in STD_LOGIC;
-    scndry_out : in STD_LOGIC;
+    almost_full : in STD_LOGIC;
+    ip2Bus_WrAck_core_reg_d1 : in STD_LOGIC;
     spicr_1_spe_frm_axi_clk : in STD_LOGIC;
-    spicr_9_lsb_frm_axi_clk : in STD_LOGIC;
-    \gwdc.wr_data_count_i_reg[2]\ : in STD_LOGIC;
+    scndry_out : in STD_LOGIC;
+    spicr_2_mst_n_slv_frm_axi_clk : in STD_LOGIC;
+    Tx_FIFO_Empty_SPISR_to_axi_clk : in STD_LOGIC;
+    Tx_FIFO_Full_int : in STD_LOGIC;
+    spicr_3_cpol_frm_axi_clk : in STD_LOGIC;
+    SPISSR_frm_axi_clk : in STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
     s_axi_awvalid : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\ : in STD_LOGIC_VECTOR ( 16 downto 0 );
     s_axi_aresetn : in STD_LOGIC;
     p_15_out : in STD_LOGIC;
     p_16_out : in STD_LOGIC;
     s_axi_araddr : in STD_LOGIC_VECTOR ( 4 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end design_1_axi_quad_spi_0_0_axi_lite_ipif;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_axi_lite_ipif is
 begin
 I_SLAVE_ATTACHMENT: entity work.design_1_axi_quad_spi_0_0_slave_attachment
      port map (
-      D(8 downto 0) => D(8 downto 0),
+      \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\ => \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\,
+      \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
+      D(6 downto 0) => D(6 downto 0),
       E(0) => E(0),
       \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\,
-      \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\ => \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\,
+      \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\ => \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\,
       IP2Bus_Error_1 => IP2Bus_Error_1,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(10 downto 0) => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(10 downto 0),
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(16 downto 0) => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(16 downto 0),
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[22]\ => p_5_in,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]_0\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]_0\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]_0\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]_0\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\,
       \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\ => \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\,
-      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg\ => p_4_in,
-      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg_0\ => p_6_in,
+      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg\ => p_6_in,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\,
-      \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ => \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\,
-      Q(5 downto 0) => Q(5 downto 0),
-      Receive_ip2bus_error0 => Receive_ip2bus_error0,
-      Receive_ip2bus_error_reg => p_5_in,
-      Receive_ip2bus_error_reg_0 => Receive_ip2bus_error_reg,
+      Q(7 downto 0) => Q(7 downto 0),
+      \RESET_FLOPS[15].RST_FLOPS\ => \RESET_FLOPS[15].RST_FLOPS\,
+      Receive_ip2bus_error_reg => Receive_ip2bus_error_reg,
       SPICR_data_int_reg0 => SPICR_data_int_reg0,
-      \SPICR_data_int_reg[0]\ => p_8_in,
       SPISSR_frm_axi_clk => SPISSR_frm_axi_clk,
       SR(0) => bus2ip_reset_ipif_inverted,
       Tx_FIFO_Empty_SPISR_to_axi_clk => Tx_FIFO_Empty_SPISR_to_axi_clk,
       Tx_FIFO_Full_int => Tx_FIFO_Full_int,
       almost_full => almost_full,
       bus2ip_wrce_int(0) => bus2ip_wrce_int(0),
-      dout(7 downto 0) => dout(7 downto 0),
+      dout(9 downto 0) => dout(9 downto 0),
       empty => empty,
-      \grdc.rd_data_count_i_reg[0]\ => \grdc.rd_data_count_i_reg[0]\,
-      \gwdc.wr_data_count_i_reg[2]\ => \gwdc.wr_data_count_i_reg[2]\,
-      interrupt_wrce_strb => interrupt_wrce_strb,
       intr2bus_rdack0 => intr2bus_rdack0,
+      intr2bus_wrack_reg => intr2bus_wrack_reg,
       intr_controller_rd_ce_or_reduce => intr_controller_rd_ce_or_reduce,
       ip2Bus_RdAck_core_reg => ip2Bus_RdAck_core_reg,
       ip2Bus_RdAck_intr_reg_hole0 => ip2Bus_RdAck_intr_reg_hole0,
@@ -17709,10 +19047,14 @@ I_SLAVE_ATTACHMENT: entity work.design_1_axi_quad_spi_0_0_slave_attachment
       p_1_in20_in => p_1_in20_in,
       p_1_in23_in => p_1_in23_in,
       p_1_in26_in => p_1_in26_in,
+      p_1_in29_in => p_1_in29_in,
       p_1_in32_in => p_1_in32_in,
       p_1_in35_in => p_1_in35_in,
+      p_2_in => p_2_in,
       p_3_in => p_3_in,
+      p_4_in => p_4_in,
       rd_ce_or_reduce_core_cmb => rd_ce_or_reduce_core_cmb,
+      reset2ip_reset_int => reset2ip_reset_int,
       reset_trig0 => reset_trig0,
       rx_fifo_empty_i => rx_fifo_empty_i,
       s_axi_aclk => s_axi_aclk,
@@ -17725,11 +19067,11 @@ I_SLAVE_ATTACHMENT: entity work.design_1_axi_quad_spi_0_0_slave_attachment
       s_axi_bready => s_axi_bready,
       s_axi_bresp(0) => s_axi_bresp(0),
       s_axi_bvalid => s_axi_bvalid,
-      s_axi_rdata(10 downto 0) => s_axi_rdata(10 downto 0),
+      s_axi_rdata(16 downto 0) => s_axi_rdata(16 downto 0),
       s_axi_rready => s_axi_rready,
       s_axi_rresp(0) => s_axi_rresp(0),
       s_axi_rvalid => s_axi_rvalid,
-      s_axi_wdata(4 downto 0) => s_axi_wdata(4 downto 0),
+      s_axi_wdata(6 downto 0) => s_axi_wdata(6 downto 0),
       s_axi_wready => s_axi_wready,
       s_axi_wstrb(1 downto 0) => s_axi_wstrb(1 downto 0),
       s_axi_wvalid => s_axi_wvalid,
@@ -17748,8 +19090,7 @@ I_SLAVE_ATTACHMENT: entity work.design_1_axi_quad_spi_0_0_slave_attachment
       sr_3_MODF_int => sr_3_MODF_int,
       sw_rst_cond => sw_rst_cond,
       sw_rst_cond_d1 => sw_rst_cond_d1,
-      wr_ce_or_reduce_core_cmb => wr_ce_or_reduce_core_cmb,
-      wr_data_count(0) => wr_data_count(0)
+      wr_ce_or_reduce_core_cmb => wr_ce_or_reduce_core_cmb
     );
 end STRUCTURE;
 library IEEE;
@@ -17758,64 +19099,65 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_axi_quad_spi_0_0_xpm_fifo_async is
   port (
-    wr_data_count : out STD_LOGIC_VECTOR ( 0 to 0 );
     almost_full : out STD_LOGIC;
-    dout : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     empty : out STD_LOGIC;
-    IP2Bus_WrAck_transmit_enable : out STD_LOGIC;
+    wr_en : out STD_LOGIC;
     D : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ : out STD_LOGIC;
-    \OTHER_RATIO_GENERATE.Serial_Dout_reg\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
+    \OTHER_RATIO_GENERATE.Shift_Reg_reg[0]\ : out STD_LOGIC;
     rst : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     ext_spi_clk : in STD_LOGIC;
     rd_en : in STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ : in STD_LOGIC;
-    Bus_RNW_reg_reg : in STD_LOGIC;
-    \grdc.rd_data_count_i_reg[1]\ : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ : in STD_LOGIC;
+    \ip_irpt_enable_reg_reg[0]\ : in STD_LOGIC;
+    \grdc.rd_data_count_i_reg[3]\ : in STD_LOGIC;
+    rd_data_count : in STD_LOGIC_VECTOR ( 0 to 0 );
     \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ : in STD_LOGIC;
-    Bus_RNW_reg : in STD_LOGIC;
     p_6_in : in STD_LOGIC;
-    Tx_FIFO_Empty_SPISR_to_axi_clk : in STD_LOGIC;
+    Bus_RNW_reg : in STD_LOGIC;
     p_3_in : in STD_LOGIC;
-    \grdc.rd_data_count_i_reg[4]\ : in STD_LOGIC;
-    \gen_fwft.empty_fwft_i_reg\ : in STD_LOGIC;
+    \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ : in STD_LOGIC;
     spicr_9_lsb_to_spi_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_xpm_fifo_async : entity is "xpm_fifo_async";
 end design_1_axi_quad_spi_0_0_xpm_fifo_async;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_async is
-  signal \^ip2bus_wrack_transmit_enable\ : STD_LOGIC;
-  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_5_n_0\ : STD_LOGIC;
-  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_4_n_0\ : STD_LOGIC;
-  signal Tx_FIFO_occ_Reversed : STD_LOGIC_VECTOR ( 4 downto 1 );
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7_n_0\ : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_6_n_0\ : STD_LOGIC;
+  signal \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[31]\ : STD_LOGIC;
+  signal Tx_FIFO_occ_Reversed : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal \^almost_full\ : STD_LOGIC;
-  signal \^dout\ : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal \^dout\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal full : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_11\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_2\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_21\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_22\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_23\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_24\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_25\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_26\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_27\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_28\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_29\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_30\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_31\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_32\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_33\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_34\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_35\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_36\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_37\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_38\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_39\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_40\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_8\ : STD_LOGIC;
-  signal \^wr_data_count\ : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal \^wr_en\ : STD_LOGIC;
   signal wr_rst_busy : STD_LOGIC;
   signal \NLW_gnuram_async_fifo.xpm_fifo_base_inst_full_n_UNCONNECTED\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_4\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_6\ : label is "soft_lutpair69";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_6\ : label is "soft_lutpair72";
   attribute CDC_DEST_SYNC_FF : integer;
   attribute CDC_DEST_SYNC_FF of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 2;
   attribute COMMON_CLOCK : integer;
@@ -17859,7 +19201,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_async is
   attribute FIFO_READ_LATENCY : integer;
   attribute FIFO_READ_LATENCY of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 0;
   attribute FIFO_SIZE : integer;
-  attribute FIFO_SIZE of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 128;
+  attribute FIFO_SIZE of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 256;
   attribute FIFO_WRITE_DEPTH : integer;
   attribute FIFO_WRITE_DEPTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 16;
   attribute FULL_RESET_VALUE : integer;
@@ -17893,7 +19235,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_async is
   attribute RD_PNTR_WIDTH : integer;
   attribute RD_PNTR_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 4;
   attribute READ_DATA_WIDTH : integer;
-  attribute READ_DATA_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 8;
+  attribute READ_DATA_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 16;
   attribute READ_MODE : integer;
   attribute READ_MODE of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 1;
   attribute RELATED_CLOCKS : integer;
@@ -17909,7 +19251,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_async is
   attribute WAKEUP_TIME : integer;
   attribute WAKEUP_TIME of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 0;
   attribute WRITE_DATA_WIDTH : integer;
-  attribute WRITE_DATA_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 8;
+  attribute WRITE_DATA_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 16;
   attribute WR_DATA_COUNT_WIDTH : integer;
   attribute WR_DATA_COUNT_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 5;
   attribute WR_DC_WIDTH_EXT : integer;
@@ -17921,137 +19263,148 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_xpm_fifo_async is
   attribute XPM_MODULE : string;
   attribute XPM_MODULE of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is "TRUE";
 begin
-  IP2Bus_WrAck_transmit_enable <= \^ip2bus_wrack_transmit_enable\;
+  \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ <= \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[31]\;
   almost_full <= \^almost_full\;
-  dout(7 downto 0) <= \^dout\(7 downto 0);
-  wr_data_count(0) <= \^wr_data_count\(0);
+  dout(15 downto 0) <= \^dout\(15 downto 0);
+  wr_en <= \^wr_en\;
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0064000000000000"
+      INIT => X"2020000000002000"
     )
         port map (
-      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_5_n_0\,
-      I1 => Tx_FIFO_occ_Reversed(3),
-      I2 => Tx_FIFO_occ_Reversed(4),
-      I3 => Tx_FIFO_Empty_SPISR_to_axi_clk,
-      I4 => p_3_in,
-      I5 => Bus_RNW_reg,
+      I0 => p_3_in,
+      I1 => \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\,
+      I2 => Bus_RNW_reg,
+      I3 => Tx_FIFO_occ_Reversed(4),
+      I4 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7_n_0\,
+      I5 => Tx_FIFO_occ_Reversed(3),
       O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_5\: unisim.vcomponents.LUT3
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"01"
-    )
-        port map (
-      I0 => \^wr_data_count\(0),
-      I1 => Tx_FIFO_occ_Reversed(1),
-      I2 => Tx_FIFO_occ_Reversed(2),
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_5_n_0\
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_3\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"1000FFFF10001000"
-    )
-        port map (
-      I0 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_4_n_0\,
-      I1 => Tx_FIFO_Empty_SPISR_to_axi_clk,
-      I2 => p_3_in,
-      I3 => Bus_RNW_reg,
-      I4 => \grdc.rd_data_count_i_reg[4]\,
-      I5 => \gen_fwft.empty_fwft_i_reg\,
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_4\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"000FFFF1"
-    )
-        port map (
-      I0 => Tx_FIFO_occ_Reversed(4),
-      I1 => Tx_FIFO_occ_Reversed(3),
-      I2 => Tx_FIFO_occ_Reversed(1),
-      I3 => \^wr_data_count\(0),
-      I4 => Tx_FIFO_occ_Reversed(2),
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_4_n_0\
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_1\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFEAAE"
-    )
-        port map (
-      I0 => \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\,
-      I1 => Bus_RNW_reg_reg,
-      I2 => \^wr_data_count\(0),
-      I3 => Tx_FIFO_occ_Reversed(1),
-      I4 => \grdc.rd_data_count_i_reg[1]\,
-      O => D(0)
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_6\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"00000001"
+      INIT => X"FE"
     )
         port map (
       I0 => Tx_FIFO_occ_Reversed(2),
       I1 => Tx_FIFO_occ_Reversed(1),
-      I2 => \^wr_data_count\(0),
-      I3 => Tx_FIFO_occ_Reversed(3),
-      I4 => Tx_FIFO_occ_Reversed(4),
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\
+      I2 => Tx_FIFO_occ_Reversed(0),
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7_n_0\
     );
-\OTHER_RATIO_GENERATE.Serial_Dout_i_3\: unisim.vcomponents.LUT3
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000FE0000000000"
+    )
+        port map (
+      I0 => Tx_FIFO_occ_Reversed(3),
+      I1 => Tx_FIFO_occ_Reversed(4),
+      I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7_n_0\,
+      I3 => Bus_RNW_reg,
+      I4 => \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\,
+      I5 => p_3_in,
+      O => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[31]\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"56"
+    )
+        port map (
+      I0 => Tx_FIFO_occ_Reversed(2),
+      I1 => Tx_FIFO_occ_Reversed(1),
+      I2 => Tx_FIFO_occ_Reversed(0),
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"2000000000002000"
+    )
+        port map (
+      I0 => p_3_in,
+      I1 => \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\,
+      I2 => Bus_RNW_reg,
+      I3 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_6_n_0\,
+      I4 => Tx_FIFO_occ_Reversed(1),
+      I5 => Tx_FIFO_occ_Reversed(0),
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_6\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFFE"
+    )
+        port map (
+      I0 => Tx_FIFO_occ_Reversed(0),
+      I1 => Tx_FIFO_occ_Reversed(1),
+      I2 => Tx_FIFO_occ_Reversed(2),
+      I3 => Tx_FIFO_occ_Reversed(4),
+      I4 => Tx_FIFO_occ_Reversed(3),
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_6_n_0\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"EEFEEEFEFFFFEEFE"
+    )
+        port map (
+      I0 => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\,
+      I1 => \ip_irpt_enable_reg_reg[0]\,
+      I2 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[31]\,
+      I3 => Tx_FIFO_occ_Reversed(0),
+      I4 => \grdc.rd_data_count_i_reg[3]\,
+      I5 => rd_data_count(0),
+      O => D(0)
+    );
+\OTHER_RATIO_GENERATE.Shift_Reg[0]_i_7\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"B8"
     )
         port map (
       I0 => \^dout\(0),
       I1 => spicr_9_lsb_to_spi_clk,
-      I2 => \^dout\(7),
-      O => \OTHER_RATIO_GENERATE.Serial_Dout_reg\
+      I2 => \^dout\(15),
+      O => \OTHER_RATIO_GENERATE.Shift_Reg_reg[0]\
     );
 \gnuram_async_fifo.xpm_fifo_base_inst\: entity work.design_1_axi_quad_spi_0_0_xpm_fifo_base
      port map (
-      almost_empty => \gnuram_async_fifo.xpm_fifo_base_inst_n_29\,
+      almost_empty => \gnuram_async_fifo.xpm_fifo_base_inst_n_37\,
       almost_full => \^almost_full\,
-      data_valid => \gnuram_async_fifo.xpm_fifo_base_inst_n_30\,
-      dbiterr => \gnuram_async_fifo.xpm_fifo_base_inst_n_32\,
-      din(7 downto 0) => s_axi_wdata(7 downto 0),
-      dout(7 downto 0) => \^dout\(7 downto 0),
+      data_valid => \gnuram_async_fifo.xpm_fifo_base_inst_n_38\,
+      dbiterr => \gnuram_async_fifo.xpm_fifo_base_inst_n_40\,
+      din(15 downto 0) => s_axi_wdata(15 downto 0),
+      dout(15 downto 0) => \^dout\(15 downto 0),
       empty => empty,
       full => full,
       full_n => \NLW_gnuram_async_fifo.xpm_fifo_base_inst_full_n_UNCONNECTED\,
       injectdbiterr => '0',
       injectsbiterr => '0',
       overflow => \gnuram_async_fifo.xpm_fifo_base_inst_n_8\,
-      prog_empty => \gnuram_async_fifo.xpm_fifo_base_inst_n_21\,
+      prog_empty => \gnuram_async_fifo.xpm_fifo_base_inst_n_29\,
       prog_full => \gnuram_async_fifo.xpm_fifo_base_inst_n_2\,
       rd_clk => ext_spi_clk,
-      rd_data_count(4) => \gnuram_async_fifo.xpm_fifo_base_inst_n_22\,
-      rd_data_count(3) => \gnuram_async_fifo.xpm_fifo_base_inst_n_23\,
-      rd_data_count(2) => \gnuram_async_fifo.xpm_fifo_base_inst_n_24\,
-      rd_data_count(1) => \gnuram_async_fifo.xpm_fifo_base_inst_n_25\,
-      rd_data_count(0) => \gnuram_async_fifo.xpm_fifo_base_inst_n_26\,
+      rd_data_count(4) => \gnuram_async_fifo.xpm_fifo_base_inst_n_30\,
+      rd_data_count(3) => \gnuram_async_fifo.xpm_fifo_base_inst_n_31\,
+      rd_data_count(2) => \gnuram_async_fifo.xpm_fifo_base_inst_n_32\,
+      rd_data_count(1) => \gnuram_async_fifo.xpm_fifo_base_inst_n_33\,
+      rd_data_count(0) => \gnuram_async_fifo.xpm_fifo_base_inst_n_34\,
       rd_en => rd_en,
-      rd_rst_busy => \gnuram_async_fifo.xpm_fifo_base_inst_n_28\,
+      rd_rst_busy => \gnuram_async_fifo.xpm_fifo_base_inst_n_36\,
       rst => rst,
-      sbiterr => \gnuram_async_fifo.xpm_fifo_base_inst_n_31\,
+      sbiterr => \gnuram_async_fifo.xpm_fifo_base_inst_n_39\,
       sleep => '0',
-      underflow => \gnuram_async_fifo.xpm_fifo_base_inst_n_27\,
+      underflow => \gnuram_async_fifo.xpm_fifo_base_inst_n_35\,
       wr_ack => \gnuram_async_fifo.xpm_fifo_base_inst_n_11\,
       wr_clk => s_axi_aclk,
-      wr_data_count(4 downto 1) => Tx_FIFO_occ_Reversed(4 downto 1),
-      wr_data_count(0) => \^wr_data_count\(0),
-      wr_en => \^ip2bus_wrack_transmit_enable\,
+      wr_data_count(4 downto 0) => Tx_FIFO_occ_Reversed(4 downto 0),
+      wr_en => \^wr_en\,
       wr_rst_busy => wr_rst_busy
     );
-\gnuram_async_fifo.xpm_fifo_base_inst_i_2\: unisim.vcomponents.LUT4
+\gnuram_async_fifo.xpm_fifo_base_inst_i_2__0\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"0020"
     )
         port map (
       I0 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\,
-      I1 => Bus_RNW_reg,
+      I1 => \^almost_full\,
       I2 => p_6_in,
-      I3 => \^almost_full\,
-      O => \^ip2bus_wrack_transmit_enable\
+      I3 => Bus_RNW_reg,
+      O => \^wr_en\
     );
 end STRUCTURE;
 library IEEE;
@@ -18061,24 +19414,33 @@ use UNISIM.VCOMPONENTS.ALL;
 entity \design_1_axi_quad_spi_0_0_xpm_fifo_async__xdcDup__1\ is
   port (
     almost_full : out STD_LOGIC;
-    dout : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    dout : out STD_LOGIC_VECTOR ( 9 downto 0 );
     empty : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ : out STD_LOGIC;
+    rd_data_count : out STD_LOGIC_VECTOR ( 0 to 0 );
+    D : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
+    Receive_ip2bus_error0 : out STD_LOGIC;
     Rx_FIFO_Full_Fifo : out STD_LOGIC;
     rst : in STD_LOGIC;
     ext_spi_clk : in STD_LOGIC;
     spiXfer_done_int : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    Q : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axi_aclk : in STD_LOGIC;
+    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ : in STD_LOGIC;
+    \ip_irpt_enable_reg_reg[3]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ : in STD_LOGIC;
+    \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]\ : in STD_LOGIC;
+    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][2]\ : in STD_LOGIC;
+    \gwdc.wr_data_count_i_reg[3]\ : in STD_LOGIC;
+    \gwdc.wr_data_count_i_reg[2]\ : in STD_LOGIC;
+    \ip_irpt_enable_reg_reg[1]\ : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ : in STD_LOGIC;
+    \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]_0\ : in STD_LOGIC;
+    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ : in STD_LOGIC;
     Bus_RNW_reg : in STD_LOGIC;
     p_5_in : in STD_LOGIC;
-    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ : in STD_LOGIC;
-    \gen_fwft.empty_fwft_i_reg\ : in STD_LOGIC;
-    \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ : in STD_LOGIC;
-    \ip_irpt_enable_reg_reg[3]\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\ : in STD_LOGIC;
+    p_2_in : in STD_LOGIC;
     scndry_out : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -18086,33 +19448,42 @@ entity \design_1_axi_quad_spi_0_0_xpm_fifo_async__xdcDup__1\ is
 end \design_1_axi_quad_spi_0_0_xpm_fifo_async__xdcDup__1\;
 
 architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_async__xdcDup__1\ is
-  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7_n_0\ : STD_LOGIC;
-  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_7_n_0\ : STD_LOGIC;
-  signal Rx_FIFO_occ_Reversed : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal IP2Bus_RdAck_receive_enable : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_5_n_0\ : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_8_n_0\ : STD_LOGIC;
+  signal \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_5_n_0\ : STD_LOGIC;
+  signal \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[30]\ : STD_LOGIC;
+  signal Rx_FIFO_occ_Reversed : STD_LOGIC_VECTOR ( 4 downto 1 );
   signal \^almost_full\ : STD_LOGIC;
+  signal data_from_rx_fifo : STD_LOGIC_VECTOR ( 0 to 5 );
   signal \^empty\ : STD_LOGIC;
   signal full : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_i_2__0_n_0\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_11\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_2\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_21\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_27\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_28\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_29\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_3\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_30\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_31\ : STD_LOGIC;
-  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_32\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_35\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_36\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_37\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_38\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_39\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_4\ : STD_LOGIC;
+  signal \gnuram_async_fifo.xpm_fifo_base_inst_n_40\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_5\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_6\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_7\ : STD_LOGIC;
   signal \gnuram_async_fifo.xpm_fifo_base_inst_n_8\ : STD_LOGIC;
+  signal \^rd_data_count\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal wr_rst_busy : STD_LOGIC;
   signal \NLW_gnuram_async_fifo.xpm_fifo_base_inst_full_n_UNCONNECTED\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_5\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_7\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[16]_i_1\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[17]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[18]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[19]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[20]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_5\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_8\ : label is "soft_lutpair48";
   attribute CDC_DEST_SYNC_FF : integer;
   attribute CDC_DEST_SYNC_FF of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 2;
   attribute COMMON_CLOCK : integer;
@@ -18156,7 +19527,7 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_async__xdcDup__1\ 
   attribute FIFO_READ_LATENCY : integer;
   attribute FIFO_READ_LATENCY of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 0;
   attribute FIFO_SIZE : integer;
-  attribute FIFO_SIZE of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 128;
+  attribute FIFO_SIZE of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 256;
   attribute FIFO_WRITE_DEPTH : integer;
   attribute FIFO_WRITE_DEPTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 16;
   attribute FULL_RESET_VALUE : integer;
@@ -18190,7 +19561,7 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_async__xdcDup__1\ 
   attribute RD_PNTR_WIDTH : integer;
   attribute RD_PNTR_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 4;
   attribute READ_DATA_WIDTH : integer;
-  attribute READ_DATA_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 8;
+  attribute READ_DATA_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 16;
   attribute READ_MODE : integer;
   attribute READ_MODE of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 1;
   attribute RELATED_CLOCKS : integer;
@@ -18206,7 +19577,7 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_async__xdcDup__1\ 
   attribute WAKEUP_TIME : integer;
   attribute WAKEUP_TIME of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 0;
   attribute WRITE_DATA_WIDTH : integer;
-  attribute WRITE_DATA_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 8;
+  attribute WRITE_DATA_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 16;
   attribute WR_DATA_COUNT_WIDTH : integer;
   attribute WR_DATA_COUNT_WIDTH of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 5;
   attribute WR_DC_WIDTH_EXT : integer;
@@ -18217,9 +19588,12 @@ architecture STRUCTURE of \design_1_axi_quad_spi_0_0_xpm_fifo_async__xdcDup__1\ 
   attribute WR_RD_RATIO of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is 0;
   attribute XPM_MODULE : string;
   attribute XPM_MODULE of \gnuram_async_fifo.xpm_fifo_base_inst\ : label is "TRUE";
+  attribute SOFT_HLUTNM of \gnuram_async_fifo.xpm_fifo_base_inst_i_2\ : label is "soft_lutpair47";
 begin
+  \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ <= \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[30]\;
   almost_full <= \^almost_full\;
   empty <= \^empty\;
+  rd_data_count(0) <= \^rd_data_count\(0);
 \FIFO_EXISTS.Rx_FIFO_Full_Fifo_d1_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"2"
@@ -18229,102 +19603,196 @@ begin
       I1 => scndry_out,
       O => Rx_FIFO_Full_Fifo
     );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[16]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8000"
+    )
+        port map (
+      I0 => data_from_rx_fifo(0),
+      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
+      I2 => Bus_RNW_reg,
+      I3 => p_5_in,
+      O => D(8)
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[17]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8000"
+    )
+        port map (
+      I0 => data_from_rx_fifo(1),
+      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
+      I2 => Bus_RNW_reg,
+      I3 => p_5_in,
+      O => D(7)
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[18]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8000"
+    )
+        port map (
+      I0 => data_from_rx_fifo(2),
+      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
+      I2 => Bus_RNW_reg,
+      I3 => p_5_in,
+      O => D(6)
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[19]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8000"
+    )
+        port map (
+      I0 => data_from_rx_fifo(3),
+      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
+      I2 => Bus_RNW_reg,
+      I3 => p_5_in,
+      O => D(5)
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[20]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8000"
+    )
+        port map (
+      I0 => data_from_rx_fifo(4),
+      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
+      I2 => Bus_RNW_reg,
+      I3 => p_5_in,
+      O => D(4)
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[21]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8000"
+    )
+        port map (
+      I0 => data_from_rx_fifo(5),
+      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
+      I2 => Bus_RNW_reg,
+      I3 => p_5_in,
+      O => D(3)
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFAEFFAEFFFFFFAE"
+    )
+        port map (
+      I0 => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\,
+      I1 => \ip_irpt_enable_reg_reg[3]\(0),
+      I2 => \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\,
+      I3 => \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]\,
+      I4 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[30]\,
+      I5 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_5_n_0\,
+      O => D(2)
+    );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"08A0FFFF08A008A0"
+      INIT => X"0000FE0000000000"
     )
         port map (
-      I0 => \gen_fwft.empty_fwft_i_reg\,
+      I0 => Rx_FIFO_occ_Reversed(3),
       I1 => Rx_FIFO_occ_Reversed(4),
-      I2 => Rx_FIFO_occ_Reversed(3),
-      I3 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7_n_0\,
-      I4 => \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\,
-      I5 => \ip_irpt_enable_reg_reg[3]\(2),
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\
+      I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_8_n_0\,
+      I3 => Bus_RNW_reg,
+      I4 => \^empty\,
+      I5 => p_2_in,
+      O => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[30]\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7\: unisim.vcomponents.LUT3
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_5\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"01"
+      INIT => X"5556"
     )
         port map (
-      I0 => Rx_FIFO_occ_Reversed(0),
-      I1 => Rx_FIFO_occ_Reversed(1),
-      I2 => Rx_FIFO_occ_Reversed(2),
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_7_n_0\
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_5\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"000FFFF1"
-    )
-        port map (
-      I0 => Rx_FIFO_occ_Reversed(4),
-      I1 => Rx_FIFO_occ_Reversed(3),
+      I0 => Rx_FIFO_occ_Reversed(3),
+      I1 => \^rd_data_count\(0),
       I2 => Rx_FIFO_occ_Reversed(1),
-      I3 => Rx_FIFO_occ_Reversed(0),
-      I4 => Rx_FIFO_occ_Reversed(2),
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\
+      I3 => Rx_FIFO_occ_Reversed(2),
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_5_n_0\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_4\: unisim.vcomponents.LUT6
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_8\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"0090FFFF00900090"
-    )
-        port map (
-      I0 => Rx_FIFO_occ_Reversed(1),
-      I1 => Rx_FIFO_occ_Reversed(0),
-      I2 => \gen_fwft.empty_fwft_i_reg\,
-      I3 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_7_n_0\,
-      I4 => \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\,
-      I5 => \ip_irpt_enable_reg_reg[3]\(1),
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\
-    );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_7\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"00000001"
+      INIT => X"FE"
     )
         port map (
       I0 => Rx_FIFO_occ_Reversed(2),
       I1 => Rx_FIFO_occ_Reversed(1),
-      I2 => Rx_FIFO_occ_Reversed(0),
-      I3 => Rx_FIFO_occ_Reversed(3),
-      I4 => Rx_FIFO_occ_Reversed(4),
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_7_n_0\
+      I2 => \^rd_data_count\(0),
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[28]_i_8_n_0\
     );
-\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[31]_i_3\: unisim.vcomponents.LUT5
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"04FF0404"
+      INIT => X"FFAEAEAEAEAEFFAE"
     )
         port map (
-      I0 => Rx_FIFO_occ_Reversed(0),
-      I1 => \gen_fwft.empty_fwft_i_reg\,
-      I2 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_7_n_0\,
-      I3 => \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\,
-      I4 => \ip_irpt_enable_reg_reg[3]\(0),
-      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\
+      I0 => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][2]\,
+      I1 => \gwdc.wr_data_count_i_reg[3]\,
+      I2 => \gwdc.wr_data_count_i_reg[2]\,
+      I3 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[30]\,
+      I4 => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_5_n_0\,
+      I5 => Rx_FIFO_occ_Reversed(2),
+      O => D(1)
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_5\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => \^rd_data_count\(0),
+      I1 => Rx_FIFO_occ_Reversed(1),
+      O => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[29]_i_5_n_0\
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data[30]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFFEAAE"
+    )
+        port map (
+      I0 => \ip_irpt_enable_reg_reg[1]\,
+      I1 => \^legacy_md_ip2bus_data_gen.ip2bus_data_reg[30]\,
+      I2 => Rx_FIFO_occ_Reversed(1),
+      I3 => \^rd_data_count\(0),
+      I4 => \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\,
+      I5 => \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]_0\,
+      O => D(0)
+    );
+Receive_ip2bus_error_i_1: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"E000"
+    )
+        port map (
+      I0 => \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\,
+      I1 => \^empty\,
+      I2 => p_5_in,
+      I3 => Bus_RNW_reg,
+      O => Receive_ip2bus_error0
     );
 \gnuram_async_fifo.xpm_fifo_base_inst\: entity work.\design_1_axi_quad_spi_0_0_xpm_fifo_base__xdcDup__1\
      port map (
-      almost_empty => \gnuram_async_fifo.xpm_fifo_base_inst_n_29\,
+      almost_empty => \gnuram_async_fifo.xpm_fifo_base_inst_n_37\,
       almost_full => \^almost_full\,
-      data_valid => \gnuram_async_fifo.xpm_fifo_base_inst_n_30\,
-      dbiterr => \gnuram_async_fifo.xpm_fifo_base_inst_n_32\,
-      din(7 downto 0) => Q(7 downto 0),
-      dout(7 downto 0) => dout(7 downto 0),
+      data_valid => \gnuram_async_fifo.xpm_fifo_base_inst_n_38\,
+      dbiterr => \gnuram_async_fifo.xpm_fifo_base_inst_n_40\,
+      din(15 downto 0) => Q(15 downto 0),
+      dout(15) => data_from_rx_fifo(0),
+      dout(14) => data_from_rx_fifo(1),
+      dout(13) => data_from_rx_fifo(2),
+      dout(12) => data_from_rx_fifo(3),
+      dout(11) => data_from_rx_fifo(4),
+      dout(10) => data_from_rx_fifo(5),
+      dout(9 downto 0) => dout(9 downto 0),
       empty => \^empty\,
       full => full,
       full_n => \NLW_gnuram_async_fifo.xpm_fifo_base_inst_full_n_UNCONNECTED\,
       injectdbiterr => '0',
       injectsbiterr => '0',
       overflow => \gnuram_async_fifo.xpm_fifo_base_inst_n_8\,
-      prog_empty => \gnuram_async_fifo.xpm_fifo_base_inst_n_21\,
+      prog_empty => \gnuram_async_fifo.xpm_fifo_base_inst_n_29\,
       prog_full => \gnuram_async_fifo.xpm_fifo_base_inst_n_2\,
       rd_clk => s_axi_aclk,
-      rd_data_count(4 downto 0) => Rx_FIFO_occ_Reversed(4 downto 0),
-      rd_en => \gnuram_async_fifo.xpm_fifo_base_inst_i_2__0_n_0\,
-      rd_rst_busy => \gnuram_async_fifo.xpm_fifo_base_inst_n_28\,
+      rd_data_count(4 downto 1) => Rx_FIFO_occ_Reversed(4 downto 1),
+      rd_data_count(0) => \^rd_data_count\(0),
+      rd_en => IP2Bus_RdAck_receive_enable,
+      rd_rst_busy => \gnuram_async_fifo.xpm_fifo_base_inst_n_36\,
       rst => rst,
-      sbiterr => \gnuram_async_fifo.xpm_fifo_base_inst_n_31\,
+      sbiterr => \gnuram_async_fifo.xpm_fifo_base_inst_n_39\,
       sleep => '0',
-      underflow => \gnuram_async_fifo.xpm_fifo_base_inst_n_27\,
+      underflow => \gnuram_async_fifo.xpm_fifo_base_inst_n_35\,
       wr_ack => \gnuram_async_fifo.xpm_fifo_base_inst_n_11\,
       wr_clk => ext_spi_clk,
       wr_data_count(4) => \gnuram_async_fifo.xpm_fifo_base_inst_n_3\,
@@ -18335,16 +19803,16 @@ begin
       wr_en => spiXfer_done_int,
       wr_rst_busy => wr_rst_busy
     );
-\gnuram_async_fifo.xpm_fifo_base_inst_i_2__0\: unisim.vcomponents.LUT4
+\gnuram_async_fifo.xpm_fifo_base_inst_i_2\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"4000"
     )
         port map (
       I0 => \^empty\,
-      I1 => Bus_RNW_reg,
-      I2 => p_5_in,
-      I3 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
-      O => \gnuram_async_fifo.xpm_fifo_base_inst_i_2__0_n_0\
+      I1 => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
+      I2 => Bus_RNW_reg,
+      I3 => p_5_in,
+      O => IP2Bus_RdAck_receive_enable
     );
 end STRUCTURE;
 library IEEE;
@@ -18353,33 +19821,34 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_axi_quad_spi_0_0_async_fifo_fg is
   port (
-    wr_data_count : out STD_LOGIC_VECTOR ( 0 to 0 );
     almost_full : out STD_LOGIC;
-    dout : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    dout : out STD_LOGIC_VECTOR ( 15 downto 0 );
     empty : out STD_LOGIC;
-    IP2Bus_WrAck_transmit_enable : out STD_LOGIC;
+    wr_en : out STD_LOGIC;
     D : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ : out STD_LOGIC;
-    \OTHER_RATIO_GENERATE.Serial_Dout_reg\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ : out STD_LOGIC;
+    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
+    \OTHER_RATIO_GENERATE.Shift_Reg_reg[0]\ : out STD_LOGIC;
     rst : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     ext_spi_clk : in STD_LOGIC;
     rd_en : in STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ : in STD_LOGIC;
-    Bus_RNW_reg_reg : in STD_LOGIC;
-    \grdc.rd_data_count_i_reg[1]\ : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ : in STD_LOGIC;
+    \ip_irpt_enable_reg_reg[0]\ : in STD_LOGIC;
+    \grdc.rd_data_count_i_reg[3]\ : in STD_LOGIC;
+    rd_data_count : in STD_LOGIC_VECTOR ( 0 to 0 );
     \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ : in STD_LOGIC;
-    Bus_RNW_reg : in STD_LOGIC;
     p_6_in : in STD_LOGIC;
-    Tx_FIFO_Empty_SPISR_to_axi_clk : in STD_LOGIC;
+    Bus_RNW_reg : in STD_LOGIC;
     p_3_in : in STD_LOGIC;
-    \grdc.rd_data_count_i_reg[4]\ : in STD_LOGIC;
-    \gen_fwft.empty_fwft_i_reg\ : in STD_LOGIC;
+    \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ : in STD_LOGIC;
     spicr_9_lsb_to_spi_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_async_fifo_fg : entity is "async_fifo_fg";
 end design_1_axi_quad_spi_0_0_async_fifo_fg;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_async_fifo_fg is
@@ -18387,31 +19856,30 @@ begin
 \xpm_fifo_instance.xpm_fifo_async_inst\: entity work.design_1_axi_quad_spi_0_0_xpm_fifo_async
      port map (
       Bus_RNW_reg => Bus_RNW_reg,
-      Bus_RNW_reg_reg => Bus_RNW_reg_reg,
       D(0) => D(0),
-      \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ => \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\,
-      IP2Bus_WrAck_transmit_enable => IP2Bus_WrAck_transmit_enable,
+      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\,
-      \OTHER_RATIO_GENERATE.Serial_Dout_reg\ => \OTHER_RATIO_GENERATE.Serial_Dout_reg\,
-      Tx_FIFO_Empty_SPISR_to_axi_clk => Tx_FIFO_Empty_SPISR_to_axi_clk,
+      \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ => \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\,
+      \OTHER_RATIO_GENERATE.Shift_Reg_reg[0]\ => \OTHER_RATIO_GENERATE.Shift_Reg_reg[0]\,
       almost_full => almost_full,
-      dout(7 downto 0) => dout(7 downto 0),
+      dout(15 downto 0) => dout(15 downto 0),
       empty => empty,
       ext_spi_clk => ext_spi_clk,
-      \gen_fwft.empty_fwft_i_reg\ => \gen_fwft.empty_fwft_i_reg\,
-      \grdc.rd_data_count_i_reg[1]\ => \grdc.rd_data_count_i_reg[1]\,
-      \grdc.rd_data_count_i_reg[4]\ => \grdc.rd_data_count_i_reg[4]\,
+      \grdc.rd_data_count_i_reg[3]\ => \grdc.rd_data_count_i_reg[3]\,
+      \ip_irpt_enable_reg_reg[0]\ => \ip_irpt_enable_reg_reg[0]\,
       p_3_in => p_3_in,
       p_6_in => p_6_in,
+      rd_data_count(0) => rd_data_count(0),
       rd_en => rd_en,
       rst => rst,
       s_axi_aclk => s_axi_aclk,
-      s_axi_wdata(7 downto 0) => s_axi_wdata(7 downto 0),
+      s_axi_wdata(15 downto 0) => s_axi_wdata(15 downto 0),
       spicr_9_lsb_to_spi_clk => spicr_9_lsb_to_spi_clk,
-      wr_data_count(0) => wr_data_count(0)
+      wr_en => wr_en
     );
 end STRUCTURE;
 library IEEE;
@@ -18421,24 +19889,33 @@ use UNISIM.VCOMPONENTS.ALL;
 entity \design_1_axi_quad_spi_0_0_async_fifo_fg__xdcDup__1\ is
   port (
     almost_full : out STD_LOGIC;
-    dout : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    dout : out STD_LOGIC_VECTOR ( 9 downto 0 );
     empty : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ : out STD_LOGIC;
+    rd_data_count : out STD_LOGIC_VECTOR ( 0 to 0 );
+    D : out STD_LOGIC_VECTOR ( 8 downto 0 );
     \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ : out STD_LOGIC;
+    Receive_ip2bus_error0 : out STD_LOGIC;
     Rx_FIFO_Full_Fifo : out STD_LOGIC;
     rst : in STD_LOGIC;
     ext_spi_clk : in STD_LOGIC;
     spiXfer_done_int : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    Q : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axi_aclk : in STD_LOGIC;
+    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ : in STD_LOGIC;
+    \ip_irpt_enable_reg_reg[3]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ : in STD_LOGIC;
+    \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]\ : in STD_LOGIC;
+    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][2]\ : in STD_LOGIC;
+    \gwdc.wr_data_count_i_reg[3]\ : in STD_LOGIC;
+    \gwdc.wr_data_count_i_reg[2]\ : in STD_LOGIC;
+    \ip_irpt_enable_reg_reg[1]\ : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ : in STD_LOGIC;
+    \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]_0\ : in STD_LOGIC;
+    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ : in STD_LOGIC;
     Bus_RNW_reg : in STD_LOGIC;
     p_5_in : in STD_LOGIC;
-    \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ : in STD_LOGIC;
-    \gen_fwft.empty_fwft_i_reg\ : in STD_LOGIC;
-    \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ : in STD_LOGIC;
-    \ip_irpt_enable_reg_reg[3]\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\ : in STD_LOGIC;
+    p_2_in : in STD_LOGIC;
     scndry_out : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -18450,21 +19927,30 @@ begin
 \xpm_fifo_instance.xpm_fifo_async_inst\: entity work.\design_1_axi_quad_spi_0_0_xpm_fifo_async__xdcDup__1\
      port map (
       Bus_RNW_reg => Bus_RNW_reg,
+      D(8 downto 0) => D(8 downto 0),
+      \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\ => \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\,
+      \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]\ => \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]\,
+      \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]_0\ => \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]_0\,
       \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ => \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\,
+      \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ => \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\,
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ => \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\,
-      Q(7 downto 0) => Q(7 downto 0),
+      Q(15 downto 0) => Q(15 downto 0),
+      Receive_ip2bus_error0 => Receive_ip2bus_error0,
       Rx_FIFO_Full_Fifo => Rx_FIFO_Full_Fifo,
       almost_full => almost_full,
-      dout(7 downto 0) => dout(7 downto 0),
+      dout(9 downto 0) => dout(9 downto 0),
       empty => empty,
       ext_spi_clk => ext_spi_clk,
-      \gen_fwft.empty_fwft_i_reg\ => \gen_fwft.empty_fwft_i_reg\,
-      \ip_irpt_enable_reg_reg[3]\(2 downto 0) => \ip_irpt_enable_reg_reg[3]\(2 downto 0),
+      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][2]\ => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][2]\,
+      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\,
+      \gwdc.wr_data_count_i_reg[2]\ => \gwdc.wr_data_count_i_reg[2]\,
+      \gwdc.wr_data_count_i_reg[3]\ => \gwdc.wr_data_count_i_reg[3]\,
+      \ip_irpt_enable_reg_reg[1]\ => \ip_irpt_enable_reg_reg[1]\,
+      \ip_irpt_enable_reg_reg[3]\(0) => \ip_irpt_enable_reg_reg[3]\(0),
+      p_2_in => p_2_in,
       p_5_in => p_5_in,
+      rd_data_count(0) => rd_data_count(0),
       rst => rst,
       s_axi_aclk => s_axi_aclk,
       scndry_out => scndry_out,
@@ -18489,9 +19975,8 @@ entity design_1_axi_quad_spi_0_0_qspi_core_interface is
     spicr_9_lsb_frm_axi_clk : out STD_LOGIC;
     sr_3_MODF_int : out STD_LOGIC;
     SPISSR_frm_axi_clk : out STD_LOGIC;
-    dout : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    dout : out STD_LOGIC_VECTOR ( 9 downto 0 );
     empty : out STD_LOGIC;
-    wr_data_count : out STD_LOGIC_VECTOR ( 0 to 0 );
     almost_full : out STD_LOGIC;
     sck_t : out STD_LOGIC;
     io0_t : out STD_LOGIC;
@@ -18504,6 +19989,7 @@ entity design_1_axi_quad_spi_0_0_qspi_core_interface is
     \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ : out STD_LOGIC;
     p_1_in35_in : out STD_LOGIC;
     p_1_in32_in : out STD_LOGIC;
+    p_1_in29_in : out STD_LOGIC;
     p_1_in26_in : out STD_LOGIC;
     p_1_in23_in : out STD_LOGIC;
     p_1_in20_in : out STD_LOGIC;
@@ -18518,6 +20004,7 @@ entity design_1_axi_quad_spi_0_0_qspi_core_interface is
     ip2Bus_RdAck_core_reg : out STD_LOGIC;
     p_15_out : out STD_LOGIC;
     ip2Bus_WrAck_core_reg_1 : out STD_LOGIC;
+    FF_WRACK : out STD_LOGIC;
     spicr_5_txfifo_rst_frm_axi_clk : out STD_LOGIC;
     spicr_6_rxfifo_rst_frm_axi_clk : out STD_LOGIC;
     ipif_glbl_irpt_enable_reg : out STD_LOGIC;
@@ -18526,16 +20013,14 @@ entity design_1_axi_quad_spi_0_0_qspi_core_interface is
     Tx_FIFO_Full_int : out STD_LOGIC;
     rx_fifo_empty_i : out STD_LOGIC;
     scndry_out : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\ : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]_0\ : out STD_LOGIC;
-    \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_1\ : out STD_LOGIC;
     ip2intc_irpt : out STD_LOGIC;
-    Q : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    \s_axi_rdata_i_reg[31]\ : out STD_LOGIC_VECTOR ( 10 downto 0 );
+    Q : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \s_axi_rdata_i_reg[31]\ : out STD_LOGIC_VECTOR ( 16 downto 0 );
+    reset2ip_reset_int : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC;
     rd_ce_or_reduce_core_cmb : in STD_LOGIC;
     bus2ip_wrce_int : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     ext_spi_clk : in STD_LOGIC;
     spisel : in STD_LOGIC;
     sck_i : in STD_LOGIC;
@@ -18545,46 +20030,54 @@ entity design_1_axi_quad_spi_0_0_qspi_core_interface is
     sw_rst_cond : in STD_LOGIC;
     reset_trig0 : in STD_LOGIC;
     irpt_wrack : in STD_LOGIC;
-    interrupt_wrce_strb : in STD_LOGIC;
+    irpt_wrack_d1_reg : in STD_LOGIC;
     irpt_rdack : in STD_LOGIC;
     intr2bus_rdack0 : in STD_LOGIC;
-    Receive_ip2bus_error0 : in STD_LOGIC;
     Bus_RNW_reg_reg : in STD_LOGIC;
     ip2Bus_WrAck_intr_reg_hole0 : in STD_LOGIC;
     wr_ce_or_reduce_core_cmb : in STD_LOGIC;
     \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg_0\ : in STD_LOGIC;
     intr_controller_rd_ce_or_reduce : in STD_LOGIC;
     ip2Bus_RdAck_intr_reg_hole0 : in STD_LOGIC;
+    \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ : in STD_LOGIC;
+    \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\ : in STD_LOGIC;
     Bus_RNW_reg_reg_0 : in STD_LOGIC;
-    Bus_RNW_reg : in STD_LOGIC;
-    p_5_in : in STD_LOGIC;
     Bus_RNW_reg_reg_1 : in STD_LOGIC;
-    \GEN_BKEND_CE_REGISTERS[16].ce_out_i_reg[16]\ : in STD_LOGIC;
-    irpt_wrack_d1_reg : in STD_LOGIC;
-    D : in STD_LOGIC_VECTOR ( 8 downto 0 );
-    \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ : in STD_LOGIC;
-    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ : in STD_LOGIC;
-    \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ : in STD_LOGIC;
     Bus_RNW_reg_reg_2 : in STD_LOGIC;
-    \gen_fwft.empty_fwft_i_reg\ : in STD_LOGIC;
-    \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]_0\ : in STD_LOGIC;
+    D : in STD_LOGIC_VECTOR ( 6 downto 0 );
+    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ : in STD_LOGIC;
+    \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ : in STD_LOGIC;
+    \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][2]\ : in STD_LOGIC;
+    \ip_irpt_enable_reg_reg[1]\ : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ : in STD_LOGIC;
+    \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0\ : in STD_LOGIC;
+    \ip_irpt_enable_reg_reg[0]\ : in STD_LOGIC;
+    irpt_wrack_d1_reg_0 : in STD_LOGIC;
+    Bus_RNW_reg : in STD_LOGIC;
     p_6_in : in STD_LOGIC;
+    p_5_in : in STD_LOGIC;
     p_3_in : in STD_LOGIC;
+    p_2_in : in STD_LOGIC;
     p_4_in : in STD_LOGIC;
-    p_8_in : in STD_LOGIC;
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     io1_i_sync : in STD_LOGIC;
     io0_i_sync : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_qspi_core_interface : entity is "qspi_core_interface";
 end design_1_axi_quad_spi_0_0_qspi_core_interface;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_core_interface is
   signal Allow_MODF_Strobe : STD_LOGIC;
   signal Allow_Slave_MODF_Strobe : STD_LOGIC;
-  signal Count_trigger : STD_LOGIC;
+  signal CONTROL_REG_I_n_12 : STD_LOGIC;
+  signal CONTROL_REG_I_n_13 : STD_LOGIC;
   signal D_0 : STD_LOGIC;
+  signal \^ff_wrack\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_1\ : STD_LOGIC;
+  signal \FIFO_EXISTS.CLK_CROSS_I_n_12\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_14\ : STD_LOGIC;
+  signal \FIFO_EXISTS.CLK_CROSS_I_n_15\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_16\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_17\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_18\ : STD_LOGIC;
@@ -18593,31 +20086,23 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_core_interface is
   signal \FIFO_EXISTS.CLK_CROSS_I_n_20\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_21\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_22\ : STD_LOGIC;
-  signal \FIFO_EXISTS.CLK_CROSS_I_n_23\ : STD_LOGIC;
-  signal \FIFO_EXISTS.CLK_CROSS_I_n_24\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_25\ : STD_LOGIC;
-  signal \FIFO_EXISTS.CLK_CROSS_I_n_26\ : STD_LOGIC;
-  signal \FIFO_EXISTS.CLK_CROSS_I_n_30\ : STD_LOGIC;
+  signal \FIFO_EXISTS.CLK_CROSS_I_n_28\ : STD_LOGIC;
+  signal \FIFO_EXISTS.CLK_CROSS_I_n_31\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_33\ : STD_LOGIC;
-  signal \FIFO_EXISTS.CLK_CROSS_I_n_36\ : STD_LOGIC;
+  signal \FIFO_EXISTS.CLK_CROSS_I_n_35\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_37\ : STD_LOGIC;
-  signal \FIFO_EXISTS.CLK_CROSS_I_n_39\ : STD_LOGIC;
   signal \FIFO_EXISTS.CLK_CROSS_I_n_4\ : STD_LOGIC;
-  signal \FIFO_EXISTS.CLK_CROSS_I_n_41\ : STD_LOGIC;
-  signal \FIFO_EXISTS.CLK_CROSS_I_n_43\ : STD_LOGIC;
-  signal \FIFO_EXISTS.FIFO_IF_MODULE_I_n_2\ : STD_LOGIC;
-  signal \FIFO_EXISTS.FIFO_IF_MODULE_I_n_3\ : STD_LOGIC;
-  signal \FIFO_EXISTS.FIFO_IF_MODULE_I_n_4\ : STD_LOGIC;
-  signal \FIFO_EXISTS.RX_FIFO_II_n_11\ : STD_LOGIC;
-  signal \FIFO_EXISTS.RX_FIFO_II_n_12\ : STD_LOGIC;
-  signal \FIFO_EXISTS.RX_FIFO_II_n_13\ : STD_LOGIC;
+  signal \FIFO_EXISTS.RX_FIFO_II_n_22\ : STD_LOGIC;
   signal \FIFO_EXISTS.TX_FIFO_EMPTY_CNTR_I_n_0\ : STD_LOGIC;
   signal \FIFO_EXISTS.TX_FIFO_EMPTY_CNTR_I_n_2\ : STD_LOGIC;
   signal \FIFO_EXISTS.TX_FIFO_EMPTY_CNTR_I_n_4\ : STD_LOGIC;
-  signal \FIFO_EXISTS.TX_FIFO_II_n_14\ : STD_LOGIC;
-  signal \FIFO_EXISTS.TX_FIFO_II_n_16\ : STD_LOGIC;
+  signal \FIFO_EXISTS.TX_FIFO_II_n_20\ : STD_LOGIC;
+  signal \FIFO_EXISTS.TX_FIFO_II_n_21\ : STD_LOGIC;
+  signal \FIFO_EXISTS.TX_FIFO_II_n_22\ : STD_LOGIC;
+  signal \FIFO_EXISTS.TX_FIFO_II_n_23\ : STD_LOGIC;
+  signal \FIFO_EXISTS.TX_FIFO_II_n_24\ : STD_LOGIC;
   signal \^gen_ip_irpt_status_reg[0].gen_reg_status.ip_irpt_status_reg_reg[0]\ : STD_LOGIC;
-  signal INTERRUPT_CONTROL_I_n_23 : STD_LOGIC;
   signal IP2Bus_RdAck_1 : STD_LOGIC;
   signal IP2Bus_WrAck_1 : STD_LOGIC;
   signal IP2Bus_WrAck_transmit_enable : STD_LOGIC;
@@ -18631,20 +20116,19 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_core_interface is
   signal \LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_5_reg_gate_n_0\ : STD_LOGIC;
   signal \LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_5_reg_r_n_0\ : STD_LOGIC;
   signal \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_12\ : STD_LOGIC;
-  signal \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_20\ : STD_LOGIC;
-  signal \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_26\ : STD_LOGIC;
-  signal \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_27\ : STD_LOGIC;
-  signal \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_28\ : STD_LOGIC;
+  signal \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_24\ : STD_LOGIC;
+  signal \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_25\ : STD_LOGIC;
   signal \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_9\ : STD_LOGIC;
   signal MODF_strobe0 : STD_LOGIC;
   signal R : STD_LOGIC;
   signal RESET_SYNC_AXI_SPI_CLK_INST_n_0 : STD_LOGIC;
+  signal Receive_ip2bus_error0 : STD_LOGIC;
   signal Rx_FIFO_Empty_Synced_in_SPI_domain : STD_LOGIC;
   signal Rx_FIFO_Full_Fifo : STD_LOGIC;
   signal Rx_FIFO_Full_Fifo_d1 : STD_LOGIC;
   signal Rx_FIFO_Full_Fifo_d1_synced_i : STD_LOGIC;
   signal Rx_FIFO_Full_Fifo_org : STD_LOGIC;
-  signal SOFT_RESET_I_n_1 : STD_LOGIC;
+  signal Rx_FIFO_occ_Reversed : STD_LOGIC_VECTOR ( 0 to 0 );
   signal SOFT_RESET_I_n_2 : STD_LOGIC;
   signal SPICR_2_MST_N_SLV_to_spi_clk : STD_LOGIC;
   signal SPISEL_sync : STD_LOGIC;
@@ -18659,39 +20143,36 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_core_interface is
   signal bus2IP_Data_for_interrupt_core : STD_LOGIC_VECTOR ( 23 to 23 );
   signal data_Exists_RcFIFO_int_d1 : STD_LOGIC;
   signal data_Exists_RcFIFO_pulse049_in : STD_LOGIC;
-  signal data_from_txfifo : STD_LOGIC_VECTOR ( 0 to 7 );
+  signal data_from_txfifo : STD_LOGIC_VECTOR ( 0 to 15 );
   signal data_in : STD_LOGIC;
-  signal data_to_rx_fifo : STD_LOGIC_VECTOR ( 0 to 7 );
+  signal data_to_rx_fifo : STD_LOGIC_VECTOR ( 0 to 15 );
+  signal dtr_underrun_d1 : STD_LOGIC;
   signal dtr_underrun_int : STD_LOGIC;
   signal dtr_underrun_to_axi_clk : STD_LOGIC;
   signal \^empty\ : STD_LOGIC;
-  signal ip2Bus_Data_1 : STD_LOGIC_VECTOR ( 28 to 30 );
+  signal ip2Bus_Data_1 : STD_LOGIC_VECTOR ( 28 to 31 );
   signal \^ip2bus_rdack_core_reg\ : STD_LOGIC;
   signal ip2Bus_RdAck_intr_reg_hole : STD_LOGIC;
   signal ip2Bus_WrAck_core_reg : STD_LOGIC;
   signal \^ip2bus_wrack_core_reg_1\ : STD_LOGIC;
   signal ip2Bus_WrAck_intr_reg_hole : STD_LOGIC;
   signal modf_strobe_int : STD_LOGIC;
-  signal p_0_in : STD_LOGIC;
   signal p_0_in4_in : STD_LOGIC;
   signal p_0_out : STD_LOGIC;
+  signal p_14_out : STD_LOGIC_VECTOR ( 0 to 5 );
   signal \^p_1_in14_in\ : STD_LOGIC;
   signal \^p_1_in17_in\ : STD_LOGIC;
-  signal \^p_1_in20_in\ : STD_LOGIC;
   signal \^p_1_in23_in\ : STD_LOGIC;
-  signal \^p_1_in26_in\ : STD_LOGIC;
-  signal p_1_in29_in : STD_LOGIC;
-  signal \^p_1_in32_in\ : STD_LOGIC;
   signal \^p_1_in35_in\ : STD_LOGIC;
-  signal p_2_in : STD_LOGIC;
+  signal p_2_in_0 : STD_LOGIC;
   signal p_2_out : STD_LOGIC;
   signal p_5_out : STD_LOGIC;
   signal p_6_out : STD_LOGIC;
   signal p_9_out : STD_LOGIC;
+  signal rc_FIFO_Full_d1 : STD_LOGIC;
   signal read_ack_delay_6 : STD_LOGIC;
   signal read_ack_delay_7 : STD_LOGIC;
   signal register_Data_slvsel_int : STD_LOGIC;
-  signal reset2ip_reset_int : STD_LOGIC;
   signal reset_TxFIFO_ptr_int : STD_LOGIC;
   signal rst_to_spi_int : STD_LOGIC;
   signal \^rx_fifo_empty_i\ : STD_LOGIC;
@@ -18699,8 +20180,6 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_core_interface is
   signal \^scndry_out\ : STD_LOGIC;
   signal serial_dout_int : STD_LOGIC;
   signal slave_MODF_strobe_int : STD_LOGIC;
-  signal spiXfer_done_d2 : STD_LOGIC;
-  signal spiXfer_done_d3 : STD_LOGIC;
   signal spiXfer_done_int : STD_LOGIC;
   signal spiXfer_done_to_axi_1 : STD_LOGIC;
   signal spiXfer_done_to_axi_d1 : STD_LOGIC;
@@ -18721,8 +20200,10 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_core_interface is
   signal spicr_9_lsb_to_spi_clk : STD_LOGIC;
   signal spicr_bits_7_8_frm_axi_clk : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal spisel_d1_reg : STD_LOGIC;
+  signal \^spisel_d1_reg_to_axi_clk\ : STD_LOGIC;
   signal \^sr_3_modf_int\ : STD_LOGIC;
   signal transfer_start_d1 : STD_LOGIC;
+  signal tx_FIFO_Empty_d1 : STD_LOGIC;
   signal tx_FIFO_Occpncy_MSB_d1 : STD_LOGIC;
   signal tx_fifo_count : STD_LOGIC_VECTOR ( 0 to 0 );
   signal tx_fifo_count_d1 : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -18734,6 +20215,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_qspi_core_interface is
   attribute srl_name : string;
   attribute srl_name of \LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_srl4___NO_DUAL_QUAD_MODE.QSPI_NORMAL_QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_r\ : label is "U0/\NO_DUAL_QUAD_MODE.QSPI_NORMAL/QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I/LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_srl4___NO_DUAL_QUAD_MODE.QSPI_NORMAL_QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_LEGACY_MD_WR_RD_ACK_GEN.read_ack_delay_4_reg_r ";
 begin
+  FF_WRACK <= \^ff_wrack\;
   \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ <= \^gen_ip_irpt_status_reg[0].gen_reg_status.ip_irpt_status_reg_reg[0]\;
   SPISSR_frm_axi_clk <= \^spissr_frm_axi_clk\;
   Tx_FIFO_Empty_SPISR_to_axi_clk <= \^tx_fifo_empty_spisr_to_axi_clk\;
@@ -18744,10 +20226,7 @@ begin
   ip2Bus_WrAck_core_reg_1 <= \^ip2bus_wrack_core_reg_1\;
   p_1_in14_in <= \^p_1_in14_in\;
   p_1_in17_in <= \^p_1_in17_in\;
-  p_1_in20_in <= \^p_1_in20_in\;
   p_1_in23_in <= \^p_1_in23_in\;
-  p_1_in26_in <= \^p_1_in26_in\;
-  p_1_in32_in <= \^p_1_in32_in\;
   p_1_in35_in <= \^p_1_in35_in\;
   rx_fifo_empty_i <= \^rx_fifo_empty_i\;
   scndry_out <= \^scndry_out\;
@@ -18761,24 +20240,35 @@ begin
   spicr_7_ss_frm_axi_clk <= \^spicr_7_ss_frm_axi_clk\;
   spicr_8_tr_inhibit_frm_axi_clk <= \^spicr_8_tr_inhibit_frm_axi_clk\;
   spicr_9_lsb_frm_axi_clk <= \^spicr_9_lsb_frm_axi_clk\;
+  spisel_d1_reg_to_axi_clk <= \^spisel_d1_reg_to_axi_clk\;
   sr_3_MODF_int <= \^sr_3_modf_int\;
 CONTROL_REG_I: entity work.design_1_axi_quad_spi_0_0_qspi_cntrl_reg
      port map (
-      Bus_RNW_reg => Bus_RNW_reg,
-      \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]_0\ => \^spicr_6_rxfifo_rst_frm_axi_clk\,
-      \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]_0\ => \^spicr_5_txfifo_rst_frm_axi_clk\,
-      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ => \^ip2bus_wrack_core_reg_1\,
+      \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]_0\ => \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\,
+      \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]_0\ => \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\,
+      D(0) => bus2IP_Data_for_interrupt_core(23),
+      \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\ => \^rx_fifo_empty_i\,
+      \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\ => \^spicr_5_txfifo_rst_frm_axi_clk\,
+      \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg_reg[8]\ => CONTROL_REG_I_n_13,
       \LOGIC_GENERATION_FDR.SPICR_2_MST_N_SLV_AX2S_1_CDC\ => \^spicr_2_mst_n_slv_frm_axi_clk\,
+      \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2\ => \^spisel_d1_reg_to_axi_clk\,
+      \RESET_FLOPS[15].RST_FLOPS\ => \^ff_wrack\,
       SPICR_data_int_reg0 => SPICR_data_int_reg0,
+      bus2ip_reset_ipif_inverted => bus2ip_reset_ipif_inverted,
       bus2ip_wrce_int(0) => bus2ip_wrce_int(0),
-      p_8_in => p_8_in,
+      data_Exists_RcFIFO_int_d1 => data_Exists_RcFIFO_int_d1,
+      \icount_out_reg[3]\ => CONTROL_REG_I_n_12,
+      irpt_wrack_d1_reg => irpt_wrack_d1_reg_0,
+      p_1_in14_in => \^p_1_in14_in\,
       reset2ip_reset_int => reset2ip_reset_int,
       s_axi_aclk => s_axi_aclk,
-      s_axi_wdata(9 downto 0) => s_axi_wdata(9 downto 0),
+      s_axi_wdata(7 downto 5) => s_axi_wdata(9 downto 7),
+      s_axi_wdata(4 downto 0) => s_axi_wdata(4 downto 0),
       spicr_0_loop_frm_axi_clk => \^spicr_0_loop_frm_axi_clk\,
       spicr_1_spe_frm_axi_clk => \^spicr_1_spe_frm_axi_clk\,
       spicr_3_cpol_frm_axi_clk => \^spicr_3_cpol_frm_axi_clk\,
       spicr_4_cpha_frm_axi_clk => \^spicr_4_cpha_frm_axi_clk\,
+      spicr_6_rxfifo_rst_frm_axi_clk => \^spicr_6_rxfifo_rst_frm_axi_clk\,
       spicr_7_ss_frm_axi_clk => \^spicr_7_ss_frm_axi_clk\,
       spicr_8_tr_inhibit_frm_axi_clk => \^spicr_8_tr_inhibit_frm_axi_clk\,
       spicr_9_lsb_frm_axi_clk => \^spicr_9_lsb_frm_axi_clk\,
@@ -18788,74 +20278,61 @@ CONTROL_REG_I: entity work.design_1_axi_quad_spi_0_0_qspi_cntrl_reg
      port map (
       Allow_MODF_Strobe => Allow_MODF_Strobe,
       Allow_Slave_MODF_Strobe => Allow_Slave_MODF_Strobe,
-      Allow_Slave_MODF_Strobe_reg => \FIFO_EXISTS.CLK_CROSS_I_n_17\,
+      Allow_Slave_MODF_Strobe_reg => \FIFO_EXISTS.CLK_CROSS_I_n_15\,
       Bus_RNW_reg => Bus_RNW_reg,
       Bus_RNW_reg_reg => Bus_RNW_reg_reg_1,
       \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ => \^spicr_5_txfifo_rst_frm_axi_clk\,
-      \CONTROL_REG_5_9_GENERATE[7].SPICR_data_int_reg[7]\ => \^spicr_2_mst_n_slv_frm_axi_clk\,
-      Count_trigger => Count_trigger,
-      D(0) => bus2IP_Data_for_interrupt_core(23),
+      D(0) => \FIFO_EXISTS.CLK_CROSS_I_n_31\,
       D_0 => D_0,
-      \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_18\,
+      \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_16\,
       \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg_0\ => \^rx_fifo_empty_i\,
-      \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_int_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_19\,
-      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \FIFO_EXISTS.CLK_CROSS_I_n_26\,
+      \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_int_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_17\,
+      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \FIFO_EXISTS.CLK_CROSS_I_n_19\,
       \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0\ => \^gen_ip_irpt_status_reg[0].gen_reg_status.ip_irpt_status_reg_reg[0]\,
-      \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ => \FIFO_EXISTS.CLK_CROSS_I_n_25\,
-      \GEN_IP_IRPT_STATUS_REG[5].GEN_REG_STATUS.ip_irpt_status_reg_reg[5]\ => \FIFO_EXISTS.CLK_CROSS_I_n_24\,
-      \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\ => \FIFO_EXISTS.CLK_CROSS_I_n_23\,
+      \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ => \FIFO_EXISTS.CLK_CROSS_I_n_20\,
+      \GEN_IP_IRPT_STATUS_REG[5].GEN_REG_STATUS.ip_irpt_status_reg_reg[5]\ => \FIFO_EXISTS.CLK_CROSS_I_n_21\,
       \GEN_IP_IRPT_STATUS_REG[7].GEN_REG_STATUS.ip_irpt_status_reg_reg[7]\ => \FIFO_EXISTS.CLK_CROSS_I_n_22\,
-      \GEN_IP_IRPT_STATUS_REG[8].GEN_REG_STATUS.ip_irpt_status_reg_reg[8]\ => \FIFO_EXISTS.CLK_CROSS_I_n_21\,
-      IP2Bus_WrAck_transmit_enable => IP2Bus_WrAck_transmit_enable,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ => \^ip2bus_rdack_core_reg\,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ => \^ip2bus_wrack_core_reg_1\,
-      \LOGIC_GENERATION_FDR.DRR_OVERRUN_S2AX_1_CDC_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_14\,
+      \LOGIC_GENERATION_FDR.DRR_OVERRUN_S2AX_1_CDC_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_12\,
       \LOGIC_GENERATION_FDR.MODF_STROBE_S2AX_1_CDC_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_2\,
-      \LOGIC_GENERATION_FDR.SPICR_0_LOOP_AX2S_2_0\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_28\,
+      \LOGIC_GENERATION_FDR.SPICR_0_LOOP_AX2S_2_0\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_25\,
       \LOGIC_GENERATION_FDR.SPISEL_PULSE_S2AX_1_CDC_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_1\,
       \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_1_CDC_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_4\,
       MODF_strobe0 => MODF_strobe0,
-      \OTHER_RATIO_GENERATE.Count_reg[1]\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_27\,
-      \OTHER_RATIO_GENERATE.Ratio_Count_reg[0]\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_26\,
-      \OTHER_RATIO_GENERATE.Shift_Reg_reg[7]\(0) => \FIFO_EXISTS.CLK_CROSS_I_n_37\,
-      \OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[7]\(0) => data_in,
-      \OTHER_RATIO_GENERATE.sck_o_int_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_39\,
+      \OTHER_RATIO_GENERATE.rx_shft_reg_s_reg[15]\(0) => data_in,
+      \OTHER_RATIO_GENERATE.sck_o_int_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_33\,
       R => R,
-      \RESET_FLOPS[15].RST_FLOPS\ => SOFT_RESET_I_n_1,
-      \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_36\,
+      \RESET_FLOPS[15].RST_FLOPS\ => \^ff_wrack\,
+      \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_24\,
       \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg_0\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_9\,
       Rst_to_spi => rst_to_spi_int,
       SPICR_2_MST_N_SLV_to_spi_clk => SPICR_2_MST_N_SLV_to_spi_clk,
       SPISEL_sync => SPISEL_sync,
       SPISSR_frm_axi_clk => \^spissr_frm_axi_clk\,
-      SPIXfer_done_int_d1_reg => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_20\,
-      SPI_TRISTATE_CONTROL_V => \FIFO_EXISTS.CLK_CROSS_I_n_43\,
-      \SS_O_reg[0]\ => \FIFO_EXISTS.CLK_CROSS_I_n_41\,
+      SPI_TRISTATE_CONTROL_V => \FIFO_EXISTS.CLK_CROSS_I_n_37\,
+      \SS_O_reg[0]\ => \FIFO_EXISTS.CLK_CROSS_I_n_35\,
       Slave_MODF_strobe0 => Slave_MODF_strobe0,
       Tx_FIFO_Empty_intr => Tx_FIFO_Empty_intr,
       Tx_FIFO_Full_i => Tx_FIFO_Full_i,
       Tx_FIFO_Full_int => \^tx_fifo_full_int\,
       almost_full => \^almost_full\,
       bus2ip_reset_ipif_inverted => bus2ip_reset_ipif_inverted,
-      data_Exists_RcFIFO_int_d1 => data_Exists_RcFIFO_int_d1,
       dout(1) => data_from_txfifo(0),
-      dout(0) => data_from_txfifo(7),
+      dout(0) => data_from_txfifo(15),
       dtr_underrun_int => dtr_underrun_int,
       dtr_underrun_to_axi_clk => dtr_underrun_to_axi_clk,
       empty => tx_fifo_empty,
       ext_spi_clk => ext_spi_clk,
-      \icount_out_reg[0]\ => \FIFO_EXISTS.CLK_CROSS_I_n_16\,
-      \icount_out_reg[1]\ => \FIFO_EXISTS.CLK_CROSS_I_n_30\,
+      \icount_out_reg[0]\ => \FIFO_EXISTS.CLK_CROSS_I_n_14\,
+      \icount_out_reg[1]\ => \FIFO_EXISTS.CLK_CROSS_I_n_25\,
       io0_i_sync => io0_i_sync,
       io1_i_sync => io1_i_sync,
-      \ip_irpt_enable_reg_reg[8]\ => spisel_d1_reg_to_axi_clk,
-      irpt_wrack_d1_reg => irpt_wrack_d1_reg,
-      modf_reg => \FIFO_EXISTS.CLK_CROSS_I_n_20\,
+      irpt_wrack_d1_reg => irpt_wrack_d1_reg_0,
+      modf_reg => \FIFO_EXISTS.CLK_CROSS_I_n_18\,
       modf_strobe_int => modf_strobe_int,
       p_0_out => p_0_out,
-      p_1_in14_in => \^p_1_in14_in\,
       p_1_in17_in => \^p_1_in17_in\,
-      p_1_in20_in => \^p_1_in20_in\,
       p_1_in23_in => \^p_1_in23_in\,
       p_1_in35_in => \^p_1_in35_in\,
       p_2_out => p_2_out,
@@ -18866,18 +20343,18 @@ CONTROL_REG_I: entity work.design_1_axi_quad_spi_0_0_qspi_cntrl_reg
       reset2ip_reset_int => reset2ip_reset_int,
       rst => rx_fifo_reset,
       s_axi_aclk => s_axi_aclk,
-      s_axi_wdata(5 downto 2) => s_axi_wdata(8 downto 5),
+      s_axi_wdata(3) => s_axi_wdata(7),
+      s_axi_wdata(2) => s_axi_wdata(5),
       s_axi_wdata(1 downto 0) => s_axi_wdata(1 downto 0),
       serial_dout_int => serial_dout_int,
       slave_MODF_strobe_int => slave_MODF_strobe_int,
-      spiXfer_done_d2 => spiXfer_done_d2,
-      spiXfer_done_d3 => spiXfer_done_d3,
       spiXfer_done_to_axi_1 => spiXfer_done_to_axi_1,
       spiXfer_done_to_axi_d1 => spiXfer_done_to_axi_d1,
       spicr_0_loop_frm_axi_clk => \^spicr_0_loop_frm_axi_clk\,
       spicr_0_loop_to_spi_clk => spicr_0_loop_to_spi_clk,
       spicr_1_spe_frm_axi_clk => \^spicr_1_spe_frm_axi_clk\,
       spicr_1_spe_to_spi_clk => spicr_1_spe_to_spi_clk,
+      spicr_2_mst_n_slv_frm_axi_clk => \^spicr_2_mst_n_slv_frm_axi_clk\,
       spicr_3_cpol_frm_axi_clk => \^spicr_3_cpol_frm_axi_clk\,
       spicr_3_cpol_to_spi_clk => spicr_3_cpol_to_spi_clk,
       spicr_4_cpha_frm_axi_clk => \^spicr_4_cpha_frm_axi_clk\,
@@ -18889,34 +20366,28 @@ CONTROL_REG_I: entity work.design_1_axi_quad_spi_0_0_qspi_cntrl_reg
       spicr_9_lsb_to_spi_clk => spicr_9_lsb_to_spi_clk,
       spicr_bits_7_8_frm_axi_clk(1 downto 0) => spicr_bits_7_8_frm_axi_clk(1 downto 0),
       spisel_d1_reg => spisel_d1_reg,
+      spisel_d1_reg_to_axi_clk => \^spisel_d1_reg_to_axi_clk\,
       sr_3_MODF_int => \^sr_3_modf_int\,
       transfer_start_d1 => transfer_start_d1,
-      transfer_start_reg => \FIFO_EXISTS.CLK_CROSS_I_n_33\,
-      tx_FIFO_Occpncy_MSB_d1 => tx_FIFO_Occpncy_MSB_d1,
+      transfer_start_reg => \FIFO_EXISTS.CLK_CROSS_I_n_28\,
       tx_FIFO_Occpncy_MSB_d1_reg => \^tx_fifo_empty_spisr_to_axi_clk\,
       tx_fifo_count_d2(3 downto 0) => tx_fifo_count_d2(3 downto 0),
       tx_occ_msb => tx_occ_msb,
-      tx_occ_msb_4 => tx_occ_msb_4
+      tx_occ_msb_4 => tx_occ_msb_4,
+      wr_en => IP2Bus_WrAck_transmit_enable
     );
 \FIFO_EXISTS.FIFO_IF_MODULE_I\: entity work.design_1_axi_quad_spi_0_0_qspi_fifo_ifmodule
      port map (
-      \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\ => \FIFO_EXISTS.FIFO_IF_MODULE_I_n_4\,
-      \GEN_IP_IRPT_STATUS_REG[3].GEN_REG_STATUS.ip_irpt_status_reg_reg[3]\ => \FIFO_EXISTS.FIFO_IF_MODULE_I_n_3\,
-      \GEN_IP_IRPT_STATUS_REG[4].GEN_REG_STATUS.ip_irpt_status_reg_reg[4]\ => \FIFO_EXISTS.FIFO_IF_MODULE_I_n_2\,
       \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_reg\ => \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_reg_0\,
       Receive_ip2bus_error0 => Receive_ip2bus_error0,
       Rx_FIFO_Full_Fifo_d1_synced_i => Rx_FIFO_Full_Fifo_d1_synced_i,
       Tx_FIFO_Empty_intr => Tx_FIFO_Empty_intr,
+      dtr_underrun_d1 => dtr_underrun_d1,
       dtr_underrun_to_axi_clk => dtr_underrun_to_axi_clk,
-      irpt_wrack_d1_reg => irpt_wrack_d1_reg,
-      p_1_in26_in => \^p_1_in26_in\,
-      p_1_in29_in => p_1_in29_in,
-      p_1_in32_in => \^p_1_in32_in\,
-      prmry_in => \^empty\,
+      rc_FIFO_Full_d1 => rc_FIFO_Full_d1,
       reset2ip_reset_int => reset2ip_reset_int,
       s_axi_aclk => s_axi_aclk,
-      s_axi_wdata(2 downto 0) => s_axi_wdata(4 downto 2),
-      scndry_out => \^scndry_out\,
+      tx_FIFO_Empty_d1 => tx_FIFO_Empty_d1,
       tx_FIFO_Occpncy_MSB_d1 => tx_FIFO_Occpncy_MSB_d1,
       tx_occ_msb => tx_occ_msb
     );
@@ -18937,30 +20408,53 @@ CONTROL_REG_I: entity work.design_1_axi_quad_spi_0_0_qspi_cntrl_reg
 \FIFO_EXISTS.RX_FIFO_II\: entity work.\design_1_axi_quad_spi_0_0_async_fifo_fg__xdcDup__1\
      port map (
       Bus_RNW_reg => Bus_RNW_reg,
-      \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ => \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]_0\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ => \FIFO_EXISTS.RX_FIFO_II_n_12\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ => \FIFO_EXISTS.RX_FIFO_II_n_13\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ => \FIFO_EXISTS.RX_FIFO_II_n_11\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\,
+      D(8) => p_14_out(0),
+      D(7) => p_14_out(1),
+      D(6) => p_14_out(2),
+      D(5) => p_14_out(3),
+      D(4) => p_14_out(4),
+      D(3) => p_14_out(5),
+      D(2) => ip2Bus_Data_1(28),
+      D(1) => ip2Bus_Data_1(29),
+      D(0) => ip2Bus_Data_1(30),
+      \FIFO_EXISTS.RX_FULL_EMP_MD_0_GEN.rx_fifo_empty_i_reg\ => \^rx_fifo_empty_i\,
+      \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]\ => \FIFO_EXISTS.TX_FIFO_II_n_23\,
+      \GEN_BKEND_CE_REGISTERS[29].ce_out_i_reg[29]_0\ => \FIFO_EXISTS.TX_FIFO_II_n_22\,
+      \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ => \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\,
+      \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ => \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ => \FIFO_EXISTS.RX_FIFO_II_n_22\,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ => \^ip2bus_rdack_core_reg\,
-      Q(7) => data_to_rx_fifo(0),
-      Q(6) => data_to_rx_fifo(1),
-      Q(5) => data_to_rx_fifo(2),
-      Q(4) => data_to_rx_fifo(3),
-      Q(3) => data_to_rx_fifo(4),
-      Q(2) => data_to_rx_fifo(5),
-      Q(1) => data_to_rx_fifo(6),
-      Q(0) => data_to_rx_fifo(7),
+      Q(15) => data_to_rx_fifo(0),
+      Q(14) => data_to_rx_fifo(1),
+      Q(13) => data_to_rx_fifo(2),
+      Q(12) => data_to_rx_fifo(3),
+      Q(11) => data_to_rx_fifo(4),
+      Q(10) => data_to_rx_fifo(5),
+      Q(9) => data_to_rx_fifo(6),
+      Q(8) => data_to_rx_fifo(7),
+      Q(7) => data_to_rx_fifo(8),
+      Q(6) => data_to_rx_fifo(9),
+      Q(5) => data_to_rx_fifo(10),
+      Q(4) => data_to_rx_fifo(11),
+      Q(3) => data_to_rx_fifo(12),
+      Q(2) => data_to_rx_fifo(13),
+      Q(1) => data_to_rx_fifo(14),
+      Q(0) => data_to_rx_fifo(15),
+      Receive_ip2bus_error0 => Receive_ip2bus_error0,
       Rx_FIFO_Full_Fifo => Rx_FIFO_Full_Fifo,
       almost_full => Rx_FIFO_Full_Fifo_org,
-      dout(7 downto 0) => dout(7 downto 0),
+      dout(9 downto 0) => dout(9 downto 0),
       empty => \^empty\,
       ext_spi_clk => ext_spi_clk,
-      \gen_fwft.empty_fwft_i_reg\ => \gen_fwft.empty_fwft_i_reg\,
-      \ip_irpt_enable_reg_reg[3]\(2) => p_0_in4_in,
-      \ip_irpt_enable_reg_reg[3]\(1) => p_0_in,
-      \ip_irpt_enable_reg_reg[3]\(0) => INTERRUPT_CONTROL_I_n_23,
+      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][2]\ => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][2]\,
+      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\,
+      \gwdc.wr_data_count_i_reg[2]\ => \FIFO_EXISTS.TX_FIFO_II_n_21\,
+      \gwdc.wr_data_count_i_reg[3]\ => \FIFO_EXISTS.TX_FIFO_II_n_20\,
+      \ip_irpt_enable_reg_reg[1]\ => \ip_irpt_enable_reg_reg[1]\,
+      \ip_irpt_enable_reg_reg[3]\(0) => p_0_in4_in,
+      p_2_in => p_2_in,
       p_5_in => p_5_in,
+      rd_data_count(0) => Rx_FIFO_occ_Reversed(0),
       rst => rx_fifo_reset,
       s_axi_aclk => s_axi_aclk,
       scndry_out => Rx_FIFO_Empty_Synced_in_SPI_domain,
@@ -18970,7 +20464,7 @@ CONTROL_REG_I: entity work.design_1_axi_quad_spi_0_0_qspi_cntrl_reg
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \FIFO_EXISTS.CLK_CROSS_I_n_18\,
+      D => \FIFO_EXISTS.CLK_CROSS_I_n_16\,
       Q => \^rx_fifo_empty_i\,
       R => '0'
     );
@@ -18985,57 +20479,63 @@ CONTROL_REG_I: entity work.design_1_axi_quad_spi_0_0_qspi_cntrl_reg
 \FIFO_EXISTS.TX_FIFO_EMPTY_CNTR_I\: entity work.design_1_axi_quad_spi_0_0_counter_f
      port map (
       \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ => \^spicr_5_txfifo_rst_frm_axi_clk\,
+      \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]_0\ => CONTROL_REG_I_n_12,
       \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\ => \FIFO_EXISTS.TX_FIFO_EMPTY_CNTR_I_n_4\,
       \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.tx_fifo_count_d1_reg[1]\ => \FIFO_EXISTS.TX_FIFO_EMPTY_CNTR_I_n_0\,
       \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.tx_fifo_count_d1_reg[2]\ => \FIFO_EXISTS.TX_FIFO_EMPTY_CNTR_I_n_2\,
-      IP2Bus_WrAck_transmit_enable => IP2Bus_WrAck_transmit_enable,
-      \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_16\,
-      \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\ => \FIFO_EXISTS.CLK_CROSS_I_n_30\,
-      \RESET_FLOPS[15].RST_FLOPS\ => SOFT_RESET_I_n_1,
+      \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_25\,
+      \LOGIC_GENERATION_FDR.SYNC_SPIXFER_DONE_S2AX_3\ => \FIFO_EXISTS.CLK_CROSS_I_n_14\,
+      \RESET_FLOPS[15].RST_FLOPS\ => \^ff_wrack\,
       Tx_FIFO_Full_i => Tx_FIFO_Full_i,
       bus2ip_reset_ipif_inverted => bus2ip_reset_ipif_inverted,
       reset2ip_reset_int => reset2ip_reset_int,
       s_axi_aclk => s_axi_aclk,
-      spiXfer_done_d2 => spiXfer_done_d2,
-      spiXfer_done_d3 => spiXfer_done_d3,
       tx_fifo_count(0) => tx_fifo_count(0),
-      tx_occ_msb_1 => tx_occ_msb_1
+      tx_occ_msb_1 => tx_occ_msb_1,
+      wr_en => IP2Bus_WrAck_transmit_enable
     );
 \FIFO_EXISTS.TX_FIFO_II\: entity work.design_1_axi_quad_spi_0_0_async_fifo_fg
      port map (
       Bus_RNW_reg => Bus_RNW_reg,
-      Bus_RNW_reg_reg => Bus_RNW_reg_reg_2,
-      D(0) => ip2Bus_Data_1(30),
-      \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ => \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\,
-      IP2Bus_WrAck_transmit_enable => IP2Bus_WrAck_transmit_enable,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ => \FIFO_EXISTS.TX_FIFO_II_n_14\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]_0\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ => \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_1\,
+      D(0) => ip2Bus_Data_1(31),
+      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ => \FIFO_EXISTS.TX_FIFO_II_n_23\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ => \FIFO_EXISTS.TX_FIFO_II_n_21\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ => \FIFO_EXISTS.TX_FIFO_II_n_22\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ => \FIFO_EXISTS.TX_FIFO_II_n_20\,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ => \^ip2bus_wrack_core_reg_1\,
-      \OTHER_RATIO_GENERATE.Serial_Dout_reg\ => \FIFO_EXISTS.TX_FIFO_II_n_16\,
-      Tx_FIFO_Empty_SPISR_to_axi_clk => \^tx_fifo_empty_spisr_to_axi_clk\,
+      \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ => \^tx_fifo_empty_spisr_to_axi_clk\,
+      \OTHER_RATIO_GENERATE.Shift_Reg_reg[0]\ => \FIFO_EXISTS.TX_FIFO_II_n_24\,
       almost_full => \^almost_full\,
-      dout(7) => data_from_txfifo(0),
-      dout(6) => data_from_txfifo(1),
-      dout(5) => data_from_txfifo(2),
-      dout(4) => data_from_txfifo(3),
-      dout(3) => data_from_txfifo(4),
-      dout(2) => data_from_txfifo(5),
-      dout(1) => data_from_txfifo(6),
-      dout(0) => data_from_txfifo(7),
+      dout(15) => data_from_txfifo(0),
+      dout(14) => data_from_txfifo(1),
+      dout(13) => data_from_txfifo(2),
+      dout(12) => data_from_txfifo(3),
+      dout(11) => data_from_txfifo(4),
+      dout(10) => data_from_txfifo(5),
+      dout(9) => data_from_txfifo(6),
+      dout(8) => data_from_txfifo(7),
+      dout(7) => data_from_txfifo(8),
+      dout(6) => data_from_txfifo(9),
+      dout(5) => data_from_txfifo(10),
+      dout(4) => data_from_txfifo(11),
+      dout(3) => data_from_txfifo(12),
+      dout(2) => data_from_txfifo(13),
+      dout(1) => data_from_txfifo(14),
+      dout(0) => data_from_txfifo(15),
       empty => tx_fifo_empty,
       ext_spi_clk => ext_spi_clk,
-      \gen_fwft.empty_fwft_i_reg\ => \gen_fwft.empty_fwft_i_reg\,
-      \grdc.rd_data_count_i_reg[1]\ => \FIFO_EXISTS.RX_FIFO_II_n_11\,
-      \grdc.rd_data_count_i_reg[4]\ => \FIFO_EXISTS.RX_FIFO_II_n_13\,
+      \grdc.rd_data_count_i_reg[3]\ => \FIFO_EXISTS.RX_FIFO_II_n_22\,
+      \ip_irpt_enable_reg_reg[0]\ => \ip_irpt_enable_reg_reg[0]\,
       p_3_in => p_3_in,
       p_6_in => p_6_in,
+      rd_data_count(0) => Rx_FIFO_occ_Reversed(0),
       rd_en => SPIXfer_done_rd_tx_en,
       rst => reset_TxFIFO_ptr_int,
       s_axi_aclk => s_axi_aclk,
-      s_axi_wdata(7 downto 0) => s_axi_wdata(7 downto 0),
+      s_axi_wdata(15 downto 0) => s_axi_wdata(15 downto 0),
       spicr_9_lsb_to_spi_clk => spicr_9_lsb_to_spi_clk,
-      wr_data_count(0) => wr_data_count(0)
+      wr_en => IP2Bus_WrAck_transmit_enable
     );
 \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\: unisim.vcomponents.FDRE
      port map (
@@ -19049,7 +20549,7 @@ CONTROL_REG_I: entity work.design_1_axi_quad_spi_0_0_qspi_cntrl_reg
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => \FIFO_EXISTS.CLK_CROSS_I_n_19\,
+      D => \FIFO_EXISTS.CLK_CROSS_I_n_17\,
       Q => \^tx_fifo_full_int\,
       R => '0'
     );
@@ -19152,30 +20652,24 @@ CONTROL_REG_I: entity work.design_1_axi_quad_spi_0_0_qspi_cntrl_reg
 INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       Bus_RNW_reg_reg => Bus_RNW_reg_reg_0,
-      D(0) => ip2Bus_Data_1(28),
+      \CONTROL_REG_5_9_GENERATE[7].SPICR_data_int_reg[7]\ => CONTROL_REG_I_n_13,
+      D(0) => bus2IP_Data_for_interrupt_core(23),
       E(0) => E(0),
-      \FIFO_EXISTS.tx_occ_msb_4_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_23\,
-      \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ => \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\,
       \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0\ => \^gen_ip_irpt_status_reg[0].gen_reg_status.ip_irpt_status_reg_reg[0]\,
+      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_1\ => \FIFO_EXISTS.CLK_CROSS_I_n_19\,
+      \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_20\,
+      \GEN_IP_IRPT_STATUS_REG[5].GEN_REG_STATUS.ip_irpt_status_reg_reg[5]_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_21\,
+      \GEN_IP_IRPT_STATUS_REG[7].GEN_REG_STATUS.ip_irpt_status_reg_reg[7]_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_22\,
       IP2Bus_RdAck_1 => IP2Bus_RdAck_1,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ => \^ip2bus_rdack_core_reg\,
-      \LOGIC_GENERATION_FDR.DRR_OVERRUN_S2AX_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_24\,
-      \LOGIC_GENERATION_FDR.MODF_STROBE_S2AX_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_26\,
-      \LOGIC_GENERATION_FDR.SLV_MODF_STRB_S2AX_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_25\,
-      \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_21\,
-      \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(8) => bus2IP_Data_for_interrupt_core(23),
-      \LOGIC_GENERATION_FDR.SPISEL_D1_REG_S2AX_2_0\(7 downto 0) => s_axi_wdata(7 downto 0),
-      \LOGIC_GENERATION_FDR.SPISEL_PULSE_S2AX_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_22\,
-      Q(8 downto 4) => Q(5 downto 1),
+      Q(8 downto 4) => Q(7 downto 3),
       Q(3) => p_0_in4_in,
-      Q(2) => Q(0),
-      Q(1) => p_0_in,
-      Q(0) => INTERRUPT_CONTROL_I_n_23,
-      dtr_underrun_d1_reg => \FIFO_EXISTS.FIFO_IF_MODULE_I_n_3\,
-      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ => \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\,
-      \grdc.rd_data_count_i_reg[4]\ => \FIFO_EXISTS.RX_FIFO_II_n_12\,
-      \gwdc.wr_data_count_i_reg[3]\ => \FIFO_EXISTS.TX_FIFO_II_n_14\,
-      interrupt_wrce_strb => interrupt_wrce_strb,
+      Q(2 downto 0) => Q(2 downto 0),
+      Tx_FIFO_Empty_SPISR_to_axi_clk => \^tx_fifo_empty_spisr_to_axi_clk\,
+      Tx_FIFO_Empty_intr => Tx_FIFO_Empty_intr,
+      dtr_underrun_d1 => dtr_underrun_d1,
+      dtr_underrun_to_axi_clk => dtr_underrun_to_axi_clk,
+      empty => \^empty\,
       intr2bus_rdack0 => intr2bus_rdack0,
       ip2Bus_RdAck_intr_reg_hole => ip2Bus_RdAck_intr_reg_hole,
       ip2intc_irpt => ip2intc_irpt,
@@ -19184,25 +20678,79 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
       irpt_rdack_d1 => irpt_rdack_d1,
       irpt_wrack => irpt_wrack,
       irpt_wrack_d1 => irpt_wrack_d1,
+      irpt_wrack_d1_reg_0 => irpt_wrack_d1_reg,
+      irpt_wrack_d1_reg_1 => irpt_wrack_d1_reg_0,
       p_1_in14_in => \^p_1_in14_in\,
       p_1_in17_in => \^p_1_in17_in\,
-      p_1_in20_in => \^p_1_in20_in\,
+      p_1_in20_in => p_1_in20_in,
       p_1_in23_in => \^p_1_in23_in\,
-      p_1_in26_in => \^p_1_in26_in\,
+      p_1_in26_in => p_1_in26_in,
       p_1_in29_in => p_1_in29_in,
-      p_1_in32_in => \^p_1_in32_in\,
+      p_1_in32_in => p_1_in32_in,
       p_1_in35_in => \^p_1_in35_in\,
-      p_2_in => p_2_in,
-      rc_FIFO_Full_d1_reg => \FIFO_EXISTS.FIFO_IF_MODULE_I_n_2\,
+      p_2_in_0 => p_2_in_0,
+      rc_FIFO_Full_d1 => rc_FIFO_Full_d1,
       reset2ip_reset_int => reset2ip_reset_int,
       s_axi_aclk => s_axi_aclk,
-      tx_FIFO_Empty_d1_reg => \FIFO_EXISTS.FIFO_IF_MODULE_I_n_4\
+      s_axi_wdata(7 downto 0) => s_axi_wdata(7 downto 0),
+      scndry_out => \^scndry_out\,
+      tx_FIFO_Empty_d1 => tx_FIFO_Empty_d1,
+      tx_FIFO_Occpncy_MSB_d1 => tx_FIFO_Occpncy_MSB_d1,
+      tx_occ_msb_4 => tx_occ_msb_4
     );
 \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => D(8),
+      D => D(6),
+      Q => \s_axi_rdata_i_reg[31]\(16),
+      R => reset2ip_reset_int
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[16]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => '1',
+      D => p_14_out(0),
+      Q => \s_axi_rdata_i_reg[31]\(15),
+      R => reset2ip_reset_int
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[17]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => '1',
+      D => p_14_out(1),
+      Q => \s_axi_rdata_i_reg[31]\(14),
+      R => reset2ip_reset_int
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[18]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => '1',
+      D => p_14_out(2),
+      Q => \s_axi_rdata_i_reg[31]\(13),
+      R => reset2ip_reset_int
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[19]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => '1',
+      D => p_14_out(3),
+      Q => \s_axi_rdata_i_reg[31]\(12),
+      R => reset2ip_reset_int
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[20]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => '1',
+      D => p_14_out(4),
+      Q => \s_axi_rdata_i_reg[31]\(11),
+      R => reset2ip_reset_int
+    );
+\LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[21]\: unisim.vcomponents.FDRE
+     port map (
+      C => s_axi_aclk,
+      CE => '1',
+      D => p_14_out(5),
       Q => \s_axi_rdata_i_reg[31]\(10),
       R => reset2ip_reset_int
     );
@@ -19210,7 +20758,7 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => D(7),
+      D => D(5),
       Q => \s_axi_rdata_i_reg[31]\(9),
       R => reset2ip_reset_int
     );
@@ -19218,7 +20766,7 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => D(6),
+      D => D(4),
       Q => \s_axi_rdata_i_reg[31]\(8),
       R => reset2ip_reset_int
     );
@@ -19226,7 +20774,7 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => D(5),
+      D => D(3),
       Q => \s_axi_rdata_i_reg[31]\(7),
       R => reset2ip_reset_int
     );
@@ -19234,7 +20782,7 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => D(4),
+      D => D(2),
       Q => \s_axi_rdata_i_reg[31]\(6),
       R => reset2ip_reset_int
     );
@@ -19242,7 +20790,7 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => D(3),
+      D => D(1),
       Q => \s_axi_rdata_i_reg[31]\(5),
       R => reset2ip_reset_int
     );
@@ -19250,7 +20798,7 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => D(2),
+      D => D(0),
       Q => \s_axi_rdata_i_reg[31]\(4),
       R => reset2ip_reset_int
     );
@@ -19266,7 +20814,7 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => D(1),
+      D => ip2Bus_Data_1(29),
       Q => \s_axi_rdata_i_reg[31]\(2),
       R => reset2ip_reset_int
     );
@@ -19282,7 +20830,7 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       C => s_axi_aclk,
       CE => '1',
-      D => D(0),
+      D => ip2Bus_Data_1(31),
       Q => \s_axi_rdata_i_reg[31]\(0),
       R => reset2ip_reset_int
     );
@@ -19439,53 +20987,63 @@ INTERRUPT_CONTROL_I: entity work.design_1_axi_quad_spi_0_0_interrupt_control
      port map (
       Allow_MODF_Strobe => Allow_MODF_Strobe,
       Allow_Slave_MODF_Strobe => Allow_Slave_MODF_Strobe,
-      Count_trigger => Count_trigger,
-      D(0) => \FIFO_EXISTS.CLK_CROSS_I_n_37\,
+      D(0) => \FIFO_EXISTS.CLK_CROSS_I_n_31\,
       D_0 => D_0,
-      \LOCAL_TX_EMPTY_FIFO_12_GEN.stop_clock_reg_reg_0\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_28\,
-      \LOGIC_GENERATION_FDR.SPICR_2_MST_N_SLV_AX2S_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_17\,
-      \LOGIC_GENERATION_FDR.SPICR_2_MST_N_SLV_AX2S_2_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_33\,
-      \LOGIC_GENERATION_FDR.SPICR_3_CPOL_AX2S_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_39\,
-      \LOGIC_GENERATION_FDR.SPICR_3_CPOL_AX2S_2_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_36\,
-      \LOGIC_GENERATION_FDR.SPICR_7_SS_AX2S_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_41\,
-      \LOGIC_GENERATION_FDR.SPICR_BITS_7_8_SYNC_GEN[0].SPICR_BITS_7_8_AX2S_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_43\,
-      \LOGIC_GENERATION_FDR.drr_Overrun_int_cdc_from_spi_int_2_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_14\,
+      \LOCAL_TX_EMPTY_FIFO_12_GEN.stop_clock_reg_reg_0\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_25\,
+      \LOGIC_GENERATION_FDR.SPICR_2_MST_N_SLV_AX2S_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_15\,
+      \LOGIC_GENERATION_FDR.SPICR_2_MST_N_SLV_AX2S_2_0\ => \FIFO_EXISTS.CLK_CROSS_I_n_28\,
+      \LOGIC_GENERATION_FDR.SPICR_3_CPOL_AX2S_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_33\,
+      \LOGIC_GENERATION_FDR.SPICR_7_SS_AX2S_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_35\,
+      \LOGIC_GENERATION_FDR.SPICR_BITS_7_8_SYNC_GEN[0].SPICR_BITS_7_8_AX2S_2\ => \FIFO_EXISTS.CLK_CROSS_I_n_37\,
+      \LOGIC_GENERATION_FDR.drr_Overrun_int_cdc_from_spi_int_2_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_12\,
       \LOGIC_GENERATION_FDR.modf_strobe_cdc_from_spi_int_2_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_2\,
       \LOGIC_GENERATION_FDR.spiXfer_done_cdc_from_spi_int_2_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_4\,
       \LOGIC_GENERATION_FDR.spisel_pulse_cdc_from_spi_int_2_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_1\,
       MODF_strobe0 => MODF_strobe0,
-      \OTHER_RATIO_GENERATE.Serial_Dout_reg_0\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_20\,
+      \OTHER_RATIO_GENERATE.Shift_Reg_reg[14]_0\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_24\,
       \OTHER_RATIO_GENERATE.serial_dout_int_reg_0\(0) => data_in,
-      Q(7) => data_to_rx_fifo(0),
-      Q(6) => data_to_rx_fifo(1),
-      Q(5) => data_to_rx_fifo(2),
-      Q(4) => data_to_rx_fifo(3),
-      Q(3) => data_to_rx_fifo(4),
-      Q(2) => data_to_rx_fifo(5),
-      Q(1) => data_to_rx_fifo(6),
-      Q(0) => data_to_rx_fifo(7),
+      Q(15) => data_to_rx_fifo(0),
+      Q(14) => data_to_rx_fifo(1),
+      Q(13) => data_to_rx_fifo(2),
+      Q(12) => data_to_rx_fifo(3),
+      Q(11) => data_to_rx_fifo(4),
+      Q(10) => data_to_rx_fifo(5),
+      Q(9) => data_to_rx_fifo(6),
+      Q(8) => data_to_rx_fifo(7),
+      Q(7) => data_to_rx_fifo(8),
+      Q(6) => data_to_rx_fifo(9),
+      Q(5) => data_to_rx_fifo(10),
+      Q(4) => data_to_rx_fifo(11),
+      Q(3) => data_to_rx_fifo(12),
+      Q(2) => data_to_rx_fifo(13),
+      Q(1) => data_to_rx_fifo(14),
+      Q(0) => data_to_rx_fifo(15),
       R => R,
       RESET_SYNC_AX2S_2 => RESET_SYNC_AXI_SPI_CLK_INST_n_0,
-      \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg_0\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_26\,
-      \RX_DATA_GEN_OTHER_SCK_RATIOS.FIFO_PRESENT_GEN.SPIXfer_done_int_reg_1\ => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_27\,
       Rst_to_spi => rst_to_spi_int,
       SPICR_2_MST_N_SLV_to_spi_clk => SPICR_2_MST_N_SLV_to_spi_clk,
       SPISEL_sync => SPISEL_sync,
       SPIXfer_done_int_d1_reg_0 => \LOGIC_FOR_MD_0_GEN.SPI_MODULE_I_n_9\,
       Slave_MODF_strobe0 => Slave_MODF_strobe0,
       almost_full => Rx_FIFO_Full_Fifo_org,
-      dout(7) => data_from_txfifo(0),
-      dout(6) => data_from_txfifo(1),
-      dout(5) => data_from_txfifo(2),
-      dout(4) => data_from_txfifo(3),
-      dout(3) => data_from_txfifo(4),
-      dout(2) => data_from_txfifo(5),
-      dout(1) => data_from_txfifo(6),
-      dout(0) => data_from_txfifo(7),
+      dout(13) => data_from_txfifo(1),
+      dout(12) => data_from_txfifo(2),
+      dout(11) => data_from_txfifo(3),
+      dout(10) => data_from_txfifo(4),
+      dout(9) => data_from_txfifo(5),
+      dout(8) => data_from_txfifo(6),
+      dout(7) => data_from_txfifo(7),
+      dout(6) => data_from_txfifo(8),
+      dout(5) => data_from_txfifo(9),
+      dout(4) => data_from_txfifo(10),
+      dout(3) => data_from_txfifo(11),
+      dout(2) => data_from_txfifo(12),
+      dout(1) => data_from_txfifo(13),
+      dout(0) => data_from_txfifo(14),
       dtr_underrun_int => dtr_underrun_int,
       empty => tx_fifo_empty,
       ext_spi_clk => ext_spi_clk,
-      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][0]\ => \FIFO_EXISTS.TX_FIFO_II_n_16\,
+      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][0]\ => \FIFO_EXISTS.TX_FIFO_II_n_24\,
       io0_t => io0_t,
       io1_o => io1_o,
       io1_t => io1_t,
@@ -19528,18 +21086,17 @@ RESET_SYNC_AXI_SPI_CLK_INST: entity work.design_1_axi_quad_spi_0_0_reset_sync_mo
     );
 SOFT_RESET_I: entity work.design_1_axi_quad_spi_0_0_soft_reset
      port map (
+      Bus_RNW_reg_reg => Bus_RNW_reg_reg_2,
       \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ => \^spicr_5_txfifo_rst_frm_axi_clk\,
-      \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\ => SOFT_RESET_I_n_1,
-      \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg_0\ => SOFT_RESET_I_n_2,
-      \GEN_BKEND_CE_REGISTERS[16].ce_out_i_reg[16]\ => \GEN_BKEND_CE_REGISTERS[16].ce_out_i_reg[16]\,
+      FF_WRACK_0 => \^ff_wrack\,
+      \FIFO_EXISTS.TX_FULL_EMP_INTR_MD_0_GEN.Tx_FIFO_Full_i_reg\ => SOFT_RESET_I_n_2,
       IP2Bus_WrAck_1 => IP2Bus_WrAck_1,
       Tx_FIFO_Full_int => \^tx_fifo_full_int\,
       bus2ip_reset_ipif_inverted => bus2ip_reset_ipif_inverted,
       \icount_out_reg[2]\ => \FIFO_EXISTS.TX_FIFO_EMPTY_CNTR_I_n_4\,
       ip2Bus_WrAck_core_reg => ip2Bus_WrAck_core_reg,
       ip2Bus_WrAck_intr_reg_hole => ip2Bus_WrAck_intr_reg_hole,
-      p_2_in => p_2_in,
-      reset2ip_reset_int => reset2ip_reset_int,
+      p_2_in_0 => p_2_in_0,
       reset_trig0 => reset_trig0,
       rst => reset_TxFIFO_ptr_int,
       s_axi_aclk => s_axi_aclk,
@@ -19549,7 +21106,7 @@ SOFT_RESET_I: entity work.design_1_axi_quad_spi_0_0_soft_reset
 \STATUS_REG_MODE_0_GEN.STATUS_SLAVE_SEL_REG_I\: entity work.design_1_axi_quad_spi_0_0_qspi_status_slave_sel_reg
      port map (
       Bus_RNW_reg => Bus_RNW_reg,
-      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_20\,
+      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_RdAck_core_reg_reg\ => \FIFO_EXISTS.CLK_CROSS_I_n_18\,
       \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_1_reg\ => \^ip2bus_wrack_core_reg_1\,
       SPISSR_frm_axi_clk => \^spissr_frm_axi_clk\,
       p_4_in => p_4_in,
@@ -19602,7 +21159,7 @@ entity design_1_axi_quad_spi_0_0_axi_quad_spi_top is
     ss_t : out STD_LOGIC;
     io1_t : out STD_LOGIC;
     sck_o : out STD_LOGIC;
-    s_axi_rdata : out STD_LOGIC_VECTOR ( 10 downto 0 );
+    s_axi_rdata : out STD_LOGIC_VECTOR ( 16 downto 0 );
     s_axi_rresp : out STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_wready : out STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
@@ -19615,7 +21172,7 @@ entity design_1_axi_quad_spi_0_0_axi_quad_spi_top is
     s_axi_aclk : in STD_LOGIC;
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 1 downto 0 );
     ext_spi_clk : in STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 16 downto 0 );
     spisel : in STD_LOGIC;
     sck_i : in STD_LOGIC;
     io0_i : in STD_LOGIC;
@@ -19631,18 +21188,19 @@ entity design_1_axi_quad_spi_0_0_axi_quad_spi_top is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 4 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_axi_quad_spi_top : entity is "axi_quad_spi_top";
 end design_1_axi_quad_spi_0_0_axi_quad_spi_top;
 
 architecture STRUCTURE of design_1_axi_quad_spi_0_0_axi_quad_spi_top is
   signal \CONTROL_REG_I/SPICR_data_int_reg0\ : STD_LOGIC;
-  signal \FIFO_EXISTS.FIFO_IF_MODULE_I/Receive_ip2bus_error0\ : STD_LOGIC;
-  signal \INTERRUPT_CONTROL_I/interrupt_wrce_strb\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/intr2bus_rdack0\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/ipif_glbl_irpt_enable_reg\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/irpt_rdack\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/irpt_rdack_d1\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/irpt_wrack\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/irpt_wrack_d1\ : STD_LOGIC;
+  signal \INTERRUPT_CONTROL_I/p_0_in\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/p_0_in10_in\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/p_0_in13_in\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/p_0_in16_in\ : STD_LOGIC;
@@ -19654,36 +21212,39 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_axi_quad_spi_top is
   signal \INTERRUPT_CONTROL_I/p_1_in20_in\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/p_1_in23_in\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/p_1_in26_in\ : STD_LOGIC;
+  signal \INTERRUPT_CONTROL_I/p_1_in29_in\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/p_1_in32_in\ : STD_LOGIC;
   signal \INTERRUPT_CONTROL_I/p_1_in35_in\ : STD_LOGIC;
   signal IP2Bus_Data : STD_LOGIC_VECTOR ( 0 to 31 );
   signal IP2Bus_Error_1 : STD_LOGIC;
-  signal IP2Bus_SPICR_Data_int : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg\ : STD_LOGIC;
+  signal \I_SLAVE_ATTACHMENT/I_DECODER/p_2_in\ : STD_LOGIC;
   signal \I_SLAVE_ATTACHMENT/I_DECODER/p_3_in\ : STD_LOGIC;
   signal \I_SLAVE_ATTACHMENT/I_DECODER/p_4_in\ : STD_LOGIC;
   signal \I_SLAVE_ATTACHMENT/I_DECODER/p_5_in\ : STD_LOGIC;
   signal \I_SLAVE_ATTACHMENT/I_DECODER/p_6_in\ : STD_LOGIC;
-  signal \I_SLAVE_ATTACHMENT/I_DECODER/p_8_in\ : STD_LOGIC;
   signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_11\ : STD_LOGIC;
   signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_12\ : STD_LOGIC;
   signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_13\ : STD_LOGIC;
   signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_14\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_17\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_20\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_25\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_19\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_31\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_32\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_33\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_34\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_35\ : STD_LOGIC;
   signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_37\ : STD_LOGIC;
   signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_38\ : STD_LOGIC;
   signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_39\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_41\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_42\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_44\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_48\ : STD_LOGIC;
   signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_49\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_22\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_31\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_40\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_56\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_57\ : STD_LOGIC;
-  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_58\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_50\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_23\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_32\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_42\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_50\ : STD_LOGIC;
+  signal \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_67\ : STD_LOGIC;
   signal Rx_FIFO_Empty : STD_LOGIC;
   signal Rx_FIFO_Full_Fifo_d1_synced : STD_LOGIC;
   signal \SOFT_RESET_I/reset_trig0\ : STD_LOGIC;
@@ -19692,15 +21253,14 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_axi_quad_spi_top is
   signal SPISSR_frm_axi_clk : STD_LOGIC;
   signal Tx_FIFO_Empty_SPISR_to_axi_clk : STD_LOGIC;
   signal Tx_FIFO_Full_int : STD_LOGIC;
-  signal Tx_FIFO_occ_Reversed : STD_LOGIC_VECTOR ( 0 to 0 );
   signal bus2ip_reset_ipif_inverted : STD_LOGIC;
   signal bus2ip_wrce_int : STD_LOGIC_VECTOR ( 7 to 7 );
-  signal data_from_rx_fifo : STD_LOGIC_VECTOR ( 0 to 7 );
+  signal data_from_rx_fifo : STD_LOGIC_VECTOR ( 6 to 15 );
   signal intr_controller_rd_ce_or_reduce : STD_LOGIC;
   signal intr_ip2bus_data : STD_LOGIC_VECTOR ( 0 to 0 );
   signal io0_i_sync : STD_LOGIC;
   signal io1_i_sync : STD_LOGIC;
-  signal ip2Bus_Data_1 : STD_LOGIC_VECTOR ( 23 to 31 );
+  signal ip2Bus_Data_1 : STD_LOGIC_VECTOR ( 22 to 27 );
   signal ip2Bus_RdAck_core_reg : STD_LOGIC;
   signal ip2Bus_RdAck_intr_reg_hole0 : STD_LOGIC;
   signal ip2Bus_RdAck_intr_reg_hole_d1 : STD_LOGIC;
@@ -19712,6 +21272,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0_axi_quad_spi_top is
   signal p_16_out : STD_LOGIC;
   signal p_1_in : STD_LOGIC_VECTOR ( 1 to 1 );
   signal rd_ce_or_reduce_core_cmb : STD_LOGIC;
+  signal reset2ip_reset_int : STD_LOGIC;
   signal rx_fifo_empty_i : STD_LOGIC;
   signal spicr_0_loop_frm_axi_clk : STD_LOGIC;
   signal spicr_1_spe_frm_axi_clk : STD_LOGIC;
@@ -19758,20 +21319,26 @@ IO1_I_REG: unisim.vcomponents.FDRE
 \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I\: entity work.design_1_axi_quad_spi_0_0_axi_lite_ipif
      port map (
       Bus_RNW_reg => \I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg\,
-      D(8) => intr_ip2bus_data(0),
-      D(7) => IP2Bus_SPICR_Data_int(0),
-      D(6) => ip2Bus_Data_1(23),
-      D(5) => ip2Bus_Data_1(24),
-      D(4) => ip2Bus_Data_1(25),
-      D(3) => ip2Bus_Data_1(26),
-      D(2) => ip2Bus_Data_1(27),
-      D(1) => ip2Bus_Data_1(29),
-      D(0) => ip2Bus_Data_1(31),
-      E(0) => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_12\,
-      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_31\,
-      \GEN_IP_IRPT_STATUS_REG[2].GEN_REG_STATUS.ip_irpt_status_reg_reg[2]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_25\,
+      \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_49\,
+      \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_50\,
+      D(6) => intr_ip2bus_data(0),
+      D(5) => ip2Bus_Data_1(22),
+      D(4) => ip2Bus_Data_1(23),
+      D(3) => ip2Bus_Data_1(24),
+      D(2) => ip2Bus_Data_1(25),
+      D(1) => ip2Bus_Data_1(26),
+      D(0) => ip2Bus_Data_1(27),
+      E(0) => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_13\,
+      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_32\,
+      \GEN_IP_IRPT_STATUS_REG[6].GEN_REG_STATUS.ip_irpt_status_reg_reg[6]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_11\,
       IP2Bus_Error_1 => IP2Bus_Error_1,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(10) => IP2Bus_Data(0),
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(16) => IP2Bus_Data(0),
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(15) => IP2Bus_Data(16),
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(14) => IP2Bus_Data(17),
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(13) => IP2Bus_Data(18),
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(12) => IP2Bus_Data(19),
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(11) => IP2Bus_Data(20),
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(10) => IP2Bus_Data(21),
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(9) => IP2Bus_Data(22),
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(8) => IP2Bus_Data(23),
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(7) => IP2Bus_Data(24),
@@ -19782,43 +21349,45 @@ IO1_I_REG: unisim.vcomponents.FDRE
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(2) => IP2Bus_Data(29),
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(1) => IP2Bus_Data(30),
       \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[0]\(0) => IP2Bus_Data(31),
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_11\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]_0\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_37\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_42\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_14\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_38\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_39\,
-      \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_20\,
-      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_17\,
-      \LOGIC_GENERATION_FDR.TX_EMPT_4_SPISR_S2AX_2\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_57\,
-      Q(5) => \INTERRUPT_CONTROL_I/p_0_in19_in\,
-      Q(4) => \INTERRUPT_CONTROL_I/p_0_in16_in\,
-      Q(3) => \INTERRUPT_CONTROL_I/p_0_in13_in\,
-      Q(2) => \INTERRUPT_CONTROL_I/p_0_in10_in\,
-      Q(1) => \INTERRUPT_CONTROL_I/p_0_in7_in\,
-      Q(0) => \INTERRUPT_CONTROL_I/p_0_in1_in\,
-      Receive_ip2bus_error0 => \FIFO_EXISTS.FIFO_IF_MODULE_I/Receive_ip2bus_error0\,
-      Receive_ip2bus_error_reg => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_40\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[23]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_31\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[28]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_32\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_33\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_34\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[30]_0\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_38\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_35\,
+      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_37\,
+      \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_WrAck_reg\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_19\,
+      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_reg\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_44\,
+      Q(7) => \INTERRUPT_CONTROL_I/p_0_in19_in\,
+      Q(6) => \INTERRUPT_CONTROL_I/p_0_in16_in\,
+      Q(5) => \INTERRUPT_CONTROL_I/p_0_in13_in\,
+      Q(4) => \INTERRUPT_CONTROL_I/p_0_in10_in\,
+      Q(3) => \INTERRUPT_CONTROL_I/p_0_in7_in\,
+      Q(2) => \INTERRUPT_CONTROL_I/p_0_in1_in\,
+      Q(1) => \INTERRUPT_CONTROL_I/p_0_in\,
+      Q(0) => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_67\,
+      \RESET_FLOPS[15].RST_FLOPS\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_50\,
+      Receive_ip2bus_error_reg => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_42\,
       SPICR_data_int_reg0 => \CONTROL_REG_I/SPICR_data_int_reg0\,
       SPISSR_frm_axi_clk => SPISSR_frm_axi_clk,
       Tx_FIFO_Empty_SPISR_to_axi_clk => Tx_FIFO_Empty_SPISR_to_axi_clk,
       Tx_FIFO_Full_int => Tx_FIFO_Full_int,
-      almost_full => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_22\,
+      almost_full => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_23\,
       bus2ip_reset_ipif_inverted => bus2ip_reset_ipif_inverted,
       bus2ip_wrce_int(0) => bus2ip_wrce_int(7),
-      dout(7) => data_from_rx_fifo(0),
-      dout(6) => data_from_rx_fifo(1),
-      dout(5) => data_from_rx_fifo(2),
-      dout(4) => data_from_rx_fifo(3),
-      dout(3) => data_from_rx_fifo(4),
-      dout(2) => data_from_rx_fifo(5),
-      dout(1) => data_from_rx_fifo(6),
-      dout(0) => data_from_rx_fifo(7),
+      dout(9) => data_from_rx_fifo(6),
+      dout(8) => data_from_rx_fifo(7),
+      dout(7) => data_from_rx_fifo(8),
+      dout(6) => data_from_rx_fifo(9),
+      dout(5) => data_from_rx_fifo(10),
+      dout(4) => data_from_rx_fifo(11),
+      dout(3) => data_from_rx_fifo(12),
+      dout(2) => data_from_rx_fifo(13),
+      dout(1) => data_from_rx_fifo(14),
+      dout(0) => data_from_rx_fifo(15),
       empty => Rx_FIFO_Empty,
-      \grdc.rd_data_count_i_reg[0]\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_56\,
-      \gwdc.wr_data_count_i_reg[2]\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_58\,
-      interrupt_wrce_strb => \INTERRUPT_CONTROL_I/interrupt_wrce_strb\,
       intr2bus_rdack0 => \INTERRUPT_CONTROL_I/intr2bus_rdack0\,
+      intr2bus_wrack_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_12\,
       intr_controller_rd_ce_or_reduce => intr_controller_rd_ce_or_reduce,
       ip2Bus_RdAck_core_reg => ip2Bus_RdAck_core_reg,
       ip2Bus_RdAck_intr_reg_hole0 => ip2Bus_RdAck_intr_reg_hole0,
@@ -19827,14 +21396,14 @@ IO1_I_REG: unisim.vcomponents.FDRE
       ip2Bus_WrAck_core_reg_d1 => ip2Bus_WrAck_core_reg_d1,
       ip2Bus_WrAck_intr_reg_hole0 => ip2Bus_WrAck_intr_reg_hole0,
       ip2Bus_WrAck_intr_reg_hole_d1 => ip2Bus_WrAck_intr_reg_hole_d1,
-      ip2Bus_WrAck_intr_reg_hole_d1_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_13\,
+      ip2Bus_WrAck_intr_reg_hole_d1_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_14\,
       ipif_glbl_irpt_enable_reg => \INTERRUPT_CONTROL_I/ipif_glbl_irpt_enable_reg\,
-      ipif_glbl_irpt_enable_reg_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_49\,
+      ipif_glbl_irpt_enable_reg_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_48\,
       irpt_rdack => \INTERRUPT_CONTROL_I/irpt_rdack\,
       irpt_rdack_d1 => \INTERRUPT_CONTROL_I/irpt_rdack_d1\,
       irpt_wrack => \INTERRUPT_CONTROL_I/irpt_wrack\,
       irpt_wrack_d1 => \INTERRUPT_CONTROL_I/irpt_wrack_d1\,
-      modf_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_41\,
+      modf_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_39\,
       p_15_out => p_15_out,
       p_16_out => p_16_out,
       p_1_in(0) => p_1_in(1),
@@ -19843,14 +21412,16 @@ IO1_I_REG: unisim.vcomponents.FDRE
       p_1_in20_in => \INTERRUPT_CONTROL_I/p_1_in20_in\,
       p_1_in23_in => \INTERRUPT_CONTROL_I/p_1_in23_in\,
       p_1_in26_in => \INTERRUPT_CONTROL_I/p_1_in26_in\,
+      p_1_in29_in => \INTERRUPT_CONTROL_I/p_1_in29_in\,
       p_1_in32_in => \INTERRUPT_CONTROL_I/p_1_in32_in\,
       p_1_in35_in => \INTERRUPT_CONTROL_I/p_1_in35_in\,
+      p_2_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_2_in\,
       p_3_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_3_in\,
       p_4_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_4_in\,
       p_5_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_5_in\,
       p_6_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_6_in\,
-      p_8_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_8_in\,
       rd_ce_or_reduce_core_cmb => rd_ce_or_reduce_core_cmb,
+      reset2ip_reset_int => reset2ip_reset_int,
       reset_trig0 => \SOFT_RESET_I/reset_trig0\,
       rx_fifo_empty_i => rx_fifo_empty_i,
       s_axi_aclk => s_axi_aclk,
@@ -19863,11 +21434,12 @@ IO1_I_REG: unisim.vcomponents.FDRE
       s_axi_bready => s_axi_bready,
       s_axi_bresp(0) => s_axi_bresp(0),
       s_axi_bvalid => s_axi_bvalid,
-      s_axi_rdata(10 downto 0) => s_axi_rdata(10 downto 0),
+      s_axi_rdata(16 downto 0) => s_axi_rdata(16 downto 0),
       s_axi_rready => s_axi_rready,
       s_axi_rresp(0) => s_axi_rresp(0),
       s_axi_rvalid => s_axi_rvalid,
-      s_axi_wdata(4) => s_axi_wdata(10),
+      s_axi_wdata(6) => s_axi_wdata(16),
+      s_axi_wdata(5 downto 4) => s_axi_wdata(6 downto 5),
       s_axi_wdata(3 downto 0) => s_axi_wdata(3 downto 0),
       s_axi_wready => s_axi_wready,
       s_axi_wstrb(1 downto 0) => s_axi_wstrb(1 downto 0),
@@ -19887,64 +21459,62 @@ IO1_I_REG: unisim.vcomponents.FDRE
       sr_3_MODF_int => sr_3_MODF_int,
       sw_rst_cond => \SOFT_RESET_I/sw_rst_cond\,
       sw_rst_cond_d1 => \SOFT_RESET_I/sw_rst_cond_d1\,
-      wr_ce_or_reduce_core_cmb => wr_ce_or_reduce_core_cmb,
-      wr_data_count(0) => Tx_FIFO_occ_Reversed(0)
+      wr_ce_or_reduce_core_cmb => wr_ce_or_reduce_core_cmb
     );
 \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I\: entity work.design_1_axi_quad_spi_0_0_qspi_core_interface
      port map (
       Bus_RNW_reg => \I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg\,
-      Bus_RNW_reg_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_13\,
-      Bus_RNW_reg_reg_0 => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_49\,
-      Bus_RNW_reg_reg_1 => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_41\,
-      Bus_RNW_reg_reg_2 => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_39\,
-      D(8) => intr_ip2bus_data(0),
-      D(7) => IP2Bus_SPICR_Data_int(0),
-      D(6) => ip2Bus_Data_1(23),
-      D(5) => ip2Bus_Data_1(24),
-      D(4) => ip2Bus_Data_1(25),
-      D(3) => ip2Bus_Data_1(26),
-      D(2) => ip2Bus_Data_1(27),
-      D(1) => ip2Bus_Data_1(29),
-      D(0) => ip2Bus_Data_1(31),
-      E(0) => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_12\,
-      \GEN_BKEND_CE_REGISTERS[16].ce_out_i_reg[16]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_20\,
-      \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_11\,
-      \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]_0\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_37\,
-      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_31\,
-      \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_38\,
+      Bus_RNW_reg_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_14\,
+      Bus_RNW_reg_reg_0 => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_48\,
+      Bus_RNW_reg_reg_1 => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_39\,
+      Bus_RNW_reg_reg_2 => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_19\,
+      \CONTROL_REG_3_4_GENERATE[3].SPICR_data_int_reg[3]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_49\,
+      \CONTROL_REG_3_4_GENERATE[4].SPICR_data_int_reg[4]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_50\,
+      D(6) => intr_ip2bus_data(0),
+      D(5) => ip2Bus_Data_1(22),
+      D(4) => ip2Bus_Data_1(23),
+      D(3) => ip2Bus_Data_1(24),
+      D(2) => ip2Bus_Data_1(25),
+      D(1) => ip2Bus_Data_1(26),
+      D(0) => ip2Bus_Data_1(27),
+      E(0) => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_13\,
+      FF_WRACK => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_50\,
+      \GEN_BKEND_CE_REGISTERS[8].ce_out_i_reg[8]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_31\,
+      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_32\,
+      \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_35\,
+      \GEN_IP_IRPT_STATUS_REG[1].GEN_REG_STATUS.ip_irpt_status_reg_reg[1]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_34\,
       IP2Bus_Error_1 => IP2Bus_Error_1,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[29]_0\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_57\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_0\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_56\,
-      \LEGACY_MD_IP2BUS_DATA_GEN.IP2Bus_Data_reg[31]_1\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_58\,
-      \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_reg_0\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_40\,
-      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg_0\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_17\,
-      Q(5) => \INTERRUPT_CONTROL_I/p_0_in19_in\,
-      Q(4) => \INTERRUPT_CONTROL_I/p_0_in16_in\,
-      Q(3) => \INTERRUPT_CONTROL_I/p_0_in13_in\,
-      Q(2) => \INTERRUPT_CONTROL_I/p_0_in10_in\,
-      Q(1) => \INTERRUPT_CONTROL_I/p_0_in7_in\,
-      Q(0) => \INTERRUPT_CONTROL_I/p_0_in1_in\,
-      Receive_ip2bus_error0 => \FIFO_EXISTS.FIFO_IF_MODULE_I/Receive_ip2bus_error0\,
+      \LEGACY_MD_WR_RD_ACK_GEN.IP2Bus_Error_reg_0\ => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_42\,
+      \LEGACY_MD_WR_RD_ACK_GEN.ip2Bus_WrAck_core_reg_d1_reg_0\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_44\,
+      Q(7) => \INTERRUPT_CONTROL_I/p_0_in19_in\,
+      Q(6) => \INTERRUPT_CONTROL_I/p_0_in16_in\,
+      Q(5) => \INTERRUPT_CONTROL_I/p_0_in13_in\,
+      Q(4) => \INTERRUPT_CONTROL_I/p_0_in10_in\,
+      Q(3) => \INTERRUPT_CONTROL_I/p_0_in7_in\,
+      Q(2) => \INTERRUPT_CONTROL_I/p_0_in1_in\,
+      Q(1) => \INTERRUPT_CONTROL_I/p_0_in\,
+      Q(0) => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_67\,
       SPICR_data_int_reg0 => \CONTROL_REG_I/SPICR_data_int_reg0\,
       SPISSR_frm_axi_clk => SPISSR_frm_axi_clk,
       Tx_FIFO_Empty_SPISR_to_axi_clk => Tx_FIFO_Empty_SPISR_to_axi_clk,
       Tx_FIFO_Full_int => Tx_FIFO_Full_int,
-      almost_full => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_22\,
+      almost_full => \QSPI_LEGACY_MD_GEN.QSPI_CORE_INTERFACE_I_n_23\,
       bus2ip_reset_ipif_inverted => bus2ip_reset_ipif_inverted,
       bus2ip_wrce_int(0) => bus2ip_wrce_int(7),
-      dout(7) => data_from_rx_fifo(0),
-      dout(6) => data_from_rx_fifo(1),
-      dout(5) => data_from_rx_fifo(2),
-      dout(4) => data_from_rx_fifo(3),
-      dout(3) => data_from_rx_fifo(4),
-      dout(2) => data_from_rx_fifo(5),
-      dout(1) => data_from_rx_fifo(6),
-      dout(0) => data_from_rx_fifo(7),
+      dout(9) => data_from_rx_fifo(6),
+      dout(8) => data_from_rx_fifo(7),
+      dout(7) => data_from_rx_fifo(8),
+      dout(6) => data_from_rx_fifo(9),
+      dout(5) => data_from_rx_fifo(10),
+      dout(4) => data_from_rx_fifo(11),
+      dout(3) => data_from_rx_fifo(12),
+      dout(2) => data_from_rx_fifo(13),
+      dout(1) => data_from_rx_fifo(14),
+      dout(0) => data_from_rx_fifo(15),
       empty => Rx_FIFO_Empty,
       ext_spi_clk => ext_spi_clk,
-      \gen_fwft.empty_fwft_i_reg\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_14\,
-      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_42\,
-      interrupt_wrce_strb => \INTERRUPT_CONTROL_I/interrupt_wrce_strb\,
+      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][2]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_33\,
+      \gen_rd_b.gen_doutb_pipe.doutb_pipe_reg[0][3]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_32\,
       intr2bus_rdack0 => \INTERRUPT_CONTROL_I/intr2bus_rdack0\,
       intr_controller_rd_ce_or_reduce => intr_controller_rd_ce_or_reduce,
       io0_i_sync => io0_i_sync,
@@ -19960,12 +21530,15 @@ IO1_I_REG: unisim.vcomponents.FDRE
       ip2Bus_WrAck_intr_reg_hole0 => ip2Bus_WrAck_intr_reg_hole0,
       ip2Bus_WrAck_intr_reg_hole_d1 => ip2Bus_WrAck_intr_reg_hole_d1,
       ip2intc_irpt => ip2intc_irpt,
+      \ip_irpt_enable_reg_reg[0]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_37\,
+      \ip_irpt_enable_reg_reg[1]\ => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_38\,
       ipif_glbl_irpt_enable_reg => \INTERRUPT_CONTROL_I/ipif_glbl_irpt_enable_reg\,
       irpt_rdack => \INTERRUPT_CONTROL_I/irpt_rdack\,
       irpt_rdack_d1 => \INTERRUPT_CONTROL_I/irpt_rdack_d1\,
       irpt_wrack => \INTERRUPT_CONTROL_I/irpt_wrack\,
       irpt_wrack_d1 => \INTERRUPT_CONTROL_I/irpt_wrack_d1\,
-      irpt_wrack_d1_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_25\,
+      irpt_wrack_d1_reg => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_12\,
+      irpt_wrack_d1_reg_0 => \QSPI_LEGACY_MD_GEN.AXI_LITE_IPIF_I_n_11\,
       p_15_out => p_15_out,
       p_16_out => p_16_out,
       p_1_in(0) => p_1_in(1),
@@ -19974,18 +21547,26 @@ IO1_I_REG: unisim.vcomponents.FDRE
       p_1_in20_in => \INTERRUPT_CONTROL_I/p_1_in20_in\,
       p_1_in23_in => \INTERRUPT_CONTROL_I/p_1_in23_in\,
       p_1_in26_in => \INTERRUPT_CONTROL_I/p_1_in26_in\,
+      p_1_in29_in => \INTERRUPT_CONTROL_I/p_1_in29_in\,
       p_1_in32_in => \INTERRUPT_CONTROL_I/p_1_in32_in\,
       p_1_in35_in => \INTERRUPT_CONTROL_I/p_1_in35_in\,
+      p_2_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_2_in\,
       p_3_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_3_in\,
       p_4_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_4_in\,
       p_5_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_5_in\,
       p_6_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_6_in\,
-      p_8_in => \I_SLAVE_ATTACHMENT/I_DECODER/p_8_in\,
       rd_ce_or_reduce_core_cmb => rd_ce_or_reduce_core_cmb,
+      reset2ip_reset_int => reset2ip_reset_int,
       reset_trig0 => \SOFT_RESET_I/reset_trig0\,
       rx_fifo_empty_i => rx_fifo_empty_i,
       s_axi_aclk => s_axi_aclk,
-      \s_axi_rdata_i_reg[31]\(10) => IP2Bus_Data(0),
+      \s_axi_rdata_i_reg[31]\(16) => IP2Bus_Data(0),
+      \s_axi_rdata_i_reg[31]\(15) => IP2Bus_Data(16),
+      \s_axi_rdata_i_reg[31]\(14) => IP2Bus_Data(17),
+      \s_axi_rdata_i_reg[31]\(13) => IP2Bus_Data(18),
+      \s_axi_rdata_i_reg[31]\(12) => IP2Bus_Data(19),
+      \s_axi_rdata_i_reg[31]\(11) => IP2Bus_Data(20),
+      \s_axi_rdata_i_reg[31]\(10) => IP2Bus_Data(21),
       \s_axi_rdata_i_reg[31]\(9) => IP2Bus_Data(22),
       \s_axi_rdata_i_reg[31]\(8) => IP2Bus_Data(23),
       \s_axi_rdata_i_reg[31]\(7) => IP2Bus_Data(24),
@@ -19996,7 +21577,7 @@ IO1_I_REG: unisim.vcomponents.FDRE
       \s_axi_rdata_i_reg[31]\(2) => IP2Bus_Data(29),
       \s_axi_rdata_i_reg[31]\(1) => IP2Bus_Data(30),
       \s_axi_rdata_i_reg[31]\(0) => IP2Bus_Data(31),
-      s_axi_wdata(9 downto 0) => s_axi_wdata(9 downto 0),
+      s_axi_wdata(15 downto 0) => s_axi_wdata(15 downto 0),
       sck_i => sck_i,
       sck_o => sck_o,
       sck_t => sck_t,
@@ -20018,8 +21599,7 @@ IO1_I_REG: unisim.vcomponents.FDRE
       ss_t => ss_t,
       sw_rst_cond => \SOFT_RESET_I/sw_rst_cond\,
       sw_rst_cond_d1 => \SOFT_RESET_I/sw_rst_cond_d1\,
-      wr_ce_or_reduce_core_cmb => wr_ce_or_reduce_core_cmb,
-      wr_data_count(0) => Tx_FIFO_occ_Reversed(0)
+      wr_ce_or_reduce_core_cmb => wr_ce_or_reduce_core_cmb
     );
 end STRUCTURE;
 library IEEE;
@@ -20148,7 +21728,7 @@ entity design_1_axi_quad_spi_0_0_axi_quad_spi is
   attribute C_NUM_SS_BITS : integer;
   attribute C_NUM_SS_BITS of design_1_axi_quad_spi_0_0_axi_quad_spi : entity is 1;
   attribute C_NUM_TRANSFER_BITS : integer;
-  attribute C_NUM_TRANSFER_BITS of design_1_axi_quad_spi_0_0_axi_quad_spi : entity is 8;
+  attribute C_NUM_TRANSFER_BITS of design_1_axi_quad_spi_0_0_axi_quad_spi : entity is 16;
   attribute C_SCK_RATIO : integer;
   attribute C_SCK_RATIO of design_1_axi_quad_spi_0_0_axi_quad_spi : entity is 16;
   attribute C_SELECT_XPM : integer;
@@ -20187,6 +21767,8 @@ entity design_1_axi_quad_spi_0_0_axi_quad_spi is
   attribute C_USE_STARTUP_EXT of design_1_axi_quad_spi_0_0_axi_quad_spi : entity is 0;
   attribute C_XIP_MODE : integer;
   attribute C_XIP_MODE of design_1_axi_quad_spi_0_0_axi_quad_spi : entity is 0;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_quad_spi_0_0_axi_quad_spi : entity is "axi_quad_spi";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of design_1_axi_quad_spi_0_0_axi_quad_spi : entity is "yes";
 end design_1_axi_quad_spi_0_0_axi_quad_spi;
@@ -20289,13 +21871,7 @@ begin
   s_axi_rdata(18) <= \<const0>\;
   s_axi_rdata(17) <= \<const0>\;
   s_axi_rdata(16) <= \<const0>\;
-  s_axi_rdata(15) <= \<const0>\;
-  s_axi_rdata(14) <= \<const0>\;
-  s_axi_rdata(13) <= \<const0>\;
-  s_axi_rdata(12) <= \<const0>\;
-  s_axi_rdata(11) <= \<const0>\;
-  s_axi_rdata(10) <= \<const0>\;
-  s_axi_rdata(9 downto 0) <= \^s_axi_rdata\(9 downto 0);
+  s_axi_rdata(15 downto 0) <= \^s_axi_rdata\(15 downto 0);
   s_axi_rresp(1) <= \^s_axi_rresp\(1);
   s_axi_rresp(0) <= \<const0>\;
   s_axi_wready <= \^s_axi_wready\;
@@ -20326,13 +21902,13 @@ GND: unisim.vcomponents.GND
       s_axi_bready => s_axi_bready,
       s_axi_bresp(0) => \^s_axi_bresp\(1),
       s_axi_bvalid => s_axi_bvalid,
-      s_axi_rdata(10) => \^s_axi_rdata\(31),
-      s_axi_rdata(9 downto 0) => \^s_axi_rdata\(9 downto 0),
+      s_axi_rdata(16) => \^s_axi_rdata\(31),
+      s_axi_rdata(15 downto 0) => \^s_axi_rdata\(15 downto 0),
       s_axi_rready => s_axi_rready,
       s_axi_rresp(0) => \^s_axi_rresp\(1),
       s_axi_rvalid => s_axi_rvalid,
-      s_axi_wdata(10) => s_axi_wdata(31),
-      s_axi_wdata(9 downto 0) => s_axi_wdata(9 downto 0),
+      s_axi_wdata(16) => s_axi_wdata(31),
+      s_axi_wdata(15 downto 0) => s_axi_wdata(15 downto 0),
       s_axi_wready => \^s_axi_wready\,
       s_axi_wstrb(1) => s_axi_wstrb(3),
       s_axi_wstrb(0) => s_axi_wstrb(0),
@@ -20444,7 +22020,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0 is
   attribute C_NUM_SS_BITS : integer;
   attribute C_NUM_SS_BITS of U0 : label is 1;
   attribute C_NUM_TRANSFER_BITS : integer;
-  attribute C_NUM_TRANSFER_BITS of U0 : label is 8;
+  attribute C_NUM_TRANSFER_BITS of U0 : label is 16;
   attribute C_SCK_RATIO : integer;
   attribute C_SCK_RATIO of U0 : label is 16;
   attribute C_SELECT_XPM : integer;
@@ -20487,7 +22063,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0 is
   attribute x_interface_info : string;
   attribute x_interface_info of ext_spi_clk : signal is "xilinx.com:signal:clock:1.0 spi_clk CLK";
   attribute x_interface_parameter : string;
-  attribute x_interface_parameter of ext_spi_clk : signal is "XIL_INTERFACENAME spi_clk, ASSOCIATED_BUSIF SPI_0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0";
+  attribute x_interface_parameter of ext_spi_clk : signal is "XIL_INTERFACENAME spi_clk, ASSOCIATED_BUSIF SPI_0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_1_FCLK_CLK0";
   attribute x_interface_info of io0_i : signal is "xilinx.com:interface:spi:1.0 SPI_0 IO0_I";
   attribute x_interface_parameter of io0_i : signal is "XIL_INTERFACENAME SPI_0, BOARD.ASSOCIATED_PARAM QSPI_BOARD_INTERFACE";
   attribute x_interface_info of io0_o : signal is "xilinx.com:interface:spi:1.0 SPI_0 IO0_O";
@@ -20498,7 +22074,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0 is
   attribute x_interface_info of ip2intc_irpt : signal is "xilinx.com:signal:interrupt:1.0 interrupt INTERRUPT";
   attribute x_interface_parameter of ip2intc_irpt : signal is "XIL_INTERFACENAME interrupt, SENSITIVITY EDGE_RISING, PortWidth 1";
   attribute x_interface_info of s_axi_aclk : signal is "xilinx.com:signal:clock:1.0 lite_clk CLK";
-  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME lite_clk, ASSOCIATED_BUSIF AXI_LITE, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0";
+  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME lite_clk, ASSOCIATED_BUSIF AXI_LITE, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_1_FCLK_CLK0";
   attribute x_interface_info of s_axi_aresetn : signal is "xilinx.com:signal:reset:1.0 lite_reset RST";
   attribute x_interface_parameter of s_axi_aresetn : signal is "XIL_INTERFACENAME lite_reset, POLARITY ACTIVE_LOW";
   attribute x_interface_info of s_axi_arready : signal is "xilinx.com:interface:aximm:1.0 AXI_LITE ARREADY";
@@ -20517,7 +22093,7 @@ architecture STRUCTURE of design_1_axi_quad_spi_0_0 is
   attribute x_interface_info of ss_t : signal is "xilinx.com:interface:spi:1.0 SPI_0 SS_T";
   attribute x_interface_info of s_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 AXI_LITE ARADDR";
   attribute x_interface_info of s_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 AXI_LITE AWADDR";
-  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME AXI_LITE, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 7, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME AXI_LITE, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 7, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_1_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
   attribute x_interface_info of s_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 AXI_LITE BRESP";
   attribute x_interface_info of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 AXI_LITE RDATA";
   attribute x_interface_info of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 AXI_LITE RRESP";

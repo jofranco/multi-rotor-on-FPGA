@@ -7,8 +7,9 @@
 int main()
 {
 	// ap_uint<32>
+	volatile int *test;
 	//volatile int test[4096] = {0};
-	DTYPE2 test[4096] = {0};
+	//DTYPE2 test[4096] = {0};
 	//uint32_t *tx;
 	//uint32_t *rx;
 
@@ -21,6 +22,8 @@ int main()
 		count++;
 
 		// debug
+
+		printf("%d \n", test[SPICR]);
 		//printf("tx:  %d \n", *tx);
 		//printf("rx:  %d \n\n", *rx);
 	}

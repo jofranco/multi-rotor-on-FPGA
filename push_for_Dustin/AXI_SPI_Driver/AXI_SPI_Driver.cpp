@@ -4,25 +4,27 @@
 #include "stdint.h"
 #include "AXI_SPI_Driver.h"
 
-unsigned char state = 0;
+//unsigned char state = 0;
 
 //ap_uint<32>
 //void AXI_SPI_DRIVER(volatile int spi_bus[4096] /*, uint32_t *TX_message, uint32_t *RX_message*/)
-void AXI_SPI_DRIVER(DTYPE2 spi_bus[4096])
+//void AXI_SPI_DRIVER(volatile int spi_bus[4096])
+void AXI_SPI_DRIVER(volatile int *spi_bus)
 {
+
 	//#pragma HLS PIPELINE II=10 enable_flush off
 
-	//#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
+	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
+	//#pragma HLS INTERFACE ap_ctrl_none port=return
 
 	//#pragma HLS INTERFACE s_axilite port=TX_message bundle=CTRL
 	//#pragma HLS INTERFACE s_axilite port=RX_message bundle=CTRL
 
-	#pragma HLS INTERFACE m_axi port=spi_bus offset=off bundle=spi_core
-
+	#pragma HLS INTERFACE m_axi depth=1000 port=spi_bus offset=slave bundle=OUT
 
 	// configuring AXI QUAD SPI Core
 
-	//static unsigned char state = 0;
+	static unsigned char state = 0;
 	#pragma HLS RESET variable=state
 
 	//uint32_t temp = 0;
@@ -30,19 +32,17 @@ void AXI_SPI_DRIVER(DTYPE2 spi_bus[4096])
 	switch (state)
 	{
 		case 0: // SPI Control Register setup
-			*(spi_bus + (SPICR)) = 0x0006;		// enable SPI core in master mode, auto SS
-			// -- *(m+SPICR_OFFSET) = 0x4 | 0x8 | 0x2; // Master, CPOL, SPE
+			spi_bus[SPICR] = 0x6;
 
-			ap_int<1> done = 1;
-			*(spi_bus).last = done;
+			// - *(spi_bus + SPICR) = 0x6;		// enable SPI core in master mode, auto SS
+			// -- *(m+SPICR_OFFSET) = 0x4 | 0x8 | 0x2; // Master, CPOL, SPE
 
 			state++;
 			break;
 		case 1: // SPI Slave select Register setup (active low)
-			*(spi_bus + (SPISSR)) = 0xFFFE;	// enable SS 0 - PMODNav ACC/GYRO
+			spi_bus[SPISSR] = 0xFFFE;
 
-			ap_int<1> done = 1;
-			*(spi_bus).last = done;
+			// - *(spi_bus + SPISSR) = 0xFFFE;	// enable SS 0 - PMODNav ACC/GYRO
 
 			state++;
 			break;

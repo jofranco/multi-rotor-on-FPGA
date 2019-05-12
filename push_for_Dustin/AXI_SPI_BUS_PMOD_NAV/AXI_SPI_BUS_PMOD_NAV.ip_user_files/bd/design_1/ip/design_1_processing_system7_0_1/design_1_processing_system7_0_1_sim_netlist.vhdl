@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sun May  5 16:30:49 2019
+-- Date        : Sun May 12 12:57:44 2019
 -- Host        : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top design_1_processing_system7_0_1 -prefix
---               design_1_processing_system7_0_1_ design_1_processing_system7_0_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_BUS_PMOD_NAV/AXI_SPI_BUS_PMOD_NAV.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_1/design_1_processing_system7_0_1_sim_netlist.vhdl
 -- Design      : design_1_processing_system7_0_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -814,6 +814,8 @@ entity design_1_processing_system7_0_1_processing_system7_v5_5_processing_system
   attribute C_USE_S_AXI_HP3 of design_1_processing_system7_0_1_processing_system7_v5_5_processing_system7 : entity is 0;
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1_processing_system7_0_1_processing_system7_v5_5_processing_system7 : entity is "design_1_processing_system7_0_1.hwdef";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_processing_system7_0_1_processing_system7_v5_5_processing_system7 : entity is "processing_system7_v5_5_processing_system7";
   attribute POWER : string;
   attribute POWER of design_1_processing_system7_0_1_processing_system7_v5_5_processing_system7 : entity is "<PROCESSOR name={system} numA9Cores={2} clockFreq={666.666666} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><PLL domain={Processor} vco={1300.000} /><PLL domain={Memory} vco={1050.000} /><PLL domain={IO} vco={1000.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={100} usageRate={0.5} />/>";
   attribute USE_TRACE_DATA_EDGE_DETECTOR : integer;

@@ -7,195 +7,270 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="AXI_SPI_DRIVER,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=4,HLS_SYN_TPT=none,HLS_SYN_MEM=2,HLS_SYN_DSP=0,HLS_SYN_FF=530,HLS_SYN_LUT=728,HLS_VERSION=2018_2}" *)
+(* CORE_GENERATION_INFO="AXI_SPI_DRIVER,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=5,HLS_SYN_TPT=none,HLS_SYN_MEM=2,HLS_SYN_DSP=0,HLS_SYN_FF=668,HLS_SYN_LUT=908,HLS_VERSION=2018_2}" *)
 
 module AXI_SPI_DRIVER (
         ap_clk,
         ap_rst_n,
-        ap_start,
-        ap_done,
-        ap_idle,
-        ap_ready,
-        m_axi_spi_core_AWVALID,
-        m_axi_spi_core_AWREADY,
-        m_axi_spi_core_AWADDR,
-        m_axi_spi_core_AWID,
-        m_axi_spi_core_AWLEN,
-        m_axi_spi_core_AWSIZE,
-        m_axi_spi_core_AWBURST,
-        m_axi_spi_core_AWLOCK,
-        m_axi_spi_core_AWCACHE,
-        m_axi_spi_core_AWPROT,
-        m_axi_spi_core_AWQOS,
-        m_axi_spi_core_AWREGION,
-        m_axi_spi_core_AWUSER,
-        m_axi_spi_core_WVALID,
-        m_axi_spi_core_WREADY,
-        m_axi_spi_core_WDATA,
-        m_axi_spi_core_WSTRB,
-        m_axi_spi_core_WLAST,
-        m_axi_spi_core_WID,
-        m_axi_spi_core_WUSER,
-        m_axi_spi_core_ARVALID,
-        m_axi_spi_core_ARREADY,
-        m_axi_spi_core_ARADDR,
-        m_axi_spi_core_ARID,
-        m_axi_spi_core_ARLEN,
-        m_axi_spi_core_ARSIZE,
-        m_axi_spi_core_ARBURST,
-        m_axi_spi_core_ARLOCK,
-        m_axi_spi_core_ARCACHE,
-        m_axi_spi_core_ARPROT,
-        m_axi_spi_core_ARQOS,
-        m_axi_spi_core_ARREGION,
-        m_axi_spi_core_ARUSER,
-        m_axi_spi_core_RVALID,
-        m_axi_spi_core_RREADY,
-        m_axi_spi_core_RDATA,
-        m_axi_spi_core_RLAST,
-        m_axi_spi_core_RID,
-        m_axi_spi_core_RUSER,
-        m_axi_spi_core_RRESP,
-        m_axi_spi_core_BVALID,
-        m_axi_spi_core_BREADY,
-        m_axi_spi_core_BRESP,
-        m_axi_spi_core_BID,
-        m_axi_spi_core_BUSER
+        m_axi_OUT_r_AWVALID,
+        m_axi_OUT_r_AWREADY,
+        m_axi_OUT_r_AWADDR,
+        m_axi_OUT_r_AWID,
+        m_axi_OUT_r_AWLEN,
+        m_axi_OUT_r_AWSIZE,
+        m_axi_OUT_r_AWBURST,
+        m_axi_OUT_r_AWLOCK,
+        m_axi_OUT_r_AWCACHE,
+        m_axi_OUT_r_AWPROT,
+        m_axi_OUT_r_AWQOS,
+        m_axi_OUT_r_AWREGION,
+        m_axi_OUT_r_AWUSER,
+        m_axi_OUT_r_WVALID,
+        m_axi_OUT_r_WREADY,
+        m_axi_OUT_r_WDATA,
+        m_axi_OUT_r_WSTRB,
+        m_axi_OUT_r_WLAST,
+        m_axi_OUT_r_WID,
+        m_axi_OUT_r_WUSER,
+        m_axi_OUT_r_ARVALID,
+        m_axi_OUT_r_ARREADY,
+        m_axi_OUT_r_ARADDR,
+        m_axi_OUT_r_ARID,
+        m_axi_OUT_r_ARLEN,
+        m_axi_OUT_r_ARSIZE,
+        m_axi_OUT_r_ARBURST,
+        m_axi_OUT_r_ARLOCK,
+        m_axi_OUT_r_ARCACHE,
+        m_axi_OUT_r_ARPROT,
+        m_axi_OUT_r_ARQOS,
+        m_axi_OUT_r_ARREGION,
+        m_axi_OUT_r_ARUSER,
+        m_axi_OUT_r_RVALID,
+        m_axi_OUT_r_RREADY,
+        m_axi_OUT_r_RDATA,
+        m_axi_OUT_r_RLAST,
+        m_axi_OUT_r_RID,
+        m_axi_OUT_r_RUSER,
+        m_axi_OUT_r_RRESP,
+        m_axi_OUT_r_BVALID,
+        m_axi_OUT_r_BREADY,
+        m_axi_OUT_r_BRESP,
+        m_axi_OUT_r_BID,
+        m_axi_OUT_r_BUSER,
+        s_axi_CTRL_AWVALID,
+        s_axi_CTRL_AWREADY,
+        s_axi_CTRL_AWADDR,
+        s_axi_CTRL_WVALID,
+        s_axi_CTRL_WREADY,
+        s_axi_CTRL_WDATA,
+        s_axi_CTRL_WSTRB,
+        s_axi_CTRL_ARVALID,
+        s_axi_CTRL_ARREADY,
+        s_axi_CTRL_ARADDR,
+        s_axi_CTRL_RVALID,
+        s_axi_CTRL_RREADY,
+        s_axi_CTRL_RDATA,
+        s_axi_CTRL_RRESP,
+        s_axi_CTRL_BVALID,
+        s_axi_CTRL_BREADY,
+        s_axi_CTRL_BRESP,
+        interrupt
 );
 
-parameter    ap_ST_fsm_state1 = 12'd1;
-parameter    ap_ST_fsm_state2 = 12'd2;
-parameter    ap_ST_fsm_state3 = 12'd4;
-parameter    ap_ST_fsm_state4 = 12'd8;
-parameter    ap_ST_fsm_state5 = 12'd16;
-parameter    ap_ST_fsm_state6 = 12'd32;
-parameter    ap_ST_fsm_state7 = 12'd64;
-parameter    ap_ST_fsm_state8 = 12'd128;
-parameter    ap_ST_fsm_state9 = 12'd256;
-parameter    ap_ST_fsm_state10 = 12'd512;
-parameter    ap_ST_fsm_state11 = 12'd1024;
-parameter    ap_ST_fsm_state12 = 12'd2048;
-parameter    C_M_AXI_SPI_CORE_ID_WIDTH = 1;
-parameter    C_M_AXI_SPI_CORE_ADDR_WIDTH = 32;
-parameter    C_M_AXI_SPI_CORE_DATA_WIDTH = 32;
-parameter    C_M_AXI_SPI_CORE_AWUSER_WIDTH = 1;
-parameter    C_M_AXI_SPI_CORE_ARUSER_WIDTH = 1;
-parameter    C_M_AXI_SPI_CORE_WUSER_WIDTH = 1;
-parameter    C_M_AXI_SPI_CORE_RUSER_WIDTH = 1;
-parameter    C_M_AXI_SPI_CORE_BUSER_WIDTH = 1;
-parameter    C_M_AXI_SPI_CORE_TARGET_ADDR = 0;
-parameter    C_M_AXI_SPI_CORE_USER_VALUE = 0;
-parameter    C_M_AXI_SPI_CORE_PROT_VALUE = 0;
-parameter    C_M_AXI_SPI_CORE_CACHE_VALUE = 3;
+parameter    ap_ST_fsm_state1 = 14'd1;
+parameter    ap_ST_fsm_state2 = 14'd2;
+parameter    ap_ST_fsm_state3 = 14'd4;
+parameter    ap_ST_fsm_state4 = 14'd8;
+parameter    ap_ST_fsm_state5 = 14'd16;
+parameter    ap_ST_fsm_state6 = 14'd32;
+parameter    ap_ST_fsm_state7 = 14'd64;
+parameter    ap_ST_fsm_state8 = 14'd128;
+parameter    ap_ST_fsm_state9 = 14'd256;
+parameter    ap_ST_fsm_state10 = 14'd512;
+parameter    ap_ST_fsm_state11 = 14'd1024;
+parameter    ap_ST_fsm_state12 = 14'd2048;
+parameter    ap_ST_fsm_state13 = 14'd4096;
+parameter    ap_ST_fsm_state14 = 14'd8192;
+parameter    C_S_AXI_CTRL_DATA_WIDTH = 32;
+parameter    C_S_AXI_CTRL_ADDR_WIDTH = 5;
+parameter    C_S_AXI_DATA_WIDTH = 32;
+parameter    C_M_AXI_OUT_R_ID_WIDTH = 1;
+parameter    C_M_AXI_OUT_R_ADDR_WIDTH = 32;
+parameter    C_M_AXI_OUT_R_DATA_WIDTH = 32;
+parameter    C_M_AXI_OUT_R_AWUSER_WIDTH = 1;
+parameter    C_M_AXI_OUT_R_ARUSER_WIDTH = 1;
+parameter    C_M_AXI_OUT_R_WUSER_WIDTH = 1;
+parameter    C_M_AXI_OUT_R_RUSER_WIDTH = 1;
+parameter    C_M_AXI_OUT_R_BUSER_WIDTH = 1;
+parameter    C_M_AXI_OUT_R_USER_VALUE = 0;
+parameter    C_M_AXI_OUT_R_PROT_VALUE = 0;
+parameter    C_M_AXI_OUT_R_CACHE_VALUE = 3;
 parameter    C_M_AXI_DATA_WIDTH = 32;
 
-parameter C_M_AXI_SPI_CORE_WSTRB_WIDTH = (32 / 8);
+parameter C_S_AXI_CTRL_WSTRB_WIDTH = (32 / 8);
+parameter C_S_AXI_WSTRB_WIDTH = (32 / 8);
+parameter C_M_AXI_OUT_R_WSTRB_WIDTH = (32 / 8);
 parameter C_M_AXI_WSTRB_WIDTH = (32 / 8);
 
 input   ap_clk;
 input   ap_rst_n;
-input   ap_start;
-output   ap_done;
-output   ap_idle;
-output   ap_ready;
-output   m_axi_spi_core_AWVALID;
-input   m_axi_spi_core_AWREADY;
-output  [C_M_AXI_SPI_CORE_ADDR_WIDTH - 1:0] m_axi_spi_core_AWADDR;
-output  [C_M_AXI_SPI_CORE_ID_WIDTH - 1:0] m_axi_spi_core_AWID;
-output  [7:0] m_axi_spi_core_AWLEN;
-output  [2:0] m_axi_spi_core_AWSIZE;
-output  [1:0] m_axi_spi_core_AWBURST;
-output  [1:0] m_axi_spi_core_AWLOCK;
-output  [3:0] m_axi_spi_core_AWCACHE;
-output  [2:0] m_axi_spi_core_AWPROT;
-output  [3:0] m_axi_spi_core_AWQOS;
-output  [3:0] m_axi_spi_core_AWREGION;
-output  [C_M_AXI_SPI_CORE_AWUSER_WIDTH - 1:0] m_axi_spi_core_AWUSER;
-output   m_axi_spi_core_WVALID;
-input   m_axi_spi_core_WREADY;
-output  [C_M_AXI_SPI_CORE_DATA_WIDTH - 1:0] m_axi_spi_core_WDATA;
-output  [C_M_AXI_SPI_CORE_WSTRB_WIDTH - 1:0] m_axi_spi_core_WSTRB;
-output   m_axi_spi_core_WLAST;
-output  [C_M_AXI_SPI_CORE_ID_WIDTH - 1:0] m_axi_spi_core_WID;
-output  [C_M_AXI_SPI_CORE_WUSER_WIDTH - 1:0] m_axi_spi_core_WUSER;
-output   m_axi_spi_core_ARVALID;
-input   m_axi_spi_core_ARREADY;
-output  [C_M_AXI_SPI_CORE_ADDR_WIDTH - 1:0] m_axi_spi_core_ARADDR;
-output  [C_M_AXI_SPI_CORE_ID_WIDTH - 1:0] m_axi_spi_core_ARID;
-output  [7:0] m_axi_spi_core_ARLEN;
-output  [2:0] m_axi_spi_core_ARSIZE;
-output  [1:0] m_axi_spi_core_ARBURST;
-output  [1:0] m_axi_spi_core_ARLOCK;
-output  [3:0] m_axi_spi_core_ARCACHE;
-output  [2:0] m_axi_spi_core_ARPROT;
-output  [3:0] m_axi_spi_core_ARQOS;
-output  [3:0] m_axi_spi_core_ARREGION;
-output  [C_M_AXI_SPI_CORE_ARUSER_WIDTH - 1:0] m_axi_spi_core_ARUSER;
-input   m_axi_spi_core_RVALID;
-output   m_axi_spi_core_RREADY;
-input  [C_M_AXI_SPI_CORE_DATA_WIDTH - 1:0] m_axi_spi_core_RDATA;
-input   m_axi_spi_core_RLAST;
-input  [C_M_AXI_SPI_CORE_ID_WIDTH - 1:0] m_axi_spi_core_RID;
-input  [C_M_AXI_SPI_CORE_RUSER_WIDTH - 1:0] m_axi_spi_core_RUSER;
-input  [1:0] m_axi_spi_core_RRESP;
-input   m_axi_spi_core_BVALID;
-output   m_axi_spi_core_BREADY;
-input  [1:0] m_axi_spi_core_BRESP;
-input  [C_M_AXI_SPI_CORE_ID_WIDTH - 1:0] m_axi_spi_core_BID;
-input  [C_M_AXI_SPI_CORE_BUSER_WIDTH - 1:0] m_axi_spi_core_BUSER;
-
-reg ap_done;
-reg ap_idle;
-reg ap_ready;
+output   m_axi_OUT_r_AWVALID;
+input   m_axi_OUT_r_AWREADY;
+output  [C_M_AXI_OUT_R_ADDR_WIDTH - 1:0] m_axi_OUT_r_AWADDR;
+output  [C_M_AXI_OUT_R_ID_WIDTH - 1:0] m_axi_OUT_r_AWID;
+output  [7:0] m_axi_OUT_r_AWLEN;
+output  [2:0] m_axi_OUT_r_AWSIZE;
+output  [1:0] m_axi_OUT_r_AWBURST;
+output  [1:0] m_axi_OUT_r_AWLOCK;
+output  [3:0] m_axi_OUT_r_AWCACHE;
+output  [2:0] m_axi_OUT_r_AWPROT;
+output  [3:0] m_axi_OUT_r_AWQOS;
+output  [3:0] m_axi_OUT_r_AWREGION;
+output  [C_M_AXI_OUT_R_AWUSER_WIDTH - 1:0] m_axi_OUT_r_AWUSER;
+output   m_axi_OUT_r_WVALID;
+input   m_axi_OUT_r_WREADY;
+output  [C_M_AXI_OUT_R_DATA_WIDTH - 1:0] m_axi_OUT_r_WDATA;
+output  [C_M_AXI_OUT_R_WSTRB_WIDTH - 1:0] m_axi_OUT_r_WSTRB;
+output   m_axi_OUT_r_WLAST;
+output  [C_M_AXI_OUT_R_ID_WIDTH - 1:0] m_axi_OUT_r_WID;
+output  [C_M_AXI_OUT_R_WUSER_WIDTH - 1:0] m_axi_OUT_r_WUSER;
+output   m_axi_OUT_r_ARVALID;
+input   m_axi_OUT_r_ARREADY;
+output  [C_M_AXI_OUT_R_ADDR_WIDTH - 1:0] m_axi_OUT_r_ARADDR;
+output  [C_M_AXI_OUT_R_ID_WIDTH - 1:0] m_axi_OUT_r_ARID;
+output  [7:0] m_axi_OUT_r_ARLEN;
+output  [2:0] m_axi_OUT_r_ARSIZE;
+output  [1:0] m_axi_OUT_r_ARBURST;
+output  [1:0] m_axi_OUT_r_ARLOCK;
+output  [3:0] m_axi_OUT_r_ARCACHE;
+output  [2:0] m_axi_OUT_r_ARPROT;
+output  [3:0] m_axi_OUT_r_ARQOS;
+output  [3:0] m_axi_OUT_r_ARREGION;
+output  [C_M_AXI_OUT_R_ARUSER_WIDTH - 1:0] m_axi_OUT_r_ARUSER;
+input   m_axi_OUT_r_RVALID;
+output   m_axi_OUT_r_RREADY;
+input  [C_M_AXI_OUT_R_DATA_WIDTH - 1:0] m_axi_OUT_r_RDATA;
+input   m_axi_OUT_r_RLAST;
+input  [C_M_AXI_OUT_R_ID_WIDTH - 1:0] m_axi_OUT_r_RID;
+input  [C_M_AXI_OUT_R_RUSER_WIDTH - 1:0] m_axi_OUT_r_RUSER;
+input  [1:0] m_axi_OUT_r_RRESP;
+input   m_axi_OUT_r_BVALID;
+output   m_axi_OUT_r_BREADY;
+input  [1:0] m_axi_OUT_r_BRESP;
+input  [C_M_AXI_OUT_R_ID_WIDTH - 1:0] m_axi_OUT_r_BID;
+input  [C_M_AXI_OUT_R_BUSER_WIDTH - 1:0] m_axi_OUT_r_BUSER;
+input   s_axi_CTRL_AWVALID;
+output   s_axi_CTRL_AWREADY;
+input  [C_S_AXI_CTRL_ADDR_WIDTH - 1:0] s_axi_CTRL_AWADDR;
+input   s_axi_CTRL_WVALID;
+output   s_axi_CTRL_WREADY;
+input  [C_S_AXI_CTRL_DATA_WIDTH - 1:0] s_axi_CTRL_WDATA;
+input  [C_S_AXI_CTRL_WSTRB_WIDTH - 1:0] s_axi_CTRL_WSTRB;
+input   s_axi_CTRL_ARVALID;
+output   s_axi_CTRL_ARREADY;
+input  [C_S_AXI_CTRL_ADDR_WIDTH - 1:0] s_axi_CTRL_ARADDR;
+output   s_axi_CTRL_RVALID;
+input   s_axi_CTRL_RREADY;
+output  [C_S_AXI_CTRL_DATA_WIDTH - 1:0] s_axi_CTRL_RDATA;
+output  [1:0] s_axi_CTRL_RRESP;
+output   s_axi_CTRL_BVALID;
+input   s_axi_CTRL_BREADY;
+output  [1:0] s_axi_CTRL_BRESP;
+output   interrupt;
 
  reg    ap_rst_n_inv;
-(* fsm_encoding = "none" *) reg   [11:0] ap_CS_fsm;
+wire    ap_start;
+reg    ap_done;
+reg    ap_idle;
+(* fsm_encoding = "none" *) reg   [13:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg   [7:0] state;
-reg    spi_core_blk_n_AW;
-reg    spi_core_blk_n_W;
+reg    ap_ready;
+wire   [31:0] spi_bus;
+reg   [3:0] state;
+reg    OUT_r_blk_n_AW;
+wire    ap_CS_fsm_state9;
+reg    OUT_r_blk_n_W;
+wire    ap_CS_fsm_state10;
+reg    OUT_r_blk_n_B;
 wire    ap_CS_fsm_state8;
-reg    spi_core_blk_n_B;
-wire    ap_CS_fsm_state7;
-reg   [7:0] state_load_reg_120;
+reg   [3:0] state_load_reg_178;
 wire    ap_CS_fsm_state2;
-reg    spi_core_AWVALID;
-wire    spi_core_AWREADY;
-reg   [31:0] spi_core_AWADDR;
-reg    spi_core_WVALID;
-wire    spi_core_WREADY;
-reg   [31:0] spi_core_WDATA;
-wire    spi_core_ARREADY;
-wire    spi_core_RVALID;
-wire   [31:0] spi_core_RDATA;
-wire    spi_core_RLAST;
-wire   [0:0] spi_core_RID;
-wire   [0:0] spi_core_RUSER;
-wire   [1:0] spi_core_RRESP;
-wire    spi_core_BVALID;
-reg    spi_core_BREADY;
-wire   [1:0] spi_core_BRESP;
-wire   [0:0] spi_core_BID;
-wire   [0:0] spi_core_BUSER;
-reg    ap_sig_ioackin_spi_core_AWREADY;
-reg    ap_block_state1_io;
-reg    ap_reg_ioackin_spi_core_AWREADY;
-reg    ap_block_state7;
-reg    ap_reg_ioackin_spi_core_WREADY;
-reg    ap_sig_ioackin_spi_core_WREADY;
-reg   [11:0] ap_NS_fsm;
-reg    ap_condition_332;
-reg    ap_condition_210;
+wire    ap_CS_fsm_state3;
+reg    OUT_r_AWVALID;
+wire    OUT_r_AWREADY;
+reg   [31:0] OUT_r_AWADDR;
+reg    OUT_r_WVALID;
+wire    OUT_r_WREADY;
+reg   [31:0] OUT_r_WDATA;
+wire    OUT_r_ARREADY;
+wire    OUT_r_RVALID;
+wire   [31:0] OUT_r_RDATA;
+wire    OUT_r_RLAST;
+wire   [0:0] OUT_r_RID;
+wire   [0:0] OUT_r_RUSER;
+wire   [1:0] OUT_r_RRESP;
+wire    OUT_r_BVALID;
+reg    OUT_r_BREADY;
+wire   [1:0] OUT_r_BRESP;
+wire   [0:0] OUT_r_BID;
+wire   [0:0] OUT_r_BUSER;
+wire   [3:0] state_load_load_fu_130_p1;
+wire   [30:0] spi_bus2_sum_fu_134_p2;
+reg   [30:0] spi_bus2_sum_reg_182;
+wire   [30:0] spi_bus2_sum3_fu_146_p2;
+reg   [30:0] spi_bus2_sum3_reg_187;
+reg    ap_sig_ioackin_OUT_r_AWREADY;
+wire   [63:0] spi_bus2_sum_cast_fu_158_p1;
+wire   [63:0] spi_bus2_sum3_cast_fu_168_p1;
+reg    ap_reg_ioackin_OUT_r_AWREADY;
+reg    ap_block_state8;
+reg    ap_reg_ioackin_OUT_r_WREADY;
+reg    ap_sig_ioackin_OUT_r_WREADY;
+wire   [29:0] tmp_fu_116_p4;
+wire   [30:0] tmp_cast_fu_126_p1;
+reg   [13:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 12'd1;
-#0 state = 8'd0;
-#0 ap_reg_ioackin_spi_core_AWREADY = 1'b0;
-#0 ap_reg_ioackin_spi_core_WREADY = 1'b0;
+#0 ap_CS_fsm = 14'd1;
+#0 state = 4'd0;
+#0 ap_reg_ioackin_OUT_r_AWREADY = 1'b0;
+#0 ap_reg_ioackin_OUT_r_WREADY = 1'b0;
 end
 
-AXI_SPI_DRIVER_spi_core_m_axi #(
+AXI_SPI_DRIVER_CTRL_s_axi #(
+    .C_S_AXI_ADDR_WIDTH( C_S_AXI_CTRL_ADDR_WIDTH ),
+    .C_S_AXI_DATA_WIDTH( C_S_AXI_CTRL_DATA_WIDTH ))
+AXI_SPI_DRIVER_CTRL_s_axi_U(
+    .AWVALID(s_axi_CTRL_AWVALID),
+    .AWREADY(s_axi_CTRL_AWREADY),
+    .AWADDR(s_axi_CTRL_AWADDR),
+    .WVALID(s_axi_CTRL_WVALID),
+    .WREADY(s_axi_CTRL_WREADY),
+    .WDATA(s_axi_CTRL_WDATA),
+    .WSTRB(s_axi_CTRL_WSTRB),
+    .ARVALID(s_axi_CTRL_ARVALID),
+    .ARREADY(s_axi_CTRL_ARREADY),
+    .ARADDR(s_axi_CTRL_ARADDR),
+    .RVALID(s_axi_CTRL_RVALID),
+    .RREADY(s_axi_CTRL_RREADY),
+    .RDATA(s_axi_CTRL_RDATA),
+    .RRESP(s_axi_CTRL_RRESP),
+    .BVALID(s_axi_CTRL_BVALID),
+    .BREADY(s_axi_CTRL_BREADY),
+    .BRESP(s_axi_CTRL_BRESP),
+    .ACLK(ap_clk),
+    .ARESET(ap_rst_n_inv),
+    .ACLK_EN(1'b1),
+    .ap_start(ap_start),
+    .interrupt(interrupt),
+    .ap_ready(ap_ready),
+    .ap_done(ap_done),
+    .ap_idle(ap_idle),
+    .spi_bus(spi_bus)
+);
+
+AXI_SPI_DRIVER_OUT_r_m_axi #(
     .CONSERVATIVE( 0 ),
     .USER_DW( 32 ),
     .USER_AW( 32 ),
@@ -204,69 +279,68 @@ AXI_SPI_DRIVER_spi_core_m_axi #(
     .NUM_WRITE_OUTSTANDING( 16 ),
     .MAX_READ_BURST_LENGTH( 16 ),
     .MAX_WRITE_BURST_LENGTH( 16 ),
-    .C_M_AXI_ID_WIDTH( C_M_AXI_SPI_CORE_ID_WIDTH ),
-    .C_M_AXI_ADDR_WIDTH( C_M_AXI_SPI_CORE_ADDR_WIDTH ),
-    .C_M_AXI_DATA_WIDTH( C_M_AXI_SPI_CORE_DATA_WIDTH ),
-    .C_M_AXI_AWUSER_WIDTH( C_M_AXI_SPI_CORE_AWUSER_WIDTH ),
-    .C_M_AXI_ARUSER_WIDTH( C_M_AXI_SPI_CORE_ARUSER_WIDTH ),
-    .C_M_AXI_WUSER_WIDTH( C_M_AXI_SPI_CORE_WUSER_WIDTH ),
-    .C_M_AXI_RUSER_WIDTH( C_M_AXI_SPI_CORE_RUSER_WIDTH ),
-    .C_M_AXI_BUSER_WIDTH( C_M_AXI_SPI_CORE_BUSER_WIDTH ),
-    .C_TARGET_ADDR( C_M_AXI_SPI_CORE_TARGET_ADDR ),
-    .C_USER_VALUE( C_M_AXI_SPI_CORE_USER_VALUE ),
-    .C_PROT_VALUE( C_M_AXI_SPI_CORE_PROT_VALUE ),
-    .C_CACHE_VALUE( C_M_AXI_SPI_CORE_CACHE_VALUE ))
-AXI_SPI_DRIVER_spi_core_m_axi_U(
-    .AWVALID(m_axi_spi_core_AWVALID),
-    .AWREADY(m_axi_spi_core_AWREADY),
-    .AWADDR(m_axi_spi_core_AWADDR),
-    .AWID(m_axi_spi_core_AWID),
-    .AWLEN(m_axi_spi_core_AWLEN),
-    .AWSIZE(m_axi_spi_core_AWSIZE),
-    .AWBURST(m_axi_spi_core_AWBURST),
-    .AWLOCK(m_axi_spi_core_AWLOCK),
-    .AWCACHE(m_axi_spi_core_AWCACHE),
-    .AWPROT(m_axi_spi_core_AWPROT),
-    .AWQOS(m_axi_spi_core_AWQOS),
-    .AWREGION(m_axi_spi_core_AWREGION),
-    .AWUSER(m_axi_spi_core_AWUSER),
-    .WVALID(m_axi_spi_core_WVALID),
-    .WREADY(m_axi_spi_core_WREADY),
-    .WDATA(m_axi_spi_core_WDATA),
-    .WSTRB(m_axi_spi_core_WSTRB),
-    .WLAST(m_axi_spi_core_WLAST),
-    .WID(m_axi_spi_core_WID),
-    .WUSER(m_axi_spi_core_WUSER),
-    .ARVALID(m_axi_spi_core_ARVALID),
-    .ARREADY(m_axi_spi_core_ARREADY),
-    .ARADDR(m_axi_spi_core_ARADDR),
-    .ARID(m_axi_spi_core_ARID),
-    .ARLEN(m_axi_spi_core_ARLEN),
-    .ARSIZE(m_axi_spi_core_ARSIZE),
-    .ARBURST(m_axi_spi_core_ARBURST),
-    .ARLOCK(m_axi_spi_core_ARLOCK),
-    .ARCACHE(m_axi_spi_core_ARCACHE),
-    .ARPROT(m_axi_spi_core_ARPROT),
-    .ARQOS(m_axi_spi_core_ARQOS),
-    .ARREGION(m_axi_spi_core_ARREGION),
-    .ARUSER(m_axi_spi_core_ARUSER),
-    .RVALID(m_axi_spi_core_RVALID),
-    .RREADY(m_axi_spi_core_RREADY),
-    .RDATA(m_axi_spi_core_RDATA),
-    .RLAST(m_axi_spi_core_RLAST),
-    .RID(m_axi_spi_core_RID),
-    .RUSER(m_axi_spi_core_RUSER),
-    .RRESP(m_axi_spi_core_RRESP),
-    .BVALID(m_axi_spi_core_BVALID),
-    .BREADY(m_axi_spi_core_BREADY),
-    .BRESP(m_axi_spi_core_BRESP),
-    .BID(m_axi_spi_core_BID),
-    .BUSER(m_axi_spi_core_BUSER),
+    .C_M_AXI_ID_WIDTH( C_M_AXI_OUT_R_ID_WIDTH ),
+    .C_M_AXI_ADDR_WIDTH( C_M_AXI_OUT_R_ADDR_WIDTH ),
+    .C_M_AXI_DATA_WIDTH( C_M_AXI_OUT_R_DATA_WIDTH ),
+    .C_M_AXI_AWUSER_WIDTH( C_M_AXI_OUT_R_AWUSER_WIDTH ),
+    .C_M_AXI_ARUSER_WIDTH( C_M_AXI_OUT_R_ARUSER_WIDTH ),
+    .C_M_AXI_WUSER_WIDTH( C_M_AXI_OUT_R_WUSER_WIDTH ),
+    .C_M_AXI_RUSER_WIDTH( C_M_AXI_OUT_R_RUSER_WIDTH ),
+    .C_M_AXI_BUSER_WIDTH( C_M_AXI_OUT_R_BUSER_WIDTH ),
+    .C_USER_VALUE( C_M_AXI_OUT_R_USER_VALUE ),
+    .C_PROT_VALUE( C_M_AXI_OUT_R_PROT_VALUE ),
+    .C_CACHE_VALUE( C_M_AXI_OUT_R_CACHE_VALUE ))
+AXI_SPI_DRIVER_OUT_r_m_axi_U(
+    .AWVALID(m_axi_OUT_r_AWVALID),
+    .AWREADY(m_axi_OUT_r_AWREADY),
+    .AWADDR(m_axi_OUT_r_AWADDR),
+    .AWID(m_axi_OUT_r_AWID),
+    .AWLEN(m_axi_OUT_r_AWLEN),
+    .AWSIZE(m_axi_OUT_r_AWSIZE),
+    .AWBURST(m_axi_OUT_r_AWBURST),
+    .AWLOCK(m_axi_OUT_r_AWLOCK),
+    .AWCACHE(m_axi_OUT_r_AWCACHE),
+    .AWPROT(m_axi_OUT_r_AWPROT),
+    .AWQOS(m_axi_OUT_r_AWQOS),
+    .AWREGION(m_axi_OUT_r_AWREGION),
+    .AWUSER(m_axi_OUT_r_AWUSER),
+    .WVALID(m_axi_OUT_r_WVALID),
+    .WREADY(m_axi_OUT_r_WREADY),
+    .WDATA(m_axi_OUT_r_WDATA),
+    .WSTRB(m_axi_OUT_r_WSTRB),
+    .WLAST(m_axi_OUT_r_WLAST),
+    .WID(m_axi_OUT_r_WID),
+    .WUSER(m_axi_OUT_r_WUSER),
+    .ARVALID(m_axi_OUT_r_ARVALID),
+    .ARREADY(m_axi_OUT_r_ARREADY),
+    .ARADDR(m_axi_OUT_r_ARADDR),
+    .ARID(m_axi_OUT_r_ARID),
+    .ARLEN(m_axi_OUT_r_ARLEN),
+    .ARSIZE(m_axi_OUT_r_ARSIZE),
+    .ARBURST(m_axi_OUT_r_ARBURST),
+    .ARLOCK(m_axi_OUT_r_ARLOCK),
+    .ARCACHE(m_axi_OUT_r_ARCACHE),
+    .ARPROT(m_axi_OUT_r_ARPROT),
+    .ARQOS(m_axi_OUT_r_ARQOS),
+    .ARREGION(m_axi_OUT_r_ARREGION),
+    .ARUSER(m_axi_OUT_r_ARUSER),
+    .RVALID(m_axi_OUT_r_RVALID),
+    .RREADY(m_axi_OUT_r_RREADY),
+    .RDATA(m_axi_OUT_r_RDATA),
+    .RLAST(m_axi_OUT_r_RLAST),
+    .RID(m_axi_OUT_r_RID),
+    .RUSER(m_axi_OUT_r_RUSER),
+    .RRESP(m_axi_OUT_r_RRESP),
+    .BVALID(m_axi_OUT_r_BVALID),
+    .BREADY(m_axi_OUT_r_BREADY),
+    .BRESP(m_axi_OUT_r_BRESP),
+    .BID(m_axi_OUT_r_BID),
+    .BUSER(m_axi_OUT_r_BUSER),
     .ACLK(ap_clk),
     .ARESET(ap_rst_n_inv),
     .ACLK_EN(1'b1),
     .I_ARVALID(1'b0),
-    .I_ARREADY(spi_core_ARREADY),
+    .I_ARREADY(OUT_r_ARREADY),
     .I_ARADDR(32'd0),
     .I_ARID(1'd0),
     .I_ARLEN(32'd0),
@@ -278,16 +352,16 @@ AXI_SPI_DRIVER_spi_core_m_axi_U(
     .I_ARUSER(1'd0),
     .I_ARBURST(2'd0),
     .I_ARREGION(4'd0),
-    .I_RVALID(spi_core_RVALID),
+    .I_RVALID(OUT_r_RVALID),
     .I_RREADY(1'b0),
-    .I_RDATA(spi_core_RDATA),
-    .I_RID(spi_core_RID),
-    .I_RUSER(spi_core_RUSER),
-    .I_RRESP(spi_core_RRESP),
-    .I_RLAST(spi_core_RLAST),
-    .I_AWVALID(spi_core_AWVALID),
-    .I_AWREADY(spi_core_AWREADY),
-    .I_AWADDR(spi_core_AWADDR),
+    .I_RDATA(OUT_r_RDATA),
+    .I_RID(OUT_r_RID),
+    .I_RUSER(OUT_r_RUSER),
+    .I_RRESP(OUT_r_RRESP),
+    .I_RLAST(OUT_r_RLAST),
+    .I_AWVALID(OUT_r_AWVALID),
+    .I_AWREADY(OUT_r_AWREADY),
+    .I_AWADDR(OUT_r_AWADDR),
     .I_AWID(1'd0),
     .I_AWLEN(32'd1),
     .I_AWSIZE(3'd0),
@@ -298,18 +372,18 @@ AXI_SPI_DRIVER_spi_core_m_axi_U(
     .I_AWUSER(1'd0),
     .I_AWBURST(2'd0),
     .I_AWREGION(4'd0),
-    .I_WVALID(spi_core_WVALID),
-    .I_WREADY(spi_core_WREADY),
-    .I_WDATA(spi_core_WDATA),
+    .I_WVALID(OUT_r_WVALID),
+    .I_WREADY(OUT_r_WREADY),
+    .I_WDATA(OUT_r_WDATA),
     .I_WID(1'd0),
     .I_WUSER(1'd0),
     .I_WLAST(1'b0),
     .I_WSTRB(4'd15),
-    .I_BVALID(spi_core_BVALID),
-    .I_BREADY(spi_core_BREADY),
-    .I_BRESP(spi_core_BRESP),
-    .I_BID(spi_core_BID),
-    .I_BUSER(spi_core_BUSER)
+    .I_BVALID(OUT_r_BVALID),
+    .I_BREADY(OUT_r_BREADY),
+    .I_BRESP(OUT_r_BRESP),
+    .I_BID(OUT_r_BID),
+    .I_BUSER(OUT_r_BUSER)
 );
 
 always @ (posedge ap_clk) begin
@@ -322,24 +396,24 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        ap_reg_ioackin_spi_core_AWREADY <= 1'b0;
+        ap_reg_ioackin_OUT_r_AWREADY <= 1'b0;
     end else begin
-        if (((~((ap_start == 1'b0) | (1'b1 == ap_block_state1_io)) & (state == 8'd0) & (1'b1 == ap_CS_fsm_state1)) | (~((ap_start == 1'b0) | (1'b1 == ap_block_state1_io)) & (state == 8'd1) & (1'b1 == ap_CS_fsm_state1)))) begin
-            ap_reg_ioackin_spi_core_AWREADY <= 1'b0;
-        end else if ((((state == 8'd0) & (1'b1 == ap_CS_fsm_state1) & (spi_core_AWREADY == 1'b1) & (ap_start == 1'b1)) | ((state == 8'd1) & (1'b1 == ap_CS_fsm_state1) & (spi_core_AWREADY == 1'b1) & (ap_start == 1'b1)))) begin
-            ap_reg_ioackin_spi_core_AWREADY <= 1'b1;
+        if ((((ap_sig_ioackin_OUT_r_AWREADY == 1'b1) & (1'b1 == ap_CS_fsm_state9)) | ((ap_sig_ioackin_OUT_r_AWREADY == 1'b1) & (1'b1 == ap_CS_fsm_state2)))) begin
+            ap_reg_ioackin_OUT_r_AWREADY <= 1'b0;
+        end else if ((((1'b1 == ap_CS_fsm_state9) & (1'b1 == OUT_r_AWREADY)) | ((1'b1 == OUT_r_AWREADY) & (1'b1 == ap_CS_fsm_state2)))) begin
+            ap_reg_ioackin_OUT_r_AWREADY <= 1'b1;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-        ap_reg_ioackin_spi_core_WREADY <= 1'b0;
+        ap_reg_ioackin_OUT_r_WREADY <= 1'b0;
     end else begin
-        if ((((ap_sig_ioackin_spi_core_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state8)) | ((ap_sig_ioackin_spi_core_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state2)))) begin
-            ap_reg_ioackin_spi_core_WREADY <= 1'b0;
-        end else if ((((1'b1 == ap_CS_fsm_state8) & (spi_core_WREADY == 1'b1)) | ((spi_core_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state2)))) begin
-            ap_reg_ioackin_spi_core_WREADY <= 1'b1;
+        if ((((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state3)) | ((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state10)))) begin
+            ap_reg_ioackin_OUT_r_WREADY <= 1'b0;
+        end else if ((((1'b1 == OUT_r_WREADY) & (1'b1 == ap_CS_fsm_state3)) | ((1'b1 == OUT_r_WREADY) & (1'b1 == ap_CS_fsm_state10)))) begin
+            ap_reg_ioackin_OUT_r_WREADY <= 1'b1;
         end
     end
 end
@@ -349,11 +423,11 @@ always @ (posedge ap_clk) begin
                 state[0] <= 1'b0;
         state[1] <= 1'b0;
     end else begin
-        if ((1'b1 == ap_condition_210)) begin
-            if ((state == 8'd0)) begin
+        if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+            if ((state_load_load_fu_130_p1 == 4'd0)) begin
                                 state[0] <= 1'b1;
                 state[1] <= 1'b0;
-            end else if ((state == 8'd1)) begin
+            end else if ((state_load_load_fu_130_p1 == 4'd1)) begin
                                 state[0] <= 1'b0;
                 state[1] <= 1'b1;
             end
@@ -362,13 +436,101 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((ap_start == 1'b0) | (1'b1 == ap_block_state1_io)) & (1'b1 == ap_CS_fsm_state1))) begin
-        state_load_reg_120[1 : 0] <= state[1 : 0];
+    if (((state_load_load_fu_130_p1 == 4'd0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+        spi_bus2_sum3_reg_187 <= spi_bus2_sum3_fu_146_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (state_load_load_fu_130_p1 == 4'd1))) begin
+        spi_bus2_sum_reg_182 <= spi_bus2_sum_fu_134_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+        state_load_reg_178[1 : 0] <= state[1 : 0];
     end
 end
 
 always @ (*) begin
-    if ((~(((spi_core_BVALID == 1'b0) & (state_load_reg_120 == 8'd1)) | ((state_load_reg_120 == 8'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
+    if ((ap_reg_ioackin_OUT_r_AWREADY == 1'b0)) begin
+        if ((1'b1 == ap_CS_fsm_state9)) begin
+            OUT_r_AWADDR = spi_bus2_sum3_cast_fu_168_p1;
+        end else if ((1'b1 == ap_CS_fsm_state2)) begin
+            OUT_r_AWADDR = spi_bus2_sum_cast_fu_158_p1;
+        end else begin
+            OUT_r_AWADDR = 'bx;
+        end
+    end else begin
+        OUT_r_AWADDR = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((((ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state9)) | ((ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state2)))) begin
+        OUT_r_AWVALID = 1'b1;
+    end else begin
+        OUT_r_AWVALID = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((~(((1'b0 == OUT_r_BVALID) & (state_load_reg_178 == 4'd1)) | ((state_load_reg_178 == 4'd0) & (1'b0 == OUT_r_BVALID))) & (1'b1 == ap_CS_fsm_state8) & (state_load_reg_178 == 4'd1)) | (~(((1'b0 == OUT_r_BVALID) & (state_load_reg_178 == 4'd1)) | ((state_load_reg_178 == 4'd0) & (1'b0 == OUT_r_BVALID))) & (state_load_reg_178 == 4'd0) & (1'b1 == ap_CS_fsm_state8)))) begin
+        OUT_r_BREADY = 1'b1;
+    end else begin
+        OUT_r_BREADY = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((ap_reg_ioackin_OUT_r_WREADY == 1'b0)) begin
+        if ((1'b1 == ap_CS_fsm_state10)) begin
+            OUT_r_WDATA = 32'd6;
+        end else if ((1'b1 == ap_CS_fsm_state3)) begin
+            OUT_r_WDATA = 32'd65534;
+        end else begin
+            OUT_r_WDATA = 'bx;
+        end
+    end else begin
+        OUT_r_WDATA = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((((ap_reg_ioackin_OUT_r_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state3)) | ((ap_reg_ioackin_OUT_r_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state10)))) begin
+        OUT_r_WVALID = 1'b1;
+    end else begin
+        OUT_r_WVALID = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state2))) begin
+        OUT_r_blk_n_AW = m_axi_OUT_r_AWREADY;
+    end else begin
+        OUT_r_blk_n_AW = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((((1'b1 == ap_CS_fsm_state8) & (state_load_reg_178 == 4'd1)) | ((state_load_reg_178 == 4'd0) & (1'b1 == ap_CS_fsm_state8)))) begin
+        OUT_r_blk_n_B = m_axi_OUT_r_BVALID;
+    end else begin
+        OUT_r_blk_n_B = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state10))) begin
+        OUT_r_blk_n_W = m_axi_OUT_r_WREADY;
+    end else begin
+        OUT_r_blk_n_W = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~(((1'b0 == OUT_r_BVALID) & (state_load_reg_178 == 4'd1)) | ((state_load_reg_178 == 4'd0) & (1'b0 == OUT_r_BVALID))) & (1'b1 == ap_CS_fsm_state8))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -384,7 +546,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~(((spi_core_BVALID == 1'b0) & (state_load_reg_120 == 8'd1)) | ((state_load_reg_120 == 8'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
+    if ((~(((1'b0 == OUT_r_BVALID) & (state_load_reg_178 == 4'd1)) | ((state_load_reg_178 == 4'd0) & (1'b0 == OUT_r_BVALID))) & (1'b1 == ap_CS_fsm_state8))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -392,119 +554,47 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((ap_reg_ioackin_spi_core_AWREADY == 1'b0)) begin
-        ap_sig_ioackin_spi_core_AWREADY = spi_core_AWREADY;
+    if ((ap_reg_ioackin_OUT_r_AWREADY == 1'b0)) begin
+        ap_sig_ioackin_OUT_r_AWREADY = OUT_r_AWREADY;
     end else begin
-        ap_sig_ioackin_spi_core_AWREADY = 1'b1;
+        ap_sig_ioackin_OUT_r_AWREADY = 1'b1;
     end
 end
 
 always @ (*) begin
-    if ((ap_reg_ioackin_spi_core_WREADY == 1'b0)) begin
-        ap_sig_ioackin_spi_core_WREADY = spi_core_WREADY;
+    if ((ap_reg_ioackin_OUT_r_WREADY == 1'b0)) begin
+        ap_sig_ioackin_OUT_r_WREADY = OUT_r_WREADY;
     end else begin
-        ap_sig_ioackin_spi_core_WREADY = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_condition_332)) begin
-        if ((state == 8'd0)) begin
-            spi_core_AWADDR = 64'd24;
-        end else if ((state == 8'd1)) begin
-            spi_core_AWADDR = 64'd28;
-        end else begin
-            spi_core_AWADDR = 'bx;
-        end
-    end else begin
-        spi_core_AWADDR = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((((state == 8'd0) & (ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)) | ((state == 8'd1) & (ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
-        spi_core_AWVALID = 1'b1;
-    end else begin
-        spi_core_AWVALID = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((~(((spi_core_BVALID == 1'b0) & (state_load_reg_120 == 8'd1)) | ((state_load_reg_120 == 8'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7) & (state_load_reg_120 == 8'd1)) | (~(((spi_core_BVALID == 1'b0) & (state_load_reg_120 == 8'd1)) | ((state_load_reg_120 == 8'd0) & (spi_core_BVALID == 1'b0))) & (state_load_reg_120 == 8'd0) & (1'b1 == ap_CS_fsm_state7)))) begin
-        spi_core_BREADY = 1'b1;
-    end else begin
-        spi_core_BREADY = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((ap_reg_ioackin_spi_core_WREADY == 1'b0)) begin
-        if ((1'b1 == ap_CS_fsm_state8)) begin
-            spi_core_WDATA = 32'd6;
-        end else if ((1'b1 == ap_CS_fsm_state2)) begin
-            spi_core_WDATA = 32'd65534;
-        end else begin
-            spi_core_WDATA = 'bx;
-        end
-    end else begin
-        spi_core_WDATA = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((((ap_reg_ioackin_spi_core_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state8)) | ((ap_reg_ioackin_spi_core_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        spi_core_WVALID = 1'b1;
-    end else begin
-        spi_core_WVALID = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((((state == 8'd0) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)) | ((state == 8'd1) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1)))) begin
-        spi_core_blk_n_AW = m_axi_spi_core_AWREADY;
-    end else begin
-        spi_core_blk_n_AW = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((((1'b1 == ap_CS_fsm_state7) & (state_load_reg_120 == 8'd1)) | ((state_load_reg_120 == 8'd0) & (1'b1 == ap_CS_fsm_state7)))) begin
-        spi_core_blk_n_B = m_axi_spi_core_BVALID;
-    end else begin
-        spi_core_blk_n_B = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state2))) begin
-        spi_core_blk_n_W = m_axi_spi_core_WREADY;
-    end else begin
-        spi_core_blk_n_W = 1'b1;
+        ap_sig_ioackin_OUT_r_WREADY = 1'b1;
     end
 end
 
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if ((~((ap_start == 1'b0) | (1'b1 == ap_block_state1_io)) & (state == 8'd0) & (1'b1 == ap_CS_fsm_state1))) begin
+            if (((state_load_load_fu_130_p1 == 4'd0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+                ap_NS_fsm = ap_ST_fsm_state9;
+            end else if ((~(state_load_load_fu_130_p1 == 4'd0) & ~(state_load_load_fu_130_p1 == 4'd1) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state8;
-            end else if ((~(state == 8'd0) & ~((ap_start == 1'b0) | (1'b1 == ap_block_state1_io)) & ~(state == 8'd1) & (1'b1 == ap_CS_fsm_state1))) begin
-                ap_NS_fsm = ap_ST_fsm_state7;
-            end else if ((~((ap_start == 1'b0) | (1'b1 == ap_block_state1_io)) & (state == 8'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+            end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (state_load_load_fu_130_p1 == 4'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((ap_sig_ioackin_spi_core_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+            if (((ap_sig_ioackin_OUT_r_AWREADY == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end
         end
         ap_ST_fsm_state3 : begin
-            ap_NS_fsm = ap_ST_fsm_state4;
+            if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state3))) begin
+                ap_NS_fsm = ap_ST_fsm_state4;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state3;
+            end
         end
         ap_ST_fsm_state4 : begin
             ap_NS_fsm = ap_ST_fsm_state5;
@@ -516,30 +606,40 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state7;
         end
         ap_ST_fsm_state7 : begin
-            if ((~(((spi_core_BVALID == 1'b0) & (state_load_reg_120 == 8'd1)) | ((state_load_reg_120 == 8'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state7;
-            end
+            ap_NS_fsm = ap_ST_fsm_state8;
         end
         ap_ST_fsm_state8 : begin
-            if (((ap_sig_ioackin_spi_core_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
-                ap_NS_fsm = ap_ST_fsm_state9;
+            if ((~(((1'b0 == OUT_r_BVALID) & (state_load_reg_178 == 4'd1)) | ((state_load_reg_178 == 4'd0) & (1'b0 == OUT_r_BVALID))) & (1'b1 == ap_CS_fsm_state8))) begin
+                ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state8;
             end
         end
         ap_ST_fsm_state9 : begin
-            ap_NS_fsm = ap_ST_fsm_state10;
+            if (((ap_sig_ioackin_OUT_r_AWREADY == 1'b1) & (1'b1 == ap_CS_fsm_state9))) begin
+                ap_NS_fsm = ap_ST_fsm_state10;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state9;
+            end
         end
         ap_ST_fsm_state10 : begin
-            ap_NS_fsm = ap_ST_fsm_state11;
+            if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state10))) begin
+                ap_NS_fsm = ap_ST_fsm_state11;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state10;
+            end
         end
         ap_ST_fsm_state11 : begin
             ap_NS_fsm = ap_ST_fsm_state12;
         end
         ap_ST_fsm_state12 : begin
-            ap_NS_fsm = ap_ST_fsm_state7;
+            ap_NS_fsm = ap_ST_fsm_state13;
+        end
+        ap_ST_fsm_state13 : begin
+            ap_NS_fsm = ap_ST_fsm_state14;
+        end
+        ap_ST_fsm_state14 : begin
+            ap_NS_fsm = ap_ST_fsm_state8;
         end
         default : begin
             ap_NS_fsm = 'bx;
@@ -549,35 +649,41 @@ end
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
+assign ap_CS_fsm_state10 = ap_CS_fsm[32'd9];
+
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
-assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
+assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
 assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 
-always @ (*) begin
-    ap_block_state1_io = (((state == 8'd0) & (ap_sig_ioackin_spi_core_AWREADY == 1'b0)) | ((state == 8'd1) & (ap_sig_ioackin_spi_core_AWREADY == 1'b0)));
-end
+assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
 
 always @ (*) begin
-    ap_block_state7 = (((spi_core_BVALID == 1'b0) & (state_load_reg_120 == 8'd1)) | ((state_load_reg_120 == 8'd0) & (spi_core_BVALID == 1'b0)));
-end
-
-always @ (*) begin
-    ap_condition_210 = (~((ap_start == 1'b0) | (1'b1 == ap_block_state1_io)) & (1'b1 == ap_CS_fsm_state1));
-end
-
-always @ (*) begin
-    ap_condition_332 = ((ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1));
+    ap_block_state8 = (((1'b0 == OUT_r_BVALID) & (state_load_reg_178 == 4'd1)) | ((state_load_reg_178 == 4'd0) & (1'b0 == OUT_r_BVALID)));
 end
 
 always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
+assign spi_bus2_sum3_cast_fu_168_p1 = spi_bus2_sum3_reg_187;
+
+assign spi_bus2_sum3_fu_146_p2 = (tmp_cast_fu_126_p1 + 31'd24);
+
+assign spi_bus2_sum_cast_fu_158_p1 = spi_bus2_sum_reg_182;
+
+assign spi_bus2_sum_fu_134_p2 = (tmp_cast_fu_126_p1 + 31'd28);
+
+assign state_load_load_fu_130_p1 = state;
+
+assign tmp_cast_fu_126_p1 = tmp_fu_116_p4;
+
+assign tmp_fu_116_p4 = {{spi_bus[31:2]}};
+
 always @ (posedge ap_clk) begin
-    state[7:2] <= 6'b000000;
-    state_load_reg_120[7:2] <= 6'b000000;
+    state[3:2] <= 2'b00;
+    state_load_reg_178[3:2] <= 2'b00;
 end
 
 endmodule //AXI_SPI_DRIVER

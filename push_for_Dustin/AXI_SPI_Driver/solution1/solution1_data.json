@@ -37,12 +37,24 @@
   "Files": {
     "CSource": ["..\/AXI_SPI_Driver.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/AXI_SPI_DRIVER_spi_core_m_axi.vhd",
+      "impl\/vhdl\/AXI_SPI_DRIVER_CTRL_s_axi.vhd",
+      "impl\/vhdl\/AXI_SPI_DRIVER_OUT_r_m_axi.vhd",
       "impl\/vhdl\/AXI_SPI_DRIVER.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/AXI_SPI_DRIVER_spi_core_m_axi.v",
+      "impl\/verilog\/AXI_SPI_DRIVER_CTRL_s_axi.v",
+      "impl\/verilog\/AXI_SPI_DRIVER_OUT_r_m_axi.v",
       "impl\/verilog\/AXI_SPI_DRIVER.v"
+    ],
+    "SwDriver": [
+      "impl\/misc\/drivers\/AXI_SPI_DRIVER_v1_0\/data\/AXI_SPI_DRIVER.mdd",
+      "impl\/misc\/drivers\/AXI_SPI_DRIVER_v1_0\/data\/AXI_SPI_DRIVER.tcl",
+      "impl\/misc\/drivers\/AXI_SPI_DRIVER_v1_0\/src\/Makefile",
+      "impl\/misc\/drivers\/AXI_SPI_DRIVER_v1_0\/src\/xaxi_spi_driver.c",
+      "impl\/misc\/drivers\/AXI_SPI_DRIVER_v1_0\/src\/xaxi_spi_driver.h",
+      "impl\/misc\/drivers\/AXI_SPI_DRIVER_v1_0\/src\/xaxi_spi_driver_hw.h",
+      "impl\/misc\/drivers\/AXI_SPI_DRIVER_v1_0\/src\/xaxi_spi_driver_linux.c",
+      "impl\/misc\/drivers\/AXI_SPI_DRIVER_v1_0\/src\/xaxi_spi_driver_sinit.c"
     ],
     "Misc": ["impl\/misc\/logo.png"]
   },
@@ -55,31 +67,25 @@
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
-      "buses": "m_axi_spi_core",
+      "buses": "s_axi_CTRL m_axi_OUT_r",
       "reset": "ap_rst_n"
-    },
-    "ap_ctrl": {
-      "type": "ap_ctrl",
-      "ctrl_ports": "ap_start ap_done ap_idle ap_ready",
-      "ctype": {
-        "start": {"Type": "bool"},
-        "done": {"Type": "bool"},
-        "idle": {"Type": "bool"},
-        "ready": {"Type": "bool"}
-      }
     },
     "ap_rst_n": {
       "type": "reset",
       "polarity": "ACTIVE_LOW",
       "ctype": {"RST": {"Type": "bool"}}
     },
-    "m_axi_spi_core": {
+    "interrupt": {
+      "type": "interrupt",
+      "ctype": {"INTERRUPT": {"Type": "bool"}}
+    },
+    "m_axi_OUT_r": {
       "type": "native_axim",
       "is_adaptor": "true",
       "mode": "master",
-      "port_prefix": "m_axi_spi_core",
+      "port_prefix": "m_axi_OUT_r",
       "data_width": "32",
-      "param_prefix": "C_M_AXI_SPI_CORE",
+      "param_prefix": "C_M_AXI_OUT_R",
       "ctype": {
         "AWLEN": {
           "Type": "integer unsigned",
@@ -226,10 +232,10 @@
           "Width": "1"
         }
       },
-      "HasOffset": "0",
+      "HasOffset": "1",
       "preferred_usage_value": "MEMORY",
-      "has_dependant_on": "0",
-      "offset_slave_name": "",
+      "has_dependant_on": "1",
+      "offset_slave_name": "s_axi_CTRL",
       "NUM_READ_OUTSTANDING": "16",
       "NUM_WRITE_OUTSTANDING": "16",
       "MAX_READ_BURST_LENGTH": "16",
@@ -251,9 +257,307 @@
         "WSTRB": "4",
         "WUSER": "1"
       }
+    },
+    "s_axi_CTRL": {
+      "type": "axi4lite",
+      "is_adaptor": "true",
+      "mode": "slave",
+      "port_prefix": "s_axi_CTRL",
+      "param_prefix": "C_S_AXI_CTRL",
+      "addr_bits": "5",
+      "registers": [
+        {
+          "offset": "0x00",
+          "name": "CTRL",
+          "access": "RW",
+          "reset_value": "0x0",
+          "description": "Control signals",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "AP_START",
+              "access": "RW",
+              "reset_value": "0",
+              "description": "Control signal Register for 'ap_start'."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "AP_DONE",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Control signal Register for 'ap_done'."
+            },
+            {
+              "offset": "2",
+              "width": "1",
+              "name": "AP_IDLE",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Control signal Register for 'ap_idle'."
+            },
+            {
+              "offset": "3",
+              "width": "1",
+              "name": "AP_READY",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Control signal Register for 'ap_ready'."
+            },
+            {
+              "offset": "4",
+              "width": "3",
+              "name": "RESERVED_1",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "7",
+              "width": "1",
+              "name": "AUTO_RESTART",
+              "access": "RW",
+              "reset_value": "0",
+              "description": "Control signal Register for 'auto_restart'."
+            },
+            {
+              "offset": "8",
+              "width": "24",
+              "name": "RESERVED_2",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x04",
+          "name": "GIER",
+          "access": "RW",
+          "reset_value": "0x0",
+          "description": "Global Interrupt Enable Register",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "Enable",
+              "access": "RW",
+              "reset_value": "0",
+              "description": "Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x08",
+          "name": "IP_IER",
+          "access": "RW",
+          "reset_value": "0x0",
+          "description": "IP Interrupt Enable Register",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_EN",
+              "access": "RW",
+              "reset_value": "0",
+              "description": "Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_EN",
+              "access": "RW",
+              "reset_value": "0",
+              "description": "Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x0c",
+          "name": "IP_ISR",
+          "access": "RW",
+          "reset_value": "0x0",
+          "description": "IP Interrupt Status Register",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_ST",
+              "access": "RTOW",
+              "reset_value": "0",
+              "description": "Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 input interrupt, 1 = Channel 0 input interrup"
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_ST",
+              "access": "RTOW",
+              "reset_value": "0",
+              "description": "Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 input interrupt, 1 = Channel 1 input interrup"
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x10",
+          "name": "spi_bus",
+          "access": "W",
+          "reset_value": "0x0",
+          "description": "Data signal of spi_bus",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "spi_bus",
+              "access": "W",
+              "reset_value": "0",
+              "description": "Bit 31 to 0 Data signal of spi_bus"
+            }]
+        }
+      ],
+      "memories": "",
+      "ctype": {
+        "AWVALID": {"Type": "bool"},
+        "AWREADY": {"Type": "bool"},
+        "WVALID": {"Type": "bool"},
+        "WREADY": {"Type": "bool"},
+        "BVALID": {"Type": "bool"},
+        "BREADY": {"Type": "bool"},
+        "BRESP": {
+          "Type": "integer unsigned",
+          "Width": "2"
+        },
+        "ARVALID": {"Type": "bool"},
+        "ARREADY": {"Type": "bool"},
+        "RVALID": {"Type": "bool"},
+        "RREADY": {"Type": "bool"},
+        "RRESP": {
+          "Type": "integer unsigned",
+          "Width": "2"
+        },
+        "AWADDR": {
+          "Type": "integer unsigned",
+          "Width": "5"
+        },
+        "WDATA": {
+          "Type": "null",
+          "Width": "32"
+        },
+        "WSTRB": {
+          "Type": "integer unsigned",
+          "Width": "4"
+        },
+        "ARADDR": {
+          "Type": "integer unsigned",
+          "Width": "5"
+        },
+        "RDATA": {
+          "Type": "null",
+          "Width": "32"
+        }
+      },
+      "data_width": "32",
+      "port_width": {
+        "ARADDR": "5",
+        "AWADDR": "5",
+        "RDATA": "32",
+        "WDATA": "32",
+        "WSTRB": "4"
+      }
     }
   },
   "RtlPorts": {
+    "s_axi_CTRL_AWVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_AWREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_AWADDR": {
+      "dir": "in",
+      "width": "5"
+    },
+    "s_axi_CTRL_WVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_WREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_WDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "s_axi_CTRL_WSTRB": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_CTRL_ARVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_ARREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_ARADDR": {
+      "dir": "in",
+      "width": "5"
+    },
+    "s_axi_CTRL_RVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_RREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_RDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "s_axi_CTRL_RRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_CTRL_BVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_CTRL_BREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_CTRL_BRESP": {
+      "dir": "out",
+      "width": "2"
+    },
     "ap_clk": {
       "dir": "in",
       "width": "1"
@@ -262,220 +566,220 @@
       "dir": "in",
       "width": "1"
     },
-    "ap_start": {
-      "dir": "in",
-      "width": "1"
-    },
-    "ap_done": {
-      "dir": "out",
-      "width": "1"
-    },
-    "ap_idle": {
-      "dir": "out",
-      "width": "1"
-    },
-    "ap_ready": {
-      "dir": "out",
-      "width": "1"
-    },
-    "m_axi_spi_core_AWVALID": {
-      "dir": "out",
-      "width": "1"
-    },
-    "m_axi_spi_core_AWREADY": {
-      "dir": "in",
-      "width": "1"
-    },
-    "m_axi_spi_core_AWADDR": {
-      "dir": "out",
-      "width": "32"
-    },
-    "m_axi_spi_core_AWID": {
+    "interrupt": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_spi_core_AWLEN": {
+    "m_axi_OUT_r_AWVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_OUT_r_AWREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_OUT_r_AWADDR": {
+      "dir": "out",
+      "width": "32"
+    },
+    "m_axi_OUT_r_AWID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_OUT_r_AWLEN": {
       "dir": "out",
       "width": "8"
     },
-    "m_axi_spi_core_AWSIZE": {
+    "m_axi_OUT_r_AWSIZE": {
       "dir": "out",
       "width": "3"
     },
-    "m_axi_spi_core_AWBURST": {
+    "m_axi_OUT_r_AWBURST": {
       "dir": "out",
       "width": "2"
     },
-    "m_axi_spi_core_AWLOCK": {
+    "m_axi_OUT_r_AWLOCK": {
       "dir": "out",
       "width": "2"
     },
-    "m_axi_spi_core_AWCACHE": {
+    "m_axi_OUT_r_AWCACHE": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_spi_core_AWPROT": {
+    "m_axi_OUT_r_AWPROT": {
       "dir": "out",
       "width": "3"
     },
-    "m_axi_spi_core_AWQOS": {
+    "m_axi_OUT_r_AWQOS": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_spi_core_AWREGION": {
+    "m_axi_OUT_r_AWREGION": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_spi_core_AWUSER": {
+    "m_axi_OUT_r_AWUSER": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_spi_core_WVALID": {
+    "m_axi_OUT_r_WVALID": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_spi_core_WREADY": {
+    "m_axi_OUT_r_WREADY": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_spi_core_WDATA": {
+    "m_axi_OUT_r_WDATA": {
       "dir": "out",
       "width": "32"
     },
-    "m_axi_spi_core_WSTRB": {
+    "m_axi_OUT_r_WSTRB": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_spi_core_WLAST": {
+    "m_axi_OUT_r_WLAST": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_spi_core_WID": {
+    "m_axi_OUT_r_WID": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_spi_core_WUSER": {
+    "m_axi_OUT_r_WUSER": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_spi_core_ARVALID": {
+    "m_axi_OUT_r_ARVALID": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_spi_core_ARREADY": {
+    "m_axi_OUT_r_ARREADY": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_spi_core_ARADDR": {
+    "m_axi_OUT_r_ARADDR": {
       "dir": "out",
       "width": "32"
     },
-    "m_axi_spi_core_ARID": {
+    "m_axi_OUT_r_ARID": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_spi_core_ARLEN": {
+    "m_axi_OUT_r_ARLEN": {
       "dir": "out",
       "width": "8"
     },
-    "m_axi_spi_core_ARSIZE": {
+    "m_axi_OUT_r_ARSIZE": {
       "dir": "out",
       "width": "3"
     },
-    "m_axi_spi_core_ARBURST": {
+    "m_axi_OUT_r_ARBURST": {
       "dir": "out",
       "width": "2"
     },
-    "m_axi_spi_core_ARLOCK": {
+    "m_axi_OUT_r_ARLOCK": {
       "dir": "out",
       "width": "2"
     },
-    "m_axi_spi_core_ARCACHE": {
+    "m_axi_OUT_r_ARCACHE": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_spi_core_ARPROT": {
+    "m_axi_OUT_r_ARPROT": {
       "dir": "out",
       "width": "3"
     },
-    "m_axi_spi_core_ARQOS": {
+    "m_axi_OUT_r_ARQOS": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_spi_core_ARREGION": {
+    "m_axi_OUT_r_ARREGION": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_spi_core_ARUSER": {
+    "m_axi_OUT_r_ARUSER": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_spi_core_RVALID": {
+    "m_axi_OUT_r_RVALID": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_spi_core_RREADY": {
+    "m_axi_OUT_r_RREADY": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_spi_core_RDATA": {
+    "m_axi_OUT_r_RDATA": {
       "dir": "in",
       "width": "32"
     },
-    "m_axi_spi_core_RLAST": {
+    "m_axi_OUT_r_RLAST": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_spi_core_RID": {
+    "m_axi_OUT_r_RID": {
       "dir": "in",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_spi_core_RUSER": {
+    "m_axi_OUT_r_RUSER": {
       "dir": "in",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_spi_core_RRESP": {
+    "m_axi_OUT_r_RRESP": {
       "dir": "in",
       "width": "2"
     },
-    "m_axi_spi_core_BVALID": {
+    "m_axi_OUT_r_BVALID": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_spi_core_BREADY": {
+    "m_axi_OUT_r_BREADY": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_spi_core_BRESP": {
+    "m_axi_OUT_r_BRESP": {
       "dir": "in",
       "width": "2"
     },
-    "m_axi_spi_core_BID": {
+    "m_axi_OUT_r_BID": {
       "dir": "in",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_spi_core_BUSER": {
+    "m_axi_OUT_r_BUSER": {
       "dir": "in",
       "width": "1",
       "isVector": "true"
     }
   },
   "CPorts": {
-    "ap_ctrl": {
-      "interfaceRef": "ap_ctrl",
-      "dir": "out"
+    "spi_bus": {
+      "interfaceRef": "s_axi_CTRL",
+      "dir": "in",
+      "offset": "16",
+      "statusOffset": "NA",
+      "handshakeRef": "ap_none",
+      "Object": "CTRL",
+      "aximmInterfaceRef": "m_axi_OUT_r",
+      "dataWidth": "32"
     },
-    "spi_core": {
-      "interfaceRef": "m_axi_spi_core",
+    "ap_ctrl": {
+      "interfaceRef": "s_axi_CTRL",
+      "dir": "in",
+      "offset": "0"
+    },
+    "OUT_r": {
+      "interfaceRef": "m_axi_OUT_r",
       "dir": "inout"
     }
   },
@@ -484,11 +788,11 @@
     "Metrics": {"AXI_SPI_DRIVER": {
         "Latency": {
           "LatencyBest": "1",
-          "LatencyAvg": "4",
-          "LatencyWorst": "6",
+          "LatencyAvg": "5",
+          "LatencyWorst": "7",
           "PipelineIIMin": "2",
-          "PipelineIIMax": "7",
-          "PipelineII": "2 ~ 7",
+          "PipelineIIMax": "8",
+          "PipelineII": "2 ~ 8",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -499,8 +803,8 @@
         },
         "Area": {
           "BRAM_18K": "2",
-          "FF": "530",
-          "LUT": "728",
+          "FF": "668",
+          "LUT": "908",
           "DSP48E": "0"
         }
       }}
@@ -512,7 +816,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-05-10 14:44:30 -0700",
+    "Time": "2019-05-12 14:18:23 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

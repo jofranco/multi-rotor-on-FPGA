@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Fri May 10 15:10:53 2019
+| Date         : Sun May 12 15:00:34 2019
 | Host         : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |    9 |     0 |       125 |  7.20 |
+| Bonded IOB                  |    7 |     0 |       125 |  5.60 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         4 |  0.00 |
@@ -146,7 +146,7 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUF     |    8 |                  IO |
+| OBUF     |    6 |                  IO |
 | IBUF     |    1 |                  IO |
 +----------+------+---------------------+
 
@@ -158,8 +158,8 @@ Table of Contents
 |             Ref Name            | Used |
 +---------------------------------+------+
 | design_1_xlconstant_0_0         |    1 |
-| design_1_xbar_0                 |    1 |
-| design_1_rst_ps7_0_100M_1       |    1 |
+| design_1_xbar_1                 |    1 |
+| design_1_rst_ps7_0_100M_0       |    1 |
 | design_1_processing_system7_0_1 |    1 |
 | design_1_oddr_0_0               |    1 |
 | design_1_axi_quad_spi_0_0       |    1 |

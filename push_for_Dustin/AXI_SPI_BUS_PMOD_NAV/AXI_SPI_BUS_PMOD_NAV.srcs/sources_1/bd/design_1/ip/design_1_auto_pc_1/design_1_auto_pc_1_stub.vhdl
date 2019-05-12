@@ -1,11 +1,11 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sun May  5 16:22:01 2019
+-- Date        : Sun May 12 12:58:39 2019
 -- Host        : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_auto_pc_1 -prefix
---               design_1_auto_pc_1_ design_1_auto_pc_1_stub.vhdl
--- Design      : design_1_auto_pc_1
+--               design_1_auto_pc_1_ design_1_auto_pc_7_stub.vhdl
+-- Design      : design_1_auto_pc_7
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1
 -- --------------------------------------------------------------------------------

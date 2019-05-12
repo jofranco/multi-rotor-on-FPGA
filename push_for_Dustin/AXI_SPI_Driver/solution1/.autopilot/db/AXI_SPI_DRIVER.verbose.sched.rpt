@@ -1,0 +1,266 @@
+
+
+================================================================
+== Vivado HLS Report for 'AXI_SPI_DRIVER'
+================================================================
+* Date:           Sun May 12 14:18:22 2019
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        AXI_SPI_Driver
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    1|    7|    1|    7|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 14
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / (state_load == 1)
+	8  / (state_load != 0 & state_load != 1)
+	9  / (state_load == 0)
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	8  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.49>
+ST_1 : Operation 15 [1/1] (1.00ns)   --->   "%spi_bus_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %spi_bus)"   --->   Operation 15 'read' 'spi_bus_read' <Predicate = true> <Delay = 1.00> <Core = "s_axilite">   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tmp = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %spi_bus_read, i32 2, i32 31)"   --->   Operation 16 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%tmp_cast = zext i30 %tmp to i31"   --->   Operation 17 'zext' 'tmp_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %OUT_r), !map !16"   --->   Operation 18 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecClockDomain([8 x i8]* @default, [1 x i8]* @empty) nounwind"   --->   Operation 19 'specclockdomain' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @AXI_SPI_DRIVER_str) nounwind"   --->   Operation 20 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:17]   --->   Operation 21 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %OUT_r, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 1000, [4 x i8]* @p_str4, [6 x i8]* @p_str5, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:23]   --->   Operation 22 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %spi_bus, [10 x i8]* @mode, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 1000, [1 x i8]* @bundle, [6 x i8]* @p_str5, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:23]   --->   Operation 23 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecReset(i4* @state, i32 1, [1 x i8]* @p_str1) nounwind" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:28]   --->   Operation 24 'specreset' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%state_load = load i4* @state, align 1"   --->   Operation 25 'load' 'state_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (1.13ns)   --->   "switch i4 %state_load, label %._crit_edge [
+    i4 0, label %1
+    i4 1, label %2
+  ]" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:32]   --->   Operation 26 'switch' <Predicate = true> <Delay = 1.13>
+ST_1 : Operation 27 [1/1] (2.49ns)   --->   "%spi_bus2_sum = add i31 %tmp_cast, 28" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 27 'add' 'spi_bus2_sum' <Predicate = (state_load == 1)> <Delay = 2.49> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.49> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 28 [1/1] (1.76ns)   --->   "store i4 2, i4* @state, align 1" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:47]   --->   Operation 28 'store' <Predicate = (state_load == 1)> <Delay = 1.76>
+ST_1 : Operation 29 [1/1] (2.49ns)   --->   "%spi_bus2_sum3 = add i31 %tmp_cast, 24" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 29 'add' 'spi_bus2_sum3' <Predicate = (state_load == 0)> <Delay = 2.49> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.49> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (1.76ns)   --->   "store i4 1, i4* @state, align 1" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:40]   --->   Operation 30 'store' <Predicate = (state_load == 0)> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 8.75>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%spi_bus2_sum_cast = zext i31 %spi_bus2_sum to i64" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 31 'zext' 'spi_bus2_sum_cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%OUT_addr_1 = getelementptr inbounds i32* %OUT_r, i64 %spi_bus2_sum_cast" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 32 'getelementptr' 'OUT_addr_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (8.75ns)   --->   "%OUT_addr_1_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %OUT_addr_1, i32 1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 33 'writereq' 'OUT_addr_1_req' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 3 <SV = 2> <Delay = 8.75>
+ST_3 : Operation 34 [1/1] (8.75ns)   --->   "call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %OUT_addr_1, i32 65534, i4 -1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 34 'write' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 8.75>
+ST_4 : Operation 35 [5/5] (8.75ns)   --->   "%OUT_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 35 'writeresp' 'OUT_addr_1_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 8.75>
+ST_5 : Operation 36 [4/5] (8.75ns)   --->   "%OUT_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 36 'writeresp' 'OUT_addr_1_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 8.75>
+ST_6 : Operation 37 [3/5] (8.75ns)   --->   "%OUT_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 37 'writeresp' 'OUT_addr_1_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 8.75>
+ST_7 : Operation 38 [2/5] (8.75ns)   --->   "%OUT_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 38 'writeresp' 'OUT_addr_1_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 7> <Delay = 8.75>
+ST_8 : Operation 39 [1/5] (8.75ns)   --->   "%OUT_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr_1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:43]   --->   Operation 39 'writeresp' 'OUT_addr_1_resp' <Predicate = (state_load == 1)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 40 [1/1] (0.00ns)   --->   "br label %._crit_edge" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:48]   --->   Operation 40 'br' <Predicate = (state_load == 1)> <Delay = 0.00>
+ST_8 : Operation 41 [1/5] (8.75ns)   --->   "%OUT_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 41 'writeresp' 'OUT_addr_resp' <Predicate = (state_load == 0)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 42 [1/1] (0.00ns)   --->   "br label %._crit_edge" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:41]   --->   Operation 42 'br' <Predicate = (state_load == 0)> <Delay = 0.00>
+ST_8 : Operation 43 [1/1] (0.00ns)   --->   "ret void" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:69]   --->   Operation 43 'ret' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 1> <Delay = 8.75>
+ST_9 : Operation 44 [1/1] (0.00ns)   --->   "%spi_bus2_sum3_cast = zext i31 %spi_bus2_sum3 to i64" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 44 'zext' 'spi_bus2_sum3_cast' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 45 [1/1] (0.00ns)   --->   "%OUT_addr = getelementptr inbounds i32* %OUT_r, i64 %spi_bus2_sum3_cast" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 45 'getelementptr' 'OUT_addr' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 46 [1/1] (8.75ns)   --->   "%OUT_addr_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %OUT_addr, i32 1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 46 'writereq' 'OUT_addr_req' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 2> <Delay = 8.75>
+ST_10 : Operation 47 [1/1] (8.75ns)   --->   "call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %OUT_addr, i32 6, i4 -1)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 47 'write' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 11 <SV = 3> <Delay = 8.75>
+ST_11 : Operation 48 [5/5] (8.75ns)   --->   "%OUT_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 48 'writeresp' 'OUT_addr_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 12 <SV = 4> <Delay = 8.75>
+ST_12 : Operation 49 [4/5] (8.75ns)   --->   "%OUT_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 49 'writeresp' 'OUT_addr_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 13 <SV = 5> <Delay = 8.75>
+ST_13 : Operation 50 [3/5] (8.75ns)   --->   "%OUT_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 50 'writeresp' 'OUT_addr_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 14 <SV = 6> <Delay = 8.75>
+ST_14 : Operation 51 [2/5] (8.75ns)   --->   "%OUT_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %OUT_addr)" [AXI_SPI_Driver/AXI_SPI_Driver.cpp:35]   --->   Operation 51 'writeresp' 'OUT_addr_resp' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 3.49ns
+The critical path consists of the following:
+	s_axi read on port 'spi_bus' [4]  (1 ns)
+	'add' operation ('spi_bus2_sum3', AXI_SPI_Driver/AXI_SPI_Driver.cpp:35) [26]  (2.49 ns)
+
+ <State 2>: 8.75ns
+The critical path consists of the following:
+	'getelementptr' operation ('OUT_addr_1', AXI_SPI_Driver/AXI_SPI_Driver.cpp:43) [19]  (0 ns)
+	bus request on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:43) [20]  (8.75 ns)
+
+ <State 3>: 8.75ns
+The critical path consists of the following:
+	bus write on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:43) [21]  (8.75 ns)
+
+ <State 4>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:43) [22]  (8.75 ns)
+
+ <State 5>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:43) [22]  (8.75 ns)
+
+ <State 6>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:43) [22]  (8.75 ns)
+
+ <State 7>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:43) [22]  (8.75 ns)
+
+ <State 8>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:43) [22]  (8.75 ns)
+
+ <State 9>: 8.75ns
+The critical path consists of the following:
+	'getelementptr' operation ('OUT_addr', AXI_SPI_Driver/AXI_SPI_Driver.cpp:35) [28]  (0 ns)
+	bus request on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:35) [29]  (8.75 ns)
+
+ <State 10>: 8.75ns
+The critical path consists of the following:
+	bus write on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:35) [30]  (8.75 ns)
+
+ <State 11>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:35) [31]  (8.75 ns)
+
+ <State 12>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:35) [31]  (8.75 ns)
+
+ <State 13>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:35) [31]  (8.75 ns)
+
+ <State 14>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'OUT_r' (AXI_SPI_Driver/AXI_SPI_Driver.cpp:35) [31]  (8.75 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

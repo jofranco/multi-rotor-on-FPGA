@@ -22,5 +22,5 @@ set_property -dict {PACKAGE_PIN U13 IOSTANDARD LVCMOS33} [get_ports {CLK_OUT_100
 ## LEDs
 set_property -dict {PACKAGE_PIN R14 IOSTANDARD LVCMOS33} [get_ports {LED_0}]
 set_property -dict {PACKAGE_PIN P14 IOSTANDARD LVCMOS33} [get_ports {ap_done_0}]
-set_property -dict {PACKAGE_PIN N16 IOSTANDARD LVCMOS33} [get_ports {ap_idle_0}]
+set_property -dict {PACKAGE_PIN N16 IOSTANDARD LVCMOS33} [get_ports {LED_1}]
 set_property -dict {PACKAGE_PIN M14 IOSTANDARD LVCMOS33} [get_ports {ap_ready_0}]

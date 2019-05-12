@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7z020clg400-1
@@ -31,6 +30,7 @@ set_property parent.project_path C:/Users/Aaron/Desktop/School/WES_Capstone/Jupy
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property board_part www.digilentinc.com:pynq-z1:part0:1.0 [current_project]
 set_property ip_repo_paths {
   c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver
   c:/Users/Aaron/Desktop/School/WES_Capstone/HLS_Projects/xilinx_hls_axi_spi_example

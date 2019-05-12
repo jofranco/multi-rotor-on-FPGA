@@ -2408,7 +2408,7 @@ When set to:   0 - Default.   1 - When the core is configured in dual/quad SPI m
             <spirit:description>SPI Transmit Data.
 </spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
-            <spirit:bitWidth spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_TRANSFER_BITS&apos;)))">8</spirit:bitWidth>
+            <spirit:bitWidth spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_TRANSFER_BITS&apos;)))">16</spirit:bitWidth>
             <spirit:volatile>true</spirit:volatile>
             <spirit:access>write-only</spirit:access>
             <spirit:writeValueConstraint>
@@ -2442,7 +2442,7 @@ When set to:   0 - Default.   1 - When the core is configured in dual/quad SPI m
             <spirit:description>SPI Receive Data
 </spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
-            <spirit:bitWidth spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_TRANSFER_BITS&apos;)))">8</spirit:bitWidth>
+            <spirit:bitWidth spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_TRANSFER_BITS&apos;)))">16</spirit:bitWidth>
             <spirit:volatile>true</spirit:volatile>
             <spirit:access>read-only</spirit:access>
             <spirit:writeValueConstraint>
@@ -3312,11 +3312,11 @@ This bit has no significance in dual or quad mode.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 05 23:39:21 UTC 2019</spirit:value>
+            <spirit:value>Sun May 12 19:55:39 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:8b4f958b</spirit:value>
+            <spirit:value>8:64292232</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3332,11 +3332,11 @@ This bit has no significance in dual or quad mode.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 05 23:39:21 UTC 2019</spirit:value>
+            <spirit:value>Sun May 12 19:55:39 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:8b4f958b</spirit:value>
+            <spirit:value>8:64292232</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3375,11 +3375,11 @@ This bit has no significance in dual or quad mode.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 05 23:39:21 UTC 2019</spirit:value>
+            <spirit:value>Sun May 12 19:55:39 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:3b72a2a5</spirit:value>
+            <spirit:value>8:82f07a9e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3395,11 +3395,11 @@ This bit has no significance in dual or quad mode.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 05 23:39:21 UTC 2019</spirit:value>
+            <spirit:value>Sun May 12 19:55:39 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:3b72a2a5</spirit:value>
+            <spirit:value>8:82f07a9e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3413,11 +3413,11 @@ This bit has no significance in dual or quad mode.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 05 23:39:21 UTC 2019</spirit:value>
+            <spirit:value>Sun May 12 19:55:39 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:8b4f958b</spirit:value>
+            <spirit:value>8:64292232</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3431,11 +3431,11 @@ This bit has no significance in dual or quad mode.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun May 05 23:39:36 UTC 2019</spirit:value>
+            <spirit:value>Sun May 12 19:58:29 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:8b4f958b</spirit:value>
+            <spirit:value>8:64292232</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -5875,7 +5875,7 @@ This bit has no significance in dual or quad mode.
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_NUM_TRANSFER_BITS</spirit:name>
         <spirit:displayName>Num Transfer Bits</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_TRANSFER_BITS">8</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_TRANSFER_BITS">16</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SPI_MODE</spirit:name>
@@ -5951,6 +5951,13 @@ This bit has no significance in dual or quad mode.
       <spirit:enumeration>256</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
+      <spirit:name>choice_list_397ba2a5</spirit:name>
+      <spirit:enumeration>Custom</spirit:enumeration>
+      <spirit:enumeration>spi</spirit:enumeration>
+      <spirit:enumeration>spi</spirit:enumeration>
+      <spirit:enumeration>spi</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
       <spirit:name>choice_list_552a89ba</spirit:name>
       <spirit:enumeration>2</spirit:enumeration>
       <spirit:enumeration>4</spirit:enumeration>
@@ -5977,10 +5984,6 @@ This bit has no significance in dual or quad mode.
       <spirit:name>choice_list_8af5a703</spirit:name>
       <spirit:enumeration>0</spirit:enumeration>
       <spirit:enumeration>1</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_list_ac75ef1e</spirit:name>
-      <spirit:enumeration>Custom</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_pairs_4873554b</spirit:name>
@@ -6516,6 +6519,18 @@ This bit has no significance in dual or quad mode.
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
+        <spirit:name>design_1_axi_quad_spi_0_0_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>design_1_axi_quad_spi_0_0_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>design_1_axi_quad_spi_0_0_sim_netlist.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
@@ -6527,18 +6542,6 @@ This bit has no significance in dual or quad mode.
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
         <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>design_1_axi_quad_spi_0_0_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>design_1_axi_quad_spi_0_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
@@ -6601,7 +6604,7 @@ This bit has no significance in dual or quad mode.
       <spirit:name>C_NUM_TRANSFER_BITS</spirit:name>
       <spirit:displayName>Num Transfer Bits</spirit:displayName>
       <spirit:description>This parameter should be set while choosing the no. of bits in single SPI transaction. Please refer PG for more reference. Allowed values are 8 or 16 or 32. The Standard SPI mode supports all the three values while Dual and Quad SPI mode supports only the 8-bit transfer mode.</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_NUM_TRANSFER_BITS" spirit:choiceRef="choice_list_8112d406" spirit:order="60">8</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_NUM_TRANSFER_BITS" spirit:choiceRef="choice_list_8112d406" spirit:order="60">16</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -6874,7 +6877,7 @@ This bit has no significance in dual or quad mode.
     <spirit:parameter>
       <spirit:name>QSPI_BOARD_INTERFACE</spirit:name>
       <spirit:displayName>QSPI Board Interface</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.QSPI_BOARD_INTERFACE" spirit:choiceRef="choice_list_ac75ef1e" spirit:order="39">Custom</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.QSPI_BOARD_INTERFACE" spirit:choiceRef="choice_list_397ba2a5" spirit:order="39">Custom</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -6939,11 +6942,11 @@ This bit has no significance in dual or quad mode.
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.LITE_CLK.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.SPI_CLK.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.SPI_CLK.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Async_Clk" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Async_Clk" xilinx:valueSource="propagated"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_NUM_SS_BITS" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_NUM_TRANSFER_BITS" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_SCK_RATIO" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_S_AXI4_ID_WIDTH" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_S_AXI4_ID_WIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_TYPE_OF_AXI4_INTERFACE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_USE_STARTUP" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_USE_STARTUP_INT" xilinx:valueSource="user"/>

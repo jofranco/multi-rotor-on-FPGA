@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Fri May 10 15:07:40 2019
+//Date        : Sun May 12 14:59:53 2019
 //Host        : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -33,13 +33,11 @@ module design_1_wrapper
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
     LED_0,
+    LED_1,
     MISO,
     MOSI,
     SPI_CLK,
-    SS_AG,
-    ap_done_0,
-    ap_idle_0,
-    ap_ready_0);
+    SS_AG);
   output CLK_OUT_100M;
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
@@ -63,13 +61,11 @@ module design_1_wrapper
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
   output [0:0]LED_0;
+  output [0:0]LED_1;
   input MISO;
   output MOSI;
   output SPI_CLK;
   output [0:0]SS_AG;
-  output ap_done_0;
-  output ap_idle_0;
-  output ap_ready_0;
 
   wire CLK_OUT_100M;
   wire [14:0]DDR_addr;
@@ -94,13 +90,11 @@ module design_1_wrapper
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
   wire [0:0]LED_0;
+  wire [0:0]LED_1;
   wire MISO;
   wire MOSI;
   wire SPI_CLK;
   wire [0:0]SS_AG;
-  wire ap_done_0;
-  wire ap_idle_0;
-  wire ap_ready_0;
 
   design_1 design_1_i
        (.CLK_OUT_100M(CLK_OUT_100M),
@@ -126,11 +120,9 @@ module design_1_wrapper
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .LED_0(LED_0),
+        .LED_1(LED_1),
         .MISO(MISO),
         .MOSI(MOSI),
         .SPI_CLK(SPI_CLK),
-        .SS_AG(SS_AG),
-        .ap_done_0(ap_done_0),
-        .ap_idle_0(ap_idle_0),
-        .ap_ready_0(ap_ready_0));
+        .SS_AG(SS_AG));
 endmodule

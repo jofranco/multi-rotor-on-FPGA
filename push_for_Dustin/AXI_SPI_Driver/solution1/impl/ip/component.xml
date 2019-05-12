@@ -6,6 +6,186 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
+      <spirit:name>s_axi_CTRL</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm_rtl" spirit:version="1.0"/>
+      <spirit:slave>
+        <spirit:memoryMapRef spirit:memoryMapRef="s_axi_CTRL"/>
+      </spirit:slave>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>AWADDR</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_AWADDR</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>AWVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_AWVALID</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>AWREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_AWREADY</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_WDATA</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WSTRB</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_WSTRB</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_WVALID</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>WREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_WREADY</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BRESP</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_BRESP</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_BVALID</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_BREADY</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ARADDR</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_ARADDR</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ARVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_ARVALID</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ARREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_ARREADY</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_RDATA</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RRESP</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_RRESP</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_RVALID</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axi_CTRL_RREADY</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ADDR_WIDTH</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_CTRL.ADDR_WIDTH">5</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>DATA_WIDTH</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_CTRL.DATA_WIDTH">32</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PROTOCOL</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_CTRL.PROTOCOL">AXI4LITE</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>READ_WRITE_MODE</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_CTRL.READ_WRITE_MODE">READ_WRITE</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>LAYERED_METADATA</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_CTRL.LAYERED_METADATA">xilinx.com:interface:datatypes:1.0 {AWVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} AWREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolv
+e_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} WVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} WR
+EADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} BVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format lo
+ng minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} BREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} BRESP {datatype {name {attribs {resolve_ty
+pe immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} ARVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} val
+ue {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} ARREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long min
+imum {} maximum {}} value 0}}} RVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} RREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type 
+immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} RRESP {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {sig
+ned {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} AWADDR {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 5} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minim
+um {} maximum {}} value false}}}} WDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} WSTRB {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_typ
+e immediate dependency {} format long minimum {} maximum {}} value 4} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} ARADDR {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 5
+} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} RDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format lo
+ng minimum {} maximum {}} value 0}}}}</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
       <spirit:name>ap_clk</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -23,7 +203,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_BUSIF">m_axi_spi_core</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_BUSIF">s_axi_CTRL:m_axi_OUT_r</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
@@ -62,59 +242,37 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>ap_ctrl</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="acc_handshake" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="acc_handshake_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:name>interrupt</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="interrupt_rtl" spirit:version="1.0"/>
+      <spirit:master/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>start</spirit:name>
+            <spirit:name>INTERRUPT</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>ap_start</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>done</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>ap_done</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>idle</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>ap_idle</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>ready</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>ap_ready</spirit:name>
+            <spirit:name>interrupt</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
+          <spirit:name>SENSITIVITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.INTERRUPT.SENSITIVITY">LEVEL_HIGH</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
           <spirit:name>LAYERED_METADATA</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AP_CTRL.LAYERED_METADATA">xilinx.com:interface:datatypes:1.0 {start {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} done {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_typ
-e immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} idle {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} ready {da
-tatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}}}</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.INTERRUPT.LAYERED_METADATA">xilinx.com:interface:datatypes:1.0 {INTERRUPT {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}}}</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>m_axi_spi_core</spirit:name>
+      <spirit:name>m_axi_OUT_r</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm_rtl" spirit:version="1.0"/>
       <spirit:master>
-        <spirit:addressSpaceRef spirit:addressSpaceRef="Data_m_axi_spi_core"/>
+        <spirit:addressSpaceRef spirit:addressSpaceRef="Data_m_axi_OUT_r"/>
       </spirit:master>
       <spirit:portMaps>
         <spirit:portMap>
@@ -122,7 +280,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWID</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -130,7 +288,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWADDR</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWADDR</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWADDR</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -138,7 +296,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWLEN</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWLEN</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWLEN</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -146,7 +304,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWSIZE</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWSIZE</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWSIZE</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -154,7 +312,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWBURST</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWBURST</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWBURST</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -162,7 +320,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWLOCK</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWLOCK</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWLOCK</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -170,7 +328,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWREGION</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWREGION</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWREGION</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -178,7 +336,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWCACHE</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWCACHE</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWCACHE</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -186,7 +344,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWPROT</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWPROT</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWPROT</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -194,7 +352,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWQOS</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWQOS</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWQOS</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -202,7 +360,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWUSER</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWUSER</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWUSER</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -210,7 +368,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWVALID</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -218,7 +376,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>AWREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_AWREADY</spirit:name>
+            <spirit:name>m_axi_OUT_r_AWREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -226,7 +384,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>WID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_WID</spirit:name>
+            <spirit:name>m_axi_OUT_r_WID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -234,7 +392,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>WDATA</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_WDATA</spirit:name>
+            <spirit:name>m_axi_OUT_r_WDATA</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -242,7 +400,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>WSTRB</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_WSTRB</spirit:name>
+            <spirit:name>m_axi_OUT_r_WSTRB</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -250,7 +408,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>WLAST</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_WLAST</spirit:name>
+            <spirit:name>m_axi_OUT_r_WLAST</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -258,7 +416,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>WUSER</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_WUSER</spirit:name>
+            <spirit:name>m_axi_OUT_r_WUSER</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -266,7 +424,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>WVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_WVALID</spirit:name>
+            <spirit:name>m_axi_OUT_r_WVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -274,7 +432,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>WREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_WREADY</spirit:name>
+            <spirit:name>m_axi_OUT_r_WREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -282,7 +440,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>BID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_BID</spirit:name>
+            <spirit:name>m_axi_OUT_r_BID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -290,7 +448,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>BRESP</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_BRESP</spirit:name>
+            <spirit:name>m_axi_OUT_r_BRESP</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -298,7 +456,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>BUSER</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_BUSER</spirit:name>
+            <spirit:name>m_axi_OUT_r_BUSER</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -306,7 +464,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>BVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_BVALID</spirit:name>
+            <spirit:name>m_axi_OUT_r_BVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -314,7 +472,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>BREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_BREADY</spirit:name>
+            <spirit:name>m_axi_OUT_r_BREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -322,7 +480,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARID</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -330,7 +488,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARADDR</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARADDR</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARADDR</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -338,7 +496,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARLEN</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARLEN</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARLEN</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -346,7 +504,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARSIZE</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARSIZE</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARSIZE</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -354,7 +512,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARBURST</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARBURST</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARBURST</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -362,7 +520,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARLOCK</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARLOCK</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARLOCK</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -370,7 +528,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARREGION</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARREGION</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARREGION</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -378,7 +536,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARCACHE</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARCACHE</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARCACHE</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -386,7 +544,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARPROT</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARPROT</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARPROT</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -394,7 +552,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARQOS</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARQOS</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARQOS</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -402,7 +560,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARUSER</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARUSER</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARUSER</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -410,7 +568,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARVALID</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -418,7 +576,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>ARREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_ARREADY</spirit:name>
+            <spirit:name>m_axi_OUT_r_ARREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -426,7 +584,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>RID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_RID</spirit:name>
+            <spirit:name>m_axi_OUT_r_RID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -434,7 +592,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>RDATA</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_RDATA</spirit:name>
+            <spirit:name>m_axi_OUT_r_RDATA</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -442,7 +600,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>RRESP</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_RRESP</spirit:name>
+            <spirit:name>m_axi_OUT_r_RRESP</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -450,7 +608,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>RLAST</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_RLAST</spirit:name>
+            <spirit:name>m_axi_OUT_r_RLAST</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -458,7 +616,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>RUSER</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_RUSER</spirit:name>
+            <spirit:name>m_axi_OUT_r_RUSER</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -466,7 +624,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>RVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_RVALID</spirit:name>
+            <spirit:name>m_axi_OUT_r_RVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -474,67 +632,358 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
             <spirit:name>RREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>m_axi_spi_core_RREADY</spirit:name>
+            <spirit:name>m_axi_OUT_r_RREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ADDR_WIDTH</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.ADDR_WIDTH">32</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.ADDR_WIDTH">32</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>MAX_BURST_LENGTH</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.MAX_BURST_LENGTH">256</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.MAX_BURST_LENGTH">256</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.NUM_READ_OUTSTANDING">16</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.NUM_READ_OUTSTANDING">16</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.NUM_WRITE_OUTSTANDING">16</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.NUM_WRITE_OUTSTANDING">16</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>MAX_READ_BURST_LENGTH</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.MAX_READ_BURST_LENGTH">16</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.MAX_READ_BURST_LENGTH">16</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>MAX_WRITE_BURST_LENGTH</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.MAX_WRITE_BURST_LENGTH">16</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.MAX_WRITE_BURST_LENGTH">16</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>PROTOCOL</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.PROTOCOL">AXI4</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.PROTOCOL">AXI4</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>READ_WRITE_MODE</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.READ_WRITE_MODE">READ_WRITE</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.READ_WRITE_MODE">READ_WRITE</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>HAS_BURST</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.HAS_BURST">0</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.HAS_BURST">0</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>SUPPORTS_NARROW_BURST</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_SPI_CORE.SUPPORTS_NARROW_BURST">0</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.M_AXI_OUT_R.SUPPORTS_NARROW_BURST">0</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:addressSpaces>
     <spirit:addressSpace>
-      <spirit:name>Data_m_axi_spi_core</spirit:name>
+      <spirit:name>Data_m_axi_OUT_r</spirit:name>
       <spirit:range>4G</spirit:range>
       <spirit:width spirit:format="long">32</spirit:width>
       <spirit:parameters>
         <spirit:parameter>
+          <spirit:name>DEPENDENT_ON</spirit:name>
+          <spirit:value spirit:id="ADDRSPACEPARAM_VALUE.DATA_M_AXI_OUT_R.DEPENDENT_ON">s_axi_CTRL</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
           <spirit:name>PREFERRED_USAGE</spirit:name>
-          <spirit:value spirit:id="ADDRSPACEPARAM_VALUE.DATA_M_AXI_SPI_CORE.PREFERRED_USAGE">MEMORY</spirit:value>
+          <spirit:value spirit:id="ADDRSPACEPARAM_VALUE.DATA_M_AXI_OUT_R.PREFERRED_USAGE">MEMORY</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:addressSpace>
   </spirit:addressSpaces>
+  <spirit:memoryMaps>
+    <spirit:memoryMap>
+      <spirit:name>s_axi_CTRL</spirit:name>
+      <spirit:addressBlock>
+        <spirit:name>Reg</spirit:name>
+        <spirit:baseAddress spirit:format="long">0</spirit:baseAddress>
+        <spirit:range spirit:format="long" spirit:resolve="generated">65536</spirit:range>
+        <spirit:width spirit:format="long">32</spirit:width>
+        <spirit:usage>register</spirit:usage>
+        <spirit:access>read-write</spirit:access>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>OFFSET_BASE_PARAM</spirit:name>
+            <spirit:value spirit:id="ADDRBLOCKPARAM_VALUE.S_AXI_CTRL.REG.OFFSET_BASE_PARAM">C_S_AXI_CTRL_BASEADDR</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>OFFSET_HIGH_PARAM</spirit:name>
+            <spirit:value spirit:id="ADDRBLOCKPARAM_VALUE.S_AXI_CTRL.REG.OFFSET_HIGH_PARAM">C_S_AXI_CTRL_HIGHADDR</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+        <spirit:register>
+          <spirit:name>CTRL</spirit:name>
+          <spirit:displayName>CTRL</spirit:displayName>
+          <spirit:description>Control signals</spirit:description>
+          <spirit:addressOffset>0</spirit:addressOffset>
+          <spirit:size spirit:format="long">32</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value spirit:format="long">0</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>AP_START</spirit:name>
+            <spirit:description>Control signal Register for &apos;ap_start&apos;.</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:modifiedWriteValue>modify</spirit:modifiedWriteValue>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>AP_DONE</spirit:name>
+            <spirit:description>Control signal Register for &apos;ap_done&apos;.</spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>AP_IDLE</spirit:name>
+            <spirit:description>Control signal Register for &apos;ap_idle&apos;.</spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>AP_READY</spirit:name>
+            <spirit:description>Control signal Register for &apos;ap_ready&apos;.</spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RESERVED_1</spirit:name>
+            <spirit:description>Reserved.  0s on read.</spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">3</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>AUTO_RESTART</spirit:name>
+            <spirit:description>Control signal Register for &apos;auto_restart&apos;.</spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:modifiedWriteValue>modify</spirit:modifiedWriteValue>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RESERVED_2</spirit:name>
+            <spirit:description>Reserved.  0s on read.</spirit:description>
+            <spirit:bitOffset>8</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">24</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>GIER</spirit:name>
+          <spirit:displayName>GIER</spirit:displayName>
+          <spirit:description>Global Interrupt Enable Register</spirit:description>
+          <spirit:addressOffset>4</spirit:addressOffset>
+          <spirit:size spirit:format="long">32</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value spirit:format="long">0</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>Enable</spirit:name>
+            <spirit:description>Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:modifiedWriteValue>modify</spirit:modifiedWriteValue>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RESERVED</spirit:name>
+            <spirit:description>Reserved.  0s on read.</spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">31</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>IP_IER</spirit:name>
+          <spirit:displayName>IP_IER</spirit:displayName>
+          <spirit:description>IP Interrupt Enable Register</spirit:description>
+          <spirit:addressOffset>8</spirit:addressOffset>
+          <spirit:size spirit:format="long">32</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value spirit:format="long">0</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>CHAN0_INT_EN</spirit:name>
+            <spirit:description>Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled.</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:modifiedWriteValue>modify</spirit:modifiedWriteValue>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>CHAN1_INT_EN</spirit:name>
+            <spirit:description>Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled.</spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-write</spirit:access>
+            <spirit:modifiedWriteValue>modify</spirit:modifiedWriteValue>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RESERVED</spirit:name>
+            <spirit:description>Reserved.  0s on read.</spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">30</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>IP_ISR</spirit:name>
+          <spirit:displayName>IP_ISR</spirit:displayName>
+          <spirit:description>IP Interrupt Status Register</spirit:description>
+          <spirit:addressOffset>12</spirit:addressOffset>
+          <spirit:size spirit:format="long">32</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:reset>
+            <spirit:value spirit:format="long">0</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>CHAN0_INT_ST</spirit:name>
+            <spirit:description>Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 input interrupt, 1 = Channel 0 input interrup</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:modifiedWriteValue>oneToToggle</spirit:modifiedWriteValue>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>CHAN1_INT_ST</spirit:name>
+            <spirit:description>Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 input interrupt, 1 = Channel 1 input interrup</spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:modifiedWriteValue>oneToToggle</spirit:modifiedWriteValue>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+          <spirit:field>
+            <spirit:name>RESERVED</spirit:name>
+            <spirit:description>Reserved.  0s on read.</spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">30</spirit:bitWidth>
+            <spirit:access>read-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:readAction>modify</spirit:readAction>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>spi_bus</spirit:name>
+          <spirit:displayName>spi_bus</spirit:displayName>
+          <spirit:description>Data signal of spi_bus</spirit:description>
+          <spirit:addressOffset>16</spirit:addressOffset>
+          <spirit:size spirit:format="long">32</spirit:size>
+          <spirit:access>write-only</spirit:access>
+          <spirit:reset>
+            <spirit:value spirit:format="long">0</spirit:value>
+          </spirit:reset>
+          <spirit:field>
+            <spirit:name>spi_bus</spirit:name>
+            <spirit:description>Bit 31 to 0 Data signal of spi_bus</spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">32</spirit:bitWidth>
+            <spirit:access>write-only</spirit:access>
+            <spirit:writeValueConstraint>
+              <spirit:minimum>0</spirit:minimum>
+              <spirit:maximum>0</spirit:maximum>
+            </spirit:writeValueConstraint>
+            <spirit:testable spirit:testConstraint="unconstrained">false</spirit:testable>
+          </spirit:field>
+        </spirit:register>
+      </spirit:addressBlock>
+    </spirit:memoryMap>
+  </spirit:memoryMaps>
   <spirit:model>
     <spirit:views>
       <spirit:view>
@@ -549,7 +998,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dd2d61d0</spirit:value>
+            <spirit:value>784ef39b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -565,7 +1014,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>72d491e4</spirit:value>
+            <spirit:value>9c410e4c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -581,7 +1030,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3ed24cd3</spirit:value>
+            <spirit:value>ced08650</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -597,7 +1046,21 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5d044191</spirit:value>
+            <spirit:value>9755414b</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_softwaredriver</spirit:name>
+        <spirit:displayName>Software Driver</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:sw.driver</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_softwaredriver_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>de2421e8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -633,7 +1096,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>c0536e79</spirit:value>
+            <spirit:value>23f4585d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -653,6 +1116,255 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
       </spirit:view>
     </spirit:views>
     <spirit:ports>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_AWADDR</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_CTRL_ADDR_WIDTH&apos;)) - 1)">4</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_AWVALID</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_AWREADY</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_WDATA</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_CTRL_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_WSTRB</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_CTRL_DATA_WIDTH&apos;)) div 8) - 1)">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_WVALID</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_WREADY</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_BRESP</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_BVALID</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_BREADY</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_ARADDR</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_CTRL_ADDR_WIDTH&apos;)) - 1)">4</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_ARVALID</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_ARREADY</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_RDATA</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_CTRL_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_RRESP</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_RVALID</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_CTRL_RREADY</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
       <spirit:port>
         <spirit:name>ap_clk</spirit:name>
         <spirit:wire>
@@ -680,20 +1392,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>ap_start</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>ap_done</spirit:name>
+        <spirit:name>interrupt</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -706,37 +1405,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>ap_idle</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>ap_ready</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>m_axi_spi_core_AWID</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWID</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ID_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -750,17 +1423,17 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_AWID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_AWID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWADDR</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWADDR</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ADDR_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_ADDR_WIDTH&apos;)) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -773,7 +1446,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWLEN</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWLEN</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -790,7 +1463,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWSIZE</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWSIZE</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -807,7 +1480,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWBURST</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWBURST</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -824,7 +1497,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWLOCK</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWLOCK</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -841,7 +1514,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWREGION</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWREGION</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -858,7 +1531,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWCACHE</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWCACHE</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -875,7 +1548,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWPROT</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWPROT</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -892,7 +1565,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWQOS</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWQOS</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -909,11 +1582,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWUSER</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWUSER</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_AWUSER_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_AWUSER_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -927,13 +1600,13 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_AWUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_AWUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWVALID</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWVALID</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -946,7 +1619,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_AWREADY</spirit:name>
+        <spirit:name>m_axi_OUT_r_AWREADY</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -959,11 +1632,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_WID</spirit:name>
+        <spirit:name>m_axi_OUT_r_WID</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ID_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -977,17 +1650,17 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_WID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_WID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_WDATA</spirit:name>
+        <spirit:name>m_axi_OUT_r_WDATA</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1000,11 +1673,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_WSTRB</spirit:name>
+        <spirit:name>m_axi_OUT_r_WSTRB</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_DATA_WIDTH&apos;)) div 8) - 1)">3</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_DATA_WIDTH&apos;)) div 8) - 1)">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1017,7 +1690,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_WLAST</spirit:name>
+        <spirit:name>m_axi_OUT_r_WLAST</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1030,11 +1703,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_WUSER</spirit:name>
+        <spirit:name>m_axi_OUT_r_WUSER</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_WUSER_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_WUSER_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1048,13 +1721,13 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_WUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_WUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_WVALID</spirit:name>
+        <spirit:name>m_axi_OUT_r_WVALID</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1067,7 +1740,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_WREADY</spirit:name>
+        <spirit:name>m_axi_OUT_r_WREADY</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1080,11 +1753,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_BID</spirit:name>
+        <spirit:name>m_axi_OUT_r_BID</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ID_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1098,13 +1771,13 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_BID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_BID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_BRESP</spirit:name>
+        <spirit:name>m_axi_OUT_r_BRESP</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1121,11 +1794,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_BUSER</spirit:name>
+        <spirit:name>m_axi_OUT_r_BUSER</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_BUSER_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_BUSER_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1142,13 +1815,13 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_BUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_BUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_BVALID</spirit:name>
+        <spirit:name>m_axi_OUT_r_BVALID</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1161,7 +1834,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_BREADY</spirit:name>
+        <spirit:name>m_axi_OUT_r_BREADY</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1174,11 +1847,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARID</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARID</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ID_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1192,17 +1865,17 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_ARID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_ARID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARADDR</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARADDR</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ADDR_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_ADDR_WIDTH&apos;)) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1215,7 +1888,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARLEN</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARLEN</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1232,7 +1905,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARSIZE</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARSIZE</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1249,7 +1922,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARBURST</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARBURST</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1266,7 +1939,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARLOCK</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARLOCK</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1283,7 +1956,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARREGION</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARREGION</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1300,7 +1973,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARCACHE</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARCACHE</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1317,7 +1990,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARPROT</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARPROT</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1334,7 +2007,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARQOS</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARQOS</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1351,11 +2024,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARUSER</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARUSER</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ARUSER_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_ARUSER_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1369,13 +2042,13 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_ARUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_ARUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARVALID</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARVALID</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1388,7 +2061,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_ARREADY</spirit:name>
+        <spirit:name>m_axi_OUT_r_ARREADY</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1401,11 +2074,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_RID</spirit:name>
+        <spirit:name>m_axi_OUT_r_RID</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ID_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1419,17 +2092,17 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_RID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_RID" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_RDATA</spirit:name>
+        <spirit:name>m_axi_OUT_r_RDATA</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1442,7 +2115,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_RRESP</spirit:name>
+        <spirit:name>m_axi_OUT_r_RRESP</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1459,7 +2132,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_RLAST</spirit:name>
+        <spirit:name>m_axi_OUT_r_RLAST</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1472,11 +2145,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_RUSER</spirit:name>
+        <spirit:name>m_axi_OUT_r_RUSER</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_SPI_CORE_RUSER_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M_AXI_OUT_R_RUSER_WIDTH&apos;)) - 1)">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1493,13 +2166,13 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_spi_core_RUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.m_axi_OUT_r_RUSER" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_RVALID</spirit:name>
+        <spirit:name>m_axi_OUT_r_RVALID</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1512,7 +2185,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>m_axi_spi_core_RREADY</spirit:name>
+        <spirit:name>m_axi_OUT_r_RREADY</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1527,101 +2200,105 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
     </spirit:ports>
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_ID_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ID_WIDTH">1</spirit:value>
+        <spirit:name>C_S_AXI_CTRL_ADDR_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_CTRL_ADDR_WIDTH">5</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>C_S_AXI_CTRL_DATA_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:id="MODELPARAM_VALUE.C_S_AXI_CTRL_DATA_WIDTH">32</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>C_M_AXI_OUT_R_ID_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH">1</spirit:value>
         <spirit:vendorExtensions>
           <xilinx:parameterInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_SPI_CORE_ID_WIDTH">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_OUT_R_ID_WIDTH">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:parameterInfo>
         </spirit:vendorExtensions>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_ADDR_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ADDR_WIDTH">32</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_ADDR_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_ADDR_WIDTH">32</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_DATA_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_DATA_WIDTH">32</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_DATA_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_DATA_WIDTH">32</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_AWUSER_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_AWUSER_WIDTH">1</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_AWUSER_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_AWUSER_WIDTH">1</spirit:value>
         <spirit:vendorExtensions>
           <xilinx:parameterInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_SPI_CORE_AWUSER_WIDTH">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_OUT_R_AWUSER_WIDTH">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:parameterInfo>
         </spirit:vendorExtensions>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_ARUSER_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_ARUSER_WIDTH">1</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_ARUSER_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_ARUSER_WIDTH">1</spirit:value>
         <spirit:vendorExtensions>
           <xilinx:parameterInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_SPI_CORE_ARUSER_WIDTH">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_OUT_R_ARUSER_WIDTH">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:parameterInfo>
         </spirit:vendorExtensions>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_WUSER_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_WUSER_WIDTH">1</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_WUSER_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_WUSER_WIDTH">1</spirit:value>
         <spirit:vendorExtensions>
           <xilinx:parameterInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_SPI_CORE_WUSER_WIDTH">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_OUT_R_WUSER_WIDTH">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:parameterInfo>
         </spirit:vendorExtensions>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_RUSER_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_RUSER_WIDTH">1</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_RUSER_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_RUSER_WIDTH">1</spirit:value>
         <spirit:vendorExtensions>
           <xilinx:parameterInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_SPI_CORE_RUSER_WIDTH">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_OUT_R_RUSER_WIDTH">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:parameterInfo>
         </spirit:vendorExtensions>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_BUSER_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_BUSER_WIDTH">1</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_BUSER_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_BUSER_WIDTH">1</spirit:value>
         <spirit:vendorExtensions>
           <xilinx:parameterInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_SPI_CORE_BUSER_WIDTH">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_OUT_R_BUSER_WIDTH">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:parameterInfo>
         </spirit:vendorExtensions>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_USER_VALUE</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_USER_VALUE" spirit:bitStringLength="32">0x00000000</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_USER_VALUE</spirit:name>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_USER_VALUE" spirit:bitStringLength="32">0x00000000</spirit:value>
         <spirit:vendorExtensions>
           <xilinx:parameterInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_SPI_CORE_USER_VALUE">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="MODELPARAM_ENABLEMENT.C_M_AXI_OUT_R_USER_VALUE">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:parameterInfo>
         </spirit:vendorExtensions>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_PROT_VALUE</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_PROT_VALUE" spirit:bitStringLength="3">&quot;000&quot;</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_PROT_VALUE</spirit:name>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_PROT_VALUE" spirit:bitStringLength="3">&quot;000&quot;</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_CACHE_VALUE</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_CACHE_VALUE" spirit:bitStringLength="4">&quot;0011&quot;</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_M_AXI_SPI_CORE_TARGET_ADDR</spirit:name>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_SPI_CORE_TARGET_ADDR" spirit:bitStringLength="32">0x00000000</spirit:value>
+        <spirit:name>C_M_AXI_OUT_R_CACHE_VALUE</spirit:name>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M_AXI_OUT_R_CACHE_VALUE" spirit:bitStringLength="4">&quot;0011&quot;</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1645,7 +2322,11 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/AXI_SPI_DRIVER_spi_core_m_axi.v</spirit:name>
+        <spirit:name>hdl/verilog/AXI_SPI_DRIVER_CTRL_s_axi.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/AXI_SPI_DRIVER_OUT_r_m_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1656,7 +2337,12 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>hdl/verilog/AXI_SPI_DRIVER_spi_core_m_axi.v</spirit:name>
+        <spirit:name>hdl/verilog/AXI_SPI_DRIVER_CTRL_s_axi.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/verilog/AXI_SPI_DRIVER_OUT_r_m_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1674,19 +2360,28 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/AXI_SPI_DRIVER_spi_core_m_axi.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/AXI_SPI_DRIVER_CTRL_s_axi.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/AXI_SPI_DRIVER_OUT_r_m_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/AXI_SPI_DRIVER.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_db630e81</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_79260d01</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>hdl/vhdl/AXI_SPI_DRIVER_spi_core_m_axi.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/AXI_SPI_DRIVER_CTRL_s_axi.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdl/vhdl/AXI_SPI_DRIVER_OUT_r_m_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -1694,6 +2389,41 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
         <spirit:name>hdl/vhdl/AXI_SPI_DRIVER.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_softwaredriver_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>drivers/AXI_SPI_DRIVER_v1_0/data/AXI_SPI_DRIVER.mdd</spirit:name>
+        <spirit:userFileType>driver_mdd</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>drivers/AXI_SPI_DRIVER_v1_0/data/AXI_SPI_DRIVER.tcl</spirit:name>
+        <spirit:userFileType>driver_tcl</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>drivers/AXI_SPI_DRIVER_v1_0/src/Makefile</spirit:name>
+        <spirit:userFileType>driver_src</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>drivers/AXI_SPI_DRIVER_v1_0/src/xaxi_spi_driver.c</spirit:name>
+        <spirit:userFileType>driver_src</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>drivers/AXI_SPI_DRIVER_v1_0/src/xaxi_spi_driver.h</spirit:name>
+        <spirit:userFileType>driver_src</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>drivers/AXI_SPI_DRIVER_v1_0/src/xaxi_spi_driver_hw.h</spirit:name>
+        <spirit:userFileType>driver_src</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>drivers/AXI_SPI_DRIVER_v1_0/src/xaxi_spi_driver_linux.c</spirit:name>
+        <spirit:userFileType>driver_src</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>drivers/AXI_SPI_DRIVER_v1_0/src/xaxi_spi_driver_sinit.c</spirit:name>
+        <spirit:userFileType>driver_src</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1715,7 +2445,7 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
       <spirit:file>
         <spirit:name>xgui/AXI_SPI_DRIVER_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_c0536e79</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_23f4585d</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1731,118 +2461,113 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
   <spirit:description>An IP generated by Vivado HLS</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_ENABLE_ID_PORTS</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_ENABLE_ID_PORTS</spirit:name>
       <spirit:displayName>Enable ID ports</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_ID_PORTS" spirit:order="2" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_ID_PORTS" spirit:order="2" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_ID_WIDTH</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_ID_WIDTH</spirit:name>
       <spirit:displayName>ID width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_ID_WIDTH" spirit:order="3" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="32" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH" spirit:order="3" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="32" spirit:rangeType="long">1</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_SPI_CORE_ID_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_OUT_R_ID_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_ID_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_DATA_WIDTH</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_DATA_WIDTH</spirit:name>
       <spirit:displayName>Data width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_DATA_WIDTH" spirit:choiceRef="choice_list_40181835" spirit:order="4" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)">32</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_DATA_WIDTH" spirit:choiceRef="choice_list_40181835" spirit:order="4" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)">32</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_ENABLE_USER_PORTS</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_ENABLE_USER_PORTS</spirit:name>
       <spirit:displayName>Enable USER ports</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS" spirit:order="5" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS" spirit:order="5" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_AWUSER_WIDTH</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_AWUSER_WIDTH</spirit:name>
       <spirit:displayName>AWUSER width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_AWUSER_WIDTH" spirit:order="6" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_AWUSER_WIDTH" spirit:order="6" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_SPI_CORE_AWUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_OUT_R_AWUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_WUSER_WIDTH</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_WUSER_WIDTH</spirit:name>
       <spirit:displayName>WUSER width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_WUSER_WIDTH" spirit:order="7" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_WUSER_WIDTH" spirit:order="7" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_SPI_CORE_WUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_OUT_R_WUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_BUSER_WIDTH</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_BUSER_WIDTH</spirit:name>
       <spirit:displayName>BUSER width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_BUSER_WIDTH" spirit:order="8" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_BUSER_WIDTH" spirit:order="8" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_SPI_CORE_BUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_OUT_R_BUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_ARUSER_WIDTH</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_ARUSER_WIDTH</spirit:name>
       <spirit:displayName>ARUSER width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_ARUSER_WIDTH" spirit:order="9" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_ARUSER_WIDTH" spirit:order="9" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_SPI_CORE_ARUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_OUT_R_ARUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_RUSER_WIDTH</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_RUSER_WIDTH</spirit:name>
       <spirit:displayName>RUSER width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_RUSER_WIDTH" spirit:order="10" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_RUSER_WIDTH" spirit:order="10" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)" spirit:minimum="1" spirit:maximum="1024" spirit:rangeType="long">1</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_SPI_CORE_RUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_OUT_R_RUSER_WIDTH" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_USER_VALUE</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_USER_VALUE</spirit:name>
       <spirit:displayName>USER value</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_USER_VALUE" spirit:order="11" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:bitStringLength="32">0x00000000</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_USER_VALUE" spirit:order="11" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)" spirit:bitStringLength="32">0x00000000</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_SPI_CORE_USER_VALUE" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_SPI_CORE_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PARAM_ENABLEMENT.C_M_AXI_OUT_R_USER_VALUE" xilinx:dependency="(spirit:decode(id(&apos;PARAM_VALUE.C_M_AXI_OUT_R_ENABLE_USER_PORTS&apos;)) = 1)">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_PROT_VALUE</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_PROT_VALUE</spirit:name>
       <spirit:displayName>PROT value</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_PROT_VALUE" spirit:order="12" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:bitStringLength="3">&quot;000&quot;</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_PROT_VALUE" spirit:order="12" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)" spirit:bitStringLength="3">&quot;000&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_CACHE_VALUE</spirit:name>
+      <spirit:name>C_M_AXI_OUT_R_CACHE_VALUE</spirit:name>
       <spirit:displayName>CACHE value</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_CACHE_VALUE" spirit:order="13" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:bitStringLength="4">&quot;0011&quot;</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>C_M_AXI_SPI_CORE_TARGET_ADDR</spirit:name>
-      <spirit:displayName>Base address of target slave</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_SPI_CORE_TARGET_ADDR" spirit:order="14" spirit:configGroups="1 m axi spi core (AXI4 Master Interface)" spirit:bitStringLength="32">0x00000000</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M_AXI_OUT_R_CACHE_VALUE" spirit:order="13" spirit:configGroups="1 m axi OUT r (AXI4 Master Interface)" spirit:bitStringLength="4">&quot;0011&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -1850,23 +2575,23 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>clk_period</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.clk_period" spirit:order="15">10</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.clk_period" spirit:order="14">10</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>machine</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.machine" spirit:order="16">64</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.machine" spirit:order="15">64</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>combinational</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.combinational" spirit:order="17">0</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.combinational" spirit:order="16">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="18">1</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="17">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>II</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="19">x</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="18">x</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -1879,17 +2604,18 @@ tatype {name {attribs {resolve_type immediate dependency {} format string minimu
       </xilinx:taxonomies>
       <xilinx:displayName>Axi_spi_driver</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1905101445</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-05-10T21:45:18Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1905121418</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-05-12T21:18:49Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="9c2f8632"/>
-      <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="daf15d20"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ec486d60"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="395d9611"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="a50a993f"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="05b37af4"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="434680af"/>
+      <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="7cf1c44f"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="c15e1ba7"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="01869f5e"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="4fe32db1"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="cc86c841"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="fd9f78bc"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

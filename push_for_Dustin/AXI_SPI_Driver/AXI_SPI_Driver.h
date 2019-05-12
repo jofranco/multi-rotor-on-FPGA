@@ -10,18 +10,18 @@ using namespace std;
 #define SPI_BASE_ADDR	(0x41E00000)
 
 // Core Grouping
-#define SRR 		(0x00000040 >> 2)	// software reset register
-#define SPICR		(0x00000060 >> 2)  // SPI control register
-#define SPISR		(0x00000064 >> 2)  // SPI status register
-#define SPI_DTR		(0x00000068 >> 2)  // SPI data transmit
-#define SPI_DRR		(0x0000006C >> 2)  // SPI data receive
-#define SPISSR		(0x00000070 >> 2)  // SPI slave select register
-#define TXFIFO_V	(0x00000074 >> 2)  // Transmit FIFO occupancy register
-#define RXFIFO_V	(0x00000078 >> 2)  // Receive FIFO occupancy register
+#define SRR 		(0x40 >> 2)	// software reset register
+#define SPICR		(0x60/4)  // SPI control register
+#define SPISR		(0x64 >> 2)  // SPI status register
+#define SPI_DTR		(0x68 >> 2)  // SPI data transmit
+#define SPI_DRR		(0x6C >> 2)  // SPI data receive
+#define SPISSR		(0x70/4)  // SPI slave select register
+#define TXFIFO_V	(0x74 >> 2)  // Transmit FIFO occupancy register
+#define RXFIFO_V	(0x78 >> 2)  // Receive FIFO occupancy register
 // interrupt Control Grouping
-#define DGIER		(0x0000001C >> 2)  // Device global interrupt enable register
-#define IPISR		(0x00000020 >> 2)	// IP interrupt status register
-#define IPIER		(0x00000028 >> 2)  // IP interrupt enable register
+#define DGIER		(0x1C >> 2)  // Device global interrupt enable register
+#define IPISR		(0x20 >> 2)	// IP interrupt status register
+#define IPIER		(0x28 >> 2)  // IP interrupt enable register
 
 
 // Address space definitions for PMODNAV
@@ -67,8 +67,9 @@ using namespace std;
 #define MAKE_LONGER  (0x00000000)
 
 
-typedef volatile int DTYPE;
+//typedef volatile int DTYPE;
 
+/*
 struct DTYPE2
 {
 	// Constructors
@@ -86,6 +87,7 @@ struct DTYPE2
 	DTYPE data;
 	ap_int<1> last;
 };
+*/
 
 
 /*
@@ -93,8 +95,10 @@ struct DTYPE2
  */
 
 // main driver
+
+void AXI_SPI_DRIVER(volatile int *spi_bus);
 //void AXI_SPI_DRIVER(volatile int spi_bus[4096] /*, uint32_t *TX_message, uint32_t *RX_message*/);
-void AXI_SPI_DRIVER(DTYPE2 spi_bus[4096]);
+//void AXI_SPI_DRIVER(DTYPE2 spi_bus[4096]);
 
 
 //delay function in milliseconds
