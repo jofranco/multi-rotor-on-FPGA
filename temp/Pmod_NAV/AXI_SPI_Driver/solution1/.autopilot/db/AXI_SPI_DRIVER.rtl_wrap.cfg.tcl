@@ -3,6 +3,21 @@ set moduleName "AXI_SPI_DRIVER"
 set moduleIsExternC "0"
 set rawDecl ""
 set globalVariable ""
+set PortName3 "state"
+set BitWidth3 "8"
+set ArrayOpt3 ""
+set Const3 "0"
+set Volatile3 "0"
+set Pointer3 "0"
+set Reference3 "0"
+set Initializer3 ""
+set External3 0
+set Dims3 [list 0]
+set Interface3 "wire"
+set NameSpace3 [list ]
+set DataType3 "unsigned char"
+set Port3 [list $PortName3 $Interface3 $DataType3 $Pointer3 $Dims3 $Const3 $Volatile3 $ArrayOpt3 $Initializer3 $External3 $NameSpace3]
+lappend globalVariable $Port3
 set PortList ""
 set PortName0 "spi_bus"
 set BitWidth0 "64"
@@ -29,11 +44,11 @@ set DataType1 "[list ap_uint 32 ]"
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
 set PortName2 "RX_message"
-set BitWidth2 "32"
+set BitWidth2 "64"
 set ArrayOpt2 ""
 set Const2 "0"
 set Volatile2 "0"
-set Pointer2 "0"
+set Pointer2 "1"
 set Reference2 "0"
 set Dims2 [list 0]
 set Interface2 "wire"

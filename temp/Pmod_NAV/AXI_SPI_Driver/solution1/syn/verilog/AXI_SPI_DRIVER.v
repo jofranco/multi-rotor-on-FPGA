@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="AXI_SPI_DRIVER,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=6,HLS_SYN_TPT=none,HLS_SYN_MEM=2,HLS_SYN_DSP=0,HLS_SYN_FF=673,HLS_SYN_LUT=945,HLS_VERSION=2018_2}" *)
+(* CORE_GENERATION_INFO="AXI_SPI_DRIVER,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=6,HLS_SYN_TPT=none,HLS_SYN_MEM=2,HLS_SYN_DSP=0,HLS_SYN_FF=686,HLS_SYN_LUT=966,HLS_VERSION=2018_2}" *)
 
 module AXI_SPI_DRIVER (
         ap_clk,
@@ -196,14 +196,14 @@ reg ap_ready;
 (* fsm_encoding = "none" *) reg   [16:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 wire   [31:0] TX_message_V;
-wire   [31:0] RX_message_V;
-reg   [3:0] state;
+reg    RX_message_V_ap_vld;
+reg   [7:0] state;
 reg    spi_core_blk_n_AW;
 reg    spi_core_blk_n_W;
 wire    ap_CS_fsm_state8;
 reg    spi_core_blk_n_B;
 wire    ap_CS_fsm_state7;
-reg   [3:0] state_load_reg_166;
+reg   [7:0] state_load_reg_182;
 wire    ap_CS_fsm_state2;
 wire    ap_CS_fsm_state13;
 reg    spi_core_AWVALID;
@@ -224,25 +224,28 @@ reg    spi_core_BREADY;
 wire   [1:0] spi_core_BRESP;
 wire   [0:0] spi_core_BID;
 wire   [0:0] spi_core_BUSER;
-reg   [31:0] TX_message_V_read_reg_161;
+reg   [31:0] TX_message_V_read_reg_176;
 reg    ap_sig_ioackin_spi_core_AWREADY;
-reg    ap_predicate_op37_writereq_state1;
+reg    ap_predicate_op36_writereq_state1;
 reg    ap_block_state1_io;
 reg    ap_reg_ioackin_spi_core_AWREADY;
-reg    ap_predicate_op47_writeresp_state7;
+reg    ap_predicate_op48_writeresp_state7;
 reg    ap_block_state7;
 reg    ap_reg_ioackin_spi_core_WREADY;
 reg    ap_sig_ioackin_spi_core_WREADY;
+wire   [7:0] tmp_1_fu_164_p2;
+reg    ap_reg_ioackin_RX_message_V_dummy_ack;
 reg   [16:0] ap_NS_fsm;
-reg    ap_condition_439;
-reg    ap_condition_274;
+reg    ap_condition_454;
+reg    ap_condition_275;
 
 // power-on initialization
 initial begin
 #0 ap_CS_fsm = 17'd1;
-#0 state = 4'd0;
+#0 state = 8'd0;
 #0 ap_reg_ioackin_spi_core_AWREADY = 1'b0;
 #0 ap_reg_ioackin_spi_core_WREADY = 1'b0;
+#0 ap_reg_ioackin_RX_message_V_dummy_ack = 1'b0;
 end
 
 AXI_SPI_DRIVER_debug_s_axi #(
@@ -270,7 +273,8 @@ AXI_SPI_DRIVER_debug_s_axi_U(
     .ARESET(ap_rst_n_inv),
     .ACLK_EN(1'b1),
     .TX_message_V(TX_message_V),
-    .RX_message_V(RX_message_V)
+    .RX_message_V(TX_message_V_read_reg_176),
+    .RX_message_V_ap_vld(RX_message_V_ap_vld)
 );
 
 AXI_SPI_DRIVER_spi_core_m_axi #(
@@ -400,11 +404,25 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
+        ap_reg_ioackin_RX_message_V_dummy_ack <= 1'b0;
+    end else begin
+        if ((1'b1 == ap_CS_fsm_state13)) begin
+            if ((ap_sig_ioackin_spi_core_WREADY == 1'b1)) begin
+                ap_reg_ioackin_RX_message_V_dummy_ack <= 1'b0;
+            end else if ((1'b1 == 1'b1)) begin
+                ap_reg_ioackin_RX_message_V_dummy_ack <= 1'b1;
+            end
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst_n_inv == 1'b1) begin
         ap_reg_ioackin_spi_core_AWREADY <= 1'b0;
     end else begin
-        if (((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (state == 4'd0) & (1'b1 == ap_CS_fsm_state1)) | (~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (ap_predicate_op37_writereq_state1 == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | (~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (state == 4'd1) & (1'b1 == ap_CS_fsm_state1)))) begin
+        if (((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (state == 8'd0) & (1'b1 == ap_CS_fsm_state1)) | (~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (ap_predicate_op36_writereq_state1 == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | (~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (state == 8'd1) & (1'b1 == ap_CS_fsm_state1)))) begin
             ap_reg_ioackin_spi_core_AWREADY <= 1'b0;
-        end else if ((((state == 4'd0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (spi_core_AWREADY == 1'b1)) | ((ap_predicate_op37_writereq_state1 == 1'b1) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (spi_core_AWREADY == 1'b1)) | ((state == 4'd1) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (spi_core_AWREADY == 1'b1)))) begin
+        end else if ((((state == 8'd0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (spi_core_AWREADY == 1'b1)) | ((ap_predicate_op36_writereq_state1 == 1'b1) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (spi_core_AWREADY == 1'b1)) | ((state == 8'd1) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (spi_core_AWREADY == 1'b1)))) begin
             ap_reg_ioackin_spi_core_AWREADY <= 1'b1;
         end
     end
@@ -424,16 +442,15 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
-                state[0] <= 1'b0;
-        state[1] <= 1'b0;
+        state <= 8'd0;
     end else begin
-        if ((1'b1 == ap_condition_274)) begin
-            if ((state == 4'd0)) begin
-                                state[0] <= 1'b1;
-                state[1] <= 1'b0;
-            end else if ((state == 4'd1)) begin
-                                state[0] <= 1'b0;
-                state[1] <= 1'b1;
+        if ((1'b1 == ap_condition_275)) begin
+            if ((ap_predicate_op36_writereq_state1 == 1'b1)) begin
+                state <= tmp_1_fu_164_p2;
+            end else if ((state == 8'd0)) begin
+                state <= 8'd1;
+            end else if ((state == 8'd1)) begin
+                state <= 8'd2;
             end
         end
     end
@@ -441,13 +458,21 @@ end
 
 always @ (posedge ap_clk) begin
     if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        TX_message_V_read_reg_161 <= TX_message_V;
-        state_load_reg_166[1 : 0] <= state[1 : 0];
+        TX_message_V_read_reg_176 <= TX_message_V;
+        state_load_reg_182 <= state;
     end
 end
 
 always @ (*) begin
-    if ((~(((ap_predicate_op47_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_166 == 4'd1)) | ((state_load_reg_166 == 4'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
+    if (((ap_reg_ioackin_RX_message_V_dummy_ack == 1'b0) & (1'b1 == ap_CS_fsm_state13))) begin
+        RX_message_V_ap_vld = 1'b1;
+    end else begin
+        RX_message_V_ap_vld = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((~(((ap_predicate_op48_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_182 == 8'd1)) | ((state_load_reg_182 == 8'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -463,7 +488,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~(((ap_predicate_op47_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_166 == 4'd1)) | ((state_load_reg_166 == 4'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
+    if ((~(((ap_predicate_op48_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_182 == 8'd1)) | ((state_load_reg_182 == 8'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -487,12 +512,12 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_condition_439)) begin
-        if ((ap_predicate_op37_writereq_state1 == 1'b1)) begin
+    if ((1'b1 == ap_condition_454)) begin
+        if ((ap_predicate_op36_writereq_state1 == 1'b1)) begin
             spi_core_AWADDR = 64'd26;
-        end else if ((state == 4'd0)) begin
+        end else if ((state == 8'd0)) begin
             spi_core_AWADDR = 64'd24;
-        end else if ((state == 4'd1)) begin
+        end else if ((state == 8'd1)) begin
             spi_core_AWADDR = 64'd28;
         end else begin
             spi_core_AWADDR = 'bx;
@@ -503,7 +528,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((state == 4'd0) & (ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | ((ap_predicate_op37_writereq_state1 == 1'b1) & (ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | ((state == 4'd1) & (ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)))) begin
+    if ((((state == 8'd0) & (ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | ((ap_predicate_op36_writereq_state1 == 1'b1) & (ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | ((state == 8'd1) & (ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)))) begin
         spi_core_AWVALID = 1'b1;
     end else begin
         spi_core_AWVALID = 1'b0;
@@ -511,7 +536,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((~(((ap_predicate_op47_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_166 == 4'd1)) | ((state_load_reg_166 == 4'd0) & (spi_core_BVALID == 1'b0))) & (ap_predicate_op47_writeresp_state7 == 1'b1) & (1'b1 == ap_CS_fsm_state7)) | (~(((ap_predicate_op47_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_166 == 4'd1)) | ((state_load_reg_166 == 4'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7) & (state_load_reg_166 == 4'd1)) | (~(((ap_predicate_op47_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_166 == 4'd1)) | ((state_load_reg_166 == 4'd0) & (spi_core_BVALID == 1'b0))) & (state_load_reg_166 == 4'd0) & (1'b1 == ap_CS_fsm_state7)))) begin
+    if (((~(((ap_predicate_op48_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_182 == 8'd1)) | ((state_load_reg_182 == 8'd0) & (spi_core_BVALID == 1'b0))) & (ap_predicate_op48_writeresp_state7 == 1'b1) & (1'b1 == ap_CS_fsm_state7)) | (~(((ap_predicate_op48_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_182 == 8'd1)) | ((state_load_reg_182 == 8'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7) & (state_load_reg_182 == 8'd1)) | (~(((ap_predicate_op48_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_182 == 8'd1)) | ((state_load_reg_182 == 8'd0) & (spi_core_BVALID == 1'b0))) & (state_load_reg_182 == 8'd0) & (1'b1 == ap_CS_fsm_state7)))) begin
         spi_core_BREADY = 1'b1;
     end else begin
         spi_core_BREADY = 1'b0;
@@ -521,7 +546,7 @@ end
 always @ (*) begin
     if ((ap_reg_ioackin_spi_core_WREADY == 1'b0)) begin
         if ((1'b1 == ap_CS_fsm_state13)) begin
-            spi_core_WDATA = TX_message_V_read_reg_161;
+            spi_core_WDATA = TX_message_V_read_reg_176;
         end else if ((1'b1 == ap_CS_fsm_state8)) begin
             spi_core_WDATA = 32'd6;
         end else if ((1'b1 == ap_CS_fsm_state2)) begin
@@ -543,7 +568,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((state == 4'd0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | (~(state == 4'd0) & ~(state == 4'd1) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | ((state == 4'd1) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)))) begin
+    if ((((state == 8'd0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | (~(state == 8'd0) & ~(state == 8'd1) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)) | ((state == 8'd1) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1)))) begin
         spi_core_blk_n_AW = m_axi_spi_core_AWREADY;
     end else begin
         spi_core_blk_n_AW = 1'b1;
@@ -551,7 +576,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((~(state_load_reg_166 == 4'd1) & ~(state_load_reg_166 == 4'd0) & (1'b1 == ap_CS_fsm_state7)) | ((1'b1 == ap_CS_fsm_state7) & (state_load_reg_166 == 4'd1)) | ((state_load_reg_166 == 4'd0) & (1'b1 == ap_CS_fsm_state7)))) begin
+    if (((~(state_load_reg_182 == 8'd1) & ~(state_load_reg_182 == 8'd0) & (1'b1 == ap_CS_fsm_state7)) | ((1'b1 == ap_CS_fsm_state7) & (state_load_reg_182 == 8'd1)) | ((state_load_reg_182 == 8'd0) & (1'b1 == ap_CS_fsm_state7)))) begin
         spi_core_blk_n_B = m_axi_spi_core_BVALID;
     end else begin
         spi_core_blk_n_B = 1'b1;
@@ -569,11 +594,11 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if ((~(state == 4'd0) & ~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & ~(state == 4'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+            if ((~(state == 8'd0) & ~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & ~(state == 8'd1) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state13;
-            end else if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (state == 4'd0) & (1'b1 == ap_CS_fsm_state1))) begin
+            end else if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (state == 8'd0) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state8;
-            end else if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (state == 4'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+            end else if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (state == 8'd1) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
@@ -599,7 +624,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state7;
         end
         ap_ST_fsm_state7 : begin
-            if ((~(((ap_predicate_op47_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_166 == 4'd1)) | ((state_load_reg_166 == 4'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
+            if ((~(((ap_predicate_op48_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_182 == 8'd1)) | ((state_load_reg_182 == 8'd0) & (spi_core_BVALID == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state7;
@@ -660,36 +685,33 @@ assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
 assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 
 always @ (*) begin
-    ap_block_state1_io = (((state == 4'd0) & (ap_sig_ioackin_spi_core_AWREADY == 1'b0)) | ((ap_predicate_op37_writereq_state1 == 1'b1) & (ap_sig_ioackin_spi_core_AWREADY == 1'b0)) | ((state == 4'd1) & (ap_sig_ioackin_spi_core_AWREADY == 1'b0)));
+    ap_block_state1_io = (((state == 8'd0) & (ap_sig_ioackin_spi_core_AWREADY == 1'b0)) | ((ap_predicate_op36_writereq_state1 == 1'b1) & (ap_sig_ioackin_spi_core_AWREADY == 1'b0)) | ((state == 8'd1) & (ap_sig_ioackin_spi_core_AWREADY == 1'b0)));
 end
 
 always @ (*) begin
-    ap_block_state7 = (((ap_predicate_op47_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_166 == 4'd1)) | ((state_load_reg_166 == 4'd0) & (spi_core_BVALID == 1'b0)));
+    ap_block_state7 = (((ap_predicate_op48_writeresp_state7 == 1'b1) & (spi_core_BVALID == 1'b0)) | ((spi_core_BVALID == 1'b0) & (state_load_reg_182 == 8'd1)) | ((state_load_reg_182 == 8'd0) & (spi_core_BVALID == 1'b0)));
 end
 
 always @ (*) begin
-    ap_condition_274 = (~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1));
+    ap_condition_275 = (~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1));
 end
 
 always @ (*) begin
-    ap_condition_439 = ((ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1));
+    ap_condition_454 = ((ap_reg_ioackin_spi_core_AWREADY == 1'b0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1));
 end
 
 always @ (*) begin
-    ap_predicate_op37_writereq_state1 = (~(state == 4'd0) & ~(state == 4'd1));
+    ap_predicate_op36_writereq_state1 = (~(state == 8'd0) & ~(state == 8'd1));
 end
 
 always @ (*) begin
-    ap_predicate_op47_writeresp_state7 = (~(state_load_reg_166 == 4'd1) & ~(state_load_reg_166 == 4'd0));
+    ap_predicate_op48_writeresp_state7 = (~(state_load_reg_182 == 8'd1) & ~(state_load_reg_182 == 8'd0));
 end
 
 always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-always @ (posedge ap_clk) begin
-    state[3:2] <= 2'b00;
-    state_load_reg_166[3:2] <= 2'b00;
-end
+assign tmp_1_fu_164_p2 = (state + 8'd1);
 
 endmodule //AXI_SPI_DRIVER

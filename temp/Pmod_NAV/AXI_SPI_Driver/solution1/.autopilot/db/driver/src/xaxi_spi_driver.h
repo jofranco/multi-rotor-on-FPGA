@@ -83,8 +83,8 @@ int XAxi_spi_driver_Release(XAxi_spi_driver *InstancePtr);
 
 void XAxi_spi_driver_Set_TX_message_V(XAxi_spi_driver *InstancePtr, u32 Data);
 u32 XAxi_spi_driver_Get_TX_message_V(XAxi_spi_driver *InstancePtr);
-void XAxi_spi_driver_Set_RX_message_V(XAxi_spi_driver *InstancePtr, u32 Data);
 u32 XAxi_spi_driver_Get_RX_message_V(XAxi_spi_driver *InstancePtr);
+u32 XAxi_spi_driver_Get_RX_message_V_vld(XAxi_spi_driver *InstancePtr);
 
 #ifdef __cplusplus
 }

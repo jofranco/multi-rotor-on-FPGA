@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog>
+        <logs message="ERROR: [HLS 200-70] Compilation errors found: Pragma processor failed: In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:1:&#xD;&#xA;In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:5:&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.h:101:63: warning: default template arguments for a function template are a C++11 extension [-Wc++11-extensions]&#xD;&#xA;template &lt;unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL>&#xD;&#xA;                                                              ^              ~~~~~~~~~~~~&#xD;&#xA;In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:1:&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.cpp:37:14: error: member reference type 'DTYPE2 *' is a pointer; maybe you meant to use '->'?&#xD;&#xA;   *(spi_bus).last = last;&#xD;&#xA;    ~~~~~~~~~^&#xD;&#xA;             ->&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.cpp:37:4: error: indirection requires pointer operand ('ap_int&lt;1>' invalid)&#xD;&#xA;   *(spi_bus).last = last;&#xD;&#xA;   ^~~~~~~~~~~~~~~&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.cpp:45:14: error: member reference type 'DTYPE2 *' is a pointer; maybe you meant to use '->'?&#xD;&#xA;   *(spi_bus).last = done;&#xD;&#xA;    ~~~~~~~~~^&#xD;&#xA;             ->&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.cpp:45:4: error: indirection requires pointer operand ('ap_int&lt;1>' invalid)&#xD;&#xA;   *(spi_bus).last = done;&#xD;&#xA;   ^~~~~~~~~~~~~~~&#xD;&#xA;1 warning and 4 errors generated.&#xD;&#xA;Failed checking during preprocessing.&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/csynth.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/csynth.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="AXI_SPI_Driver" solutionName="solution1" date="2019-05-10T15:45:13.464-0700"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="AXI_SPI_Driver" solutionName="solution1" date="2019-05-10T15:45:40.649-0700"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [HLS 200-40] In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:1:&#xD;&#xA;In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:5:&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.h:101:63: warning: default template arguments for a function template are a C++11 extension [-Wc++11-extensions]&#xD;&#xA;template &lt;unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL>&#xD;&#xA;                                                              ^              ~~~~~~~~~~~~&#xD;&#xA;In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:1:&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.cpp:37:14: error: member reference type 'DTYPE2 *' is a pointer; maybe you meant to use '->'?&#xD;&#xA;   *(spi_bus).last = last;&#xD;&#xA;    ~~~~~~~~~^&#xD;&#xA;             ->&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.cpp:37:4: error: indirection requires pointer operand ('ap_int&lt;1>' invalid)&#xD;&#xA;   *(spi_bus).last = last;&#xD;&#xA;   ^~~~~~~~~~~~~~~&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.cpp:45:14: error: member reference type 'DTYPE2 *' is a pointer; maybe you meant to use '->'?&#xD;&#xA;   *(spi_bus).last = done;&#xD;&#xA;    ~~~~~~~~~^&#xD;&#xA;             ->&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.cpp:45:4: error: indirection requires pointer operand ('ap_int&lt;1>' invalid)&#xD;&#xA;   *(spi_bus).last = done;&#xD;&#xA;   ^~~~~~~~~~~~~~~&#xD;&#xA;1 warning and 4 errors generated.\n" projectName="AXI_SPI_Driver" solutionName="solution1" date="2019-05-10T15:45:13.322-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

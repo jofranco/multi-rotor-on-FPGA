@@ -24392,7 +24392,7 @@ __extension__ typedef unsigned long long uintmax_t;
 
 using namespace std;
 # 76 "AXI_SPI_Driver/AXI_SPI_Driver.h"
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message);
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> *RX_message);
 
 
 
@@ -24413,9 +24413,9 @@ _ssdm_op_SpecProtocol(0, "");
 # 6 "AXI_SPI_Driver/AXI_SPI_Driver.cpp" 2
 
 
+uint8_t state = 0;
 
-
-void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> RX_message )
+void AXI_SPI_DRIVER(ap_uint<32> spi_bus[4096], ap_uint<32> TX_message, ap_uint<32> *RX_message )
 {_ssdm_SpecArrayDimSize(spi_bus, 4096);
 _ssdm_op_SpecPipeline(0, 0, 0, 1, "");
 
@@ -24423,28 +24423,26 @@ _ssdm_op_SpecPipeline(0, 0, 0, 1, "");
 
 
 
-
-
 _ssdm_op_SpecInterface(&TX_message, "s_axilite", 0, 0, "", 0, 0, "debug", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(&RX_message, "s_axilite", 0, 0, "", 0, 0, "debug", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(RX_message, "s_axilite", 0, 0, "", 0, 0, "debug", "", "", 0, 0, 0, 0, "", "");
 
 _ssdm_op_SpecInterface(spi_bus, "m_axi", 0, 0, "", 0, 0, "spi_core", "off", "", 16, 16, 16, 16, "", "");
 
 
 
 
- static unsigned char state = 0;
+
 _ssdm_op_SpecReset( &state, 1,  "");
 
  switch (state)
  {
   case 0:
-   *(spi_bus + ((0x00000060 >> 2))) = 0x0006;
+   spi_bus[(0x00000060 >> 2)] = 0x0006;
 
    state++;
    break;
   case 1:
-   *(spi_bus + ((0x00000070 >> 2))) = 0xFFFE;
+   spi_bus[(0x00000070 >> 2)] = 0xFFFE;
    state++;
    break;
   default:
@@ -24452,14 +24450,14 @@ _ssdm_op_SpecReset( &state, 1,  "");
 
 
 
-   *(spi_bus + (0x00000068 >> 2)) = TX_message;
+   spi_bus[(0x00000068 >> 2)] = TX_message;
 
 
 
 
-   RX_message = *(spi_bus + (0x00000068 >> 2));
+   *RX_message = *(spi_bus +(0x00000068 >> 2));
 
-
+   state++;
    break;
 
 

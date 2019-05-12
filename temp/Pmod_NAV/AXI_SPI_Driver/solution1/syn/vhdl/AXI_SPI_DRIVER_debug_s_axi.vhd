@@ -37,7 +37,8 @@ port (
     RREADY                :in   STD_LOGIC;
     -- user signals
     TX_message_V          :out  STD_LOGIC_VECTOR(31 downto 0);
-    RX_message_V          :out  STD_LOGIC_VECTOR(31 downto 0)
+    RX_message_V          :in   STD_LOGIC_VECTOR(31 downto 0);
+    RX_message_V_ap_vld   :in   STD_LOGIC
 );
 end entity AXI_SPI_DRIVER_debug_s_axi;
 
@@ -50,8 +51,10 @@ end entity AXI_SPI_DRIVER_debug_s_axi;
 --        bit 31~0 - TX_message_V[31:0] (Read/Write)
 -- 0x14 : reserved
 -- 0x18 : Data signal of RX_message_V
---        bit 31~0 - RX_message_V[31:0] (Read/Write)
--- 0x1c : reserved
+--        bit 31~0 - RX_message_V[31:0] (Read)
+-- 0x1c : Control signal of RX_message_V
+--        bit 0  - RX_message_V_ap_vld (Read/COR)
+--        others - reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of AXI_SPI_DRIVER_debug_s_axi is
@@ -79,6 +82,7 @@ architecture behave of AXI_SPI_DRIVER_debug_s_axi is
     -- internal registers
     signal int_TX_message_V    : UNSIGNED(31 downto 0) := (others => '0');
     signal int_RX_message_V    : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_RX_message_V_ap_vld : STD_LOGIC;
 
 
 begin
@@ -196,6 +200,8 @@ begin
                         rdata_data <= RESIZE(int_TX_message_V(31 downto 0), 32);
                     when ADDR_RX_MESSAGE_V_DATA_0 =>
                         rdata_data <= RESIZE(int_RX_message_V(31 downto 0), 32);
+                    when ADDR_RX_MESSAGE_V_CTRL =>
+                        rdata_data <= (0 => int_RX_message_V_ap_vld, others => '0');
                     when others =>
                         rdata_data <= (others => '0');
                     end case;
@@ -206,7 +212,6 @@ begin
 
 -- ----------------------- Register logic ----------------
     TX_message_V         <= STD_LOGIC_VECTOR(int_TX_message_V);
-    RX_message_V         <= STD_LOGIC_VECTOR(int_RX_message_V);
 
     process (ACLK)
     begin
@@ -222,9 +227,26 @@ begin
     process (ACLK)
     begin
         if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_RX_MESSAGE_V_DATA_0) then
-                    int_RX_message_V(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_RX_message_V(31 downto 0));
+            if (ARESET = '1') then
+                int_RX_message_V <= (others => '0');
+            elsif (ACLK_EN = '1') then
+                if (RX_message_V_ap_vld = '1') then
+                    int_RX_message_V <= UNSIGNED(RX_message_V); -- clear on read
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_RX_message_V_ap_vld <= '0';
+            elsif (ACLK_EN = '1') then
+                if (RX_message_V_ap_vld = '1') then
+                    int_RX_message_V_ap_vld <= '1';
+                elsif (ar_hs = '1' and raddr = ADDR_RX_MESSAGE_V_CTRL) then
+                    int_RX_message_V_ap_vld <= '0'; -- clear on read
                 end if;
             end if;
         end if;

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'AXI_SPI_DRIVER'
 ================================================================
-* Date:           Wed May  8 02:28:29 2019
+* Date:           Sun May 12 10:31:11 2019
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        AXI_SPI_Driver
@@ -49,14 +49,14 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
 +-----------------+---------+-------+--------+-------+
 |DSP              |        -|      -|       -|      -|
-|Expression       |        -|      -|       0|     12|
+|Expression       |        -|      -|       0|     27|
 |FIFO             |        -|      -|       -|      -|
 |Instance         |        2|      -|     618|    748|
 |Memory           |        -|      -|       -|      -|
-|Multiplexer      |        -|      -|       -|    185|
-|Register         |        -|      -|      55|      -|
+|Multiplexer      |        -|      -|       -|    191|
+|Register         |        -|      -|      68|      -|
 +-----------------+---------+-------+--------+-------+
-|Total            |        2|      0|     673|    945|
+|Total            |        2|      0|     686|    966|
 +-----------------+---------+-------+--------+-------+
 |Available        |      280|    220|  106400|  53200|
 +-----------------+---------+-------+--------+-------+
@@ -87,14 +87,15 @@
     +------------------------------------+----------+-------+---+----+------------+------------+
     |            Variable Name           | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +------------------------------------+----------+-------+---+----+------------+------------+
-    |ap_condition_274                    |    and   |      0|  0|   2|           1|           1|
-    |ap_condition_439                    |    and   |      0|  0|   2|           1|           1|
-    |ap_predicate_op37_writereq_state1   |    and   |      0|  0|   2|           1|           1|
-    |ap_predicate_op47_writeresp_state7  |    and   |      0|  0|   2|           1|           1|
+    |tmp_1_fu_164_p2                     |     +    |      0|  0|  15|           8|           1|
+    |ap_condition_275                    |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_454                    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op36_writereq_state1   |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op48_writeresp_state7  |    and   |      0|  0|   2|           1|           1|
     |ap_block_state1_io                  |    or    |      0|  0|   2|           1|           1|
     |ap_block_state7                     |    or    |      0|  0|   2|           1|           1|
     +------------------------------------+----------+-------+---+----+------------+------------+
-    |Total                               |          |      0|  0|  12|           6|           6|
+    |Total                               |          |      0|  0|  27|          14|           7|
     +------------------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
@@ -109,24 +110,25 @@
     |spi_core_blk_n_AW                |   9|          2|    1|          2|
     |spi_core_blk_n_B                 |   9|          2|    1|          2|
     |spi_core_blk_n_W                 |   9|          2|    1|          2|
-    |state                            |   9|          2|    2|          4|
+    |state                            |  15|          3|    8|         24|
     +---------------------------------+----+-----------+-----+-----------+
-    |Total                            | 185|         38|   72|        288|
+    |Total                            | 191|         39|   78|        308|
     +---------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +---------------------------------+----+----+-----+-----------+
-    |               Name              | FF | LUT| Bits| Const Bits|
-    +---------------------------------+----+----+-----+-----------+
-    |TX_message_V_read_reg_161        |  32|   0|   32|          0|
-    |ap_CS_fsm                        |  17|   0|   17|          0|
-    |ap_reg_ioackin_spi_core_AWREADY  |   1|   0|    1|          0|
-    |ap_reg_ioackin_spi_core_WREADY   |   1|   0|    1|          0|
-    |state                            |   2|   0|    4|          2|
-    |state_load_reg_166               |   2|   0|    4|          2|
-    +---------------------------------+----+----+-----+-----------+
-    |Total                            |  55|   0|   59|          4|
-    +---------------------------------+----+----+-----+-----------+
+    +---------------------------------------+----+----+-----+-----------+
+    |                  Name                 | FF | LUT| Bits| Const Bits|
+    +---------------------------------------+----+----+-----+-----------+
+    |TX_message_V_read_reg_176              |  32|   0|   32|          0|
+    |ap_CS_fsm                              |  17|   0|   17|          0|
+    |ap_reg_ioackin_RX_message_V_dummy_ack  |   1|   0|    1|          0|
+    |ap_reg_ioackin_spi_core_AWREADY        |   1|   0|    1|          0|
+    |ap_reg_ioackin_spi_core_WREADY         |   1|   0|    1|          0|
+    |state                                  |   8|   0|    8|          0|
+    |state_load_reg_182                     |   8|   0|    8|          0|
+    +---------------------------------------+----+----+-----+-----------+
+    |Total                                  |  68|   0|   68|          0|
+    +---------------------------------------+----+----+-----+-----------+
 
 
 
@@ -137,23 +139,23 @@
 +-------------------------+-----+-----+------------+----------------+--------------+
 |        RTL Ports        | Dir | Bits|  Protocol  |  Source Object |    C Type    |
 +-------------------------+-----+-----+------------+----------------+--------------+
-|s_axi_debug_AWVALID      |  in |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_AWREADY      | out |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_AWADDR       |  in |    5|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_WVALID       |  in |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_WREADY       | out |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_WDATA        |  in |   32|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_WSTRB        |  in |    4|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_ARVALID      |  in |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_ARREADY      | out |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_ARADDR       |  in |    5|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_RVALID       | out |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_RREADY       |  in |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_RDATA        | out |   32|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_RRESP        | out |    2|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_BVALID       | out |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_BREADY       |  in |    1|    s_axi   |      debug     |    scalar    |
-|s_axi_debug_BRESP        | out |    2|    s_axi   |      debug     |    scalar    |
+|s_axi_debug_AWVALID      |  in |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_AWREADY      | out |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_AWADDR       |  in |    5|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_WVALID       |  in |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_WREADY       | out |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_WDATA        |  in |   32|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_WSTRB        |  in |    4|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_ARVALID      |  in |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_ARREADY      | out |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_ARADDR       |  in |    5|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_RVALID       | out |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_RREADY       |  in |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_RDATA        | out |   32|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_RRESP        | out |    2|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_BVALID       | out |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_BREADY       |  in |    1|    s_axi   |      debug     |    pointer   |
+|s_axi_debug_BRESP        | out |    2|    s_axi   |      debug     |    pointer   |
 |ap_clk                   |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
 |ap_rst_n                 |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
 |ap_start                 |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |

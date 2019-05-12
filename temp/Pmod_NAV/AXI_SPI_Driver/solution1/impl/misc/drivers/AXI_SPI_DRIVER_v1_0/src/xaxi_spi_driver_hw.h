@@ -14,12 +14,15 @@
 //        bit 31~0 - TX_message_V[31:0] (Read/Write)
 // 0x14 : reserved
 // 0x18 : Data signal of RX_message_V
-//        bit 31~0 - RX_message_V[31:0] (Read/Write)
-// 0x1c : reserved
+//        bit 31~0 - RX_message_V[31:0] (Read)
+// 0x1c : Control signal of RX_message_V
+//        bit 0  - RX_message_V_ap_vld (Read/COR)
+//        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define XAXI_SPI_DRIVER_DEBUG_ADDR_TX_MESSAGE_V_DATA 0x10
 #define XAXI_SPI_DRIVER_DEBUG_BITS_TX_MESSAGE_V_DATA 32
 #define XAXI_SPI_DRIVER_DEBUG_ADDR_RX_MESSAGE_V_DATA 0x18
 #define XAXI_SPI_DRIVER_DEBUG_BITS_RX_MESSAGE_V_DATA 32
+#define XAXI_SPI_DRIVER_DEBUG_ADDR_RX_MESSAGE_V_CTRL 0x1c
 

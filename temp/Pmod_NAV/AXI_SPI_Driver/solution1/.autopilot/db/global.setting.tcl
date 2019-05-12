@@ -43,7 +43,7 @@ set SCTraceOption "all"
 set TargetInfo "xc7z020:clg400:-1"
 set SourceFiles {sc {} c ../AXI_SPI_Driver.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile {C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/solution1.directive}
+set DirectiveFile {C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/solution1/solution1.directive}
 set TBFiles {verilog ../main.cpp bc ../main.cpp vhdl ../main.cpp sc ../main.cpp cas ../main.cpp c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

@@ -38,13 +38,6 @@ u32 XAxi_spi_driver_Get_TX_message_V(XAxi_spi_driver *InstancePtr) {
     return Data;
 }
 
-void XAxi_spi_driver_Set_RX_message_V(XAxi_spi_driver *InstancePtr, u32 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XAxi_spi_driver_WriteReg(InstancePtr->Debug_BaseAddress, XAXI_SPI_DRIVER_DEBUG_ADDR_RX_MESSAGE_V_DATA, Data);
-}
-
 u32 XAxi_spi_driver_Get_RX_message_V(XAxi_spi_driver *InstancePtr) {
     u32 Data;
 
@@ -53,5 +46,15 @@ u32 XAxi_spi_driver_Get_RX_message_V(XAxi_spi_driver *InstancePtr) {
 
     Data = XAxi_spi_driver_ReadReg(InstancePtr->Debug_BaseAddress, XAXI_SPI_DRIVER_DEBUG_ADDR_RX_MESSAGE_V_DATA);
     return Data;
+}
+
+u32 XAxi_spi_driver_Get_RX_message_V_vld(XAxi_spi_driver *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XAxi_spi_driver_ReadReg(InstancePtr->Debug_BaseAddress, XAXI_SPI_DRIVER_DEBUG_ADDR_RX_MESSAGE_V_CTRL);
+    return Data & 0x1;
 }
 

@@ -33,10 +33,10 @@ const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state16 = "1000000000000000";
 const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state17 = "10000000000000000";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_0 = "00000000000000000000000000000000";
 const bool AXI_SPI_DRIVER::ap_const_boolean_1 = true;
-const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_0 = "0000";
+const sc_lv<8> AXI_SPI_DRIVER::ap_const_lv8_0 = "00000000";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_7 = "111";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_6 = "110";
-const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_1 = "1";
+const sc_lv<8> AXI_SPI_DRIVER::ap_const_lv8_1 = "1";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_1 = "1";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_C = "1100";
 const int AXI_SPI_DRIVER::C_S_AXI_DATA_WIDTH = "100000";
@@ -51,9 +51,10 @@ const sc_lv<64> AXI_SPI_DRIVER::ap_const_lv64_1A = "11010";
 const sc_lv<1> AXI_SPI_DRIVER::ap_const_lv1_0 = "0";
 const sc_lv<3> AXI_SPI_DRIVER::ap_const_lv3_0 = "000";
 const sc_lv<2> AXI_SPI_DRIVER::ap_const_lv2_0 = "00";
+const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_0 = "0000";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_FFFE = "1111111111111110";
 const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_F = "1111";
-const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_2 = "10";
+const sc_lv<8> AXI_SPI_DRIVER::ap_const_lv8_2 = "10";
 
 AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(0) {
     AXI_SPI_DRIVER_debug_s_axi_U = new AXI_SPI_DRIVER_debug_s_axi<C_S_AXI_DEBUG_ADDR_WIDTH,C_S_AXI_DEBUG_DATA_WIDTH>("AXI_SPI_DRIVER_debug_s_axi_U");
@@ -78,7 +79,8 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
     AXI_SPI_DRIVER_debug_s_axi_U->ARESET(ap_rst_n_inv);
     AXI_SPI_DRIVER_debug_s_axi_U->ACLK_EN(ap_var_for_const0);
     AXI_SPI_DRIVER_debug_s_axi_U->TX_message_V(TX_message_V);
-    AXI_SPI_DRIVER_debug_s_axi_U->RX_message_V(RX_message_V);
+    AXI_SPI_DRIVER_debug_s_axi_U->RX_message_V(TX_message_V_read_reg_176);
+    AXI_SPI_DRIVER_debug_s_axi_U->RX_message_V_ap_vld(RX_message_V_ap_vld);
     AXI_SPI_DRIVER_spi_core_m_axi_U = new AXI_SPI_DRIVER_spi_core_m_axi<0,32,32,5,16,16,16,16,C_M_AXI_SPI_CORE_ID_WIDTH,C_M_AXI_SPI_CORE_ADDR_WIDTH,C_M_AXI_SPI_CORE_DATA_WIDTH,C_M_AXI_SPI_CORE_AWUSER_WIDTH,C_M_AXI_SPI_CORE_ARUSER_WIDTH,C_M_AXI_SPI_CORE_WUSER_WIDTH,C_M_AXI_SPI_CORE_RUSER_WIDTH,C_M_AXI_SPI_CORE_BUSER_WIDTH,C_M_AXI_SPI_CORE_TARGET_ADDR,C_M_AXI_SPI_CORE_USER_VALUE,C_M_AXI_SPI_CORE_PROT_VALUE,C_M_AXI_SPI_CORE_CACHE_VALUE>("AXI_SPI_DRIVER_spi_core_m_axi_U");
     AXI_SPI_DRIVER_spi_core_m_axi_U->AWVALID(m_axi_spi_core_AWVALID);
     AXI_SPI_DRIVER_spi_core_m_axi_U->AWREADY(m_axi_spi_core_AWREADY);
@@ -178,6 +180,10 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
     dont_initialize();
     sensitive << ( ap_clk.pos() );
 
+    SC_METHOD(thread_RX_message_V_ap_vld);
+    sensitive << ( ap_CS_fsm_state13 );
+    sensitive << ( ap_reg_ioackin_RX_message_V_dummy_ack );
+
     SC_METHOD(thread_ap_CS_fsm_state1);
     sensitive << ( ap_CS_fsm );
 
@@ -196,44 +202,44 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
     SC_METHOD(thread_ap_block_state1_io);
     sensitive << ( state );
     sensitive << ( ap_sig_ioackin_spi_core_AWREADY );
-    sensitive << ( ap_predicate_op37_writereq_state1 );
+    sensitive << ( ap_predicate_op36_writereq_state1 );
 
     SC_METHOD(thread_ap_block_state7);
-    sensitive << ( state_load_reg_166 );
+    sensitive << ( state_load_reg_182 );
     sensitive << ( spi_core_BVALID );
-    sensitive << ( ap_predicate_op47_writeresp_state7 );
+    sensitive << ( ap_predicate_op48_writeresp_state7 );
 
-    SC_METHOD(thread_ap_condition_274);
+    SC_METHOD(thread_ap_condition_275);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( ap_block_state1_io );
 
-    SC_METHOD(thread_ap_condition_439);
+    SC_METHOD(thread_ap_condition_454);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( ap_reg_ioackin_spi_core_AWREADY );
 
     SC_METHOD(thread_ap_done);
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_166 );
+    sensitive << ( state_load_reg_182 );
     sensitive << ( spi_core_BVALID );
-    sensitive << ( ap_predicate_op47_writeresp_state7 );
+    sensitive << ( ap_predicate_op48_writeresp_state7 );
 
     SC_METHOD(thread_ap_idle);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
 
-    SC_METHOD(thread_ap_predicate_op37_writereq_state1);
+    SC_METHOD(thread_ap_predicate_op36_writereq_state1);
     sensitive << ( state );
 
-    SC_METHOD(thread_ap_predicate_op47_writeresp_state7);
-    sensitive << ( state_load_reg_166 );
+    SC_METHOD(thread_ap_predicate_op48_writeresp_state7);
+    sensitive << ( state_load_reg_182 );
 
     SC_METHOD(thread_ap_ready);
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_166 );
+    sensitive << ( state_load_reg_182 );
     sensitive << ( spi_core_BVALID );
-    sensitive << ( ap_predicate_op47_writeresp_state7 );
+    sensitive << ( ap_predicate_op48_writeresp_state7 );
 
     SC_METHOD(thread_ap_rst_n_inv);
     sensitive << ( ap_rst_n );
@@ -248,27 +254,27 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
 
     SC_METHOD(thread_spi_core_AWADDR);
     sensitive << ( state );
-    sensitive << ( ap_predicate_op37_writereq_state1 );
-    sensitive << ( ap_condition_439 );
+    sensitive << ( ap_predicate_op36_writereq_state1 );
+    sensitive << ( ap_condition_454 );
 
     SC_METHOD(thread_spi_core_AWVALID);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( state );
-    sensitive << ( ap_predicate_op37_writereq_state1 );
+    sensitive << ( ap_predicate_op36_writereq_state1 );
     sensitive << ( ap_reg_ioackin_spi_core_AWREADY );
 
     SC_METHOD(thread_spi_core_BREADY);
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_166 );
+    sensitive << ( state_load_reg_182 );
     sensitive << ( spi_core_BVALID );
-    sensitive << ( ap_predicate_op47_writeresp_state7 );
+    sensitive << ( ap_predicate_op48_writeresp_state7 );
 
     SC_METHOD(thread_spi_core_WDATA);
     sensitive << ( ap_CS_fsm_state8 );
     sensitive << ( ap_CS_fsm_state2 );
     sensitive << ( ap_CS_fsm_state13 );
-    sensitive << ( TX_message_V_read_reg_161 );
+    sensitive << ( TX_message_V_read_reg_176 );
     sensitive << ( ap_reg_ioackin_spi_core_WREADY );
 
     SC_METHOD(thread_spi_core_WVALID);
@@ -286,13 +292,16 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
     SC_METHOD(thread_spi_core_blk_n_B);
     sensitive << ( m_axi_spi_core_BVALID );
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_166 );
+    sensitive << ( state_load_reg_182 );
 
     SC_METHOD(thread_spi_core_blk_n_W);
     sensitive << ( m_axi_spi_core_WREADY );
     sensitive << ( ap_CS_fsm_state8 );
     sensitive << ( ap_CS_fsm_state2 );
     sensitive << ( ap_CS_fsm_state13 );
+
+    SC_METHOD(thread_tmp_1_fu_164_p2);
+    sensitive << ( state );
 
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( ap_start );
@@ -301,12 +310,12 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
     sensitive << ( state );
     sensitive << ( ap_CS_fsm_state8 );
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_166 );
+    sensitive << ( state_load_reg_182 );
     sensitive << ( ap_CS_fsm_state2 );
     sensitive << ( ap_CS_fsm_state13 );
     sensitive << ( spi_core_BVALID );
     sensitive << ( ap_block_state1_io );
-    sensitive << ( ap_predicate_op47_writeresp_state7 );
+    sensitive << ( ap_predicate_op48_writeresp_state7 );
     sensitive << ( ap_sig_ioackin_spi_core_WREADY );
 
     SC_THREAD(thread_hdltv_gen);
@@ -318,8 +327,6 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
 
     SC_THREAD(thread_ap_var_for_const2);
 
-    SC_THREAD(thread_ap_var_for_const6);
-
     SC_THREAD(thread_ap_var_for_const7);
 
     SC_THREAD(thread_ap_var_for_const3);
@@ -328,12 +335,15 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
 
     SC_THREAD(thread_ap_var_for_const5);
 
+    SC_THREAD(thread_ap_var_for_const6);
+
     SC_THREAD(thread_ap_var_for_const8);
 
     ap_CS_fsm = "00000000000000001";
-    state = "0000";
+    state = "00000000";
     ap_reg_ioackin_spi_core_AWREADY = SC_LOGIC_0;
     ap_reg_ioackin_spi_core_WREADY = SC_LOGIC_0;
+    ap_reg_ioackin_RX_message_V_dummy_ack = SC_LOGIC_0;
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "AXI_SPI_DRIVER_sc_trace_" << apTFileNum ++;
@@ -416,14 +426,14 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
     sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
     sc_trace(mVcdFile, TX_message_V, "TX_message_V");
-    sc_trace(mVcdFile, RX_message_V, "RX_message_V");
+    sc_trace(mVcdFile, RX_message_V_ap_vld, "RX_message_V_ap_vld");
     sc_trace(mVcdFile, state, "state");
     sc_trace(mVcdFile, spi_core_blk_n_AW, "spi_core_blk_n_AW");
     sc_trace(mVcdFile, spi_core_blk_n_W, "spi_core_blk_n_W");
     sc_trace(mVcdFile, ap_CS_fsm_state8, "ap_CS_fsm_state8");
     sc_trace(mVcdFile, spi_core_blk_n_B, "spi_core_blk_n_B");
     sc_trace(mVcdFile, ap_CS_fsm_state7, "ap_CS_fsm_state7");
-    sc_trace(mVcdFile, state_load_reg_166, "state_load_reg_166");
+    sc_trace(mVcdFile, state_load_reg_182, "state_load_reg_182");
     sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
     sc_trace(mVcdFile, ap_CS_fsm_state13, "ap_CS_fsm_state13");
     sc_trace(mVcdFile, spi_core_AWVALID, "spi_core_AWVALID");
@@ -444,18 +454,20 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
     sc_trace(mVcdFile, spi_core_BRESP, "spi_core_BRESP");
     sc_trace(mVcdFile, spi_core_BID, "spi_core_BID");
     sc_trace(mVcdFile, spi_core_BUSER, "spi_core_BUSER");
-    sc_trace(mVcdFile, TX_message_V_read_reg_161, "TX_message_V_read_reg_161");
+    sc_trace(mVcdFile, TX_message_V_read_reg_176, "TX_message_V_read_reg_176");
     sc_trace(mVcdFile, ap_sig_ioackin_spi_core_AWREADY, "ap_sig_ioackin_spi_core_AWREADY");
-    sc_trace(mVcdFile, ap_predicate_op37_writereq_state1, "ap_predicate_op37_writereq_state1");
+    sc_trace(mVcdFile, ap_predicate_op36_writereq_state1, "ap_predicate_op36_writereq_state1");
     sc_trace(mVcdFile, ap_block_state1_io, "ap_block_state1_io");
     sc_trace(mVcdFile, ap_reg_ioackin_spi_core_AWREADY, "ap_reg_ioackin_spi_core_AWREADY");
-    sc_trace(mVcdFile, ap_predicate_op47_writeresp_state7, "ap_predicate_op47_writeresp_state7");
+    sc_trace(mVcdFile, ap_predicate_op48_writeresp_state7, "ap_predicate_op48_writeresp_state7");
     sc_trace(mVcdFile, ap_block_state7, "ap_block_state7");
     sc_trace(mVcdFile, ap_reg_ioackin_spi_core_WREADY, "ap_reg_ioackin_spi_core_WREADY");
     sc_trace(mVcdFile, ap_sig_ioackin_spi_core_WREADY, "ap_sig_ioackin_spi_core_WREADY");
+    sc_trace(mVcdFile, tmp_1_fu_164_p2, "tmp_1_fu_164_p2");
+    sc_trace(mVcdFile, ap_reg_ioackin_RX_message_V_dummy_ack, "ap_reg_ioackin_RX_message_V_dummy_ack");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
-    sc_trace(mVcdFile, ap_condition_439, "ap_condition_439");
-    sc_trace(mVcdFile, ap_condition_274, "ap_condition_274");
+    sc_trace(mVcdFile, ap_condition_454, "ap_condition_454");
+    sc_trace(mVcdFile, ap_condition_275, "ap_condition_275");
 #endif
 
     }
@@ -487,10 +499,6 @@ void AXI_SPI_DRIVER::thread_ap_var_for_const2() {
     ap_var_for_const2 = ap_const_lv32_0;
 }
 
-void AXI_SPI_DRIVER::thread_ap_var_for_const6() {
-    ap_var_for_const6 = ap_const_lv4_0;
-}
-
 void AXI_SPI_DRIVER::thread_ap_var_for_const7() {
     ap_var_for_const7 = ap_const_lv32_1;
 }
@@ -507,6 +515,10 @@ void AXI_SPI_DRIVER::thread_ap_var_for_const5() {
     ap_var_for_const5 = ap_const_lv2_0;
 }
 
+void AXI_SPI_DRIVER::thread_ap_var_for_const6() {
+    ap_var_for_const6 = ap_const_lv4_0;
+}
+
 void AXI_SPI_DRIVER::thread_ap_var_for_const8() {
     ap_var_for_const8 = ap_const_lv4_F;
 }
@@ -518,29 +530,40 @@ void AXI_SPI_DRIVER::thread_ap_clk_no_reset_() {
         ap_CS_fsm = ap_NS_fsm.read();
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
+        ap_reg_ioackin_RX_message_V_dummy_ack = ap_const_logic_0;
+    } else {
+        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read())) {
+            if (esl_seteq<1,1,1>(ap_sig_ioackin_spi_core_WREADY.read(), ap_const_logic_1)) {
+                ap_reg_ioackin_RX_message_V_dummy_ack = ap_const_logic_0;
+            } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_const_logic_1)) {
+                ap_reg_ioackin_RX_message_V_dummy_ack = ap_const_logic_1;
+            }
+        }
+    }
+    if ( ap_rst_n_inv.read() == ap_const_logic_1) {
         ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_0;
     } else {
         if (((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && 
-              esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && 
+              esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) || 
              (!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && 
-              esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && 
+              esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) || 
              (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-              esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op37_writereq_state1.read()) && 
+              esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read()) && 
               !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0))))) {
             ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_0;
         } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
                      esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-                     esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && 
+                     esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, spi_core_AWREADY.read())) || 
                     (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
                      esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-                     esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && 
+                     esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, spi_core_AWREADY.read())) || 
                     (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
                      esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-                     esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op37_writereq_state1.read()) && 
+                     esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read()) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, spi_core_AWREADY.read())))) {
             ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_1;
         }
@@ -565,19 +588,30 @@ void AXI_SPI_DRIVER::thread_ap_clk_no_reset_() {
         }
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        state = ap_const_lv4_0;
+        state = ap_const_lv8_0;
     } else {
-        if (esl_seteq<1,1,1>(ap_condition_274.read(), ap_const_boolean_1)) {
-            if (esl_seteq<1,4,4>(state.read(), ap_const_lv4_0)) {
-                state = ap_const_lv4_1;
-            } else if (esl_seteq<1,4,4>(state.read(), ap_const_lv4_1)) {
-                state = ap_const_lv4_2;
+        if (esl_seteq<1,1,1>(ap_condition_275.read(), ap_const_boolean_1)) {
+            if (esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read())) {
+                state = tmp_1_fu_164_p2.read();
+            } else if (esl_seteq<1,8,8>(state.read(), ap_const_lv8_0)) {
+                state = ap_const_lv8_1;
+            } else if (esl_seteq<1,8,8>(state.read(), ap_const_lv8_1)) {
+                state = ap_const_lv8_2;
             }
         }
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)))) {
-        TX_message_V_read_reg_161 = TX_message_V.read();
-        state_load_reg_166 = state.read();
+        TX_message_V_read_reg_176 = TX_message_V.read();
+        state_load_reg_182 = state.read();
+    }
+}
+
+void AXI_SPI_DRIVER::thread_RX_message_V_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) && 
+         esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_RX_message_V_dummy_ack.read()))) {
+        RX_message_V_ap_vld = ap_const_logic_1;
+    } else {
+        RX_message_V_ap_vld = ap_const_logic_0;
     }
 }
 
@@ -602,31 +636,31 @@ void AXI_SPI_DRIVER::thread_ap_CS_fsm_state8() {
 }
 
 void AXI_SPI_DRIVER::thread_ap_block_state1_io() {
-    ap_block_state1_io = ((esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && 
-  esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_spi_core_AWREADY.read())) || (esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && 
+    ap_block_state1_io = ((esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_spi_core_AWREADY.read())) || (esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
   esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_spi_core_AWREADY.read())) || (esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_spi_core_AWREADY.read()) && 
-  esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op37_writereq_state1.read())));
+  esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read())));
 }
 
 void AXI_SPI_DRIVER::thread_ap_block_state7() {
-    ap_block_state7 = ((esl_seteq<1,1,1>(ap_predicate_op47_writeresp_state7.read(), ap_const_boolean_1) && 
+    ap_block_state7 = ((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && 
+  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)));
 }
 
-void AXI_SPI_DRIVER::thread_ap_condition_274() {
-    ap_condition_274 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)));
+void AXI_SPI_DRIVER::thread_ap_condition_275() {
+    ap_condition_275 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)));
 }
 
-void AXI_SPI_DRIVER::thread_ap_condition_439() {
-    ap_condition_439 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read()));
+void AXI_SPI_DRIVER::thread_ap_condition_454() {
+    ap_condition_454 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read()));
 }
 
 void AXI_SPI_DRIVER::thread_ap_done() {
-    if ((!((esl_seteq<1,1,1>(ap_predicate_op47_writeresp_state7.read(), ap_const_boolean_1) && 
+    if ((!((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && 
+  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0))) && 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()))) {
         ap_done = ap_const_logic_1;
@@ -644,18 +678,18 @@ void AXI_SPI_DRIVER::thread_ap_idle() {
     }
 }
 
-void AXI_SPI_DRIVER::thread_ap_predicate_op37_writereq_state1() {
-    ap_predicate_op37_writereq_state1 = (!esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && !esl_seteq<1,4,4>(state.read(), ap_const_lv4_1));
+void AXI_SPI_DRIVER::thread_ap_predicate_op36_writereq_state1() {
+    ap_predicate_op36_writereq_state1 = (!esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && !esl_seteq<1,8,8>(state.read(), ap_const_lv8_1));
 }
 
-void AXI_SPI_DRIVER::thread_ap_predicate_op47_writeresp_state7() {
-    ap_predicate_op47_writeresp_state7 = (!esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && !esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1));
+void AXI_SPI_DRIVER::thread_ap_predicate_op48_writeresp_state7() {
+    ap_predicate_op48_writeresp_state7 = (!esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && !esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1));
 }
 
 void AXI_SPI_DRIVER::thread_ap_ready() {
-    if ((!((esl_seteq<1,1,1>(ap_predicate_op47_writeresp_state7.read(), ap_const_boolean_1) && 
+    if ((!((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && 
+  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0))) && 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()))) {
         ap_ready = ap_const_logic_1;
@@ -685,12 +719,12 @@ void AXI_SPI_DRIVER::thread_ap_sig_ioackin_spi_core_WREADY() {
 }
 
 void AXI_SPI_DRIVER::thread_spi_core_AWADDR() {
-    if (esl_seteq<1,1,1>(ap_condition_439.read(), ap_const_boolean_1)) {
-        if (esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op37_writereq_state1.read())) {
+    if (esl_seteq<1,1,1>(ap_condition_454.read(), ap_const_boolean_1)) {
+        if (esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read())) {
             spi_core_AWADDR =  (sc_lv<32>) (ap_const_lv64_1A);
-        } else if (esl_seteq<1,4,4>(state.read(), ap_const_lv4_0)) {
+        } else if (esl_seteq<1,8,8>(state.read(), ap_const_lv8_0)) {
             spi_core_AWADDR =  (sc_lv<32>) (ap_const_lv64_18);
-        } else if (esl_seteq<1,4,4>(state.read(), ap_const_lv4_1)) {
+        } else if (esl_seteq<1,8,8>(state.read(), ap_const_lv8_1)) {
             spi_core_AWADDR =  (sc_lv<32>) (ap_const_lv64_1C);
         } else {
             spi_core_AWADDR = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
@@ -703,15 +737,15 @@ void AXI_SPI_DRIVER::thread_spi_core_AWADDR() {
 void AXI_SPI_DRIVER::thread_spi_core_AWVALID() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && 
+          esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && 
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && 
+          esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op37_writereq_state1.read()) && 
+          esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read())))) {
         spi_core_AWVALID = ap_const_logic_1;
     } else {
@@ -721,22 +755,22 @@ void AXI_SPI_DRIVER::thread_spi_core_AWVALID() {
 
 void AXI_SPI_DRIVER::thread_spi_core_BREADY() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1) && 
-          !((esl_seteq<1,1,1>(ap_predicate_op47_writeresp_state7.read(), ap_const_boolean_1) && 
+          esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1) && 
+          !((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && 
+  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)))) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && 
-          !((esl_seteq<1,1,1>(ap_predicate_op47_writeresp_state7.read(), ap_const_boolean_1) && 
+          esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
+          !((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && 
+  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)))) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,1,1>(ap_predicate_op47_writeresp_state7.read(), ap_const_boolean_1) && 
-          !((esl_seteq<1,1,1>(ap_predicate_op47_writeresp_state7.read(), ap_const_boolean_1) && 
+          esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
+          !((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && 
+  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)))))) {
         spi_core_BREADY = ap_const_logic_1;
     } else {
@@ -747,7 +781,7 @@ void AXI_SPI_DRIVER::thread_spi_core_BREADY() {
 void AXI_SPI_DRIVER::thread_spi_core_WDATA() {
     if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_WREADY.read())) {
         if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read())) {
-            spi_core_WDATA = TX_message_V_read_reg_161.read();
+            spi_core_WDATA = TX_message_V_read_reg_176.read();
         } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
             spi_core_WDATA = ap_const_lv32_6;
         } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
@@ -776,14 +810,14 @@ void AXI_SPI_DRIVER::thread_spi_core_WVALID() {
 void AXI_SPI_DRIVER::thread_spi_core_blk_n_AW() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,4,4>(state.read(), ap_const_lv4_0)) || 
+          esl_seteq<1,8,8>(state.read(), ap_const_lv8_0)) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,4,4>(state.read(), ap_const_lv4_1)) || 
+          esl_seteq<1,8,8>(state.read(), ap_const_lv8_1)) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
           esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          !esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && 
-          !esl_seteq<1,4,4>(state.read(), ap_const_lv4_1)))) {
+          !esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
+          !esl_seteq<1,8,8>(state.read(), ap_const_lv8_1)))) {
         spi_core_blk_n_AW = m_axi_spi_core_AWREADY.read();
     } else {
         spi_core_blk_n_AW = ap_const_logic_1;
@@ -792,12 +826,12 @@ void AXI_SPI_DRIVER::thread_spi_core_blk_n_AW() {
 
 void AXI_SPI_DRIVER::thread_spi_core_blk_n_B() {
     if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0)) || 
+          esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0)) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1)) || 
+          esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          !esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && 
-          !esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1)))) {
+          !esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
+          !esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)))) {
         spi_core_blk_n_B = m_axi_spi_core_BVALID.read();
     } else {
         spi_core_blk_n_B = ap_const_logic_1;
@@ -814,14 +848,18 @@ void AXI_SPI_DRIVER::thread_spi_core_blk_n_W() {
     }
 }
 
+void AXI_SPI_DRIVER::thread_tmp_1_fu_164_p2() {
+    tmp_1_fu_164_p2 = (!state.read().is_01() || !ap_const_lv8_1.is_01())? sc_lv<8>(): (sc_biguint<8>(state.read()) + sc_biguint<8>(ap_const_lv8_1));
+}
+
 void AXI_SPI_DRIVER::thread_ap_NS_fsm() {
     switch (ap_CS_fsm.read().to_uint64()) {
         case 1 : 
-            if ((!esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && !esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
+            if ((!esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && !esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state13;
-            } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
+            } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state8;
-            } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
+            } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state2;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state1;
@@ -847,9 +885,9 @@ void AXI_SPI_DRIVER::thread_ap_NS_fsm() {
             ap_NS_fsm = ap_ST_fsm_state7;
             break;
         case 64 : 
-            if ((!((esl_seteq<1,1,1>(ap_predicate_op47_writeresp_state7.read(), ap_const_boolean_1) && 
+            if ((!((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_166.read(), ap_const_lv4_0) && 
+  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
   esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0))) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state1;
             } else {

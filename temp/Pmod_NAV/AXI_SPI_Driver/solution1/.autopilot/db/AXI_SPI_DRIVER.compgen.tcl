@@ -17,10 +17,10 @@ TX_message_V {
 	offset_end 23
 }
 RX_message_V { 
-	dir I
+	dir O
 	width 32
 	depth 1
-	mode ap_none
+	mode ap_vld
 	offset 24
 	offset_end 31
 }

@@ -26,8 +26,8 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>2</BRAM_18K>
-<FF>673</FF>
-<LUT>945</LUT>
+<FF>686</FF>
+<LUT>966</LUT>
 <DSP48E>0</DSP48E>
 </Resources>
 </AreaEstimates>
@@ -35,7 +35,7 @@
 <RtlPorts>
 <name>s_axi_debug_AWVALID</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -48,7 +48,7 @@
 <RtlPorts>
 <name>s_axi_debug_AWREADY</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -61,7 +61,7 @@
 <RtlPorts>
 <name>s_axi_debug_AWADDR</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -74,7 +74,7 @@
 <RtlPorts>
 <name>s_axi_debug_WVALID</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -87,7 +87,7 @@
 <RtlPorts>
 <name>s_axi_debug_WREADY</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -100,7 +100,7 @@
 <RtlPorts>
 <name>s_axi_debug_WDATA</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -113,7 +113,7 @@
 <RtlPorts>
 <name>s_axi_debug_WSTRB</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -126,7 +126,7 @@
 <RtlPorts>
 <name>s_axi_debug_ARVALID</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -139,7 +139,7 @@
 <RtlPorts>
 <name>s_axi_debug_ARREADY</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -152,7 +152,7 @@
 <RtlPorts>
 <name>s_axi_debug_ARADDR</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -165,7 +165,7 @@
 <RtlPorts>
 <name>s_axi_debug_RVALID</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -178,7 +178,7 @@
 <RtlPorts>
 <name>s_axi_debug_RREADY</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -191,7 +191,7 @@
 <RtlPorts>
 <name>s_axi_debug_RDATA</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -204,7 +204,7 @@
 <RtlPorts>
 <name>s_axi_debug_RRESP</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -217,7 +217,7 @@
 <RtlPorts>
 <name>s_axi_debug_BVALID</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -230,7 +230,7 @@
 <RtlPorts>
 <name>s_axi_debug_BREADY</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>
@@ -243,7 +243,7 @@
 <RtlPorts>
 <name>s_axi_debug_BRESP</name>
 <Object>debug</Object>
-<Type>scalar</Type>
+<Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>s_axi</IOProtocol>
 <IOConfig></IOConfig>

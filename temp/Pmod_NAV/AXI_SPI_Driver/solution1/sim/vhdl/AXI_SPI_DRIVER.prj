@@ -1,9 +1,0 @@
-vhdl xil_defaultlib "AESL_sim_pkg.vhd"
-sv work "glbl.v"
-vhdl xil_defaultlib "AESL_axi_master_spi_core.vhd"
-vhdl xil_defaultlib "AESL_axi_slave_debug.vhd"
-vhdl xil_defaultlib "AXI_SPI_DRIVER.autotb.vhd"
-vhdl xil_defaultlib "AXI_SPI_DRIVER.vhd"
-vhdl xil_defaultlib "AXI_SPI_DRIVER_debug_s_axi.vhd"
-vhdl xil_defaultlib "AXI_SPI_DRIVER_spi_core_m_axi.vhd"
-

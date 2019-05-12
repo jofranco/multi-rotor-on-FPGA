@@ -34,7 +34,8 @@ module AXI_SPI_DRIVER_debug_s_axi
     input  wire                          RREADY,
     // user signals
     output wire [31:0]                   TX_message_V,
-    output wire [31:0]                   RX_message_V
+    input  wire [31:0]                   RX_message_V,
+    input  wire                          RX_message_V_ap_vld
 );
 //------------------------Address Info-------------------
 // 0x00 : reserved
@@ -45,8 +46,10 @@ module AXI_SPI_DRIVER_debug_s_axi
 //        bit 31~0 - TX_message_V[31:0] (Read/Write)
 // 0x14 : reserved
 // 0x18 : Data signal of RX_message_V
-//        bit 31~0 - RX_message_V[31:0] (Read/Write)
-// 0x1c : reserved
+//        bit 31~0 - RX_message_V[31:0] (Read)
+// 0x1c : Control signal of RX_message_V
+//        bit 0  - RX_message_V_ap_vld (Read/COR)
+//        others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
@@ -79,6 +82,7 @@ localparam
     // internal registers
     reg  [31:0]                   int_TX_message_V = 'b0;
     reg  [31:0]                   int_RX_message_V = 'b0;
+    reg                           int_RX_message_V_ap_vld;
 
 //------------------------Instantiation------------------
 
@@ -176,6 +180,9 @@ always @(posedge ACLK) begin
                 ADDR_RX_MESSAGE_V_DATA_0: begin
                     rdata <= int_RX_message_V[31:0];
                 end
+                ADDR_RX_MESSAGE_V_CTRL: begin
+                    rdata[0] <= int_RX_message_V_ap_vld;
+                end
             endcase
         end
     end
@@ -184,7 +191,6 @@ end
 
 //------------------------Register logic-----------------
 assign TX_message_V = int_TX_message_V;
-assign RX_message_V = int_RX_message_V;
 // int_TX_message_V[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
@@ -195,13 +201,25 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_RX_message_V[31:0]
+// int_RX_message_V
 always @(posedge ACLK) begin
     if (ARESET)
-        int_RX_message_V[31:0] <= 0;
+        int_RX_message_V <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_RX_MESSAGE_V_DATA_0)
-            int_RX_message_V[31:0] <= (WDATA[31:0] & wmask) | (int_RX_message_V[31:0] & ~wmask);
+        if (RX_message_V_ap_vld)
+            int_RX_message_V <= RX_message_V;
+    end
+end
+
+// int_RX_message_V_ap_vld
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_RX_message_V_ap_vld <= 1'b0;
+    else if (ACLK_EN) begin
+        if (RX_message_V_ap_vld)
+            int_RX_message_V_ap_vld <= 1'b1;
+        else if (ar_hs && raddr == ADDR_RX_MESSAGE_V_CTRL)
+            int_RX_message_V_ap_vld <= 1'b0; // clear on read
     end
 end
 

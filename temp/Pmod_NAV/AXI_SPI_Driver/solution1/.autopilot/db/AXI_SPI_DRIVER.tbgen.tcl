@@ -1,6 +1,8 @@
 set C_TypeInfoList {{ 
-"AXI_SPI_DRIVER" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"spi_bus": [[], {"array": ["0", [4096]]}] }, {"TX_message": [[],"0"] }, {"RX_message": [[],"0"] }],[],""], 
-"0": [ "ap_uint<32>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 32}}]],""]}}]
+"AXI_SPI_DRIVER" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"spi_bus": [[], {"array": ["0", [4096]]}] }, {"TX_message": [[],"0"] }, {"RX_message": [[],{ "pointer": "0"}] }],["1"],""],
+ "1": [ "state", [[],"2"],""], 
+"0": [ "ap_uint<32>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 32}}]],""]}}], 
+"2": [ "uint8_t", {"typedef": [[[], {"scalar": "unsigned char"}],""]}]
 }}
 set moduleName AXI_SPI_DRIVER
 set isTaskLevelControl 1
@@ -18,12 +20,12 @@ set C_modelType { void 0 }
 set C_modelArgList {
 	{ spi_core int 32 regular {axi_master 1}  }
 	{ TX_message_V int 32 regular {axi_slave 0}  }
-	{ RX_message_V int 32 unused {axi_slave 0}  }
+	{ RX_message_V int 32 regular {axi_slave 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "spi_core", "interface" : "axi_master", "bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "spi_bus.V","cData": "uint32","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 4095,"step" : 1}]}]}]} , 
  	{ "Name" : "TX_message_V", "interface" : "axi_slave", "bundle":"debug","type":"ap_none","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "TX_message.V","cData": "uint32","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":16}, "offset_end" : {"in":23}} , 
- 	{ "Name" : "RX_message_V", "interface" : "axi_slave", "bundle":"debug","type":"ap_none","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "RX_message.V","cData": "uint32","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":24}, "offset_end" : {"in":31}} ]}
+ 	{ "Name" : "RX_message_V", "interface" : "axi_slave", "bundle":"debug","type":"ap_vld","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "RX_message.V","cData": "uint32","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "offset" : {"out":24}, "offset_end" : {"out":31}} ]}
 # RTL Port declarations: 
 set portNum 68
 set portList { 
@@ -97,14 +99,14 @@ set portList {
 	{ s_axi_debug_BRESP sc_out sc_lv 2 signal -1 } 
 }
 set NewPortList {[ 
-	{ "name": "s_axi_debug_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "debug", "role": "AWADDR" },"address":[{"name":"TX_message_V","role":"data","value":"16"},{"name":"RX_message_V","role":"data","value":"24"}] },
+	{ "name": "s_axi_debug_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "debug", "role": "AWADDR" },"address":[{"name":"TX_message_V","role":"data","value":"16"}] },
 	{ "name": "s_axi_debug_AWVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "debug", "role": "AWVALID" } },
 	{ "name": "s_axi_debug_AWREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "debug", "role": "AWREADY" } },
 	{ "name": "s_axi_debug_WVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "debug", "role": "WVALID" } },
 	{ "name": "s_axi_debug_WREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "debug", "role": "WREADY" } },
 	{ "name": "s_axi_debug_WDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "debug", "role": "WDATA" } },
 	{ "name": "s_axi_debug_WSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "debug", "role": "WSTRB" } },
-	{ "name": "s_axi_debug_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "debug", "role": "ARADDR" },"address":[] },
+	{ "name": "s_axi_debug_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "debug", "role": "ARADDR" },"address":[{"name":"RX_message_V","role":"data","value":"24"}, {"name":"RX_message_V","role":"valid","value":"28","valid_bit":"0"}] },
 	{ "name": "s_axi_debug_ARVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "debug", "role": "ARVALID" } },
 	{ "name": "s_axi_debug_ARREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "debug", "role": "ARREADY" } },
 	{ "name": "s_axi_debug_RVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "debug", "role": "RVALID" } },
@@ -187,7 +189,7 @@ set RtlHierarchyInfo {[
 					{"Name" : "spi_core_blk_n_W", "Type" : "RtlSignal"},
 					{"Name" : "spi_core_blk_n_B", "Type" : "RtlSignal"}]},
 			{"Name" : "TX_message_V", "Type" : "None", "Direction" : "I"},
-			{"Name" : "RX_message_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "RX_message_V", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "state", "Type" : "OVld", "Direction" : "IO"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.AXI_SPI_DRIVER_debug_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.AXI_SPI_DRIVER_spi_core_m_axi_U", "Parent" : "0"}]}
@@ -197,7 +199,7 @@ set ArgLastReadFirstWriteLatency {
 	AXI_SPI_DRIVER {
 		spi_core {Type O LastRead 6 FirstWrite 1}
 		TX_message_V {Type I LastRead 0 FirstWrite -1}
-		RX_message_V {Type I LastRead -1 FirstWrite -1}
+		RX_message_V {Type O LastRead -1 FirstWrite 1}
 		state {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0

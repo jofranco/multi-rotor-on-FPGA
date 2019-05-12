@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;AXI_SPI_Driver/AXI_SPI_Driver.cpp&apos; ..."/>
+	<Message severity="WARNING" prefix="[HLS 200-40]" key="HLS_40_1378" tag="" content="In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:1:
+In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:5:
+AXI_SPI_Driver/AXI_SPI_Driver.h:101:63: warning: default template arguments for a function template are a C++11 extension [-Wc++11-extensions]
+template &lt;unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL&gt;
+                                                              ^              ~~~~~~~~~~~~
+In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:1:
+AXI_SPI_Driver/AXI_SPI_Driver.cpp:37:14: error: member reference type &apos;DTYPE2 *&apos; is a pointer; maybe you meant to use &apos;-&gt;&apos;?
+   *(spi_bus).last = last;
+    ~~~~~~~~~^
+             -&gt;
+AXI_SPI_Driver/AXI_SPI_Driver.cpp:37:4: error: indirection requires pointer operand (&apos;ap_int&lt;1&gt;&apos; invalid)
+   *(spi_bus).last = last;
+   ^~~~~~~~~~~~~~~
+AXI_SPI_Driver/AXI_SPI_Driver.cpp:45:14: error: member reference type &apos;DTYPE2 *&apos; is a pointer; maybe you meant to use &apos;-&gt;&apos;?
+   *(spi_bus).last = done;
+    ~~~~~~~~~^
+             -&gt;
+AXI_SPI_Driver/AXI_SPI_Driver.cpp:45:4: error: indirection requires pointer operand (&apos;ap_int&lt;1&gt;&apos; invalid)
+   *(spi_bus).last = done;
+   ^~~~~~~~~~~~~~~
+1 warning and 4 errors generated.\n"/>
+	<Message severity="ERROR" prefix="[HLS 200-70]" key="HLS_70_1454" tag="" content="Compilation errors found: Pragma processor failed: In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:1:
+In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:5:
+AXI_SPI_Driver/AXI_SPI_Driver.h:101:63: warning: default template arguments for a function template are a C++11 extension [-Wc++11-extensions]
+template &lt;unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL&gt;
+                                                              ^              ~~~~~~~~~~~~
+In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:1:
+AXI_SPI_Driver/AXI_SPI_Driver.cpp:37:14: error: member reference type &apos;DTYPE2 *&apos; is a pointer; maybe you meant to use &apos;-&gt;&apos;?
+   *(spi_bus).last = last;
+    ~~~~~~~~~^
+             -&gt;
+AXI_SPI_Driver/AXI_SPI_Driver.cpp:37:4: error: indirection requires pointer operand (&apos;ap_int&lt;1&gt;&apos; invalid)
+   *(spi_bus).last = last;
+   ^~~~~~~~~~~~~~~
+AXI_SPI_Driver/AXI_SPI_Driver.cpp:45:14: error: member reference type &apos;DTYPE2 *&apos; is a pointer; maybe you meant to use &apos;-&gt;&apos;?
+   *(spi_bus).last = done;
+    ~~~~~~~~~^
+             -&gt;
+AXI_SPI_Driver/AXI_SPI_Driver.cpp:45:4: error: indirection requires pointer operand (&apos;ap_int&lt;1&gt;&apos; invalid)
+   *(spi_bus).last = done;
+   ^~~~~~~~~~~~~~~
+1 warning and 4 errors generated."/>
+</Messages>

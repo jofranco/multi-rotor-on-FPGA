@@ -290,17 +290,42 @@
         {
           "offset": "0x18",
           "name": "RX_message_V",
-          "access": "W",
+          "access": "R",
           "reset_value": "0x0",
           "description": "Data signal of RX_message_V",
           "fields": [{
               "offset": "0",
               "width": "32",
               "name": "RX_message_V",
-              "access": "W",
+              "access": "R",
               "reset_value": "0",
               "description": "Bit 31 to 0 Data signal of RX_message_V"
             }]
+        },
+        {
+          "offset": "0x1c",
+          "name": "RX_message_V_ctrl",
+          "access": "R",
+          "reset_value": "0x0",
+          "description": "Control signal of RX_message_V",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "RX_message_V_ap_vld",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Control signal RX_message_V_ap_vld"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "reset_value": "0",
+              "description": "Reserved.  0s on read."
+            }
+          ]
         }
       ],
       "memories": "",
@@ -649,11 +674,12 @@
     },
     "RX_message_V": {
       "interfaceRef": "s_axi_debug",
-      "dir": "in",
+      "dir": "out",
       "offset": "24",
-      "statusOffset": "NA",
-      "handshakeRef": "ap_none",
-      "Object": "debug"
+      "statusOffset": "28",
+      "handshakeRef": "ap_vld",
+      "Object": "debug",
+      "firstOutLatency": "1"
     },
     "ap_ctrl": {
       "interfaceRef": "ap_ctrl",
@@ -682,8 +708,8 @@
         },
         "Area": {
           "BRAM_18K": "2",
-          "FF": "673",
-          "LUT": "945",
+          "FF": "686",
+          "LUT": "966",
           "DSP48E": "0"
         }
       }}
@@ -695,7 +721,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-05-08 02:28:29 -0700",
+    "Time": "2019-05-12 10:31:13 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }
