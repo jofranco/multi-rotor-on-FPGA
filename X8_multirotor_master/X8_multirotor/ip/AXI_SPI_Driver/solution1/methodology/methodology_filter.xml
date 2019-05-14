@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<methodologyFilter select="true" name="All Categories">
+    <methodologyFilter select="true" name="DATAFLOW"/>
+    <methodologyFilter select="true" name="THROUGHPUT"/>
+    <methodologyFilter select="true" name="SCHEDULE"/>
+    <methodologyFilter select="true" name="TIMING"/>
+    <methodologyFilter select="true" name="COSIM"/>
+</methodologyFilter>

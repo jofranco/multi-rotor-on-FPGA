@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="SBUS_driver.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Code\SBUS_driver.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Code\main.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

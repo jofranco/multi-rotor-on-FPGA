@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'state' is power-on initialization." projectName="AXI_SPI_Driver" solutionName="solution1" date="2019-05-14T00:33:17.162-0700" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'AXI_SPI_DRIVER/OUT' to 'AXI_SPI_DRIVER/OUT_r' to avoid the conflict with HDL keywords or other object names." projectName="AXI_SPI_Driver" solutionName="solution1" date="2019-05-14T00:33:17.039-0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-803] Cannot bundle argument 'spi_bus' to m_axi port 'OUT' since its offset mode is off." projectName="AXI_SPI_Driver" solutionName="solution1" date="2019-05-14T00:33:17.028-0700" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:1:&#xD;&#xA;In file included from AXI_SPI_Driver/AXI_SPI_Driver.cpp:5:&#xD;&#xA;AXI_SPI_Driver/AXI_SPI_Driver.h:86:63: warning: default template arguments for a function template are a C++11 extension [-Wc++11-extensions]&#xD;&#xA;template &lt;unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL>&#xD;&#xA;                                                              ^              ~~~~~~~~~~~~&#xD;&#xA;1 warning generated.\n" projectName="AXI_SPI_Driver" solutionName="solution1" date="2019-05-14T00:33:16.326-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

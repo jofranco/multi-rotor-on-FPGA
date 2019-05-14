@@ -1,0 +1,209 @@
+
+
+================================================================
+== Vivado HLS Report for 'AXI_SPI_DRIVER'
+================================================================
+* Date:           Tue May 14 00:33:17 2019
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        AXI_SPI_Driver
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    7|   16|    7|   16|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|      8|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        6|      -|     708|    760|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|    260|
+|Register         |        -|      -|     100|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        6|      0|     808|   1028|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        2|      0|   ~0   |      1|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +------------------------------+----------------------------+---------+-------+-----+-----+
+    |           Instance           |           Module           | BRAM_18K| DSP48E|  FF | LUT |
+    +------------------------------+----------------------------+---------+-------+-----+-----+
+    |AXI_SPI_DRIVER_CTRL_s_axi_U   |AXI_SPI_DRIVER_CTRL_s_axi   |        4|      0|  196|  180|
+    |AXI_SPI_DRIVER_OUT_r_m_axi_U  |AXI_SPI_DRIVER_OUT_r_m_axi  |        2|      0|  512|  580|
+    +------------------------------+----------------------------+---------+-------+-----+-----+
+    |Total                         |                            |        6|      0|  708|  760|
+    +------------------------------+----------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------+----------+-------+---+----+------------+------------+
+    |    Variable Name   | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------+----------+-------+---+----+------------+------------+
+    |ap_condition_120    |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_136    |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_305    |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state1_io  |    or    |      0|  0|   2|           1|           1|
+    +--------------------+----------+-------+---+----+------------+------------+
+    |Total               |          |      0|  0|   8|           4|           4|
+    +--------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------+-----+-----------+-----+-----------+
+    |             Name             | LUT | Input Size| Bits| Total Bits|
+    +------------------------------+-----+-----------+-----+-----------+
+    |OUT_r_AWADDR                  |   21|          4|   32|        128|
+    |OUT_r_WDATA                   |   21|          4|   32|        128|
+    |OUT_r_blk_n_AR                |    9|          2|    1|          2|
+    |OUT_r_blk_n_AW                |    9|          2|    1|          2|
+    |OUT_r_blk_n_B                 |    9|          2|    1|          2|
+    |OUT_r_blk_n_R                 |    9|          2|    1|          2|
+    |OUT_r_blk_n_W                 |    9|          2|    1|          2|
+    |ap_NS_fsm                     |  137|         30|    1|         30|
+    |ap_sig_ioackin_OUT_r_ARREADY  |    9|          2|    1|          2|
+    |ap_sig_ioackin_OUT_r_AWREADY  |    9|          2|    1|          2|
+    |ap_sig_ioackin_OUT_r_WREADY   |    9|          2|    1|          2|
+    |state                         |    9|          2|    2|          4|
+    +------------------------------+-----+-----------+-----+-----------+
+    |Total                         |  260|         56|   75|        306|
+    +------------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------+----+----+-----+-----------+
+    |             Name             | FF | LUT| Bits| Const Bits|
+    +------------------------------+----+----+-----+-----------+
+    |OUT_addr_1_read_reg_258       |  32|   0|   32|          0|
+    |TX_message_load_reg_241       |  32|   0|   32|          0|
+    |ap_CS_fsm                     |  29|   0|   29|          0|
+    |ap_reg_ioackin_OUT_r_ARREADY  |   1|   0|    1|          0|
+    |ap_reg_ioackin_OUT_r_AWREADY  |   1|   0|    1|          0|
+    |ap_reg_ioackin_OUT_r_WREADY   |   1|   0|    1|          0|
+    |state                         |   2|   0|    4|          2|
+    |state_load_reg_225            |   2|   0|    4|          2|
+    +------------------------------+----+----+-----+-----------+
+    |Total                         | 100|   0|  104|          4|
+    +------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+----------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |  Source Object |    C Type    |
++----------------------+-----+-----+------------+----------------+--------------+
+|s_axi_CTRL_AWVALID    |  in |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_AWREADY    | out |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_AWADDR     |  in |    5|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_WVALID     |  in |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_WREADY     | out |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_WDATA      |  in |   32|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_WSTRB      |  in |    4|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_ARVALID    |  in |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_ARREADY    | out |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_ARADDR     |  in |    5|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_RVALID     | out |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_RREADY     |  in |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_RDATA      | out |   32|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_RRESP      | out |    2|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_BVALID     | out |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_BREADY     |  in |    1|    s_axi   |      CTRL      |     array    |
+|s_axi_CTRL_BRESP      | out |    2|    s_axi   |      CTRL      |     array    |
+|ap_clk                |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
+|ap_rst_n              |  in |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
+|interrupt             | out |    1| ap_ctrl_hs | AXI_SPI_DRIVER | return value |
+|m_axi_OUT_r_AWVALID   | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWREADY   |  in |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWADDR    | out |   32|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWID      | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWLEN     | out |    8|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWSIZE    | out |    3|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWBURST   | out |    2|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWLOCK    | out |    2|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWCACHE   | out |    4|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWPROT    | out |    3|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWQOS     | out |    4|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWREGION  | out |    4|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_AWUSER    | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_WVALID    | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_WREADY    |  in |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_WDATA     | out |   32|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_WSTRB     | out |    4|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_WLAST     | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_WID       | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_WUSER     | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARVALID   | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARREADY   |  in |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARADDR    | out |   32|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARID      | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARLEN     | out |    8|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARSIZE    | out |    3|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARBURST   | out |    2|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARLOCK    | out |    2|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARCACHE   | out |    4|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARPROT    | out |    3|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARQOS     | out |    4|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARREGION  | out |    4|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_ARUSER    | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_RVALID    |  in |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_RREADY    | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_RDATA     |  in |   32|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_RLAST     |  in |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_RID       |  in |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_RUSER     |  in |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_RRESP     |  in |    2|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_BVALID    |  in |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_BREADY    | out |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_BRESP     |  in |    2|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_BID       |  in |    1|    m_axi   |      OUT_r     |    pointer   |
+|m_axi_OUT_r_BUSER     |  in |    1|    m_axi   |      OUT_r     |    pointer   |
++----------------------+-----+-----+------------+----------------+--------------+
+

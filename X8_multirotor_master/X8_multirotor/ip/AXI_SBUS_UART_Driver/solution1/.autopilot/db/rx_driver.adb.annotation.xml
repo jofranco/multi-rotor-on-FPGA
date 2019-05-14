@@ -1,0 +1,12 @@
+<annotationInfo>
+<annotationInfo>
+<item  id="21" filename="../Code/SBUS_driver.cpp" linenumber="36" name="tmp_1" contextFuncName="delay_until_ms&lt;3, 100000000&gt;" moduleName="rx_driver" rtlName="tmp_1_fu_289_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="18" fileDirectory="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores"><\/item>
+<item  id="23" filename="../Code/SBUS_driver.cpp" linenumber="36" name="ctr_V" contextFuncName="delay_until_ms&lt;3, 100000000&gt;" moduleName="rx_driver" rtlName="ctr_V_fu_295_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="26" fileDirectory="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores"><\/item>
+<item  id="64" filename="../Code/SBUS_driver.cpp" linenumber="97" name="tmp" contextFuncName="rx_driver" moduleName="rx_driver" rtlName="tmp_fu_330_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="18" fileDirectory="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores"><\/item>
+<item  id="71" filename="../Code/SBUS_driver.cpp" linenumber="99" name="exitcond" contextFuncName="rx_driver" moduleName="rx_driver" rtlName="exitcond_fu_335_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="11" fileDirectory="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores"><\/item>
+<item  id="73" filename="../Code/SBUS_driver.cpp" linenumber="99" name="index_1" contextFuncName="rx_driver" moduleName="rx_driver" rtlName="index_1_fu_341_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="15" fileDirectory="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores"><\/item>
+<item  id="78" filename="../Code/SBUS_driver.cpp" linenumber="101" name="tmp_2" contextFuncName="rx_driver" moduleName="rx_driver" rtlName="tmp_2_fu_347_p1" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores"><\/item>
+<item  id="92" filename="../Code/SBUS_driver.cpp" linenumber="36" name="tmp_6" contextFuncName="delay_until_ms&lt;6, 100000000&gt;" moduleName="rx_driver" rtlName="tmp_6_fu_351_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="18" fileDirectory="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores"><\/item>
+<item  id="94" filename="../Code/SBUS_driver.cpp" linenumber="36" name="ctr_V_1" contextFuncName="delay_until_ms&lt;6, 100000000&gt;" moduleName="rx_driver" rtlName="ctr_V_1_fu_357_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="27" fileDirectory="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores"><\/item>
+<\/annotationInfo>
+</annotationInfo>
