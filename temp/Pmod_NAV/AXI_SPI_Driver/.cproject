@@ -83,9 +83,9 @@
 							<option id="gnu.cpp.compiler.option.preprocessor.def.499964792" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
 							<option id="gnu.cpp.compiler.option.include.paths.1275741020" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
+								<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos"/>
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
-								<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV"/>
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>
@@ -172,9 +172,9 @@
 							<option id="gnu.cpp.compiler.option.preprocessor.def.1538158591" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
 							<option id="gnu.cpp.compiler.option.include.paths.1969178646" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
+								<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos"/>
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
-								<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV"/>
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
 							</option>

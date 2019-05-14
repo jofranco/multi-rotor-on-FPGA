@@ -11,191 +11,175 @@ use IEEE.numeric_std.all;
 
 entity AXI_SPI_DRIVER is
 generic (
-    C_M_AXI_SPI_CORE_ADDR_WIDTH : INTEGER := 32;
-    C_M_AXI_SPI_CORE_ID_WIDTH : INTEGER := 1;
-    C_M_AXI_SPI_CORE_AWUSER_WIDTH : INTEGER := 1;
-    C_M_AXI_SPI_CORE_DATA_WIDTH : INTEGER := 32;
-    C_M_AXI_SPI_CORE_WUSER_WIDTH : INTEGER := 1;
-    C_M_AXI_SPI_CORE_ARUSER_WIDTH : INTEGER := 1;
-    C_M_AXI_SPI_CORE_RUSER_WIDTH : INTEGER := 1;
-    C_M_AXI_SPI_CORE_BUSER_WIDTH : INTEGER := 1;
-    C_S_AXI_DEBUG_ADDR_WIDTH : INTEGER := 5;
-    C_S_AXI_DEBUG_DATA_WIDTH : INTEGER := 32;
-    C_M_AXI_SPI_CORE_TARGET_ADDR : INTEGER := 0;
-    C_M_AXI_SPI_CORE_USER_VALUE : INTEGER := 0;
-    C_M_AXI_SPI_CORE_PROT_VALUE : INTEGER := 0;
-    C_M_AXI_SPI_CORE_CACHE_VALUE : INTEGER := 3 );
+    C_M_AXI_OUT_R_ADDR_WIDTH : INTEGER := 32;
+    C_M_AXI_OUT_R_ID_WIDTH : INTEGER := 1;
+    C_M_AXI_OUT_R_AWUSER_WIDTH : INTEGER := 1;
+    C_M_AXI_OUT_R_DATA_WIDTH : INTEGER := 32;
+    C_M_AXI_OUT_R_WUSER_WIDTH : INTEGER := 1;
+    C_M_AXI_OUT_R_ARUSER_WIDTH : INTEGER := 1;
+    C_M_AXI_OUT_R_RUSER_WIDTH : INTEGER := 1;
+    C_M_AXI_OUT_R_BUSER_WIDTH : INTEGER := 1;
+    C_S_AXI_CTRL_ADDR_WIDTH : INTEGER := 4;
+    C_S_AXI_CTRL_DATA_WIDTH : INTEGER := 32;
+    C_M_AXI_OUT_R_TARGET_ADDR : INTEGER := 0;
+    C_M_AXI_OUT_R_USER_VALUE : INTEGER := 0;
+    C_M_AXI_OUT_R_PROT_VALUE : INTEGER := 0;
+    C_M_AXI_OUT_R_CACHE_VALUE : INTEGER := 3 );
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
-    ap_start : IN STD_LOGIC;
-    ap_done : OUT STD_LOGIC;
-    ap_idle : OUT STD_LOGIC;
-    ap_ready : OUT STD_LOGIC;
-    m_axi_spi_core_AWVALID : OUT STD_LOGIC;
-    m_axi_spi_core_AWREADY : IN STD_LOGIC;
-    m_axi_spi_core_AWADDR : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_ADDR_WIDTH-1 downto 0);
-    m_axi_spi_core_AWID : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_ID_WIDTH-1 downto 0);
-    m_axi_spi_core_AWLEN : OUT STD_LOGIC_VECTOR (7 downto 0);
-    m_axi_spi_core_AWSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axi_spi_core_AWBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_spi_core_AWLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_spi_core_AWCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_spi_core_AWPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axi_spi_core_AWQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_spi_core_AWREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_spi_core_AWUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_AWUSER_WIDTH-1 downto 0);
-    m_axi_spi_core_WVALID : OUT STD_LOGIC;
-    m_axi_spi_core_WREADY : IN STD_LOGIC;
-    m_axi_spi_core_WDATA : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_DATA_WIDTH-1 downto 0);
-    m_axi_spi_core_WSTRB : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_DATA_WIDTH/8-1 downto 0);
-    m_axi_spi_core_WLAST : OUT STD_LOGIC;
-    m_axi_spi_core_WID : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_ID_WIDTH-1 downto 0);
-    m_axi_spi_core_WUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_WUSER_WIDTH-1 downto 0);
-    m_axi_spi_core_ARVALID : OUT STD_LOGIC;
-    m_axi_spi_core_ARREADY : IN STD_LOGIC;
-    m_axi_spi_core_ARADDR : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_ADDR_WIDTH-1 downto 0);
-    m_axi_spi_core_ARID : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_ID_WIDTH-1 downto 0);
-    m_axi_spi_core_ARLEN : OUT STD_LOGIC_VECTOR (7 downto 0);
-    m_axi_spi_core_ARSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axi_spi_core_ARBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_spi_core_ARLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_spi_core_ARCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_spi_core_ARPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axi_spi_core_ARQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_spi_core_ARREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_spi_core_ARUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_ARUSER_WIDTH-1 downto 0);
-    m_axi_spi_core_RVALID : IN STD_LOGIC;
-    m_axi_spi_core_RREADY : OUT STD_LOGIC;
-    m_axi_spi_core_RDATA : IN STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_DATA_WIDTH-1 downto 0);
-    m_axi_spi_core_RLAST : IN STD_LOGIC;
-    m_axi_spi_core_RID : IN STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_ID_WIDTH-1 downto 0);
-    m_axi_spi_core_RUSER : IN STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_RUSER_WIDTH-1 downto 0);
-    m_axi_spi_core_RRESP : IN STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_spi_core_BVALID : IN STD_LOGIC;
-    m_axi_spi_core_BREADY : OUT STD_LOGIC;
-    m_axi_spi_core_BRESP : IN STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_spi_core_BID : IN STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_ID_WIDTH-1 downto 0);
-    m_axi_spi_core_BUSER : IN STD_LOGIC_VECTOR (C_M_AXI_SPI_CORE_BUSER_WIDTH-1 downto 0);
-    s_axi_debug_AWVALID : IN STD_LOGIC;
-    s_axi_debug_AWREADY : OUT STD_LOGIC;
-    s_axi_debug_AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_DEBUG_ADDR_WIDTH-1 downto 0);
-    s_axi_debug_WVALID : IN STD_LOGIC;
-    s_axi_debug_WREADY : OUT STD_LOGIC;
-    s_axi_debug_WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_DEBUG_DATA_WIDTH-1 downto 0);
-    s_axi_debug_WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_DEBUG_DATA_WIDTH/8-1 downto 0);
-    s_axi_debug_ARVALID : IN STD_LOGIC;
-    s_axi_debug_ARREADY : OUT STD_LOGIC;
-    s_axi_debug_ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_DEBUG_ADDR_WIDTH-1 downto 0);
-    s_axi_debug_RVALID : OUT STD_LOGIC;
-    s_axi_debug_RREADY : IN STD_LOGIC;
-    s_axi_debug_RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_DEBUG_DATA_WIDTH-1 downto 0);
-    s_axi_debug_RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-    s_axi_debug_BVALID : OUT STD_LOGIC;
-    s_axi_debug_BREADY : IN STD_LOGIC;
-    s_axi_debug_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0) );
+    m_axi_OUT_r_AWVALID : OUT STD_LOGIC;
+    m_axi_OUT_r_AWREADY : IN STD_LOGIC;
+    m_axi_OUT_r_AWADDR : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_ADDR_WIDTH-1 downto 0);
+    m_axi_OUT_r_AWID : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_ID_WIDTH-1 downto 0);
+    m_axi_OUT_r_AWLEN : OUT STD_LOGIC_VECTOR (7 downto 0);
+    m_axi_OUT_r_AWSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
+    m_axi_OUT_r_AWBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
+    m_axi_OUT_r_AWLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
+    m_axi_OUT_r_AWCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
+    m_axi_OUT_r_AWPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
+    m_axi_OUT_r_AWQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
+    m_axi_OUT_r_AWREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
+    m_axi_OUT_r_AWUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_AWUSER_WIDTH-1 downto 0);
+    m_axi_OUT_r_WVALID : OUT STD_LOGIC;
+    m_axi_OUT_r_WREADY : IN STD_LOGIC;
+    m_axi_OUT_r_WDATA : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_DATA_WIDTH-1 downto 0);
+    m_axi_OUT_r_WSTRB : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_DATA_WIDTH/8-1 downto 0);
+    m_axi_OUT_r_WLAST : OUT STD_LOGIC;
+    m_axi_OUT_r_WID : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_ID_WIDTH-1 downto 0);
+    m_axi_OUT_r_WUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_WUSER_WIDTH-1 downto 0);
+    m_axi_OUT_r_ARVALID : OUT STD_LOGIC;
+    m_axi_OUT_r_ARREADY : IN STD_LOGIC;
+    m_axi_OUT_r_ARADDR : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_ADDR_WIDTH-1 downto 0);
+    m_axi_OUT_r_ARID : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_ID_WIDTH-1 downto 0);
+    m_axi_OUT_r_ARLEN : OUT STD_LOGIC_VECTOR (7 downto 0);
+    m_axi_OUT_r_ARSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
+    m_axi_OUT_r_ARBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
+    m_axi_OUT_r_ARLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
+    m_axi_OUT_r_ARCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
+    m_axi_OUT_r_ARPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
+    m_axi_OUT_r_ARQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
+    m_axi_OUT_r_ARREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
+    m_axi_OUT_r_ARUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_OUT_R_ARUSER_WIDTH-1 downto 0);
+    m_axi_OUT_r_RVALID : IN STD_LOGIC;
+    m_axi_OUT_r_RREADY : OUT STD_LOGIC;
+    m_axi_OUT_r_RDATA : IN STD_LOGIC_VECTOR (C_M_AXI_OUT_R_DATA_WIDTH-1 downto 0);
+    m_axi_OUT_r_RLAST : IN STD_LOGIC;
+    m_axi_OUT_r_RID : IN STD_LOGIC_VECTOR (C_M_AXI_OUT_R_ID_WIDTH-1 downto 0);
+    m_axi_OUT_r_RUSER : IN STD_LOGIC_VECTOR (C_M_AXI_OUT_R_RUSER_WIDTH-1 downto 0);
+    m_axi_OUT_r_RRESP : IN STD_LOGIC_VECTOR (1 downto 0);
+    m_axi_OUT_r_BVALID : IN STD_LOGIC;
+    m_axi_OUT_r_BREADY : OUT STD_LOGIC;
+    m_axi_OUT_r_BRESP : IN STD_LOGIC_VECTOR (1 downto 0);
+    m_axi_OUT_r_BID : IN STD_LOGIC_VECTOR (C_M_AXI_OUT_R_ID_WIDTH-1 downto 0);
+    m_axi_OUT_r_BUSER : IN STD_LOGIC_VECTOR (C_M_AXI_OUT_R_BUSER_WIDTH-1 downto 0);
+    s_axi_CTRL_AWVALID : IN STD_LOGIC;
+    s_axi_CTRL_AWREADY : OUT STD_LOGIC;
+    s_axi_CTRL_AWADDR : IN STD_LOGIC_VECTOR (C_S_AXI_CTRL_ADDR_WIDTH-1 downto 0);
+    s_axi_CTRL_WVALID : IN STD_LOGIC;
+    s_axi_CTRL_WREADY : OUT STD_LOGIC;
+    s_axi_CTRL_WDATA : IN STD_LOGIC_VECTOR (C_S_AXI_CTRL_DATA_WIDTH-1 downto 0);
+    s_axi_CTRL_WSTRB : IN STD_LOGIC_VECTOR (C_S_AXI_CTRL_DATA_WIDTH/8-1 downto 0);
+    s_axi_CTRL_ARVALID : IN STD_LOGIC;
+    s_axi_CTRL_ARREADY : OUT STD_LOGIC;
+    s_axi_CTRL_ARADDR : IN STD_LOGIC_VECTOR (C_S_AXI_CTRL_ADDR_WIDTH-1 downto 0);
+    s_axi_CTRL_RVALID : OUT STD_LOGIC;
+    s_axi_CTRL_RREADY : IN STD_LOGIC;
+    s_axi_CTRL_RDATA : OUT STD_LOGIC_VECTOR (C_S_AXI_CTRL_DATA_WIDTH-1 downto 0);
+    s_axi_CTRL_RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+    s_axi_CTRL_BVALID : OUT STD_LOGIC;
+    s_axi_CTRL_BREADY : IN STD_LOGIC;
+    s_axi_CTRL_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
+    interrupt : OUT STD_LOGIC );
 end;
 
 
 architecture behav of AXI_SPI_DRIVER is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "AXI_SPI_DRIVER,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=6,HLS_SYN_TPT=none,HLS_SYN_MEM=2,HLS_SYN_DSP=0,HLS_SYN_FF=686,HLS_SYN_LUT=966,HLS_VERSION=2018_2}";
+    "AXI_SPI_DRIVER,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=4,HLS_SYN_TPT=none,HLS_SYN_MEM=2,HLS_SYN_DSP=0,HLS_SYN_FF=566,HLS_SYN_LUT=768,HLS_VERSION=2018_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (16 downto 0) := "00000000000000001";
-    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (16 downto 0) := "00000000000000010";
-    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (16 downto 0) := "00000000000000100";
-    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (16 downto 0) := "00000000000001000";
-    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (16 downto 0) := "00000000000010000";
-    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (16 downto 0) := "00000000000100000";
-    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (16 downto 0) := "00000000001000000";
-    constant ap_ST_fsm_state8 : STD_LOGIC_VECTOR (16 downto 0) := "00000000010000000";
-    constant ap_ST_fsm_state9 : STD_LOGIC_VECTOR (16 downto 0) := "00000000100000000";
-    constant ap_ST_fsm_state10 : STD_LOGIC_VECTOR (16 downto 0) := "00000001000000000";
-    constant ap_ST_fsm_state11 : STD_LOGIC_VECTOR (16 downto 0) := "00000010000000000";
-    constant ap_ST_fsm_state12 : STD_LOGIC_VECTOR (16 downto 0) := "00000100000000000";
-    constant ap_ST_fsm_state13 : STD_LOGIC_VECTOR (16 downto 0) := "00001000000000000";
-    constant ap_ST_fsm_state14 : STD_LOGIC_VECTOR (16 downto 0) := "00010000000000000";
-    constant ap_ST_fsm_state15 : STD_LOGIC_VECTOR (16 downto 0) := "00100000000000000";
-    constant ap_ST_fsm_state16 : STD_LOGIC_VECTOR (16 downto 0) := "01000000000000000";
-    constant ap_ST_fsm_state17 : STD_LOGIC_VECTOR (16 downto 0) := "10000000000000000";
+    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (11 downto 0) := "000000000001";
+    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (11 downto 0) := "000000000010";
+    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (11 downto 0) := "000000000100";
+    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (11 downto 0) := "000000001000";
+    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (11 downto 0) := "000000010000";
+    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (11 downto 0) := "000000100000";
+    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (11 downto 0) := "000001000000";
+    constant ap_ST_fsm_state8 : STD_LOGIC_VECTOR (11 downto 0) := "000010000000";
+    constant ap_ST_fsm_state9 : STD_LOGIC_VECTOR (11 downto 0) := "000100000000";
+    constant ap_ST_fsm_state10 : STD_LOGIC_VECTOR (11 downto 0) := "001000000000";
+    constant ap_ST_fsm_state11 : STD_LOGIC_VECTOR (11 downto 0) := "010000000000";
+    constant ap_ST_fsm_state12 : STD_LOGIC_VECTOR (11 downto 0) := "100000000000";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
-    constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+    constant ap_const_lv4_0 : STD_LOGIC_VECTOR (3 downto 0) := "0000";
     constant ap_const_lv32_7 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000111";
     constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
-    constant ap_const_lv8_1 : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
+    constant ap_const_lv4_1 : STD_LOGIC_VECTOR (3 downto 0) := "0001";
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
-    constant ap_const_lv32_C : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001100";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant C_M_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_lv64_1C : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000011100";
     constant ap_const_lv64_18 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000011000";
-    constant ap_const_lv64_1A : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000011010";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv3_0 : STD_LOGIC_VECTOR (2 downto 0) := "000";
     constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
-    constant ap_const_lv4_0 : STD_LOGIC_VECTOR (3 downto 0) := "0000";
     constant ap_const_lv32_FFFE : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000001111111111111110";
     constant ap_const_lv4_F : STD_LOGIC_VECTOR (3 downto 0) := "1111";
-    constant ap_const_lv8_2 : STD_LOGIC_VECTOR (7 downto 0) := "00000010";
+    constant ap_const_lv4_2 : STD_LOGIC_VECTOR (3 downto 0) := "0010";
 
     signal ap_rst_n_inv : STD_LOGIC;
-    signal ap_CS_fsm : STD_LOGIC_VECTOR (16 downto 0) := "00000000000000001";
+    signal ap_start : STD_LOGIC;
+    signal ap_done : STD_LOGIC;
+    signal ap_idle : STD_LOGIC;
+    signal ap_CS_fsm : STD_LOGIC_VECTOR (11 downto 0) := "000000000001";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
-    signal TX_message_V : STD_LOGIC_VECTOR (31 downto 0);
-    signal RX_message_V_ap_vld : STD_LOGIC;
-    signal state : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
-    signal spi_core_blk_n_AW : STD_LOGIC;
-    signal spi_core_blk_n_W : STD_LOGIC;
+    signal ap_ready : STD_LOGIC;
+    signal state : STD_LOGIC_VECTOR (3 downto 0) := "0000";
+    signal OUT_r_blk_n_AW : STD_LOGIC;
+    signal OUT_r_blk_n_W : STD_LOGIC;
     signal ap_CS_fsm_state8 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
-    signal spi_core_blk_n_B : STD_LOGIC;
+    signal OUT_r_blk_n_B : STD_LOGIC;
     signal ap_CS_fsm_state7 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
-    signal state_load_reg_182 : STD_LOGIC_VECTOR (7 downto 0);
+    signal state_load_reg_126 : STD_LOGIC_VECTOR (3 downto 0);
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal ap_CS_fsm_state13 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state13 : signal is "none";
-    signal spi_core_AWVALID : STD_LOGIC;
-    signal spi_core_AWREADY : STD_LOGIC;
-    signal spi_core_AWADDR : STD_LOGIC_VECTOR (31 downto 0);
-    signal spi_core_WVALID : STD_LOGIC;
-    signal spi_core_WREADY : STD_LOGIC;
-    signal spi_core_WDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal spi_core_ARREADY : STD_LOGIC;
-    signal spi_core_RVALID : STD_LOGIC;
-    signal spi_core_RDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal spi_core_RLAST : STD_LOGIC;
-    signal spi_core_RID : STD_LOGIC_VECTOR (0 downto 0);
-    signal spi_core_RUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal spi_core_RRESP : STD_LOGIC_VECTOR (1 downto 0);
-    signal spi_core_BVALID : STD_LOGIC;
-    signal spi_core_BREADY : STD_LOGIC;
-    signal spi_core_BRESP : STD_LOGIC_VECTOR (1 downto 0);
-    signal spi_core_BID : STD_LOGIC_VECTOR (0 downto 0);
-    signal spi_core_BUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal TX_message_V_read_reg_176 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ap_sig_ioackin_spi_core_AWREADY : STD_LOGIC;
-    signal ap_predicate_op36_writereq_state1 : BOOLEAN;
+    signal OUT_r_AWVALID : STD_LOGIC;
+    signal OUT_r_AWREADY : STD_LOGIC;
+    signal OUT_r_AWADDR : STD_LOGIC_VECTOR (31 downto 0);
+    signal OUT_r_WVALID : STD_LOGIC;
+    signal OUT_r_WREADY : STD_LOGIC;
+    signal OUT_r_WDATA : STD_LOGIC_VECTOR (31 downto 0);
+    signal OUT_r_ARREADY : STD_LOGIC;
+    signal OUT_r_RVALID : STD_LOGIC;
+    signal OUT_r_RDATA : STD_LOGIC_VECTOR (31 downto 0);
+    signal OUT_r_RLAST : STD_LOGIC;
+    signal OUT_r_RID : STD_LOGIC_VECTOR (0 downto 0);
+    signal OUT_r_RUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal OUT_r_RRESP : STD_LOGIC_VECTOR (1 downto 0);
+    signal OUT_r_BVALID : STD_LOGIC;
+    signal OUT_r_BREADY : STD_LOGIC;
+    signal OUT_r_BRESP : STD_LOGIC_VECTOR (1 downto 0);
+    signal OUT_r_BID : STD_LOGIC_VECTOR (0 downto 0);
+    signal OUT_r_BUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal ap_sig_ioackin_OUT_r_AWREADY : STD_LOGIC;
     signal ap_block_state1_io : BOOLEAN;
-    signal ap_reg_ioackin_spi_core_AWREADY : STD_LOGIC := '0';
-    signal ap_predicate_op48_writeresp_state7 : BOOLEAN;
+    signal ap_reg_ioackin_OUT_r_AWREADY : STD_LOGIC := '0';
     signal ap_block_state7 : BOOLEAN;
-    signal ap_reg_ioackin_spi_core_WREADY : STD_LOGIC := '0';
-    signal ap_sig_ioackin_spi_core_WREADY : STD_LOGIC;
-    signal tmp_1_fu_164_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal ap_reg_ioackin_RX_message_V_dummy_ack : STD_LOGIC := '0';
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (16 downto 0);
-    signal ap_condition_454 : BOOLEAN;
-    signal ap_condition_275 : BOOLEAN;
+    signal ap_reg_ioackin_OUT_r_WREADY : STD_LOGIC := '0';
+    signal ap_sig_ioackin_OUT_r_WREADY : STD_LOGIC;
+    signal ap_NS_fsm : STD_LOGIC_VECTOR (11 downto 0);
+    signal ap_condition_365 : BOOLEAN;
+    signal ap_condition_245 : BOOLEAN;
 
-    component AXI_SPI_DRIVER_debug_s_axi IS
+    component AXI_SPI_DRIVER_CTRL_s_axi IS
     generic (
         C_S_AXI_ADDR_WIDTH : INTEGER;
         C_S_AXI_DATA_WIDTH : INTEGER );
@@ -220,13 +204,15 @@ architecture behav of AXI_SPI_DRIVER is
         ACLK : IN STD_LOGIC;
         ARESET : IN STD_LOGIC;
         ACLK_EN : IN STD_LOGIC;
-        TX_message_V : OUT STD_LOGIC_VECTOR (31 downto 0);
-        RX_message_V : IN STD_LOGIC_VECTOR (31 downto 0);
-        RX_message_V_ap_vld : IN STD_LOGIC );
+        ap_start : OUT STD_LOGIC;
+        interrupt : OUT STD_LOGIC;
+        ap_ready : IN STD_LOGIC;
+        ap_done : IN STD_LOGIC;
+        ap_idle : IN STD_LOGIC );
     end component;
 
 
-    component AXI_SPI_DRIVER_spi_core_m_axi IS
+    component AXI_SPI_DRIVER_OUT_r_m_axi IS
     generic (
         CONSERVATIVE : INTEGER;
         USER_DW : INTEGER;
@@ -347,36 +333,38 @@ architecture behav of AXI_SPI_DRIVER is
 
 
 begin
-    AXI_SPI_DRIVER_debug_s_axi_U : component AXI_SPI_DRIVER_debug_s_axi
+    AXI_SPI_DRIVER_CTRL_s_axi_U : component AXI_SPI_DRIVER_CTRL_s_axi
     generic map (
-        C_S_AXI_ADDR_WIDTH => C_S_AXI_DEBUG_ADDR_WIDTH,
-        C_S_AXI_DATA_WIDTH => C_S_AXI_DEBUG_DATA_WIDTH)
+        C_S_AXI_ADDR_WIDTH => C_S_AXI_CTRL_ADDR_WIDTH,
+        C_S_AXI_DATA_WIDTH => C_S_AXI_CTRL_DATA_WIDTH)
     port map (
-        AWVALID => s_axi_debug_AWVALID,
-        AWREADY => s_axi_debug_AWREADY,
-        AWADDR => s_axi_debug_AWADDR,
-        WVALID => s_axi_debug_WVALID,
-        WREADY => s_axi_debug_WREADY,
-        WDATA => s_axi_debug_WDATA,
-        WSTRB => s_axi_debug_WSTRB,
-        ARVALID => s_axi_debug_ARVALID,
-        ARREADY => s_axi_debug_ARREADY,
-        ARADDR => s_axi_debug_ARADDR,
-        RVALID => s_axi_debug_RVALID,
-        RREADY => s_axi_debug_RREADY,
-        RDATA => s_axi_debug_RDATA,
-        RRESP => s_axi_debug_RRESP,
-        BVALID => s_axi_debug_BVALID,
-        BREADY => s_axi_debug_BREADY,
-        BRESP => s_axi_debug_BRESP,
+        AWVALID => s_axi_CTRL_AWVALID,
+        AWREADY => s_axi_CTRL_AWREADY,
+        AWADDR => s_axi_CTRL_AWADDR,
+        WVALID => s_axi_CTRL_WVALID,
+        WREADY => s_axi_CTRL_WREADY,
+        WDATA => s_axi_CTRL_WDATA,
+        WSTRB => s_axi_CTRL_WSTRB,
+        ARVALID => s_axi_CTRL_ARVALID,
+        ARREADY => s_axi_CTRL_ARREADY,
+        ARADDR => s_axi_CTRL_ARADDR,
+        RVALID => s_axi_CTRL_RVALID,
+        RREADY => s_axi_CTRL_RREADY,
+        RDATA => s_axi_CTRL_RDATA,
+        RRESP => s_axi_CTRL_RRESP,
+        BVALID => s_axi_CTRL_BVALID,
+        BREADY => s_axi_CTRL_BREADY,
+        BRESP => s_axi_CTRL_BRESP,
         ACLK => ap_clk,
         ARESET => ap_rst_n_inv,
         ACLK_EN => ap_const_logic_1,
-        TX_message_V => TX_message_V,
-        RX_message_V => TX_message_V_read_reg_176,
-        RX_message_V_ap_vld => RX_message_V_ap_vld);
+        ap_start => ap_start,
+        interrupt => interrupt,
+        ap_ready => ap_ready,
+        ap_done => ap_done,
+        ap_idle => ap_idle);
 
-    AXI_SPI_DRIVER_spi_core_m_axi_U : component AXI_SPI_DRIVER_spi_core_m_axi
+    AXI_SPI_DRIVER_OUT_r_m_axi_U : component AXI_SPI_DRIVER_OUT_r_m_axi
     generic map (
         CONSERVATIVE => 0,
         USER_DW => 32,
@@ -386,69 +374,69 @@ begin
         NUM_WRITE_OUTSTANDING => 16,
         MAX_READ_BURST_LENGTH => 16,
         MAX_WRITE_BURST_LENGTH => 16,
-        C_M_AXI_ID_WIDTH => C_M_AXI_SPI_CORE_ID_WIDTH,
-        C_M_AXI_ADDR_WIDTH => C_M_AXI_SPI_CORE_ADDR_WIDTH,
-        C_M_AXI_DATA_WIDTH => C_M_AXI_SPI_CORE_DATA_WIDTH,
-        C_M_AXI_AWUSER_WIDTH => C_M_AXI_SPI_CORE_AWUSER_WIDTH,
-        C_M_AXI_ARUSER_WIDTH => C_M_AXI_SPI_CORE_ARUSER_WIDTH,
-        C_M_AXI_WUSER_WIDTH => C_M_AXI_SPI_CORE_WUSER_WIDTH,
-        C_M_AXI_RUSER_WIDTH => C_M_AXI_SPI_CORE_RUSER_WIDTH,
-        C_M_AXI_BUSER_WIDTH => C_M_AXI_SPI_CORE_BUSER_WIDTH,
-        C_TARGET_ADDR => C_M_AXI_SPI_CORE_TARGET_ADDR,
-        C_USER_VALUE => C_M_AXI_SPI_CORE_USER_VALUE,
-        C_PROT_VALUE => C_M_AXI_SPI_CORE_PROT_VALUE,
-        C_CACHE_VALUE => C_M_AXI_SPI_CORE_CACHE_VALUE)
+        C_M_AXI_ID_WIDTH => C_M_AXI_OUT_R_ID_WIDTH,
+        C_M_AXI_ADDR_WIDTH => C_M_AXI_OUT_R_ADDR_WIDTH,
+        C_M_AXI_DATA_WIDTH => C_M_AXI_OUT_R_DATA_WIDTH,
+        C_M_AXI_AWUSER_WIDTH => C_M_AXI_OUT_R_AWUSER_WIDTH,
+        C_M_AXI_ARUSER_WIDTH => C_M_AXI_OUT_R_ARUSER_WIDTH,
+        C_M_AXI_WUSER_WIDTH => C_M_AXI_OUT_R_WUSER_WIDTH,
+        C_M_AXI_RUSER_WIDTH => C_M_AXI_OUT_R_RUSER_WIDTH,
+        C_M_AXI_BUSER_WIDTH => C_M_AXI_OUT_R_BUSER_WIDTH,
+        C_TARGET_ADDR => C_M_AXI_OUT_R_TARGET_ADDR,
+        C_USER_VALUE => C_M_AXI_OUT_R_USER_VALUE,
+        C_PROT_VALUE => C_M_AXI_OUT_R_PROT_VALUE,
+        C_CACHE_VALUE => C_M_AXI_OUT_R_CACHE_VALUE)
     port map (
-        AWVALID => m_axi_spi_core_AWVALID,
-        AWREADY => m_axi_spi_core_AWREADY,
-        AWADDR => m_axi_spi_core_AWADDR,
-        AWID => m_axi_spi_core_AWID,
-        AWLEN => m_axi_spi_core_AWLEN,
-        AWSIZE => m_axi_spi_core_AWSIZE,
-        AWBURST => m_axi_spi_core_AWBURST,
-        AWLOCK => m_axi_spi_core_AWLOCK,
-        AWCACHE => m_axi_spi_core_AWCACHE,
-        AWPROT => m_axi_spi_core_AWPROT,
-        AWQOS => m_axi_spi_core_AWQOS,
-        AWREGION => m_axi_spi_core_AWREGION,
-        AWUSER => m_axi_spi_core_AWUSER,
-        WVALID => m_axi_spi_core_WVALID,
-        WREADY => m_axi_spi_core_WREADY,
-        WDATA => m_axi_spi_core_WDATA,
-        WSTRB => m_axi_spi_core_WSTRB,
-        WLAST => m_axi_spi_core_WLAST,
-        WID => m_axi_spi_core_WID,
-        WUSER => m_axi_spi_core_WUSER,
-        ARVALID => m_axi_spi_core_ARVALID,
-        ARREADY => m_axi_spi_core_ARREADY,
-        ARADDR => m_axi_spi_core_ARADDR,
-        ARID => m_axi_spi_core_ARID,
-        ARLEN => m_axi_spi_core_ARLEN,
-        ARSIZE => m_axi_spi_core_ARSIZE,
-        ARBURST => m_axi_spi_core_ARBURST,
-        ARLOCK => m_axi_spi_core_ARLOCK,
-        ARCACHE => m_axi_spi_core_ARCACHE,
-        ARPROT => m_axi_spi_core_ARPROT,
-        ARQOS => m_axi_spi_core_ARQOS,
-        ARREGION => m_axi_spi_core_ARREGION,
-        ARUSER => m_axi_spi_core_ARUSER,
-        RVALID => m_axi_spi_core_RVALID,
-        RREADY => m_axi_spi_core_RREADY,
-        RDATA => m_axi_spi_core_RDATA,
-        RLAST => m_axi_spi_core_RLAST,
-        RID => m_axi_spi_core_RID,
-        RUSER => m_axi_spi_core_RUSER,
-        RRESP => m_axi_spi_core_RRESP,
-        BVALID => m_axi_spi_core_BVALID,
-        BREADY => m_axi_spi_core_BREADY,
-        BRESP => m_axi_spi_core_BRESP,
-        BID => m_axi_spi_core_BID,
-        BUSER => m_axi_spi_core_BUSER,
+        AWVALID => m_axi_OUT_r_AWVALID,
+        AWREADY => m_axi_OUT_r_AWREADY,
+        AWADDR => m_axi_OUT_r_AWADDR,
+        AWID => m_axi_OUT_r_AWID,
+        AWLEN => m_axi_OUT_r_AWLEN,
+        AWSIZE => m_axi_OUT_r_AWSIZE,
+        AWBURST => m_axi_OUT_r_AWBURST,
+        AWLOCK => m_axi_OUT_r_AWLOCK,
+        AWCACHE => m_axi_OUT_r_AWCACHE,
+        AWPROT => m_axi_OUT_r_AWPROT,
+        AWQOS => m_axi_OUT_r_AWQOS,
+        AWREGION => m_axi_OUT_r_AWREGION,
+        AWUSER => m_axi_OUT_r_AWUSER,
+        WVALID => m_axi_OUT_r_WVALID,
+        WREADY => m_axi_OUT_r_WREADY,
+        WDATA => m_axi_OUT_r_WDATA,
+        WSTRB => m_axi_OUT_r_WSTRB,
+        WLAST => m_axi_OUT_r_WLAST,
+        WID => m_axi_OUT_r_WID,
+        WUSER => m_axi_OUT_r_WUSER,
+        ARVALID => m_axi_OUT_r_ARVALID,
+        ARREADY => m_axi_OUT_r_ARREADY,
+        ARADDR => m_axi_OUT_r_ARADDR,
+        ARID => m_axi_OUT_r_ARID,
+        ARLEN => m_axi_OUT_r_ARLEN,
+        ARSIZE => m_axi_OUT_r_ARSIZE,
+        ARBURST => m_axi_OUT_r_ARBURST,
+        ARLOCK => m_axi_OUT_r_ARLOCK,
+        ARCACHE => m_axi_OUT_r_ARCACHE,
+        ARPROT => m_axi_OUT_r_ARPROT,
+        ARQOS => m_axi_OUT_r_ARQOS,
+        ARREGION => m_axi_OUT_r_ARREGION,
+        ARUSER => m_axi_OUT_r_ARUSER,
+        RVALID => m_axi_OUT_r_RVALID,
+        RREADY => m_axi_OUT_r_RREADY,
+        RDATA => m_axi_OUT_r_RDATA,
+        RLAST => m_axi_OUT_r_RLAST,
+        RID => m_axi_OUT_r_RID,
+        RUSER => m_axi_OUT_r_RUSER,
+        RRESP => m_axi_OUT_r_RRESP,
+        BVALID => m_axi_OUT_r_BVALID,
+        BREADY => m_axi_OUT_r_BREADY,
+        BRESP => m_axi_OUT_r_BRESP,
+        BID => m_axi_OUT_r_BID,
+        BUSER => m_axi_OUT_r_BUSER,
         ACLK => ap_clk,
         ARESET => ap_rst_n_inv,
         ACLK_EN => ap_const_logic_1,
         I_ARVALID => ap_const_logic_0,
-        I_ARREADY => spi_core_ARREADY,
+        I_ARREADY => OUT_r_ARREADY,
         I_ARADDR => ap_const_lv32_0,
         I_ARID => ap_const_lv1_0,
         I_ARLEN => ap_const_lv32_0,
@@ -460,16 +448,16 @@ begin
         I_ARUSER => ap_const_lv1_0,
         I_ARBURST => ap_const_lv2_0,
         I_ARREGION => ap_const_lv4_0,
-        I_RVALID => spi_core_RVALID,
+        I_RVALID => OUT_r_RVALID,
         I_RREADY => ap_const_logic_0,
-        I_RDATA => spi_core_RDATA,
-        I_RID => spi_core_RID,
-        I_RUSER => spi_core_RUSER,
-        I_RRESP => spi_core_RRESP,
-        I_RLAST => spi_core_RLAST,
-        I_AWVALID => spi_core_AWVALID,
-        I_AWREADY => spi_core_AWREADY,
-        I_AWADDR => spi_core_AWADDR,
+        I_RDATA => OUT_r_RDATA,
+        I_RID => OUT_r_RID,
+        I_RUSER => OUT_r_RUSER,
+        I_RRESP => OUT_r_RRESP,
+        I_RLAST => OUT_r_RLAST,
+        I_AWVALID => OUT_r_AWVALID,
+        I_AWREADY => OUT_r_AWREADY,
+        I_AWADDR => OUT_r_AWADDR,
         I_AWID => ap_const_lv1_0,
         I_AWLEN => ap_const_lv32_1,
         I_AWSIZE => ap_const_lv3_0,
@@ -480,18 +468,18 @@ begin
         I_AWUSER => ap_const_lv1_0,
         I_AWBURST => ap_const_lv2_0,
         I_AWREGION => ap_const_lv4_0,
-        I_WVALID => spi_core_WVALID,
-        I_WREADY => spi_core_WREADY,
-        I_WDATA => spi_core_WDATA,
+        I_WVALID => OUT_r_WVALID,
+        I_WREADY => OUT_r_WREADY,
+        I_WDATA => OUT_r_WDATA,
         I_WID => ap_const_lv1_0,
         I_WUSER => ap_const_lv1_0,
         I_WLAST => ap_const_logic_0,
         I_WSTRB => ap_const_lv4_F,
-        I_BVALID => spi_core_BVALID,
-        I_BREADY => spi_core_BREADY,
-        I_BRESP => spi_core_BRESP,
-        I_BID => spi_core_BID,
-        I_BUSER => spi_core_BUSER);
+        I_BVALID => OUT_r_BVALID,
+        I_BREADY => OUT_r_BREADY,
+        I_BRESP => OUT_r_BRESP,
+        I_BID => OUT_r_BID,
+        I_BUSER => OUT_r_BUSER);
 
 
 
@@ -509,50 +497,32 @@ begin
     end process;
 
 
-    ap_reg_ioackin_RX_message_V_dummy_ack_assign_proc : process(ap_clk)
+    ap_reg_ioackin_OUT_r_AWREADY_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                ap_reg_ioackin_RX_message_V_dummy_ack <= ap_const_logic_0;
+                ap_reg_ioackin_OUT_r_AWREADY <= ap_const_logic_0;
             else
-                if ((ap_const_logic_1 = ap_CS_fsm_state13)) then
-                    if ((ap_sig_ioackin_spi_core_WREADY = ap_const_logic_1)) then 
-                        ap_reg_ioackin_RX_message_V_dummy_ack <= ap_const_logic_0;
-                    elsif ((ap_const_logic_1 = ap_const_logic_1)) then 
-                        ap_reg_ioackin_RX_message_V_dummy_ack <= ap_const_logic_1;
-                    end if;
+                if (((not(((ap_start = ap_const_logic_0) or (ap_const_boolean_1 = ap_block_state1_io))) and (state = ap_const_lv4_0) and (ap_const_logic_1 = ap_CS_fsm_state1)) or (not(((ap_start = ap_const_logic_0) or (ap_const_boolean_1 = ap_block_state1_io))) and (state = ap_const_lv4_1) and (ap_const_logic_1 = ap_CS_fsm_state1)))) then 
+                    ap_reg_ioackin_OUT_r_AWREADY <= ap_const_logic_0;
+                elsif ((((state = ap_const_lv4_0) and (ap_const_logic_1 = ap_CS_fsm_state1) and (ap_const_logic_1 = OUT_r_AWREADY) and (ap_start = ap_const_logic_1)) or ((state = ap_const_lv4_1) and (ap_const_logic_1 = ap_CS_fsm_state1) and (ap_const_logic_1 = OUT_r_AWREADY) and (ap_start = ap_const_logic_1)))) then 
+                    ap_reg_ioackin_OUT_r_AWREADY <= ap_const_logic_1;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    ap_reg_ioackin_spi_core_AWREADY_assign_proc : process(ap_clk)
+    ap_reg_ioackin_OUT_r_WREADY_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                ap_reg_ioackin_spi_core_AWREADY <= ap_const_logic_0;
+                ap_reg_ioackin_OUT_r_WREADY <= ap_const_logic_0;
             else
-                if (((not(((ap_const_boolean_1 = ap_block_state1_io) or (ap_start = ap_const_logic_0))) and (state = ap_const_lv8_0) and (ap_const_logic_1 = ap_CS_fsm_state1)) or (not(((ap_const_boolean_1 = ap_block_state1_io) or (ap_start = ap_const_logic_0))) and (ap_predicate_op36_writereq_state1 = ap_const_boolean_1) and (ap_const_logic_1 = ap_CS_fsm_state1)) or (not(((ap_const_boolean_1 = ap_block_state1_io) or (ap_start = ap_const_logic_0))) and (state = ap_const_lv8_1) and (ap_const_logic_1 = ap_CS_fsm_state1)))) then 
-                    ap_reg_ioackin_spi_core_AWREADY <= ap_const_logic_0;
-                elsif ((((state = ap_const_lv8_0) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1) and (spi_core_AWREADY = ap_const_logic_1)) or ((ap_predicate_op36_writereq_state1 = ap_const_boolean_1) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1) and (spi_core_AWREADY = ap_const_logic_1)) or ((state = ap_const_lv8_1) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1) and (spi_core_AWREADY = ap_const_logic_1)))) then 
-                    ap_reg_ioackin_spi_core_AWREADY <= ap_const_logic_1;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    ap_reg_ioackin_spi_core_WREADY_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_reg_ioackin_spi_core_WREADY <= ap_const_logic_0;
-            else
-                if ((((ap_sig_ioackin_spi_core_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state13)) or ((ap_sig_ioackin_spi_core_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2)) or ((ap_sig_ioackin_spi_core_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state8)))) then 
-                    ap_reg_ioackin_spi_core_WREADY <= ap_const_logic_0;
-                elsif ((((spi_core_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state13)) or ((spi_core_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2)) or ((spi_core_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state8)))) then 
-                    ap_reg_ioackin_spi_core_WREADY <= ap_const_logic_1;
+                if ((((ap_sig_ioackin_OUT_r_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state8)) or ((ap_sig_ioackin_OUT_r_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2)))) then 
+                    ap_reg_ioackin_OUT_r_WREADY <= ap_const_logic_0;
+                elsif ((((ap_const_logic_1 = ap_CS_fsm_state8) and (ap_const_logic_1 = OUT_r_WREADY)) or ((ap_const_logic_1 = OUT_r_WREADY) and (ap_const_logic_1 = ap_CS_fsm_state2)))) then 
+                    ap_reg_ioackin_OUT_r_WREADY <= ap_const_logic_1;
                 end if; 
             end if;
         end if;
@@ -563,15 +533,16 @@ begin
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst_n_inv = '1') then
-                state <= ap_const_lv8_0;
+                state(0) <= '0';
+                state(1) <= '0';
             else
-                if ((ap_const_boolean_1 = ap_condition_275)) then
-                    if ((ap_predicate_op36_writereq_state1 = ap_const_boolean_1)) then 
-                        state <= tmp_1_fu_164_p2;
-                    elsif ((state = ap_const_lv8_0)) then 
-                        state <= ap_const_lv8_1;
-                    elsif ((state = ap_const_lv8_1)) then 
-                        state <= ap_const_lv8_2;
+                if ((ap_const_boolean_1 = ap_condition_245)) then
+                    if ((state = ap_const_lv4_0)) then 
+                        state(0) <= '1';
+                        state(1) <= '0';
+                    elsif ((state = ap_const_lv4_1)) then 
+                        state(0) <= '0';
+                        state(1) <= '1';
                     end if;
                 end if; 
             end if;
@@ -581,28 +552,29 @@ begin
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if ((not(((ap_const_boolean_1 = ap_block_state1_io) or (ap_start = ap_const_logic_0))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
-                TX_message_V_read_reg_176 <= TX_message_V;
-                state_load_reg_182 <= state;
+            if ((not(((ap_start = ap_const_logic_0) or (ap_const_boolean_1 = ap_block_state1_io))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
+                    state_load_reg_126(1 downto 0) <= state(1 downto 0);
             end if;
         end if;
     end process;
+    state(3 downto 2) <= "00";
+    state_load_reg_126(3 downto 2) <= "00";
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, state, ap_CS_fsm_state8, ap_CS_fsm_state7, state_load_reg_182, ap_CS_fsm_state2, ap_CS_fsm_state13, spi_core_BVALID, ap_block_state1_io, ap_predicate_op48_writeresp_state7, ap_sig_ioackin_spi_core_WREADY)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, state, ap_CS_fsm_state8, ap_CS_fsm_state7, state_load_reg_126, ap_CS_fsm_state2, OUT_r_BVALID, ap_block_state1_io, ap_sig_ioackin_OUT_r_WREADY)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
-                if ((not((state = ap_const_lv8_0)) and not(((ap_const_boolean_1 = ap_block_state1_io) or (ap_start = ap_const_logic_0))) and not((state = ap_const_lv8_1)) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
-                    ap_NS_fsm <= ap_ST_fsm_state13;
-                elsif ((not(((ap_const_boolean_1 = ap_block_state1_io) or (ap_start = ap_const_logic_0))) and (state = ap_const_lv8_0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
+                if ((not(((ap_start = ap_const_logic_0) or (ap_const_boolean_1 = ap_block_state1_io))) and (state = ap_const_lv4_0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
                     ap_NS_fsm <= ap_ST_fsm_state8;
-                elsif ((not(((ap_const_boolean_1 = ap_block_state1_io) or (ap_start = ap_const_logic_0))) and (state = ap_const_lv8_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
+                elsif ((not((state = ap_const_lv4_0)) and not(((ap_start = ap_const_logic_0) or (ap_const_boolean_1 = ap_block_state1_io))) and not((state = ap_const_lv4_1)) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
+                    ap_NS_fsm <= ap_ST_fsm_state7;
+                elsif ((not(((ap_start = ap_const_logic_0) or (ap_const_boolean_1 = ap_block_state1_io))) and (state = ap_const_lv4_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
                     ap_NS_fsm <= ap_ST_fsm_state2;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 end if;
             when ap_ST_fsm_state2 => 
-                if (((ap_sig_ioackin_spi_core_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then
+                if (((ap_sig_ioackin_OUT_r_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then
                     ap_NS_fsm <= ap_ST_fsm_state3;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state2;
@@ -616,13 +588,13 @@ begin
             when ap_ST_fsm_state6 => 
                 ap_NS_fsm <= ap_ST_fsm_state7;
             when ap_ST_fsm_state7 => 
-                if ((not((((ap_predicate_op48_writeresp_state7 = ap_const_boolean_1) and (spi_core_BVALID = ap_const_logic_0)) or ((spi_core_BVALID = ap_const_logic_0) and (state_load_reg_182 = ap_const_lv8_1)) or ((state_load_reg_182 = ap_const_lv8_0) and (spi_core_BVALID = ap_const_logic_0)))) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
+                if ((not((((ap_const_logic_0 = OUT_r_BVALID) and (state_load_reg_126 = ap_const_lv4_1)) or ((state_load_reg_126 = ap_const_lv4_0) and (ap_const_logic_0 = OUT_r_BVALID)))) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state7;
                 end if;
             when ap_ST_fsm_state8 => 
-                if (((ap_sig_ioackin_spi_core_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state8))) then
+                if (((ap_sig_ioackin_OUT_r_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state8))) then
                     ap_NS_fsm <= ap_ST_fsm_state9;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state8;
@@ -635,67 +607,134 @@ begin
                 ap_NS_fsm <= ap_ST_fsm_state12;
             when ap_ST_fsm_state12 => 
                 ap_NS_fsm <= ap_ST_fsm_state7;
-            when ap_ST_fsm_state13 => 
-                if (((ap_sig_ioackin_spi_core_WREADY = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state13))) then
-                    ap_NS_fsm <= ap_ST_fsm_state14;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state13;
-                end if;
-            when ap_ST_fsm_state14 => 
-                ap_NS_fsm <= ap_ST_fsm_state15;
-            when ap_ST_fsm_state15 => 
-                ap_NS_fsm <= ap_ST_fsm_state16;
-            when ap_ST_fsm_state16 => 
-                ap_NS_fsm <= ap_ST_fsm_state17;
-            when ap_ST_fsm_state17 => 
-                ap_NS_fsm <= ap_ST_fsm_state7;
             when others =>  
-                ap_NS_fsm <= "XXXXXXXXXXXXXXXXX";
+                ap_NS_fsm <= "XXXXXXXXXXXX";
         end case;
     end process;
 
-    RX_message_V_ap_vld_assign_proc : process(ap_CS_fsm_state13, ap_reg_ioackin_RX_message_V_dummy_ack)
+    OUT_r_AWADDR_assign_proc : process(state, ap_condition_365)
     begin
-        if (((ap_reg_ioackin_RX_message_V_dummy_ack = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state13))) then 
-            RX_message_V_ap_vld <= ap_const_logic_1;
+        if ((ap_const_boolean_1 = ap_condition_365)) then
+            if ((state = ap_const_lv4_0)) then 
+                OUT_r_AWADDR <= ap_const_lv64_18(32 - 1 downto 0);
+            elsif ((state = ap_const_lv4_1)) then 
+                OUT_r_AWADDR <= ap_const_lv64_1C(32 - 1 downto 0);
+            else 
+                OUT_r_AWADDR <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+            end if;
         else 
-            RX_message_V_ap_vld <= ap_const_logic_0;
+            OUT_r_AWADDR <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+        end if; 
+    end process;
+
+
+    OUT_r_AWVALID_assign_proc : process(ap_start, ap_CS_fsm_state1, state, ap_reg_ioackin_OUT_r_AWREADY)
+    begin
+        if ((((state = ap_const_lv4_0) and (ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1)) or ((state = ap_const_lv4_1) and (ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1)))) then 
+            OUT_r_AWVALID <= ap_const_logic_1;
+        else 
+            OUT_r_AWVALID <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    OUT_r_BREADY_assign_proc : process(ap_CS_fsm_state7, state_load_reg_126, OUT_r_BVALID)
+    begin
+        if (((not((((ap_const_logic_0 = OUT_r_BVALID) and (state_load_reg_126 = ap_const_lv4_1)) or ((state_load_reg_126 = ap_const_lv4_0) and (ap_const_logic_0 = OUT_r_BVALID)))) and (ap_const_logic_1 = ap_CS_fsm_state7) and (state_load_reg_126 = ap_const_lv4_1)) or (not((((ap_const_logic_0 = OUT_r_BVALID) and (state_load_reg_126 = ap_const_lv4_1)) or ((state_load_reg_126 = ap_const_lv4_0) and (ap_const_logic_0 = OUT_r_BVALID)))) and (state_load_reg_126 = ap_const_lv4_0) and (ap_const_logic_1 = ap_CS_fsm_state7)))) then 
+            OUT_r_BREADY <= ap_const_logic_1;
+        else 
+            OUT_r_BREADY <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    OUT_r_WDATA_assign_proc : process(ap_CS_fsm_state8, ap_CS_fsm_state2, ap_reg_ioackin_OUT_r_WREADY)
+    begin
+        if ((ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_0)) then
+            if ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
+                OUT_r_WDATA <= ap_const_lv32_6;
+            elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+                OUT_r_WDATA <= ap_const_lv32_FFFE;
+            else 
+                OUT_r_WDATA <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+            end if;
+        else 
+            OUT_r_WDATA <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+        end if; 
+    end process;
+
+
+    OUT_r_WVALID_assign_proc : process(ap_CS_fsm_state8, ap_CS_fsm_state2, ap_reg_ioackin_OUT_r_WREADY)
+    begin
+        if ((((ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state8)) or ((ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state2)))) then 
+            OUT_r_WVALID <= ap_const_logic_1;
+        else 
+            OUT_r_WVALID <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    OUT_r_blk_n_AW_assign_proc : process(ap_start, ap_CS_fsm_state1, m_axi_OUT_r_AWREADY, state)
+    begin
+        if ((((state = ap_const_lv4_0) and (ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1)) or ((state = ap_const_lv4_1) and (ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1)))) then 
+            OUT_r_blk_n_AW <= m_axi_OUT_r_AWREADY;
+        else 
+            OUT_r_blk_n_AW <= ap_const_logic_1;
+        end if; 
+    end process;
+
+
+    OUT_r_blk_n_B_assign_proc : process(m_axi_OUT_r_BVALID, ap_CS_fsm_state7, state_load_reg_126)
+    begin
+        if ((((ap_const_logic_1 = ap_CS_fsm_state7) and (state_load_reg_126 = ap_const_lv4_1)) or ((state_load_reg_126 = ap_const_lv4_0) and (ap_const_logic_1 = ap_CS_fsm_state7)))) then 
+            OUT_r_blk_n_B <= m_axi_OUT_r_BVALID;
+        else 
+            OUT_r_blk_n_B <= ap_const_logic_1;
+        end if; 
+    end process;
+
+
+    OUT_r_blk_n_W_assign_proc : process(m_axi_OUT_r_WREADY, ap_CS_fsm_state8, ap_CS_fsm_state2)
+    begin
+        if (((ap_const_logic_1 = ap_CS_fsm_state8) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            OUT_r_blk_n_W <= m_axi_OUT_r_WREADY;
+        else 
+            OUT_r_blk_n_W <= ap_const_logic_1;
         end if; 
     end process;
 
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
-    ap_CS_fsm_state13 <= ap_CS_fsm(12);
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
     ap_CS_fsm_state7 <= ap_CS_fsm(6);
     ap_CS_fsm_state8 <= ap_CS_fsm(7);
 
-    ap_block_state1_io_assign_proc : process(state, ap_sig_ioackin_spi_core_AWREADY, ap_predicate_op36_writereq_state1)
+    ap_block_state1_io_assign_proc : process(state, ap_sig_ioackin_OUT_r_AWREADY)
     begin
-                ap_block_state1_io <= (((state = ap_const_lv8_0) and (ap_sig_ioackin_spi_core_AWREADY = ap_const_logic_0)) or ((ap_predicate_op36_writereq_state1 = ap_const_boolean_1) and (ap_sig_ioackin_spi_core_AWREADY = ap_const_logic_0)) or ((state = ap_const_lv8_1) and (ap_sig_ioackin_spi_core_AWREADY = ap_const_logic_0)));
+                ap_block_state1_io <= (((state = ap_const_lv4_0) and (ap_sig_ioackin_OUT_r_AWREADY = ap_const_logic_0)) or ((state = ap_const_lv4_1) and (ap_sig_ioackin_OUT_r_AWREADY = ap_const_logic_0)));
     end process;
 
 
-    ap_block_state7_assign_proc : process(state_load_reg_182, spi_core_BVALID, ap_predicate_op48_writeresp_state7)
+    ap_block_state7_assign_proc : process(state_load_reg_126, OUT_r_BVALID)
     begin
-                ap_block_state7 <= (((ap_predicate_op48_writeresp_state7 = ap_const_boolean_1) and (spi_core_BVALID = ap_const_logic_0)) or ((spi_core_BVALID = ap_const_logic_0) and (state_load_reg_182 = ap_const_lv8_1)) or ((state_load_reg_182 = ap_const_lv8_0) and (spi_core_BVALID = ap_const_logic_0)));
+                ap_block_state7 <= (((ap_const_logic_0 = OUT_r_BVALID) and (state_load_reg_126 = ap_const_lv4_1)) or ((state_load_reg_126 = ap_const_lv4_0) and (ap_const_logic_0 = OUT_r_BVALID)));
     end process;
 
 
-    ap_condition_275_assign_proc : process(ap_start, ap_CS_fsm_state1, ap_block_state1_io)
+    ap_condition_245_assign_proc : process(ap_start, ap_CS_fsm_state1, ap_block_state1_io)
     begin
-                ap_condition_275 <= (not(((ap_const_boolean_1 = ap_block_state1_io) or (ap_start = ap_const_logic_0))) and (ap_const_logic_1 = ap_CS_fsm_state1));
+                ap_condition_245 <= (not(((ap_start = ap_const_logic_0) or (ap_const_boolean_1 = ap_block_state1_io))) and (ap_const_logic_1 = ap_CS_fsm_state1));
     end process;
 
 
-    ap_condition_454_assign_proc : process(ap_start, ap_CS_fsm_state1, ap_reg_ioackin_spi_core_AWREADY)
+    ap_condition_365_assign_proc : process(ap_start, ap_CS_fsm_state1, ap_reg_ioackin_OUT_r_AWREADY)
     begin
-                ap_condition_454 <= ((ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_0) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1));
+                ap_condition_365 <= ((ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1));
     end process;
 
 
-    ap_done_assign_proc : process(ap_CS_fsm_state7, state_load_reg_182, spi_core_BVALID, ap_predicate_op48_writeresp_state7)
+    ap_done_assign_proc : process(ap_CS_fsm_state7, state_load_reg_126, OUT_r_BVALID)
     begin
-        if ((not((((ap_predicate_op48_writeresp_state7 = ap_const_boolean_1) and (spi_core_BVALID = ap_const_logic_0)) or ((spi_core_BVALID = ap_const_logic_0) and (state_load_reg_182 = ap_const_lv8_1)) or ((state_load_reg_182 = ap_const_lv8_0) and (spi_core_BVALID = ap_const_logic_0)))) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+        if ((not((((ap_const_logic_0 = OUT_r_BVALID) and (state_load_reg_126 = ap_const_lv4_1)) or ((state_load_reg_126 = ap_const_lv4_0) and (ap_const_logic_0 = OUT_r_BVALID)))) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_const_logic_0;
@@ -713,21 +752,9 @@ begin
     end process;
 
 
-    ap_predicate_op36_writereq_state1_assign_proc : process(state)
+    ap_ready_assign_proc : process(ap_CS_fsm_state7, state_load_reg_126, OUT_r_BVALID)
     begin
-                ap_predicate_op36_writereq_state1 <= (not((state = ap_const_lv8_0)) and not((state = ap_const_lv8_1)));
-    end process;
-
-
-    ap_predicate_op48_writeresp_state7_assign_proc : process(state_load_reg_182)
-    begin
-                ap_predicate_op48_writeresp_state7 <= (not((state_load_reg_182 = ap_const_lv8_1)) and not((state_load_reg_182 = ap_const_lv8_0)));
-    end process;
-
-
-    ap_ready_assign_proc : process(ap_CS_fsm_state7, state_load_reg_182, spi_core_BVALID, ap_predicate_op48_writeresp_state7)
-    begin
-        if ((not((((ap_predicate_op48_writeresp_state7 = ap_const_boolean_1) and (spi_core_BVALID = ap_const_logic_0)) or ((spi_core_BVALID = ap_const_logic_0) and (state_load_reg_182 = ap_const_lv8_1)) or ((state_load_reg_182 = ap_const_lv8_0) and (spi_core_BVALID = ap_const_logic_0)))) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
+        if ((not((((ap_const_logic_0 = OUT_r_BVALID) and (state_load_reg_126 = ap_const_lv4_1)) or ((state_load_reg_126 = ap_const_lv4_0) and (ap_const_logic_0 = OUT_r_BVALID)))) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
             ap_ready <= ap_const_logic_1;
         else 
             ap_ready <= ap_const_logic_0;
@@ -741,120 +768,23 @@ begin
     end process;
 
 
-    ap_sig_ioackin_spi_core_AWREADY_assign_proc : process(spi_core_AWREADY, ap_reg_ioackin_spi_core_AWREADY)
+    ap_sig_ioackin_OUT_r_AWREADY_assign_proc : process(OUT_r_AWREADY, ap_reg_ioackin_OUT_r_AWREADY)
     begin
-        if ((ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_0)) then 
-            ap_sig_ioackin_spi_core_AWREADY <= spi_core_AWREADY;
+        if ((ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_0)) then 
+            ap_sig_ioackin_OUT_r_AWREADY <= OUT_r_AWREADY;
         else 
-            ap_sig_ioackin_spi_core_AWREADY <= ap_const_logic_1;
+            ap_sig_ioackin_OUT_r_AWREADY <= ap_const_logic_1;
         end if; 
     end process;
 
 
-    ap_sig_ioackin_spi_core_WREADY_assign_proc : process(spi_core_WREADY, ap_reg_ioackin_spi_core_WREADY)
+    ap_sig_ioackin_OUT_r_WREADY_assign_proc : process(OUT_r_WREADY, ap_reg_ioackin_OUT_r_WREADY)
     begin
-        if ((ap_reg_ioackin_spi_core_WREADY = ap_const_logic_0)) then 
-            ap_sig_ioackin_spi_core_WREADY <= spi_core_WREADY;
+        if ((ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_0)) then 
+            ap_sig_ioackin_OUT_r_WREADY <= OUT_r_WREADY;
         else 
-            ap_sig_ioackin_spi_core_WREADY <= ap_const_logic_1;
+            ap_sig_ioackin_OUT_r_WREADY <= ap_const_logic_1;
         end if; 
     end process;
 
-
-    spi_core_AWADDR_assign_proc : process(state, ap_predicate_op36_writereq_state1, ap_condition_454)
-    begin
-        if ((ap_const_boolean_1 = ap_condition_454)) then
-            if ((ap_predicate_op36_writereq_state1 = ap_const_boolean_1)) then 
-                spi_core_AWADDR <= ap_const_lv64_1A(32 - 1 downto 0);
-            elsif ((state = ap_const_lv8_0)) then 
-                spi_core_AWADDR <= ap_const_lv64_18(32 - 1 downto 0);
-            elsif ((state = ap_const_lv8_1)) then 
-                spi_core_AWADDR <= ap_const_lv64_1C(32 - 1 downto 0);
-            else 
-                spi_core_AWADDR <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-            end if;
-        else 
-            spi_core_AWADDR <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-        end if; 
-    end process;
-
-
-    spi_core_AWVALID_assign_proc : process(ap_start, ap_CS_fsm_state1, state, ap_predicate_op36_writereq_state1, ap_reg_ioackin_spi_core_AWREADY)
-    begin
-        if ((((state = ap_const_lv8_0) and (ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_0) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1)) or ((ap_predicate_op36_writereq_state1 = ap_const_boolean_1) and (ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_0) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1)) or ((state = ap_const_lv8_1) and (ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_0) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1)))) then 
-            spi_core_AWVALID <= ap_const_logic_1;
-        else 
-            spi_core_AWVALID <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    spi_core_BREADY_assign_proc : process(ap_CS_fsm_state7, state_load_reg_182, spi_core_BVALID, ap_predicate_op48_writeresp_state7)
-    begin
-        if (((not((((ap_predicate_op48_writeresp_state7 = ap_const_boolean_1) and (spi_core_BVALID = ap_const_logic_0)) or ((spi_core_BVALID = ap_const_logic_0) and (state_load_reg_182 = ap_const_lv8_1)) or ((state_load_reg_182 = ap_const_lv8_0) and (spi_core_BVALID = ap_const_logic_0)))) and (ap_predicate_op48_writeresp_state7 = ap_const_boolean_1) and (ap_const_logic_1 = ap_CS_fsm_state7)) or (not((((ap_predicate_op48_writeresp_state7 = ap_const_boolean_1) and (spi_core_BVALID = ap_const_logic_0)) or ((spi_core_BVALID = ap_const_logic_0) and (state_load_reg_182 = ap_const_lv8_1)) or ((state_load_reg_182 = ap_const_lv8_0) and (spi_core_BVALID = ap_const_logic_0)))) and (ap_const_logic_1 = ap_CS_fsm_state7) and (state_load_reg_182 = ap_const_lv8_1)) or (not((((ap_predicate_op48_writeresp_state7 = ap_const_boolean_1) and (spi_core_BVALID = ap_const_logic_0)) or ((spi_core_BVALID = ap_const_logic_0) and (state_load_reg_182 = ap_const_lv8_1)) or ((state_load_reg_182 = ap_const_lv8_0) and (spi_core_BVALID = ap_const_logic_0)))) and (state_load_reg_182 = ap_const_lv8_0) and (ap_const_logic_1 = ap_CS_fsm_state7)))) then 
-            spi_core_BREADY <= ap_const_logic_1;
-        else 
-            spi_core_BREADY <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    spi_core_WDATA_assign_proc : process(ap_CS_fsm_state8, ap_CS_fsm_state2, ap_CS_fsm_state13, TX_message_V_read_reg_176, ap_reg_ioackin_spi_core_WREADY)
-    begin
-        if ((ap_reg_ioackin_spi_core_WREADY = ap_const_logic_0)) then
-            if ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
-                spi_core_WDATA <= TX_message_V_read_reg_176;
-            elsif ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
-                spi_core_WDATA <= ap_const_lv32_6;
-            elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-                spi_core_WDATA <= ap_const_lv32_FFFE;
-            else 
-                spi_core_WDATA <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-            end if;
-        else 
-            spi_core_WDATA <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-        end if; 
-    end process;
-
-
-    spi_core_WVALID_assign_proc : process(ap_CS_fsm_state8, ap_CS_fsm_state2, ap_CS_fsm_state13, ap_reg_ioackin_spi_core_WREADY)
-    begin
-        if ((((ap_reg_ioackin_spi_core_WREADY = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state13)) or ((ap_reg_ioackin_spi_core_WREADY = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state2)) or ((ap_reg_ioackin_spi_core_WREADY = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state8)))) then 
-            spi_core_WVALID <= ap_const_logic_1;
-        else 
-            spi_core_WVALID <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    spi_core_blk_n_AW_assign_proc : process(ap_start, ap_CS_fsm_state1, m_axi_spi_core_AWREADY, state)
-    begin
-        if ((((state = ap_const_lv8_0) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1)) or (not((state = ap_const_lv8_0)) and not((state = ap_const_lv8_1)) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1)) or ((state = ap_const_lv8_1) and (ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1)))) then 
-            spi_core_blk_n_AW <= m_axi_spi_core_AWREADY;
-        else 
-            spi_core_blk_n_AW <= ap_const_logic_1;
-        end if; 
-    end process;
-
-
-    spi_core_blk_n_B_assign_proc : process(m_axi_spi_core_BVALID, ap_CS_fsm_state7, state_load_reg_182)
-    begin
-        if (((not((state_load_reg_182 = ap_const_lv8_1)) and not((state_load_reg_182 = ap_const_lv8_0)) and (ap_const_logic_1 = ap_CS_fsm_state7)) or ((ap_const_logic_1 = ap_CS_fsm_state7) and (state_load_reg_182 = ap_const_lv8_1)) or ((state_load_reg_182 = ap_const_lv8_0) and (ap_const_logic_1 = ap_CS_fsm_state7)))) then 
-            spi_core_blk_n_B <= m_axi_spi_core_BVALID;
-        else 
-            spi_core_blk_n_B <= ap_const_logic_1;
-        end if; 
-    end process;
-
-
-    spi_core_blk_n_W_assign_proc : process(m_axi_spi_core_WREADY, ap_CS_fsm_state8, ap_CS_fsm_state2, ap_CS_fsm_state13)
-    begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state13) or (ap_const_logic_1 = ap_CS_fsm_state2) or (ap_const_logic_1 = ap_CS_fsm_state8))) then 
-            spi_core_blk_n_W <= m_axi_spi_core_WREADY;
-        else 
-            spi_core_blk_n_W <= ap_const_logic_1;
-        end if; 
-    end process;
-
-    tmp_1_fu_164_p2 <= std_logic_vector(unsigned(state) + unsigned(ap_const_lv8_1));
 end behav;

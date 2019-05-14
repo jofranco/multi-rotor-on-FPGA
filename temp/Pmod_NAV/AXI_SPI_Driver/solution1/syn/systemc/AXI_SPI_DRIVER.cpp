@@ -14,180 +14,208 @@ namespace ap_rtl {
 
 const sc_logic AXI_SPI_DRIVER::ap_const_logic_1 = sc_dt::Log_1;
 const sc_logic AXI_SPI_DRIVER::ap_const_logic_0 = sc_dt::Log_0;
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state1 = "1";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state2 = "10";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state3 = "100";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state4 = "1000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state5 = "10000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state6 = "100000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state7 = "1000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state8 = "10000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state9 = "100000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state10 = "1000000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state11 = "10000000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state12 = "100000000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state13 = "1000000000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state14 = "10000000000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state15 = "100000000000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state16 = "1000000000000000";
-const sc_lv<17> AXI_SPI_DRIVER::ap_ST_fsm_state17 = "10000000000000000";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state1 = "1";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state2 = "10";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state3 = "100";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state4 = "1000";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state5 = "10000";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state6 = "100000";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state7 = "1000000";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state8 = "10000000";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state9 = "100000000";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state10 = "1000000000";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state11 = "10000000000";
+const sc_lv<12> AXI_SPI_DRIVER::ap_ST_fsm_state12 = "100000000000";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_0 = "00000000000000000000000000000000";
 const bool AXI_SPI_DRIVER::ap_const_boolean_1 = true;
-const sc_lv<8> AXI_SPI_DRIVER::ap_const_lv8_0 = "00000000";
+const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_0 = "0000";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_7 = "111";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_6 = "110";
-const sc_lv<8> AXI_SPI_DRIVER::ap_const_lv8_1 = "1";
+const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_1 = "1";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_1 = "1";
-const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_C = "1100";
 const int AXI_SPI_DRIVER::C_S_AXI_DATA_WIDTH = "100000";
-const int AXI_SPI_DRIVER::C_M_AXI_SPI_CORE_TARGET_ADDR = "0000000000000000000000000000000000000000000000000000000000000000";
-const int AXI_SPI_DRIVER::C_M_AXI_SPI_CORE_USER_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
-const int AXI_SPI_DRIVER::C_M_AXI_SPI_CORE_PROT_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
-const int AXI_SPI_DRIVER::C_M_AXI_SPI_CORE_CACHE_VALUE = "11";
+const int AXI_SPI_DRIVER::C_M_AXI_OUT_R_TARGET_ADDR = "0000000000000000000000000000000000000000000000000000000000000000";
+const int AXI_SPI_DRIVER::C_M_AXI_OUT_R_USER_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
+const int AXI_SPI_DRIVER::C_M_AXI_OUT_R_PROT_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
+const int AXI_SPI_DRIVER::C_M_AXI_OUT_R_CACHE_VALUE = "11";
 const int AXI_SPI_DRIVER::C_M_AXI_DATA_WIDTH = "100000";
 const sc_lv<64> AXI_SPI_DRIVER::ap_const_lv64_1C = "11100";
 const sc_lv<64> AXI_SPI_DRIVER::ap_const_lv64_18 = "11000";
-const sc_lv<64> AXI_SPI_DRIVER::ap_const_lv64_1A = "11010";
 const sc_lv<1> AXI_SPI_DRIVER::ap_const_lv1_0 = "0";
 const sc_lv<3> AXI_SPI_DRIVER::ap_const_lv3_0 = "000";
 const sc_lv<2> AXI_SPI_DRIVER::ap_const_lv2_0 = "00";
-const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_0 = "0000";
 const sc_lv<32> AXI_SPI_DRIVER::ap_const_lv32_FFFE = "1111111111111110";
 const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_F = "1111";
-const sc_lv<8> AXI_SPI_DRIVER::ap_const_lv8_2 = "10";
+const sc_lv<4> AXI_SPI_DRIVER::ap_const_lv4_2 = "10";
 
 AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    AXI_SPI_DRIVER_debug_s_axi_U = new AXI_SPI_DRIVER_debug_s_axi<C_S_AXI_DEBUG_ADDR_WIDTH,C_S_AXI_DEBUG_DATA_WIDTH>("AXI_SPI_DRIVER_debug_s_axi_U");
-    AXI_SPI_DRIVER_debug_s_axi_U->AWVALID(s_axi_debug_AWVALID);
-    AXI_SPI_DRIVER_debug_s_axi_U->AWREADY(s_axi_debug_AWREADY);
-    AXI_SPI_DRIVER_debug_s_axi_U->AWADDR(s_axi_debug_AWADDR);
-    AXI_SPI_DRIVER_debug_s_axi_U->WVALID(s_axi_debug_WVALID);
-    AXI_SPI_DRIVER_debug_s_axi_U->WREADY(s_axi_debug_WREADY);
-    AXI_SPI_DRIVER_debug_s_axi_U->WDATA(s_axi_debug_WDATA);
-    AXI_SPI_DRIVER_debug_s_axi_U->WSTRB(s_axi_debug_WSTRB);
-    AXI_SPI_DRIVER_debug_s_axi_U->ARVALID(s_axi_debug_ARVALID);
-    AXI_SPI_DRIVER_debug_s_axi_U->ARREADY(s_axi_debug_ARREADY);
-    AXI_SPI_DRIVER_debug_s_axi_U->ARADDR(s_axi_debug_ARADDR);
-    AXI_SPI_DRIVER_debug_s_axi_U->RVALID(s_axi_debug_RVALID);
-    AXI_SPI_DRIVER_debug_s_axi_U->RREADY(s_axi_debug_RREADY);
-    AXI_SPI_DRIVER_debug_s_axi_U->RDATA(s_axi_debug_RDATA);
-    AXI_SPI_DRIVER_debug_s_axi_U->RRESP(s_axi_debug_RRESP);
-    AXI_SPI_DRIVER_debug_s_axi_U->BVALID(s_axi_debug_BVALID);
-    AXI_SPI_DRIVER_debug_s_axi_U->BREADY(s_axi_debug_BREADY);
-    AXI_SPI_DRIVER_debug_s_axi_U->BRESP(s_axi_debug_BRESP);
-    AXI_SPI_DRIVER_debug_s_axi_U->ACLK(ap_clk);
-    AXI_SPI_DRIVER_debug_s_axi_U->ARESET(ap_rst_n_inv);
-    AXI_SPI_DRIVER_debug_s_axi_U->ACLK_EN(ap_var_for_const0);
-    AXI_SPI_DRIVER_debug_s_axi_U->TX_message_V(TX_message_V);
-    AXI_SPI_DRIVER_debug_s_axi_U->RX_message_V(TX_message_V_read_reg_176);
-    AXI_SPI_DRIVER_debug_s_axi_U->RX_message_V_ap_vld(RX_message_V_ap_vld);
-    AXI_SPI_DRIVER_spi_core_m_axi_U = new AXI_SPI_DRIVER_spi_core_m_axi<0,32,32,5,16,16,16,16,C_M_AXI_SPI_CORE_ID_WIDTH,C_M_AXI_SPI_CORE_ADDR_WIDTH,C_M_AXI_SPI_CORE_DATA_WIDTH,C_M_AXI_SPI_CORE_AWUSER_WIDTH,C_M_AXI_SPI_CORE_ARUSER_WIDTH,C_M_AXI_SPI_CORE_WUSER_WIDTH,C_M_AXI_SPI_CORE_RUSER_WIDTH,C_M_AXI_SPI_CORE_BUSER_WIDTH,C_M_AXI_SPI_CORE_TARGET_ADDR,C_M_AXI_SPI_CORE_USER_VALUE,C_M_AXI_SPI_CORE_PROT_VALUE,C_M_AXI_SPI_CORE_CACHE_VALUE>("AXI_SPI_DRIVER_spi_core_m_axi_U");
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWVALID(m_axi_spi_core_AWVALID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWREADY(m_axi_spi_core_AWREADY);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWADDR(m_axi_spi_core_AWADDR);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWID(m_axi_spi_core_AWID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWLEN(m_axi_spi_core_AWLEN);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWSIZE(m_axi_spi_core_AWSIZE);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWBURST(m_axi_spi_core_AWBURST);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWLOCK(m_axi_spi_core_AWLOCK);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWCACHE(m_axi_spi_core_AWCACHE);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWPROT(m_axi_spi_core_AWPROT);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWQOS(m_axi_spi_core_AWQOS);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWREGION(m_axi_spi_core_AWREGION);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->AWUSER(m_axi_spi_core_AWUSER);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->WVALID(m_axi_spi_core_WVALID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->WREADY(m_axi_spi_core_WREADY);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->WDATA(m_axi_spi_core_WDATA);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->WSTRB(m_axi_spi_core_WSTRB);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->WLAST(m_axi_spi_core_WLAST);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->WID(m_axi_spi_core_WID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->WUSER(m_axi_spi_core_WUSER);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARVALID(m_axi_spi_core_ARVALID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARREADY(m_axi_spi_core_ARREADY);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARADDR(m_axi_spi_core_ARADDR);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARID(m_axi_spi_core_ARID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARLEN(m_axi_spi_core_ARLEN);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARSIZE(m_axi_spi_core_ARSIZE);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARBURST(m_axi_spi_core_ARBURST);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARLOCK(m_axi_spi_core_ARLOCK);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARCACHE(m_axi_spi_core_ARCACHE);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARPROT(m_axi_spi_core_ARPROT);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARQOS(m_axi_spi_core_ARQOS);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARREGION(m_axi_spi_core_ARREGION);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARUSER(m_axi_spi_core_ARUSER);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->RVALID(m_axi_spi_core_RVALID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->RREADY(m_axi_spi_core_RREADY);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->RDATA(m_axi_spi_core_RDATA);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->RLAST(m_axi_spi_core_RLAST);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->RID(m_axi_spi_core_RID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->RUSER(m_axi_spi_core_RUSER);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->RRESP(m_axi_spi_core_RRESP);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->BVALID(m_axi_spi_core_BVALID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->BREADY(m_axi_spi_core_BREADY);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->BRESP(m_axi_spi_core_BRESP);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->BID(m_axi_spi_core_BID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->BUSER(m_axi_spi_core_BUSER);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ACLK(ap_clk);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ARESET(ap_rst_n_inv);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->ACLK_EN(ap_var_for_const0);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARVALID(ap_var_for_const1);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARREADY(spi_core_ARREADY);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARADDR(ap_var_for_const2);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARID(ap_var_for_const3);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARLEN(ap_var_for_const2);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARSIZE(ap_var_for_const4);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARLOCK(ap_var_for_const5);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARCACHE(ap_var_for_const6);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARQOS(ap_var_for_const6);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARPROT(ap_var_for_const4);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARUSER(ap_var_for_const3);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARBURST(ap_var_for_const5);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_ARREGION(ap_var_for_const6);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_RVALID(spi_core_RVALID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_RREADY(ap_var_for_const1);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_RDATA(spi_core_RDATA);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_RID(spi_core_RID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_RUSER(spi_core_RUSER);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_RRESP(spi_core_RRESP);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_RLAST(spi_core_RLAST);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWVALID(spi_core_AWVALID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWREADY(spi_core_AWREADY);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWADDR(spi_core_AWADDR);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWID(ap_var_for_const3);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWLEN(ap_var_for_const7);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWSIZE(ap_var_for_const4);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWLOCK(ap_var_for_const5);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWCACHE(ap_var_for_const6);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWQOS(ap_var_for_const6);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWPROT(ap_var_for_const4);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWUSER(ap_var_for_const3);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWBURST(ap_var_for_const5);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_AWREGION(ap_var_for_const6);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_WVALID(spi_core_WVALID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_WREADY(spi_core_WREADY);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_WDATA(spi_core_WDATA);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_WID(ap_var_for_const3);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_WUSER(ap_var_for_const3);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_WLAST(ap_var_for_const1);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_WSTRB(ap_var_for_const8);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_BVALID(spi_core_BVALID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_BREADY(spi_core_BREADY);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_BRESP(spi_core_BRESP);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_BID(spi_core_BID);
-    AXI_SPI_DRIVER_spi_core_m_axi_U->I_BUSER(spi_core_BUSER);
+    AXI_SPI_DRIVER_CTRL_s_axi_U = new AXI_SPI_DRIVER_CTRL_s_axi<C_S_AXI_CTRL_ADDR_WIDTH,C_S_AXI_CTRL_DATA_WIDTH>("AXI_SPI_DRIVER_CTRL_s_axi_U");
+    AXI_SPI_DRIVER_CTRL_s_axi_U->AWVALID(s_axi_CTRL_AWVALID);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->AWREADY(s_axi_CTRL_AWREADY);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->AWADDR(s_axi_CTRL_AWADDR);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->WVALID(s_axi_CTRL_WVALID);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->WREADY(s_axi_CTRL_WREADY);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->WDATA(s_axi_CTRL_WDATA);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->WSTRB(s_axi_CTRL_WSTRB);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ARVALID(s_axi_CTRL_ARVALID);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ARREADY(s_axi_CTRL_ARREADY);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ARADDR(s_axi_CTRL_ARADDR);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->RVALID(s_axi_CTRL_RVALID);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->RREADY(s_axi_CTRL_RREADY);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->RDATA(s_axi_CTRL_RDATA);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->RRESP(s_axi_CTRL_RRESP);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->BVALID(s_axi_CTRL_BVALID);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->BREADY(s_axi_CTRL_BREADY);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->BRESP(s_axi_CTRL_BRESP);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ACLK(ap_clk);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ARESET(ap_rst_n_inv);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ACLK_EN(ap_var_for_const0);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ap_start(ap_start);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->interrupt(interrupt);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ap_ready(ap_ready);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ap_done(ap_done);
+    AXI_SPI_DRIVER_CTRL_s_axi_U->ap_idle(ap_idle);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U = new AXI_SPI_DRIVER_OUT_r_m_axi<0,32,32,5,16,16,16,16,C_M_AXI_OUT_R_ID_WIDTH,C_M_AXI_OUT_R_ADDR_WIDTH,C_M_AXI_OUT_R_DATA_WIDTH,C_M_AXI_OUT_R_AWUSER_WIDTH,C_M_AXI_OUT_R_ARUSER_WIDTH,C_M_AXI_OUT_R_WUSER_WIDTH,C_M_AXI_OUT_R_RUSER_WIDTH,C_M_AXI_OUT_R_BUSER_WIDTH,C_M_AXI_OUT_R_TARGET_ADDR,C_M_AXI_OUT_R_USER_VALUE,C_M_AXI_OUT_R_PROT_VALUE,C_M_AXI_OUT_R_CACHE_VALUE>("AXI_SPI_DRIVER_OUT_r_m_axi_U");
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWVALID(m_axi_OUT_r_AWVALID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWREADY(m_axi_OUT_r_AWREADY);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWADDR(m_axi_OUT_r_AWADDR);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWID(m_axi_OUT_r_AWID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWLEN(m_axi_OUT_r_AWLEN);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWSIZE(m_axi_OUT_r_AWSIZE);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWBURST(m_axi_OUT_r_AWBURST);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWLOCK(m_axi_OUT_r_AWLOCK);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWCACHE(m_axi_OUT_r_AWCACHE);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWPROT(m_axi_OUT_r_AWPROT);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWQOS(m_axi_OUT_r_AWQOS);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWREGION(m_axi_OUT_r_AWREGION);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->AWUSER(m_axi_OUT_r_AWUSER);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->WVALID(m_axi_OUT_r_WVALID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->WREADY(m_axi_OUT_r_WREADY);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->WDATA(m_axi_OUT_r_WDATA);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->WSTRB(m_axi_OUT_r_WSTRB);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->WLAST(m_axi_OUT_r_WLAST);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->WID(m_axi_OUT_r_WID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->WUSER(m_axi_OUT_r_WUSER);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARVALID(m_axi_OUT_r_ARVALID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARREADY(m_axi_OUT_r_ARREADY);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARADDR(m_axi_OUT_r_ARADDR);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARID(m_axi_OUT_r_ARID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARLEN(m_axi_OUT_r_ARLEN);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARSIZE(m_axi_OUT_r_ARSIZE);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARBURST(m_axi_OUT_r_ARBURST);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARLOCK(m_axi_OUT_r_ARLOCK);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARCACHE(m_axi_OUT_r_ARCACHE);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARPROT(m_axi_OUT_r_ARPROT);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARQOS(m_axi_OUT_r_ARQOS);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARREGION(m_axi_OUT_r_ARREGION);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARUSER(m_axi_OUT_r_ARUSER);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->RVALID(m_axi_OUT_r_RVALID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->RREADY(m_axi_OUT_r_RREADY);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->RDATA(m_axi_OUT_r_RDATA);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->RLAST(m_axi_OUT_r_RLAST);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->RID(m_axi_OUT_r_RID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->RUSER(m_axi_OUT_r_RUSER);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->RRESP(m_axi_OUT_r_RRESP);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->BVALID(m_axi_OUT_r_BVALID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->BREADY(m_axi_OUT_r_BREADY);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->BRESP(m_axi_OUT_r_BRESP);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->BID(m_axi_OUT_r_BID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->BUSER(m_axi_OUT_r_BUSER);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ACLK(ap_clk);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ARESET(ap_rst_n_inv);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->ACLK_EN(ap_var_for_const0);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARVALID(ap_var_for_const1);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARREADY(OUT_r_ARREADY);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARADDR(ap_var_for_const2);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARID(ap_var_for_const3);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARLEN(ap_var_for_const2);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARSIZE(ap_var_for_const4);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARLOCK(ap_var_for_const5);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARCACHE(ap_var_for_const6);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARQOS(ap_var_for_const6);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARPROT(ap_var_for_const4);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARUSER(ap_var_for_const3);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARBURST(ap_var_for_const5);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_ARREGION(ap_var_for_const6);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_RVALID(OUT_r_RVALID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_RREADY(ap_var_for_const1);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_RDATA(OUT_r_RDATA);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_RID(OUT_r_RID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_RUSER(OUT_r_RUSER);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_RRESP(OUT_r_RRESP);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_RLAST(OUT_r_RLAST);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWVALID(OUT_r_AWVALID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWREADY(OUT_r_AWREADY);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWADDR(OUT_r_AWADDR);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWID(ap_var_for_const3);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWLEN(ap_var_for_const7);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWSIZE(ap_var_for_const4);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWLOCK(ap_var_for_const5);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWCACHE(ap_var_for_const6);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWQOS(ap_var_for_const6);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWPROT(ap_var_for_const4);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWUSER(ap_var_for_const3);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWBURST(ap_var_for_const5);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_AWREGION(ap_var_for_const6);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_WVALID(OUT_r_WVALID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_WREADY(OUT_r_WREADY);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_WDATA(OUT_r_WDATA);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_WID(ap_var_for_const3);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_WUSER(ap_var_for_const3);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_WLAST(ap_var_for_const1);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_WSTRB(ap_var_for_const8);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_BVALID(OUT_r_BVALID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_BREADY(OUT_r_BREADY);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_BRESP(OUT_r_BRESP);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_BID(OUT_r_BID);
+    AXI_SPI_DRIVER_OUT_r_m_axi_U->I_BUSER(OUT_r_BUSER);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
     sensitive << ( ap_clk.pos() );
 
-    SC_METHOD(thread_RX_message_V_ap_vld);
-    sensitive << ( ap_CS_fsm_state13 );
-    sensitive << ( ap_reg_ioackin_RX_message_V_dummy_ack );
+    SC_METHOD(thread_OUT_r_AWADDR);
+    sensitive << ( state );
+    sensitive << ( ap_condition_365 );
+
+    SC_METHOD(thread_OUT_r_AWVALID);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( state );
+    sensitive << ( ap_reg_ioackin_OUT_r_AWREADY );
+
+    SC_METHOD(thread_OUT_r_BREADY);
+    sensitive << ( ap_CS_fsm_state7 );
+    sensitive << ( state_load_reg_126 );
+    sensitive << ( OUT_r_BVALID );
+
+    SC_METHOD(thread_OUT_r_WDATA);
+    sensitive << ( ap_CS_fsm_state8 );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_reg_ioackin_OUT_r_WREADY );
+
+    SC_METHOD(thread_OUT_r_WVALID);
+    sensitive << ( ap_CS_fsm_state8 );
+    sensitive << ( ap_CS_fsm_state2 );
+    sensitive << ( ap_reg_ioackin_OUT_r_WREADY );
+
+    SC_METHOD(thread_OUT_r_blk_n_AW);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( m_axi_OUT_r_AWREADY );
+    sensitive << ( state );
+
+    SC_METHOD(thread_OUT_r_blk_n_B);
+    sensitive << ( m_axi_OUT_r_BVALID );
+    sensitive << ( ap_CS_fsm_state7 );
+    sensitive << ( state_load_reg_126 );
+
+    SC_METHOD(thread_OUT_r_blk_n_W);
+    sensitive << ( m_axi_OUT_r_WREADY );
+    sensitive << ( ap_CS_fsm_state8 );
+    sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_ap_CS_fsm_state1);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_CS_fsm_state13);
     sensitive << ( ap_CS_fsm );
 
     SC_METHOD(thread_ap_CS_fsm_state2);
@@ -201,107 +229,46 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
 
     SC_METHOD(thread_ap_block_state1_io);
     sensitive << ( state );
-    sensitive << ( ap_sig_ioackin_spi_core_AWREADY );
-    sensitive << ( ap_predicate_op36_writereq_state1 );
+    sensitive << ( ap_sig_ioackin_OUT_r_AWREADY );
 
     SC_METHOD(thread_ap_block_state7);
-    sensitive << ( state_load_reg_182 );
-    sensitive << ( spi_core_BVALID );
-    sensitive << ( ap_predicate_op48_writeresp_state7 );
+    sensitive << ( state_load_reg_126 );
+    sensitive << ( OUT_r_BVALID );
 
-    SC_METHOD(thread_ap_condition_275);
+    SC_METHOD(thread_ap_condition_245);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( ap_block_state1_io );
 
-    SC_METHOD(thread_ap_condition_454);
+    SC_METHOD(thread_ap_condition_365);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( ap_reg_ioackin_spi_core_AWREADY );
+    sensitive << ( ap_reg_ioackin_OUT_r_AWREADY );
 
     SC_METHOD(thread_ap_done);
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_182 );
-    sensitive << ( spi_core_BVALID );
-    sensitive << ( ap_predicate_op48_writeresp_state7 );
+    sensitive << ( state_load_reg_126 );
+    sensitive << ( OUT_r_BVALID );
 
     SC_METHOD(thread_ap_idle);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
 
-    SC_METHOD(thread_ap_predicate_op36_writereq_state1);
-    sensitive << ( state );
-
-    SC_METHOD(thread_ap_predicate_op48_writeresp_state7);
-    sensitive << ( state_load_reg_182 );
-
     SC_METHOD(thread_ap_ready);
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_182 );
-    sensitive << ( spi_core_BVALID );
-    sensitive << ( ap_predicate_op48_writeresp_state7 );
+    sensitive << ( state_load_reg_126 );
+    sensitive << ( OUT_r_BVALID );
 
     SC_METHOD(thread_ap_rst_n_inv);
     sensitive << ( ap_rst_n );
 
-    SC_METHOD(thread_ap_sig_ioackin_spi_core_AWREADY);
-    sensitive << ( spi_core_AWREADY );
-    sensitive << ( ap_reg_ioackin_spi_core_AWREADY );
+    SC_METHOD(thread_ap_sig_ioackin_OUT_r_AWREADY);
+    sensitive << ( OUT_r_AWREADY );
+    sensitive << ( ap_reg_ioackin_OUT_r_AWREADY );
 
-    SC_METHOD(thread_ap_sig_ioackin_spi_core_WREADY);
-    sensitive << ( spi_core_WREADY );
-    sensitive << ( ap_reg_ioackin_spi_core_WREADY );
-
-    SC_METHOD(thread_spi_core_AWADDR);
-    sensitive << ( state );
-    sensitive << ( ap_predicate_op36_writereq_state1 );
-    sensitive << ( ap_condition_454 );
-
-    SC_METHOD(thread_spi_core_AWVALID);
-    sensitive << ( ap_start );
-    sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( state );
-    sensitive << ( ap_predicate_op36_writereq_state1 );
-    sensitive << ( ap_reg_ioackin_spi_core_AWREADY );
-
-    SC_METHOD(thread_spi_core_BREADY);
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_182 );
-    sensitive << ( spi_core_BVALID );
-    sensitive << ( ap_predicate_op48_writeresp_state7 );
-
-    SC_METHOD(thread_spi_core_WDATA);
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state13 );
-    sensitive << ( TX_message_V_read_reg_176 );
-    sensitive << ( ap_reg_ioackin_spi_core_WREADY );
-
-    SC_METHOD(thread_spi_core_WVALID);
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state13 );
-    sensitive << ( ap_reg_ioackin_spi_core_WREADY );
-
-    SC_METHOD(thread_spi_core_blk_n_AW);
-    sensitive << ( ap_start );
-    sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( m_axi_spi_core_AWREADY );
-    sensitive << ( state );
-
-    SC_METHOD(thread_spi_core_blk_n_B);
-    sensitive << ( m_axi_spi_core_BVALID );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_182 );
-
-    SC_METHOD(thread_spi_core_blk_n_W);
-    sensitive << ( m_axi_spi_core_WREADY );
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state13 );
-
-    SC_METHOD(thread_tmp_1_fu_164_p2);
-    sensitive << ( state );
+    SC_METHOD(thread_ap_sig_ioackin_OUT_r_WREADY);
+    sensitive << ( OUT_r_WREADY );
+    sensitive << ( ap_reg_ioackin_OUT_r_WREADY );
 
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( ap_start );
@@ -310,13 +277,11 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
     sensitive << ( state );
     sensitive << ( ap_CS_fsm_state8 );
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( state_load_reg_182 );
+    sensitive << ( state_load_reg_126 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state13 );
-    sensitive << ( spi_core_BVALID );
+    sensitive << ( OUT_r_BVALID );
     sensitive << ( ap_block_state1_io );
-    sensitive << ( ap_predicate_op48_writeresp_state7 );
-    sensitive << ( ap_sig_ioackin_spi_core_WREADY );
+    sensitive << ( ap_sig_ioackin_OUT_r_WREADY );
 
     SC_THREAD(thread_hdltv_gen);
     sensitive << ( ap_clk.pos() );
@@ -327,6 +292,8 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
 
     SC_THREAD(thread_ap_var_for_const2);
 
+    SC_THREAD(thread_ap_var_for_const6);
+
     SC_THREAD(thread_ap_var_for_const7);
 
     SC_THREAD(thread_ap_var_for_const3);
@@ -335,15 +302,12 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
 
     SC_THREAD(thread_ap_var_for_const5);
 
-    SC_THREAD(thread_ap_var_for_const6);
-
     SC_THREAD(thread_ap_var_for_const8);
 
-    ap_CS_fsm = "00000000000000001";
-    state = "00000000";
-    ap_reg_ioackin_spi_core_AWREADY = SC_LOGIC_0;
-    ap_reg_ioackin_spi_core_WREADY = SC_LOGIC_0;
-    ap_reg_ioackin_RX_message_V_dummy_ack = SC_LOGIC_0;
+    ap_CS_fsm = "000000000001";
+    state = "0000";
+    ap_reg_ioackin_OUT_r_AWREADY = SC_LOGIC_0;
+    ap_reg_ioackin_OUT_r_WREADY = SC_LOGIC_0;
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "AXI_SPI_DRIVER_sc_trace_" << apTFileNum ++;
@@ -354,120 +318,113 @@ AXI_SPI_DRIVER::AXI_SPI_DRIVER(sc_module_name name) : sc_module(name), mVcdFile(
 #ifdef __HLS_TRACE_LEVEL_PORT__
     sc_trace(mVcdFile, ap_clk, "(port)ap_clk");
     sc_trace(mVcdFile, ap_rst_n, "(port)ap_rst_n");
-    sc_trace(mVcdFile, ap_start, "(port)ap_start");
-    sc_trace(mVcdFile, ap_done, "(port)ap_done");
-    sc_trace(mVcdFile, ap_idle, "(port)ap_idle");
-    sc_trace(mVcdFile, ap_ready, "(port)ap_ready");
-    sc_trace(mVcdFile, m_axi_spi_core_AWVALID, "(port)m_axi_spi_core_AWVALID");
-    sc_trace(mVcdFile, m_axi_spi_core_AWREADY, "(port)m_axi_spi_core_AWREADY");
-    sc_trace(mVcdFile, m_axi_spi_core_AWADDR, "(port)m_axi_spi_core_AWADDR");
-    sc_trace(mVcdFile, m_axi_spi_core_AWID, "(port)m_axi_spi_core_AWID");
-    sc_trace(mVcdFile, m_axi_spi_core_AWLEN, "(port)m_axi_spi_core_AWLEN");
-    sc_trace(mVcdFile, m_axi_spi_core_AWSIZE, "(port)m_axi_spi_core_AWSIZE");
-    sc_trace(mVcdFile, m_axi_spi_core_AWBURST, "(port)m_axi_spi_core_AWBURST");
-    sc_trace(mVcdFile, m_axi_spi_core_AWLOCK, "(port)m_axi_spi_core_AWLOCK");
-    sc_trace(mVcdFile, m_axi_spi_core_AWCACHE, "(port)m_axi_spi_core_AWCACHE");
-    sc_trace(mVcdFile, m_axi_spi_core_AWPROT, "(port)m_axi_spi_core_AWPROT");
-    sc_trace(mVcdFile, m_axi_spi_core_AWQOS, "(port)m_axi_spi_core_AWQOS");
-    sc_trace(mVcdFile, m_axi_spi_core_AWREGION, "(port)m_axi_spi_core_AWREGION");
-    sc_trace(mVcdFile, m_axi_spi_core_AWUSER, "(port)m_axi_spi_core_AWUSER");
-    sc_trace(mVcdFile, m_axi_spi_core_WVALID, "(port)m_axi_spi_core_WVALID");
-    sc_trace(mVcdFile, m_axi_spi_core_WREADY, "(port)m_axi_spi_core_WREADY");
-    sc_trace(mVcdFile, m_axi_spi_core_WDATA, "(port)m_axi_spi_core_WDATA");
-    sc_trace(mVcdFile, m_axi_spi_core_WSTRB, "(port)m_axi_spi_core_WSTRB");
-    sc_trace(mVcdFile, m_axi_spi_core_WLAST, "(port)m_axi_spi_core_WLAST");
-    sc_trace(mVcdFile, m_axi_spi_core_WID, "(port)m_axi_spi_core_WID");
-    sc_trace(mVcdFile, m_axi_spi_core_WUSER, "(port)m_axi_spi_core_WUSER");
-    sc_trace(mVcdFile, m_axi_spi_core_ARVALID, "(port)m_axi_spi_core_ARVALID");
-    sc_trace(mVcdFile, m_axi_spi_core_ARREADY, "(port)m_axi_spi_core_ARREADY");
-    sc_trace(mVcdFile, m_axi_spi_core_ARADDR, "(port)m_axi_spi_core_ARADDR");
-    sc_trace(mVcdFile, m_axi_spi_core_ARID, "(port)m_axi_spi_core_ARID");
-    sc_trace(mVcdFile, m_axi_spi_core_ARLEN, "(port)m_axi_spi_core_ARLEN");
-    sc_trace(mVcdFile, m_axi_spi_core_ARSIZE, "(port)m_axi_spi_core_ARSIZE");
-    sc_trace(mVcdFile, m_axi_spi_core_ARBURST, "(port)m_axi_spi_core_ARBURST");
-    sc_trace(mVcdFile, m_axi_spi_core_ARLOCK, "(port)m_axi_spi_core_ARLOCK");
-    sc_trace(mVcdFile, m_axi_spi_core_ARCACHE, "(port)m_axi_spi_core_ARCACHE");
-    sc_trace(mVcdFile, m_axi_spi_core_ARPROT, "(port)m_axi_spi_core_ARPROT");
-    sc_trace(mVcdFile, m_axi_spi_core_ARQOS, "(port)m_axi_spi_core_ARQOS");
-    sc_trace(mVcdFile, m_axi_spi_core_ARREGION, "(port)m_axi_spi_core_ARREGION");
-    sc_trace(mVcdFile, m_axi_spi_core_ARUSER, "(port)m_axi_spi_core_ARUSER");
-    sc_trace(mVcdFile, m_axi_spi_core_RVALID, "(port)m_axi_spi_core_RVALID");
-    sc_trace(mVcdFile, m_axi_spi_core_RREADY, "(port)m_axi_spi_core_RREADY");
-    sc_trace(mVcdFile, m_axi_spi_core_RDATA, "(port)m_axi_spi_core_RDATA");
-    sc_trace(mVcdFile, m_axi_spi_core_RLAST, "(port)m_axi_spi_core_RLAST");
-    sc_trace(mVcdFile, m_axi_spi_core_RID, "(port)m_axi_spi_core_RID");
-    sc_trace(mVcdFile, m_axi_spi_core_RUSER, "(port)m_axi_spi_core_RUSER");
-    sc_trace(mVcdFile, m_axi_spi_core_RRESP, "(port)m_axi_spi_core_RRESP");
-    sc_trace(mVcdFile, m_axi_spi_core_BVALID, "(port)m_axi_spi_core_BVALID");
-    sc_trace(mVcdFile, m_axi_spi_core_BREADY, "(port)m_axi_spi_core_BREADY");
-    sc_trace(mVcdFile, m_axi_spi_core_BRESP, "(port)m_axi_spi_core_BRESP");
-    sc_trace(mVcdFile, m_axi_spi_core_BID, "(port)m_axi_spi_core_BID");
-    sc_trace(mVcdFile, m_axi_spi_core_BUSER, "(port)m_axi_spi_core_BUSER");
-    sc_trace(mVcdFile, s_axi_debug_AWVALID, "(port)s_axi_debug_AWVALID");
-    sc_trace(mVcdFile, s_axi_debug_AWREADY, "(port)s_axi_debug_AWREADY");
-    sc_trace(mVcdFile, s_axi_debug_AWADDR, "(port)s_axi_debug_AWADDR");
-    sc_trace(mVcdFile, s_axi_debug_WVALID, "(port)s_axi_debug_WVALID");
-    sc_trace(mVcdFile, s_axi_debug_WREADY, "(port)s_axi_debug_WREADY");
-    sc_trace(mVcdFile, s_axi_debug_WDATA, "(port)s_axi_debug_WDATA");
-    sc_trace(mVcdFile, s_axi_debug_WSTRB, "(port)s_axi_debug_WSTRB");
-    sc_trace(mVcdFile, s_axi_debug_ARVALID, "(port)s_axi_debug_ARVALID");
-    sc_trace(mVcdFile, s_axi_debug_ARREADY, "(port)s_axi_debug_ARREADY");
-    sc_trace(mVcdFile, s_axi_debug_ARADDR, "(port)s_axi_debug_ARADDR");
-    sc_trace(mVcdFile, s_axi_debug_RVALID, "(port)s_axi_debug_RVALID");
-    sc_trace(mVcdFile, s_axi_debug_RREADY, "(port)s_axi_debug_RREADY");
-    sc_trace(mVcdFile, s_axi_debug_RDATA, "(port)s_axi_debug_RDATA");
-    sc_trace(mVcdFile, s_axi_debug_RRESP, "(port)s_axi_debug_RRESP");
-    sc_trace(mVcdFile, s_axi_debug_BVALID, "(port)s_axi_debug_BVALID");
-    sc_trace(mVcdFile, s_axi_debug_BREADY, "(port)s_axi_debug_BREADY");
-    sc_trace(mVcdFile, s_axi_debug_BRESP, "(port)s_axi_debug_BRESP");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWVALID, "(port)m_axi_OUT_r_AWVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWREADY, "(port)m_axi_OUT_r_AWREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWADDR, "(port)m_axi_OUT_r_AWADDR");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWID, "(port)m_axi_OUT_r_AWID");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWLEN, "(port)m_axi_OUT_r_AWLEN");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWSIZE, "(port)m_axi_OUT_r_AWSIZE");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWBURST, "(port)m_axi_OUT_r_AWBURST");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWLOCK, "(port)m_axi_OUT_r_AWLOCK");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWCACHE, "(port)m_axi_OUT_r_AWCACHE");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWPROT, "(port)m_axi_OUT_r_AWPROT");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWQOS, "(port)m_axi_OUT_r_AWQOS");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWREGION, "(port)m_axi_OUT_r_AWREGION");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWUSER, "(port)m_axi_OUT_r_AWUSER");
+    sc_trace(mVcdFile, m_axi_OUT_r_WVALID, "(port)m_axi_OUT_r_WVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_WREADY, "(port)m_axi_OUT_r_WREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_WDATA, "(port)m_axi_OUT_r_WDATA");
+    sc_trace(mVcdFile, m_axi_OUT_r_WSTRB, "(port)m_axi_OUT_r_WSTRB");
+    sc_trace(mVcdFile, m_axi_OUT_r_WLAST, "(port)m_axi_OUT_r_WLAST");
+    sc_trace(mVcdFile, m_axi_OUT_r_WID, "(port)m_axi_OUT_r_WID");
+    sc_trace(mVcdFile, m_axi_OUT_r_WUSER, "(port)m_axi_OUT_r_WUSER");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARVALID, "(port)m_axi_OUT_r_ARVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARREADY, "(port)m_axi_OUT_r_ARREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARADDR, "(port)m_axi_OUT_r_ARADDR");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARID, "(port)m_axi_OUT_r_ARID");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARLEN, "(port)m_axi_OUT_r_ARLEN");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARSIZE, "(port)m_axi_OUT_r_ARSIZE");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARBURST, "(port)m_axi_OUT_r_ARBURST");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARLOCK, "(port)m_axi_OUT_r_ARLOCK");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARCACHE, "(port)m_axi_OUT_r_ARCACHE");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARPROT, "(port)m_axi_OUT_r_ARPROT");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARQOS, "(port)m_axi_OUT_r_ARQOS");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARREGION, "(port)m_axi_OUT_r_ARREGION");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARUSER, "(port)m_axi_OUT_r_ARUSER");
+    sc_trace(mVcdFile, m_axi_OUT_r_RVALID, "(port)m_axi_OUT_r_RVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_RREADY, "(port)m_axi_OUT_r_RREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_RDATA, "(port)m_axi_OUT_r_RDATA");
+    sc_trace(mVcdFile, m_axi_OUT_r_RLAST, "(port)m_axi_OUT_r_RLAST");
+    sc_trace(mVcdFile, m_axi_OUT_r_RID, "(port)m_axi_OUT_r_RID");
+    sc_trace(mVcdFile, m_axi_OUT_r_RUSER, "(port)m_axi_OUT_r_RUSER");
+    sc_trace(mVcdFile, m_axi_OUT_r_RRESP, "(port)m_axi_OUT_r_RRESP");
+    sc_trace(mVcdFile, m_axi_OUT_r_BVALID, "(port)m_axi_OUT_r_BVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_BREADY, "(port)m_axi_OUT_r_BREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_BRESP, "(port)m_axi_OUT_r_BRESP");
+    sc_trace(mVcdFile, m_axi_OUT_r_BID, "(port)m_axi_OUT_r_BID");
+    sc_trace(mVcdFile, m_axi_OUT_r_BUSER, "(port)m_axi_OUT_r_BUSER");
+    sc_trace(mVcdFile, s_axi_CTRL_AWVALID, "(port)s_axi_CTRL_AWVALID");
+    sc_trace(mVcdFile, s_axi_CTRL_AWREADY, "(port)s_axi_CTRL_AWREADY");
+    sc_trace(mVcdFile, s_axi_CTRL_AWADDR, "(port)s_axi_CTRL_AWADDR");
+    sc_trace(mVcdFile, s_axi_CTRL_WVALID, "(port)s_axi_CTRL_WVALID");
+    sc_trace(mVcdFile, s_axi_CTRL_WREADY, "(port)s_axi_CTRL_WREADY");
+    sc_trace(mVcdFile, s_axi_CTRL_WDATA, "(port)s_axi_CTRL_WDATA");
+    sc_trace(mVcdFile, s_axi_CTRL_WSTRB, "(port)s_axi_CTRL_WSTRB");
+    sc_trace(mVcdFile, s_axi_CTRL_ARVALID, "(port)s_axi_CTRL_ARVALID");
+    sc_trace(mVcdFile, s_axi_CTRL_ARREADY, "(port)s_axi_CTRL_ARREADY");
+    sc_trace(mVcdFile, s_axi_CTRL_ARADDR, "(port)s_axi_CTRL_ARADDR");
+    sc_trace(mVcdFile, s_axi_CTRL_RVALID, "(port)s_axi_CTRL_RVALID");
+    sc_trace(mVcdFile, s_axi_CTRL_RREADY, "(port)s_axi_CTRL_RREADY");
+    sc_trace(mVcdFile, s_axi_CTRL_RDATA, "(port)s_axi_CTRL_RDATA");
+    sc_trace(mVcdFile, s_axi_CTRL_RRESP, "(port)s_axi_CTRL_RRESP");
+    sc_trace(mVcdFile, s_axi_CTRL_BVALID, "(port)s_axi_CTRL_BVALID");
+    sc_trace(mVcdFile, s_axi_CTRL_BREADY, "(port)s_axi_CTRL_BREADY");
+    sc_trace(mVcdFile, s_axi_CTRL_BRESP, "(port)s_axi_CTRL_BRESP");
+    sc_trace(mVcdFile, interrupt, "(port)interrupt");
 #endif
 #ifdef __HLS_TRACE_LEVEL_INT__
     sc_trace(mVcdFile, ap_rst_n_inv, "ap_rst_n_inv");
+    sc_trace(mVcdFile, ap_start, "ap_start");
+    sc_trace(mVcdFile, ap_done, "ap_done");
+    sc_trace(mVcdFile, ap_idle, "ap_idle");
     sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
-    sc_trace(mVcdFile, TX_message_V, "TX_message_V");
-    sc_trace(mVcdFile, RX_message_V_ap_vld, "RX_message_V_ap_vld");
+    sc_trace(mVcdFile, ap_ready, "ap_ready");
     sc_trace(mVcdFile, state, "state");
-    sc_trace(mVcdFile, spi_core_blk_n_AW, "spi_core_blk_n_AW");
-    sc_trace(mVcdFile, spi_core_blk_n_W, "spi_core_blk_n_W");
+    sc_trace(mVcdFile, OUT_r_blk_n_AW, "OUT_r_blk_n_AW");
+    sc_trace(mVcdFile, OUT_r_blk_n_W, "OUT_r_blk_n_W");
     sc_trace(mVcdFile, ap_CS_fsm_state8, "ap_CS_fsm_state8");
-    sc_trace(mVcdFile, spi_core_blk_n_B, "spi_core_blk_n_B");
+    sc_trace(mVcdFile, OUT_r_blk_n_B, "OUT_r_blk_n_B");
     sc_trace(mVcdFile, ap_CS_fsm_state7, "ap_CS_fsm_state7");
-    sc_trace(mVcdFile, state_load_reg_182, "state_load_reg_182");
+    sc_trace(mVcdFile, state_load_reg_126, "state_load_reg_126");
     sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
-    sc_trace(mVcdFile, ap_CS_fsm_state13, "ap_CS_fsm_state13");
-    sc_trace(mVcdFile, spi_core_AWVALID, "spi_core_AWVALID");
-    sc_trace(mVcdFile, spi_core_AWREADY, "spi_core_AWREADY");
-    sc_trace(mVcdFile, spi_core_AWADDR, "spi_core_AWADDR");
-    sc_trace(mVcdFile, spi_core_WVALID, "spi_core_WVALID");
-    sc_trace(mVcdFile, spi_core_WREADY, "spi_core_WREADY");
-    sc_trace(mVcdFile, spi_core_WDATA, "spi_core_WDATA");
-    sc_trace(mVcdFile, spi_core_ARREADY, "spi_core_ARREADY");
-    sc_trace(mVcdFile, spi_core_RVALID, "spi_core_RVALID");
-    sc_trace(mVcdFile, spi_core_RDATA, "spi_core_RDATA");
-    sc_trace(mVcdFile, spi_core_RLAST, "spi_core_RLAST");
-    sc_trace(mVcdFile, spi_core_RID, "spi_core_RID");
-    sc_trace(mVcdFile, spi_core_RUSER, "spi_core_RUSER");
-    sc_trace(mVcdFile, spi_core_RRESP, "spi_core_RRESP");
-    sc_trace(mVcdFile, spi_core_BVALID, "spi_core_BVALID");
-    sc_trace(mVcdFile, spi_core_BREADY, "spi_core_BREADY");
-    sc_trace(mVcdFile, spi_core_BRESP, "spi_core_BRESP");
-    sc_trace(mVcdFile, spi_core_BID, "spi_core_BID");
-    sc_trace(mVcdFile, spi_core_BUSER, "spi_core_BUSER");
-    sc_trace(mVcdFile, TX_message_V_read_reg_176, "TX_message_V_read_reg_176");
-    sc_trace(mVcdFile, ap_sig_ioackin_spi_core_AWREADY, "ap_sig_ioackin_spi_core_AWREADY");
-    sc_trace(mVcdFile, ap_predicate_op36_writereq_state1, "ap_predicate_op36_writereq_state1");
+    sc_trace(mVcdFile, OUT_r_AWVALID, "OUT_r_AWVALID");
+    sc_trace(mVcdFile, OUT_r_AWREADY, "OUT_r_AWREADY");
+    sc_trace(mVcdFile, OUT_r_AWADDR, "OUT_r_AWADDR");
+    sc_trace(mVcdFile, OUT_r_WVALID, "OUT_r_WVALID");
+    sc_trace(mVcdFile, OUT_r_WREADY, "OUT_r_WREADY");
+    sc_trace(mVcdFile, OUT_r_WDATA, "OUT_r_WDATA");
+    sc_trace(mVcdFile, OUT_r_ARREADY, "OUT_r_ARREADY");
+    sc_trace(mVcdFile, OUT_r_RVALID, "OUT_r_RVALID");
+    sc_trace(mVcdFile, OUT_r_RDATA, "OUT_r_RDATA");
+    sc_trace(mVcdFile, OUT_r_RLAST, "OUT_r_RLAST");
+    sc_trace(mVcdFile, OUT_r_RID, "OUT_r_RID");
+    sc_trace(mVcdFile, OUT_r_RUSER, "OUT_r_RUSER");
+    sc_trace(mVcdFile, OUT_r_RRESP, "OUT_r_RRESP");
+    sc_trace(mVcdFile, OUT_r_BVALID, "OUT_r_BVALID");
+    sc_trace(mVcdFile, OUT_r_BREADY, "OUT_r_BREADY");
+    sc_trace(mVcdFile, OUT_r_BRESP, "OUT_r_BRESP");
+    sc_trace(mVcdFile, OUT_r_BID, "OUT_r_BID");
+    sc_trace(mVcdFile, OUT_r_BUSER, "OUT_r_BUSER");
+    sc_trace(mVcdFile, ap_sig_ioackin_OUT_r_AWREADY, "ap_sig_ioackin_OUT_r_AWREADY");
     sc_trace(mVcdFile, ap_block_state1_io, "ap_block_state1_io");
-    sc_trace(mVcdFile, ap_reg_ioackin_spi_core_AWREADY, "ap_reg_ioackin_spi_core_AWREADY");
-    sc_trace(mVcdFile, ap_predicate_op48_writeresp_state7, "ap_predicate_op48_writeresp_state7");
+    sc_trace(mVcdFile, ap_reg_ioackin_OUT_r_AWREADY, "ap_reg_ioackin_OUT_r_AWREADY");
     sc_trace(mVcdFile, ap_block_state7, "ap_block_state7");
-    sc_trace(mVcdFile, ap_reg_ioackin_spi_core_WREADY, "ap_reg_ioackin_spi_core_WREADY");
-    sc_trace(mVcdFile, ap_sig_ioackin_spi_core_WREADY, "ap_sig_ioackin_spi_core_WREADY");
-    sc_trace(mVcdFile, tmp_1_fu_164_p2, "tmp_1_fu_164_p2");
-    sc_trace(mVcdFile, ap_reg_ioackin_RX_message_V_dummy_ack, "ap_reg_ioackin_RX_message_V_dummy_ack");
+    sc_trace(mVcdFile, ap_reg_ioackin_OUT_r_WREADY, "ap_reg_ioackin_OUT_r_WREADY");
+    sc_trace(mVcdFile, ap_sig_ioackin_OUT_r_WREADY, "ap_sig_ioackin_OUT_r_WREADY");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
-    sc_trace(mVcdFile, ap_condition_454, "ap_condition_454");
-    sc_trace(mVcdFile, ap_condition_275, "ap_condition_275");
+    sc_trace(mVcdFile, ap_condition_365, "ap_condition_365");
+    sc_trace(mVcdFile, ap_condition_245, "ap_condition_245");
 #endif
 
     }
@@ -483,8 +440,8 @@ AXI_SPI_DRIVER::~AXI_SPI_DRIVER() {
     mHdltvoutHandle << "] " << endl;
     mHdltvinHandle.close();
     mHdltvoutHandle.close();
-    delete AXI_SPI_DRIVER_debug_s_axi_U;
-    delete AXI_SPI_DRIVER_spi_core_m_axi_U;
+    delete AXI_SPI_DRIVER_CTRL_s_axi_U;
+    delete AXI_SPI_DRIVER_OUT_r_m_axi_U;
 }
 
 void AXI_SPI_DRIVER::thread_ap_var_for_const0() {
@@ -497,6 +454,10 @@ void AXI_SPI_DRIVER::thread_ap_var_for_const1() {
 
 void AXI_SPI_DRIVER::thread_ap_var_for_const2() {
     ap_var_for_const2 = ap_const_lv32_0;
+}
+
+void AXI_SPI_DRIVER::thread_ap_var_for_const6() {
+    ap_var_for_const6 = ap_const_lv4_0;
 }
 
 void AXI_SPI_DRIVER::thread_ap_var_for_const7() {
@@ -515,10 +476,6 @@ void AXI_SPI_DRIVER::thread_ap_var_for_const5() {
     ap_var_for_const5 = ap_const_lv2_0;
 }
 
-void AXI_SPI_DRIVER::thread_ap_var_for_const6() {
-    ap_var_for_const6 = ap_const_lv4_0;
-}
-
 void AXI_SPI_DRIVER::thread_ap_var_for_const8() {
     ap_var_for_const8 = ap_const_lv4_F;
 }
@@ -530,97 +487,163 @@ void AXI_SPI_DRIVER::thread_ap_clk_no_reset_() {
         ap_CS_fsm = ap_NS_fsm.read();
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        ap_reg_ioackin_RX_message_V_dummy_ack = ap_const_logic_0;
+        ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_0;
     } else {
-        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read())) {
-            if (esl_seteq<1,1,1>(ap_sig_ioackin_spi_core_WREADY.read(), ap_const_logic_1)) {
-                ap_reg_ioackin_RX_message_V_dummy_ack = ap_const_logic_0;
-            } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_const_logic_1)) {
-                ap_reg_ioackin_RX_message_V_dummy_ack = ap_const_logic_1;
-            }
-        }
-    }
-    if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_0;
-    } else {
-        if (((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && 
-              esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && 
+        if (((!(esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read())) && 
+              esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) || 
-             (!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && 
-              esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) || 
-             (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-              esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read()) && 
-              !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0))))) {
-            ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_0;
+             (!(esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read())) && 
+              esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())))) {
+            ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_0;
         } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
                      esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-                     esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, spi_core_AWREADY.read())) || 
+                     esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_AWREADY.read())) || 
                     (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
                      esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-                     esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, spi_core_AWREADY.read())) || 
-                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-                     esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-                     esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, spi_core_AWREADY.read())))) {
-            ap_reg_ioackin_spi_core_AWREADY = ap_const_logic_1;
+                     esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_AWREADY.read())))) {
+            ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_1;
         }
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        ap_reg_ioackin_spi_core_WREADY = ap_const_logic_0;
+        ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_0;
     } else {
-        if (((esl_seteq<1,1,1>(ap_sig_ioackin_spi_core_WREADY.read(), ap_const_logic_1) && 
+        if (((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) || 
-             (esl_seteq<1,1,1>(ap_sig_ioackin_spi_core_WREADY.read(), ap_const_logic_1) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) || 
-             (esl_seteq<1,1,1>(ap_sig_ioackin_spi_core_WREADY.read(), ap_const_logic_1) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read())))) {
-            ap_reg_ioackin_spi_core_WREADY = ap_const_logic_0;
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())))) {
+            ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_0;
         } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, spi_core_WREADY.read())) || 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
                     (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, spi_core_WREADY.read())) || 
-                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, spi_core_WREADY.read())))) {
-            ap_reg_ioackin_spi_core_WREADY = ap_const_logic_1;
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())))) {
+            ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_1;
         }
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
-        state = ap_const_lv8_0;
+        state = ap_const_lv4_0;
     } else {
-        if (esl_seteq<1,1,1>(ap_condition_275.read(), ap_const_boolean_1)) {
-            if (esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read())) {
-                state = tmp_1_fu_164_p2.read();
-            } else if (esl_seteq<1,8,8>(state.read(), ap_const_lv8_0)) {
-                state = ap_const_lv8_1;
-            } else if (esl_seteq<1,8,8>(state.read(), ap_const_lv8_1)) {
-                state = ap_const_lv8_2;
+        if (esl_seteq<1,1,1>(ap_condition_245.read(), ap_const_boolean_1)) {
+            if (esl_seteq<1,4,4>(state.read(), ap_const_lv4_0)) {
+                state = ap_const_lv4_1;
+            } else if (esl_seteq<1,4,4>(state.read(), ap_const_lv4_1)) {
+                state = ap_const_lv4_2;
             }
         }
     }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)))) {
-        TX_message_V_read_reg_176 = TX_message_V.read();
-        state_load_reg_182 = state.read();
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read())))) {
+        state_load_reg_126 = state.read();
     }
 }
 
-void AXI_SPI_DRIVER::thread_RX_message_V_ap_vld() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) && 
-         esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_RX_message_V_dummy_ack.read()))) {
-        RX_message_V_ap_vld = ap_const_logic_1;
+void AXI_SPI_DRIVER::thread_OUT_r_AWADDR() {
+    if (esl_seteq<1,1,1>(ap_condition_365.read(), ap_const_boolean_1)) {
+        if (esl_seteq<1,4,4>(state.read(), ap_const_lv4_0)) {
+            OUT_r_AWADDR =  (sc_lv<32>) (ap_const_lv64_18);
+        } else if (esl_seteq<1,4,4>(state.read(), ap_const_lv4_1)) {
+            OUT_r_AWADDR =  (sc_lv<32>) (ap_const_lv64_1C);
+        } else {
+            OUT_r_AWADDR = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+        }
     } else {
-        RX_message_V_ap_vld = ap_const_logic_0;
+        OUT_r_AWADDR = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+    }
+}
+
+void AXI_SPI_DRIVER::thread_OUT_r_AWVALID() {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
+          esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_AWREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
+          esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_AWREADY.read())))) {
+        OUT_r_AWVALID = ap_const_logic_1;
+    } else {
+        OUT_r_AWVALID = ap_const_logic_0;
+    }
+}
+
+void AXI_SPI_DRIVER::thread_OUT_r_BREADY() {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
+          esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_1) && 
+          !((esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && 
+  esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_0) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read())))) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
+          esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_0) && 
+          !((esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && 
+  esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_0) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read())))))) {
+        OUT_r_BREADY = ap_const_logic_1;
+    } else {
+        OUT_r_BREADY = ap_const_logic_0;
+    }
+}
+
+void AXI_SPI_DRIVER::thread_OUT_r_WDATA() {
+    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) {
+        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
+            OUT_r_WDATA = ap_const_lv32_6;
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+            OUT_r_WDATA = ap_const_lv32_FFFE;
+        } else {
+            OUT_r_WDATA = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+        }
+    } else {
+        OUT_r_WDATA = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+    }
+}
+
+void AXI_SPI_DRIVER::thread_OUT_r_WVALID() {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())))) {
+        OUT_r_WVALID = ap_const_logic_1;
+    } else {
+        OUT_r_WVALID = ap_const_logic_0;
+    }
+}
+
+void AXI_SPI_DRIVER::thread_OUT_r_blk_n_AW() {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
+          esl_seteq<1,4,4>(state.read(), ap_const_lv4_0)) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
+          esl_seteq<1,4,4>(state.read(), ap_const_lv4_1)))) {
+        OUT_r_blk_n_AW = m_axi_OUT_r_AWREADY.read();
+    } else {
+        OUT_r_blk_n_AW = ap_const_logic_1;
+    }
+}
+
+void AXI_SPI_DRIVER::thread_OUT_r_blk_n_B() {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
+          esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_0)) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
+          esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_1)))) {
+        OUT_r_blk_n_B = m_axi_OUT_r_BVALID.read();
+    } else {
+        OUT_r_blk_n_B = ap_const_logic_1;
+    }
+}
+
+void AXI_SPI_DRIVER::thread_OUT_r_blk_n_W() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()))) {
+        OUT_r_blk_n_W = m_axi_OUT_r_WREADY.read();
+    } else {
+        OUT_r_blk_n_W = ap_const_logic_1;
     }
 }
 
 void AXI_SPI_DRIVER::thread_ap_CS_fsm_state1() {
     ap_CS_fsm_state1 = ap_CS_fsm.read()[0];
-}
-
-void AXI_SPI_DRIVER::thread_ap_CS_fsm_state13() {
-    ap_CS_fsm_state13 = ap_CS_fsm.read()[12];
 }
 
 void AXI_SPI_DRIVER::thread_ap_CS_fsm_state2() {
@@ -636,32 +659,29 @@ void AXI_SPI_DRIVER::thread_ap_CS_fsm_state8() {
 }
 
 void AXI_SPI_DRIVER::thread_ap_block_state1_io() {
-    ap_block_state1_io = ((esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && 
-  esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_spi_core_AWREADY.read())) || (esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
-  esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_spi_core_AWREADY.read())) || (esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_spi_core_AWREADY.read()) && 
-  esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read())));
+    ap_block_state1_io = ((esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_OUT_r_AWREADY.read())) || (esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_OUT_r_AWREADY.read())));
 }
 
 void AXI_SPI_DRIVER::thread_ap_block_state7() {
-    ap_block_state7 = ((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)));
+    ap_block_state7 = ((esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && 
+  esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_0) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read())));
 }
 
-void AXI_SPI_DRIVER::thread_ap_condition_275() {
-    ap_condition_275 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)));
+void AXI_SPI_DRIVER::thread_ap_condition_245() {
+    ap_condition_245 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read())));
 }
 
-void AXI_SPI_DRIVER::thread_ap_condition_454() {
-    ap_condition_454 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read()));
+void AXI_SPI_DRIVER::thread_ap_condition_365() {
+    ap_condition_365 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_AWREADY.read()));
 }
 
 void AXI_SPI_DRIVER::thread_ap_done() {
-    if ((!((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0))) && 
+    if ((!((esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && 
+  esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_0) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()))) && 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()))) {
         ap_done = ap_const_logic_1;
     } else {
@@ -678,19 +698,10 @@ void AXI_SPI_DRIVER::thread_ap_idle() {
     }
 }
 
-void AXI_SPI_DRIVER::thread_ap_predicate_op36_writereq_state1() {
-    ap_predicate_op36_writereq_state1 = (!esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && !esl_seteq<1,8,8>(state.read(), ap_const_lv8_1));
-}
-
-void AXI_SPI_DRIVER::thread_ap_predicate_op48_writeresp_state7() {
-    ap_predicate_op48_writeresp_state7 = (!esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && !esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1));
-}
-
 void AXI_SPI_DRIVER::thread_ap_ready() {
-    if ((!((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0))) && 
+    if ((!((esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && 
+  esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_0) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()))) && 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()))) {
         ap_ready = ap_const_logic_1;
     } else {
@@ -702,171 +713,37 @@ void AXI_SPI_DRIVER::thread_ap_rst_n_inv() {
     ap_rst_n_inv =  (sc_logic) (~ap_rst_n.read());
 }
 
-void AXI_SPI_DRIVER::thread_ap_sig_ioackin_spi_core_AWREADY() {
-    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read())) {
-        ap_sig_ioackin_spi_core_AWREADY = spi_core_AWREADY.read();
+void AXI_SPI_DRIVER::thread_ap_sig_ioackin_OUT_r_AWREADY() {
+    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_AWREADY.read())) {
+        ap_sig_ioackin_OUT_r_AWREADY = OUT_r_AWREADY.read();
     } else {
-        ap_sig_ioackin_spi_core_AWREADY = ap_const_logic_1;
+        ap_sig_ioackin_OUT_r_AWREADY = ap_const_logic_1;
     }
 }
 
-void AXI_SPI_DRIVER::thread_ap_sig_ioackin_spi_core_WREADY() {
-    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_WREADY.read())) {
-        ap_sig_ioackin_spi_core_WREADY = spi_core_WREADY.read();
+void AXI_SPI_DRIVER::thread_ap_sig_ioackin_OUT_r_WREADY() {
+    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) {
+        ap_sig_ioackin_OUT_r_WREADY = OUT_r_WREADY.read();
     } else {
-        ap_sig_ioackin_spi_core_WREADY = ap_const_logic_1;
+        ap_sig_ioackin_OUT_r_WREADY = ap_const_logic_1;
     }
-}
-
-void AXI_SPI_DRIVER::thread_spi_core_AWADDR() {
-    if (esl_seteq<1,1,1>(ap_condition_454.read(), ap_const_boolean_1)) {
-        if (esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read())) {
-            spi_core_AWADDR =  (sc_lv<32>) (ap_const_lv64_1A);
-        } else if (esl_seteq<1,8,8>(state.read(), ap_const_lv8_0)) {
-            spi_core_AWADDR =  (sc_lv<32>) (ap_const_lv64_18);
-        } else if (esl_seteq<1,8,8>(state.read(), ap_const_lv8_1)) {
-            spi_core_AWADDR =  (sc_lv<32>) (ap_const_lv64_1C);
-        } else {
-            spi_core_AWADDR = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-        }
-    } else {
-        spi_core_AWADDR = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-    }
-}
-
-void AXI_SPI_DRIVER::thread_spi_core_AWVALID() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,1,1>(ap_const_boolean_1, ap_predicate_op36_writereq_state1.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_AWREADY.read())))) {
-        spi_core_AWVALID = ap_const_logic_1;
-    } else {
-        spi_core_AWVALID = ap_const_logic_0;
-    }
-}
-
-void AXI_SPI_DRIVER::thread_spi_core_BREADY() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1) && 
-          !((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)))) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
-          !((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)))) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
-          !((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)))))) {
-        spi_core_BREADY = ap_const_logic_1;
-    } else {
-        spi_core_BREADY = ap_const_logic_0;
-    }
-}
-
-void AXI_SPI_DRIVER::thread_spi_core_WDATA() {
-    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_WREADY.read())) {
-        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read())) {
-            spi_core_WDATA = TX_message_V_read_reg_176.read();
-        } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-            spi_core_WDATA = ap_const_lv32_6;
-        } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-            spi_core_WDATA = ap_const_lv32_FFFE;
-        } else {
-            spi_core_WDATA = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-        }
-    } else {
-        spi_core_WDATA = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-    }
-}
-
-void AXI_SPI_DRIVER::thread_spi_core_WVALID() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_WREADY.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_WREADY.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_spi_core_WREADY.read())))) {
-        spi_core_WVALID = ap_const_logic_1;
-    } else {
-        spi_core_WVALID = ap_const_logic_0;
-    }
-}
-
-void AXI_SPI_DRIVER::thread_spi_core_blk_n_AW() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,8,8>(state.read(), ap_const_lv8_0)) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          esl_seteq<1,8,8>(state.read(), ap_const_lv8_1)) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-          esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-          !esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && 
-          !esl_seteq<1,8,8>(state.read(), ap_const_lv8_1)))) {
-        spi_core_blk_n_AW = m_axi_spi_core_AWREADY.read();
-    } else {
-        spi_core_blk_n_AW = ap_const_logic_1;
-    }
-}
-
-void AXI_SPI_DRIVER::thread_spi_core_blk_n_B() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0)) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          !esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
-          !esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)))) {
-        spi_core_blk_n_B = m_axi_spi_core_BVALID.read();
-    } else {
-        spi_core_blk_n_B = ap_const_logic_1;
-    }
-}
-
-void AXI_SPI_DRIVER::thread_spi_core_blk_n_W() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()))) {
-        spi_core_blk_n_W = m_axi_spi_core_WREADY.read();
-    } else {
-        spi_core_blk_n_W = ap_const_logic_1;
-    }
-}
-
-void AXI_SPI_DRIVER::thread_tmp_1_fu_164_p2() {
-    tmp_1_fu_164_p2 = (!state.read().is_01() || !ap_const_lv8_1.is_01())? sc_lv<8>(): (sc_biguint<8>(state.read()) + sc_biguint<8>(ap_const_lv8_1));
 }
 
 void AXI_SPI_DRIVER::thread_ap_NS_fsm() {
     switch (ap_CS_fsm.read().to_uint64()) {
         case 1 : 
-            if ((!esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && !esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
-                ap_NS_fsm = ap_ST_fsm_state13;
-            } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && esl_seteq<1,8,8>(state.read(), ap_const_lv8_0) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
+            if ((!(esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read())) && esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state8;
-            } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && esl_seteq<1,8,8>(state.read(), ap_const_lv8_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
+            } else if ((!esl_seteq<1,4,4>(state.read(), ap_const_lv4_0) && !(esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read())) && !esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state7;
+            } else if ((!(esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read())) && esl_seteq<1,4,4>(state.read(), ap_const_lv4_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state2;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state1;
             }
             break;
         case 2 : 
-            if ((esl_seteq<1,1,1>(ap_sig_ioackin_spi_core_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()))) {
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state3;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -885,17 +762,16 @@ void AXI_SPI_DRIVER::thread_ap_NS_fsm() {
             ap_NS_fsm = ap_ST_fsm_state7;
             break;
         case 64 : 
-            if ((!((esl_seteq<1,1,1>(ap_predicate_op48_writeresp_state7.read(), ap_const_boolean_1) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0)) || (esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0) && 
-  esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_1)) || (esl_seteq<1,8,8>(state_load_reg_182.read(), ap_const_lv8_0) && 
-  esl_seteq<1,1,1>(spi_core_BVALID.read(), ap_const_logic_0))) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()))) {
+            if ((!((esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && 
+  esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_1)) || (esl_seteq<1,4,4>(state_load_reg_126.read(), ap_const_lv4_0) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()))) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state1;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state7;
             }
             break;
         case 128 : 
-            if ((esl_seteq<1,1,1>(ap_sig_ioackin_spi_core_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()))) {
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state9;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state8;
@@ -913,27 +789,8 @@ void AXI_SPI_DRIVER::thread_ap_NS_fsm() {
         case 2048 : 
             ap_NS_fsm = ap_ST_fsm_state7;
             break;
-        case 4096 : 
-            if ((esl_seteq<1,1,1>(ap_sig_ioackin_spi_core_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()))) {
-                ap_NS_fsm = ap_ST_fsm_state14;
-            } else {
-                ap_NS_fsm = ap_ST_fsm_state13;
-            }
-            break;
-        case 8192 : 
-            ap_NS_fsm = ap_ST_fsm_state15;
-            break;
-        case 16384 : 
-            ap_NS_fsm = ap_ST_fsm_state16;
-            break;
-        case 32768 : 
-            ap_NS_fsm = ap_ST_fsm_state17;
-            break;
-        case 65536 : 
-            ap_NS_fsm = ap_ST_fsm_state7;
-            break;
         default : 
-            ap_NS_fsm =  (sc_lv<17>) ("XXXXXXXXXXXXXXXXX");
+            ap_NS_fsm =  (sc_lv<12>) ("XXXXXXXXXXXX");
             break;
     }
 }
@@ -951,72 +808,69 @@ void AXI_SPI_DRIVER::thread_hdltv_gen() {
         wait();
         const char* mComma = ap_cycleNo == 0 ? " " : ", " ;
         mHdltvinHandle << mComma << "{"  <<  " \"ap_rst_n\" :  \"" << ap_rst_n.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"ap_start\" :  \"" << ap_start.read() << "\" ";
-        mHdltvoutHandle << mComma << "{"  <<  " \"ap_done\" :  \"" << ap_done.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"ap_idle\" :  \"" << ap_idle.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"ap_ready\" :  \"" << ap_ready.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWVALID\" :  \"" << m_axi_spi_core_AWVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_AWREADY\" :  \"" << m_axi_spi_core_AWREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWADDR\" :  \"" << m_axi_spi_core_AWADDR.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWID\" :  \"" << m_axi_spi_core_AWID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWLEN\" :  \"" << m_axi_spi_core_AWLEN.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWSIZE\" :  \"" << m_axi_spi_core_AWSIZE.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWBURST\" :  \"" << m_axi_spi_core_AWBURST.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWLOCK\" :  \"" << m_axi_spi_core_AWLOCK.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWCACHE\" :  \"" << m_axi_spi_core_AWCACHE.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWPROT\" :  \"" << m_axi_spi_core_AWPROT.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWQOS\" :  \"" << m_axi_spi_core_AWQOS.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWREGION\" :  \"" << m_axi_spi_core_AWREGION.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_AWUSER\" :  \"" << m_axi_spi_core_AWUSER.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_WVALID\" :  \"" << m_axi_spi_core_WVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_WREADY\" :  \"" << m_axi_spi_core_WREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_WDATA\" :  \"" << m_axi_spi_core_WDATA.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_WSTRB\" :  \"" << m_axi_spi_core_WSTRB.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_WLAST\" :  \"" << m_axi_spi_core_WLAST.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_WID\" :  \"" << m_axi_spi_core_WID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_WUSER\" :  \"" << m_axi_spi_core_WUSER.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARVALID\" :  \"" << m_axi_spi_core_ARVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_ARREADY\" :  \"" << m_axi_spi_core_ARREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARADDR\" :  \"" << m_axi_spi_core_ARADDR.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARID\" :  \"" << m_axi_spi_core_ARID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARLEN\" :  \"" << m_axi_spi_core_ARLEN.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARSIZE\" :  \"" << m_axi_spi_core_ARSIZE.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARBURST\" :  \"" << m_axi_spi_core_ARBURST.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARLOCK\" :  \"" << m_axi_spi_core_ARLOCK.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARCACHE\" :  \"" << m_axi_spi_core_ARCACHE.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARPROT\" :  \"" << m_axi_spi_core_ARPROT.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARQOS\" :  \"" << m_axi_spi_core_ARQOS.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARREGION\" :  \"" << m_axi_spi_core_ARREGION.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_ARUSER\" :  \"" << m_axi_spi_core_ARUSER.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_RVALID\" :  \"" << m_axi_spi_core_RVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_RREADY\" :  \"" << m_axi_spi_core_RREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_RDATA\" :  \"" << m_axi_spi_core_RDATA.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_RLAST\" :  \"" << m_axi_spi_core_RLAST.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_RID\" :  \"" << m_axi_spi_core_RID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_RUSER\" :  \"" << m_axi_spi_core_RUSER.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_RRESP\" :  \"" << m_axi_spi_core_RRESP.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_BVALID\" :  \"" << m_axi_spi_core_BVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_spi_core_BREADY\" :  \"" << m_axi_spi_core_BREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_BRESP\" :  \"" << m_axi_spi_core_BRESP.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_BID\" :  \"" << m_axi_spi_core_BID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_spi_core_BUSER\" :  \"" << m_axi_spi_core_BUSER.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_debug_AWVALID\" :  \"" << s_axi_debug_AWVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_debug_AWREADY\" :  \"" << s_axi_debug_AWREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_debug_AWADDR\" :  \"" << s_axi_debug_AWADDR.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_debug_WVALID\" :  \"" << s_axi_debug_WVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_debug_WREADY\" :  \"" << s_axi_debug_WREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_debug_WDATA\" :  \"" << s_axi_debug_WDATA.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_debug_WSTRB\" :  \"" << s_axi_debug_WSTRB.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_debug_ARVALID\" :  \"" << s_axi_debug_ARVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_debug_ARREADY\" :  \"" << s_axi_debug_ARREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_debug_ARADDR\" :  \"" << s_axi_debug_ARADDR.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_debug_RVALID\" :  \"" << s_axi_debug_RVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_debug_RREADY\" :  \"" << s_axi_debug_RREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_debug_RDATA\" :  \"" << s_axi_debug_RDATA.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_debug_RRESP\" :  \"" << s_axi_debug_RRESP.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_debug_BVALID\" :  \"" << s_axi_debug_BVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_debug_BREADY\" :  \"" << s_axi_debug_BREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_debug_BRESP\" :  \"" << s_axi_debug_BRESP.read() << "\" ";
+        mHdltvoutHandle << mComma << "{"  <<  " \"m_axi_OUT_r_AWVALID\" :  \"" << m_axi_OUT_r_AWVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_AWREADY\" :  \"" << m_axi_OUT_r_AWREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWADDR\" :  \"" << m_axi_OUT_r_AWADDR.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWID\" :  \"" << m_axi_OUT_r_AWID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWLEN\" :  \"" << m_axi_OUT_r_AWLEN.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWSIZE\" :  \"" << m_axi_OUT_r_AWSIZE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWBURST\" :  \"" << m_axi_OUT_r_AWBURST.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWLOCK\" :  \"" << m_axi_OUT_r_AWLOCK.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWCACHE\" :  \"" << m_axi_OUT_r_AWCACHE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWPROT\" :  \"" << m_axi_OUT_r_AWPROT.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWQOS\" :  \"" << m_axi_OUT_r_AWQOS.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWREGION\" :  \"" << m_axi_OUT_r_AWREGION.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWUSER\" :  \"" << m_axi_OUT_r_AWUSER.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WVALID\" :  \"" << m_axi_OUT_r_WVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_WREADY\" :  \"" << m_axi_OUT_r_WREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WDATA\" :  \"" << m_axi_OUT_r_WDATA.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WSTRB\" :  \"" << m_axi_OUT_r_WSTRB.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WLAST\" :  \"" << m_axi_OUT_r_WLAST.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WID\" :  \"" << m_axi_OUT_r_WID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WUSER\" :  \"" << m_axi_OUT_r_WUSER.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARVALID\" :  \"" << m_axi_OUT_r_ARVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_ARREADY\" :  \"" << m_axi_OUT_r_ARREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARADDR\" :  \"" << m_axi_OUT_r_ARADDR.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARID\" :  \"" << m_axi_OUT_r_ARID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARLEN\" :  \"" << m_axi_OUT_r_ARLEN.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARSIZE\" :  \"" << m_axi_OUT_r_ARSIZE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARBURST\" :  \"" << m_axi_OUT_r_ARBURST.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARLOCK\" :  \"" << m_axi_OUT_r_ARLOCK.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARCACHE\" :  \"" << m_axi_OUT_r_ARCACHE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARPROT\" :  \"" << m_axi_OUT_r_ARPROT.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARQOS\" :  \"" << m_axi_OUT_r_ARQOS.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARREGION\" :  \"" << m_axi_OUT_r_ARREGION.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARUSER\" :  \"" << m_axi_OUT_r_ARUSER.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RVALID\" :  \"" << m_axi_OUT_r_RVALID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_RREADY\" :  \"" << m_axi_OUT_r_RREADY.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RDATA\" :  \"" << m_axi_OUT_r_RDATA.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RLAST\" :  \"" << m_axi_OUT_r_RLAST.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RID\" :  \"" << m_axi_OUT_r_RID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RUSER\" :  \"" << m_axi_OUT_r_RUSER.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RRESP\" :  \"" << m_axi_OUT_r_RRESP.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_BVALID\" :  \"" << m_axi_OUT_r_BVALID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_BREADY\" :  \"" << m_axi_OUT_r_BREADY.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_BRESP\" :  \"" << m_axi_OUT_r_BRESP.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_BID\" :  \"" << m_axi_OUT_r_BID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_BUSER\" :  \"" << m_axi_OUT_r_BUSER.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"s_axi_CTRL_AWVALID\" :  \"" << s_axi_CTRL_AWVALID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_AWREADY\" :  \"" << s_axi_CTRL_AWREADY.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"s_axi_CTRL_AWADDR\" :  \"" << s_axi_CTRL_AWADDR.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"s_axi_CTRL_WVALID\" :  \"" << s_axi_CTRL_WVALID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_WREADY\" :  \"" << s_axi_CTRL_WREADY.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"s_axi_CTRL_WDATA\" :  \"" << s_axi_CTRL_WDATA.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"s_axi_CTRL_WSTRB\" :  \"" << s_axi_CTRL_WSTRB.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"s_axi_CTRL_ARVALID\" :  \"" << s_axi_CTRL_ARVALID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_ARREADY\" :  \"" << s_axi_CTRL_ARREADY.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"s_axi_CTRL_ARADDR\" :  \"" << s_axi_CTRL_ARADDR.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_RVALID\" :  \"" << s_axi_CTRL_RVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"s_axi_CTRL_RREADY\" :  \"" << s_axi_CTRL_RREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_RDATA\" :  \"" << s_axi_CTRL_RDATA.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_RRESP\" :  \"" << s_axi_CTRL_RRESP.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_BVALID\" :  \"" << s_axi_CTRL_BVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"s_axi_CTRL_BREADY\" :  \"" << s_axi_CTRL_BREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_BRESP\" :  \"" << s_axi_CTRL_BRESP.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"interrupt\" :  \"" << interrupt.read() << "\" ";
         mHdltvinHandle << "}" << std::endl;
         mHdltvoutHandle << "}" << std::endl;
         ap_cycleNo++;

@@ -14,47 +14,120 @@ int XAxi_spi_driver_CfgInitialize(XAxi_spi_driver *InstancePtr, XAxi_spi_driver_
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(ConfigPtr != NULL);
 
-    InstancePtr->Debug_BaseAddress = ConfigPtr->Debug_BaseAddress;
+    InstancePtr->Ctrl_BaseAddress = ConfigPtr->Ctrl_BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
 }
 #endif
 
-void XAxi_spi_driver_Set_TX_message_V(XAxi_spi_driver *InstancePtr, u32 Data) {
+void XAxi_spi_driver_Start(XAxi_spi_driver *InstancePtr) {
+    u32 Data;
+
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XAxi_spi_driver_WriteReg(InstancePtr->Debug_BaseAddress, XAXI_SPI_DRIVER_DEBUG_ADDR_TX_MESSAGE_V_DATA, Data);
+    Data = XAxi_spi_driver_ReadReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_AP_CTRL) & 0x80;
+    XAxi_spi_driver_WriteReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_AP_CTRL, Data | 0x01);
 }
 
-u32 XAxi_spi_driver_Get_TX_message_V(XAxi_spi_driver *InstancePtr) {
+u32 XAxi_spi_driver_IsDone(XAxi_spi_driver *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XAxi_spi_driver_ReadReg(InstancePtr->Debug_BaseAddress, XAXI_SPI_DRIVER_DEBUG_ADDR_TX_MESSAGE_V_DATA);
-    return Data;
+    Data = XAxi_spi_driver_ReadReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_AP_CTRL);
+    return (Data >> 1) & 0x1;
 }
 
-u32 XAxi_spi_driver_Get_RX_message_V(XAxi_spi_driver *InstancePtr) {
+u32 XAxi_spi_driver_IsIdle(XAxi_spi_driver *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XAxi_spi_driver_ReadReg(InstancePtr->Debug_BaseAddress, XAXI_SPI_DRIVER_DEBUG_ADDR_RX_MESSAGE_V_DATA);
-    return Data;
+    Data = XAxi_spi_driver_ReadReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_AP_CTRL);
+    return (Data >> 2) & 0x1;
 }
 
-u32 XAxi_spi_driver_Get_RX_message_V_vld(XAxi_spi_driver *InstancePtr) {
+u32 XAxi_spi_driver_IsReady(XAxi_spi_driver *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XAxi_spi_driver_ReadReg(InstancePtr->Debug_BaseAddress, XAXI_SPI_DRIVER_DEBUG_ADDR_RX_MESSAGE_V_CTRL);
-    return Data & 0x1;
+    Data = XAxi_spi_driver_ReadReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_AP_CTRL);
+    // check ap_start to see if the pcore is ready for next input
+    return !(Data & 0x1);
+}
+
+void XAxi_spi_driver_EnableAutoRestart(XAxi_spi_driver *InstancePtr) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XAxi_spi_driver_WriteReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_AP_CTRL, 0x80);
+}
+
+void XAxi_spi_driver_DisableAutoRestart(XAxi_spi_driver *InstancePtr) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XAxi_spi_driver_WriteReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_AP_CTRL, 0);
+}
+
+void XAxi_spi_driver_InterruptGlobalEnable(XAxi_spi_driver *InstancePtr) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XAxi_spi_driver_WriteReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_GIE, 1);
+}
+
+void XAxi_spi_driver_InterruptGlobalDisable(XAxi_spi_driver *InstancePtr) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XAxi_spi_driver_WriteReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_GIE, 0);
+}
+
+void XAxi_spi_driver_InterruptEnable(XAxi_spi_driver *InstancePtr, u32 Mask) {
+    u32 Register;
+
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Register =  XAxi_spi_driver_ReadReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_IER);
+    XAxi_spi_driver_WriteReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_IER, Register | Mask);
+}
+
+void XAxi_spi_driver_InterruptDisable(XAxi_spi_driver *InstancePtr, u32 Mask) {
+    u32 Register;
+
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Register =  XAxi_spi_driver_ReadReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_IER);
+    XAxi_spi_driver_WriteReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_IER, Register & (~Mask));
+}
+
+void XAxi_spi_driver_InterruptClear(XAxi_spi_driver *InstancePtr, u32 Mask) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XAxi_spi_driver_WriteReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_ISR, Mask);
+}
+
+u32 XAxi_spi_driver_InterruptGetEnabled(XAxi_spi_driver *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return XAxi_spi_driver_ReadReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_IER);
+}
+
+u32 XAxi_spi_driver_InterruptGetStatus(XAxi_spi_driver *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return XAxi_spi_driver_ReadReg(InstancePtr->Ctrl_BaseAddress, XAXI_SPI_DRIVER_CTRL_ADDR_ISR);
 }
 

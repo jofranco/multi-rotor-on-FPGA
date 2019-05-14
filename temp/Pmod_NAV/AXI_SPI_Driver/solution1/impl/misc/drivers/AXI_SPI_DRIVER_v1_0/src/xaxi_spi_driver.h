@@ -40,12 +40,12 @@ typedef uint32_t u32;
 #else
 typedef struct {
     u16 DeviceId;
-    u32 Debug_BaseAddress;
+    u32 Ctrl_BaseAddress;
 } XAxi_spi_driver_Config;
 #endif
 
 typedef struct {
-    u32 Debug_BaseAddress;
+    u32 Ctrl_BaseAddress;
     u32 IsReady;
 } XAxi_spi_driver;
 
@@ -80,11 +80,21 @@ int XAxi_spi_driver_Initialize(XAxi_spi_driver *InstancePtr, const char* Instanc
 int XAxi_spi_driver_Release(XAxi_spi_driver *InstancePtr);
 #endif
 
+void XAxi_spi_driver_Start(XAxi_spi_driver *InstancePtr);
+u32 XAxi_spi_driver_IsDone(XAxi_spi_driver *InstancePtr);
+u32 XAxi_spi_driver_IsIdle(XAxi_spi_driver *InstancePtr);
+u32 XAxi_spi_driver_IsReady(XAxi_spi_driver *InstancePtr);
+void XAxi_spi_driver_EnableAutoRestart(XAxi_spi_driver *InstancePtr);
+void XAxi_spi_driver_DisableAutoRestart(XAxi_spi_driver *InstancePtr);
 
-void XAxi_spi_driver_Set_TX_message_V(XAxi_spi_driver *InstancePtr, u32 Data);
-u32 XAxi_spi_driver_Get_TX_message_V(XAxi_spi_driver *InstancePtr);
-u32 XAxi_spi_driver_Get_RX_message_V(XAxi_spi_driver *InstancePtr);
-u32 XAxi_spi_driver_Get_RX_message_V_vld(XAxi_spi_driver *InstancePtr);
+
+void XAxi_spi_driver_InterruptGlobalEnable(XAxi_spi_driver *InstancePtr);
+void XAxi_spi_driver_InterruptGlobalDisable(XAxi_spi_driver *InstancePtr);
+void XAxi_spi_driver_InterruptEnable(XAxi_spi_driver *InstancePtr, u32 Mask);
+void XAxi_spi_driver_InterruptDisable(XAxi_spi_driver *InstancePtr, u32 Mask);
+void XAxi_spi_driver_InterruptClear(XAxi_spi_driver *InstancePtr, u32 Mask);
+u32 XAxi_spi_driver_InterruptGetEnabled(XAxi_spi_driver *InstancePtr);
+u32 XAxi_spi_driver_InterruptGetStatus(XAxi_spi_driver *InstancePtr);
 
 #ifdef __cplusplus
 }

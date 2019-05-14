@@ -29,47 +29,47 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/.apc/.src</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/.apc/.tb</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/solution1/.tcls</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/.tcls</location>
 		</link>
 		<link>
 			<name>source/AXI_SPI_Driver.cpp</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/AXI_SPI_Driver.cpp</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/AXI_SPI_Driver.cpp</location>
 		</link>
 		<link>
 			<name>source/AXI_SPI_Driver.h</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/AXI_SPI_Driver.h</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/AXI_SPI_Driver.h</location>
 		</link>
 		<link>
 			<name>testbench/main.cpp</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/main.cpp</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/main.cpp</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/solution1/solution1.directive</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/solution1/directives.tcl</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/temp/Pmod_NAV/AXI_SPI_Driver/solution1/script.tcl</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>
