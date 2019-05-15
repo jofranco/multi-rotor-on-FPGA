@@ -1,4 +1,0 @@
-rx_driver_CTRL_s_axi
-rx_driver_AXI_UART_m_axi
-rx_driver_SBUS_data_m_axi
-rx_driver
