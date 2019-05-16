@@ -1,9 +1,0 @@
-{
-	"version": "1.0",
-	"modules": {
-		"AXI_SPI_DRIVER": {
-			"proto_instances": {
-			}
-		}
-	}
-}

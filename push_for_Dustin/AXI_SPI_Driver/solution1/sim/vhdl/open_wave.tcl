@@ -1,2 +1,0 @@
-current_fileset
-open_wave_database AXI_SPI_DRIVER.wdb
