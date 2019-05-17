@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="flightmain.cpp" path="C:\Users\c7benj\Documents\MULTI_ROTOR\Flight_Main\flightmain.cpp"/>
+    <originFiles name="flightmain.hpp" path="C:\Users\c7benj\Documents\MULTI_ROTOR\Flight_Main\flightmain.hpp"/>
+  </source>
+  <testbench>
+    <originFiles name="main.cpp" path="C:\Users\c7benj\Documents\MULTI_ROTOR\Flight_Main\main.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

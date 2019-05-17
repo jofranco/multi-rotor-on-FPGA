@@ -1,0 +1,148 @@
+
+
+================================================================
+== Vivado HLS Report for 'flightmain'
+================================================================
+* Date:           Thu May 16 22:35:19 2019
+
+* Version:        2017.1 (Build 1846317 on Thu Jun 22 18:17:09 MDT 2017)
+* Project:        FlightMain
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.00|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 1
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: StgValue_2 (5)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap([5 x i16]* %rcCmdIn) nounwind, !map !66
+
+ST_1: StgValue_3 (6)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap([4 x i16]* %measured) nounwind, !map !72
+
+ST_1: StgValue_4 (7)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i16 %obj_avd_cmd) nounwind, !map !78
+
+ST_1: StgValue_5 (8)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i16 %obj_avd_flag) nounwind, !map !84
+
+ST_1: StgValue_6 (9)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecTopModule([11 x i8]* @flightmain_str) nounwind
+
+ST_1: StgValue_7 (10)  [1/1] 0.00ns  loc: flightmain.cpp:20
+:5  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [5 x i8]* @p_str4, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+
+ST_1: empty (11)  [1/1] 0.00ns
+:6  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([5 x i16]* %rcCmdIn, [1 x i8]* @p_str5, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str5, i32 -1, [1 x i8]* @p_str5, [1 x i8]* @p_str5, [1 x i8]* @p_str5, [1 x i8]* @p_str5, [1 x i8]* @p_str5) nounwind
+
+ST_1: StgValue_9 (12)  [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecInterface([5 x i16]* %rcCmdIn, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [5 x i8]* @p_str4, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+
+ST_1: empty_2 (13)  [1/1] 0.00ns
+:8  %empty_2 = call i32 (...)* @_ssdm_op_SpecMemCore([4 x i16]* %measured, [1 x i8]* @p_str6, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str6, i32 -1, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6) nounwind
+
+ST_1: StgValue_11 (14)  [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecInterface([4 x i16]* %measured, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [5 x i8]* @p_str4, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+
+ST_1: StgValue_12 (15)  [1/1] 0.00ns  loc: flightmain.cpp:24
+:10  call void (...)* @_ssdm_op_SpecInterface(i16 %obj_avd_cmd, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [5 x i8]* @p_str4, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+
+ST_1: StgValue_13 (16)  [1/1] 0.00ns  loc: flightmain.cpp:26
+:11  call void (...)* @_ssdm_op_SpecInterface(i16 %obj_avd_flag, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str3, i32 0, i32 0, [5 x i8]* @p_str4, [1 x i8]* @p_str3, [1 x i8]* @p_str3, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str3, [1 x i8]* @p_str3) nounwind
+
+ST_1: StgValue_14 (17)  [1/1] 0.00ns  loc: flightmain.cpp:29
+:12  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str3) nounwind
+
+ST_1: StgValue_15 (18)  [1/1] 0.00ns  loc: flightmain.cpp:87
+:13  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

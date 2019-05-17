@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [SYNCHK 200-77] The top function 'flightmain' (flightmain.cpp:16) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops." projectName="FlightMain" solutionName="solution1" date="2019-05-16T22:35:18.067-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="WARNING: [IMPL 213-201] IO timing constraints are not applied without adding IO buffers.&#xD;&#xA;" projectName="FlightMain" solutionName="solution1" date="2019-05-16T22:36:34.254-0700" type="Warning"/>
+        <logs message="WARNING: [IMPL 213-201] IO timing constraints are not applied without adding IO buffers." projectName="FlightMain" solutionName="solution1" date="2019-05-16T22:36:18.760-0700" type="Warning"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

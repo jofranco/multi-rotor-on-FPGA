@@ -1,0 +1,124 @@
+
+
+================================================================
+== Vivado HLS Report for 'flightmain'
+================================================================
+* Date:           Thu May 16 22:35:19 2019
+
+* Version:        2017.1 (Build 1846317 on Thu Jun 22 18:17:09 MDT 2017)
+* Project:        FlightMain
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.00|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       -|      -|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        4|      -|     240|    244|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|      -|
+|Register         |        -|      -|       -|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        4|      0|     240|    244|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        1|      0|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+-----------------------+---------+-------+-----+-----+
+    |         Instance        |         Module        | BRAM_18K| DSP48E|  FF | LUT |
+    +-------------------------+-----------------------+---------+-------+-----+-----+
+    |flightmain_CTRL_s_axi_U  |flightmain_CTRL_s_axi  |        4|      0|  240|  244|
+    +-------------------------+-----------------------+---------+-------+-----+-----+
+    |Total                    |                       |        4|      0|  240|  244|
+    +-------------------------+-----------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+--------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------------+-----+-----+------------+--------------+--------------+
+|s_axi_CTRL_AWVALID  |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_AWREADY  | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_AWADDR   |  in |    6|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_WVALID   |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_WREADY   | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_WDATA    |  in |   32|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_WSTRB    |  in |    4|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_ARVALID  |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_ARREADY  | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_ARADDR   |  in |    6|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_RVALID   | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_RREADY   |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_RDATA    | out |   32|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_RRESP    | out |    2|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_BVALID   | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_BREADY   |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_BRESP    | out |    2|    s_axi   |     CTRL     |    scalar    |
+|ap_clk              |  in |    1| ap_ctrl_hs |  flightmain  | return value |
+|ap_rst_n            |  in |    1| ap_ctrl_hs |  flightmain  | return value |
+|interrupt           | out |    1| ap_ctrl_hs |  flightmain  | return value |
++--------------------+-----+-----+------------+--------------+--------------+
+
