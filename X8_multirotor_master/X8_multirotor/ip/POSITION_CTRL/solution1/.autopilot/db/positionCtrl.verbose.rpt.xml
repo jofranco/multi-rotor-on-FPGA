@@ -1,0 +1,167 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'positionCtrl'" level="0">
+<item name = "Date">Thu May 16 22:11:45 2019
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">POSITION_CTRL</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 0.000, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">0, 0, 0, 0, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, -, -</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">4, -, 116, 110</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, -</column>
+<column name="Register">-, -, 1, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">1, 0, ~0, ~0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="positionCtrl_CTRL_s_axi_U">positionCtrl_CTRL_s_axi, 4, 0, 116, 110</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">1, 0, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_CTRL_AWVALID">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_AWREADY">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_AWADDR">in, 14, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_WVALID">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_WREADY">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_WDATA">in, 32, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_WSTRB">in, 4, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_ARVALID">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_ARREADY">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_ARADDR">in, 14, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_RVALID">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_RREADY">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_RDATA">out, 32, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_RRESP">out, 2, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_BVALID">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_BREADY">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_BRESP">out, 2, s_axi, CTRL, array</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, positionCtrl, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, positionCtrl, return value</column>
+<column name="interrupt">out, 1, ap_ctrl_hs, positionCtrl, return value</column>
+<column name="m_axi_CTRL_AWVALID">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWREADY">in, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWADDR">out, 32, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWID">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWLEN">out, 8, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWSIZE">out, 3, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWBURST">out, 2, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWLOCK">out, 2, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWCACHE">out, 4, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWPROT">out, 3, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWQOS">out, 4, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWREGION">out, 4, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_AWUSER">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_WVALID">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_WREADY">in, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_WDATA">out, 32, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_WSTRB">out, 4, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_WLAST">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_WID">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_WUSER">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARVALID">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARREADY">in, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARADDR">out, 32, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARID">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARLEN">out, 8, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARSIZE">out, 3, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARBURST">out, 2, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARLOCK">out, 2, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARCACHE">out, 4, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARPROT">out, 3, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARQOS">out, 4, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARREGION">out, 4, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_ARUSER">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_RVALID">in, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_RREADY">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_RDATA">in, 32, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_RLAST">in, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_RID">in, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_RUSER">in, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_RRESP">in, 2, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_BVALID">in, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_BREADY">out, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_BRESP">in, 2, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_BID">in, 1, m_axi, CTRL, pointer</column>
+<column name="m_axi_CTRL_BUSER">in, 1, m_axi, CTRL, pointer</column>
+</table>
+</item>
+</section>
+</profile>

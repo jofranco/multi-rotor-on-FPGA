@@ -1,0 +1,175 @@
+
+
+================================================================
+== Vivado HLS Report for 'positionCtrl'
+================================================================
+* Date:           Thu May 16 22:11:44 2019
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        POSITION_CTRL
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     0.000|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       -|      -|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        4|      -|     116|    110|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|      -|
+|Register         |        -|      -|       1|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        4|      0|     117|    110|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        1|      0|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +---------------------------+-------------------------+---------+-------+-----+-----+
+    |          Instance         |          Module         | BRAM_18K| DSP48E|  FF | LUT |
+    +---------------------------+-------------------------+---------+-------+-----+-----+
+    |positionCtrl_CTRL_s_axi_U  |positionCtrl_CTRL_s_axi  |        4|      0|  116|  110|
+    +---------------------------+-------------------------+---------+-------+-----+-----+
+    |Total                      |                         |        4|      0|  116|  110|
+    +---------------------------+-------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    +-----------+---+----+-----+-----------+
+    |    Name   | FF| LUT| Bits| Const Bits|
+    +-----------+---+----+-----+-----------+
+    |ap_CS_fsm  |  1|   0|    1|          0|
+    +-----------+---+----+-----+-----------+
+    |Total      |  1|   0|    1|          0|
+    +-----------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------+-----+-----+------------+--------------+--------------+
+|      RTL Ports      | Dir | Bits|  Protocol  | Source Object|    C Type    |
++---------------------+-----+-----+------------+--------------+--------------+
+|s_axi_CTRL_AWVALID   |  in |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_AWREADY   | out |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_AWADDR    |  in |   14|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_WVALID    |  in |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_WREADY    | out |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_WDATA     |  in |   32|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_WSTRB     |  in |    4|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_ARVALID   |  in |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_ARREADY   | out |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_ARADDR    |  in |   14|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_RVALID    | out |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_RREADY    |  in |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_RDATA     | out |   32|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_RRESP     | out |    2|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_BVALID    | out |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_BREADY    |  in |    1|    s_axi   |     CTRL     |     array    |
+|s_axi_CTRL_BRESP     | out |    2|    s_axi   |     CTRL     |     array    |
+|ap_clk               |  in |    1| ap_ctrl_hs | positionCtrl | return value |
+|ap_rst_n             |  in |    1| ap_ctrl_hs | positionCtrl | return value |
+|interrupt            | out |    1| ap_ctrl_hs | positionCtrl | return value |
+|m_axi_CTRL_AWVALID   | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWREADY   |  in |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWADDR    | out |   32|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWID      | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWLEN     | out |    8|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWSIZE    | out |    3|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWBURST   | out |    2|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWLOCK    | out |    2|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWCACHE   | out |    4|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWPROT    | out |    3|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWQOS     | out |    4|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWREGION  | out |    4|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_AWUSER    | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_WVALID    | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_WREADY    |  in |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_WDATA     | out |   32|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_WSTRB     | out |    4|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_WLAST     | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_WID       | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_WUSER     | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARVALID   | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARREADY   |  in |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARADDR    | out |   32|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARID      | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARLEN     | out |    8|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARSIZE    | out |    3|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARBURST   | out |    2|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARLOCK    | out |    2|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARCACHE   | out |    4|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARPROT    | out |    3|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARQOS     | out |    4|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARREGION  | out |    4|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_ARUSER    | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_RVALID    |  in |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_RREADY    | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_RDATA     |  in |   32|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_RLAST     |  in |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_RID       |  in |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_RUSER     |  in |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_RRESP     |  in |    2|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_BVALID    |  in |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_BREADY    | out |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_BRESP     |  in |    2|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_BID       |  in |    1|    m_axi   |     CTRL     |    pointer   |
+|m_axi_CTRL_BUSER     |  in |    1|    m_axi   |     CTRL     |    pointer   |
++---------------------+-----+-----+------------+--------------+--------------+
+

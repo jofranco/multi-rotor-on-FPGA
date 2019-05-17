@@ -1,0 +1,8 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../test_posiitonCtrl.cpp in debug mode
+   Compiling ../../../positionCtrl.cpp in debug mode
+   Generating csim.exe
+Testing position control...
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
