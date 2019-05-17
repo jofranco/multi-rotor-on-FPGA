@@ -1,0 +1,726 @@
+INFO-FLOW: Workspace C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1 opened at Thu May 16 22:11:09 -0700 2019
+Execute     config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/plb46.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/fsl.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/axi4.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfft.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfir.lib 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_old.lib 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute       config_chip_info -quiet -speed medium 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.127 sec.
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.177 sec.
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.181 sec.
+Command     ap_source done; 0.181 sec.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     set_part xc7z020clg400-1 
+Execute       add_library xilinx/zynq/zynq:xc7z020:clg400:-1 
+Execute         get_default_platform 
+Execute         license_isbetapart xc7z020 
+Command         license_isbetapart done; error code: 1; 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute         config_chip_info -quiet -speed slow 
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg400-1'
+Execute       get_default_platform 
+Execute     get_default_platform 
+Execute     config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute     config_chip_info -quiet -speed slow 
+Command   open_solution done; 0.315 sec.
+Execute   set_part xc7z020clg400-1 -tool vivado 
+Execute     add_library xilinx/zynq/zynq:xc7z020:clg400:-1 
+Execute       get_default_platform 
+Execute       license_isbetapart xc7z020 
+Command       license_isbetapart done; error code: 1; 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute       config_chip_info -quiet -speed slow 
+Execute     add_library xilinx/zynq/zynq_fpv6 
+Execute       get_default_platform 
+Execute     get_default_platform 
+Execute   create_clock -period 10 -name default 
+Execute     config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute   csynth_design 
+Execute     get_config_compile -effort 
+Execute     get_config_compile -enable_clang39 
+Execute     get_config_compile -g 
+Execute     get_config_compile -lm 
+Execute     get_config_compile -ng 
+Execute     get_config_compile -opt_fp 
+Execute     get_config_compile -skip_cdt 
+Execute     get_config_compile -skip_syncheck 
+Execute     get_config_compile -skip_transform 
+Execute     get_config_compile -keep_printf 
+Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+Execute       get_config_schedule -relax_ii_for_timing 
+Execute       get_config_schedule -suppress_dependence_error_break 
+INFO: [HLS 200-10] Analyzing design file 'POSITION_CTRL/positionCtrl.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute       is_m_axi_addr64 
+INFO-FLOW: Handling POSITION_CTRL/positionCtrl.cpp as C++
+Execute       get_default_platform 
+Execute       is_encrypted POSITION_CTRL/positionCtrl.cpp 
+Execute       get_default_platform 
+INFO-FLOW: Source preprocessing
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "E:/Xilinx2018_2/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "POSITION_CTRL/positionCtrl.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot" -I "E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp" 
+INFO-FLOW: exec E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain E:/Xilinx2018_2/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E POSITION_CTRL/positionCtrl.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot -I E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp
+Command       clang done; 4.437 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "E:/Xilinx2018_2/Vivado/2018.2/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot" -I "E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp"  -o "C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain E:/Xilinx2018_2/Vivado/2018.2/msys -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot -I E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/useless.bc
+Command       clang done; 3.372 sec.
+INFO-FLOW: GCC PP time: 7 seconds per iteration
+Execute       list_core -type functional_unit 
+Execute       tidy_31 xilinx-systemc-detector C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp std=gnu++98 -directive=C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command       tidy_31 done; 1.865 sec.
+INFO-FLOW: CDT Preprocessing with tidy-3.1...
+Execute       tidy_31 xilinx-directive2pragma C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp std=gnu++98 -directive=C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/solution1.json 
+INFO-FLOW: exec E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/solution1.json -quiet -fix-errors C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command       tidy_31 done; 1.123 sec.
+Execute       get_config_dataflow -strict_mode 
+Execute       ap_eval exec -ignorestderr E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/xilinx-dataflow-lawyer.positionCtrl.pp.0.cpp.diag.yml C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/xilinx-dataflow-lawyer.positionCtrl.pp.0.cpp.out.log 2> C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/xilinx-dataflow-lawyer.positionCtrl.pp.0.cpp.err.log 
+Command       ap_eval done; 1.626 sec.
+Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp std=gnu++98 
+INFO-FLOW: exec E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer -quiet -fix-errors C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+INFO-FLOW: exec E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command       tidy_31 done; 3.531 sec.
+INFO-FLOW: tidy-3.1 time 6 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute       tidy_31 xilinx-ssdm-intrinsics-arguments C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pragma.1.cpp std=gnu++98 
+INFO-FLOW: exec E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command       tidy_31 done; 2.416 sec.
+INFO-FLOW: Source preprocessing
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "E:/Xilinx2018_2/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pragma.1.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot" -I "E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pragma.2.cpp" 
+INFO-FLOW: exec E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain E:/Xilinx2018_2/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pragma.1.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot -I E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pragma.2.cpp
+Command       clang done; 1.942 sec.
+Execute       get_default_platform 
+INFO-FLOW: Processing labels
+Execute       clang -src C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain E:/Xilinx2018_2/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot" -I "E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.bc" 
+INFO-FLOW: exec E:/Xilinx2018_2/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain E:/Xilinx2018_2/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot -I E:/Xilinx2018_2/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.bc
+Command       clang done; 3.499 sec.
+INFO-FLOW: Linking Debug ...
+Execute       llvm-ld C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.g.bc -hls-opt -except-internalize positionCtrl -LE:/Xilinx2018_2/Vivado/2018.2/win64/lib -lhlsm -lhlsmc++ -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.g 
+Command       llvm-ld done; 6.864 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:33 . Memory (MB): peak = 111.648 ; gain = 45.711
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:33 . Memory (MB): peak = 111.648 ; gain = 45.711
+Execute       ::config_rtl 
+Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute         cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+Execute         transform -promote-dbg-pointer C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.pp.bc -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.pp.0.bc -f 
+Command         transform done; 0.325 sec.
+Execute         llvm-ld C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.pp.0.bc -disable-opt -LE:/Xilinx2018_2/Vivado/2018.2/win64/lib -lfloatconversion -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.g.0 
+Command         llvm-ld done; 0.975 sec.
+INFO-FLOW: Running Standard Transforms...
+Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top positionCtrl -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.g.0.bc -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:34 . Memory (MB): peak = 115.563 ; gain = 49.625
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.g.1.bc -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute         transform -syn-check C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.g.2.prechk.bc -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+WARNING: [SYNCHK 200-77] The top function 'positionCtrl' (POSITION_CTRL/positionCtrl.cpp:12) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:02 ; elapsed = 00:00:35 . Memory (MB): peak = 118.211 ; gain = 52.273
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.g.1.bc to C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute         transform -hls -tmp C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.o.1.bc -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+Command         transform done; 0.142 sec.
+INFO-FLOW: Presyn 2...
+Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.o.1.tmp.bc -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:02 ; elapsed = 00:00:35 . Memory (MB): peak = 141.574 ; gain = 75.637
+INFO-FLOW: Building ssdm...
+Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -bitwidth -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -dead-allocation-elimination -cdfg-build C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.o.2.bc -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+WARNING: [XFORM 203-803] Cannot bundle argument 'pos_data' to m_axi port 'CTRL' since its offset mode is off.
+Command         transform done; 0.152 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:02 ; elapsed = 00:00:35 . Memory (MB): peak = 141.953 ; gain = 76.016
+INFO-FLOW: Finish building internal data model.
+Command       opt_and_import_c done; 1.911 sec.
+Command     elaborate done; 34.018 sec.
+Execute     autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'positionCtrl' ...
+Execute       ap_set_top_model positionCtrl 
+Execute       get_model_list positionCtrl -filter all-wo-channel -topdown 
+Execute       preproc_iomode -model positionCtrl 
+Execute       get_model_list positionCtrl -filter all-wo-channel 
+INFO-FLOW: Model list for configure: positionCtrl
+INFO-FLOW: Configuring Module : positionCtrl ...
+Execute       set_default_model positionCtrl 
+Execute       apply_spec_resource_limit positionCtrl 
+INFO-FLOW: Model list for preprocess: positionCtrl
+INFO-FLOW: Preprocessing Module: positionCtrl ...
+Execute       set_default_model positionCtrl 
+Execute       cdfg_preprocess -model positionCtrl 
+Execute       rtl_gen_preprocess positionCtrl 
+INFO-FLOW: Model list for synthesis: positionCtrl
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'positionCtrl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model positionCtrl 
+Execute       schedule -model positionCtrl 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+Command       schedule done; 0.212 sec.
+INFO: [HLS 200-111]  Elapsed time: 35.178 seconds; current allocated memory: 82.961 MB.
+Execute       report -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.verbose.sched.rpt -verbose -f 
+Execute       db_write -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.sched.adb -f 
+INFO-FLOW: Finish scheduling positionCtrl.
+Execute       set_default_model positionCtrl 
+Execute       bind -model positionCtrl 
+BIND OPTION: fu_weight=[ 0.0 -- 1.0 ]
+BIND OPTION: model=positionCtrl
+BIND OPTION: reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.085 seconds; current allocated memory: 83.016 MB.
+Execute       report -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.verbose.bind.rpt -verbose -f 
+Execute       db_write -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.bind.adb -f 
+INFO-FLOW: Finish binding positionCtrl.
+Execute       get_model_list positionCtrl -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute       rtl_gen_preprocess positionCtrl 
+INFO-FLOW: Model list for RTL generation: positionCtrl
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'positionCtrl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -prefix 
+Execute       get_config_rtl -auto_prefix 
+Execute       create_rtl_model positionCtrl -vendor xilinx -mg_file C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'positionCtrl/pmod_data' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'positionCtrl/CTRL' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'positionCtrl' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port CTRL.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWID' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_AWUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_WVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_WVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_WREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_WDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_WDATA' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_WSTRB' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_WSTRB' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_WLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_WLAST' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_WID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_WID' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_WUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_WUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARID' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_ARUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_RVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_RREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_RREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_RDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_RLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_RID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_RUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_RRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_BVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_BREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'positionCtrl/m_axi_CTRL_BREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_BRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_BID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'positionCtrl/m_axi_CTRL_BUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'positionCtrl'.
+Command       create_rtl_model done; 0.254 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.302 seconds; current allocated memory: 83.324 MB.
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute       gen_rtl positionCtrl -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/syn/systemc/positionCtrl -synmodules positionCtrl 
+Execute       gen_rtl positionCtrl -istop -style xilinx -f -lang vhdl -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/syn/vhdl/positionCtrl 
+Execute       gen_rtl positionCtrl -istop -style xilinx -f -lang vlog -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/syn/verilog/positionCtrl 
+Execute       export_constraint_db -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.constraint.tcl -f -tool general 
+Execute       report -model positionCtrl -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.design.xml -verbose -f -dv 
+Execute       report -model positionCtrl -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.sdaccel.xml -verbose -f -sdaccel 
+Execute       gen_tb_info positionCtrl -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl -p C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db 
+Execute       report -model positionCtrl -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/syn/report/positionCtrl_csynth.rpt -f 
+Execute       report -model positionCtrl -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/syn/report/positionCtrl_csynth.xml -f -x 
+Execute       report -model positionCtrl -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.verbose.rpt -verbose -f 
+Execute       db_write -model positionCtrl -o C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.adb -f 
+Execute       sc_get_clocks positionCtrl 
+Execute       sc_get_portdomain positionCtrl 
+INFO-FLOW: Model list for RTL component generation: positionCtrl
+INFO-FLOW: Handling components in module [positionCtrl] ... 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.compgen.tcl 
+INFO-FLOW: Found component positionCtrl_CTRL_s_axi.
+INFO-FLOW: Append model positionCtrl_CTRL_s_axi
+INFO-FLOW: Append model positionCtrl
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: positionCtrl_CTRL_s_axi positionCtrl
+INFO-FLOW: To file: write model positionCtrl_CTRL_s_axi
+INFO-FLOW: To file: write model positionCtrl
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute       get_config_sdx -target 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.234 sec.
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source done; 0.316 sec.
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.321 sec.
+Command       ap_source done; 0.321 sec.
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.compgen.tcl 
+Execute         source ./CTRL.slave.tcl 
+Execute         is_m_axi_addr64 
+Command       ap_source done; 0.55 sec.
+Execute       get_config_sdx -target 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.177 sec.
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source done; 0.268 sec.
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.272 sec.
+Command       ap_source done; 0.273 sec.
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.compgen.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.compgen.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.compgen.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.constraint.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.constraint.tcl 
+Execute       sc_get_clocks positionCtrl 
+Execute       source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute       get_config_sdx -target 
+Execute       get_config_sdx -profile 
+Execute       ::config_rtl 
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:03 ; elapsed = 00:00:38 . Memory (MB): peak = 141.953 ; gain = 76.016
+INFO: [SYSC 207-301] Generating SystemC RTL for positionCtrl.
+INFO: [VHDL 208-304] Generating VHDL RTL for positionCtrl.
+INFO: [VLOG 209-307] Generating Verilog RTL for positionCtrl.
+Command     autosyn done; 3.015 sec.
+Command   csynth_design done; 37.041 sec.
+Command ap_source done; 37.468 sec.
+Execute cleanup_all 
+INFO-FLOW: Workspace C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1 opened at Thu May 16 22:12:11 -0700 2019
+Execute     config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/plb46.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/fsl.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/axi4.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.lib 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfft.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfir.lib 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_old.lib 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute       config_chip_info -quiet -speed medium 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.182 sec.
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.244 sec.
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.249 sec.
+Command     ap_source done; 0.249 sec.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     set_part xc7z020clg400-1 
+Execute       add_library xilinx/zynq/zynq:xc7z020:clg400:-1 
+Execute         get_default_platform 
+Execute         license_isbetapart xc7z020 
+Command         license_isbetapart done; error code: 1; 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute         config_chip_info -quiet -speed slow 
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg400-1'
+Execute       get_default_platform 
+Command     set_part done; 0.116 sec.
+Execute     get_default_platform 
+Execute     config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute     config_chip_info -quiet -speed slow 
+Command   open_solution done; 0.49 sec.
+Execute   export_design -rtl vhdl -format ip_catalog 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.209 sec.
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.303 sec.
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.307 sec.
+Command     ap_source done; 0.309 sec.
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     get_config_sdx -target 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.205 sec.
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.286 sec.
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.291 sec.
+Command     ap_source done; 0.291 sec.
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.compgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.compgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.compgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.constraint.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.constraint.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.constraint.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/positionCtrl.tbgen.tcl 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/.autopilot/db/global.setting.tcl 
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.193 sec.
+Execute           source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.367 sec.
+Execute         source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.372 sec.
+Command     ap_source done; 0.373 sec.
+Execute     source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source E:/Xilinx2018_2/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command   export_design done; 19.012 sec.
+Command ap_source done; 19.507 sec.
+Execute cleanup_all 
