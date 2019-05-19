@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'calibrationSuccess' is power-on initialization." projectName="SBUS_AXI_UART_Driver" solutionName="solution1" date="2019-05-18T20:25:47.119-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'firstSample' is power-on initialization." projectName="SBUS_AXI_UART_Driver" solutionName="solution1" date="2019-05-18T20:25:47.112-0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-803] Cannot bundle argument 'uart_bus' to m_axi port 'UART' since its offset mode is off." projectName="SBUS_AXI_UART_Driver" solutionName="solution1" date="2019-05-18T20:25:46.789-0700" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] In file included from SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp:1:&#xD;&#xA;In file included from SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp:2:&#xD;&#xA;SBUS_AXI_UART_Driver/AXI_UART_Driver.h:34:63: warning: default template arguments for a function template are a C++11 extension [-Wc++11-extensions]&#xD;&#xA;template &lt;unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL>&#xD;&#xA;                                                              ^              ~~~~~~~~~~~~&#xD;&#xA;1 warning generated.\n" projectName="SBUS_AXI_UART_Driver" solutionName="solution1" date="2019-05-18T20:25:45.710-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

@@ -1,0 +1,227 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'AXI_UART_DRIVER'" level="0">
+<item name = "Date">Sat May 18 20:25:47 2019
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">SBUS_AXI_UART_Driver</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.750, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">500003, 500054, 500003, 500054, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">500000, 500000, 1, -, -, 500000, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 75</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">10, -, 658, 730</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 516</column>
+<column name="Register">-, -, 123, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">3, 0, ~0, 2</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="AXI_UART_DRIVER_CTRL_s_axi_U">AXI_UART_DRIVER_CTRL_s_axi, 0, 0, 36, 40</column>
+<column name="AXI_UART_DRIVER_TEST_s_axi_U">AXI_UART_DRIVER_TEST_s_axi, 8, 0, 110, 110</column>
+<column name="AXI_UART_DRIVER_UART_m_axi_U">AXI_UART_DRIVER_UART_m_axi, 2, 0, 512, 580</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="ctr_V_fu_505_p2">+, 0, 0, 26, 19, 1</column>
+<column name="ap_block_state1_io">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state22_io">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state28">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state28_io">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state42_io">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state54">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_764">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op140_writeresp_state28">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op196_writeresp_state54">and, 0, 0, 2, 1, 1</column>
+<column name="tmp_4_fu_499_p2">icmp, 0, 0, 18, 19, 16</column>
+<column name="tmp_fu_467_p2">icmp, 0, 0, 11, 8, 7</column>
+<column name="ap_block_state2_io">or, 0, 0, 2, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="SBUS_data_address0">44, 9, 12, 108</column>
+<column name="SBUS_data_d0">47, 10, 32, 320</column>
+<column name="UART_ARADDR">21, 4, 32, 128</column>
+<column name="UART_AWADDR">44, 9, 32, 288</column>
+<column name="UART_WDATA">38, 7, 32, 224</column>
+<column name="UART_blk_n_AR">9, 2, 1, 2</column>
+<column name="UART_blk_n_AW">9, 2, 1, 2</column>
+<column name="UART_blk_n_B">9, 2, 1, 2</column>
+<column name="UART_blk_n_R">9, 2, 1, 2</column>
+<column name="UART_blk_n_W">9, 2, 1, 2</column>
+<column name="ap_NS_fsm">241, 56, 1, 56</column>
+<column name="ap_sig_ioackin_UART_ARREADY">9, 2, 1, 2</column>
+<column name="ap_sig_ioackin_UART_AWREADY">9, 2, 1, 2</column>
+<column name="ap_sig_ioackin_UART_WREADY">9, 2, 1, 2</column>
+<column name="p_014_0_i_reg_392">9, 2, 19, 38</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="UART_addr_5_read_reg_577">32, 0, 32, 0</column>
+<column name="ap_CS_fsm">55, 0, 55, 0</column>
+<column name="ap_reg_ioackin_UART_ARREADY">1, 0, 1, 0</column>
+<column name="ap_reg_ioackin_UART_AWREADY">1, 0, 1, 0</column>
+<column name="ap_reg_ioackin_UART_WREADY">1, 0, 1, 0</column>
+<column name="calibrationSuccess">1, 0, 1, 0</column>
+<column name="calibrationSuccess_l_reg_563">1, 0, 1, 0</column>
+<column name="firstSample">1, 0, 1, 0</column>
+<column name="firstSample_load_reg_530">1, 0, 1, 0</column>
+<column name="p_014_0_i_reg_392">19, 0, 19, 0</column>
+<column name="temp_reg_554">8, 0, 8, 0</column>
+<column name="tmp_2_reg_573">1, 0, 1, 0</column>
+<column name="tmp_reg_559">1, 0, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_CTRL_AWVALID">in, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_AWREADY">out, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_AWADDR">in, 4, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_WVALID">in, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_WREADY">out, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_WDATA">in, 32, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_WSTRB">in, 4, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_ARVALID">in, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_ARREADY">out, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_ARADDR">in, 4, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_RVALID">out, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_RREADY">in, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_RDATA">out, 32, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_RRESP">out, 2, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_BVALID">out, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_BREADY">in, 1, s_axi, CTRL, return void</column>
+<column name="s_axi_CTRL_BRESP">out, 2, s_axi, CTRL, return void</column>
+<column name="s_axi_TEST_AWVALID">in, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_AWREADY">out, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_AWADDR">in, 15, s_axi, TEST, array</column>
+<column name="s_axi_TEST_WVALID">in, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_WREADY">out, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_WDATA">in, 32, s_axi, TEST, array</column>
+<column name="s_axi_TEST_WSTRB">in, 4, s_axi, TEST, array</column>
+<column name="s_axi_TEST_ARVALID">in, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_ARREADY">out, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_ARADDR">in, 15, s_axi, TEST, array</column>
+<column name="s_axi_TEST_RVALID">out, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_RREADY">in, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_RDATA">out, 32, s_axi, TEST, array</column>
+<column name="s_axi_TEST_RRESP">out, 2, s_axi, TEST, array</column>
+<column name="s_axi_TEST_BVALID">out, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_BREADY">in, 1, s_axi, TEST, array</column>
+<column name="s_axi_TEST_BRESP">out, 2, s_axi, TEST, array</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, AXI_UART_DRIVER, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, AXI_UART_DRIVER, return value</column>
+<column name="interrupt">out, 1, ap_ctrl_hs, AXI_UART_DRIVER, return value</column>
+<column name="m_axi_UART_AWVALID">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWREADY">in, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWADDR">out, 32, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWID">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWLEN">out, 8, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWSIZE">out, 3, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWBURST">out, 2, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWLOCK">out, 2, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWCACHE">out, 4, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWPROT">out, 3, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWQOS">out, 4, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWREGION">out, 4, m_axi, UART, pointer</column>
+<column name="m_axi_UART_AWUSER">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_WVALID">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_WREADY">in, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_WDATA">out, 32, m_axi, UART, pointer</column>
+<column name="m_axi_UART_WSTRB">out, 4, m_axi, UART, pointer</column>
+<column name="m_axi_UART_WLAST">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_WID">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_WUSER">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARVALID">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARREADY">in, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARADDR">out, 32, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARID">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARLEN">out, 8, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARSIZE">out, 3, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARBURST">out, 2, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARLOCK">out, 2, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARCACHE">out, 4, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARPROT">out, 3, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARQOS">out, 4, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARREGION">out, 4, m_axi, UART, pointer</column>
+<column name="m_axi_UART_ARUSER">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_RVALID">in, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_RREADY">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_RDATA">in, 32, m_axi, UART, pointer</column>
+<column name="m_axi_UART_RLAST">in, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_RID">in, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_RUSER">in, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_RRESP">in, 2, m_axi, UART, pointer</column>
+<column name="m_axi_UART_BVALID">in, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_BREADY">out, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_BRESP">in, 2, m_axi, UART, pointer</column>
+<column name="m_axi_UART_BID">in, 1, m_axi, UART, pointer</column>
+<column name="m_axi_UART_BUSER">in, 1, m_axi, UART, pointer</column>
+</table>
+</item>
+</section>
+</profile>

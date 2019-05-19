@@ -1,0 +1,249 @@
+
+
+================================================================
+== Vivado HLS Report for 'AXI_UART_DRIVER'
+================================================================
+* Date:           Sat May 18 20:25:47 2019
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        SBUS_AXI_UART_Driver
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  500003|  500054|  500003|  500054|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+--------+--------+----------+-----------+-----------+--------+----------+
+        |          |     Latency     | Iteration|  Initiation Interval  |  Trip  |          |
+        | Loop Name|   min  |   max  |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------+--------+--------+----------+-----------+-----------+--------+----------+
+        |- Loop 1  |  500000|  500000|         1|          -|          -|  500000|    no    |
+        +----------+--------+--------+----------+-----------+-----------+--------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|     75|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |       10|      -|     658|    730|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|    516|
+|Register         |        -|      -|     123|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |       10|      0|     781|   1321|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        3|      0|   ~0   |      2|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +------------------------------+----------------------------+---------+-------+-----+-----+
+    |           Instance           |           Module           | BRAM_18K| DSP48E|  FF | LUT |
+    +------------------------------+----------------------------+---------+-------+-----+-----+
+    |AXI_UART_DRIVER_CTRL_s_axi_U  |AXI_UART_DRIVER_CTRL_s_axi  |        0|      0|   36|   40|
+    |AXI_UART_DRIVER_TEST_s_axi_U  |AXI_UART_DRIVER_TEST_s_axi  |        8|      0|  110|  110|
+    |AXI_UART_DRIVER_UART_m_axi_U  |AXI_UART_DRIVER_UART_m_axi  |        2|      0|  512|  580|
+    +------------------------------+----------------------------+---------+-------+-----+-----+
+    |Total                         |                            |       10|      0|  658|  730|
+    +------------------------------+----------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+    |             Variable Name            | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+    |ctr_V_fu_505_p2                       |     +    |      0|  0|  26|          19|           1|
+    |ap_block_state1_io                    |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state22_io                   |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state28                      |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state28_io                   |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state42_io                   |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state54                      |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_764                      |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op140_writeresp_state28  |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op196_writeresp_state54  |    and   |      0|  0|   2|           1|           1|
+    |tmp_4_fu_499_p2                       |   icmp   |      0|  0|  18|          19|          16|
+    |tmp_fu_467_p2                         |   icmp   |      0|  0|  11|           8|           7|
+    |ap_block_state2_io                    |    or    |      0|  0|   2|           1|           1|
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                 |          |      0|  0|  75|          56|          34|
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------+-----+-----------+-----+-----------+
+    |             Name            | LUT | Input Size| Bits| Total Bits|
+    +-----------------------------+-----+-----------+-----+-----------+
+    |SBUS_data_address0           |   44|          9|   12|        108|
+    |SBUS_data_d0                 |   47|         10|   32|        320|
+    |UART_ARADDR                  |   21|          4|   32|        128|
+    |UART_AWADDR                  |   44|          9|   32|        288|
+    |UART_WDATA                   |   38|          7|   32|        224|
+    |UART_blk_n_AR                |    9|          2|    1|          2|
+    |UART_blk_n_AW                |    9|          2|    1|          2|
+    |UART_blk_n_B                 |    9|          2|    1|          2|
+    |UART_blk_n_R                 |    9|          2|    1|          2|
+    |UART_blk_n_W                 |    9|          2|    1|          2|
+    |ap_NS_fsm                    |  241|         56|    1|         56|
+    |ap_sig_ioackin_UART_ARREADY  |    9|          2|    1|          2|
+    |ap_sig_ioackin_UART_AWREADY  |    9|          2|    1|          2|
+    |ap_sig_ioackin_UART_WREADY   |    9|          2|    1|          2|
+    |p_014_0_i_reg_392            |    9|          2|   19|         38|
+    +-----------------------------+-----+-----------+-----+-----------+
+    |Total                        |  516|        113|  168|       1178|
+    +-----------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------+----+----+-----+-----------+
+    |             Name             | FF | LUT| Bits| Const Bits|
+    +------------------------------+----+----+-----+-----------+
+    |UART_addr_5_read_reg_577      |  32|   0|   32|          0|
+    |ap_CS_fsm                     |  55|   0|   55|          0|
+    |ap_reg_ioackin_UART_ARREADY   |   1|   0|    1|          0|
+    |ap_reg_ioackin_UART_AWREADY   |   1|   0|    1|          0|
+    |ap_reg_ioackin_UART_WREADY    |   1|   0|    1|          0|
+    |calibrationSuccess            |   1|   0|    1|          0|
+    |calibrationSuccess_l_reg_563  |   1|   0|    1|          0|
+    |firstSample                   |   1|   0|    1|          0|
+    |firstSample_load_reg_530      |   1|   0|    1|          0|
+    |p_014_0_i_reg_392             |  19|   0|   19|          0|
+    |temp_reg_554                  |   8|   0|    8|          0|
+    |tmp_2_reg_573                 |   1|   0|    1|          0|
+    |tmp_reg_559                   |   1|   0|    1|          0|
+    +------------------------------+----+----+-----+-----------+
+    |Total                         | 123|   0|  123|          0|
+    +------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------+-----+-----+------------+-----------------+--------------+
+|      RTL Ports      | Dir | Bits|  Protocol  |  Source Object  |    C Type    |
++---------------------+-----+-----+------------+-----------------+--------------+
+|s_axi_CTRL_AWVALID   |  in |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_AWREADY   | out |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_AWADDR    |  in |    4|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_WVALID    |  in |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_WREADY    | out |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_WDATA     |  in |   32|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_WSTRB     |  in |    4|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_ARVALID   |  in |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_ARREADY   | out |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_ARADDR    |  in |    4|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_RVALID    | out |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_RREADY    |  in |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_RDATA     | out |   32|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_RRESP     | out |    2|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_BVALID    | out |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_BREADY    |  in |    1|    s_axi   |       CTRL      |  return void |
+|s_axi_CTRL_BRESP     | out |    2|    s_axi   |       CTRL      |  return void |
+|s_axi_TEST_AWVALID   |  in |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_AWREADY   | out |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_AWADDR    |  in |   15|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_WVALID    |  in |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_WREADY    | out |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_WDATA     |  in |   32|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_WSTRB     |  in |    4|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_ARVALID   |  in |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_ARREADY   | out |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_ARADDR    |  in |   15|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_RVALID    | out |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_RREADY    |  in |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_RDATA     | out |   32|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_RRESP     | out |    2|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_BVALID    | out |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_BREADY    |  in |    1|    s_axi   |       TEST      |     array    |
+|s_axi_TEST_BRESP     | out |    2|    s_axi   |       TEST      |     array    |
+|ap_clk               |  in |    1| ap_ctrl_hs | AXI_UART_DRIVER | return value |
+|ap_rst_n             |  in |    1| ap_ctrl_hs | AXI_UART_DRIVER | return value |
+|interrupt            | out |    1| ap_ctrl_hs | AXI_UART_DRIVER | return value |
+|m_axi_UART_AWVALID   | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWREADY   |  in |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWADDR    | out |   32|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWID      | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWLEN     | out |    8|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWSIZE    | out |    3|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWBURST   | out |    2|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWLOCK    | out |    2|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWCACHE   | out |    4|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWPROT    | out |    3|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWQOS     | out |    4|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWREGION  | out |    4|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_AWUSER    | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_WVALID    | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_WREADY    |  in |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_WDATA     | out |   32|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_WSTRB     | out |    4|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_WLAST     | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_WID       | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_WUSER     | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARVALID   | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARREADY   |  in |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARADDR    | out |   32|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARID      | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARLEN     | out |    8|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARSIZE    | out |    3|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARBURST   | out |    2|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARLOCK    | out |    2|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARCACHE   | out |    4|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARPROT    | out |    3|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARQOS     | out |    4|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARREGION  | out |    4|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_ARUSER    | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_RVALID    |  in |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_RREADY    | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_RDATA     |  in |   32|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_RLAST     |  in |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_RID       |  in |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_RUSER     |  in |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_RRESP     |  in |    2|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_BVALID    |  in |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_BREADY    | out |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_BRESP     |  in |    2|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_BID       |  in |    1|    m_axi   |       UART      |    pointer   |
+|m_axi_UART_BUSER     |  in |    1|    m_axi   |       UART      |    pointer   |
++---------------------+-----+-----+------------+-----------------+--------------+
+
