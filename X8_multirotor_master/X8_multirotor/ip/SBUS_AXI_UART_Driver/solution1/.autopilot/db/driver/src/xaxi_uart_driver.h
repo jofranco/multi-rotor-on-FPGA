@@ -41,13 +41,11 @@ typedef uint32_t u32;
 typedef struct {
     u16 DeviceId;
     u32 Ctrl_BaseAddress;
-    u32 Test_BaseAddress;
 } XAxi_uart_driver_Config;
 #endif
 
 typedef struct {
     u32 Ctrl_BaseAddress;
-    u32 Test_BaseAddress;
     u32 IsReady;
 } XAxi_uart_driver;
 
@@ -89,15 +87,6 @@ u32 XAxi_uart_driver_IsReady(XAxi_uart_driver *InstancePtr);
 void XAxi_uart_driver_EnableAutoRestart(XAxi_uart_driver *InstancePtr);
 void XAxi_uart_driver_DisableAutoRestart(XAxi_uart_driver *InstancePtr);
 
-u32 XAxi_uart_driver_Get_SBUS_data_BaseAddress(XAxi_uart_driver *InstancePtr);
-u32 XAxi_uart_driver_Get_SBUS_data_HighAddress(XAxi_uart_driver *InstancePtr);
-u32 XAxi_uart_driver_Get_SBUS_data_TotalBytes(XAxi_uart_driver *InstancePtr);
-u32 XAxi_uart_driver_Get_SBUS_data_BitWidth(XAxi_uart_driver *InstancePtr);
-u32 XAxi_uart_driver_Get_SBUS_data_Depth(XAxi_uart_driver *InstancePtr);
-u32 XAxi_uart_driver_Write_SBUS_data_Words(XAxi_uart_driver *InstancePtr, int offset, int *data, int length);
-u32 XAxi_uart_driver_Read_SBUS_data_Words(XAxi_uart_driver *InstancePtr, int offset, int *data, int length);
-u32 XAxi_uart_driver_Write_SBUS_data_Bytes(XAxi_uart_driver *InstancePtr, int offset, char *data, int length);
-u32 XAxi_uart_driver_Read_SBUS_data_Bytes(XAxi_uart_driver *InstancePtr, int offset, char *data, int length);
 
 void XAxi_uart_driver_InterruptGlobalEnable(XAxi_uart_driver *InstancePtr);
 void XAxi_uart_driver_InterruptGlobalDisable(XAxi_uart_driver *InstancePtr);

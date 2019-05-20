@@ -3,365 +3,381 @@
 
 <trans_list>
 
-<trans id="212" from="1" to="2">
-<condition id="79">
+<trans id="193" from="1" to="2">
+<condition id="78">
 <or_exp><and_exp><literal name="firstSample_load" val="1"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="213" from="1" to="28">
-<condition id="80">
+<trans id="194" from="1" to="28">
+<condition id="79">
 <or_exp><and_exp><literal name="firstSample_load" val="0"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="215" from="2" to="3">
+<trans id="196" from="2" to="3">
+<condition id="81">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="197" from="3" to="4">
 <condition id="82">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="216" from="3" to="4">
+<trans id="198" from="4" to="5">
 <condition id="83">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="217" from="4" to="5">
+<trans id="199" from="5" to="6">
 <condition id="84">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="218" from="5" to="6">
+<trans id="200" from="6" to="7">
 <condition id="85">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="219" from="6" to="7">
+<trans id="201" from="7" to="8">
 <condition id="86">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="220" from="7" to="8">
+<trans id="202" from="8" to="9">
 <condition id="87">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="221" from="8" to="9">
+<trans id="203" from="9" to="10">
 <condition id="88">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="222" from="9" to="10">
+<trans id="204" from="10" to="11">
 <condition id="89">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="223" from="10" to="11">
+<trans id="205" from="11" to="12">
 <condition id="90">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="224" from="11" to="12">
+<trans id="206" from="12" to="13">
 <condition id="91">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="225" from="12" to="13">
+<trans id="207" from="13" to="14">
 <condition id="92">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="226" from="13" to="14">
+<trans id="208" from="14" to="15">
 <condition id="93">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="227" from="14" to="15">
+<trans id="209" from="15" to="16">
 <condition id="94">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="228" from="15" to="16">
+<trans id="210" from="16" to="17">
 <condition id="95">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="229" from="16" to="17">
+<trans id="211" from="17" to="18">
 <condition id="96">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="230" from="17" to="18">
+<trans id="212" from="18" to="19">
 <condition id="97">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="231" from="18" to="19">
+<trans id="213" from="19" to="20">
 <condition id="98">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="232" from="19" to="20">
+<trans id="214" from="20" to="21">
 <condition id="99">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="233" from="20" to="21">
+<trans id="215" from="21" to="22">
 <condition id="100">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="234" from="21" to="22">
+<trans id="216" from="22" to="23">
 <condition id="101">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="235" from="22" to="23">
-<condition id="102">
 <or_exp><and_exp><literal name="tmp" val="1"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="236" from="22" to="28">
-<condition id="103">
+<trans id="217" from="22" to="28">
+<condition id="102">
 <or_exp><and_exp><literal name="tmp" val="0"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="238" from="23" to="24">
+<trans id="219" from="23" to="24">
+<condition id="104">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="220" from="24" to="25">
 <condition id="105">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="239" from="24" to="25">
+<trans id="221" from="25" to="26">
 <condition id="106">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="240" from="25" to="26">
+<trans id="222" from="26" to="27">
 <condition id="107">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="241" from="26" to="27">
+<trans id="223" from="27" to="28">
 <condition id="108">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="242" from="27" to="28">
+<trans id="224" from="28" to="29">
 <condition id="109">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="243" from="28" to="29">
-<condition id="110">
 <or_exp><and_exp><literal name="calibrationSuccess_l" val="1"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="244" from="28" to="54">
-<condition id="111">
+<trans id="225" from="28" to="58">
+<condition id="110">
 <or_exp><and_exp><literal name="calibrationSuccess_l" val="0"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="246" from="29" to="30">
+<trans id="227" from="29" to="30">
+<condition id="112">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="228" from="30" to="31">
 <condition id="113">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="247" from="30" to="31">
+<trans id="229" from="31" to="32">
 <condition id="114">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="248" from="31" to="32">
+<trans id="230" from="32" to="33">
 <condition id="115">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="249" from="32" to="33">
+<trans id="231" from="33" to="34">
 <condition id="116">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="250" from="33" to="34">
+<trans id="232" from="34" to="35">
 <condition id="117">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="251" from="34" to="35">
+<trans id="233" from="35" to="36">
 <condition id="118">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="252" from="35" to="36">
+<trans id="234" from="36" to="37">
 <condition id="119">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="253" from="36" to="37">
+<trans id="235" from="37" to="38">
 <condition id="120">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="254" from="37" to="38">
+<trans id="236" from="38" to="39">
 <condition id="121">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="255" from="38" to="39">
+<trans id="237" from="39" to="40">
 <condition id="122">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="256" from="39" to="40">
+<trans id="238" from="40" to="41">
 <condition id="123">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="257" from="40" to="41">
+<trans id="239" from="41" to="42">
 <condition id="124">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="258" from="41" to="42">
+<trans id="240" from="42" to="43">
 <condition id="125">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="259" from="42" to="43">
+<trans id="241" from="43" to="44">
 <condition id="126">
-<or_exp><and_exp><literal name="tmp_2" val="1"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="260" from="42" to="54">
+<trans id="242" from="44" to="45">
 <condition id="127">
-<or_exp><and_exp><literal name="tmp_2" val="0"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="262" from="43" to="44">
+<trans id="243" from="45" to="46">
+<condition id="128">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="244" from="46" to="47">
 <condition id="129">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="263" from="44" to="45">
+<trans id="245" from="47" to="48">
 <condition id="130">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="264" from="45" to="46">
+<trans id="246" from="48" to="49">
 <condition id="131">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="265" from="46" to="47">
+<trans id="247" from="49" to="50">
 <condition id="132">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="266" from="47" to="48">
+<trans id="248" from="50" to="51">
 <condition id="133">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="267" from="48" to="49">
+<trans id="249" from="51" to="52">
 <condition id="134">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="268" from="49" to="50">
+<trans id="250" from="52" to="53">
 <condition id="135">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="269" from="50" to="51">
+<trans id="251" from="53" to="54">
 <condition id="136">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="270" from="51" to="52">
+<trans id="252" from="54" to="55">
 <condition id="137">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="271" from="52" to="53">
+<trans id="253" from="55" to="56">
 <condition id="138">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="272" from="53" to="54">
+<trans id="254" from="56" to="57">
 <condition id="139">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="273" from="54" to="55">
-<condition id="141">
+<trans id="255" from="57" to="58">
+<condition id="140">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="274" from="55" to="55">
-<condition id="143">
-<or_exp><and_exp><literal name="tmp_4" val="0"/>
+<trans id="256" from="58" to="59">
+<condition id="142">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="257" from="59" to="59">
+<condition id="144">
+<or_exp><and_exp><literal name="tmp_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 </trans>
@@ -373,7 +389,7 @@
 
 <state id="1" st_id="1">
 
-<operation id="56" st_id="1" stage="1" lat="1">
+<operation id="60" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -388,66 +404,6 @@
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="57" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="0">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="6" bw="0" op_0_bw="0" op_1_bw="32">
-<![CDATA[
-:1  call void (...)* @_ssdm_op_SpecBitsMap([4096 x i32]* %SBUS_data) nounwind, !map !43
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="58" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="0">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="7" bw="12" op_0_bw="32" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-:2  %SBUS_data_addr = getelementptr [4096 x i32]* %SBUS_data, i64 0, i64 0
-
-]]></Node>
-<StgValue><ssdm name="SBUS_data_addr"/></StgValue>
-</operation>
-
-<operation id="59" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="0">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="8" bw="8" op_0_bw="64">
-<![CDATA[
-:3  %dummy = alloca i8, align 1
-
-]]></Node>
-<StgValue><ssdm name="dummy"/></StgValue>
-</operation>
-
-<operation id="60" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="0">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="9" bw="0" op_0_bw="0" op_1_bw="0">
-<![CDATA[
-:4  call void (...)* @_ssdm_op_SpecTopModule([16 x i8]* @AXI_UART_DRIVER_str) nounwind
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
 <operation id="61" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
@@ -455,9 +411,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="10" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<Node id="6" bw="0" op_0_bw="0" op_1_bw="8">
 <![CDATA[
-:5  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i8* %OUT_r), !map !43
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -470,12 +426,12 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="11" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<Node id="7" bw="8" op_0_bw="64">
 <![CDATA[
-:6  call void (...)* @_ssdm_op_SpecInterface(i32* %UART, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 4096, [5 x i8]* @p_str4, [4 x i8]* @p_str5, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+:2  %dummy = alloca i8, align 1
 
 ]]></Node>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="dummy"/></StgValue>
 </operation>
 
 <operation id="63" st_id="1" stage="1" lat="1">
@@ -485,9 +441,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="12" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<Node id="8" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-:7  call void (...)* @_ssdm_op_SpecInterface([4096 x i32]* %SBUS_data, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 4096, [5 x i8]* @p_str6, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+:3  call void (...)* @_ssdm_op_SpecTopModule([16 x i8]* @AXI_UART_DRIVER_str) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -500,9 +456,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="13" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
+<Node id="9" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:8  call void (...)* @_ssdm_op_SpecMemCore([4096 x i32]* %SBUS_data, [1 x i8]* @p_str, [12 x i8]* @p_str7, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+:4  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -515,9 +471,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="14" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="32" op_3_bw="0">
+<Node id="10" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:9  call void (...)* @_ssdm_op_SpecReset(i1* @firstSample, i32 1, [1 x i8]* @p_str) nounwind
+:5  call void (...)* @_ssdm_op_SpecInterface(i32* %UART, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 4096, [5 x i8]* @p_str4, [4 x i8]* @p_str5, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -530,12 +486,12 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="15" bw="1" op_0_bw="1">
+<Node id="11" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:10  %firstSample_load = load i1* @firstSample, align 1
+:6  call void (...)* @_ssdm_op_SpecInterface(i8* %OUT_r, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 4096, [4 x i8]* @p_str6, [4 x i8]* @p_str5, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
 
 ]]></Node>
-<StgValue><ssdm name="firstSample_load"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 
 <operation id="67" st_id="1" stage="1" lat="1">
@@ -545,9 +501,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="16" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="12" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="32" op_3_bw="0">
 <![CDATA[
-:11  br i1 %firstSample_load, label %1, label %._crit_edge
+:7  call void (...)* @_ssdm_op_SpecReset(i1* @firstSample, i32 1, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -556,12 +512,42 @@
 <operation id="68" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="1" op_0_bw="1">
+<![CDATA[
+:8  %firstSample_load = load i1* @firstSample, align 1
+
+]]></Node>
+<StgValue><ssdm name="firstSample_load"/></StgValue>
+</operation>
+
+<operation id="69" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="14" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:9  br i1 %firstSample_load, label %1, label %._crit_edge
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="70" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
 <condition id="2">
 <or_exp><and_exp><literal name="firstSample_load" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="18" bw="32" op_0_bw="32" op_1_bw="64">
+<Node id="16" bw="32" op_0_bw="32" op_1_bw="64">
 <![CDATA[
 :0  %UART_addr = getelementptr i32* %UART, i64 1031
 
@@ -569,7 +555,7 @@
 <StgValue><ssdm name="UART_addr"/></StgValue>
 </operation>
 
-<operation id="69" st_id="1" stage="1" lat="1">
+<operation id="71" st_id="1" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="2">
@@ -577,7 +563,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="19" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="17" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :1  %UART_addr_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr, i32 1)
 
@@ -588,36 +574,6 @@
 
 <state id="2" st_id="2">
 
-<operation id="70" st_id="2" stage="1" lat="1">
-<core>m_axi</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="3">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="20" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
-<![CDATA[
-:2  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr, i32 69, i4 -1)
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="71" st_id="2" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="3">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="22" bw="32" op_0_bw="32" op_1_bw="64">
-<![CDATA[
-:4  %UART_addr_1 = getelementptr i32* %UART, i64 1027
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_1"/></StgValue>
-</operation>
-
 <operation id="72" st_id="2" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
@@ -625,7 +581,37 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="23" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="18" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
+<![CDATA[
+:2  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr, i32 69, i4 -1)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="73" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="20" bw="32" op_0_bw="32" op_1_bw="64">
+<![CDATA[
+:4  %UART_addr_1 = getelementptr i32* %UART, i64 1027
+
+]]></Node>
+<StgValue><ssdm name="UART_addr_1"/></StgValue>
+</operation>
+
+<operation id="74" st_id="2" stage="1" lat="1">
+<core>m_axi</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="3">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="21" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :5  %UART_addr_1_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_1, i32 1)
 
@@ -636,49 +622,19 @@
 
 <state id="3" st_id="3">
 
-<operation id="73" st_id="3" stage="5" lat="5">
+<operation id="75" st_id="3" stage="5" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="4">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="19" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :3  %UART_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
 ]]></Node>
 <StgValue><ssdm name="UART_addr_resp"/></StgValue>
-</operation>
-
-<operation id="74" st_id="3" stage="1" lat="1">
-<core>m_axi</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="4">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="24" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
-<![CDATA[
-:6  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_1, i32 128, i4 -1)
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="75" st_id="3" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="4">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="26" bw="32" op_0_bw="32" op_1_bw="64">
-<![CDATA[
-:8  %UART_addr_2 = getelementptr i32* %UART, i64 1024
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_2"/></StgValue>
 </operation>
 
 <operation id="76" st_id="3" stage="1" lat="1">
@@ -688,7 +644,37 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="27" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="22" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
+<![CDATA[
+:6  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_1, i32 128, i4 -1)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="77" st_id="3" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="24" bw="32" op_0_bw="32" op_1_bw="64">
+<![CDATA[
+:8  %UART_addr_2 = getelementptr i32* %UART, i64 1024
+
+]]></Node>
+<StgValue><ssdm name="UART_addr_2"/></StgValue>
+</operation>
+
+<operation id="78" st_id="3" stage="1" lat="1">
+<core>m_axi</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="4">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="25" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :9  %UART_addr_2_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_2, i32 1)
 
@@ -699,14 +685,14 @@
 
 <state id="4" st_id="4">
 
-<operation id="77" st_id="4" stage="4" lat="5">
+<operation id="79" st_id="4" stage="4" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="5">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="19" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :3  %UART_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
@@ -714,49 +700,19 @@
 <StgValue><ssdm name="UART_addr_resp"/></StgValue>
 </operation>
 
-<operation id="78" st_id="4" stage="5" lat="5">
+<operation id="80" st_id="4" stage="5" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="5">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="23" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :7  %UART_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
 ]]></Node>
 <StgValue><ssdm name="UART_addr_1_resp"/></StgValue>
-</operation>
-
-<operation id="79" st_id="4" stage="1" lat="1">
-<core>m_axi</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="5">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="28" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
-<![CDATA[
-:10  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_2, i32 63, i4 -1)
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="80" st_id="4" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="5">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="30" bw="32" op_0_bw="32" op_1_bw="64">
-<![CDATA[
-:12  %UART_addr_3 = getelementptr i32* %UART, i64 1025
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_3"/></StgValue>
 </operation>
 
 <operation id="81" st_id="4" stage="1" lat="1">
@@ -766,7 +722,37 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="26" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
+<![CDATA[
+:10  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_2, i32 63, i4 -1)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="82" st_id="4" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="5">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="28" bw="32" op_0_bw="32" op_1_bw="64">
+<![CDATA[
+:12  %UART_addr_3 = getelementptr i32* %UART, i64 1025
+
+]]></Node>
+<StgValue><ssdm name="UART_addr_3"/></StgValue>
+</operation>
+
+<operation id="83" st_id="4" stage="1" lat="1">
+<core>m_axi</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="5">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="29" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :13  %UART_addr_3_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_3, i32 1)
 
@@ -777,14 +763,14 @@
 
 <state id="5" st_id="5">
 
-<operation id="82" st_id="5" stage="3" lat="5">
+<operation id="84" st_id="5" stage="3" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="6">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="19" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :3  %UART_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
@@ -792,14 +778,14 @@
 <StgValue><ssdm name="UART_addr_resp"/></StgValue>
 </operation>
 
-<operation id="83" st_id="5" stage="4" lat="5">
+<operation id="85" st_id="5" stage="4" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="6">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="23" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :7  %UART_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
@@ -807,14 +793,14 @@
 <StgValue><ssdm name="UART_addr_1_resp"/></StgValue>
 </operation>
 
-<operation id="84" st_id="5" stage="5" lat="5">
+<operation id="86" st_id="5" stage="5" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="6">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="27" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :11  %UART_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_2)
 
@@ -822,14 +808,14 @@
 <StgValue><ssdm name="UART_addr_2_resp"/></StgValue>
 </operation>
 
-<operation id="85" st_id="5" stage="1" lat="1">
+<operation id="87" st_id="5" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="6">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="32" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
+<Node id="30" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
 <![CDATA[
 :14  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_3, i32 0, i4 -1)
 
@@ -837,32 +823,32 @@
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="86" st_id="5" stage="1" lat="1">
+<operation id="88" st_id="5" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="6">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="34" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="32" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-:16  %UART_addr_1_req4 = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_1, i32 1)
+:16  %UART_addr_1_req6 = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_1, i32 1)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_1_req4"/></StgValue>
+<StgValue><ssdm name="UART_addr_1_req6"/></StgValue>
 </operation>
 </state>
 
 <state id="6" st_id="6">
 
-<operation id="87" st_id="6" stage="2" lat="5">
+<operation id="89" st_id="6" stage="2" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="7">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="19" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :3  %UART_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
@@ -870,14 +856,14 @@
 <StgValue><ssdm name="UART_addr_resp"/></StgValue>
 </operation>
 
-<operation id="88" st_id="6" stage="3" lat="5">
+<operation id="90" st_id="6" stage="3" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="7">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="23" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :7  %UART_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
@@ -885,14 +871,14 @@
 <StgValue><ssdm name="UART_addr_1_resp"/></StgValue>
 </operation>
 
-<operation id="89" st_id="6" stage="4" lat="5">
+<operation id="91" st_id="6" stage="4" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="7">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="27" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :11  %UART_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_2)
 
@@ -900,49 +886,19 @@
 <StgValue><ssdm name="UART_addr_2_resp"/></StgValue>
 </operation>
 
-<operation id="90" st_id="6" stage="5" lat="5">
+<operation id="92" st_id="6" stage="5" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="7">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="31" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :15  %UART_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
 ]]></Node>
 <StgValue><ssdm name="UART_addr_3_resp"/></StgValue>
-</operation>
-
-<operation id="91" st_id="6" stage="1" lat="1">
-<core>m_axi</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="7">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="35" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
-<![CDATA[
-:17  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_1, i32 31, i4 -1)
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="92" st_id="6" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="7">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="37" bw="32" op_0_bw="32" op_1_bw="64">
-<![CDATA[
-:19  %UART_addr_4 = getelementptr i32* %UART, i64 1026
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_4"/></StgValue>
 </operation>
 
 <operation id="93" st_id="6" stage="1" lat="1">
@@ -952,7 +908,37 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="38" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="33" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
+<![CDATA[
+:17  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_1, i32 31, i4 -1)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="94" st_id="6" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="7">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="35" bw="32" op_0_bw="32" op_1_bw="64">
+<![CDATA[
+:19  %UART_addr_4 = getelementptr i32* %UART, i64 1026
+
+]]></Node>
+<StgValue><ssdm name="UART_addr_4"/></StgValue>
+</operation>
+
+<operation id="95" st_id="6" stage="1" lat="1">
+<core>m_axi</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="7">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="36" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :20  %UART_addr_4_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_4, i32 1)
 
@@ -963,14 +949,14 @@
 
 <state id="7" st_id="7">
 
-<operation id="94" st_id="7" stage="1" lat="5">
+<operation id="96" st_id="7" stage="1" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="8">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="19" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :3  %UART_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
@@ -978,14 +964,14 @@
 <StgValue><ssdm name="UART_addr_resp"/></StgValue>
 </operation>
 
-<operation id="95" st_id="7" stage="2" lat="5">
+<operation id="97" st_id="7" stage="2" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="8">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="23" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :7  %UART_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
@@ -993,14 +979,14 @@
 <StgValue><ssdm name="UART_addr_1_resp"/></StgValue>
 </operation>
 
-<operation id="96" st_id="7" stage="3" lat="5">
+<operation id="98" st_id="7" stage="3" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="8">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="27" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :11  %UART_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_2)
 
@@ -1008,14 +994,14 @@
 <StgValue><ssdm name="UART_addr_2_resp"/></StgValue>
 </operation>
 
-<operation id="97" st_id="7" stage="4" lat="5">
+<operation id="99" st_id="7" stage="4" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="8">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="31" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :15  %UART_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
@@ -1023,29 +1009,29 @@
 <StgValue><ssdm name="UART_addr_3_resp"/></StgValue>
 </operation>
 
-<operation id="98" st_id="7" stage="5" lat="5">
+<operation id="100" st_id="7" stage="5" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="8">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="36" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="34" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:18  %UART_addr_1_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
+:18  %UART_addr_1_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_1_resp5"/></StgValue>
+<StgValue><ssdm name="UART_addr_1_resp7"/></StgValue>
 </operation>
 
-<operation id="99" st_id="7" stage="1" lat="1">
+<operation id="101" st_id="7" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="8">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="39" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
+<Node id="37" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
 <![CDATA[
 :21  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_4, i32 1, i4 -1)
 
@@ -1053,32 +1039,32 @@
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="100" st_id="7" stage="1" lat="1">
+<operation id="102" st_id="7" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="8">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="41" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="39" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-:23  %UART_addr_3_req6 = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_3, i32 1)
+:23  %UART_addr_3_req8 = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_3, i32 1)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_3_req6"/></StgValue>
+<StgValue><ssdm name="UART_addr_3_req8"/></StgValue>
 </operation>
 </state>
 
 <state id="8" st_id="8">
 
-<operation id="101" st_id="8" stage="1" lat="5">
+<operation id="103" st_id="8" stage="1" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="9">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="23" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :7  %UART_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
@@ -1086,14 +1072,14 @@
 <StgValue><ssdm name="UART_addr_1_resp"/></StgValue>
 </operation>
 
-<operation id="102" st_id="8" stage="2" lat="5">
+<operation id="104" st_id="8" stage="2" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="9">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="27" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :11  %UART_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_2)
 
@@ -1101,14 +1087,14 @@
 <StgValue><ssdm name="UART_addr_2_resp"/></StgValue>
 </operation>
 
-<operation id="103" st_id="8" stage="3" lat="5">
+<operation id="105" st_id="8" stage="3" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="9">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="31" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :15  %UART_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
@@ -1116,29 +1102,29 @@
 <StgValue><ssdm name="UART_addr_3_resp"/></StgValue>
 </operation>
 
-<operation id="104" st_id="8" stage="4" lat="5">
+<operation id="106" st_id="8" stage="4" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="9">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="36" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="34" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:18  %UART_addr_1_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
+:18  %UART_addr_1_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_1_resp5"/></StgValue>
+<StgValue><ssdm name="UART_addr_1_resp7"/></StgValue>
 </operation>
 
-<operation id="105" st_id="8" stage="5" lat="5">
+<operation id="107" st_id="8" stage="5" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="9">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="38" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :22  %UART_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_4)
 
@@ -1146,14 +1132,14 @@
 <StgValue><ssdm name="UART_addr_4_resp"/></StgValue>
 </operation>
 
-<operation id="106" st_id="8" stage="1" lat="1">
+<operation id="108" st_id="8" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="9">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="42" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
+<Node id="40" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
 <![CDATA[
 :24  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_3, i32 1, i4 -1)
 
@@ -1164,14 +1150,14 @@
 
 <state id="9" st_id="9">
 
-<operation id="107" st_id="9" stage="1" lat="5">
+<operation id="109" st_id="9" stage="1" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="10">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="27" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :11  %UART_addr_2_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_2)
 
@@ -1179,14 +1165,14 @@
 <StgValue><ssdm name="UART_addr_2_resp"/></StgValue>
 </operation>
 
-<operation id="108" st_id="9" stage="2" lat="5">
+<operation id="110" st_id="9" stage="2" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="10">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="31" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :15  %UART_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
@@ -1194,29 +1180,29 @@
 <StgValue><ssdm name="UART_addr_3_resp"/></StgValue>
 </operation>
 
-<operation id="109" st_id="9" stage="3" lat="5">
+<operation id="111" st_id="9" stage="3" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="10">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="36" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="34" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:18  %UART_addr_1_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
+:18  %UART_addr_1_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_1_resp5"/></StgValue>
+<StgValue><ssdm name="UART_addr_1_resp7"/></StgValue>
 </operation>
 
-<operation id="110" st_id="9" stage="4" lat="5">
+<operation id="112" st_id="9" stage="4" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="10">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="38" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :22  %UART_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_4)
 
@@ -1224,32 +1210,32 @@
 <StgValue><ssdm name="UART_addr_4_resp"/></StgValue>
 </operation>
 
-<operation id="111" st_id="9" stage="5" lat="5">
+<operation id="113" st_id="9" stage="5" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="10">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="41" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:25  %UART_addr_3_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
+:25  %UART_addr_3_resp9 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_3_resp7"/></StgValue>
+<StgValue><ssdm name="UART_addr_3_resp9"/></StgValue>
 </operation>
 </state>
 
 <state id="10" st_id="10">
 
-<operation id="112" st_id="10" stage="1" lat="5">
+<operation id="114" st_id="10" stage="1" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="11">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="31" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :15  %UART_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
@@ -1257,29 +1243,29 @@
 <StgValue><ssdm name="UART_addr_3_resp"/></StgValue>
 </operation>
 
-<operation id="113" st_id="10" stage="2" lat="5">
+<operation id="115" st_id="10" stage="2" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="11">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="36" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="34" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:18  %UART_addr_1_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
+:18  %UART_addr_1_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_1_resp5"/></StgValue>
+<StgValue><ssdm name="UART_addr_1_resp7"/></StgValue>
 </operation>
 
-<operation id="114" st_id="10" stage="3" lat="5">
+<operation id="116" st_id="10" stage="3" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="11">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="38" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :22  %UART_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_4)
 
@@ -1287,47 +1273,47 @@
 <StgValue><ssdm name="UART_addr_4_resp"/></StgValue>
 </operation>
 
-<operation id="115" st_id="10" stage="4" lat="5">
+<operation id="117" st_id="10" stage="4" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="11">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="41" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:25  %UART_addr_3_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
+:25  %UART_addr_3_resp9 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_3_resp7"/></StgValue>
+<StgValue><ssdm name="UART_addr_3_resp9"/></StgValue>
 </operation>
 </state>
 
 <state id="11" st_id="11">
 
-<operation id="116" st_id="11" stage="1" lat="5">
+<operation id="118" st_id="11" stage="1" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="12">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="36" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="34" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:18  %UART_addr_1_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
+:18  %UART_addr_1_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_1)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_1_resp5"/></StgValue>
+<StgValue><ssdm name="UART_addr_1_resp7"/></StgValue>
 </operation>
 
-<operation id="117" st_id="11" stage="2" lat="5">
+<operation id="119" st_id="11" stage="2" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="12">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="38" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :22  %UART_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_4)
 
@@ -1335,32 +1321,32 @@
 <StgValue><ssdm name="UART_addr_4_resp"/></StgValue>
 </operation>
 
-<operation id="118" st_id="11" stage="3" lat="5">
+<operation id="120" st_id="11" stage="3" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="12">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="41" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:25  %UART_addr_3_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
+:25  %UART_addr_3_resp9 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_3_resp7"/></StgValue>
+<StgValue><ssdm name="UART_addr_3_resp9"/></StgValue>
 </operation>
 </state>
 
 <state id="12" st_id="12">
 
-<operation id="119" st_id="12" stage="1" lat="5">
+<operation id="121" st_id="12" stage="1" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="13">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="38" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
 :22  %UART_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_4)
 
@@ -1368,50 +1354,50 @@
 <StgValue><ssdm name="UART_addr_4_resp"/></StgValue>
 </operation>
 
-<operation id="120" st_id="12" stage="2" lat="5">
+<operation id="122" st_id="12" stage="2" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="13">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="41" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:25  %UART_addr_3_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
+:25  %UART_addr_3_resp9 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_3_resp7"/></StgValue>
+<StgValue><ssdm name="UART_addr_3_resp9"/></StgValue>
 </operation>
 </state>
 
 <state id="13" st_id="13">
 
-<operation id="121" st_id="13" stage="1" lat="5">
+<operation id="123" st_id="13" stage="1" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="14">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="41" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:25  %UART_addr_3_resp7 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
+:25  %UART_addr_3_resp9 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_3)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_3_resp7"/></StgValue>
+<StgValue><ssdm name="UART_addr_3_resp9"/></StgValue>
 </operation>
 </state>
 
 <state id="14" st_id="14">
 
-<operation id="122" st_id="14" stage="7" lat="7">
+<operation id="124" st_id="14" stage="7" lat="7">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="15">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="42" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :26  %UART_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr, i32 1)
 
@@ -1422,14 +1408,14 @@
 
 <state id="15" st_id="15">
 
-<operation id="123" st_id="15" stage="6" lat="7">
+<operation id="125" st_id="15" stage="6" lat="7">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="16">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="42" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :26  %UART_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr, i32 1)
 
@@ -1440,14 +1426,14 @@
 
 <state id="16" st_id="16">
 
-<operation id="124" st_id="16" stage="5" lat="7">
+<operation id="126" st_id="16" stage="5" lat="7">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="17">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="42" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :26  %UART_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr, i32 1)
 
@@ -1458,14 +1444,14 @@
 
 <state id="17" st_id="17">
 
-<operation id="125" st_id="17" stage="4" lat="7">
+<operation id="127" st_id="17" stage="4" lat="7">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="18">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="42" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :26  %UART_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr, i32 1)
 
@@ -1476,14 +1462,14 @@
 
 <state id="18" st_id="18">
 
-<operation id="126" st_id="18" stage="3" lat="7">
+<operation id="128" st_id="18" stage="3" lat="7">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="19">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="42" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :26  %UART_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr, i32 1)
 
@@ -1494,14 +1480,14 @@
 
 <state id="19" st_id="19">
 
-<operation id="127" st_id="19" stage="2" lat="7">
+<operation id="129" st_id="19" stage="2" lat="7">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="20">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="42" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :26  %UART_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr, i32 1)
 
@@ -1512,14 +1498,14 @@
 
 <state id="20" st_id="20">
 
-<operation id="128" st_id="20" stage="1" lat="7">
+<operation id="130" st_id="20" stage="1" lat="7">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="21">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="44" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="42" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
 :26  %UART_load_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr, i32 1)
 
@@ -1530,14 +1516,14 @@
 
 <state id="21" st_id="21">
 
-<operation id="129" st_id="21" stage="1" lat="1">
+<operation id="131" st_id="21" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="22">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="45" bw="32" op_0_bw="32" op_1_bw="32">
+<Node id="43" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
 :27  %UART_addr_read = call i32 @_ssdm_op_Read.m_axi.volatile.i32P(i32* %UART_addr)
 
@@ -1545,14 +1531,14 @@
 <StgValue><ssdm name="UART_addr_read"/></StgValue>
 </operation>
 
-<operation id="130" st_id="21" stage="1" lat="1">
+<operation id="132" st_id="21" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="22">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="46" bw="8" op_0_bw="32">
+<Node id="44" bw="8" op_0_bw="32">
 <![CDATA[
 :28  %temp = trunc i32 %UART_addr_read to i8
 
@@ -1563,14 +1549,14 @@
 
 <state id="22" st_id="22">
 
-<operation id="131" st_id="22" stage="1" lat="1">
+<operation id="133" st_id="22" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="23">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="47" bw="1" op_0_bw="8" op_1_bw="8">
+<Node id="45" bw="1" op_0_bw="8" op_1_bw="8">
 <![CDATA[
 :29  %tmp = icmp eq i8 %temp, 69
 
@@ -1578,14 +1564,14 @@
 <StgValue><ssdm name="tmp"/></StgValue>
 </operation>
 
-<operation id="132" st_id="22" stage="1" lat="1">
+<operation id="134" st_id="22" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="23">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="48" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="46" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 :30  br i1 %tmp, label %2, label %._crit_edge1
 
@@ -1593,7 +1579,7 @@
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="133" st_id="22" stage="1" lat="1">
+<operation id="135" st_id="22" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="25">
@@ -1601,7 +1587,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="50" bw="0" op_0_bw="1" op_1_bw="1">
+<Node id="48" bw="0" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 :0  store i1 true, i1* @calibrationSuccess, align 1
 
@@ -1609,7 +1595,7 @@
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="134" st_id="22" stage="1" lat="1">
+<operation id="136" st_id="22" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="25">
@@ -1617,25 +1603,25 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="51" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="49" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-:1  %UART_addr_req2 = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr, i32 1)
+:1  %UART_addr_req4 = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr, i32 1)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_req2"/></StgValue>
+<StgValue><ssdm name="UART_addr_req4"/></StgValue>
 </operation>
 </state>
 
 <state id="23" st_id="23">
 
-<operation id="135" st_id="23" stage="1" lat="1">
+<operation id="137" st_id="23" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="26">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="52" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
+<Node id="50" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
 <![CDATA[
 :2  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr, i32 0, i4 -1)
 
@@ -1646,79 +1632,79 @@
 
 <state id="24" st_id="24">
 
-<operation id="136" st_id="24" stage="5" lat="5">
+<operation id="138" st_id="24" stage="5" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="27">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="51" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:3  %UART_addr_resp3 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
+:3  %UART_addr_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_resp3"/></StgValue>
+<StgValue><ssdm name="UART_addr_resp5"/></StgValue>
 </operation>
 </state>
 
 <state id="25" st_id="25">
 
-<operation id="137" st_id="25" stage="4" lat="5">
+<operation id="139" st_id="25" stage="4" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="28">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="51" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:3  %UART_addr_resp3 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
+:3  %UART_addr_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_resp3"/></StgValue>
+<StgValue><ssdm name="UART_addr_resp5"/></StgValue>
 </operation>
 </state>
 
 <state id="26" st_id="26">
 
-<operation id="138" st_id="26" stage="3" lat="5">
+<operation id="140" st_id="26" stage="3" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="29">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="51" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:3  %UART_addr_resp3 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
+:3  %UART_addr_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_resp3"/></StgValue>
+<StgValue><ssdm name="UART_addr_resp5"/></StgValue>
 </operation>
 </state>
 
 <state id="27" st_id="27">
 
-<operation id="139" st_id="27" stage="2" lat="5">
+<operation id="141" st_id="27" stage="2" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="30">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="51" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:3  %UART_addr_resp3 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
+:3  %UART_addr_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_resp3"/></StgValue>
+<StgValue><ssdm name="UART_addr_resp5"/></StgValue>
 </operation>
 </state>
 
 <state id="28" st_id="28">
 
-<operation id="140" st_id="28" stage="1" lat="5">
+<operation id="142" st_id="28" stage="1" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="31">
@@ -1727,15 +1713,15 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="51" bw="1" op_0_bw="1" op_1_bw="32">
 <![CDATA[
-:3  %UART_addr_resp3 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
+:3  %UART_addr_resp5 = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_resp3"/></StgValue>
+<StgValue><ssdm name="UART_addr_resp5"/></StgValue>
 </operation>
 
-<operation id="141" st_id="28" stage="1" lat="1">
+<operation id="143" st_id="28" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="31">
@@ -1744,41 +1730,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="54" bw="0" op_0_bw="0">
+<Node id="52" bw="0" op_0_bw="0">
 <![CDATA[
 :4  br label %._crit_edge1
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="142" st_id="28" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="34">
-<or_exp><and_exp><literal name="firstSample_load" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="56" bw="0" op_0_bw="1" op_1_bw="1">
-<![CDATA[
-._crit_edge1:0  store i1 false, i1* @firstSample, align 1
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="143" st_id="28" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="34">
-<or_exp><and_exp><literal name="firstSample_load" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="57" bw="0" op_0_bw="0">
-<![CDATA[
-._crit_edge1:1  br label %._crit_edge
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -1787,28 +1741,30 @@
 <operation id="144" st_id="28" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="37">
-<or_exp><and_exp></and_exp></or_exp>
+<condition id="34">
+<or_exp><and_exp><literal name="firstSample_load" val="1"/>
+</and_exp></or_exp>
 </condition>
 
-<Node id="59" bw="1" op_0_bw="1">
+<Node id="54" bw="0" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-._crit_edge:0  %calibrationSuccess_l = load i1* @calibrationSuccess, align 1
+._crit_edge1:0  store i1 false, i1* @firstSample, align 1
 
 ]]></Node>
-<StgValue><ssdm name="calibrationSuccess_l"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 
 <operation id="145" st_id="28" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="37">
-<or_exp><and_exp></and_exp></or_exp>
+<condition id="34">
+<or_exp><and_exp><literal name="firstSample_load" val="1"/>
+</and_exp></or_exp>
 </condition>
 
-<Node id="60" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="55" bw="0" op_0_bw="0">
 <![CDATA[
-._crit_edge:1  br i1 %calibrationSuccess_l, label %3, label %._crit_edge2
+._crit_edge1:1  br label %._crit_edge
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -1817,20 +1773,34 @@
 <operation id="146" st_id="28" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="39">
-<or_exp><and_exp><literal name="calibrationSuccess_l" val="1"/>
-</and_exp></or_exp>
+<condition id="37">
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="32" op_0_bw="32" op_1_bw="64">
+<Node id="57" bw="1" op_0_bw="1">
 <![CDATA[
-:15  %UART_addr_5 = getelementptr i32* %UART, i64 1024
+._crit_edge:0  %calibrationSuccess_l = load i1* @calibrationSuccess, align 1
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_5"/></StgValue>
+<StgValue><ssdm name="calibrationSuccess_l"/></StgValue>
 </operation>
 
 <operation id="147" st_id="28" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="37">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="58" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+._crit_edge:1  br i1 %calibrationSuccess_l, label %3, label %._crit_edge2
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="148" st_id="28" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="39">
@@ -1838,27 +1808,27 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="78" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="60" bw="1" op_0_bw="1" op_1_bw="8" op_2_bw="32">
 <![CDATA[
-:16  %UART_addr_5_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_5, i32 1)
+:0  %OUT_req = call i1 @_ssdm_op_WriteReq.m_axi.i8P(i8* %OUT_r, i32 25)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_5_req"/></StgValue>
+<StgValue><ssdm name="OUT_req"/></StgValue>
 </operation>
 </state>
 
 <state id="29" st_id="29">
 
-<operation id="148" st_id="29" stage="1" lat="1">
+<operation id="149" st_id="29" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="40">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="79" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
+<Node id="61" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:17  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_5, i32 69, i4 -1)
+:1  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 15, i1 true)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -1867,689 +1837,358 @@
 
 <state id="30" st_id="30">
 
-<operation id="149" st_id="30" stage="5" lat="5">
+<operation id="150" st_id="30" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="41">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="80" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="62" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:18  %UART_addr_5_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_5)
+:2  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -56, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_5_resp"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="31" st_id="31">
 
-<operation id="150" st_id="31" stage="4" lat="5">
+<operation id="151" st_id="31" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="42">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="80" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="63" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:18  %UART_addr_5_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_5)
+:3  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -16, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_5_resp"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="32" st_id="32">
 
-<operation id="151" st_id="32" stage="3" lat="5">
+<operation id="152" st_id="32" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="43">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="80" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="64" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:18  %UART_addr_5_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_5)
+:4  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -6, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_5_resp"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="33" st_id="33">
 
-<operation id="152" st_id="33" stage="2" lat="5">
+<operation id="153" st_id="33" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="44">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="80" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="65" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:18  %UART_addr_5_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_5)
+:5  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 95, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_5_resp"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="34" st_id="34">
 
-<operation id="153" st_id="34" stage="1" lat="5">
+<operation id="154" st_id="34" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="45">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="80" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:18  %UART_addr_5_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_5)
+:6  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 107, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_5_resp"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="35" st_id="35">
 
-<operation id="154" st_id="35" stage="1" lat="1">
-<core>RAM_1P_BRAM</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="46">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="62" bw="0" op_0_bw="32" op_1_bw="12">
-<![CDATA[
-:0  store i32 17, i32* %SBUS_data_addr, align 4
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
 <operation id="155" st_id="35" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="46">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="81" bw="32" op_0_bw="32" op_1_bw="64">
-<![CDATA[
-:19  %UART_addr_6 = getelementptr i32* %UART, i64 1029
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_6"/></StgValue>
-</operation>
-
-<operation id="156" st_id="35" stage="7" lat="7">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="46">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="82" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="67" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:20  %UART_load_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_6, i32 1)
+:7  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -29, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_1_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="36" st_id="36">
 
-<operation id="157" st_id="36" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="47">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="63" bw="12" op_0_bw="32" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-:1  %SBUS_data_addr_1 = getelementptr [4096 x i32]* %SBUS_data, i64 0, i64 1
-
-]]></Node>
-<StgValue><ssdm name="SBUS_data_addr_1"/></StgValue>
-</operation>
-
-<operation id="158" st_id="36" stage="1" lat="1">
-<core>RAM_1P_BRAM</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="47">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="64" bw="0" op_0_bw="32" op_1_bw="12">
-<![CDATA[
-:2  store i32 34, i32* %SBUS_data_addr_1, align 4
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="159" st_id="36" stage="6" lat="7">
+<operation id="156" st_id="36" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="47">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="82" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="68" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:20  %UART_load_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_6, i32 1)
+:8  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 80, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_1_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="37" st_id="37">
 
-<operation id="160" st_id="37" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="48">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="65" bw="12" op_0_bw="32" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-:3  %SBUS_data_addr_2 = getelementptr [4096 x i32]* %SBUS_data, i64 0, i64 2
-
-]]></Node>
-<StgValue><ssdm name="SBUS_data_addr_2"/></StgValue>
-</operation>
-
-<operation id="161" st_id="37" stage="1" lat="1">
-<core>RAM_1P_BRAM</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="48">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="66" bw="0" op_0_bw="32" op_1_bw="12">
-<![CDATA[
-:4  store i32 51, i32* %SBUS_data_addr_2, align 4
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="162" st_id="37" stage="5" lat="7">
+<operation id="157" st_id="37" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="48">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="82" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="69" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:20  %UART_load_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_6, i32 1)
+:9  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 106, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_1_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="38" st_id="38">
 
-<operation id="163" st_id="38" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="49">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="67" bw="12" op_0_bw="32" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-:5  %SBUS_data_addr_3 = getelementptr [4096 x i32]* %SBUS_data, i64 0, i64 3
-
-]]></Node>
-<StgValue><ssdm name="SBUS_data_addr_3"/></StgValue>
-</operation>
-
-<operation id="164" st_id="38" stage="1" lat="1">
-<core>RAM_1P_BRAM</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="49">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="68" bw="0" op_0_bw="32" op_1_bw="12">
-<![CDATA[
-:6  store i32 68, i32* %SBUS_data_addr_3, align 4
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="165" st_id="38" stage="4" lat="7">
+<operation id="158" st_id="38" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="49">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="82" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="70" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:20  %UART_load_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_6, i32 1)
+:10  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 13, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_1_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="39" st_id="39">
 
-<operation id="166" st_id="39" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="50">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="69" bw="12" op_0_bw="32" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-:7  %SBUS_data_addr_4 = getelementptr [4096 x i32]* %SBUS_data, i64 0, i64 4
-
-]]></Node>
-<StgValue><ssdm name="SBUS_data_addr_4"/></StgValue>
-</operation>
-
-<operation id="167" st_id="39" stage="1" lat="1">
-<core>RAM_1P_BRAM</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="50">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="70" bw="0" op_0_bw="32" op_1_bw="12">
-<![CDATA[
-:8  store i32 85, i32* %SBUS_data_addr_4, align 4
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="168" st_id="39" stage="3" lat="7">
+<operation id="159" st_id="39" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="50">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="82" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="71" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:20  %UART_load_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_6, i32 1)
+:11  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 64, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_1_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="40" st_id="40">
 
-<operation id="169" st_id="40" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="51">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="71" bw="12" op_0_bw="32" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-:9  %SBUS_data_addr_5 = getelementptr [4096 x i32]* %SBUS_data, i64 0, i64 5
-
-]]></Node>
-<StgValue><ssdm name="SBUS_data_addr_5"/></StgValue>
-</operation>
-
-<operation id="170" st_id="40" stage="1" lat="1">
-<core>RAM_1P_BRAM</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="51">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="72" bw="0" op_0_bw="32" op_1_bw="12">
-<![CDATA[
-:10  store i32 102, i32* %SBUS_data_addr_5, align 4
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="171" st_id="40" stage="2" lat="7">
+<operation id="160" st_id="40" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="51">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="82" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="72" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:20  %UART_load_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_6, i32 1)
+:12  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 62, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_1_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="41" st_id="41">
 
-<operation id="172" st_id="41" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="52">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="73" bw="12" op_0_bw="32" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-:11  %SBUS_data_addr_6 = getelementptr [4096 x i32]* %SBUS_data, i64 0, i64 6
-
-]]></Node>
-<StgValue><ssdm name="SBUS_data_addr_6"/></StgValue>
-</operation>
-
-<operation id="173" st_id="41" stage="1" lat="1">
-<core>RAM_1P_BRAM</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="52">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="74" bw="0" op_0_bw="32" op_1_bw="12">
-<![CDATA[
-:12  store i32 119, i32* %SBUS_data_addr_6, align 4
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="174" st_id="41" stage="1" lat="7">
+<operation id="161" st_id="41" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="52">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="82" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="73" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:20  %UART_load_1_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_6, i32 1)
+:13  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -52, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_1_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
 <state id="42" st_id="42">
 
-<operation id="175" st_id="42" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="53">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="75" bw="12" op_0_bw="32" op_1_bw="64" op_2_bw="64">
-<![CDATA[
-:13  %SBUS_data_addr_7 = getelementptr [4096 x i32]* %SBUS_data, i64 0, i64 7
-
-]]></Node>
-<StgValue><ssdm name="SBUS_data_addr_7"/></StgValue>
-</operation>
-
-<operation id="176" st_id="42" stage="1" lat="1">
-<core>RAM_1P_BRAM</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="53">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="76" bw="0" op_0_bw="32" op_1_bw="12">
-<![CDATA[
-:14  store i32 136, i32* %SBUS_data_addr_7, align 4
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="177" st_id="42" stage="1" lat="1">
+<operation id="162" st_id="42" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="53">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="83" bw="32" op_0_bw="32" op_1_bw="32">
+<Node id="74" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:21  %UART_addr_6_read = call i32 @_ssdm_op_Read.m_axi.volatile.i32P(i32* %UART_addr_6)
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_6_read"/></StgValue>
-</operation>
-
-<operation id="178" st_id="42" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="53">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="84" bw="1" op_0_bw="32">
-<![CDATA[
-:22  %tmp_2 = trunc i32 %UART_addr_6_read to i1
-
-]]></Node>
-<StgValue><ssdm name="tmp_2"/></StgValue>
-</operation>
-
-<operation id="179" st_id="42" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="53">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="85" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
-<![CDATA[
-:23  br i1 %tmp_2, label %4, label %._crit_edge3
+:14  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -32, i1 true)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="180" st_id="42" stage="7" lat="7">
-<core>m_axi</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="55">
-<or_exp><and_exp><literal name="tmp_2" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="87" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
-<![CDATA[
-:0  %UART_load_2_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_5, i32 1)
-
-]]></Node>
-<StgValue><ssdm name="UART_load_2_req"/></StgValue>
 </operation>
 </state>
 
 <state id="43" st_id="43">
 
-<operation id="181" st_id="43" stage="6" lat="7">
+<operation id="163" st_id="43" stage="1" lat="1">
+<core>m_axi</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="54">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="75" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
+<![CDATA[
+:15  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -8, i1 true)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="44" st_id="44">
+
+<operation id="164" st_id="44" stage="1" lat="1">
+<core>m_axi</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="55">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="76" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
+<![CDATA[
+:16  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 31, i1 true)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="45" st_id="45">
+
+<operation id="165" st_id="45" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="56">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="87" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="77" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:0  %UART_load_2_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_5, i32 1)
+:17  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 3, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_2_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
-<state id="44" st_id="44">
+<state id="46" st_id="46">
 
-<operation id="182" st_id="44" stage="5" lat="7">
+<operation id="166" st_id="46" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="57">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="87" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="78" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:0  %UART_load_2_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_5, i32 1)
+:18  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -32, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_2_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
-<state id="45" st_id="45">
+<state id="47" st_id="47">
 
-<operation id="183" st_id="45" stage="4" lat="7">
+<operation id="167" st_id="47" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="58">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="87" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="79" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:0  %UART_load_2_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_5, i32 1)
+:19  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 124, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_2_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
-<state id="46" st_id="46">
+<state id="48" st_id="48">
 
-<operation id="184" st_id="46" stage="3" lat="7">
+<operation id="168" st_id="48" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="59">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="87" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="80" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:0  %UART_load_2_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_5, i32 1)
+:20  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 15, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_load_2_req"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
-<state id="47" st_id="47">
+<state id="49" st_id="49">
 
-<operation id="185" st_id="47" stage="2" lat="7">
+<operation id="169" st_id="49" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="60">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="87" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<Node id="81" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:0  %UART_load_2_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_5, i32 1)
-
-]]></Node>
-<StgValue><ssdm name="UART_load_2_req"/></StgValue>
-</operation>
-</state>
-
-<state id="48" st_id="48">
-
-<operation id="186" st_id="48" stage="1" lat="7">
-<core>m_axi</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="61">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="87" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
-<![CDATA[
-:0  %UART_load_2_req = call i1 @_ssdm_op_ReadReq.m_axi.i32P(i32* %UART_addr_5, i32 1)
-
-]]></Node>
-<StgValue><ssdm name="UART_load_2_req"/></StgValue>
-</operation>
-
-<operation id="187" st_id="48" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="61">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="90" bw="32" op_0_bw="32" op_1_bw="64">
-<![CDATA[
-:3  %UART_addr_7 = getelementptr i32* %UART, i64 1031
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_7"/></StgValue>
-</operation>
-
-<operation id="188" st_id="48" stage="1" lat="1">
-<core>m_axi</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="61">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="91" bw="1" op_0_bw="1" op_1_bw="32" op_2_bw="32">
-<![CDATA[
-:4  %UART_addr_7_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %UART_addr_7, i32 1)
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_7_req"/></StgValue>
-</operation>
-</state>
-
-<state id="49" st_id="49">
-
-<operation id="189" st_id="49" stage="1" lat="1">
-<core>m_axi</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="62">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="88" bw="32" op_0_bw="32" op_1_bw="32">
-<![CDATA[
-:1  %UART_addr_5_read = call i32 @_ssdm_op_Read.m_axi.volatile.i32P(i32* %UART_addr_5)
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_5_read"/></StgValue>
-</operation>
-
-<operation id="190" st_id="49" stage="1" lat="1">
-<core>m_axi</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="62">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="92" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="4">
-<![CDATA[
-:5  call void @_ssdm_op_Write.m_axi.volatile.i32P(i32* %UART_addr_7, i32 1, i4 -1)
+:21  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -127, i1 true)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -2558,151 +2197,190 @@
 
 <state id="50" st_id="50">
 
-<operation id="191" st_id="50" stage="1" lat="1">
-<core>RAM_1P_BRAM</core>
+<operation id="170" st_id="50" stage="1" lat="1">
+<core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="63">
+<condition id="61">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="89" bw="0" op_0_bw="32" op_1_bw="12">
+<Node id="82" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:2  store i32 %UART_addr_5_read, i32* %SBUS_data_addr, align 4
+:22  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 -16, i1 true)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
 </operation>
+</state>
 
-<operation id="192" st_id="50" stage="5" lat="5">
+<state id="51" st_id="51">
+
+<operation id="171" st_id="51" stage="1" lat="1">
+<core>m_axi</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="62">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="83" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
+<![CDATA[
+:23  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 62, i1 true)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="52" st_id="52">
+
+<operation id="172" st_id="52" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="63">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="93" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="84" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:6  %UART_addr_7_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_7)
+:24  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 0, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_7_resp"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
-<state id="51" st_id="51">
+<state id="53" st_id="53">
 
-<operation id="193" st_id="51" stage="4" lat="5">
+<operation id="173" st_id="53" stage="1" lat="1">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="64">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="93" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="85" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="1">
 <![CDATA[
-:6  %UART_addr_7_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_7)
+:25  call void @_ssdm_op_Write.m_axi.i8P(i8* %OUT_r, i8 0, i1 true)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_7_resp"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
-<state id="52" st_id="52">
+<state id="54" st_id="54">
 
-<operation id="194" st_id="52" stage="3" lat="5">
+<operation id="174" st_id="54" stage="5" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="65">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="93" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="86" bw="1" op_0_bw="1" op_1_bw="8">
 <![CDATA[
-:6  %UART_addr_7_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_7)
+:26  %OUT_resp = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %OUT_r)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_7_resp"/></StgValue>
+<StgValue><ssdm name="OUT_resp"/></StgValue>
 </operation>
 </state>
 
-<state id="53" st_id="53">
+<state id="55" st_id="55">
 
-<operation id="195" st_id="53" stage="2" lat="5">
+<operation id="175" st_id="55" stage="4" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="66">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="93" bw="1" op_0_bw="1" op_1_bw="32">
+<Node id="86" bw="1" op_0_bw="1" op_1_bw="8">
 <![CDATA[
-:6  %UART_addr_7_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_7)
+:26  %OUT_resp = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %OUT_r)
 
 ]]></Node>
-<StgValue><ssdm name="UART_addr_7_resp"/></StgValue>
+<StgValue><ssdm name="OUT_resp"/></StgValue>
 </operation>
 </state>
 
-<state id="54" st_id="54">
+<state id="56" st_id="56">
 
-<operation id="196" st_id="54" stage="1" lat="5">
+<operation id="176" st_id="56" stage="3" lat="5">
 <core>m_axi</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="67">
-<or_exp><and_exp><literal name="calibrationSuccess_l" val="1"/>
-<literal name="tmp_2" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="93" bw="1" op_0_bw="1" op_1_bw="32">
-<![CDATA[
-:6  %UART_addr_7_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %UART_addr_7)
-
-]]></Node>
-<StgValue><ssdm name="UART_addr_7_resp"/></StgValue>
-</operation>
-
-<operation id="197" st_id="54" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="67">
-<or_exp><and_exp><literal name="calibrationSuccess_l" val="1"/>
-<literal name="tmp_2" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="94" bw="0" op_0_bw="0">
-<![CDATA[
-:7  br label %._crit_edge3
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="198" st_id="54" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="70">
-<or_exp><and_exp><literal name="calibrationSuccess_l" val="1"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="96" bw="0" op_0_bw="0">
-<![CDATA[
-._crit_edge3:0  br label %._crit_edge2
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-
-<operation id="199" st_id="54" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="73">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="98" bw="32" op_0_bw="32" op_1_bw="0">
+<Node id="86" bw="1" op_0_bw="1" op_1_bw="8">
+<![CDATA[
+:26  %OUT_resp = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %OUT_r)
+
+]]></Node>
+<StgValue><ssdm name="OUT_resp"/></StgValue>
+</operation>
+</state>
+
+<state id="57" st_id="57">
+
+<operation id="177" st_id="57" stage="2" lat="5">
+<core>m_axi</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="68">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="86" bw="1" op_0_bw="1" op_1_bw="8">
+<![CDATA[
+:26  %OUT_resp = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %OUT_r)
+
+]]></Node>
+<StgValue><ssdm name="OUT_resp"/></StgValue>
+</operation>
+</state>
+
+<state id="58" st_id="58">
+
+<operation id="178" st_id="58" stage="1" lat="5">
+<core>m_axi</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="69">
+<or_exp><and_exp><literal name="calibrationSuccess_l" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="86" bw="1" op_0_bw="1" op_1_bw="8">
+<![CDATA[
+:26  %OUT_resp = call i1 @_ssdm_op_WriteResp.m_axi.i8P(i8* %OUT_r)
+
+]]></Node>
+<StgValue><ssdm name="OUT_resp"/></StgValue>
+</operation>
+
+<operation id="179" st_id="58" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="69">
+<or_exp><and_exp><literal name="calibrationSuccess_l" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="87" bw="0" op_0_bw="0">
+<![CDATA[
+:27  br label %._crit_edge2
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="180" st_id="58" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="72">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="89" bw="32" op_0_bw="32" op_1_bw="0">
 <![CDATA[
 ._crit_edge2:0  %rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin([42 x i8]* @delay_until_ms_MD_5u) nounwind
 
@@ -2710,14 +2388,14 @@
 <StgValue><ssdm name="rbegin"/></StgValue>
 </operation>
 
-<operation id="200" st_id="54" stage="1" lat="1">
+<operation id="181" st_id="58" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="73">
+<condition id="72">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="99" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0">
+<Node id="90" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0">
 <![CDATA[
 ._crit_edge2:1  call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind
 
@@ -2725,62 +2403,62 @@
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="201" st_id="54" stage="1" lat="1">
+<operation id="182" st_id="58" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="73">
+<condition id="72">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="100" bw="0" op_0_bw="0">
+<Node id="91" bw="0" op_0_bw="0">
 <![CDATA[
-._crit_edge2:2  br label %5
+._crit_edge2:2  br label %4
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 </state>
 
-<state id="55" st_id="55">
+<state id="59" st_id="59">
 
-<operation id="202" st_id="55" stage="1" lat="1">
+<operation id="183" st_id="59" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="74">
+<condition id="73">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="102" bw="19" op_0_bw="19" op_1_bw="0">
+<Node id="93" bw="19" op_0_bw="19" op_1_bw="0">
 <![CDATA[
-:0  %p_014_0_i = phi i19 [ 0, %._crit_edge2 ], [ %ctr_V, %6 ]
+:0  %p_014_0_i = phi i19 [ 0, %._crit_edge2 ], [ %ctr_V, %5 ]
 
 ]]></Node>
 <StgValue><ssdm name="p_014_0_i"/></StgValue>
 </operation>
 
-<operation id="203" st_id="55" stage="1" lat="1">
+<operation id="184" st_id="59" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="74">
+<condition id="73">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="103" bw="1" op_0_bw="19" op_1_bw="19">
+<Node id="94" bw="1" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-:1  %tmp_4 = icmp eq i19 %p_014_0_i, -24288
+:1  %tmp_1 = icmp eq i19 %p_014_0_i, -24288
 
 ]]></Node>
-<StgValue><ssdm name="tmp_4"/></StgValue>
+<StgValue><ssdm name="tmp_1"/></StgValue>
 </operation>
 
-<operation id="204" st_id="55" stage="1" lat="1">
+<operation id="185" st_id="59" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="74">
+<condition id="73">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="104" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<Node id="95" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
 :2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 500000, i64 500000, i64 500000) nounwind
 
@@ -2788,14 +2466,14 @@
 <StgValue><ssdm name="empty"/></StgValue>
 </operation>
 
-<operation id="205" st_id="55" stage="1" lat="1">
+<operation id="186" st_id="59" stage="1" lat="1">
 <core>AddSub</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="74">
+<condition id="73">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="105" bw="19" op_0_bw="19" op_1_bw="19">
+<Node id="96" bw="19" op_0_bw="19" op_1_bw="19">
 <![CDATA[
 :3  %ctr_V = add i19 %p_014_0_i, 1
 
@@ -2803,30 +2481,30 @@
 <StgValue><ssdm name="ctr_V"/></StgValue>
 </operation>
 
-<operation id="206" st_id="55" stage="1" lat="1">
+<operation id="187" st_id="59" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="74">
+<condition id="73">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="106" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="97" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
-:4  br i1 %tmp_4, label %"delay_until_ms<5ull, 100000000ull>.exit", label %6
+:4  br i1 %tmp_1, label %"delay_until_ms<5ull, 100000000ull>.exit", label %5
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="207" st_id="55" stage="1" lat="1">
+<operation id="188" st_id="59" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="76">
-<or_exp><and_exp><literal name="tmp_4" val="0"/>
+<condition id="75">
+<or_exp><and_exp><literal name="tmp_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="108" bw="8" op_0_bw="8">
+<Node id="99" bw="8" op_0_bw="8">
 <![CDATA[
 :0  %dummy_1 = load volatile i8* %dummy, align 1
 
@@ -2834,15 +2512,15 @@
 <StgValue><ssdm name="dummy_1"/></StgValue>
 </operation>
 
-<operation id="208" st_id="55" stage="1" lat="1">
+<operation id="189" st_id="59" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="76">
-<or_exp><and_exp><literal name="tmp_4" val="0"/>
+<condition id="75">
+<or_exp><and_exp><literal name="tmp_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="109" bw="0" op_0_bw="8" op_1_bw="8">
+<Node id="100" bw="0" op_0_bw="8" op_1_bw="8">
 <![CDATA[
 :1  store volatile i8 %dummy_1, i8* %dummy, align 1
 
@@ -2850,31 +2528,31 @@
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="209" st_id="55" stage="1" lat="1">
+<operation id="190" st_id="59" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="76">
-<or_exp><and_exp><literal name="tmp_4" val="0"/>
+<condition id="75">
+<or_exp><and_exp><literal name="tmp_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="110" bw="0" op_0_bw="0">
+<Node id="101" bw="0" op_0_bw="0">
 <![CDATA[
-:2  br label %5
+:2  br label %4
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="210" st_id="55" stage="1" lat="1">
+<operation id="191" st_id="59" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="78">
-<or_exp><and_exp><literal name="tmp_4" val="1"/>
+<condition id="77">
+<or_exp><and_exp><literal name="tmp_1" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="112" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
+<Node id="103" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="32">
 <![CDATA[
 delay_until_ms<5ull, 100000000ull>.exit:0  %rend = call i32 (...)* @_ssdm_op_SpecRegionEnd([42 x i8]* @delay_until_ms_MD_5u, i32 %rbegin) nounwind
 
@@ -2882,15 +2560,15 @@ delay_until_ms<5ull, 100000000ull>.exit:0  %rend = call i32 (...)* @_ssdm_op_Spe
 <StgValue><ssdm name="rend"/></StgValue>
 </operation>
 
-<operation id="211" st_id="55" stage="1" lat="1">
+<operation id="192" st_id="59" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="78">
-<or_exp><and_exp><literal name="tmp_4" val="1"/>
+<condition id="77">
+<or_exp><and_exp><literal name="tmp_1" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="113" bw="0">
+<Node id="104" bw="0">
 <![CDATA[
 delay_until_ms<5ull, 100000000ull>.exit:1  ret void
 

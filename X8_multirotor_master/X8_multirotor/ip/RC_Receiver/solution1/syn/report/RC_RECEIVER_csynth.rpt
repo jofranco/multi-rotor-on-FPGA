@@ -1,0 +1,190 @@
+
+
+================================================================
+== Vivado HLS Report for 'RC_RECEIVER'
+================================================================
+* Date:           Sun May 19 18:22:12 2019
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        RC_Receiver
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     5.576|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   24|   24|   25|   25| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|     78|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |       10|      -|     256|    260|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|    476|
+|Register         |        -|      -|      82|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |       10|      0|     338|    814|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        3|      0|   ~0   |      1|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+------------------------+---------+-------+-----+-----+
+    |         Instance         |         Module         | BRAM_18K| DSP48E|  FF | LUT |
+    +--------------------------+------------------------+---------+-------+-----+-----+
+    |RC_RECEIVER_CTRL_s_axi_U  |RC_RECEIVER_CTRL_s_axi  |        0|      0|   36|   40|
+    |RC_RECEIVER_DATA_s_axi_U  |RC_RECEIVER_DATA_s_axi  |        2|      0|  110|  110|
+    |RC_RECEIVER_TEST_s_axi_U  |RC_RECEIVER_TEST_s_axi  |        8|      0|  110|  110|
+    +--------------------------+------------------------+---------+-------+-----+-----+
+    |Total                     |                        |       10|      0|  256|  260|
+    +--------------------------+------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-------------------+----------+-------+---+----+------------+------------+
+    |   Variable Name   | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------+----------+-------+---+----+------------+------------+
+    |tmp_4_fu_709_p2    |     +    |      0|  0|  39|          32|           1|
+    |tmp_6_fu_686_p2    |     +    |      0|  0|  15|           8|           1|
+    |or_cond_fu_677_p2  |    and   |      0|  0|   2|           1|           1|
+    |tmp_1_fu_672_p2    |   icmp   |      0|  0|  11|           8|           4|
+    |tmp_5_fu_662_p2    |   icmp   |      0|  0|  11|           8|           1|
+    +-------------------+----------+-------+---+----+------------+------------+
+    |Total              |          |      0|  0|  78|          57|           8|
+    +-------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------+-----+-----------+-----+-----------+
+    |        Name        | LUT | Input Size| Bits| Total Bits|
+    +--------------------+-----+-----------+-----+-----------+
+    |SBUS_data_address0  |  113|         24|    5|        120|
+    |ap_NS_fsm           |  121|         26|    1|         26|
+    |norm_out_address0   |  121|         26|   12|        312|
+    |norm_out_d0         |  121|         26|   32|        832|
+    +--------------------+-----+-----------+-----+-----------+
+    |Total               |  476|        102|   50|       1290|
+    +--------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------+----+----+-----+-----------+
+    |            Name           | FF | LUT| Bits| Const Bits|
+    +---------------------------+----+----+-----+-----------+
+    |SBUS_data_load_21_reg_837  |   8|   0|    8|          0|
+    |SBUS_data_load_reg_726     |   8|   0|    8|          0|
+    |ap_CS_fsm                  |  25|   0|   25|          0|
+    |errors                     |   8|   0|    8|          0|
+    |lost                       |  32|   0|   32|          0|
+    |tmp_5_reg_847              |   1|   0|    1|          0|
+    +---------------------------+----+----+-----+-----------+
+    |Total                      |  82|   0|   82|          0|
+    +---------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+--------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------------+-----+-----+------------+--------------+--------------+
+|s_axi_CTRL_AWVALID  |  in |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_AWREADY  | out |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_AWADDR   |  in |    4|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_WVALID   |  in |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_WREADY   | out |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_WDATA    |  in |   32|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_WSTRB    |  in |    4|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_ARVALID  |  in |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_ARREADY  | out |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_ARADDR   |  in |    4|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_RVALID   | out |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_RREADY   |  in |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_RDATA    | out |   32|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_RRESP    | out |    2|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_BVALID   | out |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_BREADY   |  in |    1|    s_axi   |     CTRL     |  return void |
+|s_axi_CTRL_BRESP    | out |    2|    s_axi   |     CTRL     |  return void |
+|s_axi_DATA_AWVALID  |  in |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_AWREADY  | out |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_AWADDR   |  in |    6|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_WVALID   |  in |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_WREADY   | out |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_WDATA    |  in |   32|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_WSTRB    |  in |    4|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_ARVALID  |  in |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_ARREADY  | out |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_ARADDR   |  in |    6|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_RVALID   | out |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_RREADY   |  in |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_RDATA    | out |   32|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_RRESP    | out |    2|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_BVALID   | out |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_BREADY   |  in |    1|    s_axi   |     DATA     |     array    |
+|s_axi_DATA_BRESP    | out |    2|    s_axi   |     DATA     |     array    |
+|s_axi_TEST_AWVALID  |  in |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_AWREADY  | out |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_AWADDR   |  in |   15|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_WVALID   |  in |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_WREADY   | out |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_WDATA    |  in |   32|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_WSTRB    |  in |    4|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_ARVALID  |  in |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_ARREADY  | out |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_ARADDR   |  in |   15|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_RVALID   | out |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_RREADY   |  in |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_RDATA    | out |   32|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_RRESP    | out |    2|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_BVALID   | out |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_BREADY   |  in |    1|    s_axi   |     TEST     |     array    |
+|s_axi_TEST_BRESP    | out |    2|    s_axi   |     TEST     |     array    |
+|ap_clk              |  in |    1| ap_ctrl_hs |  RC_RECEIVER | return value |
+|ap_rst_n            |  in |    1| ap_ctrl_hs |  RC_RECEIVER | return value |
+|interrupt           | out |    1| ap_ctrl_hs |  RC_RECEIVER | return value |
++--------------------+-----+-----+------------+--------------+--------------+
+

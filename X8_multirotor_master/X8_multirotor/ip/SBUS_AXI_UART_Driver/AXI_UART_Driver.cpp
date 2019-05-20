@@ -1,8 +1,9 @@
 //include libraries
 #include "AXI_UART_Driver.h"
+#include "stdio.h"
 
 //void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096], uint32_t SBUS_test[4096])
-void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096])
+void AXI_UART_DRIVER(volatile int uart_bus[4096], int8_t SBUS_data[4096])
 {
 
 	//SETUP PRAGMAS
@@ -10,10 +11,13 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096])
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 	#pragma HLS INTERFACE m_axi depth=4096 port=uart_bus offset=off bundle=UART		/*use ap_ctrl_none for autorestart*/
-	//#pragma HLS INTERFACE m_axi depth=4096 port=SBUS_data offset=off bundle=OUT
-	#pragma HLS INTERFACE s_axilite depth=4096 port=SBUS_data bundle=TEST
-	#pragma HLS RESOURCE variable=SBUS_data core=RAM_1P_BRAM
+	#pragma HLS INTERFACE m_axi depth=4096 port=SBUS_data offset=off bundle=OUT
 
+	// test code for python debug
+	//#pragma HLS INTERFACE s_axilite depth=4096 port=SBUS_data bundle=TEST
+	//#pragma HLS RESOURCE variable=SBUS_data core=RAM_1P_BRAM
+
+	// test code for python debug
 	//#pragma HLS INTERFACE m_axi depth=4096 port=SBUS_test offset=off bundle=TEST
 
 	//initialize variables
@@ -74,8 +78,107 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096])
 	//if the sensor was properly calibrated, return appropriate data; otherwise, return 0's
 	if (calibrationSuccess)
 	{
+		SBUS_data[0]  = 0x0F; // this byte is manually inverted for START_BYTE
 
-		// test Jupyter code
+		// debug code
+		if(1) // USE_TEST_VECTOR
+		{
+			if(1)  // USE_REAL_DATA
+			{
+				// this is actual RC output data
+				SBUS_data[0]  = 0x0F; // this byte is manually inverted for START_BYTE
+				SBUS_data[1]  = 0xC8;
+				SBUS_data[2]  = 0xF0;
+				SBUS_data[3]  = 0xFA;
+				SBUS_data[4]  = 0x5F;
+				SBUS_data[5]  = 0x6B;
+				SBUS_data[6]  = 0xE3;
+				SBUS_data[7]  = 0x50;
+				SBUS_data[8]  = 0x6A;
+				SBUS_data[9]  = 0x0D;
+				SBUS_data[10] = 0x40;
+				SBUS_data[11] = 0x3E;
+				SBUS_data[12] = 0xCC;
+				SBUS_data[13] = 0xE0;
+				SBUS_data[14] = 0xF8;
+				SBUS_data[15] = 0x1F;
+				SBUS_data[16] = 0x03;
+				SBUS_data[17] = 0xE0;
+				SBUS_data[18] = 0x7C;
+				SBUS_data[19] = 0x0F;
+				SBUS_data[20] = 0x81;
+				SBUS_data[21] = 0xF0;
+				SBUS_data[22] = 0x3E;
+				SBUS_data[23] = 0x00;
+				SBUS_data[24] = 0x00;
+			}
+			else if(USE_INV_DATA)
+			{
+				// this is inverted LSB decoded RC output data, needs a bit reversal
+				SBUS_data[0]  = 0x0F;
+				SBUS_data[1]  = 0x13;
+				SBUS_data[2]  = 0x0F;
+				SBUS_data[3]  = 0x1F;
+				SBUS_data[4]  = 0xFB;
+				SBUS_data[5]  = 0xD0;
+				SBUS_data[6]  = 0xC7;
+				SBUS_data[7]  = 0x0A;
+				SBUS_data[8]  = 0x56;
+				SBUS_data[9]  = 0xB0;
+				SBUS_data[10] = 0x02;
+				SBUS_data[11] = 0x7C;
+				SBUS_data[12] = 0x33;
+				SBUS_data[13] = 0x07;
+				SBUS_data[14] = 0x1F;
+				SBUS_data[15] = 0xF8;
+				SBUS_data[16] = 0xC0;
+				SBUS_data[17] = 0x07;
+				SBUS_data[18] = 0x3E;
+				SBUS_data[19] = 0xF0;
+				SBUS_data[20] = 0x81;
+				SBUS_data[21] = 0x0F;
+				SBUS_data[22] = 0x7C;
+				SBUS_data[23] = 0x00;
+				SBUS_data[24] = 0x00;
+			}
+		}
+
+/*
+		DATA_READY = uart_bus[LINE_STATUS_REG];
+		if( (DATA_READY & BIT_ONE) == 1)
+		{
+			SBUS_data[0] = uart_bus[RX_BUF_REG];
+
+			// start grabbing RX data from RBR
+			if(SBUS_data[0] == START_BYTE)
+			{
+				for(int index = 1; index < LENGTH_BYTES;  )
+				{
+				    DATA_READY = uart_bus[LINE_STATUS_REG];
+                    if( (DATA_READY & BIT_ONE) == 1)
+				    {
+                        SBUS_data[index++] = uart_bus[RX_BUF_REG];
+                    }
+				}
+			}
+		}
+*/
+
+    }
+    else  // this code needs some work
+    {
+        //delay_until_ms<3>(); //sample rate
+	}
+
+	delay_until_ms<5>(); // wait 6 ms for next packet
+}
+
+
+// TEST CODE FOR HLS CORE
+// THIS CODE WORKED TO TEST READ/WRITE FROM PYTHON AND SETUP OF UART CORE
+
+/*
+  		// test Jupyter code
 		SBUS_data[0] = 0x11;
 		SBUS_data[1] = 0x22;
 		SBUS_data[2] = 0x33;
@@ -85,7 +188,7 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096])
 		SBUS_data[6] = 0x77;
 		SBUS_data[7] = 0x88;
 
-		/*
+
 		// test Jupyter code
 		SBUS_test[0] = 0x11;
 		SBUS_test[1] = 0x22;
@@ -95,7 +198,7 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096])
 		SBUS_test[5] = 0x66;
 		SBUS_test[6] = 0x77;
 		SBUS_test[7] = 0x88;
-		*/
+
 
 		uart_bus[TX_HOLD_REG] = 0x45;
 		//uart_bus[TX_HOLD_REG] = 0x45;
@@ -108,48 +211,5 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096])
 
 			uart_bus[SCRATCH_REG] = 0x01;	    // for debug in Jupyter Notebook
 
-/*
-			// start grabbing RX data from RBR
-			if(SBUS_data[0] == START_BYTE)
-			{
-				for(int index = 1; index < LENGTH_BYTES; index++)
-				{
-					SBUS_data[index] = uart_bus[RX_BUF_REG];
-				}
-			}
+		}
 */
-
-		}
-
-
-
-		/*
-		// Latest code - use this
-
-		DATA_READY = uart_bus(LINE_STATUS_REG);
-		if( (DATA_READY & BIT_ONE) == 1)
-		{
-			SBUS_data[0] = uart_bus[RX_BUF_REG];
-
-			// start grabbing RX data from RBR
-			if(SBUS_data[0] == START_BYTE)
-			{
-				for(int index = 1; index < LENGTH_BYTES;  )
-				{
-				    DATA_READY = uart_bus(LINE_STATUS_REG);
-                    if( (DATA_READY & BIT_ONE) == 1)
-				    {
-                        SBUS_data[index++] = uart_bus[RX_BUF_REG];
-                    }
-				}
-			}
-		}
-		*/
-    }
-    else  // this code needs some work
-    {
-        //delay_until_ms<3>(); //sample rate
-	}
-
-	delay_until_ms<5>(); // wait 6 ms for next packet
-}

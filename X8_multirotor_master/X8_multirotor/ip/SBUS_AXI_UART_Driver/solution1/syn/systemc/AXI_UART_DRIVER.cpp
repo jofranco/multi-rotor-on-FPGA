@@ -14,61 +14,65 @@ namespace ap_rtl {
 
 const sc_logic AXI_UART_DRIVER::ap_const_logic_1 = sc_dt::Log_1;
 const sc_logic AXI_UART_DRIVER::ap_const_logic_0 = sc_dt::Log_0;
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state1 = "1";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state2 = "10";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state3 = "100";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state4 = "1000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state5 = "10000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state6 = "100000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state7 = "1000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state8 = "10000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state9 = "100000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state10 = "1000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state11 = "10000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state12 = "100000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state13 = "1000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state14 = "10000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state15 = "100000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state16 = "1000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state17 = "10000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state18 = "100000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state19 = "1000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state20 = "10000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state21 = "100000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state22 = "1000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state23 = "10000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state24 = "100000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state25 = "1000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state26 = "10000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state27 = "100000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state28 = "1000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state29 = "10000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state30 = "100000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state31 = "1000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state32 = "10000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state33 = "100000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state34 = "1000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state35 = "10000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state36 = "100000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state37 = "1000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state38 = "10000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state39 = "100000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state40 = "1000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state41 = "10000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state42 = "100000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state43 = "1000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state44 = "10000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state45 = "100000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state46 = "1000000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state47 = "10000000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state48 = "100000000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state49 = "1000000000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state50 = "10000000000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state51 = "100000000000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state52 = "1000000000000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state53 = "10000000000000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state54 = "100000000000000000000000000000000000000000000000000000";
-const sc_lv<55> AXI_UART_DRIVER::ap_ST_fsm_state55 = "1000000000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state1 = "1";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state2 = "10";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state3 = "100";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state4 = "1000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state5 = "10000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state6 = "100000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state7 = "1000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state8 = "10000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state9 = "100000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state10 = "1000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state11 = "10000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state12 = "100000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state13 = "1000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state14 = "10000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state15 = "100000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state16 = "1000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state17 = "10000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state18 = "100000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state19 = "1000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state20 = "10000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state21 = "100000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state22 = "1000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state23 = "10000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state24 = "100000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state25 = "1000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state26 = "10000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state27 = "100000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state28 = "1000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state29 = "10000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state30 = "100000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state31 = "1000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state32 = "10000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state33 = "100000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state34 = "1000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state35 = "10000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state36 = "100000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state37 = "1000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state38 = "10000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state39 = "100000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state40 = "1000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state41 = "10000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state42 = "100000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state43 = "1000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state44 = "10000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state45 = "100000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state46 = "1000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state47 = "10000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state48 = "100000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state49 = "1000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state50 = "10000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state51 = "100000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state52 = "1000000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state53 = "10000000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state54 = "100000000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state55 = "1000000000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state56 = "10000000000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state57 = "100000000000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state58 = "1000000000000000000000000000000000000000000000000000000000";
+const sc_lv<59> AXI_UART_DRIVER::ap_ST_fsm_state59 = "10000000000000000000000000000000000000000000000000000000000";
 const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_0 = "00000000000000000000000000000000";
 const bool AXI_UART_DRIVER::ap_const_boolean_1 = true;
 const sc_lv<1> AXI_UART_DRIVER::ap_const_lv1_1 = "1";
@@ -91,41 +95,49 @@ const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_9 = "1001";
 const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_C = "1100";
 const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_B = "1011";
 const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_1C = "11100";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_1D = "11101";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_1E = "11110";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_1F = "11111";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_20 = "100000";
 const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_21 = "100001";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_29 = "101001";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_30 = "110000";
 const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_22 = "100010";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_23 = "100011";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_24 = "100100";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_25 = "100101";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_26 = "100110";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_27 = "100111";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_28 = "101000";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_29 = "101001";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_2A = "101010";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_2B = "101011";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_2C = "101100";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_2D = "101101";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_2E = "101110";
 const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_2F = "101111";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_35 = "110101";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_30 = "110000";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_31 = "110001";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_32 = "110010";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_33 = "110011";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_34 = "110100";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_39 = "111001";
 const int AXI_UART_DRIVER::C_S_AXI_DATA_WIDTH = "100000";
 const int AXI_UART_DRIVER::C_M_AXI_UART_TARGET_ADDR = "0000000000000000000000000000000000000000000000000000000000000000";
 const int AXI_UART_DRIVER::C_M_AXI_UART_USER_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
 const int AXI_UART_DRIVER::C_M_AXI_UART_PROT_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
 const int AXI_UART_DRIVER::C_M_AXI_UART_CACHE_VALUE = "11";
 const int AXI_UART_DRIVER::C_M_AXI_DATA_WIDTH = "100000";
+const int AXI_UART_DRIVER::C_M_AXI_OUT_R_TARGET_ADDR = "0000000000000000000000000000000000000000000000000000000000000000";
+const int AXI_UART_DRIVER::C_M_AXI_OUT_R_USER_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
+const int AXI_UART_DRIVER::C_M_AXI_OUT_R_PROT_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
+const int AXI_UART_DRIVER::C_M_AXI_OUT_R_CACHE_VALUE = "11";
 const bool AXI_UART_DRIVER::ap_const_boolean_0 = false;
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_36 = "110110";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_3A = "111010";
 const sc_lv<19> AXI_UART_DRIVER::ap_const_lv19_0 = "0000000000000000000";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_0 = "0000000000000000000000000000000000000000000000000000000000000000";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_1 = "1";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_23 = "100011";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_2 = "10";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_24 = "100100";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_3 = "11";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_25 = "100101";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_4 = "100";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_26 = "100110";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_5 = "101";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_27 = "100111";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_6 = "110";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_28 = "101000";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_7 = "111";
 const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_407 = "10000000111";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_400 = "10000000000";
 const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_403 = "10000000011";
+const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_400 = "10000000000";
 const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_401 = "10000000001";
 const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_402 = "10000000010";
-const sc_lv<64> AXI_UART_DRIVER::ap_const_lv64_405 = "10000000101";
 const sc_lv<3> AXI_UART_DRIVER::ap_const_lv3_0 = "000";
 const sc_lv<2> AXI_UART_DRIVER::ap_const_lv2_0 = "00";
 const sc_lv<4> AXI_UART_DRIVER::ap_const_lv4_0 = "0000";
@@ -133,15 +145,27 @@ const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_45 = "1000101";
 const sc_lv<4> AXI_UART_DRIVER::ap_const_lv4_F = "1111";
 const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_80 = "10000000";
 const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_3F = "111111";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_1F = "11111";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_11 = "10001";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_33 = "110011";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_44 = "1000100";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_55 = "1010101";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_66 = "1100110";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_77 = "1110111";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_88 = "10001000";
-const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_31 = "110001";
+const sc_lv<32> AXI_UART_DRIVER::ap_const_lv32_19 = "11001";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_F = "1111";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_C8 = "11001000";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_F0 = "11110000";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_FA = "11111010";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_5F = "1011111";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_6B = "1101011";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_E3 = "11100011";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_50 = "1010000";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_6A = "1101010";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_D = "1101";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_40 = "1000000";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_3E = "111110";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_CC = "11001100";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_E0 = "11100000";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_F8 = "11111000";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_1F = "11111";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_3 = "11";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_7C = "1111100";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_81 = "10000001";
+const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_0 = "00000000";
 const sc_lv<8> AXI_UART_DRIVER::ap_const_lv8_45 = "1000101";
 const sc_lv<19> AXI_UART_DRIVER::ap_const_lv19_7A120 = "1111010000100100000";
 const sc_lv<19> AXI_UART_DRIVER::ap_const_lv19_1 = "1";
@@ -173,31 +197,6 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     AXI_UART_DRIVER_CTRL_s_axi_U->ap_ready(ap_ready);
     AXI_UART_DRIVER_CTRL_s_axi_U->ap_done(ap_done);
     AXI_UART_DRIVER_CTRL_s_axi_U->ap_idle(ap_idle);
-    AXI_UART_DRIVER_TEST_s_axi_U = new AXI_UART_DRIVER_TEST_s_axi<C_S_AXI_TEST_ADDR_WIDTH,C_S_AXI_TEST_DATA_WIDTH>("AXI_UART_DRIVER_TEST_s_axi_U");
-    AXI_UART_DRIVER_TEST_s_axi_U->AWVALID(s_axi_TEST_AWVALID);
-    AXI_UART_DRIVER_TEST_s_axi_U->AWREADY(s_axi_TEST_AWREADY);
-    AXI_UART_DRIVER_TEST_s_axi_U->AWADDR(s_axi_TEST_AWADDR);
-    AXI_UART_DRIVER_TEST_s_axi_U->WVALID(s_axi_TEST_WVALID);
-    AXI_UART_DRIVER_TEST_s_axi_U->WREADY(s_axi_TEST_WREADY);
-    AXI_UART_DRIVER_TEST_s_axi_U->WDATA(s_axi_TEST_WDATA);
-    AXI_UART_DRIVER_TEST_s_axi_U->WSTRB(s_axi_TEST_WSTRB);
-    AXI_UART_DRIVER_TEST_s_axi_U->ARVALID(s_axi_TEST_ARVALID);
-    AXI_UART_DRIVER_TEST_s_axi_U->ARREADY(s_axi_TEST_ARREADY);
-    AXI_UART_DRIVER_TEST_s_axi_U->ARADDR(s_axi_TEST_ARADDR);
-    AXI_UART_DRIVER_TEST_s_axi_U->RVALID(s_axi_TEST_RVALID);
-    AXI_UART_DRIVER_TEST_s_axi_U->RREADY(s_axi_TEST_RREADY);
-    AXI_UART_DRIVER_TEST_s_axi_U->RDATA(s_axi_TEST_RDATA);
-    AXI_UART_DRIVER_TEST_s_axi_U->RRESP(s_axi_TEST_RRESP);
-    AXI_UART_DRIVER_TEST_s_axi_U->BVALID(s_axi_TEST_BVALID);
-    AXI_UART_DRIVER_TEST_s_axi_U->BREADY(s_axi_TEST_BREADY);
-    AXI_UART_DRIVER_TEST_s_axi_U->BRESP(s_axi_TEST_BRESP);
-    AXI_UART_DRIVER_TEST_s_axi_U->ACLK(ap_clk);
-    AXI_UART_DRIVER_TEST_s_axi_U->ARESET(ap_rst_n_inv);
-    AXI_UART_DRIVER_TEST_s_axi_U->ACLK_EN(ap_var_for_const0);
-    AXI_UART_DRIVER_TEST_s_axi_U->SBUS_data_address0(SBUS_data_address0);
-    AXI_UART_DRIVER_TEST_s_axi_U->SBUS_data_ce0(SBUS_data_ce0);
-    AXI_UART_DRIVER_TEST_s_axi_U->SBUS_data_we0(SBUS_data_we0);
-    AXI_UART_DRIVER_TEST_s_axi_U->SBUS_data_d0(SBUS_data_d0);
     AXI_UART_DRIVER_UART_m_axi_U = new AXI_UART_DRIVER_UART_m_axi<0,32,32,5,16,16,16,16,C_M_AXI_UART_ID_WIDTH,C_M_AXI_UART_ADDR_WIDTH,C_M_AXI_UART_DATA_WIDTH,C_M_AXI_UART_AWUSER_WIDTH,C_M_AXI_UART_ARUSER_WIDTH,C_M_AXI_UART_WUSER_WIDTH,C_M_AXI_UART_RUSER_WIDTH,C_M_AXI_UART_BUSER_WIDTH,C_M_AXI_UART_TARGET_ADDR,C_M_AXI_UART_USER_VALUE,C_M_AXI_UART_PROT_VALUE,C_M_AXI_UART_CACHE_VALUE>("AXI_UART_DRIVER_UART_m_axi_U");
     AXI_UART_DRIVER_UART_m_axi_U->AWVALID(m_axi_UART_AWVALID);
     AXI_UART_DRIVER_UART_m_axi_U->AWREADY(m_axi_UART_AWREADY);
@@ -292,115 +291,248 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     AXI_UART_DRIVER_UART_m_axi_U->I_BRESP(UART_BRESP);
     AXI_UART_DRIVER_UART_m_axi_U->I_BID(UART_BID);
     AXI_UART_DRIVER_UART_m_axi_U->I_BUSER(UART_BUSER);
+    AXI_UART_DRIVER_OUT_r_m_axi_U = new AXI_UART_DRIVER_OUT_r_m_axi<0,8,32,5,16,16,16,16,C_M_AXI_OUT_R_ID_WIDTH,C_M_AXI_OUT_R_ADDR_WIDTH,C_M_AXI_OUT_R_DATA_WIDTH,C_M_AXI_OUT_R_AWUSER_WIDTH,C_M_AXI_OUT_R_ARUSER_WIDTH,C_M_AXI_OUT_R_WUSER_WIDTH,C_M_AXI_OUT_R_RUSER_WIDTH,C_M_AXI_OUT_R_BUSER_WIDTH,C_M_AXI_OUT_R_TARGET_ADDR,C_M_AXI_OUT_R_USER_VALUE,C_M_AXI_OUT_R_PROT_VALUE,C_M_AXI_OUT_R_CACHE_VALUE>("AXI_UART_DRIVER_OUT_r_m_axi_U");
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWVALID(m_axi_OUT_r_AWVALID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWREADY(m_axi_OUT_r_AWREADY);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWADDR(m_axi_OUT_r_AWADDR);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWID(m_axi_OUT_r_AWID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWLEN(m_axi_OUT_r_AWLEN);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWSIZE(m_axi_OUT_r_AWSIZE);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWBURST(m_axi_OUT_r_AWBURST);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWLOCK(m_axi_OUT_r_AWLOCK);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWCACHE(m_axi_OUT_r_AWCACHE);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWPROT(m_axi_OUT_r_AWPROT);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWQOS(m_axi_OUT_r_AWQOS);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWREGION(m_axi_OUT_r_AWREGION);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->AWUSER(m_axi_OUT_r_AWUSER);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->WVALID(m_axi_OUT_r_WVALID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->WREADY(m_axi_OUT_r_WREADY);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->WDATA(m_axi_OUT_r_WDATA);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->WSTRB(m_axi_OUT_r_WSTRB);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->WLAST(m_axi_OUT_r_WLAST);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->WID(m_axi_OUT_r_WID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->WUSER(m_axi_OUT_r_WUSER);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARVALID(m_axi_OUT_r_ARVALID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARREADY(m_axi_OUT_r_ARREADY);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARADDR(m_axi_OUT_r_ARADDR);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARID(m_axi_OUT_r_ARID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARLEN(m_axi_OUT_r_ARLEN);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARSIZE(m_axi_OUT_r_ARSIZE);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARBURST(m_axi_OUT_r_ARBURST);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARLOCK(m_axi_OUT_r_ARLOCK);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARCACHE(m_axi_OUT_r_ARCACHE);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARPROT(m_axi_OUT_r_ARPROT);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARQOS(m_axi_OUT_r_ARQOS);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARREGION(m_axi_OUT_r_ARREGION);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARUSER(m_axi_OUT_r_ARUSER);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->RVALID(m_axi_OUT_r_RVALID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->RREADY(m_axi_OUT_r_RREADY);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->RDATA(m_axi_OUT_r_RDATA);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->RLAST(m_axi_OUT_r_RLAST);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->RID(m_axi_OUT_r_RID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->RUSER(m_axi_OUT_r_RUSER);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->RRESP(m_axi_OUT_r_RRESP);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->BVALID(m_axi_OUT_r_BVALID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->BREADY(m_axi_OUT_r_BREADY);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->BRESP(m_axi_OUT_r_BRESP);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->BID(m_axi_OUT_r_BID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->BUSER(m_axi_OUT_r_BUSER);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ACLK(ap_clk);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ARESET(ap_rst_n_inv);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->ACLK_EN(ap_var_for_const0);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARVALID(ap_var_for_const6);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARREADY(OUT_r_ARREADY);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARADDR(ap_var_for_const8);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARID(ap_var_for_const1);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARLEN(ap_var_for_const8);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARSIZE(ap_var_for_const3);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARLOCK(ap_var_for_const4);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARCACHE(ap_var_for_const5);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARQOS(ap_var_for_const5);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARPROT(ap_var_for_const3);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARUSER(ap_var_for_const1);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARBURST(ap_var_for_const4);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_ARREGION(ap_var_for_const5);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_RVALID(OUT_r_RVALID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_RREADY(ap_var_for_const6);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_RDATA(OUT_r_RDATA);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_RID(OUT_r_RID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_RUSER(OUT_r_RUSER);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_RRESP(OUT_r_RRESP);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_RLAST(OUT_r_RLAST);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWVALID(OUT_r_AWVALID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWREADY(OUT_r_AWREADY);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWADDR(ap_var_for_const8);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWID(ap_var_for_const1);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWLEN(ap_var_for_const9);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWSIZE(ap_var_for_const3);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWLOCK(ap_var_for_const4);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWCACHE(ap_var_for_const5);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWQOS(ap_var_for_const5);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWPROT(ap_var_for_const3);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWUSER(ap_var_for_const1);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWBURST(ap_var_for_const4);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_AWREGION(ap_var_for_const5);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_WVALID(OUT_r_WVALID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_WREADY(OUT_r_WREADY);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_WDATA(OUT_r_WDATA);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_WID(ap_var_for_const1);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_WUSER(ap_var_for_const1);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_WLAST(ap_var_for_const6);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_WSTRB(ap_var_for_const10);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_BVALID(OUT_r_BVALID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_BREADY(OUT_r_BREADY);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_BRESP(OUT_r_BRESP);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_BID(OUT_r_BID);
+    AXI_UART_DRIVER_OUT_r_m_axi_U->I_BUSER(OUT_r_BUSER);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
     sensitive << ( ap_clk.pos() );
 
-    SC_METHOD(thread_SBUS_data_address0);
-    sensitive << ( ap_CS_fsm_state42 );
-    sensitive << ( ap_CS_fsm_state35 );
-    sensitive << ( ap_CS_fsm_state36 );
-    sensitive << ( ap_CS_fsm_state37 );
-    sensitive << ( ap_CS_fsm_state38 );
-    sensitive << ( ap_CS_fsm_state39 );
-    sensitive << ( ap_CS_fsm_state40 );
-    sensitive << ( ap_CS_fsm_state41 );
-    sensitive << ( ap_CS_fsm_state50 );
+    SC_METHOD(thread_OUT_r_AWVALID);
+    sensitive << ( calibrationSuccess );
+    sensitive << ( ap_CS_fsm_state28 );
+    sensitive << ( UART_BVALID );
+    sensitive << ( ap_predicate_op142_writeresp_state28 );
+    sensitive << ( ap_reg_ioackin_OUT_r_AWREADY );
 
-    SC_METHOD(thread_SBUS_data_ce0);
-    sensitive << ( ap_CS_fsm_state42 );
-    sensitive << ( ap_CS_fsm_state35 );
-    sensitive << ( UART_RVALID );
-    sensitive << ( ap_sig_ioackin_UART_ARREADY );
-    sensitive << ( ap_block_state42_io );
-    sensitive << ( ap_CS_fsm_state36 );
-    sensitive << ( ap_CS_fsm_state37 );
-    sensitive << ( ap_CS_fsm_state38 );
-    sensitive << ( ap_CS_fsm_state39 );
-    sensitive << ( ap_CS_fsm_state40 );
-    sensitive << ( ap_CS_fsm_state41 );
-    sensitive << ( ap_CS_fsm_state50 );
+    SC_METHOD(thread_OUT_r_BREADY);
+    sensitive << ( ap_CS_fsm_state58 );
+    sensitive << ( calibrationSuccess_l_reg_623 );
+    sensitive << ( OUT_r_BVALID );
 
-    SC_METHOD(thread_SBUS_data_d0);
-    sensitive << ( ap_CS_fsm_state42 );
+    SC_METHOD(thread_OUT_r_WDATA);
+    sensitive << ( ap_CS_fsm_state29 );
+    sensitive << ( ap_CS_fsm_state30 );
+    sensitive << ( ap_CS_fsm_state31 );
+    sensitive << ( ap_CS_fsm_state32 );
+    sensitive << ( ap_CS_fsm_state33 );
+    sensitive << ( ap_CS_fsm_state34 );
     sensitive << ( ap_CS_fsm_state35 );
-    sensitive << ( UART_addr_5_read_reg_577 );
     sensitive << ( ap_CS_fsm_state36 );
     sensitive << ( ap_CS_fsm_state37 );
     sensitive << ( ap_CS_fsm_state38 );
     sensitive << ( ap_CS_fsm_state39 );
     sensitive << ( ap_CS_fsm_state40 );
     sensitive << ( ap_CS_fsm_state41 );
+    sensitive << ( ap_CS_fsm_state42 );
+    sensitive << ( ap_CS_fsm_state43 );
+    sensitive << ( ap_CS_fsm_state44 );
+    sensitive << ( ap_CS_fsm_state45 );
+    sensitive << ( ap_CS_fsm_state46 );
+    sensitive << ( ap_CS_fsm_state47 );
+    sensitive << ( ap_CS_fsm_state48 );
+    sensitive << ( ap_CS_fsm_state49 );
     sensitive << ( ap_CS_fsm_state50 );
+    sensitive << ( ap_CS_fsm_state51 );
+    sensitive << ( ap_CS_fsm_state52 );
+    sensitive << ( ap_CS_fsm_state53 );
+    sensitive << ( ap_reg_ioackin_OUT_r_WREADY );
 
-    SC_METHOD(thread_SBUS_data_we0);
-    sensitive << ( ap_CS_fsm_state42 );
+    SC_METHOD(thread_OUT_r_WVALID);
+    sensitive << ( ap_CS_fsm_state29 );
+    sensitive << ( ap_CS_fsm_state30 );
+    sensitive << ( ap_CS_fsm_state31 );
+    sensitive << ( ap_CS_fsm_state32 );
+    sensitive << ( ap_CS_fsm_state33 );
+    sensitive << ( ap_CS_fsm_state34 );
     sensitive << ( ap_CS_fsm_state35 );
-    sensitive << ( UART_RVALID );
-    sensitive << ( ap_sig_ioackin_UART_ARREADY );
-    sensitive << ( ap_block_state42_io );
     sensitive << ( ap_CS_fsm_state36 );
     sensitive << ( ap_CS_fsm_state37 );
     sensitive << ( ap_CS_fsm_state38 );
     sensitive << ( ap_CS_fsm_state39 );
     sensitive << ( ap_CS_fsm_state40 );
     sensitive << ( ap_CS_fsm_state41 );
+    sensitive << ( ap_CS_fsm_state42 );
+    sensitive << ( ap_CS_fsm_state43 );
+    sensitive << ( ap_CS_fsm_state44 );
+    sensitive << ( ap_CS_fsm_state45 );
+    sensitive << ( ap_CS_fsm_state46 );
+    sensitive << ( ap_CS_fsm_state47 );
+    sensitive << ( ap_CS_fsm_state48 );
+    sensitive << ( ap_CS_fsm_state49 );
     sensitive << ( ap_CS_fsm_state50 );
+    sensitive << ( ap_CS_fsm_state51 );
+    sensitive << ( ap_CS_fsm_state52 );
+    sensitive << ( ap_CS_fsm_state53 );
+    sensitive << ( ap_reg_ioackin_OUT_r_WREADY );
+
+    SC_METHOD(thread_OUT_r_blk_n_AW);
+    sensitive << ( m_axi_OUT_r_AWREADY );
+    sensitive << ( calibrationSuccess );
+    sensitive << ( ap_CS_fsm_state28 );
+
+    SC_METHOD(thread_OUT_r_blk_n_B);
+    sensitive << ( m_axi_OUT_r_BVALID );
+    sensitive << ( ap_CS_fsm_state58 );
+    sensitive << ( calibrationSuccess_l_reg_623 );
+
+    SC_METHOD(thread_OUT_r_blk_n_W);
+    sensitive << ( m_axi_OUT_r_WREADY );
+    sensitive << ( ap_CS_fsm_state29 );
+    sensitive << ( ap_CS_fsm_state30 );
+    sensitive << ( ap_CS_fsm_state31 );
+    sensitive << ( ap_CS_fsm_state32 );
+    sensitive << ( ap_CS_fsm_state33 );
+    sensitive << ( ap_CS_fsm_state34 );
+    sensitive << ( ap_CS_fsm_state35 );
+    sensitive << ( ap_CS_fsm_state36 );
+    sensitive << ( ap_CS_fsm_state37 );
+    sensitive << ( ap_CS_fsm_state38 );
+    sensitive << ( ap_CS_fsm_state39 );
+    sensitive << ( ap_CS_fsm_state40 );
+    sensitive << ( ap_CS_fsm_state41 );
+    sensitive << ( ap_CS_fsm_state42 );
+    sensitive << ( ap_CS_fsm_state43 );
+    sensitive << ( ap_CS_fsm_state44 );
+    sensitive << ( ap_CS_fsm_state45 );
+    sensitive << ( ap_CS_fsm_state46 );
+    sensitive << ( ap_CS_fsm_state47 );
+    sensitive << ( ap_CS_fsm_state48 );
+    sensitive << ( ap_CS_fsm_state49 );
+    sensitive << ( ap_CS_fsm_state50 );
+    sensitive << ( ap_CS_fsm_state51 );
+    sensitive << ( ap_CS_fsm_state52 );
+    sensitive << ( ap_CS_fsm_state53 );
 
     SC_METHOD(thread_UART_ARADDR);
     sensitive << ( ap_CS_fsm_state14 );
-    sensitive << ( ap_CS_fsm_state35 );
     sensitive << ( ap_reg_ioackin_UART_ARREADY );
-    sensitive << ( ap_condition_764 );
 
     SC_METHOD(thread_UART_ARVALID);
     sensitive << ( ap_CS_fsm_state14 );
-    sensitive << ( ap_CS_fsm_state42 );
-    sensitive << ( tmp_2_fu_495_p1 );
-    sensitive << ( ap_CS_fsm_state35 );
-    sensitive << ( UART_RVALID );
     sensitive << ( ap_reg_ioackin_UART_ARREADY );
 
     SC_METHOD(thread_UART_AWADDR);
-    sensitive << ( ap_start );
-    sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( firstSample );
-    sensitive << ( calibrationSuccess );
     sensitive << ( ap_CS_fsm_state2 );
     sensitive << ( ap_CS_fsm_state7 );
     sensitive << ( ap_CS_fsm_state22 );
-    sensitive << ( tmp_fu_467_p2 );
-    sensitive << ( ap_CS_fsm_state28 );
+    sensitive << ( tmp_fu_529_p2 );
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state5 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state48 );
     sensitive << ( UART_BVALID );
-    sensitive << ( reg_419 );
-    sensitive << ( ap_predicate_op140_writeresp_state28 );
-    sensitive << ( UART_addr_1_reg_534 );
-    sensitive << ( UART_addr_3_reg_541 );
+    sensitive << ( UART_addr_reg_580 );
+    sensitive << ( UART_addr_1_reg_588 );
+    sensitive << ( UART_addr_3_reg_601 );
     sensitive << ( ap_reg_ioackin_UART_AWREADY );
+    sensitive << ( ap_condition_192 );
 
     SC_METHOD(thread_UART_AWVALID);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( firstSample );
-    sensitive << ( calibrationSuccess );
     sensitive << ( ap_CS_fsm_state2 );
     sensitive << ( ap_CS_fsm_state7 );
     sensitive << ( ap_CS_fsm_state22 );
-    sensitive << ( tmp_fu_467_p2 );
-    sensitive << ( ap_CS_fsm_state28 );
+    sensitive << ( tmp_fu_529_p2 );
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state5 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state48 );
     sensitive << ( UART_BVALID );
-    sensitive << ( ap_predicate_op140_writeresp_state28 );
     sensitive << ( ap_reg_ioackin_UART_AWREADY );
 
     SC_METHOD(thread_UART_BREADY);
@@ -412,22 +544,15 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( ap_CS_fsm_state10 );
     sensitive << ( ap_CS_fsm_state13 );
     sensitive << ( ap_CS_fsm_state12 );
-    sensitive << ( ap_CS_fsm_state34 );
-    sensitive << ( ap_CS_fsm_state54 );
     sensitive << ( UART_BVALID );
     sensitive << ( ap_sig_ioackin_UART_WREADY );
-    sensitive << ( ap_predicate_op140_writeresp_state28 );
+    sensitive << ( ap_predicate_op142_writeresp_state28 );
     sensitive << ( ap_block_state28_io );
-    sensitive << ( ap_predicate_op196_writeresp_state54 );
     sensitive << ( ap_block_state7_io );
 
     SC_METHOD(thread_UART_RREADY);
     sensitive << ( ap_CS_fsm_state21 );
-    sensitive << ( ap_CS_fsm_state42 );
-    sensitive << ( ap_CS_fsm_state49 );
     sensitive << ( UART_RVALID );
-    sensitive << ( ap_sig_ioackin_UART_WREADY );
-    sensitive << ( ap_block_state42_io );
 
     SC_METHOD(thread_UART_WDATA);
     sensitive << ( ap_CS_fsm_state2 );
@@ -438,9 +563,6 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( ap_CS_fsm_state5 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state29 );
-    sensitive << ( ap_CS_fsm_state49 );
-    sensitive << ( UART_RVALID );
     sensitive << ( UART_BVALID );
     sensitive << ( ap_reg_ioackin_UART_WREADY );
 
@@ -453,66 +575,57 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( ap_CS_fsm_state5 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state29 );
-    sensitive << ( ap_CS_fsm_state49 );
-    sensitive << ( UART_RVALID );
     sensitive << ( UART_BVALID );
     sensitive << ( ap_reg_ioackin_UART_WREADY );
 
-    SC_METHOD(thread_UART_addr_1_reg_534);
+    SC_METHOD(thread_UART_addr_1_reg_588);
     sensitive << ( ap_CS_fsm_state2 );
     sensitive << ( ap_block_state2_io );
 
-    SC_METHOD(thread_UART_addr_3_reg_541);
+    SC_METHOD(thread_UART_addr_3_reg_601);
     sensitive << ( ap_CS_fsm_state4 );
     sensitive << ( ap_block_state4_io );
+
+    SC_METHOD(thread_UART_addr_reg_580);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( firstSample );
+    sensitive << ( ap_block_state1_io );
 
     SC_METHOD(thread_UART_blk_n_AR);
     sensitive << ( m_axi_UART_ARREADY );
     sensitive << ( ap_CS_fsm_state14 );
-    sensitive << ( ap_CS_fsm_state42 );
-    sensitive << ( tmp_2_fu_495_p1 );
-    sensitive << ( ap_CS_fsm_state35 );
 
     SC_METHOD(thread_UART_blk_n_AW);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( m_axi_UART_AWREADY );
     sensitive << ( firstSample );
-    sensitive << ( calibrationSuccess );
     sensitive << ( ap_CS_fsm_state2 );
     sensitive << ( ap_CS_fsm_state7 );
     sensitive << ( ap_CS_fsm_state22 );
-    sensitive << ( tmp_fu_467_p2 );
-    sensitive << ( ap_CS_fsm_state28 );
+    sensitive << ( tmp_fu_529_p2 );
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state5 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state48 );
 
     SC_METHOD(thread_UART_blk_n_B);
     sensitive << ( m_axi_UART_BVALID );
     sensitive << ( ap_CS_fsm_state7 );
     sensitive << ( ap_CS_fsm_state28 );
-    sensitive << ( firstSample_load_reg_530 );
-    sensitive << ( tmp_reg_559 );
+    sensitive << ( firstSample_load_reg_576 );
+    sensitive << ( tmp_reg_619 );
     sensitive << ( ap_CS_fsm_state8 );
     sensitive << ( ap_CS_fsm_state11 );
     sensitive << ( ap_CS_fsm_state9 );
     sensitive << ( ap_CS_fsm_state10 );
     sensitive << ( ap_CS_fsm_state13 );
     sensitive << ( ap_CS_fsm_state12 );
-    sensitive << ( ap_CS_fsm_state34 );
-    sensitive << ( ap_CS_fsm_state54 );
-    sensitive << ( calibrationSuccess_l_reg_563 );
-    sensitive << ( tmp_2_reg_573 );
 
     SC_METHOD(thread_UART_blk_n_R);
     sensitive << ( m_axi_UART_RVALID );
     sensitive << ( ap_CS_fsm_state21 );
-    sensitive << ( ap_CS_fsm_state42 );
-    sensitive << ( ap_CS_fsm_state49 );
 
     SC_METHOD(thread_UART_blk_n_W);
     sensitive << ( m_axi_UART_WREADY );
@@ -524,8 +637,6 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( ap_CS_fsm_state5 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state29 );
-    sensitive << ( ap_CS_fsm_state49 );
 
     SC_METHOD(thread_ap_CS_fsm_state1);
     sensitive << ( ap_CS_fsm );
@@ -566,6 +677,18 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     SC_METHOD(thread_ap_CS_fsm_state3);
     sensitive << ( ap_CS_fsm );
 
+    SC_METHOD(thread_ap_CS_fsm_state30);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state31);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state32);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state33);
+    sensitive << ( ap_CS_fsm );
+
     SC_METHOD(thread_ap_CS_fsm_state34);
     sensitive << ( ap_CS_fsm );
 
@@ -596,6 +719,21 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     SC_METHOD(thread_ap_CS_fsm_state42);
     sensitive << ( ap_CS_fsm );
 
+    SC_METHOD(thread_ap_CS_fsm_state43);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state44);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state45);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state46);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state47);
+    sensitive << ( ap_CS_fsm );
+
     SC_METHOD(thread_ap_CS_fsm_state48);
     sensitive << ( ap_CS_fsm );
 
@@ -608,10 +746,19 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     SC_METHOD(thread_ap_CS_fsm_state50);
     sensitive << ( ap_CS_fsm );
 
-    SC_METHOD(thread_ap_CS_fsm_state54);
+    SC_METHOD(thread_ap_CS_fsm_state51);
     sensitive << ( ap_CS_fsm );
 
-    SC_METHOD(thread_ap_CS_fsm_state55);
+    SC_METHOD(thread_ap_CS_fsm_state52);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state53);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state58);
+    sensitive << ( ap_CS_fsm );
+
+    SC_METHOD(thread_ap_CS_fsm_state59);
     sensitive << ( ap_CS_fsm );
 
     SC_METHOD(thread_ap_CS_fsm_state6);
@@ -631,16 +778,16 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( ap_sig_ioackin_UART_AWREADY );
 
     SC_METHOD(thread_ap_block_state22_io);
-    sensitive << ( tmp_fu_467_p2 );
+    sensitive << ( tmp_fu_529_p2 );
     sensitive << ( ap_sig_ioackin_UART_AWREADY );
 
     SC_METHOD(thread_ap_block_state28);
     sensitive << ( UART_BVALID );
-    sensitive << ( ap_predicate_op140_writeresp_state28 );
+    sensitive << ( ap_predicate_op142_writeresp_state28 );
 
     SC_METHOD(thread_ap_block_state28_io);
     sensitive << ( calibrationSuccess );
-    sensitive << ( ap_sig_ioackin_UART_AWREADY );
+    sensitive << ( ap_sig_ioackin_OUT_r_AWREADY );
 
     SC_METHOD(thread_ap_block_state2_io);
     sensitive << ( ap_sig_ioackin_UART_AWREADY );
@@ -650,17 +797,13 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( ap_sig_ioackin_UART_AWREADY );
     sensitive << ( ap_sig_ioackin_UART_WREADY );
 
-    SC_METHOD(thread_ap_block_state42_io);
-    sensitive << ( tmp_2_fu_495_p1 );
-    sensitive << ( ap_sig_ioackin_UART_ARREADY );
-
     SC_METHOD(thread_ap_block_state4_io);
     sensitive << ( ap_sig_ioackin_UART_AWREADY );
     sensitive << ( ap_sig_ioackin_UART_WREADY );
 
-    SC_METHOD(thread_ap_block_state54);
-    sensitive << ( UART_BVALID );
-    sensitive << ( ap_predicate_op196_writeresp_state54 );
+    SC_METHOD(thread_ap_block_state58);
+    sensitive << ( calibrationSuccess_l_reg_623 );
+    sensitive << ( OUT_r_BVALID );
 
     SC_METHOD(thread_ap_block_state5_io);
     sensitive << ( ap_sig_ioackin_UART_AWREADY );
@@ -674,33 +817,47 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( ap_sig_ioackin_UART_AWREADY );
     sensitive << ( ap_sig_ioackin_UART_WREADY );
 
-    SC_METHOD(thread_ap_condition_764);
-    sensitive << ( ap_CS_fsm_state42 );
-    sensitive << ( tmp_2_fu_495_p1 );
-    sensitive << ( UART_RVALID );
+    SC_METHOD(thread_ap_condition_1236);
+    sensitive << ( UART_BVALID );
+    sensitive << ( OUT_r_AWREADY );
+    sensitive << ( ap_predicate_op142_writeresp_state28 );
+
+    SC_METHOD(thread_ap_condition_192);
+    sensitive << ( ap_start );
+    sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( firstSample );
+
+    SC_METHOD(thread_ap_condition_717);
+    sensitive << ( UART_BVALID );
+    sensitive << ( ap_predicate_op142_writeresp_state28 );
+    sensitive << ( ap_block_state28_io );
 
     SC_METHOD(thread_ap_done);
-    sensitive << ( ap_CS_fsm_state55 );
-    sensitive << ( tmp_4_fu_499_p2 );
+    sensitive << ( ap_CS_fsm_state59 );
+    sensitive << ( tmp_1_fu_550_p2 );
 
     SC_METHOD(thread_ap_idle);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
 
-    SC_METHOD(thread_ap_predicate_op140_writeresp_state28);
-    sensitive << ( firstSample_load_reg_530 );
-    sensitive << ( tmp_reg_559 );
-
-    SC_METHOD(thread_ap_predicate_op196_writeresp_state54);
-    sensitive << ( calibrationSuccess_l_reg_563 );
-    sensitive << ( tmp_2_reg_573 );
+    SC_METHOD(thread_ap_predicate_op142_writeresp_state28);
+    sensitive << ( firstSample_load_reg_576 );
+    sensitive << ( tmp_reg_619 );
 
     SC_METHOD(thread_ap_ready);
-    sensitive << ( ap_CS_fsm_state55 );
-    sensitive << ( tmp_4_fu_499_p2 );
+    sensitive << ( ap_CS_fsm_state59 );
+    sensitive << ( tmp_1_fu_550_p2 );
 
     SC_METHOD(thread_ap_rst_n_inv);
     sensitive << ( ap_rst_n );
+
+    SC_METHOD(thread_ap_sig_ioackin_OUT_r_AWREADY);
+    sensitive << ( OUT_r_AWREADY );
+    sensitive << ( ap_reg_ioackin_OUT_r_AWREADY );
+
+    SC_METHOD(thread_ap_sig_ioackin_OUT_r_WREADY);
+    sensitive << ( OUT_r_WREADY );
+    sensitive << ( ap_reg_ioackin_OUT_r_WREADY );
 
     SC_METHOD(thread_ap_sig_ioackin_UART_ARREADY);
     sensitive << ( UART_ARREADY );
@@ -714,38 +871,27 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( UART_WREADY );
     sensitive << ( ap_reg_ioackin_UART_WREADY );
 
-    SC_METHOD(thread_calibrationSuccess_l_load_fu_484_p1);
+    SC_METHOD(thread_calibrationSuccess_l_load_fu_546_p1);
     sensitive << ( calibrationSuccess );
     sensitive << ( ap_CS_fsm_state28 );
 
-    SC_METHOD(thread_ctr_V_fu_505_p2);
-    sensitive << ( p_014_0_i_reg_392 );
+    SC_METHOD(thread_ctr_V_fu_556_p2);
+    sensitive << ( p_014_0_i_reg_475 );
 
-    SC_METHOD(thread_firstSample_load_load_fu_438_p1);
+    SC_METHOD(thread_firstSample_load_load_fu_486_p1);
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( firstSample );
 
-    SC_METHOD(thread_reg_419);
-    sensitive << ( ap_start );
-    sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( firstSample );
-    sensitive << ( ap_CS_fsm_state48 );
-    sensitive << ( ap_sig_ioackin_UART_AWREADY );
-    sensitive << ( ap_block_state1_io );
-
-    SC_METHOD(thread_temp_fu_463_p1);
+    SC_METHOD(thread_temp_fu_525_p1);
     sensitive << ( UART_RDATA );
 
-    SC_METHOD(thread_tmp_2_fu_495_p1);
-    sensitive << ( UART_RDATA );
+    SC_METHOD(thread_tmp_1_fu_550_p2);
+    sensitive << ( ap_CS_fsm_state59 );
+    sensitive << ( p_014_0_i_reg_475 );
 
-    SC_METHOD(thread_tmp_4_fu_499_p2);
-    sensitive << ( ap_CS_fsm_state55 );
-    sensitive << ( p_014_0_i_reg_392 );
-
-    SC_METHOD(thread_tmp_fu_467_p2);
+    SC_METHOD(thread_tmp_fu_529_p2);
     sensitive << ( ap_CS_fsm_state22 );
-    sensitive << ( temp_reg_554 );
+    sensitive << ( temp_reg_614 );
     sensitive << ( ap_block_state22_io );
 
     SC_METHOD(thread_ap_NS_fsm);
@@ -754,13 +900,13 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( firstSample );
     sensitive << ( calibrationSuccess );
-    sensitive << ( firstSample_load_load_fu_438_p1 );
+    sensitive << ( firstSample_load_load_fu_486_p1 );
     sensitive << ( ap_CS_fsm_state2 );
     sensitive << ( ap_CS_fsm_state7 );
     sensitive << ( ap_CS_fsm_state14 );
     sensitive << ( ap_CS_fsm_state21 );
     sensitive << ( ap_CS_fsm_state22 );
-    sensitive << ( tmp_fu_467_p2 );
+    sensitive << ( tmp_fu_529_p2 );
     sensitive << ( ap_CS_fsm_state23 );
     sensitive << ( ap_CS_fsm_state28 );
     sensitive << ( ap_CS_fsm_state3 );
@@ -773,34 +919,52 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sensitive << ( ap_CS_fsm_state10 );
     sensitive << ( ap_CS_fsm_state13 );
     sensitive << ( ap_CS_fsm_state12 );
-    sensitive << ( calibrationSuccess_l_load_fu_484_p1 );
+    sensitive << ( calibrationSuccess_l_load_fu_546_p1 );
     sensitive << ( ap_CS_fsm_state29 );
+    sensitive << ( ap_CS_fsm_state30 );
+    sensitive << ( ap_CS_fsm_state31 );
+    sensitive << ( ap_CS_fsm_state32 );
+    sensitive << ( ap_CS_fsm_state33 );
     sensitive << ( ap_CS_fsm_state34 );
-    sensitive << ( ap_CS_fsm_state42 );
-    sensitive << ( tmp_2_fu_495_p1 );
-    sensitive << ( ap_CS_fsm_state49 );
     sensitive << ( ap_CS_fsm_state35 );
+    sensitive << ( ap_CS_fsm_state36 );
+    sensitive << ( ap_CS_fsm_state37 );
+    sensitive << ( ap_CS_fsm_state38 );
+    sensitive << ( ap_CS_fsm_state39 );
+    sensitive << ( ap_CS_fsm_state40 );
+    sensitive << ( ap_CS_fsm_state41 );
+    sensitive << ( ap_CS_fsm_state42 );
+    sensitive << ( ap_CS_fsm_state43 );
+    sensitive << ( ap_CS_fsm_state44 );
+    sensitive << ( ap_CS_fsm_state45 );
+    sensitive << ( ap_CS_fsm_state46 );
+    sensitive << ( ap_CS_fsm_state47 );
     sensitive << ( ap_CS_fsm_state48 );
-    sensitive << ( ap_CS_fsm_state54 );
+    sensitive << ( ap_CS_fsm_state49 );
+    sensitive << ( ap_CS_fsm_state50 );
+    sensitive << ( ap_CS_fsm_state51 );
+    sensitive << ( ap_CS_fsm_state52 );
+    sensitive << ( ap_CS_fsm_state53 );
+    sensitive << ( ap_CS_fsm_state58 );
+    sensitive << ( calibrationSuccess_l_reg_623 );
     sensitive << ( UART_RVALID );
     sensitive << ( UART_BVALID );
-    sensitive << ( ap_sig_ioackin_UART_AWREADY );
+    sensitive << ( OUT_r_BVALID );
     sensitive << ( ap_block_state1_io );
     sensitive << ( ap_sig_ioackin_UART_WREADY );
-    sensitive << ( ap_block_state3_io );
-    sensitive << ( ap_predicate_op140_writeresp_state28 );
-    sensitive << ( ap_block_state28_io );
     sensitive << ( ap_block_state2_io );
+    sensitive << ( ap_block_state3_io );
     sensitive << ( ap_block_state4_io );
     sensitive << ( ap_block_state6_io );
     sensitive << ( ap_block_state22_io );
-    sensitive << ( ap_sig_ioackin_UART_ARREADY );
-    sensitive << ( ap_block_state42_io );
-    sensitive << ( ap_CS_fsm_state55 );
-    sensitive << ( ap_predicate_op196_writeresp_state54 );
-    sensitive << ( tmp_4_fu_499_p2 );
+    sensitive << ( ap_predicate_op142_writeresp_state28 );
+    sensitive << ( ap_block_state28_io );
+    sensitive << ( ap_CS_fsm_state59 );
+    sensitive << ( tmp_1_fu_550_p2 );
     sensitive << ( ap_block_state7_io );
+    sensitive << ( ap_sig_ioackin_UART_ARREADY );
     sensitive << ( ap_block_state5_io );
+    sensitive << ( ap_sig_ioackin_OUT_r_WREADY );
 
     SC_THREAD(thread_hdltv_gen);
     sensitive << ( ap_clk.pos() );
@@ -808,6 +972,10 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     SC_THREAD(thread_ap_var_for_const0);
 
     SC_THREAD(thread_ap_var_for_const6);
+
+    SC_THREAD(thread_ap_var_for_const8);
+
+    SC_THREAD(thread_ap_var_for_const10);
 
     SC_THREAD(thread_ap_var_for_const1);
 
@@ -821,12 +989,16 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
 
     SC_THREAD(thread_ap_var_for_const7);
 
-    ap_CS_fsm = "0000000000000000000000000000000000000000000000000000001";
+    SC_THREAD(thread_ap_var_for_const9);
+
+    ap_CS_fsm = "00000000000000000000000000000000000000000000000000000000001";
     firstSample = "1";
     calibrationSuccess = "0";
     ap_reg_ioackin_UART_AWREADY = SC_LOGIC_0;
     ap_reg_ioackin_UART_ARREADY = SC_LOGIC_0;
     ap_reg_ioackin_UART_WREADY = SC_LOGIC_0;
+    ap_reg_ioackin_OUT_r_AWREADY = SC_LOGIC_0;
+    ap_reg_ioackin_OUT_r_WREADY = SC_LOGIC_0;
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "AXI_UART_DRIVER_sc_trace_" << apTFileNum ++;
@@ -882,6 +1054,51 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sc_trace(mVcdFile, m_axi_UART_BRESP, "(port)m_axi_UART_BRESP");
     sc_trace(mVcdFile, m_axi_UART_BID, "(port)m_axi_UART_BID");
     sc_trace(mVcdFile, m_axi_UART_BUSER, "(port)m_axi_UART_BUSER");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWVALID, "(port)m_axi_OUT_r_AWVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWREADY, "(port)m_axi_OUT_r_AWREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWADDR, "(port)m_axi_OUT_r_AWADDR");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWID, "(port)m_axi_OUT_r_AWID");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWLEN, "(port)m_axi_OUT_r_AWLEN");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWSIZE, "(port)m_axi_OUT_r_AWSIZE");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWBURST, "(port)m_axi_OUT_r_AWBURST");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWLOCK, "(port)m_axi_OUT_r_AWLOCK");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWCACHE, "(port)m_axi_OUT_r_AWCACHE");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWPROT, "(port)m_axi_OUT_r_AWPROT");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWQOS, "(port)m_axi_OUT_r_AWQOS");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWREGION, "(port)m_axi_OUT_r_AWREGION");
+    sc_trace(mVcdFile, m_axi_OUT_r_AWUSER, "(port)m_axi_OUT_r_AWUSER");
+    sc_trace(mVcdFile, m_axi_OUT_r_WVALID, "(port)m_axi_OUT_r_WVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_WREADY, "(port)m_axi_OUT_r_WREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_WDATA, "(port)m_axi_OUT_r_WDATA");
+    sc_trace(mVcdFile, m_axi_OUT_r_WSTRB, "(port)m_axi_OUT_r_WSTRB");
+    sc_trace(mVcdFile, m_axi_OUT_r_WLAST, "(port)m_axi_OUT_r_WLAST");
+    sc_trace(mVcdFile, m_axi_OUT_r_WID, "(port)m_axi_OUT_r_WID");
+    sc_trace(mVcdFile, m_axi_OUT_r_WUSER, "(port)m_axi_OUT_r_WUSER");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARVALID, "(port)m_axi_OUT_r_ARVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARREADY, "(port)m_axi_OUT_r_ARREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARADDR, "(port)m_axi_OUT_r_ARADDR");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARID, "(port)m_axi_OUT_r_ARID");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARLEN, "(port)m_axi_OUT_r_ARLEN");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARSIZE, "(port)m_axi_OUT_r_ARSIZE");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARBURST, "(port)m_axi_OUT_r_ARBURST");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARLOCK, "(port)m_axi_OUT_r_ARLOCK");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARCACHE, "(port)m_axi_OUT_r_ARCACHE");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARPROT, "(port)m_axi_OUT_r_ARPROT");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARQOS, "(port)m_axi_OUT_r_ARQOS");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARREGION, "(port)m_axi_OUT_r_ARREGION");
+    sc_trace(mVcdFile, m_axi_OUT_r_ARUSER, "(port)m_axi_OUT_r_ARUSER");
+    sc_trace(mVcdFile, m_axi_OUT_r_RVALID, "(port)m_axi_OUT_r_RVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_RREADY, "(port)m_axi_OUT_r_RREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_RDATA, "(port)m_axi_OUT_r_RDATA");
+    sc_trace(mVcdFile, m_axi_OUT_r_RLAST, "(port)m_axi_OUT_r_RLAST");
+    sc_trace(mVcdFile, m_axi_OUT_r_RID, "(port)m_axi_OUT_r_RID");
+    sc_trace(mVcdFile, m_axi_OUT_r_RUSER, "(port)m_axi_OUT_r_RUSER");
+    sc_trace(mVcdFile, m_axi_OUT_r_RRESP, "(port)m_axi_OUT_r_RRESP");
+    sc_trace(mVcdFile, m_axi_OUT_r_BVALID, "(port)m_axi_OUT_r_BVALID");
+    sc_trace(mVcdFile, m_axi_OUT_r_BREADY, "(port)m_axi_OUT_r_BREADY");
+    sc_trace(mVcdFile, m_axi_OUT_r_BRESP, "(port)m_axi_OUT_r_BRESP");
+    sc_trace(mVcdFile, m_axi_OUT_r_BID, "(port)m_axi_OUT_r_BID");
+    sc_trace(mVcdFile, m_axi_OUT_r_BUSER, "(port)m_axi_OUT_r_BUSER");
     sc_trace(mVcdFile, s_axi_CTRL_AWVALID, "(port)s_axi_CTRL_AWVALID");
     sc_trace(mVcdFile, s_axi_CTRL_AWREADY, "(port)s_axi_CTRL_AWREADY");
     sc_trace(mVcdFile, s_axi_CTRL_AWADDR, "(port)s_axi_CTRL_AWADDR");
@@ -900,23 +1117,6 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sc_trace(mVcdFile, s_axi_CTRL_BREADY, "(port)s_axi_CTRL_BREADY");
     sc_trace(mVcdFile, s_axi_CTRL_BRESP, "(port)s_axi_CTRL_BRESP");
     sc_trace(mVcdFile, interrupt, "(port)interrupt");
-    sc_trace(mVcdFile, s_axi_TEST_AWVALID, "(port)s_axi_TEST_AWVALID");
-    sc_trace(mVcdFile, s_axi_TEST_AWREADY, "(port)s_axi_TEST_AWREADY");
-    sc_trace(mVcdFile, s_axi_TEST_AWADDR, "(port)s_axi_TEST_AWADDR");
-    sc_trace(mVcdFile, s_axi_TEST_WVALID, "(port)s_axi_TEST_WVALID");
-    sc_trace(mVcdFile, s_axi_TEST_WREADY, "(port)s_axi_TEST_WREADY");
-    sc_trace(mVcdFile, s_axi_TEST_WDATA, "(port)s_axi_TEST_WDATA");
-    sc_trace(mVcdFile, s_axi_TEST_WSTRB, "(port)s_axi_TEST_WSTRB");
-    sc_trace(mVcdFile, s_axi_TEST_ARVALID, "(port)s_axi_TEST_ARVALID");
-    sc_trace(mVcdFile, s_axi_TEST_ARREADY, "(port)s_axi_TEST_ARREADY");
-    sc_trace(mVcdFile, s_axi_TEST_ARADDR, "(port)s_axi_TEST_ARADDR");
-    sc_trace(mVcdFile, s_axi_TEST_RVALID, "(port)s_axi_TEST_RVALID");
-    sc_trace(mVcdFile, s_axi_TEST_RREADY, "(port)s_axi_TEST_RREADY");
-    sc_trace(mVcdFile, s_axi_TEST_RDATA, "(port)s_axi_TEST_RDATA");
-    sc_trace(mVcdFile, s_axi_TEST_RRESP, "(port)s_axi_TEST_RRESP");
-    sc_trace(mVcdFile, s_axi_TEST_BVALID, "(port)s_axi_TEST_BVALID");
-    sc_trace(mVcdFile, s_axi_TEST_BREADY, "(port)s_axi_TEST_BREADY");
-    sc_trace(mVcdFile, s_axi_TEST_BRESP, "(port)s_axi_TEST_BRESP");
 #endif
 #ifdef __HLS_TRACE_LEVEL_INT__
     sc_trace(mVcdFile, ap_rst_n_inv, "ap_rst_n_inv");
@@ -926,14 +1126,10 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
     sc_trace(mVcdFile, ap_ready, "ap_ready");
-    sc_trace(mVcdFile, SBUS_data_address0, "SBUS_data_address0");
-    sc_trace(mVcdFile, SBUS_data_ce0, "SBUS_data_ce0");
-    sc_trace(mVcdFile, SBUS_data_we0, "SBUS_data_we0");
-    sc_trace(mVcdFile, SBUS_data_d0, "SBUS_data_d0");
     sc_trace(mVcdFile, firstSample, "firstSample");
     sc_trace(mVcdFile, calibrationSuccess, "calibrationSuccess");
     sc_trace(mVcdFile, UART_blk_n_AW, "UART_blk_n_AW");
-    sc_trace(mVcdFile, firstSample_load_load_fu_438_p1, "firstSample_load_load_fu_438_p1");
+    sc_trace(mVcdFile, firstSample_load_load_fu_486_p1, "firstSample_load_load_fu_486_p1");
     sc_trace(mVcdFile, UART_blk_n_W, "UART_blk_n_W");
     sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
     sc_trace(mVcdFile, UART_blk_n_B, "UART_blk_n_B");
@@ -943,11 +1139,11 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sc_trace(mVcdFile, UART_blk_n_R, "UART_blk_n_R");
     sc_trace(mVcdFile, ap_CS_fsm_state21, "ap_CS_fsm_state21");
     sc_trace(mVcdFile, ap_CS_fsm_state22, "ap_CS_fsm_state22");
-    sc_trace(mVcdFile, tmp_fu_467_p2, "tmp_fu_467_p2");
+    sc_trace(mVcdFile, tmp_fu_529_p2, "tmp_fu_529_p2");
     sc_trace(mVcdFile, ap_CS_fsm_state23, "ap_CS_fsm_state23");
     sc_trace(mVcdFile, ap_CS_fsm_state28, "ap_CS_fsm_state28");
-    sc_trace(mVcdFile, firstSample_load_reg_530, "firstSample_load_reg_530");
-    sc_trace(mVcdFile, tmp_reg_559, "tmp_reg_559");
+    sc_trace(mVcdFile, firstSample_load_reg_576, "firstSample_load_reg_576");
+    sc_trace(mVcdFile, tmp_reg_619, "tmp_reg_619");
     sc_trace(mVcdFile, ap_CS_fsm_state3, "ap_CS_fsm_state3");
     sc_trace(mVcdFile, ap_CS_fsm_state8, "ap_CS_fsm_state8");
     sc_trace(mVcdFile, ap_CS_fsm_state5, "ap_CS_fsm_state5");
@@ -958,17 +1154,37 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sc_trace(mVcdFile, ap_CS_fsm_state10, "ap_CS_fsm_state10");
     sc_trace(mVcdFile, ap_CS_fsm_state13, "ap_CS_fsm_state13");
     sc_trace(mVcdFile, ap_CS_fsm_state12, "ap_CS_fsm_state12");
-    sc_trace(mVcdFile, calibrationSuccess_l_load_fu_484_p1, "calibrationSuccess_l_load_fu_484_p1");
+    sc_trace(mVcdFile, OUT_r_blk_n_AW, "OUT_r_blk_n_AW");
+    sc_trace(mVcdFile, calibrationSuccess_l_load_fu_546_p1, "calibrationSuccess_l_load_fu_546_p1");
+    sc_trace(mVcdFile, OUT_r_blk_n_W, "OUT_r_blk_n_W");
     sc_trace(mVcdFile, ap_CS_fsm_state29, "ap_CS_fsm_state29");
+    sc_trace(mVcdFile, ap_CS_fsm_state30, "ap_CS_fsm_state30");
+    sc_trace(mVcdFile, ap_CS_fsm_state31, "ap_CS_fsm_state31");
+    sc_trace(mVcdFile, ap_CS_fsm_state32, "ap_CS_fsm_state32");
+    sc_trace(mVcdFile, ap_CS_fsm_state33, "ap_CS_fsm_state33");
     sc_trace(mVcdFile, ap_CS_fsm_state34, "ap_CS_fsm_state34");
-    sc_trace(mVcdFile, ap_CS_fsm_state42, "ap_CS_fsm_state42");
-    sc_trace(mVcdFile, tmp_2_fu_495_p1, "tmp_2_fu_495_p1");
-    sc_trace(mVcdFile, ap_CS_fsm_state49, "ap_CS_fsm_state49");
     sc_trace(mVcdFile, ap_CS_fsm_state35, "ap_CS_fsm_state35");
+    sc_trace(mVcdFile, ap_CS_fsm_state36, "ap_CS_fsm_state36");
+    sc_trace(mVcdFile, ap_CS_fsm_state37, "ap_CS_fsm_state37");
+    sc_trace(mVcdFile, ap_CS_fsm_state38, "ap_CS_fsm_state38");
+    sc_trace(mVcdFile, ap_CS_fsm_state39, "ap_CS_fsm_state39");
+    sc_trace(mVcdFile, ap_CS_fsm_state40, "ap_CS_fsm_state40");
+    sc_trace(mVcdFile, ap_CS_fsm_state41, "ap_CS_fsm_state41");
+    sc_trace(mVcdFile, ap_CS_fsm_state42, "ap_CS_fsm_state42");
+    sc_trace(mVcdFile, ap_CS_fsm_state43, "ap_CS_fsm_state43");
+    sc_trace(mVcdFile, ap_CS_fsm_state44, "ap_CS_fsm_state44");
+    sc_trace(mVcdFile, ap_CS_fsm_state45, "ap_CS_fsm_state45");
+    sc_trace(mVcdFile, ap_CS_fsm_state46, "ap_CS_fsm_state46");
+    sc_trace(mVcdFile, ap_CS_fsm_state47, "ap_CS_fsm_state47");
     sc_trace(mVcdFile, ap_CS_fsm_state48, "ap_CS_fsm_state48");
-    sc_trace(mVcdFile, ap_CS_fsm_state54, "ap_CS_fsm_state54");
-    sc_trace(mVcdFile, calibrationSuccess_l_reg_563, "calibrationSuccess_l_reg_563");
-    sc_trace(mVcdFile, tmp_2_reg_573, "tmp_2_reg_573");
+    sc_trace(mVcdFile, ap_CS_fsm_state49, "ap_CS_fsm_state49");
+    sc_trace(mVcdFile, ap_CS_fsm_state50, "ap_CS_fsm_state50");
+    sc_trace(mVcdFile, ap_CS_fsm_state51, "ap_CS_fsm_state51");
+    sc_trace(mVcdFile, ap_CS_fsm_state52, "ap_CS_fsm_state52");
+    sc_trace(mVcdFile, ap_CS_fsm_state53, "ap_CS_fsm_state53");
+    sc_trace(mVcdFile, OUT_r_blk_n_B, "OUT_r_blk_n_B");
+    sc_trace(mVcdFile, ap_CS_fsm_state58, "ap_CS_fsm_state58");
+    sc_trace(mVcdFile, calibrationSuccess_l_reg_623, "calibrationSuccess_l_reg_623");
     sc_trace(mVcdFile, UART_AWVALID, "UART_AWVALID");
     sc_trace(mVcdFile, UART_AWREADY, "UART_AWREADY");
     sc_trace(mVcdFile, UART_AWADDR, "UART_AWADDR");
@@ -990,45 +1206,58 @@ AXI_UART_DRIVER::AXI_UART_DRIVER(sc_module_name name) : sc_module(name), mVcdFil
     sc_trace(mVcdFile, UART_BRESP, "UART_BRESP");
     sc_trace(mVcdFile, UART_BID, "UART_BID");
     sc_trace(mVcdFile, UART_BUSER, "UART_BUSER");
-    sc_trace(mVcdFile, reg_419, "reg_419");
+    sc_trace(mVcdFile, OUT_r_AWVALID, "OUT_r_AWVALID");
+    sc_trace(mVcdFile, OUT_r_AWREADY, "OUT_r_AWREADY");
+    sc_trace(mVcdFile, OUT_r_WVALID, "OUT_r_WVALID");
+    sc_trace(mVcdFile, OUT_r_WREADY, "OUT_r_WREADY");
+    sc_trace(mVcdFile, OUT_r_WDATA, "OUT_r_WDATA");
+    sc_trace(mVcdFile, OUT_r_ARREADY, "OUT_r_ARREADY");
+    sc_trace(mVcdFile, OUT_r_RVALID, "OUT_r_RVALID");
+    sc_trace(mVcdFile, OUT_r_RDATA, "OUT_r_RDATA");
+    sc_trace(mVcdFile, OUT_r_RLAST, "OUT_r_RLAST");
+    sc_trace(mVcdFile, OUT_r_RID, "OUT_r_RID");
+    sc_trace(mVcdFile, OUT_r_RUSER, "OUT_r_RUSER");
+    sc_trace(mVcdFile, OUT_r_RRESP, "OUT_r_RRESP");
+    sc_trace(mVcdFile, OUT_r_BVALID, "OUT_r_BVALID");
+    sc_trace(mVcdFile, OUT_r_BREADY, "OUT_r_BREADY");
+    sc_trace(mVcdFile, OUT_r_BRESP, "OUT_r_BRESP");
+    sc_trace(mVcdFile, OUT_r_BID, "OUT_r_BID");
+    sc_trace(mVcdFile, OUT_r_BUSER, "OUT_r_BUSER");
     sc_trace(mVcdFile, ap_sig_ioackin_UART_AWREADY, "ap_sig_ioackin_UART_AWREADY");
     sc_trace(mVcdFile, ap_block_state1_io, "ap_block_state1_io");
+    sc_trace(mVcdFile, UART_addr_reg_580, "UART_addr_reg_580");
+    sc_trace(mVcdFile, UART_addr_1_reg_588, "UART_addr_1_reg_588");
     sc_trace(mVcdFile, ap_sig_ioackin_UART_WREADY, "ap_sig_ioackin_UART_WREADY");
-    sc_trace(mVcdFile, ap_block_state3_io, "ap_block_state3_io");
-    sc_trace(mVcdFile, ap_predicate_op140_writeresp_state28, "ap_predicate_op140_writeresp_state28");
-    sc_trace(mVcdFile, ap_block_state28, "ap_block_state28");
-    sc_trace(mVcdFile, ap_block_state28_io, "ap_block_state28_io");
-    sc_trace(mVcdFile, UART_addr_1_reg_534, "UART_addr_1_reg_534");
     sc_trace(mVcdFile, ap_block_state2_io, "ap_block_state2_io");
-    sc_trace(mVcdFile, UART_addr_3_reg_541, "UART_addr_3_reg_541");
+    sc_trace(mVcdFile, ap_block_state3_io, "ap_block_state3_io");
+    sc_trace(mVcdFile, UART_addr_3_reg_601, "UART_addr_3_reg_601");
     sc_trace(mVcdFile, ap_block_state4_io, "ap_block_state4_io");
     sc_trace(mVcdFile, ap_block_state6_io, "ap_block_state6_io");
-    sc_trace(mVcdFile, temp_fu_463_p1, "temp_fu_463_p1");
-    sc_trace(mVcdFile, temp_reg_554, "temp_reg_554");
+    sc_trace(mVcdFile, temp_fu_525_p1, "temp_fu_525_p1");
+    sc_trace(mVcdFile, temp_reg_614, "temp_reg_614");
     sc_trace(mVcdFile, ap_block_state22_io, "ap_block_state22_io");
-    sc_trace(mVcdFile, ap_sig_ioackin_UART_ARREADY, "ap_sig_ioackin_UART_ARREADY");
-    sc_trace(mVcdFile, ap_block_state42_io, "ap_block_state42_io");
-    sc_trace(mVcdFile, UART_addr_5_read_reg_577, "UART_addr_5_read_reg_577");
-    sc_trace(mVcdFile, ctr_V_fu_505_p2, "ctr_V_fu_505_p2");
-    sc_trace(mVcdFile, ap_CS_fsm_state55, "ap_CS_fsm_state55");
-    sc_trace(mVcdFile, p_014_0_i_reg_392, "p_014_0_i_reg_392");
-    sc_trace(mVcdFile, ap_predicate_op196_writeresp_state54, "ap_predicate_op196_writeresp_state54");
-    sc_trace(mVcdFile, ap_block_state54, "ap_block_state54");
-    sc_trace(mVcdFile, tmp_4_fu_499_p2, "tmp_4_fu_499_p2");
-    sc_trace(mVcdFile, ap_CS_fsm_state36, "ap_CS_fsm_state36");
-    sc_trace(mVcdFile, ap_CS_fsm_state37, "ap_CS_fsm_state37");
-    sc_trace(mVcdFile, ap_CS_fsm_state38, "ap_CS_fsm_state38");
-    sc_trace(mVcdFile, ap_CS_fsm_state39, "ap_CS_fsm_state39");
-    sc_trace(mVcdFile, ap_CS_fsm_state40, "ap_CS_fsm_state40");
-    sc_trace(mVcdFile, ap_CS_fsm_state41, "ap_CS_fsm_state41");
+    sc_trace(mVcdFile, ap_predicate_op142_writeresp_state28, "ap_predicate_op142_writeresp_state28");
+    sc_trace(mVcdFile, ap_block_state28, "ap_block_state28");
+    sc_trace(mVcdFile, ap_sig_ioackin_OUT_r_AWREADY, "ap_sig_ioackin_OUT_r_AWREADY");
+    sc_trace(mVcdFile, ap_block_state28_io, "ap_block_state28_io");
+    sc_trace(mVcdFile, ctr_V_fu_556_p2, "ctr_V_fu_556_p2");
+    sc_trace(mVcdFile, ap_CS_fsm_state59, "ap_CS_fsm_state59");
+    sc_trace(mVcdFile, p_014_0_i_reg_475, "p_014_0_i_reg_475");
+    sc_trace(mVcdFile, ap_block_state58, "ap_block_state58");
+    sc_trace(mVcdFile, tmp_1_fu_550_p2, "tmp_1_fu_550_p2");
     sc_trace(mVcdFile, ap_reg_ioackin_UART_AWREADY, "ap_reg_ioackin_UART_AWREADY");
     sc_trace(mVcdFile, ap_block_state7_io, "ap_block_state7_io");
     sc_trace(mVcdFile, ap_reg_ioackin_UART_ARREADY, "ap_reg_ioackin_UART_ARREADY");
+    sc_trace(mVcdFile, ap_sig_ioackin_UART_ARREADY, "ap_sig_ioackin_UART_ARREADY");
     sc_trace(mVcdFile, ap_reg_ioackin_UART_WREADY, "ap_reg_ioackin_UART_WREADY");
     sc_trace(mVcdFile, ap_block_state5_io, "ap_block_state5_io");
-    sc_trace(mVcdFile, ap_CS_fsm_state50, "ap_CS_fsm_state50");
+    sc_trace(mVcdFile, ap_reg_ioackin_OUT_r_AWREADY, "ap_reg_ioackin_OUT_r_AWREADY");
+    sc_trace(mVcdFile, ap_reg_ioackin_OUT_r_WREADY, "ap_reg_ioackin_OUT_r_WREADY");
+    sc_trace(mVcdFile, ap_sig_ioackin_OUT_r_WREADY, "ap_sig_ioackin_OUT_r_WREADY");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
-    sc_trace(mVcdFile, ap_condition_764, "ap_condition_764");
+    sc_trace(mVcdFile, ap_condition_192, "ap_condition_192");
+    sc_trace(mVcdFile, ap_condition_1236, "ap_condition_1236");
+    sc_trace(mVcdFile, ap_condition_717, "ap_condition_717");
 #endif
 
     }
@@ -1045,8 +1274,8 @@ AXI_UART_DRIVER::~AXI_UART_DRIVER() {
     mHdltvinHandle.close();
     mHdltvoutHandle.close();
     delete AXI_UART_DRIVER_CTRL_s_axi_U;
-    delete AXI_UART_DRIVER_TEST_s_axi_U;
     delete AXI_UART_DRIVER_UART_m_axi_U;
+    delete AXI_UART_DRIVER_OUT_r_m_axi_U;
 }
 
 void AXI_UART_DRIVER::thread_ap_var_for_const0() {
@@ -1055,6 +1284,14 @@ void AXI_UART_DRIVER::thread_ap_var_for_const0() {
 
 void AXI_UART_DRIVER::thread_ap_var_for_const6() {
     ap_var_for_const6 = ap_const_logic_0;
+}
+
+void AXI_UART_DRIVER::thread_ap_var_for_const8() {
+    ap_var_for_const8 = ap_const_lv32_0;
+}
+
+void AXI_UART_DRIVER::thread_ap_var_for_const10() {
+    ap_var_for_const10 = ap_const_lv1_1;
 }
 
 void AXI_UART_DRIVER::thread_ap_var_for_const1() {
@@ -1081,6 +1318,10 @@ void AXI_UART_DRIVER::thread_ap_var_for_const7() {
     ap_var_for_const7 = ap_const_lv4_F;
 }
 
+void AXI_UART_DRIVER::thread_ap_var_for_const9() {
+    ap_var_for_const9 = ap_const_lv32_19;
+}
+
 void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
         ap_CS_fsm = ap_ST_fsm_state1;
@@ -1088,25 +1329,132 @@ void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
         ap_CS_fsm = ap_NS_fsm.read();
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
+        ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_0;
+    } else {
+        if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1))) {
+            if (esl_seteq<1,1,1>(ap_condition_717.read(), ap_const_boolean_1)) {
+                ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_0;
+            } else if (esl_seteq<1,1,1>(ap_condition_1236.read(), ap_const_boolean_1)) {
+                ap_reg_ioackin_OUT_r_AWREADY = ap_const_logic_1;
+            }
+        }
+    }
+    if ( ap_rst_n_inv.read() == ap_const_logic_1) {
+        ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_0;
+    } else {
+        if (((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state30.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state31.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state32.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state33.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state34.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state36.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state37.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state38.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state39.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state40.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state51.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state41.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state46.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state43.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state44.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state45.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state47.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state52.read())) || 
+             (esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state53.read())))) {
+            ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_0;
+        } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state30.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state31.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state32.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state33.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state34.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state36.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state37.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state38.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state39.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state40.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state51.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state41.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state46.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state43.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state44.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state45.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state47.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state52.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())) || 
+                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state53.read()) && 
+                     esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_WREADY.read())))) {
+            ap_reg_ioackin_OUT_r_WREADY = ap_const_logic_1;
+        }
+    }
+    if ( ap_rst_n_inv.read() == ap_const_logic_1) {
         ap_reg_ioackin_UART_ARREADY = ap_const_logic_0;
     } else {
-        if (((esl_seteq<1,1,1>(ap_sig_ioackin_UART_ARREADY.read(), ap_const_logic_1) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read())) || 
-             (esl_seteq<1,1,1>(ap_sig_ioackin_UART_ARREADY.read(), ap_const_logic_1) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read())) || 
-             (!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state42_io.read()) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read())) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && 
-              esl_seteq<1,1,1>(tmp_2_fu_495_p1.read(), ap_const_lv1_1)))) {
-            ap_reg_ioackin_UART_ARREADY = ap_const_logic_0;
-        } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, UART_ARREADY.read())) || 
-                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && 
-                     esl_seteq<1,1,1>(tmp_2_fu_495_p1.read(), ap_const_lv1_1) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, UART_RVALID.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, UART_ARREADY.read())) || 
-                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, UART_ARREADY.read())))) {
-            ap_reg_ioackin_UART_ARREADY = ap_const_logic_1;
+        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read())) {
+            if (esl_seteq<1,1,1>(ap_sig_ioackin_UART_ARREADY.read(), ap_const_logic_1)) {
+                ap_reg_ioackin_UART_ARREADY = ap_const_logic_0;
+            } else if (esl_seteq<1,1,1>(ap_const_logic_1, UART_ARREADY.read())) {
+                ap_reg_ioackin_UART_ARREADY = ap_const_logic_1;
+            }
         }
     }
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
@@ -1115,16 +1463,10 @@ void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
         if (((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
               esl_seteq<1,1,1>(firstSample.read(), ap_const_lv1_1)) || 
-             (esl_seteq<1,1,1>(ap_sig_ioackin_UART_AWREADY.read(), ap_const_logic_1) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read())) || 
-             (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state3_io.read()) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) || 
-             (!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && 
-  esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
-              esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1)) || 
              (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state2_io.read()) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) || 
+             (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state3_io.read()) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) || 
              (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state4_io.read()) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) || 
              (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state6_io.read()) && 
@@ -1133,7 +1475,7 @@ void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) || 
              (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state22_io.read()) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && 
-              esl_seteq<1,1,1>(tmp_fu_467_p2.read(), ap_const_lv1_1)) || 
+              esl_seteq<1,1,1>(tmp_fu_529_p2.read(), ap_const_lv1_1)) || 
              (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state5_io.read()) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())))) {
             ap_reg_ioackin_UART_AWREADY = ap_const_logic_0;
@@ -1142,7 +1484,7 @@ void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
                      esl_seteq<1,1,1>(firstSample.read(), ap_const_lv1_1) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_AWREADY.read())) || 
                     (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && 
-                     esl_seteq<1,1,1>(tmp_fu_467_p2.read(), ap_const_lv1_1) && 
+                     esl_seteq<1,1,1>(tmp_fu_529_p2.read(), ap_const_lv1_1) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_AWREADY.read())) || 
                     (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_AWREADY.read())) || 
@@ -1156,12 +1498,6 @@ void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_AWREADY.read()) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read())) || 
                     (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, UART_AWREADY.read())) || 
-                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
-                     esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, UART_AWREADY.read()) && 
-                     !(esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))) || 
-                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_AWREADY.read())))) {
             ap_reg_ioackin_UART_AWREADY = ap_const_logic_1;
         }
@@ -1169,16 +1505,14 @@ void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
     if ( ap_rst_n_inv.read() == ap_const_logic_1) {
         ap_reg_ioackin_UART_WREADY = ap_const_logic_0;
     } else {
-        if (((esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state3_io.read()) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) || 
-             (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state2_io.read()) && 
+        if (((esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state2_io.read()) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) || 
+             (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state3_io.read()) && 
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) || 
              (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state4_io.read()) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) || 
              (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state6_io.read()) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) || 
-             (!(esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read())) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read())) || 
              (!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state7_io.read()) || esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) || 
              (!(esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())) && 
@@ -1186,9 +1520,7 @@ void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
              (esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state5_io.read()) && 
               esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) || 
              (esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_1) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state23.read())) || 
-             (esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_1) && 
-              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read())))) {
+              esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state23.read())))) {
             ap_reg_ioackin_UART_WREADY = ap_const_logic_0;
         } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_WREADY.read())) || 
@@ -1207,11 +1539,6 @@ void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_WREADY.read()) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read())) || 
                     (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state23.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, UART_WREADY.read())) || 
-                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, UART_WREADY.read())) || 
-                    (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()) && 
-                     esl_seteq<1,1,1>(ap_const_logic_1, UART_RVALID.read()) && 
                      esl_seteq<1,1,1>(ap_const_logic_1, UART_WREADY.read())))) {
             ap_reg_ioackin_UART_WREADY = ap_const_logic_1;
         }
@@ -1220,151 +1547,248 @@ void AXI_UART_DRIVER::thread_ap_clk_no_reset_() {
         firstSample = ap_const_lv1_1;
     } else {
         if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
-             esl_seteq<1,1,1>(ap_const_lv1_1, firstSample_load_reg_530.read()) && 
-             !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && 
+             esl_seteq<1,1,1>(ap_const_lv1_1, firstSample_load_reg_576.read()) && 
+             !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))))) {
             firstSample = ap_const_lv1_0;
         }
     }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state55.read()) && 
-         esl_seteq<1,1,1>(tmp_4_fu_499_p2.read(), ap_const_lv1_0))) {
-        p_014_0_i_reg_392 = ctr_V_fu_505_p2.read();
-    } else if ((!(esl_seteq<1,1,1>(ap_predicate_op196_writeresp_state54.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())) && 
-                esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state54.read()))) {
-        p_014_0_i_reg_392 = ap_const_lv19_0;
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state59.read()) && 
+         esl_seteq<1,1,1>(tmp_1_fu_550_p2.read(), ap_const_lv1_0))) {
+        p_014_0_i_reg_475 = ctr_V_fu_556_p2.read();
+    } else if ((!(esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && esl_seteq<1,1,1>(calibrationSuccess_l_reg_623.read(), ap_const_lv1_1)) && 
+                esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state58.read()))) {
+        p_014_0_i_reg_475 = ap_const_lv19_0;
     }
-    if ((!(esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read())) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()))) {
-        UART_addr_5_read_reg_577 = UART_RDATA.read();
-    }
-    if ((esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state22_io.read()) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && esl_seteq<1,1,1>(tmp_fu_467_p2.read(), ap_const_lv1_1))) {
+    if ((esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state22_io.read()) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && esl_seteq<1,1,1>(tmp_fu_529_p2.read(), ap_const_lv1_1))) {
         calibrationSuccess = ap_const_lv1_1;
     }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && 
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))))) {
-        calibrationSuccess_l_reg_563 = calibrationSuccess.read();
+        calibrationSuccess_l_reg_623 = calibrationSuccess.read();
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)))) {
-        firstSample_load_reg_530 = firstSample.read();
+        firstSample_load_reg_576 = firstSample.read();
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, UART_RVALID.read()) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state21.read()))) {
-        temp_reg_554 = temp_fu_463_p1.read();
-    }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state42_io.read()) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read())))) {
-        tmp_2_reg_573 = tmp_2_fu_495_p1.read();
+        temp_reg_614 = temp_fu_525_p1.read();
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state22_io.read()))) {
-        tmp_reg_559 = tmp_fu_467_p2.read();
+        tmp_reg_619 = tmp_fu_529_p2.read();
     }
 }
 
-void AXI_UART_DRIVER::thread_SBUS_data_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read())) {
-        SBUS_data_address0 =  (sc_lv<12>) (ap_const_lv64_7);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state41.read())) {
-        SBUS_data_address0 =  (sc_lv<12>) (ap_const_lv64_6);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state40.read())) {
-        SBUS_data_address0 =  (sc_lv<12>) (ap_const_lv64_5);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state39.read())) {
-        SBUS_data_address0 =  (sc_lv<12>) (ap_const_lv64_4);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state38.read())) {
-        SBUS_data_address0 =  (sc_lv<12>) (ap_const_lv64_3);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state37.read())) {
-        SBUS_data_address0 =  (sc_lv<12>) (ap_const_lv64_2);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state36.read())) {
-        SBUS_data_address0 =  (sc_lv<12>) (ap_const_lv64_1);
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()) || 
-                esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read()))) {
-        SBUS_data_address0 =  (sc_lv<12>) (ap_const_lv64_0);
+void AXI_UART_DRIVER::thread_OUT_r_AWVALID() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
+         esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1) && 
+         !(esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())) && 
+         esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_AWREADY.read()))) {
+        OUT_r_AWVALID = ap_const_logic_1;
     } else {
-        SBUS_data_address0 = "XXXXXXXXXXXX";
+        OUT_r_AWVALID = ap_const_logic_0;
     }
 }
 
-void AXI_UART_DRIVER::thread_SBUS_data_ce0() {
-    if (((esl_seteq<1,1,1>(ap_sig_ioackin_UART_ARREADY.read(), ap_const_logic_1) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read())) || 
+void AXI_UART_DRIVER::thread_OUT_r_BREADY() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state58.read()) && 
+         esl_seteq<1,1,1>(calibrationSuccess_l_reg_623.read(), ap_const_lv1_1) && 
+         !(esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && esl_seteq<1,1,1>(calibrationSuccess_l_reg_623.read(), ap_const_lv1_1)))) {
+        OUT_r_BREADY = ap_const_logic_1;
+    } else {
+        OUT_r_BREADY = ap_const_logic_0;
+    }
+}
+
+void AXI_UART_DRIVER::thread_OUT_r_WDATA() {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state52.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state53.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())))) {
+        OUT_r_WDATA = ap_const_lv8_0;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_81;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state47.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_7C;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state45.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_3;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state44.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_1F;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state43.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_F8;
+    } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && 
+                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+                (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state46.read()) && 
+                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())))) {
+        OUT_r_WDATA = ap_const_lv8_E0;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state41.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_CC;
+    } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state40.read()) && 
+                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+                (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state51.read()) && 
+                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())))) {
+        OUT_r_WDATA = ap_const_lv8_3E;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state39.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_40;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state38.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_D;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state37.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_6A;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state36.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_50;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_E3;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state34.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_6B;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state33.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_5F;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state32.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_FA;
+    } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state31.read()) && 
+                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+                (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read()) && 
+                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())))) {
+        OUT_r_WDATA = ap_const_lv8_F0;
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state30.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read()))) {
+        OUT_r_WDATA = ap_const_lv8_C8;
+    } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()) && 
+                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+                (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()) && 
+                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())))) {
+        OUT_r_WDATA = ap_const_lv8_F;
+    } else {
+        OUT_r_WDATA = "XXXXXXXX";
+    }
+}
+
+void AXI_UART_DRIVER::thread_OUT_r_WVALID() {
+    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state30.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state31.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state32.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state33.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state34.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state36.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state37.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state38.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state39.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state40.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state51.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state41.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && 
-          !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state42_io.read()) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read()))) || 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state46.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state43.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state44.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state45.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state47.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state52.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) || 
+         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state53.read()) && 
+          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())))) {
+        OUT_r_WVALID = ap_const_logic_1;
+    } else {
+        OUT_r_WVALID = ap_const_logic_0;
+    }
+}
+
+void AXI_UART_DRIVER::thread_OUT_r_blk_n_AW() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
+         esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1))) {
+        OUT_r_blk_n_AW = m_axi_OUT_r_AWREADY.read();
+    } else {
+        OUT_r_blk_n_AW = ap_const_logic_1;
+    }
+}
+
+void AXI_UART_DRIVER::thread_OUT_r_blk_n_B() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state58.read()) && 
+         esl_seteq<1,1,1>(calibrationSuccess_l_reg_623.read(), ap_const_lv1_1))) {
+        OUT_r_blk_n_B = m_axi_OUT_r_BVALID.read();
+    } else {
+        OUT_r_blk_n_B = ap_const_logic_1;
+    }
+}
+
+void AXI_UART_DRIVER::thread_OUT_r_blk_n_W() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state30.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state31.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state32.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state33.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state34.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state36.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state37.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state38.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state39.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state40.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state41.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read()))) {
-        SBUS_data_ce0 = ap_const_logic_1;
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state43.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state44.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state45.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state46.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state47.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state51.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state52.read()) || 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state53.read()))) {
+        OUT_r_blk_n_W = m_axi_OUT_r_WREADY.read();
     } else {
-        SBUS_data_ce0 = ap_const_logic_0;
-    }
-}
-
-void AXI_UART_DRIVER::thread_SBUS_data_d0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read())) {
-        SBUS_data_d0 = UART_addr_5_read_reg_577.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read())) {
-        SBUS_data_d0 = ap_const_lv32_88;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state41.read())) {
-        SBUS_data_d0 = ap_const_lv32_77;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state40.read())) {
-        SBUS_data_d0 = ap_const_lv32_66;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state39.read())) {
-        SBUS_data_d0 = ap_const_lv32_55;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state38.read())) {
-        SBUS_data_d0 = ap_const_lv32_44;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state37.read())) {
-        SBUS_data_d0 = ap_const_lv32_33;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state36.read())) {
-        SBUS_data_d0 = ap_const_lv32_22;
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read())) {
-        SBUS_data_d0 = ap_const_lv32_11;
-    } else {
-        SBUS_data_d0 =  (sc_lv<32>) ("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-    }
-}
-
-void AXI_UART_DRIVER::thread_SBUS_data_we0() {
-    if (((esl_seteq<1,1,1>(ap_sig_ioackin_UART_ARREADY.read(), ap_const_logic_1) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && 
-          !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state42_io.read()) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read()))) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state36.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state37.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state38.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state39.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state40.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state41.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read()))) {
-        SBUS_data_we0 = ap_const_logic_1;
-    } else {
-        SBUS_data_we0 = ap_const_logic_0;
+        OUT_r_blk_n_W = ap_const_logic_1;
     }
 }
 
 void AXI_UART_DRIVER::thread_UART_ARADDR() {
-    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_ARREADY.read())) {
-        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read())) {
-            UART_ARADDR =  (sc_lv<32>) (ap_const_lv64_405);
-        } else if (esl_seteq<1,1,1>(ap_condition_764.read(), ap_const_boolean_1)) {
-            UART_ARADDR =  (sc_lv<32>) (ap_const_lv64_400);
-        } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read())) {
-            UART_ARADDR =  (sc_lv<32>) (ap_const_lv64_407);
-        } else {
-            UART_ARADDR =  (sc_lv<32>) ("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        }
-    } else {
-        UART_ARADDR =  (sc_lv<32>) ("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-    }
+    UART_ARADDR =  (sc_lv<32>) (ap_const_lv64_407);
 }
 
 void AXI_UART_DRIVER::thread_UART_ARVALID() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_ARREADY.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && 
-          esl_seteq<1,1,1>(tmp_2_fu_495_p1.read(), ap_const_lv1_1) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, UART_RVALID.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_ARREADY.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_ARREADY.read())))) {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read()) && 
+         esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_ARREADY.read()))) {
         UART_ARVALID = ap_const_logic_1;
     } else {
         UART_ARVALID = ap_const_logic_0;
@@ -1372,40 +1796,28 @@ void AXI_UART_DRIVER::thread_UART_ARVALID() {
 }
 
 void AXI_UART_DRIVER::thread_UART_AWADDR() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) && 
-         esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read()))) {
-        UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_402);
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read()) && 
-                esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read()))) {
-        UART_AWADDR = UART_addr_3_reg_541.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
-                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read()))) {
-        UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_401);
-    } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
-                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read())) || 
-                (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
-                 esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1) && 
-                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read()) && 
-                 !(esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))))) {
-        UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_400);
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read()) && 
-                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read()))) {
-        UART_AWADDR = UART_addr_1_reg_534.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read()))) {
-        UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_403);
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && 
-                esl_seteq<1,1,1>(tmp_fu_467_p2.read(), ap_const_lv1_1) && 
-                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read()))) {
-        UART_AWADDR = reg_419.read();
-    } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-                 esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-                 esl_seteq<1,1,1>(firstSample.read(), ap_const_lv1_1) && 
-                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read())) || 
-                (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()) && 
-                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read())))) {
-        UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_407);
+    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read())) {
+        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+            UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_402);
+        } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
+                    esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read()))) {
+            UART_AWADDR = UART_addr_3_reg_601.read();
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+            UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_401);
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
+            UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_400);
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
+            UART_AWADDR = UART_addr_1_reg_588.read();
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+            UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_403);
+        } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && 
+                    esl_seteq<1,1,1>(tmp_fu_529_p2.read(), ap_const_lv1_1))) {
+            UART_AWADDR = UART_addr_reg_580.read();
+        } else if (esl_seteq<1,1,1>(ap_condition_192.read(), ap_const_boolean_1)) {
+            UART_AWADDR =  (sc_lv<32>) (ap_const_lv64_407);
+        } else {
+            UART_AWADDR =  (sc_lv<32>) ("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        }
     } else {
         UART_AWADDR =  (sc_lv<32>) ("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
     }
@@ -1417,7 +1829,7 @@ void AXI_UART_DRIVER::thread_UART_AWVALID() {
           esl_seteq<1,1,1>(firstSample.read(), ap_const_lv1_1) && 
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && 
-          esl_seteq<1,1,1>(tmp_fu_467_p2.read(), ap_const_lv1_1) && 
+          esl_seteq<1,1,1>(tmp_fu_529_p2.read(), ap_const_lv1_1) && 
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read())) || 
@@ -1431,12 +1843,6 @@ void AXI_UART_DRIVER::thread_UART_AWVALID() {
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
-          esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read()) && 
-          !(esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_AWREADY.read())))) {
         UART_AWVALID = ap_const_logic_1;
     } else {
@@ -1448,8 +1854,8 @@ void AXI_UART_DRIVER::thread_UART_BREADY() {
     if (((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state7_io.read()) || esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())) && 
           esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
-          esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && 
-          !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && 
+          esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && 
+          !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())))) || 
          (!(esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())) && 
           esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) || 
@@ -1462,12 +1868,7 @@ void AXI_UART_DRIVER::thread_UART_BREADY() {
          (esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state12.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state34.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state54.read()) && 
-          esl_seteq<1,1,1>(ap_predicate_op196_writeresp_state54.read(), ap_const_boolean_1) && 
-          !(esl_seteq<1,1,1>(ap_predicate_op196_writeresp_state54.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))))) {
+          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state12.read())))) {
         UART_BREADY = ap_const_logic_1;
     } else {
         UART_BREADY = ap_const_logic_0;
@@ -1475,12 +1876,8 @@ void AXI_UART_DRIVER::thread_UART_BREADY() {
 }
 
 void AXI_UART_DRIVER::thread_UART_RREADY() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, UART_RVALID.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state21.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && 
-          !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state42_io.read()) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read()))) || 
-         (!(esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read())) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read())))) {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, UART_RVALID.read()) && 
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state21.read()))) {
         UART_RREADY = ap_const_logic_1;
     } else {
         UART_RREADY = ap_const_logic_0;
@@ -1493,10 +1890,7 @@ void AXI_UART_DRIVER::thread_UART_WDATA() {
           esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, UART_RVALID.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read())))) {
+          esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read())))) {
         UART_WDATA = ap_const_lv32_1;
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) && 
                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read()))) {
@@ -1512,10 +1906,8 @@ void AXI_UART_DRIVER::thread_UART_WDATA() {
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read()))) {
         UART_WDATA = ap_const_lv32_80;
-    } else if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read())) || 
-                (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()) && 
-                 esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read())))) {
+    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
+                esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read()))) {
         UART_WDATA = ap_const_lv32_45;
     } else {
         UART_WDATA =  (sc_lv<32>) ("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
@@ -1540,11 +1932,6 @@ void AXI_UART_DRIVER::thread_UART_WVALID() {
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state23.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read())) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()) && 
-          esl_seteq<1,1,1>(ap_const_logic_1, UART_RVALID.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_UART_WREADY.read())))) {
         UART_WVALID = ap_const_logic_1;
     } else {
@@ -1552,19 +1939,20 @@ void AXI_UART_DRIVER::thread_UART_WVALID() {
     }
 }
 
-void AXI_UART_DRIVER::thread_UART_addr_1_reg_534() {
-    UART_addr_1_reg_534 =  (sc_lv<32>) (ap_const_lv64_403);
+void AXI_UART_DRIVER::thread_UART_addr_1_reg_588() {
+    UART_addr_1_reg_588 =  (sc_lv<32>) (ap_const_lv64_403);
 }
 
-void AXI_UART_DRIVER::thread_UART_addr_3_reg_541() {
-    UART_addr_3_reg_541 =  (sc_lv<32>) (ap_const_lv64_401);
+void AXI_UART_DRIVER::thread_UART_addr_3_reg_601() {
+    UART_addr_3_reg_601 =  (sc_lv<32>) (ap_const_lv64_401);
+}
+
+void AXI_UART_DRIVER::thread_UART_addr_reg_580() {
+    UART_addr_reg_580 =  (sc_lv<32>) (ap_const_lv64_407);
 }
 
 void AXI_UART_DRIVER::thread_UART_blk_n_AR() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && 
-          esl_seteq<1,1,1>(tmp_2_fu_495_p1.read(), ap_const_lv1_1)) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()))) {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state14.read())) {
         UART_blk_n_AR = m_axi_UART_ARREADY.read();
     } else {
         UART_blk_n_AR = ap_const_logic_1;
@@ -1578,14 +1966,11 @@ void AXI_UART_DRIVER::thread_UART_blk_n_AW() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && 
-          esl_seteq<1,1,1>(tmp_fu_467_p2.read(), ap_const_lv1_1)) || 
+          esl_seteq<1,1,1>(tmp_fu_529_p2.read(), ap_const_lv1_1)) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
-          esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1)) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()))) {
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()))) {
         UART_blk_n_AW = m_axi_UART_AWREADY.read();
     } else {
         UART_blk_n_AW = ap_const_logic_1;
@@ -1595,18 +1980,14 @@ void AXI_UART_DRIVER::thread_UART_blk_n_AW() {
 void AXI_UART_DRIVER::thread_UART_blk_n_B() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, firstSample_load_reg_530.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_reg_559.read())) || 
+          esl_seteq<1,1,1>(ap_const_lv1_1, firstSample_load_reg_576.read()) && 
+          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_reg_619.read())) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state11.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state13.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state12.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state34.read()) || 
-         (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state54.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, calibrationSuccess_l_reg_563.read()) && 
-          esl_seteq<1,1,1>(ap_const_lv1_1, tmp_2_reg_573.read())))) {
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state12.read()))) {
         UART_blk_n_B = m_axi_UART_BVALID.read();
     } else {
         UART_blk_n_B = ap_const_logic_1;
@@ -1614,9 +1995,7 @@ void AXI_UART_DRIVER::thread_UART_blk_n_B() {
 }
 
 void AXI_UART_DRIVER::thread_UART_blk_n_R() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state21.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()))) {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state21.read())) {
         UART_blk_n_R = m_axi_UART_RVALID.read();
     } else {
         UART_blk_n_R = ap_const_logic_1;
@@ -1631,9 +2010,7 @@ void AXI_UART_DRIVER::thread_UART_blk_n_W() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read()) || 
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()))) {
+         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()))) {
         UART_blk_n_W = m_axi_UART_WREADY.read();
     } else {
         UART_blk_n_W = ap_const_logic_1;
@@ -1692,6 +2069,22 @@ void AXI_UART_DRIVER::thread_ap_CS_fsm_state3() {
     ap_CS_fsm_state3 = ap_CS_fsm.read()[2];
 }
 
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state30() {
+    ap_CS_fsm_state30 = ap_CS_fsm.read()[29];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state31() {
+    ap_CS_fsm_state31 = ap_CS_fsm.read()[30];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state32() {
+    ap_CS_fsm_state32 = ap_CS_fsm.read()[31];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state33() {
+    ap_CS_fsm_state33 = ap_CS_fsm.read()[32];
+}
+
 void AXI_UART_DRIVER::thread_ap_CS_fsm_state34() {
     ap_CS_fsm_state34 = ap_CS_fsm.read()[33];
 }
@@ -1732,6 +2125,26 @@ void AXI_UART_DRIVER::thread_ap_CS_fsm_state42() {
     ap_CS_fsm_state42 = ap_CS_fsm.read()[41];
 }
 
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state43() {
+    ap_CS_fsm_state43 = ap_CS_fsm.read()[42];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state44() {
+    ap_CS_fsm_state44 = ap_CS_fsm.read()[43];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state45() {
+    ap_CS_fsm_state45 = ap_CS_fsm.read()[44];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state46() {
+    ap_CS_fsm_state46 = ap_CS_fsm.read()[45];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state47() {
+    ap_CS_fsm_state47 = ap_CS_fsm.read()[46];
+}
+
 void AXI_UART_DRIVER::thread_ap_CS_fsm_state48() {
     ap_CS_fsm_state48 = ap_CS_fsm.read()[47];
 }
@@ -1748,12 +2161,24 @@ void AXI_UART_DRIVER::thread_ap_CS_fsm_state50() {
     ap_CS_fsm_state50 = ap_CS_fsm.read()[49];
 }
 
-void AXI_UART_DRIVER::thread_ap_CS_fsm_state54() {
-    ap_CS_fsm_state54 = ap_CS_fsm.read()[53];
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state51() {
+    ap_CS_fsm_state51 = ap_CS_fsm.read()[50];
 }
 
-void AXI_UART_DRIVER::thread_ap_CS_fsm_state55() {
-    ap_CS_fsm_state55 = ap_CS_fsm.read()[54];
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state52() {
+    ap_CS_fsm_state52 = ap_CS_fsm.read()[51];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state53() {
+    ap_CS_fsm_state53 = ap_CS_fsm.read()[52];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state58() {
+    ap_CS_fsm_state58 = ap_CS_fsm.read()[57];
+}
+
+void AXI_UART_DRIVER::thread_ap_CS_fsm_state59() {
+    ap_CS_fsm_state59 = ap_CS_fsm.read()[58];
 }
 
 void AXI_UART_DRIVER::thread_ap_CS_fsm_state6() {
@@ -1777,15 +2202,15 @@ void AXI_UART_DRIVER::thread_ap_block_state1_io() {
 }
 
 void AXI_UART_DRIVER::thread_ap_block_state22_io() {
-    ap_block_state22_io = (esl_seteq<1,1,1>(tmp_fu_467_p2.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_UART_AWREADY.read()));
+    ap_block_state22_io = (esl_seteq<1,1,1>(tmp_fu_529_p2.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_UART_AWREADY.read()));
 }
 
 void AXI_UART_DRIVER::thread_ap_block_state28() {
-    ap_block_state28 = (esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()));
+    ap_block_state28 = (esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()));
 }
 
 void AXI_UART_DRIVER::thread_ap_block_state28_io() {
-    ap_block_state28_io = (esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_UART_AWREADY.read()));
+    ap_block_state28_io = (esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_OUT_r_AWREADY.read()));
 }
 
 void AXI_UART_DRIVER::thread_ap_block_state2_io() {
@@ -1796,16 +2221,12 @@ void AXI_UART_DRIVER::thread_ap_block_state3_io() {
     ap_block_state3_io = (esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_UART_AWREADY.read()) || esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_0));
 }
 
-void AXI_UART_DRIVER::thread_ap_block_state42_io() {
-    ap_block_state42_io = (esl_seteq<1,1,1>(tmp_2_fu_495_p1.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_UART_ARREADY.read()));
-}
-
 void AXI_UART_DRIVER::thread_ap_block_state4_io() {
     ap_block_state4_io = (esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_UART_AWREADY.read()) || esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_0));
 }
 
-void AXI_UART_DRIVER::thread_ap_block_state54() {
-    ap_block_state54 = (esl_seteq<1,1,1>(ap_predicate_op196_writeresp_state54.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()));
+void AXI_UART_DRIVER::thread_ap_block_state58() {
+    ap_block_state58 = (esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && esl_seteq<1,1,1>(calibrationSuccess_l_reg_623.read(), ap_const_lv1_1));
 }
 
 void AXI_UART_DRIVER::thread_ap_block_state5_io() {
@@ -1820,13 +2241,22 @@ void AXI_UART_DRIVER::thread_ap_block_state7_io() {
     ap_block_state7_io = (esl_seteq<1,1,1>(ap_const_logic_0, ap_sig_ioackin_UART_AWREADY.read()) || esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_0));
 }
 
-void AXI_UART_DRIVER::thread_ap_condition_764() {
-    ap_condition_764 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && esl_seteq<1,1,1>(tmp_2_fu_495_p1.read(), ap_const_lv1_1) && esl_seteq<1,1,1>(ap_const_logic_1, UART_RVALID.read()));
+void AXI_UART_DRIVER::thread_ap_condition_1236() {
+    ap_condition_1236 = (esl_seteq<1,1,1>(ap_const_logic_1, OUT_r_AWREADY.read()) && !(esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())));
+}
+
+void AXI_UART_DRIVER::thread_ap_condition_192() {
+    ap_condition_192 = (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && esl_seteq<1,1,1>(firstSample.read(), ap_const_lv1_1));
+}
+
+void AXI_UART_DRIVER::thread_ap_condition_717() {
+    ap_condition_717 = !(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())));
 }
 
 void AXI_UART_DRIVER::thread_ap_done() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state55.read()) && 
-         esl_seteq<1,1,1>(tmp_4_fu_499_p2.read(), ap_const_lv1_1))) {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state59.read()) && 
+         esl_seteq<1,1,1>(tmp_1_fu_550_p2.read(), ap_const_lv1_1))) {
         ap_done = ap_const_logic_1;
     } else {
         ap_done = ap_const_logic_0;
@@ -1842,17 +2272,13 @@ void AXI_UART_DRIVER::thread_ap_idle() {
     }
 }
 
-void AXI_UART_DRIVER::thread_ap_predicate_op140_writeresp_state28() {
-    ap_predicate_op140_writeresp_state28 = (esl_seteq<1,1,1>(ap_const_lv1_1, firstSample_load_reg_530.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_reg_559.read()));
-}
-
-void AXI_UART_DRIVER::thread_ap_predicate_op196_writeresp_state54() {
-    ap_predicate_op196_writeresp_state54 = (esl_seteq<1,1,1>(ap_const_lv1_1, calibrationSuccess_l_reg_563.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_2_reg_573.read()));
+void AXI_UART_DRIVER::thread_ap_predicate_op142_writeresp_state28() {
+    ap_predicate_op142_writeresp_state28 = (esl_seteq<1,1,1>(ap_const_lv1_1, firstSample_load_reg_576.read()) && esl_seteq<1,1,1>(ap_const_lv1_1, tmp_reg_619.read()));
 }
 
 void AXI_UART_DRIVER::thread_ap_ready() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state55.read()) && 
-         esl_seteq<1,1,1>(tmp_4_fu_499_p2.read(), ap_const_lv1_1))) {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state59.read()) && 
+         esl_seteq<1,1,1>(tmp_1_fu_550_p2.read(), ap_const_lv1_1))) {
         ap_ready = ap_const_logic_1;
     } else {
         ap_ready = ap_const_logic_0;
@@ -1861,6 +2287,22 @@ void AXI_UART_DRIVER::thread_ap_ready() {
 
 void AXI_UART_DRIVER::thread_ap_rst_n_inv() {
     ap_rst_n_inv =  (sc_logic) (~ap_rst_n.read());
+}
+
+void AXI_UART_DRIVER::thread_ap_sig_ioackin_OUT_r_AWREADY() {
+    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_AWREADY.read())) {
+        ap_sig_ioackin_OUT_r_AWREADY = OUT_r_AWREADY.read();
+    } else {
+        ap_sig_ioackin_OUT_r_AWREADY = ap_const_logic_1;
+    }
+}
+
+void AXI_UART_DRIVER::thread_ap_sig_ioackin_OUT_r_WREADY() {
+    if (esl_seteq<1,1,1>(ap_const_logic_0, ap_reg_ioackin_OUT_r_WREADY.read())) {
+        ap_sig_ioackin_OUT_r_WREADY = OUT_r_WREADY.read();
+    } else {
+        ap_sig_ioackin_OUT_r_WREADY = ap_const_logic_1;
+    }
 }
 
 void AXI_UART_DRIVER::thread_ap_sig_ioackin_UART_ARREADY() {
@@ -1887,42 +2329,34 @@ void AXI_UART_DRIVER::thread_ap_sig_ioackin_UART_WREADY() {
     }
 }
 
-void AXI_UART_DRIVER::thread_calibrationSuccess_l_load_fu_484_p1() {
-    calibrationSuccess_l_load_fu_484_p1 = calibrationSuccess.read();
+void AXI_UART_DRIVER::thread_calibrationSuccess_l_load_fu_546_p1() {
+    calibrationSuccess_l_load_fu_546_p1 = calibrationSuccess.read();
 }
 
-void AXI_UART_DRIVER::thread_ctr_V_fu_505_p2() {
-    ctr_V_fu_505_p2 = (!p_014_0_i_reg_392.read().is_01() || !ap_const_lv19_1.is_01())? sc_lv<19>(): (sc_biguint<19>(p_014_0_i_reg_392.read()) + sc_biguint<19>(ap_const_lv19_1));
+void AXI_UART_DRIVER::thread_ctr_V_fu_556_p2() {
+    ctr_V_fu_556_p2 = (!p_014_0_i_reg_475.read().is_01() || !ap_const_lv19_1.is_01())? sc_lv<19>(): (sc_biguint<19>(p_014_0_i_reg_475.read()) + sc_biguint<19>(ap_const_lv19_1));
 }
 
-void AXI_UART_DRIVER::thread_firstSample_load_load_fu_438_p1() {
-    firstSample_load_load_fu_438_p1 = firstSample.read();
+void AXI_UART_DRIVER::thread_firstSample_load_load_fu_486_p1() {
+    firstSample_load_load_fu_486_p1 = firstSample.read();
 }
 
-void AXI_UART_DRIVER::thread_reg_419() {
-    reg_419 =  (sc_lv<32>) (ap_const_lv64_407);
+void AXI_UART_DRIVER::thread_temp_fu_525_p1() {
+    temp_fu_525_p1 = UART_RDATA.read().range(8-1, 0);
 }
 
-void AXI_UART_DRIVER::thread_temp_fu_463_p1() {
-    temp_fu_463_p1 = UART_RDATA.read().range(8-1, 0);
+void AXI_UART_DRIVER::thread_tmp_1_fu_550_p2() {
+    tmp_1_fu_550_p2 = (!p_014_0_i_reg_475.read().is_01() || !ap_const_lv19_7A120.is_01())? sc_lv<1>(): sc_lv<1>(p_014_0_i_reg_475.read() == ap_const_lv19_7A120);
 }
 
-void AXI_UART_DRIVER::thread_tmp_2_fu_495_p1() {
-    tmp_2_fu_495_p1 = UART_RDATA.read().range(1-1, 0);
-}
-
-void AXI_UART_DRIVER::thread_tmp_4_fu_499_p2() {
-    tmp_4_fu_499_p2 = (!p_014_0_i_reg_392.read().is_01() || !ap_const_lv19_7A120.is_01())? sc_lv<1>(): sc_lv<1>(p_014_0_i_reg_392.read() == ap_const_lv19_7A120);
-}
-
-void AXI_UART_DRIVER::thread_tmp_fu_467_p2() {
-    tmp_fu_467_p2 = (!temp_reg_554.read().is_01() || !ap_const_lv8_45.is_01())? sc_lv<1>(): sc_lv<1>(temp_reg_554.read() == ap_const_lv8_45);
+void AXI_UART_DRIVER::thread_tmp_fu_529_p2() {
+    tmp_fu_529_p2 = (!temp_reg_614.read().is_01() || !ap_const_lv8_45.is_01())? sc_lv<1>(): sc_lv<1>(temp_reg_614.read() == ap_const_lv8_45);
 }
 
 void AXI_UART_DRIVER::thread_ap_NS_fsm() {
     switch (ap_CS_fsm.read().to_uint64()) {
         case 1 : 
-            if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(firstSample_load_load_fu_438_p1.read(), ap_const_lv1_0))) {
+            if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(firstSample_load_load_fu_486_p1.read(), ap_const_lv1_0))) {
                 ap_NS_fsm = ap_ST_fsm_state28;
             } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state1_io.read()) || esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_0)) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(firstSample.read(), ap_const_lv1_1))) {
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -2047,9 +2481,9 @@ void AXI_UART_DRIVER::thread_ap_NS_fsm() {
             }
             break;
         case 2097152 : 
-            if ((esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state22_io.read()) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && esl_seteq<1,1,1>(tmp_fu_467_p2.read(), ap_const_lv1_0))) {
+            if ((esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state22_io.read()) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && esl_seteq<1,1,1>(tmp_fu_529_p2.read(), ap_const_lv1_0))) {
                 ap_NS_fsm = ap_ST_fsm_state28;
-            } else if ((esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state22_io.read()) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && esl_seteq<1,1,1>(tmp_fu_467_p2.read(), ap_const_lv1_1))) {
+            } else if ((esl_seteq<1,1,1>(ap_const_boolean_0, ap_block_state22_io.read()) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state22.read()) && esl_seteq<1,1,1>(tmp_fu_529_p2.read(), ap_const_lv1_1))) {
                 ap_NS_fsm = ap_ST_fsm_state23;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state22;
@@ -2075,10 +2509,10 @@ void AXI_UART_DRIVER::thread_ap_NS_fsm() {
             ap_NS_fsm = ap_ST_fsm_state28;
             break;
         case 134217728 : 
-            if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && 
-  esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && esl_seteq<1,1,1>(calibrationSuccess_l_load_fu_484_p1.read(), ap_const_lv1_0))) {
-                ap_NS_fsm = ap_ST_fsm_state54;
-            } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op140_writeresp_state28.read(), ap_const_boolean_1) && 
+            if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && 
+  esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && esl_seteq<1,1,1>(calibrationSuccess_l_load_fu_546_p1.read(), ap_const_lv1_0))) {
+                ap_NS_fsm = ap_ST_fsm_state58;
+            } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state28_io.read()) || (esl_seteq<1,1,1>(ap_predicate_op142_writeresp_state28.read(), ap_const_boolean_1) && 
   esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read()))) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state28.read()) && esl_seteq<1,1,1>(calibrationSuccess.read(), ap_const_lv1_1))) {
                 ap_NS_fsm = ap_ST_fsm_state29;
             } else {
@@ -2086,122 +2520,208 @@ void AXI_UART_DRIVER::thread_ap_NS_fsm() {
             }
             break;
         case 268435456 : 
-            if ((esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()))) {
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state29.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state30;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state29;
             }
             break;
         case 536870912 : 
-            ap_NS_fsm = ap_ST_fsm_state31;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state30.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state31;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state30;
+            }
             break;
         case 1073741824 : 
-            ap_NS_fsm = ap_ST_fsm_state32;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state31.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state32;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state31;
+            }
             break;
         case 2147483648 : 
-            ap_NS_fsm = ap_ST_fsm_state33;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state32.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state33;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state32;
+            }
             break;
         case 4294967296 : 
-            ap_NS_fsm = ap_ST_fsm_state34;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state33.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state34;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state33;
+            }
             break;
         case 8589934592 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, UART_BVALID.read()) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state34.read()))) {
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state34.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state35;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state34;
             }
             break;
         case 17179869184 : 
-            if ((esl_seteq<1,1,1>(ap_sig_ioackin_UART_ARREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()))) {
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state35.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state36;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state35;
             }
             break;
         case 34359738368 : 
-            ap_NS_fsm = ap_ST_fsm_state37;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state36.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state37;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state36;
+            }
             break;
         case 68719476736 : 
-            ap_NS_fsm = ap_ST_fsm_state38;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state37.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state38;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state37;
+            }
             break;
         case 137438953472 : 
-            ap_NS_fsm = ap_ST_fsm_state39;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state38.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state39;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state38;
+            }
             break;
         case 274877906944 : 
-            ap_NS_fsm = ap_ST_fsm_state40;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state39.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state40;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state39;
+            }
             break;
         case 549755813888 : 
-            ap_NS_fsm = ap_ST_fsm_state41;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state40.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state41;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state40;
+            }
             break;
         case 1099511627776 : 
-            ap_NS_fsm = ap_ST_fsm_state42;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state41.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state42;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state41;
+            }
             break;
         case 2199023255552 : 
-            if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state42_io.read()) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read())) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && esl_seteq<1,1,1>(tmp_2_fu_495_p1.read(), ap_const_lv1_0))) {
-                ap_NS_fsm = ap_ST_fsm_state54;
-            } else if ((!(esl_seteq<1,1,1>(ap_const_boolean_1, ap_block_state42_io.read()) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read())) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()) && esl_seteq<1,1,1>(tmp_2_fu_495_p1.read(), ap_const_lv1_1))) {
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state42.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state43;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state42;
             }
             break;
         case 4398046511104 : 
-            ap_NS_fsm = ap_ST_fsm_state44;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state43.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state44;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state43;
+            }
             break;
         case 8796093022208 : 
-            ap_NS_fsm = ap_ST_fsm_state45;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state44.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state45;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state44;
+            }
             break;
         case 17592186044416 : 
-            ap_NS_fsm = ap_ST_fsm_state46;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state45.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state46;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state45;
+            }
             break;
         case 35184372088832 : 
-            ap_NS_fsm = ap_ST_fsm_state47;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state46.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state47;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state46;
+            }
             break;
         case 70368744177664 : 
-            ap_NS_fsm = ap_ST_fsm_state48;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state47.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state48;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state47;
+            }
             break;
         case 140737488355328 : 
-            if ((esl_seteq<1,1,1>(ap_sig_ioackin_UART_AWREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()))) {
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state48.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state49;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state48;
             }
             break;
         case 281474976710656 : 
-            if ((!(esl_seteq<1,1,1>(ap_sig_ioackin_UART_WREADY.read(), ap_const_logic_0) || esl_seteq<1,1,1>(ap_const_logic_0, UART_RVALID.read())) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()))) {
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state49.read()))) {
                 ap_NS_fsm = ap_ST_fsm_state50;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state49;
             }
             break;
         case 562949953421312 : 
-            ap_NS_fsm = ap_ST_fsm_state51;
-            break;
-        case 1125899906842624 : 
-            ap_NS_fsm = ap_ST_fsm_state52;
-            break;
-        case 2251799813685248 : 
-            ap_NS_fsm = ap_ST_fsm_state53;
-            break;
-        case 4503599627370496 : 
-            ap_NS_fsm = ap_ST_fsm_state54;
-            break;
-        case 9007199254740992 : 
-            if ((!(esl_seteq<1,1,1>(ap_predicate_op196_writeresp_state54.read(), ap_const_boolean_1) && esl_seteq<1,1,1>(ap_const_logic_0, UART_BVALID.read())) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state54.read()))) {
-                ap_NS_fsm = ap_ST_fsm_state55;
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state50.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state51;
             } else {
-                ap_NS_fsm = ap_ST_fsm_state54;
+                ap_NS_fsm = ap_ST_fsm_state50;
             }
             break;
+        case 1125899906842624 : 
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state51.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state52;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state51;
+            }
+            break;
+        case 2251799813685248 : 
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state52.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state53;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state52;
+            }
+            break;
+        case 4503599627370496 : 
+            if ((esl_seteq<1,1,1>(ap_sig_ioackin_OUT_r_WREADY.read(), ap_const_logic_1) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state53.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state54;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state53;
+            }
+            break;
+        case 9007199254740992 : 
+            ap_NS_fsm = ap_ST_fsm_state55;
+            break;
         case 18014398509481984 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state55.read()) && esl_seteq<1,1,1>(tmp_4_fu_499_p2.read(), ap_const_lv1_1))) {
+            ap_NS_fsm = ap_ST_fsm_state56;
+            break;
+        case 36028797018963968 : 
+            ap_NS_fsm = ap_ST_fsm_state57;
+            break;
+        case 72057594037927936 : 
+            ap_NS_fsm = ap_ST_fsm_state58;
+            break;
+        case 144115188075855872 : 
+            if ((!(esl_seteq<1,1,1>(ap_const_logic_0, OUT_r_BVALID.read()) && esl_seteq<1,1,1>(calibrationSuccess_l_reg_623.read(), ap_const_lv1_1)) && esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state58.read()))) {
+                ap_NS_fsm = ap_ST_fsm_state59;
+            } else {
+                ap_NS_fsm = ap_ST_fsm_state58;
+            }
+            break;
+        case 288230376151711744 : 
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state59.read()) && esl_seteq<1,1,1>(tmp_1_fu_550_p2.read(), ap_const_lv1_1))) {
                 ap_NS_fsm = ap_ST_fsm_state1;
             } else {
-                ap_NS_fsm = ap_ST_fsm_state55;
+                ap_NS_fsm = ap_ST_fsm_state59;
             }
             break;
         default : 
-            ap_NS_fsm =  (sc_lv<55>) ("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+            ap_NS_fsm =  (sc_lv<59>) ("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
             break;
     }
 }
@@ -2264,6 +2784,51 @@ void AXI_UART_DRIVER::thread_hdltv_gen() {
         mHdltvinHandle << " , " <<  " \"m_axi_UART_BRESP\" :  \"" << m_axi_UART_BRESP.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"m_axi_UART_BID\" :  \"" << m_axi_UART_BID.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"m_axi_UART_BUSER\" :  \"" << m_axi_UART_BUSER.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWVALID\" :  \"" << m_axi_OUT_r_AWVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_AWREADY\" :  \"" << m_axi_OUT_r_AWREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWADDR\" :  \"" << m_axi_OUT_r_AWADDR.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWID\" :  \"" << m_axi_OUT_r_AWID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWLEN\" :  \"" << m_axi_OUT_r_AWLEN.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWSIZE\" :  \"" << m_axi_OUT_r_AWSIZE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWBURST\" :  \"" << m_axi_OUT_r_AWBURST.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWLOCK\" :  \"" << m_axi_OUT_r_AWLOCK.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWCACHE\" :  \"" << m_axi_OUT_r_AWCACHE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWPROT\" :  \"" << m_axi_OUT_r_AWPROT.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWQOS\" :  \"" << m_axi_OUT_r_AWQOS.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWREGION\" :  \"" << m_axi_OUT_r_AWREGION.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_AWUSER\" :  \"" << m_axi_OUT_r_AWUSER.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WVALID\" :  \"" << m_axi_OUT_r_WVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_WREADY\" :  \"" << m_axi_OUT_r_WREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WDATA\" :  \"" << m_axi_OUT_r_WDATA.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WSTRB\" :  \"" << m_axi_OUT_r_WSTRB.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WLAST\" :  \"" << m_axi_OUT_r_WLAST.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WID\" :  \"" << m_axi_OUT_r_WID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_WUSER\" :  \"" << m_axi_OUT_r_WUSER.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARVALID\" :  \"" << m_axi_OUT_r_ARVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_ARREADY\" :  \"" << m_axi_OUT_r_ARREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARADDR\" :  \"" << m_axi_OUT_r_ARADDR.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARID\" :  \"" << m_axi_OUT_r_ARID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARLEN\" :  \"" << m_axi_OUT_r_ARLEN.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARSIZE\" :  \"" << m_axi_OUT_r_ARSIZE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARBURST\" :  \"" << m_axi_OUT_r_ARBURST.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARLOCK\" :  \"" << m_axi_OUT_r_ARLOCK.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARCACHE\" :  \"" << m_axi_OUT_r_ARCACHE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARPROT\" :  \"" << m_axi_OUT_r_ARPROT.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARQOS\" :  \"" << m_axi_OUT_r_ARQOS.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARREGION\" :  \"" << m_axi_OUT_r_ARREGION.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_ARUSER\" :  \"" << m_axi_OUT_r_ARUSER.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RVALID\" :  \"" << m_axi_OUT_r_RVALID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_RREADY\" :  \"" << m_axi_OUT_r_RREADY.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RDATA\" :  \"" << m_axi_OUT_r_RDATA.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RLAST\" :  \"" << m_axi_OUT_r_RLAST.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RID\" :  \"" << m_axi_OUT_r_RID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RUSER\" :  \"" << m_axi_OUT_r_RUSER.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_RRESP\" :  \"" << m_axi_OUT_r_RRESP.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_BVALID\" :  \"" << m_axi_OUT_r_BVALID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_OUT_r_BREADY\" :  \"" << m_axi_OUT_r_BREADY.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_BRESP\" :  \"" << m_axi_OUT_r_BRESP.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_BID\" :  \"" << m_axi_OUT_r_BID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_OUT_r_BUSER\" :  \"" << m_axi_OUT_r_BUSER.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"s_axi_CTRL_AWVALID\" :  \"" << s_axi_CTRL_AWVALID.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_AWREADY\" :  \"" << s_axi_CTRL_AWREADY.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"s_axi_CTRL_AWADDR\" :  \"" << s_axi_CTRL_AWADDR.read() << "\" ";
@@ -2282,23 +2847,6 @@ void AXI_UART_DRIVER::thread_hdltv_gen() {
         mHdltvinHandle << " , " <<  " \"s_axi_CTRL_BREADY\" :  \"" << s_axi_CTRL_BREADY.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_BRESP\" :  \"" << s_axi_CTRL_BRESP.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"interrupt\" :  \"" << interrupt.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_TEST_AWVALID\" :  \"" << s_axi_TEST_AWVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_TEST_AWREADY\" :  \"" << s_axi_TEST_AWREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_TEST_AWADDR\" :  \"" << s_axi_TEST_AWADDR.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_TEST_WVALID\" :  \"" << s_axi_TEST_WVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_TEST_WREADY\" :  \"" << s_axi_TEST_WREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_TEST_WDATA\" :  \"" << s_axi_TEST_WDATA.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_TEST_WSTRB\" :  \"" << s_axi_TEST_WSTRB.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_TEST_ARVALID\" :  \"" << s_axi_TEST_ARVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_TEST_ARREADY\" :  \"" << s_axi_TEST_ARREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_TEST_ARADDR\" :  \"" << s_axi_TEST_ARADDR.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_TEST_RVALID\" :  \"" << s_axi_TEST_RVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_TEST_RREADY\" :  \"" << s_axi_TEST_RREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_TEST_RDATA\" :  \"" << s_axi_TEST_RDATA.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_TEST_RRESP\" :  \"" << s_axi_TEST_RRESP.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_TEST_BVALID\" :  \"" << s_axi_TEST_BVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"s_axi_TEST_BREADY\" :  \"" << s_axi_TEST_BREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"s_axi_TEST_BRESP\" :  \"" << s_axi_TEST_BRESP.read() << "\" ";
         mHdltvinHandle << "}" << std::endl;
         mHdltvoutHandle << "}" << std::endl;
         ap_cycleNo++;

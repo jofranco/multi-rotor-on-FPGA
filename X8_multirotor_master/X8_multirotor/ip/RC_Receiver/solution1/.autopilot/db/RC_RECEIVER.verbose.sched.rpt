@@ -1,0 +1,517 @@
+
+
+================================================================
+== Vivado HLS Report for 'RC_RECEIVER'
+================================================================
+* Date:           Sun May 19 18:22:12 2019
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        RC_Receiver
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     5.576|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   24|   24|   25|   25| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 1
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 25, depth = 25
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 25
+* Pipeline : 1
+  Pipeline-0 : II = 25, D = 25, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.25>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%SBUS_data_addr = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 0"   --->   Operation 26 'getelementptr' 'SBUS_data_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [2/2] (2.32ns)   --->   "%SBUS_data_load = load i8* %SBUS_data_addr, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 27 'load' 'SBUS_data_load' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%norm_out_addr_8 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 8" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 28 'getelementptr' 'norm_out_addr_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (3.25ns)   --->   "store i32 15, i32* %norm_out_addr_8, align 4" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 29 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 2 <SV = 1> <Delay = 5.57>
+ST_2 : Operation 30 [1/2] (2.32ns)   --->   "%SBUS_data_load = load i8* %SBUS_data_addr, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 30 'load' 'SBUS_data_load' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%tmp_3 = zext i8 %SBUS_data_load to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 31 'zext' 'tmp_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%norm_out_addr = getelementptr [4096 x i32]* %norm_out, i64 0, i64 0" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 32 'getelementptr' 'norm_out_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (3.25ns)   --->   "store i32 %tmp_3, i32* %norm_out_addr, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 33 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%SBUS_data_addr_1 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 34 'getelementptr' 'SBUS_data_addr_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [2/2] (2.32ns)   --->   "%SBUS_data_load_1 = load i8* %SBUS_data_addr_1, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 35 'load' 'SBUS_data_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 3 <SV = 2> <Delay = 5.57>
+ST_3 : Operation 36 [1/2] (2.32ns)   --->   "%SBUS_data_load_1 = load i8* %SBUS_data_addr_1, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 36 'load' 'SBUS_data_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%tmp_3_1 = zext i8 %SBUS_data_load_1 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 37 'zext' 'tmp_3_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%norm_out_addr_1 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 1" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 38 'getelementptr' 'norm_out_addr_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (3.25ns)   --->   "store i32 %tmp_3_1, i32* %norm_out_addr_1, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 39 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%SBUS_data_addr_2 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 2" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 40 'getelementptr' 'SBUS_data_addr_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 41 [2/2] (2.32ns)   --->   "%SBUS_data_load_2 = load i8* %SBUS_data_addr_2, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 41 'load' 'SBUS_data_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 4 <SV = 3> <Delay = 5.57>
+ST_4 : Operation 42 [1/2] (2.32ns)   --->   "%SBUS_data_load_2 = load i8* %SBUS_data_addr_2, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 42 'load' 'SBUS_data_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%tmp_3_2 = zext i8 %SBUS_data_load_2 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 43 'zext' 'tmp_3_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%norm_out_addr_2 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 2" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 44 'getelementptr' 'norm_out_addr_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 45 [1/1] (3.25ns)   --->   "store i32 %tmp_3_2, i32* %norm_out_addr_2, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 45 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%SBUS_data_addr_3 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 3" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 46 'getelementptr' 'SBUS_data_addr_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 47 [2/2] (2.32ns)   --->   "%SBUS_data_load_3 = load i8* %SBUS_data_addr_3, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 47 'load' 'SBUS_data_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 5 <SV = 4> <Delay = 5.57>
+ST_5 : Operation 48 [1/2] (2.32ns)   --->   "%SBUS_data_load_3 = load i8* %SBUS_data_addr_3, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 48 'load' 'SBUS_data_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%tmp_3_3 = zext i8 %SBUS_data_load_3 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 49 'zext' 'tmp_3_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%norm_out_addr_3 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 3" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 50 'getelementptr' 'norm_out_addr_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 51 [1/1] (3.25ns)   --->   "store i32 %tmp_3_3, i32* %norm_out_addr_3, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 51 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_5 : Operation 52 [1/1] (0.00ns)   --->   "%SBUS_data_addr_4 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 4" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 52 'getelementptr' 'SBUS_data_addr_4' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 53 [2/2] (2.32ns)   --->   "%SBUS_data_load_4 = load i8* %SBUS_data_addr_4, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 53 'load' 'SBUS_data_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 6 <SV = 5> <Delay = 5.57>
+ST_6 : Operation 54 [1/2] (2.32ns)   --->   "%SBUS_data_load_4 = load i8* %SBUS_data_addr_4, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 54 'load' 'SBUS_data_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_6 : Operation 55 [1/1] (0.00ns)   --->   "%tmp_3_4 = zext i8 %SBUS_data_load_4 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 55 'zext' 'tmp_3_4' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 56 [1/1] (0.00ns)   --->   "%norm_out_addr_4 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 56 'getelementptr' 'norm_out_addr_4' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 57 [1/1] (3.25ns)   --->   "store i32 %tmp_3_4, i32* %norm_out_addr_4, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 57 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_6 : Operation 58 [1/1] (0.00ns)   --->   "%SBUS_data_addr_5 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 5" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 58 'getelementptr' 'SBUS_data_addr_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 59 [2/2] (2.32ns)   --->   "%SBUS_data_load_5 = load i8* %SBUS_data_addr_5, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 59 'load' 'SBUS_data_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 7 <SV = 6> <Delay = 5.57>
+ST_7 : Operation 60 [1/2] (2.32ns)   --->   "%SBUS_data_load_5 = load i8* %SBUS_data_addr_5, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 60 'load' 'SBUS_data_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_7 : Operation 61 [1/1] (0.00ns)   --->   "%tmp_3_5 = zext i8 %SBUS_data_load_5 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 61 'zext' 'tmp_3_5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%norm_out_addr_5 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 5" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 62 'getelementptr' 'norm_out_addr_5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 63 [1/1] (3.25ns)   --->   "store i32 %tmp_3_5, i32* %norm_out_addr_5, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 63 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_7 : Operation 64 [1/1] (0.00ns)   --->   "%SBUS_data_addr_6 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 6" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 64 'getelementptr' 'SBUS_data_addr_6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 65 [2/2] (2.32ns)   --->   "%SBUS_data_load_6 = load i8* %SBUS_data_addr_6, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 65 'load' 'SBUS_data_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 8 <SV = 7> <Delay = 5.57>
+ST_8 : Operation 66 [1/2] (2.32ns)   --->   "%SBUS_data_load_6 = load i8* %SBUS_data_addr_6, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 66 'load' 'SBUS_data_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_8 : Operation 67 [1/1] (0.00ns)   --->   "%tmp_3_6 = zext i8 %SBUS_data_load_6 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 67 'zext' 'tmp_3_6' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 68 [1/1] (0.00ns)   --->   "%norm_out_addr_6 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 6" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 68 'getelementptr' 'norm_out_addr_6' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 69 [1/1] (3.25ns)   --->   "store i32 %tmp_3_6, i32* %norm_out_addr_6, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 69 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_8 : Operation 70 [1/1] (0.00ns)   --->   "%SBUS_data_addr_7 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 7" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 70 'getelementptr' 'SBUS_data_addr_7' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 71 [2/2] (2.32ns)   --->   "%SBUS_data_load_7 = load i8* %SBUS_data_addr_7, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 71 'load' 'SBUS_data_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 9 <SV = 8> <Delay = 5.57>
+ST_9 : Operation 72 [1/2] (2.32ns)   --->   "%SBUS_data_load_7 = load i8* %SBUS_data_addr_7, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 72 'load' 'SBUS_data_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_9 : Operation 73 [1/1] (0.00ns)   --->   "%tmp_3_7 = zext i8 %SBUS_data_load_7 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 73 'zext' 'tmp_3_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 74 [1/1] (0.00ns)   --->   "%norm_out_addr_7 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 7" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 74 'getelementptr' 'norm_out_addr_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 75 [1/1] (3.25ns)   --->   "store i32 %tmp_3_7, i32* %norm_out_addr_7, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 75 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_9 : Operation 76 [1/1] (0.00ns)   --->   "%SBUS_data_addr_8 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 10" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 76 'getelementptr' 'SBUS_data_addr_8' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 77 [2/2] (2.32ns)   --->   "%SBUS_data_load_8 = load i8* %SBUS_data_addr_8, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 77 'load' 'SBUS_data_load_8' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 10 <SV = 9> <Delay = 5.57>
+ST_10 : Operation 78 [1/2] (2.32ns)   --->   "%SBUS_data_load_8 = load i8* %SBUS_data_addr_8, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 78 'load' 'SBUS_data_load_8' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_10 : Operation 79 [1/1] (0.00ns)   --->   "%tmp_3_s = zext i8 %SBUS_data_load_8 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 79 'zext' 'tmp_3_s' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 80 [1/1] (0.00ns)   --->   "%norm_out_addr_10 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 10" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 80 'getelementptr' 'norm_out_addr_10' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 81 [1/1] (3.25ns)   --->   "store i32 %tmp_3_s, i32* %norm_out_addr_10, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 81 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_10 : Operation 82 [1/1] (0.00ns)   --->   "%SBUS_data_addr_9 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 11" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 82 'getelementptr' 'SBUS_data_addr_9' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 83 [2/2] (2.32ns)   --->   "%SBUS_data_load_9 = load i8* %SBUS_data_addr_9, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 83 'load' 'SBUS_data_load_9' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 11 <SV = 10> <Delay = 5.57>
+ST_11 : Operation 84 [1/2] (2.32ns)   --->   "%SBUS_data_load_9 = load i8* %SBUS_data_addr_9, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 84 'load' 'SBUS_data_load_9' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_11 : Operation 85 [1/1] (0.00ns)   --->   "%tmp_3_8 = zext i8 %SBUS_data_load_9 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 85 'zext' 'tmp_3_8' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 86 [1/1] (0.00ns)   --->   "%norm_out_addr_11 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 11" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 86 'getelementptr' 'norm_out_addr_11' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 87 [1/1] (3.25ns)   --->   "store i32 %tmp_3_8, i32* %norm_out_addr_11, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 87 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_11 : Operation 88 [1/1] (0.00ns)   --->   "%SBUS_data_addr_10 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 12" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 88 'getelementptr' 'SBUS_data_addr_10' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 89 [2/2] (2.32ns)   --->   "%SBUS_data_load_10 = load i8* %SBUS_data_addr_10, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 89 'load' 'SBUS_data_load_10' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 12 <SV = 11> <Delay = 5.57>
+ST_12 : Operation 90 [1/2] (2.32ns)   --->   "%SBUS_data_load_10 = load i8* %SBUS_data_addr_10, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 90 'load' 'SBUS_data_load_10' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_12 : Operation 91 [1/1] (0.00ns)   --->   "%tmp_3_9 = zext i8 %SBUS_data_load_10 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 91 'zext' 'tmp_3_9' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 92 [1/1] (0.00ns)   --->   "%norm_out_addr_12 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 12" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 92 'getelementptr' 'norm_out_addr_12' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 93 [1/1] (3.25ns)   --->   "store i32 %tmp_3_9, i32* %norm_out_addr_12, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 93 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_12 : Operation 94 [1/1] (0.00ns)   --->   "%SBUS_data_addr_11 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 13" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 94 'getelementptr' 'SBUS_data_addr_11' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 95 [2/2] (2.32ns)   --->   "%SBUS_data_load_11 = load i8* %SBUS_data_addr_11, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 95 'load' 'SBUS_data_load_11' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 13 <SV = 12> <Delay = 5.57>
+ST_13 : Operation 96 [1/2] (2.32ns)   --->   "%SBUS_data_load_11 = load i8* %SBUS_data_addr_11, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 96 'load' 'SBUS_data_load_11' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_13 : Operation 97 [1/1] (0.00ns)   --->   "%tmp_3_10 = zext i8 %SBUS_data_load_11 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 97 'zext' 'tmp_3_10' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 98 [1/1] (0.00ns)   --->   "%norm_out_addr_13 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 13" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 98 'getelementptr' 'norm_out_addr_13' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 99 [1/1] (3.25ns)   --->   "store i32 %tmp_3_10, i32* %norm_out_addr_13, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 99 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_13 : Operation 100 [1/1] (0.00ns)   --->   "%SBUS_data_addr_12 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 14" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 100 'getelementptr' 'SBUS_data_addr_12' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 101 [2/2] (2.32ns)   --->   "%SBUS_data_load_12 = load i8* %SBUS_data_addr_12, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 101 'load' 'SBUS_data_load_12' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 14 <SV = 13> <Delay = 5.57>
+ST_14 : Operation 102 [1/2] (2.32ns)   --->   "%SBUS_data_load_12 = load i8* %SBUS_data_addr_12, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 102 'load' 'SBUS_data_load_12' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_14 : Operation 103 [1/1] (0.00ns)   --->   "%tmp_3_11 = zext i8 %SBUS_data_load_12 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 103 'zext' 'tmp_3_11' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 104 [1/1] (0.00ns)   --->   "%norm_out_addr_14 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 14" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 104 'getelementptr' 'norm_out_addr_14' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 105 [1/1] (3.25ns)   --->   "store i32 %tmp_3_11, i32* %norm_out_addr_14, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 105 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_14 : Operation 106 [1/1] (0.00ns)   --->   "%SBUS_data_addr_13 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 15" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 106 'getelementptr' 'SBUS_data_addr_13' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 107 [2/2] (2.32ns)   --->   "%SBUS_data_load_13 = load i8* %SBUS_data_addr_13, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 107 'load' 'SBUS_data_load_13' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 15 <SV = 14> <Delay = 5.57>
+ST_15 : Operation 108 [1/2] (2.32ns)   --->   "%SBUS_data_load_13 = load i8* %SBUS_data_addr_13, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 108 'load' 'SBUS_data_load_13' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_15 : Operation 109 [1/1] (0.00ns)   --->   "%tmp_3_12 = zext i8 %SBUS_data_load_13 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 109 'zext' 'tmp_3_12' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 110 [1/1] (0.00ns)   --->   "%norm_out_addr_15 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 15" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 110 'getelementptr' 'norm_out_addr_15' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 111 [1/1] (3.25ns)   --->   "store i32 %tmp_3_12, i32* %norm_out_addr_15, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 111 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_15 : Operation 112 [1/1] (0.00ns)   --->   "%SBUS_data_addr_14 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 16" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 112 'getelementptr' 'SBUS_data_addr_14' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 113 [2/2] (2.32ns)   --->   "%SBUS_data_load_14 = load i8* %SBUS_data_addr_14, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 113 'load' 'SBUS_data_load_14' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 16 <SV = 15> <Delay = 5.57>
+ST_16 : Operation 114 [1/2] (2.32ns)   --->   "%SBUS_data_load_14 = load i8* %SBUS_data_addr_14, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 114 'load' 'SBUS_data_load_14' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_16 : Operation 115 [1/1] (0.00ns)   --->   "%tmp_3_13 = zext i8 %SBUS_data_load_14 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 115 'zext' 'tmp_3_13' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 116 [1/1] (0.00ns)   --->   "%norm_out_addr_16 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 16" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 116 'getelementptr' 'norm_out_addr_16' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 117 [1/1] (3.25ns)   --->   "store i32 %tmp_3_13, i32* %norm_out_addr_16, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 117 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_16 : Operation 118 [1/1] (0.00ns)   --->   "%SBUS_data_addr_15 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 17" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 118 'getelementptr' 'SBUS_data_addr_15' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 119 [2/2] (2.32ns)   --->   "%SBUS_data_load_15 = load i8* %SBUS_data_addr_15, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 119 'load' 'SBUS_data_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 17 <SV = 16> <Delay = 5.57>
+ST_17 : Operation 120 [1/2] (2.32ns)   --->   "%SBUS_data_load_15 = load i8* %SBUS_data_addr_15, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 120 'load' 'SBUS_data_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_17 : Operation 121 [1/1] (0.00ns)   --->   "%tmp_3_14 = zext i8 %SBUS_data_load_15 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 121 'zext' 'tmp_3_14' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 122 [1/1] (0.00ns)   --->   "%norm_out_addr_17 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 17" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 122 'getelementptr' 'norm_out_addr_17' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 123 [1/1] (3.25ns)   --->   "store i32 %tmp_3_14, i32* %norm_out_addr_17, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 123 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_17 : Operation 124 [1/1] (0.00ns)   --->   "%SBUS_data_addr_16 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 18" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 124 'getelementptr' 'SBUS_data_addr_16' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 125 [2/2] (2.32ns)   --->   "%SBUS_data_load_16 = load i8* %SBUS_data_addr_16, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 125 'load' 'SBUS_data_load_16' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 18 <SV = 17> <Delay = 5.57>
+ST_18 : Operation 126 [1/2] (2.32ns)   --->   "%SBUS_data_load_16 = load i8* %SBUS_data_addr_16, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 126 'load' 'SBUS_data_load_16' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_18 : Operation 127 [1/1] (0.00ns)   --->   "%tmp_3_15 = zext i8 %SBUS_data_load_16 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 127 'zext' 'tmp_3_15' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 128 [1/1] (0.00ns)   --->   "%norm_out_addr_18 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 18" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 128 'getelementptr' 'norm_out_addr_18' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 129 [1/1] (3.25ns)   --->   "store i32 %tmp_3_15, i32* %norm_out_addr_18, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 129 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_18 : Operation 130 [1/1] (0.00ns)   --->   "%SBUS_data_addr_17 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 19" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 130 'getelementptr' 'SBUS_data_addr_17' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 131 [2/2] (2.32ns)   --->   "%SBUS_data_load_17 = load i8* %SBUS_data_addr_17, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 131 'load' 'SBUS_data_load_17' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 19 <SV = 18> <Delay = 5.57>
+ST_19 : Operation 132 [1/2] (2.32ns)   --->   "%SBUS_data_load_17 = load i8* %SBUS_data_addr_17, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 132 'load' 'SBUS_data_load_17' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_19 : Operation 133 [1/1] (0.00ns)   --->   "%tmp_3_16 = zext i8 %SBUS_data_load_17 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 133 'zext' 'tmp_3_16' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 134 [1/1] (0.00ns)   --->   "%norm_out_addr_19 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 19" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 134 'getelementptr' 'norm_out_addr_19' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 135 [1/1] (3.25ns)   --->   "store i32 %tmp_3_16, i32* %norm_out_addr_19, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 135 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_19 : Operation 136 [1/1] (0.00ns)   --->   "%SBUS_data_addr_18 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 20" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 136 'getelementptr' 'SBUS_data_addr_18' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 137 [2/2] (2.32ns)   --->   "%SBUS_data_load_18 = load i8* %SBUS_data_addr_18, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 137 'load' 'SBUS_data_load_18' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 20 <SV = 19> <Delay = 5.57>
+ST_20 : Operation 138 [1/2] (2.32ns)   --->   "%SBUS_data_load_18 = load i8* %SBUS_data_addr_18, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 138 'load' 'SBUS_data_load_18' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_20 : Operation 139 [1/1] (0.00ns)   --->   "%tmp_3_17 = zext i8 %SBUS_data_load_18 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 139 'zext' 'tmp_3_17' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 140 [1/1] (0.00ns)   --->   "%norm_out_addr_20 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 20" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 140 'getelementptr' 'norm_out_addr_20' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 141 [1/1] (3.25ns)   --->   "store i32 %tmp_3_17, i32* %norm_out_addr_20, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 141 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_20 : Operation 142 [1/1] (0.00ns)   --->   "%SBUS_data_addr_19 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 21" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 142 'getelementptr' 'SBUS_data_addr_19' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 143 [2/2] (2.32ns)   --->   "%SBUS_data_load_19 = load i8* %SBUS_data_addr_19, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 143 'load' 'SBUS_data_load_19' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 21 <SV = 20> <Delay = 5.57>
+ST_21 : Operation 144 [1/2] (2.32ns)   --->   "%SBUS_data_load_19 = load i8* %SBUS_data_addr_19, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 144 'load' 'SBUS_data_load_19' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_21 : Operation 145 [1/1] (0.00ns)   --->   "%tmp_3_18 = zext i8 %SBUS_data_load_19 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 145 'zext' 'tmp_3_18' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 146 [1/1] (0.00ns)   --->   "%norm_out_addr_21 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 21" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 146 'getelementptr' 'norm_out_addr_21' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 147 [1/1] (3.25ns)   --->   "store i32 %tmp_3_18, i32* %norm_out_addr_21, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 147 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_21 : Operation 148 [1/1] (0.00ns)   --->   "%SBUS_data_addr_20 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 22" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 148 'getelementptr' 'SBUS_data_addr_20' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 149 [2/2] (2.32ns)   --->   "%SBUS_data_load_20 = load i8* %SBUS_data_addr_20, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 149 'load' 'SBUS_data_load_20' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 22 <SV = 21> <Delay = 5.57>
+ST_22 : Operation 150 [1/2] (2.32ns)   --->   "%SBUS_data_load_20 = load i8* %SBUS_data_addr_20, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 150 'load' 'SBUS_data_load_20' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_22 : Operation 151 [1/1] (0.00ns)   --->   "%tmp_3_19 = zext i8 %SBUS_data_load_20 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 151 'zext' 'tmp_3_19' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 152 [1/1] (0.00ns)   --->   "%norm_out_addr_22 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 22" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 152 'getelementptr' 'norm_out_addr_22' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 153 [1/1] (3.25ns)   --->   "store i32 %tmp_3_19, i32* %norm_out_addr_22, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 153 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_22 : Operation 154 [1/1] (0.00ns)   --->   "%SBUS_data_addr_21 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 23" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 154 'getelementptr' 'SBUS_data_addr_21' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 155 [2/2] (2.32ns)   --->   "%SBUS_data_load_21 = load i8* %SBUS_data_addr_21, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 155 'load' 'SBUS_data_load_21' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 23 <SV = 22> <Delay = 5.57>
+ST_23 : Operation 156 [1/2] (2.32ns)   --->   "%SBUS_data_load_21 = load i8* %SBUS_data_addr_21, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 156 'load' 'SBUS_data_load_21' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_23 : Operation 157 [1/1] (0.00ns)   --->   "%tmp_3_20 = zext i8 %SBUS_data_load_21 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 157 'zext' 'tmp_3_20' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 158 [1/1] (0.00ns)   --->   "%norm_out_addr_23 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 23" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 158 'getelementptr' 'norm_out_addr_23' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 159 [1/1] (3.25ns)   --->   "store i32 %tmp_3_20, i32* %norm_out_addr_23, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 159 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_23 : Operation 160 [1/1] (0.00ns)   --->   "%SBUS_data_addr_22 = getelementptr [25 x i8]* %SBUS_data, i64 0, i64 24" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 160 'getelementptr' 'SBUS_data_addr_22' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 161 [2/2] (2.32ns)   --->   "%SBUS_data_load_22 = load i8* %SBUS_data_addr_22, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 161 'load' 'SBUS_data_load_22' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+
+State 24 <SV = 23> <Delay = 5.57>
+ST_24 : Operation 162 [1/2] (2.32ns)   --->   "%SBUS_data_load_22 = load i8* %SBUS_data_addr_22, align 1" [RC_Receiver/RC_Receiver.cpp:30]   --->   Operation 162 'load' 'SBUS_data_load_22' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 25> <RAM>
+ST_24 : Operation 163 [1/1] (0.00ns)   --->   "%tmp_3_21 = zext i8 %SBUS_data_load_22 to i32" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 163 'zext' 'tmp_3_21' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 164 [1/1] (0.00ns)   --->   "%norm_out_addr_24 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 24" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 164 'getelementptr' 'norm_out_addr_24' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 165 [1/1] (3.25ns)   --->   "store i32 %tmp_3_21, i32* %norm_out_addr_24, align 4" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 165 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_24 : Operation 166 [1/1] (1.55ns)   --->   "%tmp_5 = icmp eq i8 %SBUS_data_load_22, 0" [RC_Receiver/RC_Receiver.cpp:45]   --->   Operation 166 'icmp' 'tmp_5' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 3.25>
+ST_25 : Operation 167 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([25 x i8]* %SBUS_data) nounwind, !map !20"   --->   Operation 167 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 168 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([4096 x i32]* %norm_out) nounwind, !map !26"   --->   Operation 168 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 169 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([12 x i8]* @RC_RECEIVER_str) nounwind"   --->   Operation 169 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 170 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 2, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [RC_Receiver/RC_Receiver.cpp:7]   --->   Operation 170 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 171 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [RC_Receiver/RC_Receiver.cpp:9]   --->   Operation 171 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 172 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([25 x i8]* %SBUS_data, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 172 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 173 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([25 x i8]* %SBUS_data, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [5 x i8]* @p_str3, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 173 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 174 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([4096 x i32]* %norm_out, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 4096, [5 x i8]* @p_str4, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 174 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 175 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([4096 x i32]* %norm_out, [1 x i8]* @p_str, [12 x i8]* @p_str5, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 175 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 176 [1/1] (0.00ns)   --->   "%norm_out_addr_9 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 9" [RC_Receiver/RC_Receiver.cpp:33]   --->   Operation 176 'getelementptr' 'norm_out_addr_9' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 177 [1/1] (0.00ns)   --->   "%tmp = sext i8 %SBUS_data_load to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 177 'sext' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 178 [1/1] (3.25ns)   --->   "store i32 %tmp, i32* %norm_out_addr_9, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 178 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_25 : Operation 179 [1/1] (1.55ns)   --->   "%tmp_1 = icmp eq i8 %SBUS_data_load, 15" [RC_Receiver/RC_Receiver.cpp:45]   --->   Operation 179 'icmp' 'tmp_1' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 180 [1/1] (0.97ns)   --->   "%or_cond = and i1 %tmp_1, %tmp_5" [RC_Receiver/RC_Receiver.cpp:45]   --->   Operation 180 'and' 'or_cond' <Predicate = true> <Delay = 0.97> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 181 [1/1] (0.00ns)   --->   "br i1 %or_cond, label %.preheader.0, label %._crit_edge" [RC_Receiver/RC_Receiver.cpp:45]   --->   Operation 181 'br' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 182 [1/1] (0.00ns)   --->   "%errors_load = load i8* @errors, align 1" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 182 'load' 'errors_load' <Predicate = (!or_cond)> <Delay = 0.00>
+ST_25 : Operation 183 [1/1] (1.91ns)   --->   "%tmp_6 = add i8 %errors_load, 1" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 183 'add' 'tmp_6' <Predicate = (!or_cond)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 184 [1/1] (0.00ns)   --->   "store i8 %tmp_6, i8* @errors, align 1" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 184 'store' <Predicate = (!or_cond)> <Delay = 0.00>
+ST_25 : Operation 185 [1/1] (0.00ns)   --->   "br label %2"   --->   Operation 185 'br' <Predicate = (!or_cond)> <Delay = 0.00>
+ST_25 : Operation 186 [1/1] (0.00ns)   --->   "%tmp_2 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %SBUS_data_load_21, i32 2)" [RC_Receiver/RC_Receiver.cpp:75]   --->   Operation 186 'bitselect' 'tmp_2' <Predicate = (or_cond)> <Delay = 0.00>
+ST_25 : Operation 187 [1/1] (0.00ns)   --->   "br i1 %tmp_2, label %1, label %._crit_edge3" [RC_Receiver/RC_Receiver.cpp:75]   --->   Operation 187 'br' <Predicate = (or_cond)> <Delay = 0.00>
+ST_25 : Operation 188 [1/1] (0.00ns)   --->   "%lost_load = load i32* @lost, align 4" [RC_Receiver/RC_Receiver.cpp:75]   --->   Operation 188 'load' 'lost_load' <Predicate = (or_cond & tmp_2)> <Delay = 0.00>
+ST_25 : Operation 189 [1/1] (2.55ns)   --->   "%tmp_4 = add nsw i32 %lost_load, 1" [RC_Receiver/RC_Receiver.cpp:75]   --->   Operation 189 'add' 'tmp_4' <Predicate = (or_cond & tmp_2)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 190 [1/1] (0.00ns)   --->   "store i32 %tmp_4, i32* @lost, align 4" [RC_Receiver/RC_Receiver.cpp:75]   --->   Operation 190 'store' <Predicate = (or_cond & tmp_2)> <Delay = 0.00>
+ST_25 : Operation 191 [1/1] (0.00ns)   --->   "br label %._crit_edge3" [RC_Receiver/RC_Receiver.cpp:75]   --->   Operation 191 'br' <Predicate = (or_cond & tmp_2)> <Delay = 0.00>
+ST_25 : Operation 192 [1/1] (0.00ns)   --->   "br label %2" [RC_Receiver/RC_Receiver.cpp:77]   --->   Operation 192 'br' <Predicate = (or_cond)> <Delay = 0.00>
+ST_25 : Operation 193 [1/1] (0.00ns)   --->   "ret void" [RC_Receiver/RC_Receiver.cpp:82]   --->   Operation 193 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 3.25ns
+The critical path consists of the following:
+	'getelementptr' operation ('norm_out_addr_8', RC_Receiver/RC_Receiver.cpp:33) [54]  (0 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of constant 15 on array 'norm_out' [131]  (3.25 ns)
+
+ <State 2>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [15]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [18]  (3.25 ns)
+
+ <State 3>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_1', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [20]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_1', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [23]  (3.25 ns)
+
+ <State 4>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_2', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [25]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_2', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [28]  (3.25 ns)
+
+ <State 5>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_3', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [30]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_3', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [33]  (3.25 ns)
+
+ <State 6>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_4', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [35]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_4', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [38]  (3.25 ns)
+
+ <State 7>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_5', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [40]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_5', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [43]  (3.25 ns)
+
+ <State 8>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_6', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [45]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_6', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [48]  (3.25 ns)
+
+ <State 9>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_7', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [50]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_7', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [53]  (3.25 ns)
+
+ <State 10>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_8', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [57]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_s', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [60]  (3.25 ns)
+
+ <State 11>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_9', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [62]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_8', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [65]  (3.25 ns)
+
+ <State 12>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_10', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [67]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_9', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [70]  (3.25 ns)
+
+ <State 13>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_11', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [72]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_10', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [75]  (3.25 ns)
+
+ <State 14>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_12', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [77]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_11', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [80]  (3.25 ns)
+
+ <State 15>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_13', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [82]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_12', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [85]  (3.25 ns)
+
+ <State 16>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_14', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [87]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_13', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [90]  (3.25 ns)
+
+ <State 17>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_15', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [92]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_14', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [95]  (3.25 ns)
+
+ <State 18>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_16', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [97]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_15', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [100]  (3.25 ns)
+
+ <State 19>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_17', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [102]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_16', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [105]  (3.25 ns)
+
+ <State 20>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_18', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [107]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_17', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [110]  (3.25 ns)
+
+ <State 21>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_19', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [112]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_18', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [115]  (3.25 ns)
+
+ <State 22>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_20', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [117]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_19', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [120]  (3.25 ns)
+
+ <State 23>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_21', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [122]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_20', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [125]  (3.25 ns)
+
+ <State 24>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_22', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' [127]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_21', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' [130]  (3.25 ns)
+
+ <State 25>: 3.25ns
+The critical path consists of the following:
+	'getelementptr' operation ('norm_out_addr_9', RC_Receiver/RC_Receiver.cpp:33) [55]  (0 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:42) of variable 'tmp', RC_Receiver/RC_Receiver.cpp:42 on array 'norm_out' [133]  (3.25 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

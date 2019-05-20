@@ -25,6 +25,10 @@ using namespace std;
 #define STOP_BYTE           (0x00)
 #define BIT_ONE				(0x1)
 
+#define USE_TEST_VECTOR		1
+#define USE_REAL_DATA		1
+#define USE_INV_DATA		0
+
 
 // function definitions
 //void AXI_UART_DRIVER(volatile int uart_bus[4096] /*, volatile int SBUS_data[4096] */);

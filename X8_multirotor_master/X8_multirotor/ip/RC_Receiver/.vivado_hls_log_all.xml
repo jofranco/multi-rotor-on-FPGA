@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'errors' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-19T18:22:12.566-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'lost' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-19T18:22:12.562-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_20', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'norm_out'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-19T18:22:12.331-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('SBUS_data_load_1', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'SBUS_data'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-19T18:22:12.313-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

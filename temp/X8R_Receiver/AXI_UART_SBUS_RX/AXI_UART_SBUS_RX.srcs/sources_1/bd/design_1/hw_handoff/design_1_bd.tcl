@@ -165,9 +165,14 @@ proc create_root_design { parentCell } {
   # Create instance: AXI_UART_DRIVER_0, and set properties
   set AXI_UART_DRIVER_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:AXI_UART_DRIVER:1.0 AXI_UART_DRIVER_0 ]
   set_property -dict [ list \
+   CONFIG.C_M_AXI_OUT_R_ENABLE_USER_PORTS {false} \
+   CONFIG.C_M_AXI_OUT_R_TARGET_ADDR {0x43C20020} \
    CONFIG.C_M_AXI_UART_ENABLE_ID_PORTS {false} \
    CONFIG.C_M_AXI_UART_TARGET_ADDR {0x43C00000} \
  ] $AXI_UART_DRIVER_0
+
+  # Create instance: RC_RECEIVER_0, and set properties
+  set RC_RECEIVER_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:RC_RECEIVER:1.0 RC_RECEIVER_0 ]
 
   # Create instance: axi_uart16550_0, and set properties
   set axi_uart16550_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uart16550:2.0 axi_uart16550_0 ]
@@ -249,8 +254,8 @@ proc create_root_design { parentCell } {
   # Create instance: ps7_0_axi_periph, and set properties
   set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
   set_property -dict [ list \
-   CONFIG.NUM_MI {3} \
-   CONFIG.NUM_SI {2} \
+   CONFIG.NUM_MI {5} \
+   CONFIG.NUM_SI {3} \
  ] $ps7_0_axi_periph
 
   # Create instance: rst_ps7_0_100M, and set properties
@@ -273,36 +278,60 @@ proc create_root_design { parentCell } {
  ] $util_vector_logic_1
 
   # Create interface connections
+  connect_bd_intf_net -intf_net AXI_UART_DRIVER_0_m_axi_OUT_r [get_bd_intf_pins AXI_UART_DRIVER_0/m_axi_OUT_r] [get_bd_intf_pins ps7_0_axi_periph/S02_AXI]
   connect_bd_intf_net -intf_net AXI_UART_DRIVER_0_m_axi_UART [get_bd_intf_pins AXI_UART_DRIVER_0/m_axi_UART] [get_bd_intf_pins ps7_0_axi_periph/S01_AXI]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins axi_uart16550_0/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M01_AXI [get_bd_intf_pins AXI_UART_DRIVER_0/s_axi_CTRL] [get_bd_intf_pins ps7_0_axi_periph/M01_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M02_AXI [get_bd_intf_pins AXI_UART_DRIVER_0/s_axi_TEST] [get_bd_intf_pins ps7_0_axi_periph/M02_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M01_AXI [get_bd_intf_pins RC_RECEIVER_0/s_axi_CTRL] [get_bd_intf_pins ps7_0_axi_periph/M01_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M02_AXI [get_bd_intf_pins RC_RECEIVER_0/s_axi_DATA] [get_bd_intf_pins ps7_0_axi_periph/M02_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins RC_RECEIVER_0/s_axi_TEST] [get_bd_intf_pins ps7_0_axi_periph/M03_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M04_AXI [get_bd_intf_pins AXI_UART_DRIVER_0/s_axi_CTRL] [get_bd_intf_pins ps7_0_axi_periph/M04_AXI]
 
   # Create port connections
   connect_bd_net -net axi_uart16550_0_sout [get_bd_pins axi_uart16550_0/sout] [get_bd_pins util_vector_logic_1/Op1]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins AXI_UART_DRIVER_0/ap_clk] [get_bd_pins axi_uart16550_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins ps7_0_axi_periph/S01_ACLK] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins AXI_UART_DRIVER_0/ap_clk] [get_bd_pins RC_RECEIVER_0/ap_clk] [get_bd_pins axi_uart16550_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins ps7_0_axi_periph/S01_ACLK] [get_bd_pins ps7_0_axi_periph/S02_ACLK] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_100M/ext_reset_in]
   connect_bd_net -net rst_ps7_0_100M_interconnect_aresetn [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins rst_ps7_0_100M/interconnect_aresetn]
-  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins AXI_UART_DRIVER_0/ap_rst_n] [get_bd_pins axi_uart16550_0/s_axi_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins AXI_UART_DRIVER_0/ap_rst_n] [get_bd_pins RC_RECEIVER_0/ap_rst_n] [get_bd_pins axi_uart16550_0/s_axi_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins ps7_0_axi_periph/S02_ARESETN] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
   connect_bd_net -net sin_1 [get_bd_ports sin] [get_bd_pins util_vector_logic_0/Op1]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins axi_uart16550_0/sin] [get_bd_pins util_vector_logic_0/Res]
   connect_bd_net -net util_vector_logic_1_Res [get_bd_ports sout] [get_bd_pins util_vector_logic_1/Res]
 
   # Create address segments
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C20000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs RC_RECEIVER_0/s_axi_DATA/Reg] SEG_RC_RECEIVER_0_Reg2
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs axi_uart16550_0/S_AXI/Reg] SEG_axi_uart16550_0_Reg
   create_bd_addr_seg -range 0x00001000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs AXI_UART_DRIVER_0/s_axi_CTRL/Reg] SEG_AXI_UART_DRIVER_0_Reg
-  create_bd_addr_seg -range 0x00001000 -offset 0x40004000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs AXI_UART_DRIVER_0/s_axi_TEST/Reg] SEG_AXI_UART_DRIVER_0_Reg1
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs RC_RECEIVER_0/s_axi_CTRL/Reg] SEG_RC_RECEIVER_0_Reg
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs RC_RECEIVER_0/s_axi_DATA/Reg] SEG_RC_RECEIVER_0_Reg1
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C14000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs RC_RECEIVER_0/s_axi_TEST/Reg] SEG_RC_RECEIVER_0_Reg2
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_uart16550_0/S_AXI/Reg] SEG_axi_uart16550_0_Reg
 
   # Exclude Address Segments
+  create_bd_addr_seg -range 0x00001000 -offset 0x40000000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs AXI_UART_DRIVER_0/s_axi_CTRL/Reg] SEG_AXI_UART_DRIVER_0_Reg
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_AXI_UART_DRIVER_0_Reg]
+
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C10000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs RC_RECEIVER_0/s_axi_CTRL/Reg] SEG_RC_RECEIVER_0_Reg
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_RC_RECEIVER_0_Reg]
+
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C14000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs RC_RECEIVER_0/s_axi_TEST/Reg] SEG_RC_RECEIVER_0_Reg4
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_RC_RECEIVER_0_Reg4]
+
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs axi_uart16550_0/S_AXI/Reg] SEG_axi_uart16550_0_Reg
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_axi_uart16550_0_Reg]
+
   create_bd_addr_seg -range 0x00001000 -offset 0x40000000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs AXI_UART_DRIVER_0/s_axi_CTRL/Reg] SEG_AXI_UART_DRIVER_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_AXI_UART_DRIVER_0_Reg]
 
-  create_bd_addr_seg -range 0x00001000 -offset 0x40004000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs AXI_UART_DRIVER_0/s_axi_TEST/Reg] SEG_AXI_UART_DRIVER_0_Reg3
-  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_AXI_UART_DRIVER_0_Reg3]
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C10000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs RC_RECEIVER_0/s_axi_CTRL/Reg] SEG_RC_RECEIVER_0_Reg
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_RC_RECEIVER_0_Reg]
+
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C20000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs RC_RECEIVER_0/s_axi_DATA/Reg] SEG_RC_RECEIVER_0_Reg2
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_RC_RECEIVER_0_Reg2]
+
+  create_bd_addr_seg -range 0x00001000 -offset 0x43C14000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs RC_RECEIVER_0/s_axi_TEST/Reg] SEG_RC_RECEIVER_0_Reg4
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_RC_RECEIVER_0_Reg4]
 
 
 

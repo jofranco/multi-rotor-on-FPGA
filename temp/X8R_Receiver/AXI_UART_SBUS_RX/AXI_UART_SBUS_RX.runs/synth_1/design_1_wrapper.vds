@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat May 18 20:32:00 2019
-# Process ID: 17656
+# Start of session at: Sun May 19 18:35:27 2019
+# Process ID: 6436
 # Current directory: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1
 # Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/design_1_wrapper.vds
@@ -15,60 +15,82 @@ INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Aaron/Desktop/School
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/RC_Receiver'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/CAD/Vivado/2018.2/data/ip'.
-add_files: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 299.613 ; gain = 55.180
 Command: synth_design -top design_1_wrapper -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 18624 
+INFO: Helper process launched with PID 22680 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 408.500 ; gain = 101.977
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 410.285 ; gain = 102.727
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_AXI_UART_DRIVER_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_AXI_UART_DRIVER_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_AXI_UART_DRIVER_0_0' (1#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_AXI_UART_DRIVER_0_0_stub.v:6]
-WARNING: [Synth 8-350] instance 'AXI_UART_DRIVER_0' of module 'design_1_AXI_UART_DRIVER_0_0' requires 72 connections, but only 71 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:217]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uart16550_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_axi_uart16550_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uart16550_0_0' (2#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_axi_uart16550_0_0_stub.v:6]
-WARNING: [Synth 8-350] instance 'axi_uart16550_0' of module 'design_1_axi_uart16550_0_0' requires 35 connections, but only 26 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:289]
-INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (3#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ps7_0_axi_periph_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:534]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_15SPJYW' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:1449]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_15SPJYW' (4#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:1449]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_XU9C55' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:1581]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_XU9C55' (5#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:1581]
-INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_14WQB4R' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:1713]
-INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_14WQB4R' (6#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:1713]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_UYSKKA' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:1845]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (7#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_UYSKKA' (8#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:1845]
-INFO: [Synth 8-6157] synthesizing module 's01_couplers_imp_ZQDCSB' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2150]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (9#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 's01_couplers_imp_ZQDCSB' (10#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2150]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_xbar_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_1' (11#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_xbar_1_stub.v:6]
-WARNING: [Synth 8-350] instance 'xbar' of module 'design_1_xbar_1' requires 40 connections, but only 38 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:1408]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ps7_0_axi_periph_1' (12#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:534]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_100M_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_rst_ps7_0_100M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_100M_0' (13#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_rst_ps7_0_100M_0_stub.v:6]
-WARNING: [Synth 8-350] instance 'rst_ps7_0_100M' of module 'design_1_rst_ps7_0_100M_0' requires 10 connections, but only 7 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:518]
-INFO: [Synth 8-6157] synthesizing module 'design_1_util_vector_logic_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_util_vector_logic_0_0' (14#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_util_vector_logic_1_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_util_vector_logic_1_0' (15#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-17656-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1' (16#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (17#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'design_1_AXI_UART_DRIVER_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_AXI_UART_DRIVER_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_AXI_UART_DRIVER_0_0' (1#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_AXI_UART_DRIVER_0_0_stub.v:6]
+WARNING: [Synth 8-350] instance 'AXI_UART_DRIVER_0' of module 'design_1_AXI_UART_DRIVER_0_0' requires 90 connections, but only 89 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:286]
+INFO: [Synth 8-6157] synthesizing module 'design_1_RC_RECEIVER_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_RC_RECEIVER_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_RC_RECEIVER_0_0' (2#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_RC_RECEIVER_0_0_stub.v:6]
+WARNING: [Synth 8-350] instance 'RC_RECEIVER_0' of module 'design_1_RC_RECEIVER_0_0' requires 54 connections, but only 53 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:376]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uart16550_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_axi_uart16550_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uart16550_0_0' (3#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_axi_uart16550_0_0_stub.v:6]
+WARNING: [Synth 8-350] instance 'axi_uart16550_0' of module 'design_1_axi_uart16550_0_0' requires 35 connections, but only 26 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:430]
+INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (4#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ps7_0_axi_periph_2' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:748]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_15SPJYW' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2153]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_15SPJYW' (5#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2153]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_XU9C55' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2285]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_XU9C55' (6#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2285]
+INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_14WQB4R' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2417]
+INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_14WQB4R' (7#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2417]
+INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_YFYJ3U' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2549]
+INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_YFYJ3U' (8#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2549]
+INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_17KQ732' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2681]
+INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_17KQ732' (9#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2681]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_UYSKKA' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2813]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (10#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_UYSKKA' (11#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2813]
+INFO: [Synth 8-6157] synthesizing module 's01_couplers_imp_ZQDCSB' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:3118]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (12#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 's01_couplers_imp_ZQDCSB' (13#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:3118]
+INFO: [Synth 8-6157] synthesizing module 's02_couplers_imp_THVDEH' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:3408]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_2' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_2' (14#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 's02_couplers_imp_THVDEH' (15#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:3408]
+INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_2' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_xbar_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_2' (16#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_xbar_2_stub.v:6]
+WARNING: [Synth 8-350] instance 'xbar' of module 'design_1_xbar_2' requires 40 connections, but only 38 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:2112]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ps7_0_axi_periph_2' (17#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:748]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_100M_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_rst_ps7_0_100M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_100M_0' (18#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_rst_ps7_0_100M_0_stub.v:6]
+WARNING: [Synth 8-350] instance 'rst_ps7_0_100M' of module 'design_1_rst_ps7_0_100M_0' requires 10 connections, but only 7 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:732]
+INFO: [Synth 8-6157] synthesizing module 'design_1_util_vector_logic_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_util_vector_logic_0_0' (19#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_util_vector_logic_1_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_util_vector_logic_1_0' (20#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/.Xil/Vivado-6436-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1' (21#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/synth/design_1.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (22#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
+WARNING: [Synth 8-3331] design s02_couplers_imp_THVDEH has unconnected port M_ACLK
+WARNING: [Synth 8-3331] design s02_couplers_imp_THVDEH has unconnected port M_ARESETN
+WARNING: [Synth 8-3331] design s02_couplers_imp_THVDEH has unconnected port S_AXI_arlock[1]
+WARNING: [Synth 8-3331] design s02_couplers_imp_THVDEH has unconnected port S_AXI_awlock[1]
 WARNING: [Synth 8-3331] design s01_couplers_imp_ZQDCSB has unconnected port M_ACLK
 WARNING: [Synth 8-3331] design s01_couplers_imp_ZQDCSB has unconnected port M_ARESETN
 WARNING: [Synth 8-3331] design s01_couplers_imp_ZQDCSB has unconnected port S_AXI_arlock[1]
 WARNING: [Synth 8-3331] design s01_couplers_imp_ZQDCSB has unconnected port S_AXI_awlock[1]
 WARNING: [Synth 8-3331] design s00_couplers_imp_UYSKKA has unconnected port M_ACLK
 WARNING: [Synth 8-3331] design s00_couplers_imp_UYSKKA has unconnected port M_ARESETN
+WARNING: [Synth 8-3331] design m04_couplers_imp_17KQ732 has unconnected port M_ACLK
+WARNING: [Synth 8-3331] design m04_couplers_imp_17KQ732 has unconnected port M_ARESETN
+WARNING: [Synth 8-3331] design m04_couplers_imp_17KQ732 has unconnected port S_ACLK
+WARNING: [Synth 8-3331] design m04_couplers_imp_17KQ732 has unconnected port S_ARESETN
+WARNING: [Synth 8-3331] design m03_couplers_imp_YFYJ3U has unconnected port M_ACLK
+WARNING: [Synth 8-3331] design m03_couplers_imp_YFYJ3U has unconnected port M_ARESETN
+WARNING: [Synth 8-3331] design m03_couplers_imp_YFYJ3U has unconnected port S_ACLK
+WARNING: [Synth 8-3331] design m03_couplers_imp_YFYJ3U has unconnected port S_ARESETN
 WARNING: [Synth 8-3331] design m02_couplers_imp_14WQB4R has unconnected port M_ACLK
 WARNING: [Synth 8-3331] design m02_couplers_imp_14WQB4R has unconnected port M_ARESETN
 WARNING: [Synth 8-3331] design m02_couplers_imp_14WQB4R has unconnected port S_ACLK
@@ -82,7 +104,7 @@ WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port M_A
 WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port S_ACLK
 WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port S_ARESETN
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 463.383 ; gain = 156.859
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 464.867 ; gain = 157.309
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -95,10 +117,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 463.383 ; gain = 156.859
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 464.867 ; gain = 157.309
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 463.383 ; gain = 156.859
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 464.867 ; gain = 157.309
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -113,12 +135,16 @@ Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_U
 Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_0/design_1_AXI_UART_DRIVER_0_0/design_1_AXI_UART_DRIVER_0_0_in_context.xdc] for cell 'design_1_i/AXI_UART_DRIVER_0'
 Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0_in_context.xdc] for cell 'design_1_i/rst_ps7_0_100M'
 Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0_in_context.xdc] for cell 'design_1_i/rst_ps7_0_100M'
-Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1/design_1_xbar_1_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/xbar'
-Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_xbar_1/design_1_xbar_1/design_1_xbar_1_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/xbar'
 Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0_in_context.xdc] for cell 'design_1_i/util_vector_logic_0'
 Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0_in_context.xdc] for cell 'design_1_i/util_vector_logic_0'
 Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_1_0/design_1_util_vector_logic_1_0/design_1_util_vector_logic_0_0_in_context.xdc] for cell 'design_1_i/util_vector_logic_1'
 Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_1_0/design_1_util_vector_logic_1_0/design_1_util_vector_logic_0_0_in_context.xdc] for cell 'design_1_i/util_vector_logic_1'
+Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_RC_RECEIVER_0_0/design_1_RC_RECEIVER_0_0/design_1_RC_RECEIVER_0_0_in_context.xdc] for cell 'design_1_i/RC_RECEIVER_0'
+Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_RC_RECEIVER_0_0/design_1_RC_RECEIVER_0_0/design_1_RC_RECEIVER_0_0_in_context.xdc] for cell 'design_1_i/RC_RECEIVER_0'
+Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_xbar_2/design_1_xbar_2/design_1_xbar_2_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/xbar'
+Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_xbar_2/design_1_xbar_2/design_1_xbar_2_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/xbar'
+Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2/design_1_auto_pc_2_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s02_couplers/auto_pc'
+Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2/design_1_auto_pc_2_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s02_couplers/auto_pc'
 Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1/design_1_auto_pc_2_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s01_couplers/auto_pc'
 Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1/design_1_auto_pc_2_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s01_couplers/auto_pc'
 Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
@@ -134,16 +160,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 771.281 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 788.953 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 771.281 ; gain = 464.758
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 788.953 ; gain = 481.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 771.281 ; gain = 464.758
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 788.953 ; gain = 481.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -413,17 +439,19 @@ Applied set_property DONT_TOUCH = true for design_1_i/processing_system7_0. (con
 Applied set_property DONT_TOUCH = true for design_1_i/axi_uart16550_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/AXI_UART_DRIVER_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/rst_ps7_0_100M. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/xbar. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/util_vector_logic_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/util_vector_logic_1. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/RC_RECEIVER_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/xbar. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s02_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s01_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 771.281 ; gain = 464.758
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 788.953 ; gain = 481.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 771.281 ; gain = 464.758
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 788.953 ; gain = 481.395
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -458,16 +486,22 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_1 has unconnected port M00_ACLK
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_1 has unconnected port M00_ARESETN
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_1 has unconnected port M01_ACLK
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_1 has unconnected port M01_ARESETN
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_1 has unconnected port M02_ACLK
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_1 has unconnected port M02_ARESETN
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_1 has unconnected port S01_AXI_arlock[1]
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_1 has unconnected port S01_AXI_awlock[1]
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M00_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M00_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M01_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M01_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M02_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M02_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M03_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M03_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M04_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port M04_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port S01_AXI_arlock[1]
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port S01_AXI_awlock[1]
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port S02_AXI_arlock[1]
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_2 has unconnected port S02_AXI_awlock[1]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 771.281 ; gain = 464.758
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 788.953 ; gain = 481.395
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -481,13 +515,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'design_1_i/processing_system7_0/FCLK_CLK0' to pin 'design_1_i/processing_system7_0/bbstub_FCLK_CLK0/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 812.148 ; gain = 505.625
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 810.480 ; gain = 502.922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 812.297 ; gain = 505.773
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 810.777 ; gain = 503.219
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -499,7 +533,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 813.594 ; gain = 507.070
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 812.203 ; gain = 504.645
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -523,7 +557,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 813.969 ; gain = 507.445
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 812.203 ; gain = 504.645
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -536,7 +570,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 813.969 ; gain = 507.445
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 812.203 ; gain = 504.645
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -548,25 +582,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 813.969 ; gain = 507.445
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 812.203 ; gain = 504.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 813.969 ; gain = 507.445
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 812.203 ; gain = 504.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 813.969 ; gain = 507.445
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 812.203 ; gain = 504.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 813.969 ; gain = 507.445
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 812.203 ; gain = 504.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -576,15 +610,17 @@ Report BlackBoxes:
 +------+--------------------------------+----------+
 |      |BlackBox name                   |Instances |
 +------+--------------------------------+----------+
-|1     |design_1_xbar_1                 |         1|
+|1     |design_1_xbar_2                 |         1|
 |2     |design_1_auto_pc_0              |         1|
 |3     |design_1_auto_pc_1              |         1|
-|4     |design_1_AXI_UART_DRIVER_0_0    |         1|
-|5     |design_1_axi_uart16550_0_0      |         1|
-|6     |design_1_processing_system7_0_0 |         1|
-|7     |design_1_rst_ps7_0_100M_0       |         1|
-|8     |design_1_util_vector_logic_0_0  |         1|
-|9     |design_1_util_vector_logic_1_0  |         1|
+|4     |design_1_auto_pc_2              |         1|
+|5     |design_1_AXI_UART_DRIVER_0_0    |         1|
+|6     |design_1_RC_RECEIVER_0_0        |         1|
+|7     |design_1_axi_uart16550_0_0      |         1|
+|8     |design_1_processing_system7_0_0 |         1|
+|9     |design_1_rst_ps7_0_100M_0       |         1|
+|10    |design_1_util_vector_logic_0_0  |         1|
+|11    |design_1_util_vector_logic_1_0  |         1|
 +------+--------------------------------+----------+
 
 Report Cell Usage: 
@@ -592,34 +628,37 @@ Report Cell Usage:
 |      |Cell                            |Count |
 +------+--------------------------------+------+
 |1     |design_1_AXI_UART_DRIVER_0_0    |     1|
-|2     |design_1_auto_pc_0              |     1|
-|3     |design_1_auto_pc_1              |     1|
-|4     |design_1_axi_uart16550_0_0      |     1|
-|5     |design_1_processing_system7_0_0 |     1|
-|6     |design_1_rst_ps7_0_100M_0       |     1|
-|7     |design_1_util_vector_logic_0_0  |     1|
-|8     |design_1_util_vector_logic_1_0  |     1|
-|9     |design_1_xbar_1                 |     1|
-|10    |IBUF                            |     1|
-|11    |OBUF                            |     1|
+|2     |design_1_RC_RECEIVER_0_0        |     1|
+|3     |design_1_auto_pc_0              |     1|
+|4     |design_1_auto_pc_1              |     1|
+|5     |design_1_auto_pc_2              |     1|
+|6     |design_1_axi_uart16550_0_0      |     1|
+|7     |design_1_processing_system7_0_0 |     1|
+|8     |design_1_rst_ps7_0_100M_0       |     1|
+|9     |design_1_util_vector_logic_0_0  |     1|
+|10    |design_1_util_vector_logic_1_0  |     1|
+|11    |design_1_xbar_2                 |     1|
+|12    |IBUF                            |     1|
+|13    |OBUF                            |     1|
 +------+--------------------------------+------+
 
 Report Instance Areas: 
 +------+---------------------+----------------------------+------+
 |      |Instance             |Module                      |Cells |
 +------+---------------------+----------------------------+------+
-|1     |top                  |                            |  1242|
-|2     |  design_1_i         |design_1                    |  1240|
-|3     |    ps7_0_axi_periph |design_1_ps7_0_axi_periph_1 |   745|
+|1     |top                  |                            |  1907|
+|2     |  design_1_i         |design_1                    |  1905|
+|3     |    ps7_0_axi_periph |design_1_ps7_0_axi_periph_2 |  1161|
 |4     |      s00_couplers   |s00_couplers_imp_UYSKKA     |   177|
 |5     |      s01_couplers   |s01_couplers_imp_ZQDCSB     |   153|
+|6     |      s02_couplers   |s02_couplers_imp_THVDEH     |   153|
 +------+---------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 813.969 ; gain = 507.445
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 812.203 ; gain = 504.645
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:24 . Memory (MB): peak = 813.969 ; gain = 199.547
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 813.969 ; gain = 507.445
+Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 812.203 ; gain = 180.559
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 812.203 ; gain = 504.645
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -629,11 +668,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-53 Infos, 30 Warnings, 0 Critical Warnings and 0 Errors encountered.
+63 Infos, 49 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:39 . Memory (MB): peak = 835.340 ; gain = 535.727
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 835.648 ; gain = 534.996
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 835.715 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat May 18 20:32:50 2019...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 835.961 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun May 19 18:36:03 2019...

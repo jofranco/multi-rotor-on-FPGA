@@ -15,7 +15,6 @@ int XAxi_uart_driver_CfgInitialize(XAxi_uart_driver *InstancePtr, XAxi_uart_driv
     Xil_AssertNonvoid(ConfigPtr != NULL);
 
     InstancePtr->Ctrl_BaseAddress = ConfigPtr->Ctrl_BaseAddress;
-    InstancePtr->Test_BaseAddress = ConfigPtr->Test_BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -75,101 +74,6 @@ void XAxi_uart_driver_DisableAutoRestart(XAxi_uart_driver *InstancePtr) {
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     XAxi_uart_driver_WriteReg(InstancePtr->Ctrl_BaseAddress, XAXI_UART_DRIVER_CTRL_ADDR_AP_CTRL, 0);
-}
-
-u32 XAxi_uart_driver_Get_SBUS_data_BaseAddress(XAxi_uart_driver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Test_BaseAddress + XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE);
-}
-
-u32 XAxi_uart_driver_Get_SBUS_data_HighAddress(XAxi_uart_driver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Test_BaseAddress + XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_HIGH);
-}
-
-u32 XAxi_uart_driver_Get_SBUS_data_TotalBytes(XAxi_uart_driver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_HIGH - XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE + 1);
-}
-
-u32 XAxi_uart_driver_Get_SBUS_data_BitWidth(XAxi_uart_driver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XAXI_UART_DRIVER_TEST_WIDTH_SBUS_DATA;
-}
-
-u32 XAxi_uart_driver_Get_SBUS_data_Depth(XAxi_uart_driver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XAXI_UART_DRIVER_TEST_DEPTH_SBUS_DATA;
-}
-
-u32 XAxi_uart_driver_Write_SBUS_data_Words(XAxi_uart_driver *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_HIGH - XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(int *)(InstancePtr->Test_BaseAddress + XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE + (offset + i)*4) = *(data + i);
-    }
-    return length;
-}
-
-u32 XAxi_uart_driver_Read_SBUS_data_Words(XAxi_uart_driver *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_HIGH - XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(int *)(InstancePtr->Test_BaseAddress + XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE + (offset + i)*4);
-    }
-    return length;
-}
-
-u32 XAxi_uart_driver_Write_SBUS_data_Bytes(XAxi_uart_driver *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_HIGH - XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(char *)(InstancePtr->Test_BaseAddress + XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE + offset + i) = *(data + i);
-    }
-    return length;
-}
-
-u32 XAxi_uart_driver_Read_SBUS_data_Bytes(XAxi_uart_driver *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_HIGH - XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(char *)(InstancePtr->Test_BaseAddress + XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE + offset + i);
-    }
-    return length;
 }
 
 void XAxi_uart_driver_InterruptGlobalEnable(XAxi_uart_driver *InstancePtr) {

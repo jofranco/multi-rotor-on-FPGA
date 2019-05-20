@@ -25,7 +25,7 @@ set Pointer1 "0"
 set Reference1 "0"
 set Dims1 [list 4096]
 set Interface1 "wire"
-set DataType1 "unsigned int"
+set DataType1 "signed char"
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
 set globalAPint "" 

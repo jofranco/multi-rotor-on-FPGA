@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="flightmain.cpp" path="C:\Users\c7benj\Documents\MULTI_ROTOR\Flight_Main\flightmain.cpp"/>
-    <originFiles name="flightmain.hpp" path="C:\Users\c7benj\Documents\MULTI_ROTOR\Flight_Main\flightmain.hpp"/>
+    <originFiles name="flightmain.hpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\Flight_Main\flightmain.hpp"/>
+    <originFiles name="flightmain.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\Flight_Main\flightmain.cpp"/>
   </source>
   <testbench>
-    <originFiles name="main.cpp" path="C:\Users\c7benj\Documents\MULTI_ROTOR\Flight_Main\main.cpp"/>
+    <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\Flight_Main\main.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

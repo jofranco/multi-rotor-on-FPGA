@@ -35,43 +35,11 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler AXI_UART_DRIVER_CTRL_s_axi
 }
 
-set port_TEST {
-SBUS_data { 
-	dir O
-	width 32
-	depth 4096
-	mode ap_memory
-	offset 16384
-	offset_end 32767
-}
-}
-
-
-# Native S_AXILite:
-if {${::AESL::PGuard_simmodel_gen}} {
-	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
-		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 2 \
-			corename AXI_UART_DRIVER_TEST_axilite \
-			name AXI_UART_DRIVER_TEST_s_axi \
-			ports {$port_TEST} \
-			op interface \
-			is_flushable 0 \ 
-		} "
-	} else {
-		puts "@W \[IMPL-110\] Cannot find AXI Lite interface model in the library. Ignored generation of AXI Lite  interface for 'TEST'"
-	}
-}
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler AXI_UART_DRIVER_TEST_s_axi
-}
-
 # Native M_AXI:
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
 eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
-    id 3 \
+    id 2 \
     corename {m_axi} \
     op interface \
     max_latency -1 \ 
@@ -86,6 +54,27 @@ puts "@W \[IMPL-110\] Cannot find AXI interface model in the library. Ignored ge
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler AXI_UART_DRIVER_UART_m_axi
+}
+
+# Native M_AXI:
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
+eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
+    id 3 \
+    corename {m_axi} \
+    op interface \
+    max_latency -1 \ 
+    delay_budget 8.75 \ 
+    is_flushable 0 \ 
+    name {AXI_UART_DRIVER_OUT_r_m_axi} \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find AXI interface model in the library. Ignored generation of AXI interface for 'OUT_r'"
+}
+}
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler AXI_UART_DRIVER_OUT_r_m_axi
 }
 
 

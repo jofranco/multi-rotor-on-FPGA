@@ -24549,7 +24549,7 @@ __extension__ typedef unsigned long long uintmax_t;
 # 5 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h" 2
 
 using namespace std;
-# 31 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h"
+# 35 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h"
 void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096]);
 
 
@@ -24570,7 +24570,8 @@ _ssdm_op_SpecProtocol(0, "");
 # 3 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp" 2
 
 
-void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096])
+
+void AXI_UART_DRIVER(volatile int uart_bus[4096], int8_t SBUS_data[4096])
 {_ssdm_SpecArrayDimSize(uart_bus, 4096);_ssdm_SpecArrayDimSize(SBUS_data, 4096);
 
 
@@ -24578,13 +24579,8 @@ _ssdm_op_SpecPipeline(0, 0, 0, 1, "");
 
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(uart_bus, "m_axi", 0, 0, "", 0, 4096, "UART", "off", "", 16, 16, 16, 16, "", "");
-
-_ssdm_op_SpecInterface(SBUS_data, "s_axilite", 0, 0, "", 0, 4096, "TEST", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecResource(SBUS_data, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
-
-
-
-
+_ssdm_op_SpecInterface(SBUS_data, "m_axi", 0, 0, "", 0, 4096, "OUT", "off", "", 16, 16, 16, 16, "", "");
+# 24 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
  static bool calibrationSuccess = false;
  static uint8_t RX_buffer[25] = {0};
  uint8_t DATA_READY = 0;
@@ -24642,30 +24638,71 @@ _ssdm_op_SpecReset( &firstSample, 1, "");
 
  if (calibrationSuccess)
  {
+  SBUS_data[0] = 0x0F;
 
 
-  SBUS_data[0] = 0x11;
-  SBUS_data[1] = 0x22;
-  SBUS_data[2] = 0x33;
-  SBUS_data[3] = 0x44;
-  SBUS_data[4] = 0x55;
-  SBUS_data[5] = 0x66;
-  SBUS_data[6] = 0x77;
-  SBUS_data[7] = 0x88;
-# 100 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
- uart_bus[(0x1000 >> 2)] = 0x45;
-
-
-
-  DATA_READY = uart_bus[(0x1014 >> 2)];
-  if( (DATA_READY & (0x1)) == 1)
+  if(1)
   {
-   SBUS_data[0] = uart_bus[(0x1000 >> 2)];
+   if(1)
+   {
 
-   uart_bus[(0x101C >> 2)] = 0x01;
-# 122 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
- }
-# 148 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
+    SBUS_data[0] = 0x0F;
+    SBUS_data[1] = 0xC8;
+    SBUS_data[2] = 0xF0;
+    SBUS_data[3] = 0xFA;
+    SBUS_data[4] = 0x5F;
+    SBUS_data[5] = 0x6B;
+    SBUS_data[6] = 0xE3;
+    SBUS_data[7] = 0x50;
+    SBUS_data[8] = 0x6A;
+    SBUS_data[9] = 0x0D;
+    SBUS_data[10] = 0x40;
+    SBUS_data[11] = 0x3E;
+    SBUS_data[12] = 0xCC;
+    SBUS_data[13] = 0xE0;
+    SBUS_data[14] = 0xF8;
+    SBUS_data[15] = 0x1F;
+    SBUS_data[16] = 0x03;
+    SBUS_data[17] = 0xE0;
+    SBUS_data[18] = 0x7C;
+    SBUS_data[19] = 0x0F;
+    SBUS_data[20] = 0x81;
+    SBUS_data[21] = 0xF0;
+    SBUS_data[22] = 0x3E;
+    SBUS_data[23] = 0x00;
+    SBUS_data[24] = 0x00;
+   }
+   else if(0)
+   {
+
+    SBUS_data[0] = 0x0F;
+    SBUS_data[1] = 0x13;
+    SBUS_data[2] = 0x0F;
+    SBUS_data[3] = 0x1F;
+    SBUS_data[4] = 0xFB;
+    SBUS_data[5] = 0xD0;
+    SBUS_data[6] = 0xC7;
+    SBUS_data[7] = 0x0A;
+    SBUS_data[8] = 0x56;
+    SBUS_data[9] = 0xB0;
+    SBUS_data[10] = 0x02;
+    SBUS_data[11] = 0x7C;
+    SBUS_data[12] = 0x33;
+    SBUS_data[13] = 0x07;
+    SBUS_data[14] = 0x1F;
+    SBUS_data[15] = 0xF8;
+    SBUS_data[16] = 0xC0;
+    SBUS_data[17] = 0x07;
+    SBUS_data[18] = 0x3E;
+    SBUS_data[19] = 0xF0;
+    SBUS_data[20] = 0x81;
+    SBUS_data[21] = 0x0F;
+    SBUS_data[22] = 0x7C;
+    SBUS_data[23] = 0x00;
+    SBUS_data[24] = 0x00;
+   }
+  }
+# 167 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
  }
     else
     {

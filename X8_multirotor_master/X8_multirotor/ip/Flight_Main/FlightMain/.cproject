@@ -22,17 +22,17 @@
 							<builder buildPath="${workspace_loc:/FlightMain}/Debug" id="cdt.managedbuild.target.gnu.builder.exe.debug.950538123" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.65726614" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.671213341" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
-								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1468187816" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.2048923557" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.include.paths.459429870" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include/etc"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/auto_cc/include"/>
+								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1468187816" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.2048923557" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.include.paths.459429870" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include/ap_sysc"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/systemc/include"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.preprocessor.def.568932981" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
+								<option id="gnu.cpp.compiler.option.preprocessor.def.568932981" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
 									<listOptionValue builtIn="false" value="__llvm__"/>
 									<listOptionValue builtIn="false" value="__llvm__"/>
@@ -40,17 +40,17 @@
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1023070220" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.2126472084" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
-								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.750782466" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
-								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1431510368" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.include.paths.723293681" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include/etc"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/auto_cc/include"/>
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.750782466" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1431510368" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.include.paths.723293681" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include/ap_sysc"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/systemc/include"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
 								</option>
-								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1716673286" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1716673286" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
 									<listOptionValue builtIn="false" value="__llvm__"/>
 									<listOptionValue builtIn="false" value="__llvm__"/>
@@ -59,14 +59,14 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.2039423226" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug">
 								<option id="gnu.c.link.option.paths.906705923" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/systemc/lib"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.c.link.option.libs.2084858265" name="Libraries (-l)" superClass="gnu.c.link.option.libs"/>
 								<option id="gnu.c.link.option.ldflags.301525567" name="Linker flags" superClass="gnu.c.link.option.ldflags"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1515051900" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 								<option id="gnu.cpp.link.option.paths.170265025" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/systemc/lib"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.1759346691" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
 								<option id="gnu.cpp.link.option.flags.478595536" name="Linker flags" superClass="gnu.cpp.link.option.flags"/>
@@ -108,41 +108,41 @@
 							<builder buildPath="${workspace_loc:/FlightMain}/Release" id="cdt.managedbuild.target.gnu.builder.exe.release.1387203823" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.release"/>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.1500152277" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.367539446" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release">
-								<option id="gnu.cpp.compiler.exe.release.option.optimization.level.373967308" name="Optimization Level" superClass="gnu.cpp.compiler.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.80862287" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.include.paths.951140471" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include/etc"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/auto_cc/include"/>
+								<option id="gnu.cpp.compiler.exe.release.option.optimization.level.373967308" name="Optimization Level" superClass="gnu.cpp.compiler.exe.release.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.80862287" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.include.paths.951140471" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include/ap_sysc"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/systemc/include"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1092774341" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.1829470221" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release">
-								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.771250136" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" valueType="enumerated"/>
-								<option id="gnu.c.compiler.exe.release.option.debugging.level.1584760248" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.include.paths.1062061988" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include/etc"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/auto_cc/include"/>
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.771250136" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.exe.release.option.debugging.level.1584760248" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.include.paths.1062061988" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/include/ap_sysc"/>
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/systemc/include"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.325265981" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.764651616" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release">
 								<option id="gnu.c.link.option.paths.692086684" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/systemc/lib"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.c.link.option.libs.354251144" name="Libraries (-l)" superClass="gnu.c.link.option.libs"/>
 								<option id="gnu.c.link.option.ldflags.813777167" name="Linker flags" superClass="gnu.c.link.option.ldflags"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.257330330" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
 								<option id="gnu.cpp.link.option.paths.2081293509" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="E:/sdsoc171/SDx/2017.1/Vivado_HLS/win64/tools/systemc/lib"/>
+									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.821217346" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
 								<option id="gnu.cpp.link.option.flags.1041814397" name="Linker flags" superClass="gnu.cpp.link.option.flags"/>

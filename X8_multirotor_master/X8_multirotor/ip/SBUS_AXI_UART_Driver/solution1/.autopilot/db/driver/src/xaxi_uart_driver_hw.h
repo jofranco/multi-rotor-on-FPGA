@@ -31,14 +31,3 @@
 #define XAXI_UART_DRIVER_CTRL_ADDR_IER     0x8
 #define XAXI_UART_DRIVER_CTRL_ADDR_ISR     0xc
 
-// TEST
-// 0x4000 ~
-// 0x7fff : Memory 'SBUS_data' (4096 * 32b)
-//          Word n : bit [31:0] - SBUS_data[n]
-// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
-
-#define XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_BASE 0x4000
-#define XAXI_UART_DRIVER_TEST_ADDR_SBUS_DATA_HIGH 0x7fff
-#define XAXI_UART_DRIVER_TEST_WIDTH_SBUS_DATA     32
-#define XAXI_UART_DRIVER_TEST_DEPTH_SBUS_DATA     4096
-
