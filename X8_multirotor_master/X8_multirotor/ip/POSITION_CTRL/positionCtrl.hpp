@@ -5,4 +5,4 @@
 
 #define SIZE 4096
 
-void positionCtrl(uint16_t pmod_data[SIZE], uint16_t pos_data[6]);
+void positionCtrl(uint16_t pmod_data[SIZE], uint16_t pos_data[SIZE]);

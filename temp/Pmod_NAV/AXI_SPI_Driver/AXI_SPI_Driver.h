@@ -95,10 +95,8 @@ struct DTYPE2
  */
 
 // main driver
-
-void AXI_SPI_DRIVER(volatile int *spi_bus);
-//void AXI_SPI_DRIVER(volatile int spi_bus[4096] /*, uint32_t *TX_message, uint32_t *RX_message*/);
-//void AXI_SPI_DRIVER(DTYPE2 spi_bus[4096]);
+void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint16_t pmod_data[4096], uint16_t pmod_tes[4096]);
+//void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint16_t pmod_data[4096]);
 
 
 //delay function in milliseconds

@@ -6,35 +6,37 @@
 
 //unsigned char state = 0;
 
-//ap_uint<32>
-//void AXI_SPI_DRIVER(volatile int spi_bus[4096] /*, uint32_t *TX_message, uint32_t *RX_message*/)
-//void AXI_SPI_DRIVER(volatile int spi_bus[4096])
-void AXI_SPI_DRIVER(volatile int *spi_bus)
+
+void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint16_t pmod_data[4096], uint16_t pmod_test[4096])
+//void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint16_t pmod_data[4096])
 {
 
-	//#pragma HLS PIPELINE II=10 enable_flush off
+	//SETUP PRAGMAS
+	#pragma HLS PIPELINE II=1 enable_flush off
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
-	//#pragma HLS INTERFACE ap_ctrl_none port=return
+	#pragma HLS INTERFACE m_axi depth=4096 port=spi_bus offset=off bundle=SPI
+	//#pragma HLS INTERFACE m_axi depth=4096 port=pmod_data bundle=OUT
 
-	//#pragma HLS INTERFACE s_axilite port=TX_message bundle=CTRL
-	//#pragma HLS INTERFACE s_axilite port=RX_message bundle=CTRL
-
-	#pragma HLS INTERFACE m_axi depth=4096 port=spi_bus offset=off bundle=OUT
-
+	// test code for python debug
+	#pragma HLS INTERFACE s_axilite depth=4096 port=pmod_data bundle=DATA
+	#pragma HLS RESOURCE variable=pmod_data core=RAM_1P_BRAM
+	
+	// test code for python debug
+	#pragma HLS INTERFACE m_axi depth=4096 port=pmod_test offset=off bundle=TEST
+	
+	
 	// configuring AXI QUAD SPI Core
-
 	static unsigned char state = 0;
 	#pragma HLS RESET variable=state
 
-	//uint32_t temp = 0;
 
 	switch (state)
 	{
 		case 0: // SPI Control Register setup
 			//spi_bus[SPICR] = 0x6;
 
-			*(spi_bus + SPICR) = 0x6;		// enable SPI core in master mode, auto SS
+			spi_bus[SPICR] = 0x6;		// enable SPI core in master mode, auto SS
 			// -- *(m+SPICR_OFFSET) = 0x4 | 0x8 | 0x2; // Master, CPOL, SPE
 
 			state++;
@@ -42,16 +44,33 @@ void AXI_SPI_DRIVER(volatile int *spi_bus)
 		case 1: // SPI Slave select Register setup (active low)
 			//spi_bus[SPISSR] = 0xFFFE;
 
-			*(spi_bus + SPISSR) = 0xFFFE;	// enable SS 0 - PMODNav ACC/GYRO
+			spi_bus[SPISSR] = 0xFFFE;	// enable SS 0 - PMODNav ACC/GYRO
 
 			state++;
 			break;
 		default:
-
+			pmod_data[0] = 0x1111;
+			pmod_data[1] = 0x2222;
+			pmod_data[2] = 0x3333;
+			pmod_data[3] = 0x4444;
+			pmod_data[4] = 0x5555;
+			pmod_data[5] = 0x6666;
+			pmod_data[6] = 0x7777;
+			pmod_data[7] = 0x8888;
+			
+			pmod_test[0] = 0x1111;
+			pmod_test[1] = 0x2222;
+			pmod_test[2] = 0x3333;
+			pmod_test[3] = 0x4444;
+			pmod_test[4] = 0x5555;
+			pmod_test[5] = 0x6666;
+			pmod_test[6] = 0x7777;
+			pmod_test[7] = 0x8888;
+			
 			// -- *(spi_bus + (0x1C >> 2)) = 0xDEADBEEF;	// test write
 
 			// testing write capability
-			// - *(spi_bus + SPI_DTR) = TX_message;
+			spi_bus[SPI_DTR] = 0xDEADBEEF;
 			//temp = *TX_message;
 
 			//delay_until_ms<1>();
@@ -59,6 +78,7 @@ void AXI_SPI_DRIVER(volatile int *spi_bus)
 			// testing read capability
 			//RX_message = *(spi_bus + SPI_DTR);
 			//RX_message = *(spi_bus + SPI_DRR);
+			pmod_data[0] = spi_bus[SPI_DRR];
 			//*RX_message = temp;
 
 			break;
