@@ -12,7 +12,7 @@
 <RtlPorts>
 <name>OUT_r</name>
 <CType>
-<TypeName>signed char</TypeName>
+<TypeName>unsigned char</TypeName>
 <TypeWidth>8</TypeWidth>
 <PhysicalWidth>8</PhysicalWidth>
 </CType>

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'AXI_UART_DRIVER'" level="0">
-<item name = "Date">Sun May 19 18:18:10 2019
+<item name = "Date">Mon May 20 22:55:00 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">SBUS_AXI_UART_Driver</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">500003, 500058, 500003, 500058, none</column>
+<column name="">?, ?, ?, ?, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">500000, 500000, 1, -, -, 500000, no</column>
+<column name="- Loop 1">?, ?, 9 ~ 21, -, -, ?, no</column>
 </table>
 </item>
 </section>
@@ -48,14 +48,14 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 0, 73</column>
+<column name="Expression">-, -, 0, 111</column>
 <column name="FIFO">-, -, -, -</column>
 <column name="Instance">4, -, 1132, 1440</column>
 <column name="Memory">-, -, -, -</column>
-<column name="Multiplexer">-, -, -, 566</column>
-<column name="Register">-, -, 96, -</column>
+<column name="Multiplexer">-, -, -, 781</column>
+<column name="Register">-, -, 225, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">1, 0, 1, 3</specialColumn>
+<specialColumn name="Utilization (%)">1, 0, 1, 4</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -81,26 +81,37 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="ctr_V_fu_556_p2">+, 0, 0, 26, 19, 1</column>
+<column name="index_1_fu_606_p2">+, 0, 0, 39, 1, 32</column>
 <column name="ap_block_state1_io">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state22_io">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state28">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state28_io">and, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state58">and, 0, 0, 2, 1, 1</column>
-<column name="ap_condition_1236">and, 0, 0, 2, 1, 1</column>
-<column name="ap_condition_192">and, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_op142_writeresp_state28">and, 0, 0, 2, 1, 1</column>
-<column name="tmp_1_fu_550_p2">icmp, 0, 0, 18, 19, 16</column>
-<column name="tmp_fu_529_p2">icmp, 0, 0, 11, 8, 7</column>
+<column name="ap_block_state58_io">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state72_io">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state79_io">and, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state92">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_1227">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_1234">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_225">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op174_writeresp_state28">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op247_readreq_state72">and, 0, 0, 2, 1, 1</column>
+<column name="tmp_5_fu_583_p2">icmp, 0, 0, 11, 8, 4</column>
+<column name="tmp_6_fu_596_p2">icmp, 0, 0, 18, 32, 5</column>
+<column name="tmp_fu_547_p2">icmp, 0, 0, 11, 8, 7</column>
 <column name="ap_block_state2_io">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state51_io">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state58">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="OUT_r_WDATA">101, 21, 8, 168</column>
+<column name="OUT_r_AWADDR">15, 3, 32, 96</column>
+<column name="OUT_r_AWLEN">15, 3, 32, 96</column>
+<column name="OUT_r_WDATA">105, 22, 8, 176</column>
 <column name="OUT_r_blk_n_AW">9, 2, 1, 2</column>
 <column name="OUT_r_blk_n_B">9, 2, 1, 2</column>
 <column name="OUT_r_blk_n_W">9, 2, 1, 2</column>
+<column name="UART_ARADDR">33, 6, 32, 192</column>
 <column name="UART_AWADDR">44, 9, 32, 288</column>
 <column name="UART_WDATA">38, 7, 32, 224</column>
 <column name="UART_blk_n_AR">9, 2, 1, 2</column>
@@ -108,30 +119,37 @@
 <column name="UART_blk_n_B">9, 2, 1, 2</column>
 <column name="UART_blk_n_R">9, 2, 1, 2</column>
 <column name="UART_blk_n_W">9, 2, 1, 2</column>
-<column name="ap_NS_fsm">257, 60, 1, 60</column>
+<column name="ap_NS_fsm">405, 93, 1, 93</column>
 <column name="ap_sig_ioackin_OUT_r_AWREADY">9, 2, 1, 2</column>
 <column name="ap_sig_ioackin_OUT_r_WREADY">9, 2, 1, 2</column>
 <column name="ap_sig_ioackin_UART_ARREADY">9, 2, 1, 2</column>
 <column name="ap_sig_ioackin_UART_AWREADY">9, 2, 1, 2</column>
 <column name="ap_sig_ioackin_UART_WREADY">9, 2, 1, 2</column>
-<column name="p_014_0_i_reg_475">9, 2, 19, 38</column>
+<column name="index_fu_124">9, 2, 32, 64</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">59, 0, 59, 0</column>
+<column name="OUT_addr_reg_714">32, 0, 32, 0</column>
+<column name="ap_CS_fsm">92, 0, 92, 0</column>
 <column name="ap_reg_ioackin_OUT_r_AWREADY">1, 0, 1, 0</column>
 <column name="ap_reg_ioackin_OUT_r_WREADY">1, 0, 1, 0</column>
 <column name="ap_reg_ioackin_UART_ARREADY">1, 0, 1, 0</column>
 <column name="ap_reg_ioackin_UART_AWREADY">1, 0, 1, 0</column>
 <column name="ap_reg_ioackin_UART_WREADY">1, 0, 1, 0</column>
 <column name="calibrationSuccess">1, 0, 1, 0</column>
-<column name="calibrationSuccess_l_reg_623">1, 0, 1, 0</column>
+<column name="calibrationSuccess_l_reg_670">1, 0, 1, 0</column>
 <column name="firstSample">1, 0, 1, 0</column>
-<column name="firstSample_load_reg_576">1, 0, 1, 0</column>
-<column name="p_014_0_i_reg_475">19, 0, 19, 0</column>
-<column name="temp_reg_614">8, 0, 8, 0</column>
-<column name="tmp_reg_619">1, 0, 1, 0</column>
+<column name="firstSample_load_reg_629">1, 0, 1, 0</column>
+<column name="index_fu_124">32, 0, 32, 0</column>
+<column name="index_load_reg_701">32, 0, 32, 0</column>
+<column name="temp_reg_661">8, 0, 8, 0</column>
+<column name="tmp_3_reg_680">1, 0, 1, 0</column>
+<column name="tmp_4_reg_684">8, 0, 8, 0</column>
+<column name="tmp_5_reg_690">1, 0, 1, 0</column>
+<column name="tmp_7_reg_710">1, 0, 1, 0</column>
+<column name="tmp_8_reg_720">8, 0, 8, 0</column>
+<column name="tmp_reg_666">1, 0, 1, 0</column>
 </table>
 </item>
 </section>

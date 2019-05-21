@@ -10,7 +10,7 @@ using namespace std;
 #define START_BYTE          (0x0F)
 #define STOP_BYTE           (0x00)
 
-#define NUM_CHANNELS        18
+#define NUM_CHANNELS         18
 
 // Generate a lookup table for 32bit operating system
 // using macro

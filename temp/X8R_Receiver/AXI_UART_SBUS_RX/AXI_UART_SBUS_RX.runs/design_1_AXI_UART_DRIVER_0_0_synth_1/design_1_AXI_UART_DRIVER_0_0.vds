@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sun May 19 18:34:35 2019
-# Process ID: 19500
+# Start of session at: Mon May 20 23:17:51 2019
+# Process ID: 16568
 # Current directory: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/design_1_AXI_UART_DRIVER_0_0_synth_1
 # Command line: vivado.exe -log design_1_AXI_UART_DRIVER_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_AXI_UART_DRIVER_0_0.tcl
 # Log file: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/design_1_AXI_UART_DRIVER_0_0_synth_1/design_1_AXI_UART_DRIVER_0_0.vds
@@ -15,71 +15,104 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15372 
+INFO: Helper process launched with PID 24656 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 393.770 ; gain = 104.074
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 394.012 ; gain = 103.027
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_AXI_UART_DRIVER_0_0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_0/synth/design_1_AXI_UART_DRIVER_0_0.v:59]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER.v:12]
-	Parameter ap_ST_fsm_state1 bound to: 59'b00000000000000000000000000000000000000000000000000000000001 
-	Parameter ap_ST_fsm_state2 bound to: 59'b00000000000000000000000000000000000000000000000000000000010 
-	Parameter ap_ST_fsm_state3 bound to: 59'b00000000000000000000000000000000000000000000000000000000100 
-	Parameter ap_ST_fsm_state4 bound to: 59'b00000000000000000000000000000000000000000000000000000001000 
-	Parameter ap_ST_fsm_state5 bound to: 59'b00000000000000000000000000000000000000000000000000000010000 
-	Parameter ap_ST_fsm_state6 bound to: 59'b00000000000000000000000000000000000000000000000000000100000 
-	Parameter ap_ST_fsm_state7 bound to: 59'b00000000000000000000000000000000000000000000000000001000000 
-	Parameter ap_ST_fsm_state8 bound to: 59'b00000000000000000000000000000000000000000000000000010000000 
-	Parameter ap_ST_fsm_state9 bound to: 59'b00000000000000000000000000000000000000000000000000100000000 
-	Parameter ap_ST_fsm_state10 bound to: 59'b00000000000000000000000000000000000000000000000001000000000 
-	Parameter ap_ST_fsm_state11 bound to: 59'b00000000000000000000000000000000000000000000000010000000000 
-	Parameter ap_ST_fsm_state12 bound to: 59'b00000000000000000000000000000000000000000000000100000000000 
-	Parameter ap_ST_fsm_state13 bound to: 59'b00000000000000000000000000000000000000000000001000000000000 
-	Parameter ap_ST_fsm_state14 bound to: 59'b00000000000000000000000000000000000000000000010000000000000 
-	Parameter ap_ST_fsm_state15 bound to: 59'b00000000000000000000000000000000000000000000100000000000000 
-	Parameter ap_ST_fsm_state16 bound to: 59'b00000000000000000000000000000000000000000001000000000000000 
-	Parameter ap_ST_fsm_state17 bound to: 59'b00000000000000000000000000000000000000000010000000000000000 
-	Parameter ap_ST_fsm_state18 bound to: 59'b00000000000000000000000000000000000000000100000000000000000 
-	Parameter ap_ST_fsm_state19 bound to: 59'b00000000000000000000000000000000000000001000000000000000000 
-	Parameter ap_ST_fsm_state20 bound to: 59'b00000000000000000000000000000000000000010000000000000000000 
-	Parameter ap_ST_fsm_state21 bound to: 59'b00000000000000000000000000000000000000100000000000000000000 
-	Parameter ap_ST_fsm_state22 bound to: 59'b00000000000000000000000000000000000001000000000000000000000 
-	Parameter ap_ST_fsm_state23 bound to: 59'b00000000000000000000000000000000000010000000000000000000000 
-	Parameter ap_ST_fsm_state24 bound to: 59'b00000000000000000000000000000000000100000000000000000000000 
-	Parameter ap_ST_fsm_state25 bound to: 59'b00000000000000000000000000000000001000000000000000000000000 
-	Parameter ap_ST_fsm_state26 bound to: 59'b00000000000000000000000000000000010000000000000000000000000 
-	Parameter ap_ST_fsm_state27 bound to: 59'b00000000000000000000000000000000100000000000000000000000000 
-	Parameter ap_ST_fsm_state28 bound to: 59'b00000000000000000000000000000001000000000000000000000000000 
-	Parameter ap_ST_fsm_state29 bound to: 59'b00000000000000000000000000000010000000000000000000000000000 
-	Parameter ap_ST_fsm_state30 bound to: 59'b00000000000000000000000000000100000000000000000000000000000 
-	Parameter ap_ST_fsm_state31 bound to: 59'b00000000000000000000000000001000000000000000000000000000000 
-	Parameter ap_ST_fsm_state32 bound to: 59'b00000000000000000000000000010000000000000000000000000000000 
-	Parameter ap_ST_fsm_state33 bound to: 59'b00000000000000000000000000100000000000000000000000000000000 
-	Parameter ap_ST_fsm_state34 bound to: 59'b00000000000000000000000001000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state35 bound to: 59'b00000000000000000000000010000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state36 bound to: 59'b00000000000000000000000100000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state37 bound to: 59'b00000000000000000000001000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state38 bound to: 59'b00000000000000000000010000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state39 bound to: 59'b00000000000000000000100000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state40 bound to: 59'b00000000000000000001000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state41 bound to: 59'b00000000000000000010000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state42 bound to: 59'b00000000000000000100000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state43 bound to: 59'b00000000000000001000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state44 bound to: 59'b00000000000000010000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state45 bound to: 59'b00000000000000100000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state46 bound to: 59'b00000000000001000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state47 bound to: 59'b00000000000010000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state48 bound to: 59'b00000000000100000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state49 bound to: 59'b00000000001000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state50 bound to: 59'b00000000010000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state51 bound to: 59'b00000000100000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state52 bound to: 59'b00000001000000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state53 bound to: 59'b00000010000000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state54 bound to: 59'b00000100000000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state55 bound to: 59'b00001000000000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state56 bound to: 59'b00010000000000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state57 bound to: 59'b00100000000000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state58 bound to: 59'b01000000000000000000000000000000000000000000000000000000000 
-	Parameter ap_ST_fsm_state59 bound to: 59'b10000000000000000000000000000000000000000000000000000000000 
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER.v:12]
+	Parameter ap_ST_fsm_state1 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001 
+	Parameter ap_ST_fsm_state2 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010 
+	Parameter ap_ST_fsm_state3 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100 
+	Parameter ap_ST_fsm_state4 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000 
+	Parameter ap_ST_fsm_state5 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000 
+	Parameter ap_ST_fsm_state6 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000 
+	Parameter ap_ST_fsm_state7 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000 
+	Parameter ap_ST_fsm_state8 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000 
+	Parameter ap_ST_fsm_state9 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000 
+	Parameter ap_ST_fsm_state10 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000 
+	Parameter ap_ST_fsm_state11 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000 
+	Parameter ap_ST_fsm_state12 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000 
+	Parameter ap_ST_fsm_state13 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000 
+	Parameter ap_ST_fsm_state14 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000 
+	Parameter ap_ST_fsm_state15 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000 
+	Parameter ap_ST_fsm_state16 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000 
+	Parameter ap_ST_fsm_state17 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000 
+	Parameter ap_ST_fsm_state18 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000 
+	Parameter ap_ST_fsm_state19 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000 
+	Parameter ap_ST_fsm_state20 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000 
+	Parameter ap_ST_fsm_state21 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000 
+	Parameter ap_ST_fsm_state22 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000 
+	Parameter ap_ST_fsm_state23 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000 
+	Parameter ap_ST_fsm_state24 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000 
+	Parameter ap_ST_fsm_state25 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000 
+	Parameter ap_ST_fsm_state26 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000 
+	Parameter ap_ST_fsm_state27 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000 
+	Parameter ap_ST_fsm_state28 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000 
+	Parameter ap_ST_fsm_state29 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000 
+	Parameter ap_ST_fsm_state30 bound to: 92'b00000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000 
+	Parameter ap_ST_fsm_state31 bound to: 92'b00000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000 
+	Parameter ap_ST_fsm_state32 bound to: 92'b00000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000 
+	Parameter ap_ST_fsm_state33 bound to: 92'b00000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000 
+	Parameter ap_ST_fsm_state34 bound to: 92'b00000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state35 bound to: 92'b00000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state36 bound to: 92'b00000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state37 bound to: 92'b00000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state38 bound to: 92'b00000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state39 bound to: 92'b00000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state40 bound to: 92'b00000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state41 bound to: 92'b00000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state42 bound to: 92'b00000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state43 bound to: 92'b00000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state44 bound to: 92'b00000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state45 bound to: 92'b00000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state46 bound to: 92'b00000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state47 bound to: 92'b00000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state48 bound to: 92'b00000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state49 bound to: 92'b00000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state50 bound to: 92'b00000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state51 bound to: 92'b00000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state52 bound to: 92'b00000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state53 bound to: 92'b00000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state54 bound to: 92'b00000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state55 bound to: 92'b00000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state56 bound to: 92'b00000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state57 bound to: 92'b00000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state58 bound to: 92'b00000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state59 bound to: 92'b00000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state60 bound to: 92'b00000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state61 bound to: 92'b00000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state62 bound to: 92'b00000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state63 bound to: 92'b00000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state64 bound to: 92'b00000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state65 bound to: 92'b00000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state66 bound to: 92'b00000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state67 bound to: 92'b00000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state68 bound to: 92'b00000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state69 bound to: 92'b00000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state70 bound to: 92'b00000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state71 bound to: 92'b00000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state72 bound to: 92'b00000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state73 bound to: 92'b00000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state74 bound to: 92'b00000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state75 bound to: 92'b00000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state76 bound to: 92'b00000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state77 bound to: 92'b00000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state78 bound to: 92'b00000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state79 bound to: 92'b00000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state80 bound to: 92'b00000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state81 bound to: 92'b00000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state82 bound to: 92'b00000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state83 bound to: 92'b00000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state84 bound to: 92'b00000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state85 bound to: 92'b00000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state86 bound to: 92'b00000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state87 bound to: 92'b00000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state88 bound to: 92'b00001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state89 bound to: 92'b00010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state90 bound to: 92'b00100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state91 bound to: 92'b01000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ap_ST_fsm_state92 bound to: 92'b10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
@@ -104,7 +137,7 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER' [c:/Users/Aaron/Deskt
 	Parameter C_M_AXI_OUT_R_WUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_OUT_R_RUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_OUT_R_BUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_M_AXI_OUT_R_TARGET_ADDR bound to: 1136787488 - type: integer 
+	Parameter C_M_AXI_OUT_R_TARGET_ADDR bound to: 1073741856 - type: integer 
 	Parameter C_M_AXI_OUT_R_USER_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_OUT_R_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_OUT_R_CACHE_VALUE bound to: 3 - type: integer 
@@ -113,8 +146,8 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER' [c:/Users/Aaron/Deskt
 	Parameter C_M_AXI_UART_WSTRB_WIDTH bound to: 4 - type: integer 
 	Parameter C_M_AXI_WSTRB_WIDTH bound to: 4 - type: integer 
 	Parameter C_M_AXI_OUT_R_WSTRB_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER.v:334]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_CTRL_s_axi.v:9]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER.v:367]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_CTRL_s_axi.v:9]
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter ADDR_AP_CTRL bound to: 4'b0000 
@@ -129,9 +162,9 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' [c:/Users/
 	Parameter RDDATA bound to: 2'b01 
 	Parameter RDRESET bound to: 2'b10 
 	Parameter ADDR_BITS bound to: 4 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_CTRL_s_axi.v:189]
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' (1#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_CTRL_s_axi.v:9]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:10]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_CTRL_s_axi.v:189]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' (1#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_CTRL_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:10]
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
@@ -152,7 +185,7 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi' [c:/Users/
 	Parameter USER_DW bound to: 32 - type: integer 
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:708]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:708]
 	Parameter USED_FIX bound to: 0 - type: integer 
 	Parameter FIX_VALUE bound to: 4 - type: integer 
 	Parameter ADDR_WIDTH bound to: 32 - type: integer 
@@ -160,8 +193,8 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' [c
 	Parameter DEPTH bound to: 16 - type: integer 
 	Parameter USER_MAXREQS bound to: 16 - type: integer 
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' (2#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:708]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:1697]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' (2#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:708]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:1697]
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
@@ -186,41 +219,41 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' [c:/
 	Parameter NUM_WRITE_WIDTH bound to: 4 - type: integer 
 	Parameter TARGET_ADDR bound to: 1136656384 - type: integer 
 	Parameter BOUNDARY_BEATS bound to: 10'b1111111111 
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
 	Parameter DATA_BITS bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo' (3#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:314]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo' (3#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:314]
 	Parameter N bound to: 64 - type: integer 
 	Parameter ZERO bound to: 2'b10 
 	Parameter ONE bound to: 2'b11 
 	Parameter TWO bound to: 2'b01 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' (4#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:314]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' (4#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:314]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
 	Parameter DATA_BITS bound to: 64 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized0' (4#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:527]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized0' (4#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:527]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 36 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:527]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:527]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 15 - type: integer 
 	Parameter DEPTH_BITS bound to: 4 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized2' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
-WARNING: [Synth 8-6014] Unused sequential element sect_end_buf_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:2064]
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:1697]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:900]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized2' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:418]
+WARNING: [Synth 8-6014] Unused sequential element sect_end_buf_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:2064]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:1697]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:900]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
@@ -244,22 +277,22 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' [c:/U
 	Parameter NUM_READ_WIDTH bound to: 4 - type: integer 
 	Parameter TARGET_ADDR bound to: 1136656384 - type: integer 
 	Parameter BOUNDARY_BEATS bound to: 10'b1111111111 
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:527]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:527]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 35 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer__parameterized0' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:527]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:314]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer__parameterized0' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:527]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:314]
 	Parameter N bound to: 34 - type: integer 
 	Parameter ZERO bound to: 2'b10 
 	Parameter ONE bound to: 2'b11 
 	Parameter TWO bound to: 2'b01 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized0' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:314]
-WARNING: [Synth 8-6014] Unused sequential element sect_end_buf_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:1248]
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' (7#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:900]
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi' (8#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:10]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized0' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:314]
+WARNING: [Synth 8-6014] Unused sequential element sect_end_buf_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:1248]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' (7#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:900]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi' (8#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:10]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:10]
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
@@ -267,7 +300,7 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1136787488 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1073741856 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
@@ -280,7 +313,7 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users
 	Parameter USER_DW bound to: 8 - type: integer 
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:708]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:708]
 	Parameter USED_FIX bound to: 0 - type: integer 
 	Parameter FIX_VALUE bound to: 4 - type: integer 
 	Parameter ADDR_WIDTH bound to: 32 - type: integer 
@@ -288,13 +321,13 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' [
 	Parameter DEPTH bound to: 16 - type: integer 
 	Parameter USER_MAXREQS bound to: 16 - type: integer 
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' (9#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:708]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:1697]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' (9#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:708]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:1697]
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1136787488 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1073741856 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_WUSER_WIDTH bound to: 1 - type: integer 
@@ -312,50 +345,50 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' [c:
 	Parameter BUS_DATA_BYTES bound to: 4 - type: integer 
 	Parameter BUS_ADDR_ALIGN bound to: 2 - type: integer 
 	Parameter NUM_WRITE_WIDTH bound to: 4 - type: integer 
-	Parameter TARGET_ADDR bound to: 1136787488 - type: integer 
+	Parameter TARGET_ADDR bound to: 1073741856 - type: integer 
 	Parameter BOUNDARY_BEATS bound to: 10'b1111111111 
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
 	Parameter DATA_BITS bound to: 12 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:692]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:692]
 	Parameter DIN_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:692]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:314]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:692]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:314]
 	Parameter N bound to: 64 - type: integer 
 	Parameter ZERO bound to: 2'b10 
 	Parameter ONE bound to: 2'b11 
 	Parameter TWO bound to: 2'b01 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:314]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:314]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
 	Parameter DATA_BITS bound to: 64 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized0' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:527]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized0' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:527]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 9 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:527]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:527]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 15 - type: integer 
 	Parameter DEPTH_BITS bound to: 4 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized2' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:1697]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:900]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized2' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:1697]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:900]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1136787488 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1073741856 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_RUSER_WIDTH bound to: 1 - type: integer 
@@ -372,23 +405,23 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' [c:/
 	Parameter BUS_DATA_BYTES bound to: 4 - type: integer 
 	Parameter BUS_ADDR_ALIGN bound to: 2 - type: integer 
 	Parameter NUM_READ_WIDTH bound to: 4 - type: integer 
-	Parameter TARGET_ADDR bound to: 1136787488 - type: integer 
+	Parameter TARGET_ADDR bound to: 1073741856 - type: integer 
 	Parameter BOUNDARY_BEATS bound to: 10'b1111111111 
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:527]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:527]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 35 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized0' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:527]
-INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:314]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized0' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:527]
+INFO: [Synth 8-6157] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:314]
 	Parameter N bound to: 10 - type: integer 
 	Parameter ZERO bound to: 2'b10 
 	Parameter ONE bound to: 2'b11 
 	Parameter TWO bound to: 2'b01 
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized0' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:314]
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' (15#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:900]
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' (16#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:10]
-INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER' (17#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized0' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:314]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' (15#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:900]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' (16#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'AXI_UART_DRIVER' (17#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER.v:12]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_AXI_UART_DRIVER_0_0' (18#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_0/synth/design_1_AXI_UART_DRIVER_0_0.v:59]
 WARNING: [Synth 8-3331] design AXI_UART_DRIVER_OUT_r_m_axi_read has unconnected port RID[0]
 WARNING: [Synth 8-3331] design AXI_UART_DRIVER_OUT_r_m_axi_read has unconnected port RUSER[0]
@@ -492,7 +525,7 @@ WARNING: [Synth 8-3331] design AXI_UART_DRIVER_CTRL_s_axi has unconnected port W
 WARNING: [Synth 8-3331] design AXI_UART_DRIVER_CTRL_s_axi has unconnected port WDATA[10]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 473.453 ; gain = 183.758
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 476.707 ; gain = 185.723
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -505,10 +538,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 473.453 ; gain = 183.758
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 476.707 ; gain = 185.723
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 473.453 ; gain = 183.758
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 476.707 ; gain = 185.723
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -524,23 +557,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 858.883 ; gain = 3.238
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.117 . Memory (MB): peak = 867.648 ; gain = 3.148
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 858.883 ; gain = 569.188
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 867.648 ; gain = 576.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 858.883 ; gain = 569.188
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 867.648 ; gain = 576.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for inst. (constraint file  C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/design_1_AXI_UART_DRIVER_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 858.883 ; gain = 569.188
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 867.648 ; gain = 576.664
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'AXI_UART_DRIVER_CTRL_s_axi'
 INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'AXI_UART_DRIVER_CTRL_s_axi'
@@ -550,9 +583,9 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'AXI_U
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:610]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:506]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:610]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:610]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:506]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:610]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized0'
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -561,18 +594,26 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'AXI_U
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:610]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:506]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:610]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:610]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:506]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:610]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized0'
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
-INFO: [Synth 8-5546] ROM "tmp_1_fu_550_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_fu_529_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_1_fu_550_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_fu_529_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_fu_547_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_5_fu_583_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_fu_547_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_5_fu_583_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "OUT_r_AWLEN" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -670,7 +711,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized0'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 858.883 ; gain = 569.188
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 867.648 ; gain = 576.664
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -683,7 +724,7 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 16    
+	   2 Input     32 Bit       Adders := 17    
 	   2 Input     20 Bit       Adders := 4     
 	   2 Input     12 Bit       Adders := 4     
 	   2 Input      9 Bit       Adders := 4     
@@ -695,30 +736,37 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
+	               92 Bit    Registers := 1     
 	               64 Bit    Registers := 12    
-	               59 Bit    Registers := 1     
 	               36 Bit    Registers := 3     
 	               35 Bit    Registers := 6     
 	               34 Bit    Registers := 2     
-	               32 Bit    Registers := 28    
+	               32 Bit    Registers := 31    
 	               20 Bit    Registers := 4     
 	               12 Bit    Registers := 2     
 	               10 Bit    Registers := 10    
 	                9 Bit    Registers := 3     
-	                8 Bit    Registers := 23    
+	                8 Bit    Registers := 25    
 	                6 Bit    Registers := 4     
 	                4 Bit    Registers := 7     
 	                3 Bit    Registers := 9     
 	                2 Bit    Registers := 20    
-	                1 Bit    Registers := 122   
+	                1 Bit    Registers := 125   
 +---RAMs : 
 	               9K Bit         RAMs := 1     
 	               8K Bit         RAMs := 2     
 	               2K Bit         RAMs := 1     
 +---Muxes : 
+	   2 Input     92 Bit        Muxes := 2     
+	   2 Input     88 Bit        Muxes := 1     
+	   2 Input     87 Bit        Muxes := 1     
+	   2 Input     80 Bit        Muxes := 1     
+	   3 Input     73 Bit        Muxes := 1     
+	   2 Input     72 Bit        Muxes := 3     
+	   2 Input     67 Bit        Muxes := 1     
+	   2 Input     66 Bit        Muxes := 1     
 	   2 Input     64 Bit        Muxes := 4     
-	   2 Input     59 Bit        Muxes := 2     
-	   2 Input     58 Bit        Muxes := 1     
+	   2 Input     59 Bit        Muxes := 1     
 	   2 Input     54 Bit        Muxes := 1     
 	   2 Input     53 Bit        Muxes := 1     
 	   2 Input     52 Bit        Muxes := 1     
@@ -742,7 +790,7 @@ Detailed RTL Component Info :
 	   2 Input     34 Bit        Muxes := 2     
 	   2 Input     33 Bit        Muxes := 1     
 	   5 Input     32 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 19    
+	   2 Input     32 Bit        Muxes := 20    
 	   2 Input     31 Bit        Muxes := 1     
 	   2 Input     30 Bit        Muxes := 1     
 	   2 Input     29 Bit        Muxes := 1     
@@ -758,15 +806,15 @@ Detailed RTL Component Info :
 	   2 Input     12 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 1     
 	   7 Input     11 Bit        Muxes := 1     
+	   5 Input     11 Bit        Muxes := 1     
 	   2 Input     10 Bit        Muxes := 10    
 	   2 Input      9 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 21    
 	   4 Input      8 Bit        Muxes := 4     
 	   6 Input      8 Bit        Muxes := 1     
-	  20 Input      8 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 3     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 12    
 	   3 Input      4 Bit        Muxes := 1     
@@ -776,7 +824,7 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 80    
 	   3 Input      2 Bit        Muxes := 18    
 	   5 Input      2 Bit        Muxes := 6     
-	   2 Input      1 Bit        Muxes := 140   
+	   2 Input      1 Bit        Muxes := 139   
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -1128,13 +1176,23 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 14    
 Module AXI_UART_DRIVER 
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	               59 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                1 Bit    Registers := 10    
+	               92 Bit    Registers := 1     
+	               32 Bit    Registers := 3     
+	                8 Bit    Registers := 3     
+	                1 Bit    Registers := 13    
 +---Muxes : 
-	   2 Input     59 Bit        Muxes := 2     
-	   2 Input     58 Bit        Muxes := 1     
+	   2 Input     92 Bit        Muxes := 2     
+	   2 Input     88 Bit        Muxes := 1     
+	   2 Input     87 Bit        Muxes := 1     
+	   2 Input     80 Bit        Muxes := 1     
+	   3 Input     73 Bit        Muxes := 1     
+	   2 Input     72 Bit        Muxes := 3     
+	   2 Input     67 Bit        Muxes := 1     
+	   2 Input     66 Bit        Muxes := 1     
+	   2 Input     59 Bit        Muxes := 1     
 	   2 Input     54 Bit        Muxes := 1     
 	   2 Input     53 Bit        Muxes := 1     
 	   2 Input     52 Bit        Muxes := 1     
@@ -1157,7 +1215,7 @@ Detailed RTL Component Info :
 	   2 Input     35 Bit        Muxes := 1     
 	   2 Input     34 Bit        Muxes := 1     
 	   2 Input     33 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 2     
 	   2 Input     31 Bit        Muxes := 1     
 	   2 Input     30 Bit        Muxes := 1     
 	   2 Input     29 Bit        Muxes := 1     
@@ -1171,18 +1229,18 @@ Detailed RTL Component Info :
 	   2 Input     12 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 1     
 	   7 Input     11 Bit        Muxes := 1     
+	   5 Input     11 Bit        Muxes := 1     
 	   2 Input     10 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 1     
 	   6 Input      8 Bit        Muxes := 1     
-	  20 Input      8 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 13    
+	   2 Input      1 Bit        Muxes := 12    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -1199,12 +1257,11 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-6014] Unused sequential element bus_read/fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:456]
-WARNING: [Synth 8-6014] Unused sequential element fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/613e/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:456]
-INFO: [Synth 8-5546] ROM "tmp_fu_529_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_1_fu_550_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element bus_read/fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_UART_m_axi.v:456]
+WARNING: [Synth 8-6014] Unused sequential element fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ipshared/f731/hdl/verilog/AXI_UART_DRIVER_OUT_r_m_axi.v:456]
+INFO: [Synth 8-5546] ROM "tmp_fu_547_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_5_fu_583_p2" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_UART_DRIVER_OUT_r_m_axi_U/\bus_read/rs_rreq/data_p2_reg[4] )
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[4]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[0]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[19]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[3]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[19]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[3]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_UART_DRIVER_OUT_r_m_axi_U/\bus_read/rs_rreq/data_p2_reg[0] )
@@ -1270,37 +1327,6 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_UART_DRIVER_OUT_r_m_axi_U/\bus_read/rs_rreq/data_p2_reg[33] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_UART_DRIVER_OUT_r_m_axi_U/\bus_read/rs_rreq/data_p2_reg[32] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_UART_DRIVER_OUT_r_m_axi_U/\bus_read/rs_rreq/data_p2_reg[63] )
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[0]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[1]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[2]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[2]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[3]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[3]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[5]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[5]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[6]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[6]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[7]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[7]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[8]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[8]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[9]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[9]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[10]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[10]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[11]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[11]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[12]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[13]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[13]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[14]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[14]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[15]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[15]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[16]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[16]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[17]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[17]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[18]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[18]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[19]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[19]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[20]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[20]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[21]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[21]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[22]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[22]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[23]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[23]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[24]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[24]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[25]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[25]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[26]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[26]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[27]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[27]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[28]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[28]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[29]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[29]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[30]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[30]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[31]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[33]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[62]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[33]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[61]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[33]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[60]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[33]'
@@ -1327,15 +1353,12 @@ INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_wr
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[39]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[33]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[38]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[33]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[37]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[33]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[36]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[32]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[35]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[32]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[36]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[35]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[34]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[33]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[33]' (FDE) to 'inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/rs_wreq/data_p2_reg[63]'
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/AXI_UART_DRIVER_OUT_r_m_axi_U/\bus_write/rs_wreq/data_p2_reg[32] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_UART_DRIVER_OUT_r_m_axi_U/\bus_write/rs_wreq/data_p2_reg[63] )
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[0]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[1]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[2]'
-INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[2]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[10]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[0]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[2]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[3]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[4]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[4]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[5]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[5]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[6]'
@@ -1369,9 +1392,44 @@ INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_rea
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[58]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[57]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
 INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[56]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[55]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[54]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[53]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[52]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[51]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[50]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[49]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[48]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[47]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[46]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[45]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[44]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[43]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[42]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[41]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[40]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[39]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[38]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[37]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[36]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[35]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[34]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[33]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/rs_rreq/data_p2_reg[63]'
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/AXI_UART_DRIVER_UART_m_axi_U/\bus_read/rs_rreq/data_p2_reg[32] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_UART_DRIVER_UART_m_axi_U/\bus_read/rs_rreq/data_p2_reg[63] )
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[3]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[4]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[4]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[5]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[6]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[7]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[8]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[9]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[9]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[10]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[32]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[11]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[12]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[12]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[13]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[13]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[14]'
+INFO: [Synth 8-3886] merging instance 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[14]' (FDE) to 'inst/AXI_UART_DRIVER_UART_m_axi_U/bus_write/rs_wreq/data_p2_reg[15]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/AXI_UART_DRIVER_UART_m_axi_U/\bus_write/rs_wreq/data_p2_reg[32] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_UART_DRIVER_UART_m_axi_U/\bus_write/rs_wreq/data_p2_reg[63] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/AXI_UART_DRIVER_UART_m_axi_U/\bus_read/start_addr_reg[1] )
@@ -1507,7 +1565,7 @@ WARNING: [Synth 8-3332] Sequential element (bus_read/bus_equal_gen.data_buf_reg[
 WARNING: [Synth 8-3332] Sequential element (bus_read/bus_equal_gen.data_buf_reg[22]) is unused and will be removed from module AXI_UART_DRIVER_UART_m_axi.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 858.883 ; gain = 569.188
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 867.648 ; gain = 576.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1539,13 +1597,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 858.883 ; gain = 569.188
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 867.648 ; gain = 576.664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 858.883 ; gain = 569.188
+Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 870.172 ; gain = 579.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1576,7 +1634,7 @@ INFO: [Synth 8-4480] The timing for the instance inst/AXI_UART_DRIVER_UART_m_axi
 INFO: [Synth 8-4480] The timing for the instance inst/AXI_UART_DRIVER_UART_m_axi_U/bus_read/buff_rdata/mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance inst/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/buff_wdata/mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 862.496 ; gain = 572.801
+Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 879.289 ; gain = 588.305
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1600,7 +1658,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 862.496 ; gain = 572.801
+Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 879.289 ; gain = 588.305
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1613,7 +1671,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 862.496 ; gain = 572.801
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 879.289 ; gain = 588.305
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1625,25 +1683,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 862.496 ; gain = 572.801
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 879.289 ; gain = 588.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 862.496 ; gain = 572.801
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 879.289 ; gain = 588.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 862.496 ; gain = 572.801
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 879.289 ; gain = 588.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 862.496 ; gain = 572.801
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 879.289 ; gain = 588.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1653,8 +1711,8 @@ Static Shift Register Report:
 +----------------+-------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 |Module Name     | RTL Name          | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
 +----------------+-------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|AXI_UART_DRIVER | ap_CS_fsm_reg[56] | 4      | 2     | YES          | NO                 | YES               | 2      | 0       | 
-|AXI_UART_DRIVER | ap_CS_fsm_reg[19] | 6      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|AXI_UART_DRIVER | ap_CS_fsm_reg[90] | 4      | 4     | YES          | NO                 | YES               | 4      | 0       | 
+|AXI_UART_DRIVER | ap_CS_fsm_reg[84] | 6      | 4     | YES          | NO                 | YES               | 4      | 0       | 
 +----------------+-------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 
 
@@ -1689,64 +1747,64 @@ Report Cell Usage:
 +------+-----------+------+
 |      |Cell       |Count |
 +------+-----------+------+
-|1     |CARRY4     |    90|
-|2     |LUT1       |    32|
-|3     |LUT2       |   269|
-|4     |LUT3       |   205|
-|5     |LUT4       |   152|
-|6     |LUT5       |   154|
-|7     |LUT6       |   211|
+|1     |CARRY4     |   108|
+|2     |LUT1       |    30|
+|3     |LUT2       |   298|
+|4     |LUT3       |   246|
+|5     |LUT4       |   158|
+|6     |LUT5       |   163|
+|7     |LUT6       |   287|
 |8     |RAMB18E1   |     2|
 |9     |RAMB18E1_1 |     1|
-|10    |SRL16E     |    30|
-|11    |FDRE       |   972|
-|12    |FDSE       |     9|
+|10    |SRL16E     |    69|
+|11    |FDRE       |  1274|
+|12    |FDSE       |    10|
 +------+-----------+------+
 
 Report Instance Areas: 
 +------+-----------------------------------+------------------------------------------------------+------+
 |      |Instance                           |Module                                                |Cells |
 +------+-----------------------------------+------------------------------------------------------+------+
-|1     |top                                |                                                      |  2127|
-|2     |  inst                             |AXI_UART_DRIVER                                       |  2127|
-|3     |    AXI_UART_DRIVER_CTRL_s_axi_U   |AXI_UART_DRIVER_CTRL_s_axi                            |    63|
-|4     |    AXI_UART_DRIVER_OUT_r_m_axi_U  |AXI_UART_DRIVER_OUT_r_m_axi                           |   725|
+|1     |top                                |                                                      |  2646|
+|2     |  inst                             |AXI_UART_DRIVER                                       |  2646|
+|3     |    AXI_UART_DRIVER_CTRL_s_axi_U   |AXI_UART_DRIVER_CTRL_s_axi                            |    81|
+|4     |    AXI_UART_DRIVER_OUT_r_m_axi_U  |AXI_UART_DRIVER_OUT_r_m_axi                           |  1058|
 |5     |      bus_read                     |AXI_UART_DRIVER_OUT_r_m_axi_read                      |    46|
 |6     |        buff_rdata                 |AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized0    |    31|
 |7     |        rs_rdata                   |AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized0 |     7|
 |8     |        rs_rreq                    |AXI_UART_DRIVER_OUT_r_m_axi_reg_slice_3               |     3|
-|9     |      bus_write                    |AXI_UART_DRIVER_OUT_r_m_axi_write                     |   655|
-|10    |        buff_wdata                 |AXI_UART_DRIVER_OUT_r_m_axi_buffer                    |   160|
-|11    |        \bus_wide_gen.fifo_burst   |AXI_UART_DRIVER_OUT_r_m_axi_fifo                      |    52|
-|12    |        fifo_resp                  |AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1      |    27|
-|13    |        fifo_resp_to_user          |AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized2      |    18|
-|14    |        fifo_wreq                  |AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized0      |    58|
-|15    |        rs_wreq                    |AXI_UART_DRIVER_OUT_r_m_axi_reg_slice                 |    16|
-|16    |      wreq_throttl                 |AXI_UART_DRIVER_OUT_r_m_axi_throttl                   |    24|
-|17    |    AXI_UART_DRIVER_UART_m_axi_U   |AXI_UART_DRIVER_UART_m_axi                            |  1231|
-|18    |      bus_read                     |AXI_UART_DRIVER_UART_m_axi_read                       |   514|
+|9     |      bus_write                    |AXI_UART_DRIVER_OUT_r_m_axi_write                     |   990|
+|10    |        buff_wdata                 |AXI_UART_DRIVER_OUT_r_m_axi_buffer                    |   165|
+|11    |        \bus_wide_gen.fifo_burst   |AXI_UART_DRIVER_OUT_r_m_axi_fifo                      |    91|
+|12    |        fifo_resp                  |AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1      |    28|
+|13    |        fifo_resp_to_user          |AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized2      |    17|
+|14    |        fifo_wreq                  |AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized0      |   117|
+|15    |        rs_wreq                    |AXI_UART_DRIVER_OUT_r_m_axi_reg_slice                 |   123|
+|16    |      wreq_throttl                 |AXI_UART_DRIVER_OUT_r_m_axi_throttl                   |    22|
+|17    |    AXI_UART_DRIVER_UART_m_axi_U   |AXI_UART_DRIVER_UART_m_axi                            |  1272|
+|18    |      bus_read                     |AXI_UART_DRIVER_UART_m_axi_read                       |   554|
 |19    |        buff_rdata                 |AXI_UART_DRIVER_UART_m_axi_buffer__parameterized0     |   102|
 |20    |        fifo_rctl                  |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1_0     |    65|
 |21    |        fifo_rreq                  |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized0_1     |    36|
-|22    |        rs_rdata                   |AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized0  |    39|
-|23    |        rs_rreq                    |AXI_UART_DRIVER_UART_m_axi_reg_slice_2                |    11|
-|24    |      bus_write                    |AXI_UART_DRIVER_UART_m_axi_write                      |   698|
-|25    |        buff_wdata                 |AXI_UART_DRIVER_UART_m_axi_buffer                     |   166|
-|26    |        \bus_equal_gen.fifo_burst  |AXI_UART_DRIVER_UART_m_axi_fifo                       |    67|
-|27    |        fifo_resp                  |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1       |    26|
-|28    |        fifo_resp_to_user          |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized2       |    42|
+|22    |        rs_rdata                   |AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized0  |    61|
+|23    |        rs_rreq                    |AXI_UART_DRIVER_UART_m_axi_reg_slice_2                |    29|
+|24    |      bus_write                    |AXI_UART_DRIVER_UART_m_axi_write                      |   699|
+|25    |        buff_wdata                 |AXI_UART_DRIVER_UART_m_axi_buffer                     |   163|
+|26    |        \bus_equal_gen.fifo_burst  |AXI_UART_DRIVER_UART_m_axi_fifo                       |    66|
+|27    |        fifo_resp                  |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1       |    27|
+|28    |        fifo_resp_to_user          |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized2       |    44|
 |29    |        fifo_wreq                  |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized0       |    41|
-|30    |        rs_wreq                    |AXI_UART_DRIVER_UART_m_axi_reg_slice                  |    33|
+|30    |        rs_wreq                    |AXI_UART_DRIVER_UART_m_axi_reg_slice                  |    35|
 |31    |      wreq_throttl                 |AXI_UART_DRIVER_UART_m_axi_throttl                    |    19|
 +------+-----------------------------------+------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 862.496 ; gain = 572.801
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 879.289 ; gain = 588.305
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 868 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 862.496 ; gain = 187.371
-Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 862.496 ; gain = 572.801
+Synthesis finished with 0 errors, 0 critical warnings and 816 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:34 . Memory (MB): peak = 879.289 ; gain = 197.363
+Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 879.289 ; gain = 588.305
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 93 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 111 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -1754,9 +1812,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-363 Infos, 204 Warnings, 0 Critical Warnings and 0 Errors encountered.
+371 Infos, 204 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 862.496 ; gain = 580.262
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 879.289 ; gain = 597.211
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/design_1_AXI_UART_DRIVER_0_0_synth_1/design_1_AXI_UART_DRIVER_0_0.dcp' has been generated.
 INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_0/design_1_AXI_UART_DRIVER_0_0.xci
@@ -1764,5 +1822,5 @@ INFO: [Coretcl 2-1174] Renamed 30 cell refs.
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.runs/design_1_AXI_UART_DRIVER_0_0_synth_1/design_1_AXI_UART_DRIVER_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_AXI_UART_DRIVER_0_0_utilization_synth.rpt -pb design_1_AXI_UART_DRIVER_0_0_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.057 . Memory (MB): peak = 862.496 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun May 19 18:35:24 2019...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 879.289 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon May 20 23:18:47 2019...

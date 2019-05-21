@@ -12,10 +12,29 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'errors' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-19T18:22:12.566-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'lost' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-19T18:22:12.562-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (RC_Receiver/RC_Receiver.cpp:33) of variable 'tmp_3_20', RC_Receiver/RC_Receiver.cpp:33 on array 'norm_out' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'norm_out'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-19T18:22:12.331-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('SBUS_data_load_1', RC_Receiver/RC_Receiver.cpp:30) on array 'SBUS_data' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'SBUS_data'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-19T18:22:12.313-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'lost' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.283-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_17' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.278-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_16' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.274-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_15' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.269-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_14' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.265-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_13' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.257-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_12' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.251-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_11' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.247-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_10' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.241-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_9' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.237-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_8' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.232-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_7' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.227-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_6' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.221-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_5' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.216-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_4' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.210-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_3' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.206-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_2' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.201-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_1' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.196-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_0' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.190-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'errors' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:46.182-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (RC_Receiver/RC_Receiver.cpp:71) of variable 'tmp_105_21', RC_Receiver/RC_Receiver.cpp:71 on array 'reverse_out' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'reverse_out'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:45.613-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:64) on array 'lookuptable' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'lookuptable'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:45.551-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('num', RC_Receiver/RC_Receiver.cpp:38) on array 'SBUS_data' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'SBUS_data'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-21T00:01:45.387-0700" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

@@ -27,6 +27,7 @@
 								<option id="gnu.cpp.compiler.option.include.paths.1758431593" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
@@ -44,6 +45,7 @@
 								<option id="gnu.c.compiler.option.include.paths.621652806" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
@@ -111,6 +113,7 @@
 								<option id="gnu.cpp.compiler.option.include.paths.942468753" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
@@ -123,6 +126,7 @@
 								<option id="gnu.c.compiler.option.include.paths.1202157316" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>

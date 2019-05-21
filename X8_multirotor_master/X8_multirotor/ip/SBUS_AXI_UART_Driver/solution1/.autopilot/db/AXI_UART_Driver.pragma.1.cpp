@@ -24387,8 +24387,9 @@ __extension__ typedef unsigned long long uintmax_t;
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 2 3 4
 # 5 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h" 2
 
+
 using namespace std;
-# 35 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h"
+# 36 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h"
 void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096]);
 
 
@@ -24409,8 +24410,7 @@ _ssdm_op_SpecProtocol(0, "");
 # 3 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp" 2
 
 
-
-void AXI_UART_DRIVER(volatile int uart_bus[4096], int8_t SBUS_data[4096])
+void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
 {_ssdm_SpecArrayDimSize(uart_bus, 4096);_ssdm_SpecArrayDimSize(SBUS_data, 4096);
 
 
@@ -24419,7 +24419,7 @@ _ssdm_op_SpecPipeline(0, 0, 0, 1, "");
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(uart_bus, "m_axi", 0, 0, "", 0, 4096, "UART", "off", "", 16, 16, 16, 16, "", "");
 _ssdm_op_SpecInterface(SBUS_data, "m_axi", 0, 0, "", 0, 4096, "OUT", "off", "", 16, 16, 16, 16, "", "");
-# 24 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
+# 23 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
  static bool calibrationSuccess = false;
  static uint8_t RX_buffer[25] = {0};
  uint8_t DATA_READY = 0;
@@ -24457,7 +24457,6 @@ _ssdm_op_SpecReset( &firstSample, 1,  "");
 
 
 
-
   uart_bus[(0x1004 >> 2)] = 0x1;
 
 
@@ -24477,12 +24476,10 @@ _ssdm_op_SpecReset( &firstSample, 1,  "");
 
  if (calibrationSuccess)
  {
-  SBUS_data[0] = 0x0F;
-
 
   if(1)
   {
-   if(1)
+   if(0)
    {
 
     SBUS_data[0] = 0x0F;
@@ -24511,7 +24508,7 @@ _ssdm_op_SpecReset( &firstSample, 1,  "");
     SBUS_data[23] = 0x00;
     SBUS_data[24] = 0x00;
    }
-   else if(0)
+   else if(1)
    {
 
     SBUS_data[0] = 0x0F;
@@ -24541,12 +24538,30 @@ _ssdm_op_SpecReset( &firstSample, 1,  "");
     SBUS_data[24] = 0x00;
    }
   }
-# 167 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
+
+  DATA_READY = uart_bus[(0x1014 >> 2)];
+  if( (DATA_READY & (0x1)) == 1)
+  {
+   SBUS_data[0] = uart_bus[(0x1000 >> 2)];
+
+
+   if(SBUS_data[0] == (0x0F))
+   {
+    for(int index = 1; index < 25; )
+    {
+        DATA_READY = uart_bus[(0x1014 >> 2)];
+                    if( (DATA_READY & (0x1)) == 1)
+        {
+                        SBUS_data[index++] = uart_bus[(0x1000 >> 2)];
+                    }
+    }
+   }
+  }
     }
     else
     {
 
  }
 
- delay_until_ms<5>();
+
 }

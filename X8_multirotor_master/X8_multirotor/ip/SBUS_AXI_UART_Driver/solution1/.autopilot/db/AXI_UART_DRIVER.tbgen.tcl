@@ -1,6 +1,6 @@
 set C_TypeInfoList {{ 
 "AXI_UART_DRIVER" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"uart_bus": [[], {"array": [ {"scalar": "int"}, [4096]]}] }, {"SBUS_data": [[], {"array": ["0", [4096]]}] }],[],""], 
-"0": [ "int8_t", {"typedef": [[[], {"scalar": "signed char"}],""]}]
+"0": [ "uint8_t", {"typedef": [[[], {"scalar": "unsigned char"}],""]}]
 }}
 set moduleName AXI_UART_DRIVER
 set isTaskLevelControl 1
@@ -21,7 +21,7 @@ set C_modelArgList {
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "UART", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READWRITE", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "uart_bus","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 4095,"step" : 1}]}]}]} , 
- 	{ "Name" : "OUT_r", "interface" : "axi_master", "bitwidth" : 8, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "SBUS_data","cData": "signed char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 4095,"step" : 1}]}]}]} ]}
+ 	{ "Name" : "OUT_r", "interface" : "axi_master", "bitwidth" : 8, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":7,"cElement": [{"cName": "SBUS_data","cData": "unsigned char","bit_use": { "low": 0,"up": 7},"cArray": [{"low" : 0,"up" : 4095,"step" : 1}]}]}]} ]}
 # RTL Port declarations: 
 set portNum 110
 set portList { 
@@ -255,7 +255,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "500003", "EstimateLatencyMax" : "500058",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -284,16 +284,16 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	AXI_UART_DRIVER {
-		UART {Type IO LastRead 23 FirstWrite 1}
-		OUT_r {Type O LastRead 53 FirstWrite 28}
+		UART {Type IO LastRead 85 FirstWrite 1}
+		OUT_r {Type O LastRead 87 FirstWrite 28}
 		firstSample {Type IO LastRead -1 FirstWrite -1}
 		calibrationSuccess {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "500003", "Max" : "500058"}
-	, {"Name" : "Interval", "Min" : "500004", "Max" : "500059"}
+	{"Name" : "Latency", "Min" : "-1", "Max" : "-1"}
+	, {"Name" : "Interval", "Min" : "0", "Max" : "0"}
 ]}
 
 set PipelineEnableSignalInfo {[

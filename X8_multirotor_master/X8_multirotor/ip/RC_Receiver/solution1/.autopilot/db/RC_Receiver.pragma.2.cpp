@@ -24571,19 +24571,27 @@ uint8_t reverseBits(uint8_t num)
 }
 # 3 "RC_Receiver/RC_Receiver.cpp" 2
 
-void RC_RECEIVER(int8_t SBUS_data[25], uint32_t norm_out[4096])
-{_ssdm_SpecArrayDimSize(SBUS_data, 25);_ssdm_SpecArrayDimSize(norm_out, 4096);
+void RC_RECEIVER(uint8_t SBUS_data[25], uint32_t norm_out[4096], uint32_t reverse_out[4096], uint32_t channel_data[4096])
+{_ssdm_SpecArrayDimSize(SBUS_data, 25);_ssdm_SpecArrayDimSize(norm_out, 4096);_ssdm_SpecArrayDimSize(reverse_out, 4096);_ssdm_SpecArrayDimSize(channel_data, 4096);
 
-_ssdm_op_SpecPipeline(-1, 2, 1, 0, "");
+_ssdm_op_SpecPipeline(1, 2, 1, 0, "");
 
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(SBUS_data, "s_axilite", 0, 0, "", 0, 0, "DATA", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(SBUS_data, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
 
 
 
 
-_ssdm_op_SpecInterface(norm_out, "s_axilite", 0, 0, "", 0, 4096, "TEST", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(norm_out, "s_axilite", 0, 0, "", 0, 4096, "TEST_NORM", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecResource(norm_out, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
+
+
+_ssdm_op_SpecInterface(reverse_out, "s_axilite", 0, 0, "", 0, 4096, "TEST_REV", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecResource(reverse_out, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
+
+
+_ssdm_op_SpecInterface(channel_data, "s_axilite", 0, 0, "", 0, 4096, "TEST_CHAN", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecResource(channel_data, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
 
 
@@ -24597,56 +24605,68 @@ _ssdm_op_SpecResource(norm_out, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
     for(int i = 0; i < 25; i++)
     {
-     buffer[i] = (uint8_t)SBUS_data[i];
+     buffer[i] = SBUS_data[i];
 
 
      norm_out[i] = ((uint32_t)buffer[i] & 0x000000FF);
     }
-
-
-
-    buffer[8] = 0x0F;
-    norm_out[8] = ((uint32_t)buffer[8] & 0x000000FF);
-
-
-    norm_out[9] = (uint32_t)SBUS_data[0];
-
-
-    if ((buffer[0] == (0x0F)) && (buffer[24] == (0x00)))
+# 53 "RC_Receiver/RC_Receiver.cpp"
+ if ((buffer[0] == (0x0F)) && (buffer[24] == (0x00)))
     {
 
 
+     norm_out[25] = 0x45;
 
-     for(uint8_t i = 1; i < 25 - 2; i++)
+
+
+
+     for(int i = 1; i < 25 - 1; i++)
      {
        buffer[i] = reverseBits(buffer[i]);
      }
 
-        channels[0] = ((buffer[1] | buffer[2]<<8) & 0x07FF);
-        channels[1] = ((buffer[2]>>3 | buffer[3]<<5) & 0x07FF);
-        channels[2] = ((buffer[3]>>6 | buffer[4]<<2 | buffer[5]<<10) & 0x07FF);
-        channels[3] = ((buffer[5]>>1 | buffer[6]<<7) & 0x07FF);
-        channels[4] = ((buffer[6]>>4 | buffer[7]<<4) & 0x07FF);
-        channels[5] = ((buffer[7]>>7 | buffer[8]<<1 | buffer[9]<<9) & 0x07FF);
-        channels[6] = ((buffer[9]>>2 | buffer[10]<<6) & 0x07FF);
-        channels[7] = ((buffer[10]>>5 | buffer[11]<<3) & 0x07FF);
-        channels[8] = ((buffer[12] | buffer[13]<<8) & 0x07FF);
-        channels[9] = ((buffer[13]>>3 | buffer[14]<<5) & 0x07FF);
-        channels[10] = ((buffer[14]>>6 | buffer[15]<<2 | buffer[16]<<10) & 0x07FF);
-        channels[11] = ((buffer[16]>>1 | buffer[17]<<7) & 0x07FF);
-        channels[12] = ((buffer[17]>>4 | buffer[18]<<4) & 0x07FF);
-        channels[13] = ((buffer[18]>>7 | buffer[19]<<1 | buffer[20]<<9) & 0x07FF);
-        channels[14] = ((buffer[20]>>2 | buffer[21]<<6) & 0x07FF);
-        channels[15] = ((buffer[21]>>5 | buffer[22]<<3) & 0x07FF);
-        channels[16] = ((buffer[23]) & 0x0001) ? 2047 : 0;
-        channels[17] = ((buffer[23] >> 1) & 0x0001) ? 2047 : 0;
 
-        failsafe = ((buffer[23] >> 3) & 0x0001) ? 1 : 0;
-        if ((buffer[23] >> 2) & 0x0001) lost++;
+
+        for(int i = 0; i < 25; i++)
+        {
+         reverse_out[i] = (uint32_t)buffer[i];
+        }
+
+
+
+        channels[0] = ((buffer[1] | (buffer[2]<<8)) & 0x07FF);
+        channels[1] = (((buffer[2]>>3) | (buffer[3]<<5)) & 0x07FF);
+        channels[2] = (((buffer[3]>>6) | (buffer[4]<<2) | (buffer[5]<<10)) & 0x07FF);
+        channels[3] = (((buffer[5]>>1) | (buffer[6]<<7)) & 0x07FF);
+        channels[4] = (((buffer[6]>>4) | (buffer[7]<<4)) & 0x07FF);
+        channels[5] = (((buffer[7]>>7) | (buffer[8]<<1) | (buffer[9]<<9)) & 0x07FF);
+        channels[6] = (((buffer[9]>>2) | (buffer[10]<<6)) & 0x07FF);
+        channels[7] = (((buffer[10]>>5) | (buffer[11]<<3)) & 0x07FF);
+        channels[8] = ((buffer[12] | (buffer[13]<<8)) & 0x07FF);
+        channels[9] = (((buffer[13]>>3) | (buffer[14]<<5)) & 0x07FF);
+        channels[10] = (((buffer[14]>>6) | (buffer[15]<<2) | (buffer[16]<<10)) & 0x07FF);
+        channels[11] = (((buffer[16]>>1) | (buffer[17]<<7)) & 0x07FF);
+        channels[12] = (((buffer[17]>>4) | (buffer[18]<<4)) & 0x07FF);
+        channels[13] = (((buffer[18]>>7) | (buffer[19]<<1) | (buffer[20]<<9)) & 0x07FF);
+        channels[14] = (((buffer[20]>>2) | (buffer[21]<<6)) & 0x07FF);
+        channels[15] = (((buffer[21]>>5) | (buffer[22]<<3)) & 0x07FF);
+        channels[16] = ((buffer[23]) & 0x0001) ? 2047 : 0;
+        channels[17] = (((buffer[23] >> 1)) & 0x0001) ? 2047 : 0;
+
+        failsafe = (((buffer[23] >> 3)) & 0x0001) ? 1 : 0;
+        if (((buffer[23] >> 2)) & 0x0001) lost++;
 
     }
     else
     {
         errors++;
     }
+
+
+    for(int i = 0; i < 18; i++)
+    {
+     channel_data[i] = (uint32_t)channels[i];
+    }
+    reverse_out[25] = errors;
+
 }

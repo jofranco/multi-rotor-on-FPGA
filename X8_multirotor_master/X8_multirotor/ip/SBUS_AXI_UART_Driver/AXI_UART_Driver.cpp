@@ -1,9 +1,8 @@
 //include libraries
 #include "AXI_UART_Driver.h"
-#include "stdio.h"
 
 //void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096], uint32_t SBUS_test[4096])
-void AXI_UART_DRIVER(volatile int uart_bus[4096], int8_t SBUS_data[4096])
+void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
 {
 
 	//SETUP PRAGMAS
@@ -55,8 +54,7 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], int8_t SBUS_data[4096])
 		uart_bus[FIFO_CNTRL_REG] = 0x1;
 
         // reset FIFOs
-		//uart_bus[FIFO_CNTRL_REG] = 0x4F;        // reset FIFOs
-		//uart_bus[FIFO_CNTRL_REG] = 0x49;
+		//uart_bus[FIFO_CNTRL_REG] = 0x7;        // reset FIFOs
 
 		// configure interrupt enable register
 		uart_bus[INT_EN_REG] = 0x1;  	        // receive data available enabled
@@ -78,12 +76,10 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], int8_t SBUS_data[4096])
 	//if the sensor was properly calibrated, return appropriate data; otherwise, return 0's
 	if (calibrationSuccess)
 	{
-		SBUS_data[0]  = 0x0F; // this byte is manually inverted for START_BYTE
-
 		// debug code
-		if(1) // USE_TEST_VECTOR
+		if(USE_TEST_VECTOR)
 		{
-			if(1)  // USE_REAL_DATA
+			if(USE_REAL_DATA)
 			{
 				// this is actual RC output data
 				SBUS_data[0]  = 0x0F; // this byte is manually inverted for START_BYTE
@@ -143,7 +139,6 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], int8_t SBUS_data[4096])
 			}
 		}
 
-/*
 		DATA_READY = uart_bus[LINE_STATUS_REG];
 		if( (DATA_READY & BIT_ONE) == 1)
 		{
@@ -162,15 +157,13 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], int8_t SBUS_data[4096])
 				}
 			}
 		}
-*/
-
     }
     else  // this code needs some work
     {
         //delay_until_ms<3>(); //sample rate
 	}
 
-	delay_until_ms<5>(); // wait 6 ms for next packet
+	//delay_until_ms<5>(); // wait 6 ms for next packet
 }
 
 

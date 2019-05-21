@@ -11,24 +11,29 @@ proc generate {drv_handle} {
         "DEVICE_ID" \
         "C_S_AXI_CTRL_BASEADDR" \
         "C_S_AXI_CTRL_HIGHADDR" \
-        "C_S_AXI_DATA_BASEADDR" \
-        "C_S_AXI_DATA_HIGHADDR" \
-        "C_S_AXI_TEST_BASEADDR" \
-        "C_S_AXI_TEST_HIGHADDR"
+        "C_S_AXI_TEST_CHAN_BASEADDR" \
+        "C_S_AXI_TEST_CHAN_HIGHADDR" \
+        "C_S_AXI_TEST_NORM_BASEADDR" \
+        "C_S_AXI_TEST_NORM_HIGHADDR" \
+        "C_S_AXI_TEST_REV_BASEADDR" \
+        "C_S_AXI_TEST_REV_HIGHADDR"
 
     xdefine_config_file $drv_handle "xrc_receiver_g.c" "XRc_receiver" \
         "DEVICE_ID" \
         "C_S_AXI_CTRL_BASEADDR" \
-        "C_S_AXI_DATA_BASEADDR" \
-        "C_S_AXI_TEST_BASEADDR"
+        "C_S_AXI_TEST_CHAN_BASEADDR" \
+        "C_S_AXI_TEST_NORM_BASEADDR" \
+        "C_S_AXI_TEST_REV_BASEADDR"
 
     xdefine_canonical_xpars $drv_handle "xparameters.h" "XRc_receiver" \
         "DEVICE_ID" \
         "C_S_AXI_CTRL_BASEADDR" \
         "C_S_AXI_CTRL_HIGHADDR" \
-        "C_S_AXI_DATA_BASEADDR" \
-        "C_S_AXI_DATA_HIGHADDR" \
-        "C_S_AXI_TEST_BASEADDR" \
-        "C_S_AXI_TEST_HIGHADDR"
+        "C_S_AXI_TEST_CHAN_BASEADDR" \
+        "C_S_AXI_TEST_CHAN_HIGHADDR" \
+        "C_S_AXI_TEST_NORM_BASEADDR" \
+        "C_S_AXI_TEST_NORM_HIGHADDR" \
+        "C_S_AXI_TEST_REV_BASEADDR" \
+        "C_S_AXI_TEST_REV_HIGHADDR"
 }
 

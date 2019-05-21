@@ -41,15 +41,17 @@ typedef uint32_t u32;
 typedef struct {
     u16 DeviceId;
     u32 Ctrl_BaseAddress;
-    u32 Data_BaseAddress;
-    u32 Test_BaseAddress;
+    u32 Test_chan_BaseAddress;
+    u32 Test_norm_BaseAddress;
+    u32 Test_rev_BaseAddress;
 } XRc_receiver_Config;
 #endif
 
 typedef struct {
     u32 Ctrl_BaseAddress;
-    u32 Data_BaseAddress;
-    u32 Test_BaseAddress;
+    u32 Test_chan_BaseAddress;
+    u32 Test_norm_BaseAddress;
+    u32 Test_rev_BaseAddress;
     u32 IsReady;
 } XRc_receiver;
 
@@ -100,6 +102,15 @@ u32 XRc_receiver_Write_SBUS_data_Words(XRc_receiver *InstancePtr, int offset, in
 u32 XRc_receiver_Read_SBUS_data_Words(XRc_receiver *InstancePtr, int offset, int *data, int length);
 u32 XRc_receiver_Write_SBUS_data_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length);
 u32 XRc_receiver_Read_SBUS_data_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length);
+u32 XRc_receiver_Get_channel_data_BaseAddress(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Get_channel_data_HighAddress(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Get_channel_data_TotalBytes(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Get_channel_data_BitWidth(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Get_channel_data_Depth(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Write_channel_data_Words(XRc_receiver *InstancePtr, int offset, int *data, int length);
+u32 XRc_receiver_Read_channel_data_Words(XRc_receiver *InstancePtr, int offset, int *data, int length);
+u32 XRc_receiver_Write_channel_data_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length);
+u32 XRc_receiver_Read_channel_data_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length);
 u32 XRc_receiver_Get_norm_out_BaseAddress(XRc_receiver *InstancePtr);
 u32 XRc_receiver_Get_norm_out_HighAddress(XRc_receiver *InstancePtr);
 u32 XRc_receiver_Get_norm_out_TotalBytes(XRc_receiver *InstancePtr);
@@ -109,6 +120,15 @@ u32 XRc_receiver_Write_norm_out_Words(XRc_receiver *InstancePtr, int offset, int
 u32 XRc_receiver_Read_norm_out_Words(XRc_receiver *InstancePtr, int offset, int *data, int length);
 u32 XRc_receiver_Write_norm_out_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length);
 u32 XRc_receiver_Read_norm_out_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length);
+u32 XRc_receiver_Get_reverse_out_BaseAddress(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Get_reverse_out_HighAddress(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Get_reverse_out_TotalBytes(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Get_reverse_out_BitWidth(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Get_reverse_out_Depth(XRc_receiver *InstancePtr);
+u32 XRc_receiver_Write_reverse_out_Words(XRc_receiver *InstancePtr, int offset, int *data, int length);
+u32 XRc_receiver_Read_reverse_out_Words(XRc_receiver *InstancePtr, int offset, int *data, int length);
+u32 XRc_receiver_Write_reverse_out_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length);
+u32 XRc_receiver_Read_reverse_out_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length);
 
 void XRc_receiver_InterruptGlobalEnable(XRc_receiver *InstancePtr);
 void XRc_receiver_InterruptGlobalDisable(XRc_receiver *InstancePtr);

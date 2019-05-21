@@ -2,6 +2,7 @@
 #include "ap_utils.h"
 #include "ap_int.h"
 #include "stdint.h"
+#include "stdio.h"
 
 using namespace std;
 
@@ -26,8 +27,8 @@ using namespace std;
 #define BIT_ONE				(0x1)
 
 #define USE_TEST_VECTOR		1
-#define USE_REAL_DATA		1
-#define USE_INV_DATA		0
+#define USE_REAL_DATA		0
+#define USE_INV_DATA		1
 
 
 // function definitions

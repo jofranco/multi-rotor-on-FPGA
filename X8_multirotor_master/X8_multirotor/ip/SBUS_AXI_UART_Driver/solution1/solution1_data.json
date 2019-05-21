@@ -20,7 +20,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "500003",
+    "Latency": "undef",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -186,7 +186,7 @@
           "Width": "1"
         },
         "WDATA": {
-          "Type": "integer signed",
+          "Type": "integer unsigned",
           "Width": "8"
         },
         "WSTRB": {
@@ -214,7 +214,7 @@
           "Width": "1"
         },
         "RDATA": {
-          "Type": "integer signed",
+          "Type": "integer unsigned",
           "Width": "8"
         },
         "RID": {
@@ -1137,12 +1137,10 @@
     "Hierarchy": {"ModuleName": "AXI_UART_DRIVER"},
     "Metrics": {"AXI_UART_DRIVER": {
         "Latency": {
-          "LatencyBest": "500003",
-          "LatencyAvg": "500030",
-          "LatencyWorst": "500058",
-          "PipelineIIMin": "500004",
-          "PipelineIIMax": "500059",
-          "PipelineII": "500004 ~ 500059",
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -1153,15 +1151,17 @@
         },
         "Loops": [{
             "Name": "Loop 1",
-            "TripCount": "500000",
-            "Latency": "500000",
+            "TripCount": "",
+            "Latency": "",
             "PipelineII": "",
-            "PipelineDepth": "1"
+            "PipelineDepthMin": "9",
+            "PipelineDepthMax": "21",
+            "PipelineDepth": "9 ~ 21"
           }],
         "Area": {
           "BRAM_18K": "4",
-          "FF": "1228",
-          "LUT": "2079",
+          "FF": "1357",
+          "LUT": "2332",
           "DSP48E": "0"
         }
       }}
@@ -1173,7 +1173,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-05-19 18:18:11 -0700",
+    "Time": "2019-05-20 22:55:01 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

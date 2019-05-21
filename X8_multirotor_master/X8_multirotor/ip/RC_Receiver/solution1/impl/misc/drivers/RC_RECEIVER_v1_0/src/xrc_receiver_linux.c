@@ -129,13 +129,17 @@ int XRc_receiver_Initialize(XRc_receiver *InstancePtr, const char* InstanceName)
     InstancePtr->Ctrl_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[0].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 0 * getpagesize());
     assert(InstancePtr->Ctrl_BaseAddress);
 
-    // NOTE: slave interface 'Data' should be mapped to uioX/map1
-    InstancePtr->Data_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[1].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 1 * getpagesize());
-    assert(InstancePtr->Data_BaseAddress);
+    // NOTE: slave interface 'Test_chan' should be mapped to uioX/map1
+    InstancePtr->Test_chan_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[1].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 1 * getpagesize());
+    assert(InstancePtr->Test_chan_BaseAddress);
 
-    // NOTE: slave interface 'Test' should be mapped to uioX/map2
-    InstancePtr->Test_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[2].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 2 * getpagesize());
-    assert(InstancePtr->Test_BaseAddress);
+    // NOTE: slave interface 'Test_norm' should be mapped to uioX/map2
+    InstancePtr->Test_norm_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[2].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 2 * getpagesize());
+    assert(InstancePtr->Test_norm_BaseAddress);
+
+    // NOTE: slave interface 'Test_rev' should be mapped to uioX/map3
+    InstancePtr->Test_rev_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[3].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 3 * getpagesize());
+    assert(InstancePtr->Test_rev_BaseAddress);
 
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
@@ -149,8 +153,9 @@ int XRc_receiver_Release(XRc_receiver *InstancePtr) {
     assert(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     munmap((void*)InstancePtr->Ctrl_BaseAddress, InfoPtr->maps[0].size);
-    munmap((void*)InstancePtr->Data_BaseAddress, InfoPtr->maps[1].size);
-    munmap((void*)InstancePtr->Test_BaseAddress, InfoPtr->maps[2].size);
+    munmap((void*)InstancePtr->Test_chan_BaseAddress, InfoPtr->maps[1].size);
+    munmap((void*)InstancePtr->Test_norm_BaseAddress, InfoPtr->maps[2].size);
+    munmap((void*)InstancePtr->Test_rev_BaseAddress, InfoPtr->maps[3].size);
 
     close(InfoPtr->uio_fd);
 
