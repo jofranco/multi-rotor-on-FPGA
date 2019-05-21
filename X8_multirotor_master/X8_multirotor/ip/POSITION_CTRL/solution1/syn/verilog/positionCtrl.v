@@ -12,51 +12,51 @@
 module positionCtrl (
         ap_clk,
         ap_rst_n,
-        m_axi_CTRL_AWVALID,
-        m_axi_CTRL_AWREADY,
-        m_axi_CTRL_AWADDR,
-        m_axi_CTRL_AWID,
-        m_axi_CTRL_AWLEN,
-        m_axi_CTRL_AWSIZE,
-        m_axi_CTRL_AWBURST,
-        m_axi_CTRL_AWLOCK,
-        m_axi_CTRL_AWCACHE,
-        m_axi_CTRL_AWPROT,
-        m_axi_CTRL_AWQOS,
-        m_axi_CTRL_AWREGION,
-        m_axi_CTRL_AWUSER,
-        m_axi_CTRL_WVALID,
-        m_axi_CTRL_WREADY,
-        m_axi_CTRL_WDATA,
-        m_axi_CTRL_WSTRB,
-        m_axi_CTRL_WLAST,
-        m_axi_CTRL_WID,
-        m_axi_CTRL_WUSER,
-        m_axi_CTRL_ARVALID,
-        m_axi_CTRL_ARREADY,
-        m_axi_CTRL_ARADDR,
-        m_axi_CTRL_ARID,
-        m_axi_CTRL_ARLEN,
-        m_axi_CTRL_ARSIZE,
-        m_axi_CTRL_ARBURST,
-        m_axi_CTRL_ARLOCK,
-        m_axi_CTRL_ARCACHE,
-        m_axi_CTRL_ARPROT,
-        m_axi_CTRL_ARQOS,
-        m_axi_CTRL_ARREGION,
-        m_axi_CTRL_ARUSER,
-        m_axi_CTRL_RVALID,
-        m_axi_CTRL_RREADY,
-        m_axi_CTRL_RDATA,
-        m_axi_CTRL_RLAST,
-        m_axi_CTRL_RID,
-        m_axi_CTRL_RUSER,
-        m_axi_CTRL_RRESP,
-        m_axi_CTRL_BVALID,
-        m_axi_CTRL_BREADY,
-        m_axi_CTRL_BRESP,
-        m_axi_CTRL_BID,
-        m_axi_CTRL_BUSER,
+        m_axi_DATA_AWVALID,
+        m_axi_DATA_AWREADY,
+        m_axi_DATA_AWADDR,
+        m_axi_DATA_AWID,
+        m_axi_DATA_AWLEN,
+        m_axi_DATA_AWSIZE,
+        m_axi_DATA_AWBURST,
+        m_axi_DATA_AWLOCK,
+        m_axi_DATA_AWCACHE,
+        m_axi_DATA_AWPROT,
+        m_axi_DATA_AWQOS,
+        m_axi_DATA_AWREGION,
+        m_axi_DATA_AWUSER,
+        m_axi_DATA_WVALID,
+        m_axi_DATA_WREADY,
+        m_axi_DATA_WDATA,
+        m_axi_DATA_WSTRB,
+        m_axi_DATA_WLAST,
+        m_axi_DATA_WID,
+        m_axi_DATA_WUSER,
+        m_axi_DATA_ARVALID,
+        m_axi_DATA_ARREADY,
+        m_axi_DATA_ARADDR,
+        m_axi_DATA_ARID,
+        m_axi_DATA_ARLEN,
+        m_axi_DATA_ARSIZE,
+        m_axi_DATA_ARBURST,
+        m_axi_DATA_ARLOCK,
+        m_axi_DATA_ARCACHE,
+        m_axi_DATA_ARPROT,
+        m_axi_DATA_ARQOS,
+        m_axi_DATA_ARREGION,
+        m_axi_DATA_ARUSER,
+        m_axi_DATA_RVALID,
+        m_axi_DATA_RREADY,
+        m_axi_DATA_RDATA,
+        m_axi_DATA_RLAST,
+        m_axi_DATA_RID,
+        m_axi_DATA_RUSER,
+        m_axi_DATA_RRESP,
+        m_axi_DATA_BVALID,
+        m_axi_DATA_BREADY,
+        m_axi_DATA_BRESP,
+        m_axi_DATA_BID,
+        m_axi_DATA_BUSER,
         s_axi_CTRL_AWVALID,
         s_axi_CTRL_AWREADY,
         s_axi_CTRL_AWADDR,
@@ -81,70 +81,70 @@ parameter    ap_ST_fsm_state1 = 1'd1;
 parameter    C_S_AXI_CTRL_DATA_WIDTH = 32;
 parameter    C_S_AXI_CTRL_ADDR_WIDTH = 14;
 parameter    C_S_AXI_DATA_WIDTH = 32;
-parameter    C_M_AXI_CTRL_ID_WIDTH = 1;
-parameter    C_M_AXI_CTRL_ADDR_WIDTH = 32;
-parameter    C_M_AXI_CTRL_DATA_WIDTH = 32;
-parameter    C_M_AXI_CTRL_AWUSER_WIDTH = 1;
-parameter    C_M_AXI_CTRL_ARUSER_WIDTH = 1;
-parameter    C_M_AXI_CTRL_WUSER_WIDTH = 1;
-parameter    C_M_AXI_CTRL_RUSER_WIDTH = 1;
-parameter    C_M_AXI_CTRL_BUSER_WIDTH = 1;
-parameter    C_M_AXI_CTRL_TARGET_ADDR = 0;
-parameter    C_M_AXI_CTRL_USER_VALUE = 0;
-parameter    C_M_AXI_CTRL_PROT_VALUE = 0;
-parameter    C_M_AXI_CTRL_CACHE_VALUE = 3;
+parameter    C_M_AXI_DATA_ID_WIDTH = 1;
+parameter    C_M_AXI_DATA_ADDR_WIDTH = 32;
+parameter    C_M_AXI_DATA_DATA_WIDTH = 32;
+parameter    C_M_AXI_DATA_AWUSER_WIDTH = 1;
+parameter    C_M_AXI_DATA_ARUSER_WIDTH = 1;
+parameter    C_M_AXI_DATA_WUSER_WIDTH = 1;
+parameter    C_M_AXI_DATA_RUSER_WIDTH = 1;
+parameter    C_M_AXI_DATA_BUSER_WIDTH = 1;
+parameter    C_M_AXI_DATA_TARGET_ADDR = 0;
+parameter    C_M_AXI_DATA_USER_VALUE = 0;
+parameter    C_M_AXI_DATA_PROT_VALUE = 0;
+parameter    C_M_AXI_DATA_CACHE_VALUE = 3;
 
 parameter C_S_AXI_CTRL_WSTRB_WIDTH = (32 / 8);
 parameter C_S_AXI_WSTRB_WIDTH = (32 / 8);
-parameter C_M_AXI_CTRL_WSTRB_WIDTH = (32 / 8);
+parameter C_M_AXI_DATA_WSTRB_WIDTH = (32 / 8);
 
 input   ap_clk;
 input   ap_rst_n;
-output   m_axi_CTRL_AWVALID;
-input   m_axi_CTRL_AWREADY;
-output  [C_M_AXI_CTRL_ADDR_WIDTH - 1:0] m_axi_CTRL_AWADDR;
-output  [C_M_AXI_CTRL_ID_WIDTH - 1:0] m_axi_CTRL_AWID;
-output  [7:0] m_axi_CTRL_AWLEN;
-output  [2:0] m_axi_CTRL_AWSIZE;
-output  [1:0] m_axi_CTRL_AWBURST;
-output  [1:0] m_axi_CTRL_AWLOCK;
-output  [3:0] m_axi_CTRL_AWCACHE;
-output  [2:0] m_axi_CTRL_AWPROT;
-output  [3:0] m_axi_CTRL_AWQOS;
-output  [3:0] m_axi_CTRL_AWREGION;
-output  [C_M_AXI_CTRL_AWUSER_WIDTH - 1:0] m_axi_CTRL_AWUSER;
-output   m_axi_CTRL_WVALID;
-input   m_axi_CTRL_WREADY;
-output  [C_M_AXI_CTRL_DATA_WIDTH - 1:0] m_axi_CTRL_WDATA;
-output  [C_M_AXI_CTRL_WSTRB_WIDTH - 1:0] m_axi_CTRL_WSTRB;
-output   m_axi_CTRL_WLAST;
-output  [C_M_AXI_CTRL_ID_WIDTH - 1:0] m_axi_CTRL_WID;
-output  [C_M_AXI_CTRL_WUSER_WIDTH - 1:0] m_axi_CTRL_WUSER;
-output   m_axi_CTRL_ARVALID;
-input   m_axi_CTRL_ARREADY;
-output  [C_M_AXI_CTRL_ADDR_WIDTH - 1:0] m_axi_CTRL_ARADDR;
-output  [C_M_AXI_CTRL_ID_WIDTH - 1:0] m_axi_CTRL_ARID;
-output  [7:0] m_axi_CTRL_ARLEN;
-output  [2:0] m_axi_CTRL_ARSIZE;
-output  [1:0] m_axi_CTRL_ARBURST;
-output  [1:0] m_axi_CTRL_ARLOCK;
-output  [3:0] m_axi_CTRL_ARCACHE;
-output  [2:0] m_axi_CTRL_ARPROT;
-output  [3:0] m_axi_CTRL_ARQOS;
-output  [3:0] m_axi_CTRL_ARREGION;
-output  [C_M_AXI_CTRL_ARUSER_WIDTH - 1:0] m_axi_CTRL_ARUSER;
-input   m_axi_CTRL_RVALID;
-output   m_axi_CTRL_RREADY;
-input  [C_M_AXI_CTRL_DATA_WIDTH - 1:0] m_axi_CTRL_RDATA;
-input   m_axi_CTRL_RLAST;
-input  [C_M_AXI_CTRL_ID_WIDTH - 1:0] m_axi_CTRL_RID;
-input  [C_M_AXI_CTRL_RUSER_WIDTH - 1:0] m_axi_CTRL_RUSER;
-input  [1:0] m_axi_CTRL_RRESP;
-input   m_axi_CTRL_BVALID;
-output   m_axi_CTRL_BREADY;
-input  [1:0] m_axi_CTRL_BRESP;
-input  [C_M_AXI_CTRL_ID_WIDTH - 1:0] m_axi_CTRL_BID;
-input  [C_M_AXI_CTRL_BUSER_WIDTH - 1:0] m_axi_CTRL_BUSER;
+output   m_axi_DATA_AWVALID;
+input   m_axi_DATA_AWREADY;
+output  [C_M_AXI_DATA_ADDR_WIDTH - 1:0] m_axi_DATA_AWADDR;
+output  [C_M_AXI_DATA_ID_WIDTH - 1:0] m_axi_DATA_AWID;
+output  [7:0] m_axi_DATA_AWLEN;
+output  [2:0] m_axi_DATA_AWSIZE;
+output  [1:0] m_axi_DATA_AWBURST;
+output  [1:0] m_axi_DATA_AWLOCK;
+output  [3:0] m_axi_DATA_AWCACHE;
+output  [2:0] m_axi_DATA_AWPROT;
+output  [3:0] m_axi_DATA_AWQOS;
+output  [3:0] m_axi_DATA_AWREGION;
+output  [C_M_AXI_DATA_AWUSER_WIDTH - 1:0] m_axi_DATA_AWUSER;
+output   m_axi_DATA_WVALID;
+input   m_axi_DATA_WREADY;
+output  [C_M_AXI_DATA_DATA_WIDTH - 1:0] m_axi_DATA_WDATA;
+output  [C_M_AXI_DATA_WSTRB_WIDTH - 1:0] m_axi_DATA_WSTRB;
+output   m_axi_DATA_WLAST;
+output  [C_M_AXI_DATA_ID_WIDTH - 1:0] m_axi_DATA_WID;
+output  [C_M_AXI_DATA_WUSER_WIDTH - 1:0] m_axi_DATA_WUSER;
+output   m_axi_DATA_ARVALID;
+input   m_axi_DATA_ARREADY;
+output  [C_M_AXI_DATA_ADDR_WIDTH - 1:0] m_axi_DATA_ARADDR;
+output  [C_M_AXI_DATA_ID_WIDTH - 1:0] m_axi_DATA_ARID;
+output  [7:0] m_axi_DATA_ARLEN;
+output  [2:0] m_axi_DATA_ARSIZE;
+output  [1:0] m_axi_DATA_ARBURST;
+output  [1:0] m_axi_DATA_ARLOCK;
+output  [3:0] m_axi_DATA_ARCACHE;
+output  [2:0] m_axi_DATA_ARPROT;
+output  [3:0] m_axi_DATA_ARQOS;
+output  [3:0] m_axi_DATA_ARREGION;
+output  [C_M_AXI_DATA_ARUSER_WIDTH - 1:0] m_axi_DATA_ARUSER;
+input   m_axi_DATA_RVALID;
+output   m_axi_DATA_RREADY;
+input  [C_M_AXI_DATA_DATA_WIDTH - 1:0] m_axi_DATA_RDATA;
+input   m_axi_DATA_RLAST;
+input  [C_M_AXI_DATA_ID_WIDTH - 1:0] m_axi_DATA_RID;
+input  [C_M_AXI_DATA_RUSER_WIDTH - 1:0] m_axi_DATA_RUSER;
+input  [1:0] m_axi_DATA_RRESP;
+input   m_axi_DATA_BVALID;
+output   m_axi_DATA_BREADY;
+input  [1:0] m_axi_DATA_BRESP;
+input  [C_M_AXI_DATA_ID_WIDTH - 1:0] m_axi_DATA_BID;
+input  [C_M_AXI_DATA_BUSER_WIDTH - 1:0] m_axi_DATA_BUSER;
 input   s_axi_CTRL_AWVALID;
 output   s_axi_CTRL_AWREADY;
 input  [C_S_AXI_CTRL_ADDR_WIDTH - 1:0] s_axi_CTRL_AWADDR;
@@ -258,68 +258,68 @@ always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-assign m_axi_CTRL_ARADDR = 32'd0;
+assign m_axi_DATA_ARADDR = 32'd0;
 
-assign m_axi_CTRL_ARBURST = 2'd0;
+assign m_axi_DATA_ARBURST = 2'd0;
 
-assign m_axi_CTRL_ARCACHE = 4'd0;
+assign m_axi_DATA_ARCACHE = 4'd0;
 
-assign m_axi_CTRL_ARID = 1'd0;
+assign m_axi_DATA_ARID = 1'd0;
 
-assign m_axi_CTRL_ARLEN = 8'd0;
+assign m_axi_DATA_ARLEN = 8'd0;
 
-assign m_axi_CTRL_ARLOCK = 2'd0;
+assign m_axi_DATA_ARLOCK = 2'd0;
 
-assign m_axi_CTRL_ARPROT = 3'd0;
+assign m_axi_DATA_ARPROT = 3'd0;
 
-assign m_axi_CTRL_ARQOS = 4'd0;
+assign m_axi_DATA_ARQOS = 4'd0;
 
-assign m_axi_CTRL_ARREGION = 4'd0;
+assign m_axi_DATA_ARREGION = 4'd0;
 
-assign m_axi_CTRL_ARSIZE = 3'd0;
+assign m_axi_DATA_ARSIZE = 3'd0;
 
-assign m_axi_CTRL_ARUSER = 1'd0;
+assign m_axi_DATA_ARUSER = 1'd0;
 
-assign m_axi_CTRL_ARVALID = 1'b0;
+assign m_axi_DATA_ARVALID = 1'b0;
 
-assign m_axi_CTRL_AWADDR = 32'd0;
+assign m_axi_DATA_AWADDR = 32'd0;
 
-assign m_axi_CTRL_AWBURST = 2'd0;
+assign m_axi_DATA_AWBURST = 2'd0;
 
-assign m_axi_CTRL_AWCACHE = 4'd0;
+assign m_axi_DATA_AWCACHE = 4'd0;
 
-assign m_axi_CTRL_AWID = 1'd0;
+assign m_axi_DATA_AWID = 1'd0;
 
-assign m_axi_CTRL_AWLEN = 8'd0;
+assign m_axi_DATA_AWLEN = 8'd0;
 
-assign m_axi_CTRL_AWLOCK = 2'd0;
+assign m_axi_DATA_AWLOCK = 2'd0;
 
-assign m_axi_CTRL_AWPROT = 3'd0;
+assign m_axi_DATA_AWPROT = 3'd0;
 
-assign m_axi_CTRL_AWQOS = 4'd0;
+assign m_axi_DATA_AWQOS = 4'd0;
 
-assign m_axi_CTRL_AWREGION = 4'd0;
+assign m_axi_DATA_AWREGION = 4'd0;
 
-assign m_axi_CTRL_AWSIZE = 3'd0;
+assign m_axi_DATA_AWSIZE = 3'd0;
 
-assign m_axi_CTRL_AWUSER = 1'd0;
+assign m_axi_DATA_AWUSER = 1'd0;
 
-assign m_axi_CTRL_AWVALID = 1'b0;
+assign m_axi_DATA_AWVALID = 1'b0;
 
-assign m_axi_CTRL_BREADY = 1'b0;
+assign m_axi_DATA_BREADY = 1'b0;
 
-assign m_axi_CTRL_RREADY = 1'b0;
+assign m_axi_DATA_RREADY = 1'b0;
 
-assign m_axi_CTRL_WDATA = 32'd0;
+assign m_axi_DATA_WDATA = 32'd0;
 
-assign m_axi_CTRL_WID = 1'd0;
+assign m_axi_DATA_WID = 1'd0;
 
-assign m_axi_CTRL_WLAST = 1'b0;
+assign m_axi_DATA_WLAST = 1'b0;
 
-assign m_axi_CTRL_WSTRB = 4'd0;
+assign m_axi_DATA_WSTRB = 4'd0;
 
-assign m_axi_CTRL_WUSER = 1'd0;
+assign m_axi_DATA_WUSER = 1'd0;
 
-assign m_axi_CTRL_WVALID = 1'b0;
+assign m_axi_DATA_WVALID = 1'b0;
 
 endmodule //positionCtrl

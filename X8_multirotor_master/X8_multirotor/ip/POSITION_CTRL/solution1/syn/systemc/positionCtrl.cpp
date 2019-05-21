@@ -17,10 +17,10 @@ const sc_logic positionCtrl::ap_const_logic_0 = sc_dt::Log_0;
 const sc_lv<1> positionCtrl::ap_ST_fsm_state1 = "1";
 const sc_lv<32> positionCtrl::ap_const_lv32_0 = "00000000000000000000000000000000";
 const int positionCtrl::C_S_AXI_DATA_WIDTH = "100000";
-const int positionCtrl::C_M_AXI_CTRL_TARGET_ADDR = "0000000000000000000000000000000000000000000000000000000000000000";
-const int positionCtrl::C_M_AXI_CTRL_USER_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
-const int positionCtrl::C_M_AXI_CTRL_PROT_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
-const int positionCtrl::C_M_AXI_CTRL_CACHE_VALUE = "11";
+const int positionCtrl::C_M_AXI_DATA_TARGET_ADDR = "0000000000000000000000000000000000000000000000000000000000000000";
+const int positionCtrl::C_M_AXI_DATA_USER_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
+const int positionCtrl::C_M_AXI_DATA_PROT_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
+const int positionCtrl::C_M_AXI_DATA_CACHE_VALUE = "11";
 const sc_lv<1> positionCtrl::ap_const_lv1_0 = "0";
 const sc_lv<8> positionCtrl::ap_const_lv8_0 = "00000000";
 const sc_lv<3> positionCtrl::ap_const_lv3_0 = "000";
@@ -78,69 +78,69 @@ positionCtrl::positionCtrl(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_ap_rst_n_inv);
     sensitive << ( ap_rst_n );
 
-    SC_METHOD(thread_m_axi_CTRL_ARADDR);
+    SC_METHOD(thread_m_axi_DATA_ARADDR);
 
-    SC_METHOD(thread_m_axi_CTRL_ARBURST);
+    SC_METHOD(thread_m_axi_DATA_ARBURST);
 
-    SC_METHOD(thread_m_axi_CTRL_ARCACHE);
+    SC_METHOD(thread_m_axi_DATA_ARCACHE);
 
-    SC_METHOD(thread_m_axi_CTRL_ARID);
+    SC_METHOD(thread_m_axi_DATA_ARID);
 
-    SC_METHOD(thread_m_axi_CTRL_ARLEN);
+    SC_METHOD(thread_m_axi_DATA_ARLEN);
 
-    SC_METHOD(thread_m_axi_CTRL_ARLOCK);
+    SC_METHOD(thread_m_axi_DATA_ARLOCK);
 
-    SC_METHOD(thread_m_axi_CTRL_ARPROT);
+    SC_METHOD(thread_m_axi_DATA_ARPROT);
 
-    SC_METHOD(thread_m_axi_CTRL_ARQOS);
+    SC_METHOD(thread_m_axi_DATA_ARQOS);
 
-    SC_METHOD(thread_m_axi_CTRL_ARREGION);
+    SC_METHOD(thread_m_axi_DATA_ARREGION);
 
-    SC_METHOD(thread_m_axi_CTRL_ARSIZE);
+    SC_METHOD(thread_m_axi_DATA_ARSIZE);
 
-    SC_METHOD(thread_m_axi_CTRL_ARUSER);
+    SC_METHOD(thread_m_axi_DATA_ARUSER);
 
-    SC_METHOD(thread_m_axi_CTRL_ARVALID);
+    SC_METHOD(thread_m_axi_DATA_ARVALID);
 
-    SC_METHOD(thread_m_axi_CTRL_AWADDR);
+    SC_METHOD(thread_m_axi_DATA_AWADDR);
 
-    SC_METHOD(thread_m_axi_CTRL_AWBURST);
+    SC_METHOD(thread_m_axi_DATA_AWBURST);
 
-    SC_METHOD(thread_m_axi_CTRL_AWCACHE);
+    SC_METHOD(thread_m_axi_DATA_AWCACHE);
 
-    SC_METHOD(thread_m_axi_CTRL_AWID);
+    SC_METHOD(thread_m_axi_DATA_AWID);
 
-    SC_METHOD(thread_m_axi_CTRL_AWLEN);
+    SC_METHOD(thread_m_axi_DATA_AWLEN);
 
-    SC_METHOD(thread_m_axi_CTRL_AWLOCK);
+    SC_METHOD(thread_m_axi_DATA_AWLOCK);
 
-    SC_METHOD(thread_m_axi_CTRL_AWPROT);
+    SC_METHOD(thread_m_axi_DATA_AWPROT);
 
-    SC_METHOD(thread_m_axi_CTRL_AWQOS);
+    SC_METHOD(thread_m_axi_DATA_AWQOS);
 
-    SC_METHOD(thread_m_axi_CTRL_AWREGION);
+    SC_METHOD(thread_m_axi_DATA_AWREGION);
 
-    SC_METHOD(thread_m_axi_CTRL_AWSIZE);
+    SC_METHOD(thread_m_axi_DATA_AWSIZE);
 
-    SC_METHOD(thread_m_axi_CTRL_AWUSER);
+    SC_METHOD(thread_m_axi_DATA_AWUSER);
 
-    SC_METHOD(thread_m_axi_CTRL_AWVALID);
+    SC_METHOD(thread_m_axi_DATA_AWVALID);
 
-    SC_METHOD(thread_m_axi_CTRL_BREADY);
+    SC_METHOD(thread_m_axi_DATA_BREADY);
 
-    SC_METHOD(thread_m_axi_CTRL_RREADY);
+    SC_METHOD(thread_m_axi_DATA_RREADY);
 
-    SC_METHOD(thread_m_axi_CTRL_WDATA);
+    SC_METHOD(thread_m_axi_DATA_WDATA);
 
-    SC_METHOD(thread_m_axi_CTRL_WID);
+    SC_METHOD(thread_m_axi_DATA_WID);
 
-    SC_METHOD(thread_m_axi_CTRL_WLAST);
+    SC_METHOD(thread_m_axi_DATA_WLAST);
 
-    SC_METHOD(thread_m_axi_CTRL_WSTRB);
+    SC_METHOD(thread_m_axi_DATA_WSTRB);
 
-    SC_METHOD(thread_m_axi_CTRL_WUSER);
+    SC_METHOD(thread_m_axi_DATA_WUSER);
 
-    SC_METHOD(thread_m_axi_CTRL_WVALID);
+    SC_METHOD(thread_m_axi_DATA_WVALID);
 
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( ap_start );
@@ -163,51 +163,51 @@ positionCtrl::positionCtrl(sc_module_name name) : sc_module(name), mVcdFile(0) {
 #ifdef __HLS_TRACE_LEVEL_PORT__
     sc_trace(mVcdFile, ap_clk, "(port)ap_clk");
     sc_trace(mVcdFile, ap_rst_n, "(port)ap_rst_n");
-    sc_trace(mVcdFile, m_axi_CTRL_AWVALID, "(port)m_axi_CTRL_AWVALID");
-    sc_trace(mVcdFile, m_axi_CTRL_AWREADY, "(port)m_axi_CTRL_AWREADY");
-    sc_trace(mVcdFile, m_axi_CTRL_AWADDR, "(port)m_axi_CTRL_AWADDR");
-    sc_trace(mVcdFile, m_axi_CTRL_AWID, "(port)m_axi_CTRL_AWID");
-    sc_trace(mVcdFile, m_axi_CTRL_AWLEN, "(port)m_axi_CTRL_AWLEN");
-    sc_trace(mVcdFile, m_axi_CTRL_AWSIZE, "(port)m_axi_CTRL_AWSIZE");
-    sc_trace(mVcdFile, m_axi_CTRL_AWBURST, "(port)m_axi_CTRL_AWBURST");
-    sc_trace(mVcdFile, m_axi_CTRL_AWLOCK, "(port)m_axi_CTRL_AWLOCK");
-    sc_trace(mVcdFile, m_axi_CTRL_AWCACHE, "(port)m_axi_CTRL_AWCACHE");
-    sc_trace(mVcdFile, m_axi_CTRL_AWPROT, "(port)m_axi_CTRL_AWPROT");
-    sc_trace(mVcdFile, m_axi_CTRL_AWQOS, "(port)m_axi_CTRL_AWQOS");
-    sc_trace(mVcdFile, m_axi_CTRL_AWREGION, "(port)m_axi_CTRL_AWREGION");
-    sc_trace(mVcdFile, m_axi_CTRL_AWUSER, "(port)m_axi_CTRL_AWUSER");
-    sc_trace(mVcdFile, m_axi_CTRL_WVALID, "(port)m_axi_CTRL_WVALID");
-    sc_trace(mVcdFile, m_axi_CTRL_WREADY, "(port)m_axi_CTRL_WREADY");
-    sc_trace(mVcdFile, m_axi_CTRL_WDATA, "(port)m_axi_CTRL_WDATA");
-    sc_trace(mVcdFile, m_axi_CTRL_WSTRB, "(port)m_axi_CTRL_WSTRB");
-    sc_trace(mVcdFile, m_axi_CTRL_WLAST, "(port)m_axi_CTRL_WLAST");
-    sc_trace(mVcdFile, m_axi_CTRL_WID, "(port)m_axi_CTRL_WID");
-    sc_trace(mVcdFile, m_axi_CTRL_WUSER, "(port)m_axi_CTRL_WUSER");
-    sc_trace(mVcdFile, m_axi_CTRL_ARVALID, "(port)m_axi_CTRL_ARVALID");
-    sc_trace(mVcdFile, m_axi_CTRL_ARREADY, "(port)m_axi_CTRL_ARREADY");
-    sc_trace(mVcdFile, m_axi_CTRL_ARADDR, "(port)m_axi_CTRL_ARADDR");
-    sc_trace(mVcdFile, m_axi_CTRL_ARID, "(port)m_axi_CTRL_ARID");
-    sc_trace(mVcdFile, m_axi_CTRL_ARLEN, "(port)m_axi_CTRL_ARLEN");
-    sc_trace(mVcdFile, m_axi_CTRL_ARSIZE, "(port)m_axi_CTRL_ARSIZE");
-    sc_trace(mVcdFile, m_axi_CTRL_ARBURST, "(port)m_axi_CTRL_ARBURST");
-    sc_trace(mVcdFile, m_axi_CTRL_ARLOCK, "(port)m_axi_CTRL_ARLOCK");
-    sc_trace(mVcdFile, m_axi_CTRL_ARCACHE, "(port)m_axi_CTRL_ARCACHE");
-    sc_trace(mVcdFile, m_axi_CTRL_ARPROT, "(port)m_axi_CTRL_ARPROT");
-    sc_trace(mVcdFile, m_axi_CTRL_ARQOS, "(port)m_axi_CTRL_ARQOS");
-    sc_trace(mVcdFile, m_axi_CTRL_ARREGION, "(port)m_axi_CTRL_ARREGION");
-    sc_trace(mVcdFile, m_axi_CTRL_ARUSER, "(port)m_axi_CTRL_ARUSER");
-    sc_trace(mVcdFile, m_axi_CTRL_RVALID, "(port)m_axi_CTRL_RVALID");
-    sc_trace(mVcdFile, m_axi_CTRL_RREADY, "(port)m_axi_CTRL_RREADY");
-    sc_trace(mVcdFile, m_axi_CTRL_RDATA, "(port)m_axi_CTRL_RDATA");
-    sc_trace(mVcdFile, m_axi_CTRL_RLAST, "(port)m_axi_CTRL_RLAST");
-    sc_trace(mVcdFile, m_axi_CTRL_RID, "(port)m_axi_CTRL_RID");
-    sc_trace(mVcdFile, m_axi_CTRL_RUSER, "(port)m_axi_CTRL_RUSER");
-    sc_trace(mVcdFile, m_axi_CTRL_RRESP, "(port)m_axi_CTRL_RRESP");
-    sc_trace(mVcdFile, m_axi_CTRL_BVALID, "(port)m_axi_CTRL_BVALID");
-    sc_trace(mVcdFile, m_axi_CTRL_BREADY, "(port)m_axi_CTRL_BREADY");
-    sc_trace(mVcdFile, m_axi_CTRL_BRESP, "(port)m_axi_CTRL_BRESP");
-    sc_trace(mVcdFile, m_axi_CTRL_BID, "(port)m_axi_CTRL_BID");
-    sc_trace(mVcdFile, m_axi_CTRL_BUSER, "(port)m_axi_CTRL_BUSER");
+    sc_trace(mVcdFile, m_axi_DATA_AWVALID, "(port)m_axi_DATA_AWVALID");
+    sc_trace(mVcdFile, m_axi_DATA_AWREADY, "(port)m_axi_DATA_AWREADY");
+    sc_trace(mVcdFile, m_axi_DATA_AWADDR, "(port)m_axi_DATA_AWADDR");
+    sc_trace(mVcdFile, m_axi_DATA_AWID, "(port)m_axi_DATA_AWID");
+    sc_trace(mVcdFile, m_axi_DATA_AWLEN, "(port)m_axi_DATA_AWLEN");
+    sc_trace(mVcdFile, m_axi_DATA_AWSIZE, "(port)m_axi_DATA_AWSIZE");
+    sc_trace(mVcdFile, m_axi_DATA_AWBURST, "(port)m_axi_DATA_AWBURST");
+    sc_trace(mVcdFile, m_axi_DATA_AWLOCK, "(port)m_axi_DATA_AWLOCK");
+    sc_trace(mVcdFile, m_axi_DATA_AWCACHE, "(port)m_axi_DATA_AWCACHE");
+    sc_trace(mVcdFile, m_axi_DATA_AWPROT, "(port)m_axi_DATA_AWPROT");
+    sc_trace(mVcdFile, m_axi_DATA_AWQOS, "(port)m_axi_DATA_AWQOS");
+    sc_trace(mVcdFile, m_axi_DATA_AWREGION, "(port)m_axi_DATA_AWREGION");
+    sc_trace(mVcdFile, m_axi_DATA_AWUSER, "(port)m_axi_DATA_AWUSER");
+    sc_trace(mVcdFile, m_axi_DATA_WVALID, "(port)m_axi_DATA_WVALID");
+    sc_trace(mVcdFile, m_axi_DATA_WREADY, "(port)m_axi_DATA_WREADY");
+    sc_trace(mVcdFile, m_axi_DATA_WDATA, "(port)m_axi_DATA_WDATA");
+    sc_trace(mVcdFile, m_axi_DATA_WSTRB, "(port)m_axi_DATA_WSTRB");
+    sc_trace(mVcdFile, m_axi_DATA_WLAST, "(port)m_axi_DATA_WLAST");
+    sc_trace(mVcdFile, m_axi_DATA_WID, "(port)m_axi_DATA_WID");
+    sc_trace(mVcdFile, m_axi_DATA_WUSER, "(port)m_axi_DATA_WUSER");
+    sc_trace(mVcdFile, m_axi_DATA_ARVALID, "(port)m_axi_DATA_ARVALID");
+    sc_trace(mVcdFile, m_axi_DATA_ARREADY, "(port)m_axi_DATA_ARREADY");
+    sc_trace(mVcdFile, m_axi_DATA_ARADDR, "(port)m_axi_DATA_ARADDR");
+    sc_trace(mVcdFile, m_axi_DATA_ARID, "(port)m_axi_DATA_ARID");
+    sc_trace(mVcdFile, m_axi_DATA_ARLEN, "(port)m_axi_DATA_ARLEN");
+    sc_trace(mVcdFile, m_axi_DATA_ARSIZE, "(port)m_axi_DATA_ARSIZE");
+    sc_trace(mVcdFile, m_axi_DATA_ARBURST, "(port)m_axi_DATA_ARBURST");
+    sc_trace(mVcdFile, m_axi_DATA_ARLOCK, "(port)m_axi_DATA_ARLOCK");
+    sc_trace(mVcdFile, m_axi_DATA_ARCACHE, "(port)m_axi_DATA_ARCACHE");
+    sc_trace(mVcdFile, m_axi_DATA_ARPROT, "(port)m_axi_DATA_ARPROT");
+    sc_trace(mVcdFile, m_axi_DATA_ARQOS, "(port)m_axi_DATA_ARQOS");
+    sc_trace(mVcdFile, m_axi_DATA_ARREGION, "(port)m_axi_DATA_ARREGION");
+    sc_trace(mVcdFile, m_axi_DATA_ARUSER, "(port)m_axi_DATA_ARUSER");
+    sc_trace(mVcdFile, m_axi_DATA_RVALID, "(port)m_axi_DATA_RVALID");
+    sc_trace(mVcdFile, m_axi_DATA_RREADY, "(port)m_axi_DATA_RREADY");
+    sc_trace(mVcdFile, m_axi_DATA_RDATA, "(port)m_axi_DATA_RDATA");
+    sc_trace(mVcdFile, m_axi_DATA_RLAST, "(port)m_axi_DATA_RLAST");
+    sc_trace(mVcdFile, m_axi_DATA_RID, "(port)m_axi_DATA_RID");
+    sc_trace(mVcdFile, m_axi_DATA_RUSER, "(port)m_axi_DATA_RUSER");
+    sc_trace(mVcdFile, m_axi_DATA_RRESP, "(port)m_axi_DATA_RRESP");
+    sc_trace(mVcdFile, m_axi_DATA_BVALID, "(port)m_axi_DATA_BVALID");
+    sc_trace(mVcdFile, m_axi_DATA_BREADY, "(port)m_axi_DATA_BREADY");
+    sc_trace(mVcdFile, m_axi_DATA_BRESP, "(port)m_axi_DATA_BRESP");
+    sc_trace(mVcdFile, m_axi_DATA_BID, "(port)m_axi_DATA_BID");
+    sc_trace(mVcdFile, m_axi_DATA_BUSER, "(port)m_axi_DATA_BUSER");
     sc_trace(mVcdFile, s_axi_CTRL_AWVALID, "(port)s_axi_CTRL_AWVALID");
     sc_trace(mVcdFile, s_axi_CTRL_AWREADY, "(port)s_axi_CTRL_AWREADY");
     sc_trace(mVcdFile, s_axi_CTRL_AWADDR, "(port)s_axi_CTRL_AWADDR");
@@ -301,132 +301,132 @@ void positionCtrl::thread_ap_rst_n_inv() {
     ap_rst_n_inv =  (sc_logic) (~ap_rst_n.read());
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARADDR() {
-    m_axi_CTRL_ARADDR = ap_const_lv32_0;
+void positionCtrl::thread_m_axi_DATA_ARADDR() {
+    m_axi_DATA_ARADDR = ap_const_lv32_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARBURST() {
-    m_axi_CTRL_ARBURST = ap_const_lv2_0;
+void positionCtrl::thread_m_axi_DATA_ARBURST() {
+    m_axi_DATA_ARBURST = ap_const_lv2_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARCACHE() {
-    m_axi_CTRL_ARCACHE = ap_const_lv4_0;
+void positionCtrl::thread_m_axi_DATA_ARCACHE() {
+    m_axi_DATA_ARCACHE = ap_const_lv4_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARID() {
-    m_axi_CTRL_ARID = ap_const_lv1_0;
+void positionCtrl::thread_m_axi_DATA_ARID() {
+    m_axi_DATA_ARID = ap_const_lv1_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARLEN() {
-    m_axi_CTRL_ARLEN = ap_const_lv8_0;
+void positionCtrl::thread_m_axi_DATA_ARLEN() {
+    m_axi_DATA_ARLEN = ap_const_lv8_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARLOCK() {
-    m_axi_CTRL_ARLOCK = ap_const_lv2_0;
+void positionCtrl::thread_m_axi_DATA_ARLOCK() {
+    m_axi_DATA_ARLOCK = ap_const_lv2_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARPROT() {
-    m_axi_CTRL_ARPROT = ap_const_lv3_0;
+void positionCtrl::thread_m_axi_DATA_ARPROT() {
+    m_axi_DATA_ARPROT = ap_const_lv3_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARQOS() {
-    m_axi_CTRL_ARQOS = ap_const_lv4_0;
+void positionCtrl::thread_m_axi_DATA_ARQOS() {
+    m_axi_DATA_ARQOS = ap_const_lv4_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARREGION() {
-    m_axi_CTRL_ARREGION = ap_const_lv4_0;
+void positionCtrl::thread_m_axi_DATA_ARREGION() {
+    m_axi_DATA_ARREGION = ap_const_lv4_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARSIZE() {
-    m_axi_CTRL_ARSIZE = ap_const_lv3_0;
+void positionCtrl::thread_m_axi_DATA_ARSIZE() {
+    m_axi_DATA_ARSIZE = ap_const_lv3_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARUSER() {
-    m_axi_CTRL_ARUSER = ap_const_lv1_0;
+void positionCtrl::thread_m_axi_DATA_ARUSER() {
+    m_axi_DATA_ARUSER = ap_const_lv1_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_ARVALID() {
-    m_axi_CTRL_ARVALID = ap_const_logic_0;
+void positionCtrl::thread_m_axi_DATA_ARVALID() {
+    m_axi_DATA_ARVALID = ap_const_logic_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWADDR() {
-    m_axi_CTRL_AWADDR = ap_const_lv32_0;
+void positionCtrl::thread_m_axi_DATA_AWADDR() {
+    m_axi_DATA_AWADDR = ap_const_lv32_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWBURST() {
-    m_axi_CTRL_AWBURST = ap_const_lv2_0;
+void positionCtrl::thread_m_axi_DATA_AWBURST() {
+    m_axi_DATA_AWBURST = ap_const_lv2_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWCACHE() {
-    m_axi_CTRL_AWCACHE = ap_const_lv4_0;
+void positionCtrl::thread_m_axi_DATA_AWCACHE() {
+    m_axi_DATA_AWCACHE = ap_const_lv4_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWID() {
-    m_axi_CTRL_AWID = ap_const_lv1_0;
+void positionCtrl::thread_m_axi_DATA_AWID() {
+    m_axi_DATA_AWID = ap_const_lv1_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWLEN() {
-    m_axi_CTRL_AWLEN = ap_const_lv8_0;
+void positionCtrl::thread_m_axi_DATA_AWLEN() {
+    m_axi_DATA_AWLEN = ap_const_lv8_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWLOCK() {
-    m_axi_CTRL_AWLOCK = ap_const_lv2_0;
+void positionCtrl::thread_m_axi_DATA_AWLOCK() {
+    m_axi_DATA_AWLOCK = ap_const_lv2_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWPROT() {
-    m_axi_CTRL_AWPROT = ap_const_lv3_0;
+void positionCtrl::thread_m_axi_DATA_AWPROT() {
+    m_axi_DATA_AWPROT = ap_const_lv3_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWQOS() {
-    m_axi_CTRL_AWQOS = ap_const_lv4_0;
+void positionCtrl::thread_m_axi_DATA_AWQOS() {
+    m_axi_DATA_AWQOS = ap_const_lv4_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWREGION() {
-    m_axi_CTRL_AWREGION = ap_const_lv4_0;
+void positionCtrl::thread_m_axi_DATA_AWREGION() {
+    m_axi_DATA_AWREGION = ap_const_lv4_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWSIZE() {
-    m_axi_CTRL_AWSIZE = ap_const_lv3_0;
+void positionCtrl::thread_m_axi_DATA_AWSIZE() {
+    m_axi_DATA_AWSIZE = ap_const_lv3_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWUSER() {
-    m_axi_CTRL_AWUSER = ap_const_lv1_0;
+void positionCtrl::thread_m_axi_DATA_AWUSER() {
+    m_axi_DATA_AWUSER = ap_const_lv1_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_AWVALID() {
-    m_axi_CTRL_AWVALID = ap_const_logic_0;
+void positionCtrl::thread_m_axi_DATA_AWVALID() {
+    m_axi_DATA_AWVALID = ap_const_logic_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_BREADY() {
-    m_axi_CTRL_BREADY = ap_const_logic_0;
+void positionCtrl::thread_m_axi_DATA_BREADY() {
+    m_axi_DATA_BREADY = ap_const_logic_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_RREADY() {
-    m_axi_CTRL_RREADY = ap_const_logic_0;
+void positionCtrl::thread_m_axi_DATA_RREADY() {
+    m_axi_DATA_RREADY = ap_const_logic_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_WDATA() {
-    m_axi_CTRL_WDATA = ap_const_lv32_0;
+void positionCtrl::thread_m_axi_DATA_WDATA() {
+    m_axi_DATA_WDATA = ap_const_lv32_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_WID() {
-    m_axi_CTRL_WID = ap_const_lv1_0;
+void positionCtrl::thread_m_axi_DATA_WID() {
+    m_axi_DATA_WID = ap_const_lv1_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_WLAST() {
-    m_axi_CTRL_WLAST = ap_const_logic_0;
+void positionCtrl::thread_m_axi_DATA_WLAST() {
+    m_axi_DATA_WLAST = ap_const_logic_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_WSTRB() {
-    m_axi_CTRL_WSTRB = ap_const_lv4_0;
+void positionCtrl::thread_m_axi_DATA_WSTRB() {
+    m_axi_DATA_WSTRB = ap_const_lv4_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_WUSER() {
-    m_axi_CTRL_WUSER = ap_const_lv1_0;
+void positionCtrl::thread_m_axi_DATA_WUSER() {
+    m_axi_DATA_WUSER = ap_const_lv1_0;
 }
 
-void positionCtrl::thread_m_axi_CTRL_WVALID() {
-    m_axi_CTRL_WVALID = ap_const_logic_0;
+void positionCtrl::thread_m_axi_DATA_WVALID() {
+    m_axi_DATA_WVALID = ap_const_logic_0;
 }
 
 void positionCtrl::thread_ap_NS_fsm() {
@@ -453,51 +453,51 @@ void positionCtrl::thread_hdltv_gen() {
         wait();
         const char* mComma = ap_cycleNo == 0 ? " " : ", " ;
         mHdltvinHandle << mComma << "{"  <<  " \"ap_rst_n\" :  \"" << ap_rst_n.read() << "\" ";
-        mHdltvoutHandle << mComma << "{"  <<  " \"m_axi_CTRL_AWVALID\" :  \"" << m_axi_CTRL_AWVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_AWREADY\" :  \"" << m_axi_CTRL_AWREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWADDR\" :  \"" << m_axi_CTRL_AWADDR.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWID\" :  \"" << m_axi_CTRL_AWID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWLEN\" :  \"" << m_axi_CTRL_AWLEN.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWSIZE\" :  \"" << m_axi_CTRL_AWSIZE.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWBURST\" :  \"" << m_axi_CTRL_AWBURST.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWLOCK\" :  \"" << m_axi_CTRL_AWLOCK.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWCACHE\" :  \"" << m_axi_CTRL_AWCACHE.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWPROT\" :  \"" << m_axi_CTRL_AWPROT.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWQOS\" :  \"" << m_axi_CTRL_AWQOS.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWREGION\" :  \"" << m_axi_CTRL_AWREGION.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_AWUSER\" :  \"" << m_axi_CTRL_AWUSER.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_WVALID\" :  \"" << m_axi_CTRL_WVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_WREADY\" :  \"" << m_axi_CTRL_WREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_WDATA\" :  \"" << m_axi_CTRL_WDATA.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_WSTRB\" :  \"" << m_axi_CTRL_WSTRB.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_WLAST\" :  \"" << m_axi_CTRL_WLAST.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_WID\" :  \"" << m_axi_CTRL_WID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_WUSER\" :  \"" << m_axi_CTRL_WUSER.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARVALID\" :  \"" << m_axi_CTRL_ARVALID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_ARREADY\" :  \"" << m_axi_CTRL_ARREADY.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARADDR\" :  \"" << m_axi_CTRL_ARADDR.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARID\" :  \"" << m_axi_CTRL_ARID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARLEN\" :  \"" << m_axi_CTRL_ARLEN.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARSIZE\" :  \"" << m_axi_CTRL_ARSIZE.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARBURST\" :  \"" << m_axi_CTRL_ARBURST.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARLOCK\" :  \"" << m_axi_CTRL_ARLOCK.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARCACHE\" :  \"" << m_axi_CTRL_ARCACHE.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARPROT\" :  \"" << m_axi_CTRL_ARPROT.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARQOS\" :  \"" << m_axi_CTRL_ARQOS.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARREGION\" :  \"" << m_axi_CTRL_ARREGION.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_ARUSER\" :  \"" << m_axi_CTRL_ARUSER.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_RVALID\" :  \"" << m_axi_CTRL_RVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_RREADY\" :  \"" << m_axi_CTRL_RREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_RDATA\" :  \"" << m_axi_CTRL_RDATA.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_RLAST\" :  \"" << m_axi_CTRL_RLAST.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_RID\" :  \"" << m_axi_CTRL_RID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_RUSER\" :  \"" << m_axi_CTRL_RUSER.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_RRESP\" :  \"" << m_axi_CTRL_RRESP.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_BVALID\" :  \"" << m_axi_CTRL_BVALID.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"m_axi_CTRL_BREADY\" :  \"" << m_axi_CTRL_BREADY.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_BRESP\" :  \"" << m_axi_CTRL_BRESP.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_BID\" :  \"" << m_axi_CTRL_BID.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"m_axi_CTRL_BUSER\" :  \"" << m_axi_CTRL_BUSER.read() << "\" ";
+        mHdltvoutHandle << mComma << "{"  <<  " \"m_axi_DATA_AWVALID\" :  \"" << m_axi_DATA_AWVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_AWREADY\" :  \"" << m_axi_DATA_AWREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWADDR\" :  \"" << m_axi_DATA_AWADDR.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWID\" :  \"" << m_axi_DATA_AWID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWLEN\" :  \"" << m_axi_DATA_AWLEN.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWSIZE\" :  \"" << m_axi_DATA_AWSIZE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWBURST\" :  \"" << m_axi_DATA_AWBURST.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWLOCK\" :  \"" << m_axi_DATA_AWLOCK.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWCACHE\" :  \"" << m_axi_DATA_AWCACHE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWPROT\" :  \"" << m_axi_DATA_AWPROT.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWQOS\" :  \"" << m_axi_DATA_AWQOS.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWREGION\" :  \"" << m_axi_DATA_AWREGION.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_AWUSER\" :  \"" << m_axi_DATA_AWUSER.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_WVALID\" :  \"" << m_axi_DATA_WVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_WREADY\" :  \"" << m_axi_DATA_WREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_WDATA\" :  \"" << m_axi_DATA_WDATA.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_WSTRB\" :  \"" << m_axi_DATA_WSTRB.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_WLAST\" :  \"" << m_axi_DATA_WLAST.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_WID\" :  \"" << m_axi_DATA_WID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_WUSER\" :  \"" << m_axi_DATA_WUSER.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARVALID\" :  \"" << m_axi_DATA_ARVALID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_ARREADY\" :  \"" << m_axi_DATA_ARREADY.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARADDR\" :  \"" << m_axi_DATA_ARADDR.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARID\" :  \"" << m_axi_DATA_ARID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARLEN\" :  \"" << m_axi_DATA_ARLEN.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARSIZE\" :  \"" << m_axi_DATA_ARSIZE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARBURST\" :  \"" << m_axi_DATA_ARBURST.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARLOCK\" :  \"" << m_axi_DATA_ARLOCK.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARCACHE\" :  \"" << m_axi_DATA_ARCACHE.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARPROT\" :  \"" << m_axi_DATA_ARPROT.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARQOS\" :  \"" << m_axi_DATA_ARQOS.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARREGION\" :  \"" << m_axi_DATA_ARREGION.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_ARUSER\" :  \"" << m_axi_DATA_ARUSER.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_RVALID\" :  \"" << m_axi_DATA_RVALID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_RREADY\" :  \"" << m_axi_DATA_RREADY.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_RDATA\" :  \"" << m_axi_DATA_RDATA.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_RLAST\" :  \"" << m_axi_DATA_RLAST.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_RID\" :  \"" << m_axi_DATA_RID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_RUSER\" :  \"" << m_axi_DATA_RUSER.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_RRESP\" :  \"" << m_axi_DATA_RRESP.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_BVALID\" :  \"" << m_axi_DATA_BVALID.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"m_axi_DATA_BREADY\" :  \"" << m_axi_DATA_BREADY.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_BRESP\" :  \"" << m_axi_DATA_BRESP.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_BID\" :  \"" << m_axi_DATA_BID.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"m_axi_DATA_BUSER\" :  \"" << m_axi_DATA_BUSER.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"s_axi_CTRL_AWVALID\" :  \"" << s_axi_CTRL_AWVALID.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"s_axi_CTRL_AWREADY\" :  \"" << s_axi_CTRL_AWREADY.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"s_axi_CTRL_AWADDR\" :  \"" << s_axi_CTRL_AWADDR.read() << "\" ";

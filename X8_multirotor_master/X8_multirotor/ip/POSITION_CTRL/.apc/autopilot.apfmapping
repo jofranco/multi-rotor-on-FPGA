@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="positionCtrl.hpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\POSITION_CTRL\positionCtrl.hpp"/>
+    <originFiles name="positionCtrl.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\POSITION_CTRL\positionCtrl.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="test_posiitonCtrl.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\POSITION_CTRL\test_posiitonCtrl.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

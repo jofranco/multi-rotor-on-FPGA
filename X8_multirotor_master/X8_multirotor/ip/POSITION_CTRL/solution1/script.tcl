@@ -5,9 +5,9 @@
 ############################################################
 open_project POSITION_CTRL
 set_top positionCtrl
-add_files POSITION_CTRL/positionCtrl.cpp
 add_files POSITION_CTRL/positionCtrl.hpp
-add_files -tb POSITION_CTRL/test_posiitonCtrl.cpp
+add_files POSITION_CTRL/positionCtrl.cpp
+add_files -tb POSITION_CTRL/test_posiitonCtrl.cpp -cflags "-Wno-unknown-pragmas"
 open_solution "solution1"
 set_part {xc7z020clg400-1} -tool vivado
 create_clock -period 10 -name default

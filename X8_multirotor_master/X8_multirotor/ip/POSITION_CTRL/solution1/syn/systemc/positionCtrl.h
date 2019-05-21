@@ -15,65 +15,65 @@
 
 namespace ap_rtl {
 
-template<unsigned int C_M_AXI_CTRL_ADDR_WIDTH = 32,
-         unsigned int C_M_AXI_CTRL_ID_WIDTH = 1,
-         unsigned int C_M_AXI_CTRL_AWUSER_WIDTH = 1,
-         unsigned int C_M_AXI_CTRL_DATA_WIDTH = 32,
-         unsigned int C_M_AXI_CTRL_WUSER_WIDTH = 1,
-         unsigned int C_M_AXI_CTRL_ARUSER_WIDTH = 1,
-         unsigned int C_M_AXI_CTRL_RUSER_WIDTH = 1,
-         unsigned int C_M_AXI_CTRL_BUSER_WIDTH = 1,
+template<unsigned int C_M_AXI_DATA_ADDR_WIDTH = 32,
+         unsigned int C_M_AXI_DATA_ID_WIDTH = 1,
+         unsigned int C_M_AXI_DATA_AWUSER_WIDTH = 1,
+         unsigned int C_M_AXI_DATA_DATA_WIDTH = 32,
+         unsigned int C_M_AXI_DATA_WUSER_WIDTH = 1,
+         unsigned int C_M_AXI_DATA_ARUSER_WIDTH = 1,
+         unsigned int C_M_AXI_DATA_RUSER_WIDTH = 1,
+         unsigned int C_M_AXI_DATA_BUSER_WIDTH = 1,
          unsigned int C_S_AXI_CTRL_ADDR_WIDTH = 14,
          unsigned int C_S_AXI_CTRL_DATA_WIDTH = 32>
 struct positionCtrl : public sc_module {
     // Port declarations 65
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst_n;
-    sc_out< sc_logic > m_axi_CTRL_AWVALID;
-    sc_in< sc_logic > m_axi_CTRL_AWREADY;
-    sc_out< sc_uint<C_M_AXI_CTRL_ADDR_WIDTH> > m_axi_CTRL_AWADDR;
-    sc_out< sc_uint<C_M_AXI_CTRL_ID_WIDTH> > m_axi_CTRL_AWID;
-    sc_out< sc_lv<8> > m_axi_CTRL_AWLEN;
-    sc_out< sc_lv<3> > m_axi_CTRL_AWSIZE;
-    sc_out< sc_lv<2> > m_axi_CTRL_AWBURST;
-    sc_out< sc_lv<2> > m_axi_CTRL_AWLOCK;
-    sc_out< sc_lv<4> > m_axi_CTRL_AWCACHE;
-    sc_out< sc_lv<3> > m_axi_CTRL_AWPROT;
-    sc_out< sc_lv<4> > m_axi_CTRL_AWQOS;
-    sc_out< sc_lv<4> > m_axi_CTRL_AWREGION;
-    sc_out< sc_uint<C_M_AXI_CTRL_AWUSER_WIDTH> > m_axi_CTRL_AWUSER;
-    sc_out< sc_logic > m_axi_CTRL_WVALID;
-    sc_in< sc_logic > m_axi_CTRL_WREADY;
-    sc_out< sc_uint<C_M_AXI_CTRL_DATA_WIDTH> > m_axi_CTRL_WDATA;
-    sc_out< sc_uint<C_M_AXI_CTRL_DATA_WIDTH/8> > m_axi_CTRL_WSTRB;
-    sc_out< sc_logic > m_axi_CTRL_WLAST;
-    sc_out< sc_uint<C_M_AXI_CTRL_ID_WIDTH> > m_axi_CTRL_WID;
-    sc_out< sc_uint<C_M_AXI_CTRL_WUSER_WIDTH> > m_axi_CTRL_WUSER;
-    sc_out< sc_logic > m_axi_CTRL_ARVALID;
-    sc_in< sc_logic > m_axi_CTRL_ARREADY;
-    sc_out< sc_uint<C_M_AXI_CTRL_ADDR_WIDTH> > m_axi_CTRL_ARADDR;
-    sc_out< sc_uint<C_M_AXI_CTRL_ID_WIDTH> > m_axi_CTRL_ARID;
-    sc_out< sc_lv<8> > m_axi_CTRL_ARLEN;
-    sc_out< sc_lv<3> > m_axi_CTRL_ARSIZE;
-    sc_out< sc_lv<2> > m_axi_CTRL_ARBURST;
-    sc_out< sc_lv<2> > m_axi_CTRL_ARLOCK;
-    sc_out< sc_lv<4> > m_axi_CTRL_ARCACHE;
-    sc_out< sc_lv<3> > m_axi_CTRL_ARPROT;
-    sc_out< sc_lv<4> > m_axi_CTRL_ARQOS;
-    sc_out< sc_lv<4> > m_axi_CTRL_ARREGION;
-    sc_out< sc_uint<C_M_AXI_CTRL_ARUSER_WIDTH> > m_axi_CTRL_ARUSER;
-    sc_in< sc_logic > m_axi_CTRL_RVALID;
-    sc_out< sc_logic > m_axi_CTRL_RREADY;
-    sc_in< sc_uint<C_M_AXI_CTRL_DATA_WIDTH> > m_axi_CTRL_RDATA;
-    sc_in< sc_logic > m_axi_CTRL_RLAST;
-    sc_in< sc_uint<C_M_AXI_CTRL_ID_WIDTH> > m_axi_CTRL_RID;
-    sc_in< sc_uint<C_M_AXI_CTRL_RUSER_WIDTH> > m_axi_CTRL_RUSER;
-    sc_in< sc_lv<2> > m_axi_CTRL_RRESP;
-    sc_in< sc_logic > m_axi_CTRL_BVALID;
-    sc_out< sc_logic > m_axi_CTRL_BREADY;
-    sc_in< sc_lv<2> > m_axi_CTRL_BRESP;
-    sc_in< sc_uint<C_M_AXI_CTRL_ID_WIDTH> > m_axi_CTRL_BID;
-    sc_in< sc_uint<C_M_AXI_CTRL_BUSER_WIDTH> > m_axi_CTRL_BUSER;
+    sc_out< sc_logic > m_axi_DATA_AWVALID;
+    sc_in< sc_logic > m_axi_DATA_AWREADY;
+    sc_out< sc_uint<C_M_AXI_DATA_ADDR_WIDTH> > m_axi_DATA_AWADDR;
+    sc_out< sc_uint<C_M_AXI_DATA_ID_WIDTH> > m_axi_DATA_AWID;
+    sc_out< sc_lv<8> > m_axi_DATA_AWLEN;
+    sc_out< sc_lv<3> > m_axi_DATA_AWSIZE;
+    sc_out< sc_lv<2> > m_axi_DATA_AWBURST;
+    sc_out< sc_lv<2> > m_axi_DATA_AWLOCK;
+    sc_out< sc_lv<4> > m_axi_DATA_AWCACHE;
+    sc_out< sc_lv<3> > m_axi_DATA_AWPROT;
+    sc_out< sc_lv<4> > m_axi_DATA_AWQOS;
+    sc_out< sc_lv<4> > m_axi_DATA_AWREGION;
+    sc_out< sc_uint<C_M_AXI_DATA_AWUSER_WIDTH> > m_axi_DATA_AWUSER;
+    sc_out< sc_logic > m_axi_DATA_WVALID;
+    sc_in< sc_logic > m_axi_DATA_WREADY;
+    sc_out< sc_uint<C_M_AXI_DATA_DATA_WIDTH> > m_axi_DATA_WDATA;
+    sc_out< sc_uint<C_M_AXI_DATA_DATA_WIDTH/8> > m_axi_DATA_WSTRB;
+    sc_out< sc_logic > m_axi_DATA_WLAST;
+    sc_out< sc_uint<C_M_AXI_DATA_ID_WIDTH> > m_axi_DATA_WID;
+    sc_out< sc_uint<C_M_AXI_DATA_WUSER_WIDTH> > m_axi_DATA_WUSER;
+    sc_out< sc_logic > m_axi_DATA_ARVALID;
+    sc_in< sc_logic > m_axi_DATA_ARREADY;
+    sc_out< sc_uint<C_M_AXI_DATA_ADDR_WIDTH> > m_axi_DATA_ARADDR;
+    sc_out< sc_uint<C_M_AXI_DATA_ID_WIDTH> > m_axi_DATA_ARID;
+    sc_out< sc_lv<8> > m_axi_DATA_ARLEN;
+    sc_out< sc_lv<3> > m_axi_DATA_ARSIZE;
+    sc_out< sc_lv<2> > m_axi_DATA_ARBURST;
+    sc_out< sc_lv<2> > m_axi_DATA_ARLOCK;
+    sc_out< sc_lv<4> > m_axi_DATA_ARCACHE;
+    sc_out< sc_lv<3> > m_axi_DATA_ARPROT;
+    sc_out< sc_lv<4> > m_axi_DATA_ARQOS;
+    sc_out< sc_lv<4> > m_axi_DATA_ARREGION;
+    sc_out< sc_uint<C_M_AXI_DATA_ARUSER_WIDTH> > m_axi_DATA_ARUSER;
+    sc_in< sc_logic > m_axi_DATA_RVALID;
+    sc_out< sc_logic > m_axi_DATA_RREADY;
+    sc_in< sc_uint<C_M_AXI_DATA_DATA_WIDTH> > m_axi_DATA_RDATA;
+    sc_in< sc_logic > m_axi_DATA_RLAST;
+    sc_in< sc_uint<C_M_AXI_DATA_ID_WIDTH> > m_axi_DATA_RID;
+    sc_in< sc_uint<C_M_AXI_DATA_RUSER_WIDTH> > m_axi_DATA_RUSER;
+    sc_in< sc_lv<2> > m_axi_DATA_RRESP;
+    sc_in< sc_logic > m_axi_DATA_BVALID;
+    sc_out< sc_logic > m_axi_DATA_BREADY;
+    sc_in< sc_lv<2> > m_axi_DATA_BRESP;
+    sc_in< sc_uint<C_M_AXI_DATA_ID_WIDTH> > m_axi_DATA_BID;
+    sc_in< sc_uint<C_M_AXI_DATA_BUSER_WIDTH> > m_axi_DATA_BUSER;
     sc_in< sc_logic > s_axi_CTRL_AWVALID;
     sc_out< sc_logic > s_axi_CTRL_AWREADY;
     sc_in< sc_uint<C_S_AXI_CTRL_ADDR_WIDTH> > s_axi_CTRL_AWADDR;
@@ -119,10 +119,10 @@ struct positionCtrl : public sc_module {
     static const sc_lv<1> ap_ST_fsm_state1;
     static const sc_lv<32> ap_const_lv32_0;
     static const int C_S_AXI_DATA_WIDTH;
-    static const int C_M_AXI_CTRL_TARGET_ADDR;
-    static const int C_M_AXI_CTRL_USER_VALUE;
-    static const int C_M_AXI_CTRL_PROT_VALUE;
-    static const int C_M_AXI_CTRL_CACHE_VALUE;
+    static const int C_M_AXI_DATA_TARGET_ADDR;
+    static const int C_M_AXI_DATA_USER_VALUE;
+    static const int C_M_AXI_DATA_PROT_VALUE;
+    static const int C_M_AXI_DATA_CACHE_VALUE;
     static const sc_lv<1> ap_const_lv1_0;
     static const sc_lv<8> ap_const_lv8_0;
     static const sc_lv<3> ap_const_lv3_0;
@@ -137,38 +137,38 @@ struct positionCtrl : public sc_module {
     void thread_ap_idle();
     void thread_ap_ready();
     void thread_ap_rst_n_inv();
-    void thread_m_axi_CTRL_ARADDR();
-    void thread_m_axi_CTRL_ARBURST();
-    void thread_m_axi_CTRL_ARCACHE();
-    void thread_m_axi_CTRL_ARID();
-    void thread_m_axi_CTRL_ARLEN();
-    void thread_m_axi_CTRL_ARLOCK();
-    void thread_m_axi_CTRL_ARPROT();
-    void thread_m_axi_CTRL_ARQOS();
-    void thread_m_axi_CTRL_ARREGION();
-    void thread_m_axi_CTRL_ARSIZE();
-    void thread_m_axi_CTRL_ARUSER();
-    void thread_m_axi_CTRL_ARVALID();
-    void thread_m_axi_CTRL_AWADDR();
-    void thread_m_axi_CTRL_AWBURST();
-    void thread_m_axi_CTRL_AWCACHE();
-    void thread_m_axi_CTRL_AWID();
-    void thread_m_axi_CTRL_AWLEN();
-    void thread_m_axi_CTRL_AWLOCK();
-    void thread_m_axi_CTRL_AWPROT();
-    void thread_m_axi_CTRL_AWQOS();
-    void thread_m_axi_CTRL_AWREGION();
-    void thread_m_axi_CTRL_AWSIZE();
-    void thread_m_axi_CTRL_AWUSER();
-    void thread_m_axi_CTRL_AWVALID();
-    void thread_m_axi_CTRL_BREADY();
-    void thread_m_axi_CTRL_RREADY();
-    void thread_m_axi_CTRL_WDATA();
-    void thread_m_axi_CTRL_WID();
-    void thread_m_axi_CTRL_WLAST();
-    void thread_m_axi_CTRL_WSTRB();
-    void thread_m_axi_CTRL_WUSER();
-    void thread_m_axi_CTRL_WVALID();
+    void thread_m_axi_DATA_ARADDR();
+    void thread_m_axi_DATA_ARBURST();
+    void thread_m_axi_DATA_ARCACHE();
+    void thread_m_axi_DATA_ARID();
+    void thread_m_axi_DATA_ARLEN();
+    void thread_m_axi_DATA_ARLOCK();
+    void thread_m_axi_DATA_ARPROT();
+    void thread_m_axi_DATA_ARQOS();
+    void thread_m_axi_DATA_ARREGION();
+    void thread_m_axi_DATA_ARSIZE();
+    void thread_m_axi_DATA_ARUSER();
+    void thread_m_axi_DATA_ARVALID();
+    void thread_m_axi_DATA_AWADDR();
+    void thread_m_axi_DATA_AWBURST();
+    void thread_m_axi_DATA_AWCACHE();
+    void thread_m_axi_DATA_AWID();
+    void thread_m_axi_DATA_AWLEN();
+    void thread_m_axi_DATA_AWLOCK();
+    void thread_m_axi_DATA_AWPROT();
+    void thread_m_axi_DATA_AWQOS();
+    void thread_m_axi_DATA_AWREGION();
+    void thread_m_axi_DATA_AWSIZE();
+    void thread_m_axi_DATA_AWUSER();
+    void thread_m_axi_DATA_AWVALID();
+    void thread_m_axi_DATA_BREADY();
+    void thread_m_axi_DATA_RREADY();
+    void thread_m_axi_DATA_WDATA();
+    void thread_m_axi_DATA_WID();
+    void thread_m_axi_DATA_WLAST();
+    void thread_m_axi_DATA_WSTRB();
+    void thread_m_axi_DATA_WUSER();
+    void thread_m_axi_DATA_WVALID();
     void thread_ap_NS_fsm();
     void thread_hdltv_gen();
 };

@@ -10,7 +10,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>CTRL</name>
+<name>DATA</name>
 <CType>
 <TypeName>unsigned short</TypeName>
 <TypeWidth>16</TypeWidth>

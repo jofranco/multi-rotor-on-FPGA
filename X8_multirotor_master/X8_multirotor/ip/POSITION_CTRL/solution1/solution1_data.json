@@ -65,7 +65,7 @@
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
-      "buses": "s_axi_CTRL m_axi_CTRL",
+      "buses": "s_axi_CTRL m_axi_DATA",
       "reset": "ap_rst_n"
     },
     "ap_rst_n": {
@@ -77,13 +77,13 @@
       "type": "interrupt",
       "ctype": {"INTERRUPT": {"Type": "bool"}}
     },
-    "m_axi_CTRL": {
+    "m_axi_DATA": {
       "type": "native_axim",
       "is_adaptor": "true",
       "mode": "master",
-      "port_prefix": "m_axi_CTRL",
+      "port_prefix": "m_axi_DATA",
       "data_width": "32",
-      "param_prefix": "C_M_AXI_CTRL",
+      "param_prefix": "C_M_AXI_DATA",
       "ctype": {
         "AWLEN": {
           "Type": "integer unsigned",
@@ -554,192 +554,192 @@
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_AWVALID": {
+    "m_axi_DATA_AWVALID": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_CTRL_AWREADY": {
+    "m_axi_DATA_AWREADY": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_CTRL_AWADDR": {
+    "m_axi_DATA_AWADDR": {
       "dir": "out",
       "width": "32"
     },
-    "m_axi_CTRL_AWID": {
+    "m_axi_DATA_AWID": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_AWLEN": {
+    "m_axi_DATA_AWLEN": {
       "dir": "out",
       "width": "8"
     },
-    "m_axi_CTRL_AWSIZE": {
+    "m_axi_DATA_AWSIZE": {
       "dir": "out",
       "width": "3"
     },
-    "m_axi_CTRL_AWBURST": {
+    "m_axi_DATA_AWBURST": {
       "dir": "out",
       "width": "2"
     },
-    "m_axi_CTRL_AWLOCK": {
+    "m_axi_DATA_AWLOCK": {
       "dir": "out",
       "width": "2"
     },
-    "m_axi_CTRL_AWCACHE": {
+    "m_axi_DATA_AWCACHE": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_CTRL_AWPROT": {
+    "m_axi_DATA_AWPROT": {
       "dir": "out",
       "width": "3"
     },
-    "m_axi_CTRL_AWQOS": {
+    "m_axi_DATA_AWQOS": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_CTRL_AWREGION": {
+    "m_axi_DATA_AWREGION": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_CTRL_AWUSER": {
+    "m_axi_DATA_AWUSER": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_WVALID": {
+    "m_axi_DATA_WVALID": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_CTRL_WREADY": {
+    "m_axi_DATA_WREADY": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_CTRL_WDATA": {
+    "m_axi_DATA_WDATA": {
       "dir": "out",
       "width": "32"
     },
-    "m_axi_CTRL_WSTRB": {
+    "m_axi_DATA_WSTRB": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_CTRL_WLAST": {
+    "m_axi_DATA_WLAST": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_CTRL_WID": {
+    "m_axi_DATA_WID": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_WUSER": {
+    "m_axi_DATA_WUSER": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_ARVALID": {
+    "m_axi_DATA_ARVALID": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_CTRL_ARREADY": {
+    "m_axi_DATA_ARREADY": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_CTRL_ARADDR": {
+    "m_axi_DATA_ARADDR": {
       "dir": "out",
       "width": "32"
     },
-    "m_axi_CTRL_ARID": {
+    "m_axi_DATA_ARID": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_ARLEN": {
+    "m_axi_DATA_ARLEN": {
       "dir": "out",
       "width": "8"
     },
-    "m_axi_CTRL_ARSIZE": {
+    "m_axi_DATA_ARSIZE": {
       "dir": "out",
       "width": "3"
     },
-    "m_axi_CTRL_ARBURST": {
+    "m_axi_DATA_ARBURST": {
       "dir": "out",
       "width": "2"
     },
-    "m_axi_CTRL_ARLOCK": {
+    "m_axi_DATA_ARLOCK": {
       "dir": "out",
       "width": "2"
     },
-    "m_axi_CTRL_ARCACHE": {
+    "m_axi_DATA_ARCACHE": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_CTRL_ARPROT": {
+    "m_axi_DATA_ARPROT": {
       "dir": "out",
       "width": "3"
     },
-    "m_axi_CTRL_ARQOS": {
+    "m_axi_DATA_ARQOS": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_CTRL_ARREGION": {
+    "m_axi_DATA_ARREGION": {
       "dir": "out",
       "width": "4"
     },
-    "m_axi_CTRL_ARUSER": {
+    "m_axi_DATA_ARUSER": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_RVALID": {
+    "m_axi_DATA_RVALID": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_CTRL_RREADY": {
+    "m_axi_DATA_RREADY": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_CTRL_RDATA": {
+    "m_axi_DATA_RDATA": {
       "dir": "in",
       "width": "32"
     },
-    "m_axi_CTRL_RLAST": {
+    "m_axi_DATA_RLAST": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_CTRL_RID": {
+    "m_axi_DATA_RID": {
       "dir": "in",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_RUSER": {
+    "m_axi_DATA_RUSER": {
       "dir": "in",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_RRESP": {
+    "m_axi_DATA_RRESP": {
       "dir": "in",
       "width": "2"
     },
-    "m_axi_CTRL_BVALID": {
+    "m_axi_DATA_BVALID": {
       "dir": "in",
       "width": "1"
     },
-    "m_axi_CTRL_BREADY": {
+    "m_axi_DATA_BREADY": {
       "dir": "out",
       "width": "1"
     },
-    "m_axi_CTRL_BRESP": {
+    "m_axi_DATA_BRESP": {
       "dir": "in",
       "width": "2"
     },
-    "m_axi_CTRL_BID": {
+    "m_axi_DATA_BID": {
       "dir": "in",
       "width": "1",
       "isVector": "true"
     },
-    "m_axi_CTRL_BUSER": {
+    "m_axi_DATA_BUSER": {
       "dir": "in",
       "width": "1",
       "isVector": "true"
@@ -758,8 +758,8 @@
       "dir": "in",
       "offset": "0"
     },
-    "CTRL": {
-      "interfaceRef": "m_axi_CTRL",
+    "DATA": {
+      "interfaceRef": "m_axi_DATA",
       "dir": "inout"
     }
   },
@@ -794,7 +794,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-05-16 22:11:46 -0700",
+    "Time": "2019-05-20 23:05:51 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

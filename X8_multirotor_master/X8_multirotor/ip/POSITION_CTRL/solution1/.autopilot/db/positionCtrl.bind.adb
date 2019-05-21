@@ -43,7 +43,7 @@
 					<Obj>
 						<type>1</type>
 						<id>2</id>
-						<name>CTRL</name>
+						<name>DATA</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -77,14 +77,14 @@
 						<id>10</id>
 						<name></name>
 						<fileName>POSITION_CTRL/positionCtrl.cpp</fileName>
-						<fileDirectory>C:\Users\c7jeff\Desktop\Software\multi-rotor-on-FPGA\temp\Pmod_NAV</fileDirectory>
-						<lineNumber>21</lineNumber>
+						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip</fileDirectory>
+						<lineNumber>22</lineNumber>
 						<contextFuncName>positionCtrl</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item class_id="10" tracking_level="0" version="0">
-								<first>C:\Users\c7jeff\Desktop\Software\multi-rotor-on-FPGA\temp\Pmod_NAV</first>
+								<first>C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip</first>
 								<second class_id="11" tracking_level="0" version="0">
 									<count>1</count>
 									<item_version>0</item_version>
@@ -93,7 +93,7 @@
 											<first>POSITION_CTRL/positionCtrl.cpp</first>
 											<second>positionCtrl</second>
 										</first>
-										<second>21</second>
+										<second>22</second>
 									</item>
 								</second>
 							</item>
@@ -305,7 +305,7 @@
 		<count>1</count>
 		<item_version>0</item_version>
 		<item class_id="40" tracking_level="0" version="0">
-			<first>CTRL</first>
+			<first>DATA</first>
 			<second>
 				<count>0</count>
 				<item_version>0</item_version>

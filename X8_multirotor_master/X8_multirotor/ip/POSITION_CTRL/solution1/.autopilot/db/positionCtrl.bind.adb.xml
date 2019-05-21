@@ -34,7 +34,7 @@
 
 <Node id="4" bw="0" op_0_bw="0" op_1_bw="16">
 <![CDATA[
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i16* %CTRL), !map !20
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i16* %DATA), !map !20
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -79,7 +79,7 @@
 
 <Node id="7" bw="32" op_0_bw="32" op_1_bw="16" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-:4  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([4096 x i16]* %pmod_data, [1 x i8]* @p_str5, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str5, i32 -1, [1 x i8]* @p_str5, [1 x i8]* @p_str5, [1 x i8]* @p_str5, [1 x i8]* @p_str5, [1 x i8]* @p_str5)
+:4  %empty = call i32 (...)* @_ssdm_op_SpecMemCore([4096 x i16]* %pmod_data, [1 x i8]* @p_str6, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str6, i32 -1, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6)
 
 ]]></Node>
 <StgValue><ssdm name="empty"/></StgValue>
@@ -109,7 +109,7 @@
 
 <Node id="9" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
 <![CDATA[
-:6  call void (...)* @_ssdm_op_SpecInterface(i16* %CTRL, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 6, [5 x i8]* @p_str2, [4 x i8]* @p_str4, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
+:6  call void (...)* @_ssdm_op_SpecInterface(i16* %DATA, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 6, [5 x i8]* @p_str4, [4 x i8]* @p_str5, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1)
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -137,8 +137,8 @@
 <port id="10" name="pmod_data" dir="3" iftype="1">
 <core>RAM_1P</core><StgValue><ssdm name="pmod_data"/></StgValue>
 </port>
-<port id="11" name="CTRL" dir="0" iftype="4">
-<core>NULL</core><StgValue><ssdm name="CTRL"/></StgValue>
+<port id="11" name="DATA" dir="0" iftype="4">
+<core>NULL</core><StgValue><ssdm name="DATA"/></StgValue>
 </port>
 </ports>
 
@@ -150,7 +150,7 @@
 </dataflow>
 <dataflow id="15" from="_ssdm_op_SpecBitsMap" to="StgValue_3" fromId="12" toId="3">
 </dataflow>
-<dataflow id="16" from="CTRL" to="StgValue_3" fromId="11" toId="3">
+<dataflow id="16" from="DATA" to="StgValue_3" fromId="11" toId="3">
 </dataflow>
 <dataflow id="18" from="_ssdm_op_SpecTopModule" to="StgValue_4" fromId="17" toId="4">
 </dataflow>
@@ -194,23 +194,23 @@
 </dataflow>
 <dataflow id="45" from="pmod_data" to="empty" fromId="10" toId="6">
 </dataflow>
-<dataflow id="47" from="p_str5" to="empty" fromId="46" toId="6">
+<dataflow id="47" from="p_str6" to="empty" fromId="46" toId="6">
 </dataflow>
 <dataflow id="49" from="RAM_1P_str" to="empty" fromId="48" toId="6">
 </dataflow>
-<dataflow id="50" from="p_str5" to="empty" fromId="46" toId="6">
+<dataflow id="50" from="p_str6" to="empty" fromId="46" toId="6">
 </dataflow>
 <dataflow id="52" from="StgValue_51" to="empty" fromId="51" toId="6">
 </dataflow>
-<dataflow id="53" from="p_str5" to="empty" fromId="46" toId="6">
+<dataflow id="53" from="p_str6" to="empty" fromId="46" toId="6">
 </dataflow>
-<dataflow id="54" from="p_str5" to="empty" fromId="46" toId="6">
+<dataflow id="54" from="p_str6" to="empty" fromId="46" toId="6">
 </dataflow>
-<dataflow id="55" from="p_str5" to="empty" fromId="46" toId="6">
+<dataflow id="55" from="p_str6" to="empty" fromId="46" toId="6">
 </dataflow>
-<dataflow id="56" from="p_str5" to="empty" fromId="46" toId="6">
+<dataflow id="56" from="p_str6" to="empty" fromId="46" toId="6">
 </dataflow>
-<dataflow id="57" from="p_str5" to="empty" fromId="46" toId="6">
+<dataflow id="57" from="p_str6" to="empty" fromId="46" toId="6">
 </dataflow>
 <dataflow id="58" from="_ssdm_op_SpecInterface" to="StgValue_7" fromId="21" toId="7">
 </dataflow>
@@ -248,7 +248,7 @@
 </dataflow>
 <dataflow id="76" from="_ssdm_op_SpecInterface" to="StgValue_8" fromId="21" toId="8">
 </dataflow>
-<dataflow id="77" from="CTRL" to="StgValue_8" fromId="11" toId="8">
+<dataflow id="77" from="DATA" to="StgValue_8" fromId="11" toId="8">
 </dataflow>
 <dataflow id="79" from="p_str3" to="StgValue_8" fromId="78" toId="8">
 </dataflow>
@@ -262,23 +262,23 @@
 </dataflow>
 <dataflow id="85" from="StgValue_84" to="StgValue_8" fromId="84" toId="8">
 </dataflow>
-<dataflow id="86" from="p_str2" to="StgValue_8" fromId="33" toId="8">
+<dataflow id="87" from="p_str4" to="StgValue_8" fromId="86" toId="8">
 </dataflow>
-<dataflow id="88" from="p_str4" to="StgValue_8" fromId="87" toId="8">
+<dataflow id="89" from="p_str5" to="StgValue_8" fromId="88" toId="8">
 </dataflow>
-<dataflow id="89" from="p_str1" to="StgValue_8" fromId="29" toId="8">
+<dataflow id="90" from="p_str1" to="StgValue_8" fromId="29" toId="8">
 </dataflow>
-<dataflow id="91" from="StgValue_90" to="StgValue_8" fromId="90" toId="8">
+<dataflow id="92" from="StgValue_91" to="StgValue_8" fromId="91" toId="8">
 </dataflow>
-<dataflow id="92" from="StgValue_90" to="StgValue_8" fromId="90" toId="8">
+<dataflow id="93" from="StgValue_91" to="StgValue_8" fromId="91" toId="8">
 </dataflow>
-<dataflow id="93" from="StgValue_90" to="StgValue_8" fromId="90" toId="8">
+<dataflow id="94" from="StgValue_91" to="StgValue_8" fromId="91" toId="8">
 </dataflow>
-<dataflow id="94" from="StgValue_90" to="StgValue_8" fromId="90" toId="8">
-</dataflow>
-<dataflow id="95" from="p_str1" to="StgValue_8" fromId="29" toId="8">
+<dataflow id="95" from="StgValue_91" to="StgValue_8" fromId="91" toId="8">
 </dataflow>
 <dataflow id="96" from="p_str1" to="StgValue_8" fromId="29" toId="8">
+</dataflow>
+<dataflow id="97" from="p_str1" to="StgValue_8" fromId="29" toId="8">
 </dataflow>
 </dataflows>
 

@@ -43,7 +43,7 @@ set SCTraceOption "all"
 set TargetInfo "xc7z020:clg400:-1"
 set SourceFiles {sc {} c ../positionCtrl.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile {C:/Users/c7jeff/Desktop/Software/multi-rotor-on-FPGA/temp/Pmod_NAV/POSITION_CTRL/solution1/solution1.directive}
+set DirectiveFile {C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/POSITION_CTRL/solution1/solution1.directive}
 set TBFiles {verilog ../test_posiitonCtrl.cpp bc ../test_posiitonCtrl.cpp vhdl ../test_posiitonCtrl.cpp sc ../test_posiitonCtrl.cpp cas ../test_posiitonCtrl.cpp c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
