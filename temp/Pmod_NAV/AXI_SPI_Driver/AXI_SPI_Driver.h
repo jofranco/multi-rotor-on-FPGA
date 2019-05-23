@@ -93,10 +93,12 @@ struct DTYPE2
 /*
  * Function definitions
  */
+uint16_t xspi_write(uint8_t address, uint8_t val);
+uint16_t xspi_read(uint8_t addr, uint8_t val);
 
 // main driver
-void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint16_t pmod_data[4096], uint16_t pmod_tes[4096]);
-//void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint16_t pmod_data[4096]);
+void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16_t pmod_test[4096]);
+//void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096]);
 
 
 //delay function in milliseconds
