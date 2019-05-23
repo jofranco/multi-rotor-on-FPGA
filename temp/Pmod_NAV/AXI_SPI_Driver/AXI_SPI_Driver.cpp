@@ -113,8 +113,8 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16
 		default:
 
 			pmod_data[0] = 0x1111;
-			pmod_data[1] = 0x2222;
-			pmod_data[2] = 0x3333;
+			pmod_data[1] = 0x2222;	// 13107d
+			pmod_data[2] = 0x3333;	// 17476d
 			pmod_data[3] = 0x4444;
 			pmod_data[4] = 0x5555;
 			pmod_data[5] = 0x6666;
@@ -125,8 +125,8 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16
 			pmod_test[0] = 0x1111;
 			pmod_test[1] = 0x2222;
 			pmod_test[2] = 0x3333;
-			pmod_test[3] = 0x4444;
-			pmod_test[4] = 0x5555;
+			pmod_test[3] = 0x4444;	// 17476d
+			pmod_test[4] = 0x5555;	// 21845d
 			pmod_test[5] = 0x6666;
 			pmod_test[6] = 0x7777;
 			pmod_test[7] = 0x8888;
@@ -138,6 +138,7 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16
 			ADDRESS = GYRO_WHO_AM_I | READ_CFG;
 			DATA = 0x00;
 			MESSAGE = (ADDRESS << 8) | DATA; //Testing read from SPI Core
+			spi_bus[SPI_DTR] = MESSAGE;
 
 			pmod_data[0] = spi_bus[SPI_DRR]; // expect 0x68h (104d)
 
