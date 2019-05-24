@@ -156,7 +156,7 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16
 			// -- *(spi_bus + (0x1C >> 2)) = 0xDEADBEEF;	// test write
 
 			// testing write capability
-			spi_bus[SPI_DTR] = 0xDEADBEEF;
+			//spi_bus[SPI_DTR] = 0xDEADBEEF;
 			//temp = *TX_message;
 
 			//delay_until_ms<1>();
