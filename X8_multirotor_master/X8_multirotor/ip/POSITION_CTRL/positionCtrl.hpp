@@ -21,4 +21,7 @@
 //Parameter G range : +/- 16g
 #define NAV_ACL_PAR_XL_16G 1
 
+float Nav_GetGRangeLSB(uint8_t bRangeG);
+float Nav_GetXLRangeLSB(uint8_t bRangeXL);
+
 void positionCtrl(uint16_t pmod_data[SIZE], uint16_t pos_data[SIZE]);
