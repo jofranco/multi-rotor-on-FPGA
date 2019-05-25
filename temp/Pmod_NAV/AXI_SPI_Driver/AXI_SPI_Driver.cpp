@@ -105,9 +105,45 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
 			state++;
 			break;
 
-		case 2:	//	Enabling Pmod_Nav
+		case 2:	//	Enabling Pmod_Nav, state 1
 
-			pmod_data[0] = Nav_Acc_Gyro_Pwr(spi_bus, 1);
+			//pmod_data[0] = Nav_Acc_Gyro_Pwr(spi_bus, 1);
+			pmod_data[0] = 0x01;
+
+	        //enable acc output
+			spi_bus[SPI_DTR] = xspi_write(CTRL_REG5_XL, 0x38); 	//00111000
+
+			state++;
+			break;
+
+		case 3:	//	Enabling Pmod_Nav, state 2
+
+			pmod_data[0] = 0x02;
+
+			//set odr rate 952Hz of acc
+			//spi_bus[SPI_DTR] = xspi_write(CTRL_REG6_XL, 0xC0); 	//11000000
+			spi_bus[SPI_DTR] = xspi_write(CTRL_REG6_XL, 0xDB);
+
+			state++;
+			break;
+
+		case 4:	//	Enabling Pmod_Nav, state 3
+
+			pmod_data[0] = 0x03;
+
+	        //set odr rate 14.9Hz of gyro
+	        //spi_bus[SPI_DTR] = xspi_write(CTRL_REG1_G, 0xC0); 	//11000000
+	        spi_bus[SPI_DTR] = xspi_write(CTRL_REG1_G, 0x6F);
+
+			state++;
+			break;
+
+		case 5:	//	Enabling Pmod_Nav, state 4
+
+			pmod_data[0] = 0x04;
+
+	        //enable gyro output
+	        spi_bus[SPI_DTR] = xspi_write(CTRL_REG4, 0x38);		//00111000
 
 			state++;
 			break;
