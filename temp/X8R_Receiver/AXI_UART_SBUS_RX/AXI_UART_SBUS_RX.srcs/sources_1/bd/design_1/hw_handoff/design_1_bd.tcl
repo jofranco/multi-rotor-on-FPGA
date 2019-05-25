@@ -159,8 +159,9 @@ proc create_root_design { parentCell } {
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
 
   # Create ports
+  set inv_sbus [ create_bd_port -dir O -from 0 -to 0 -type data inv_sbus ]
   set sin [ create_bd_port -dir I sin ]
-  set sout [ create_bd_port -dir O -from 0 -to 0 sout ]
+  set sout [ create_bd_port -dir O -from 0 -to 0 -type data sout ]
 
   # Create instance: AXI_UART_DRIVER_0, and set properties
   set AXI_UART_DRIVER_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:AXI_UART_DRIVER:1.0 AXI_UART_DRIVER_0 ]
@@ -297,7 +298,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net rst_ps7_0_100M_interconnect_aresetn [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins rst_ps7_0_100M/interconnect_aresetn]
   connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins AXI_UART_DRIVER_0/ap_rst_n] [get_bd_pins RC_RECEIVER_0/ap_rst_n] [get_bd_pins axi_uart16550_0/s_axi_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins ps7_0_axi_periph/S02_ARESETN] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
   connect_bd_net -net sin_1 [get_bd_ports sin] [get_bd_pins util_vector_logic_0/Op1]
-  connect_bd_net -net util_vector_logic_0_Res [get_bd_pins axi_uart16550_0/sin] [get_bd_pins util_vector_logic_0/Res]
+  connect_bd_net -net util_vector_logic_0_Res [get_bd_ports inv_sbus] [get_bd_pins axi_uart16550_0/sin] [get_bd_pins util_vector_logic_0/Res]
   connect_bd_net -net util_vector_logic_1_Res [get_bd_ports sout] [get_bd_pins util_vector_logic_1/Res]
 
   # Create address segments

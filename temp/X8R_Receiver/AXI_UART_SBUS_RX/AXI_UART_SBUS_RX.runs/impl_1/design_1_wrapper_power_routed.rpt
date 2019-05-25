@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Tue May 21 00:06:35 2019
+| Date             : Sat May 25 00:10:56 2019
 | Host             : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.717        |
+| Total On-Chip Power (W)  | 1.723        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.575        |
+| Dynamic (W)              | 1.581        |
 | Device Static (W)        | 0.142        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 65.2         |
-| Junction Temperature (C) | 44.8         |
+| Max Ambient (C)          | 65.1         |
+| Junction Temperature (C) | 44.9         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.014 |        3 |       --- |             --- |
-| Slice Logic             |     0.005 |     8155 |       --- |             --- |
-|   LUT as Logic          |     0.005 |     2979 |     53200 |            5.60 |
-|   CARRY4                |    <0.001 |      153 |     13300 |            1.15 |
-|   Register              |    <0.001 |     3716 |    106400 |            3.49 |
-|   LUT as Shift Register |    <0.001 |      171 |     17400 |            0.98 |
-|   F7/F8 Muxes           |    <0.001 |        8 |     53200 |            0.02 |
-|   Others                |     0.000 |      351 |       --- |             --- |
-| Signals                 |     0.007 |     6513 |       --- |             --- |
-| Block RAM               |     0.038 |       15 |       140 |           10.71 |
-| I/O                     |    <0.001 |        2 |       125 |            1.60 |
+| Slice Logic             |     0.006 |     8921 |       --- |             --- |
+|   LUT as Logic          |     0.005 |     3278 |     53200 |            6.16 |
+|   Register              |    <0.001 |     4029 |    106400 |            3.79 |
+|   CARRY4                |    <0.001 |      168 |     13300 |            1.26 |
+|   LUT as Shift Register |    <0.001 |      194 |     17400 |            1.11 |
+|   F7/F8 Muxes           |    <0.001 |       15 |     53200 |            0.03 |
+|   Others                |     0.000 |      360 |       --- |             --- |
+| Signals                 |     0.009 |     7174 |       --- |             --- |
+| Block RAM               |     0.040 |       16 |       140 |           11.43 |
+| I/O                     |    <0.001 |        3 |       125 |            2.40 |
 | PS7                     |     1.511 |        1 |       --- |             --- |
 | Static Power            |     0.142 |          |           |                 |
-| Total                   |     1.717 |          |           |                 |
+| Total                   |     1.723 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.077 |       0.061 |      0.016 |
+| Vccint    |       1.000 |     0.082 |       0.067 |      0.016 |
 | Vccaux    |       1.800 |     0.015 |       0.000 |      0.015 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -88,7 +88,7 @@ Table of Contents
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccpint   |       1.000 |     0.742 |       0.711 |      0.030 |
+| Vccpint   |       1.000 |     0.742 |       0.711 |      0.031 |
 | Vccpaux   |       1.800 |     0.060 |       0.050 |      0.010 |
 | Vccpll    |       1.800 |     0.017 |       0.014 |      0.003 |
 | Vcco_ddr  |       1.500 |     0.459 |       0.457 |      0.002 |
@@ -151,27 +151,31 @@ Table of Contents
 +--------------------------------------------------+-----------+
 | Name                                             | Power (W) |
 +--------------------------------------------------+-----------+
-| design_1_wrapper                                 |     1.575 |
-|   design_1_i                                     |     1.575 |
-|     AXI_UART_DRIVER_0                            |     0.015 |
-|       inst                                       |     0.015 |
+| design_1_wrapper                                 |     1.581 |
+|   design_1_i                                     |     1.581 |
+|     AXI_UART_DRIVER_0                            |     0.019 |
+|       U0                                         |     0.019 |
 |         AXI_UART_DRIVER_CTRL_s_axi_U             |    <0.001 |
-|         AXI_UART_DRIVER_OUT_r_m_axi_U            |     0.006 |
-|           bus_read                               |    <0.001 |
-|             buff_rdata                           |    <0.001 |
+|         AXI_UART_DRIVER_OUT_r_m_axi_U            |     0.009 |
+|           bus_read                               |     0.005 |
+|             bus_wide_gen.fifo_burst              |    <0.001 |
+|             fifo_rctl                            |    <0.001 |
+|             fifo_rdata                           |     0.003 |
+|             fifo_rreq                            |    <0.001 |
 |             rs_rdata                             |    <0.001 |
-|           bus_write                              |     0.005 |
-|             buff_wdata                           |     0.003 |
+|             rs_rreq                              |    <0.001 |
+|           bus_write                              |     0.004 |
+|             buff_wdata                           |     0.002 |
 |             bus_wide_gen.fifo_burst              |    <0.001 |
 |             fifo_resp                            |    <0.001 |
 |             fifo_resp_to_user                    |    <0.001 |
 |             fifo_wreq                            |    <0.001 |
 |             rs_wreq                              |    <0.001 |
 |           wreq_throttl                           |    <0.001 |
-|         AXI_UART_DRIVER_UART_m_axi_U             |     0.008 |
+|         AXI_UART_DRIVER_UART_m_axi_U             |     0.009 |
 |           bus_read                               |     0.005 |
-|             buff_rdata                           |     0.003 |
 |             fifo_rctl                            |    <0.001 |
+|             fifo_rdata                           |     0.004 |
 |             fifo_rreq                            |    <0.001 |
 |             rs_rdata                             |    <0.001 |
 |             rs_rreq                              |    <0.001 |
@@ -183,8 +187,8 @@ Table of Contents
 |             fifo_wreq                            |    <0.001 |
 |             rs_wreq                              |    <0.001 |
 |           wreq_throttl                           |    <0.001 |
-|     RC_RECEIVER_0                                |     0.035 |
-|       inst                                       |     0.035 |
+|     RC_RECEIVER_0                                |     0.036 |
+|       U0                                         |     0.036 |
 |         RC_RECEIVER_CTRL_s_axi_U                 |     0.005 |
 |           int_SBUS_data                          |     0.005 |
 |         RC_RECEIVER_TEST_CHAN_s_axi_U            |     0.010 |
@@ -193,6 +197,8 @@ Table of Contents
 |           int_norm_out                           |     0.009 |
 |         RC_RECEIVER_TEST_REV_s_axi_U             |     0.009 |
 |           int_reverse_out                        |     0.009 |
+|         buffer_r_U                               |    <0.001 |
+|           RC_RECEIVER_buffecud_ram_U             |    <0.001 |
 |         lookuptable_U                            |    <0.001 |
 |           RC_RECEIVER_lookubkb_rom_U             |    <0.001 |
 |     axi_uart16550_0                              |     0.002 |
@@ -217,7 +223,7 @@ Table of Contents
 |             xuart_tx_load_sm_1                   |    <0.001 |
 |     processing_system7_0                         |     1.512 |
 |       inst                                       |     1.512 |
-|     ps7_0_axi_periph                             |     0.011 |
+|     ps7_0_axi_periph                             |     0.012 |
 |       s00_couplers                               |     0.004 |
 |         auto_pc                                  |     0.004 |
 |           inst                                   |     0.004 |
@@ -255,7 +261,7 @@ Table of Contents
 |               RD.r_channel_0                     |    <0.001 |
 |                 rd_data_fifo_0                   |    <0.001 |
 |                 transaction_fifo_0               |    <0.001 |
-|               SI_REG                             |     0.001 |
+|               SI_REG                             |    <0.001 |
 |                 ar.ar_pipe                       |    <0.001 |
 |                 aw.aw_pipe                       |    <0.001 |
 |                 b.b_pipe                         |    <0.001 |
@@ -268,10 +274,10 @@ Table of Contents
 |               WR.b_channel_0                     |    <0.001 |
 |                 bid_fifo_0                       |    <0.001 |
 |                 bresp_fifo_0                     |    <0.001 |
-|       s02_couplers                               |     0.002 |
-|         auto_pc                                  |     0.002 |
-|           inst                                   |     0.002 |
-|             gen_axilite.gen_b2s_conv.axilite_b2s |     0.002 |
+|       s02_couplers                               |     0.003 |
+|         auto_pc                                  |     0.003 |
+|           inst                                   |     0.003 |
+|             gen_axilite.gen_b2s_conv.axilite_b2s |     0.003 |
 |               RD.ar_channel_0                    |    <0.001 |
 |                 ar_cmd_fsm_0                     |    <0.001 |
 |                 cmd_translator_0                 |    <0.001 |
@@ -280,7 +286,7 @@ Table of Contents
 |               RD.r_channel_0                     |    <0.001 |
 |                 rd_data_fifo_0                   |    <0.001 |
 |                 transaction_fifo_0               |    <0.001 |
-|               SI_REG                             |    <0.001 |
+|               SI_REG                             |     0.001 |
 |                 ar.ar_pipe                       |    <0.001 |
 |                 aw.aw_pipe                       |    <0.001 |
 |                 b.b_pipe                         |    <0.001 |
@@ -308,7 +314,7 @@ Table of Contents
 |           ACTIVE_LOW_EXT.ACT_LO_EXT              |    <0.001 |
 |         SEQ                                      |    <0.001 |
 |           SEQ_COUNTER                            |    <0.001 |
-|     util_vector_logic_0                          |     0.000 |
+|     util_vector_logic_0                          |    <0.001 |
 |     util_vector_logic_1                          |     0.000 |
 +--------------------------------------------------+-----------+
 

@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"RC_RECEIVER": {
+			"proto_instances": {
+			}
+		}
+	}
+}
