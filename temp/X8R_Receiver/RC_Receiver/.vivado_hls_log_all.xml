@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'lost' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.870-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_17' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.864-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_16' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.858-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_15' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.853-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_14' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.848-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_13' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.843-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_12' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.838-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_11' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.832-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_10' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.824-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_9' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.818-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_8' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.812-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_7' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.806-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_6' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.800-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_5' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.795-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_4' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.790-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_3' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.785-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_2' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.779-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_1' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.773-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_0' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.768-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'errors' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.757-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (RC_Receiver/RC_Receiver.cpp:80) of variable 'tmp_109_21', RC_Receiver/RC_Receiver.cpp:80 on array 'reverse_out' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'reverse_out'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.115-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'lookuptable'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:45.030-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'SBUS_data'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:44.833-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' and 'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:44.728-0700" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'RC_RECEIVER/buffer' to 'RC_RECEIVER/buffer_r' to avoid the conflict with HDL keywords or other object names." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:44.534-0700" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-62] warning: out of bound array access on variable 'buffer'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:43.686-0700" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] In file included from RC_Receiver/RC_Receiver.cpp:1:&#xD;&#xA;RC_Receiver/RC_Receiver.cpp:48:17: warning: array index 26 is past the end of the array (which contains 25 elements) [-Warray-bounds]&#xD;&#xA; norm_out[26] = buffer[26];&#xD;&#xA;                ^      ~~&#xD;&#xA;RC_Receiver/RC_Receiver.cpp:29:2: note: array 'buffer' declared here&#xD;&#xA; static uint8_t buffer[25];&#xD;&#xA; ^&#xD;&#xA;RC_Receiver/RC_Receiver.cpp:49:17: warning: array index 27 is past the end of the array (which contains 25 elements) [-Warray-bounds]&#xD;&#xA; norm_out[27] = buffer[27];&#xD;&#xA;                ^      ~~&#xD;&#xA;RC_Receiver/RC_Receiver.cpp:29:2: note: array 'buffer' declared here&#xD;&#xA; static uint8_t buffer[25];&#xD;&#xA; ^&#xD;&#xA;RC_Receiver/RC_Receiver.cpp:65:21: warning: array index 26 is past the end of the array (which contains 25 elements) [-Warray-bounds]&#xD;&#xA;     norm_out[26] = buffer[26];&#xD;&#xA;                    ^      ~~&#xD;&#xA;RC_Receiver/RC_Receiver.cpp:29:2: note: array 'buffer' declared here&#xD;&#xA; static uint8_t buffer[25];&#xD;&#xA; ^&#xD;&#xA;RC_Receiver/RC_Receiver.cpp:66:21: warning: array index 27 is past the end of the array (which contains 25 elements) [-Warray-bounds]&#xD;&#xA;     norm_out[27] = buffer[27];&#xD;&#xA;                    ^      ~~&#xD;&#xA;RC_Receiver/RC_Receiver.cpp:29:2: note: array 'buffer' declared here&#xD;&#xA; static uint8_t buffer[25];&#xD;&#xA; ^&#xD;&#xA;4 warnings generated.\n" projectName="RC_Receiver" solutionName="solution1" date="2019-05-25T00:05:43.028-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

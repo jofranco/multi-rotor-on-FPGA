@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Mon May 20 23:18:46 2019
+-- Date        : Sat May 25 00:08:12 2019
 -- Host        : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_0/design_1_AXI_UART_DRIVER_0_0_stub.vhdl
@@ -113,7 +113,7 @@ attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "s_axi_CTRL_AWADDR[3:0],s_axi_CTRL_AWVALID,s_axi_CTRL_AWREADY,s_axi_CTRL_WDATA[31:0],s_axi_CTRL_WSTRB[3:0],s_axi_CTRL_WVALID,s_axi_CTRL_WREADY,s_axi_CTRL_BRESP[1:0],s_axi_CTRL_BVALID,s_axi_CTRL_BREADY,s_axi_CTRL_ARADDR[3:0],s_axi_CTRL_ARVALID,s_axi_CTRL_ARREADY,s_axi_CTRL_RDATA[31:0],s_axi_CTRL_RRESP[1:0],s_axi_CTRL_RVALID,s_axi_CTRL_RREADY,ap_clk,ap_rst_n,interrupt,m_axi_UART_AWADDR[31:0],m_axi_UART_AWLEN[7:0],m_axi_UART_AWSIZE[2:0],m_axi_UART_AWBURST[1:0],m_axi_UART_AWLOCK[1:0],m_axi_UART_AWREGION[3:0],m_axi_UART_AWCACHE[3:0],m_axi_UART_AWPROT[2:0],m_axi_UART_AWQOS[3:0],m_axi_UART_AWVALID,m_axi_UART_AWREADY,m_axi_UART_WDATA[31:0],m_axi_UART_WSTRB[3:0],m_axi_UART_WLAST,m_axi_UART_WVALID,m_axi_UART_WREADY,m_axi_UART_BRESP[1:0],m_axi_UART_BVALID,m_axi_UART_BREADY,m_axi_UART_ARADDR[31:0],m_axi_UART_ARLEN[7:0],m_axi_UART_ARSIZE[2:0],m_axi_UART_ARBURST[1:0],m_axi_UART_ARLOCK[1:0],m_axi_UART_ARREGION[3:0],m_axi_UART_ARCACHE[3:0],m_axi_UART_ARPROT[2:0],m_axi_UART_ARQOS[3:0],m_axi_UART_ARVALID,m_axi_UART_ARREADY,m_axi_UART_RDATA[31:0],m_axi_UART_RRESP[1:0],m_axi_UART_RLAST,m_axi_UART_RVALID,m_axi_UART_RREADY,m_axi_OUT_r_AWADDR[31:0],m_axi_OUT_r_AWLEN[7:0],m_axi_OUT_r_AWSIZE[2:0],m_axi_OUT_r_AWBURST[1:0],m_axi_OUT_r_AWLOCK[1:0],m_axi_OUT_r_AWREGION[3:0],m_axi_OUT_r_AWCACHE[3:0],m_axi_OUT_r_AWPROT[2:0],m_axi_OUT_r_AWQOS[3:0],m_axi_OUT_r_AWVALID,m_axi_OUT_r_AWREADY,m_axi_OUT_r_WDATA[31:0],m_axi_OUT_r_WSTRB[3:0],m_axi_OUT_r_WLAST,m_axi_OUT_r_WVALID,m_axi_OUT_r_WREADY,m_axi_OUT_r_BRESP[1:0],m_axi_OUT_r_BVALID,m_axi_OUT_r_BREADY,m_axi_OUT_r_ARADDR[31:0],m_axi_OUT_r_ARLEN[7:0],m_axi_OUT_r_ARSIZE[2:0],m_axi_OUT_r_ARBURST[1:0],m_axi_OUT_r_ARLOCK[1:0],m_axi_OUT_r_ARREGION[3:0],m_axi_OUT_r_ARCACHE[3:0],m_axi_OUT_r_ARPROT[2:0],m_axi_OUT_r_ARQOS[3:0],m_axi_OUT_r_ARVALID,m_axi_OUT_r_ARREADY,m_axi_OUT_r_RDATA[31:0],m_axi_OUT_r_RRESP[1:0],m_axi_OUT_r_RLAST,m_axi_OUT_r_RVALID,m_axi_OUT_r_RREADY";
-attribute X_CORE_INFO : string;
-attribute X_CORE_INFO of stub : architecture is "AXI_UART_DRIVER,Vivado 2018.2";
+attribute x_core_info : string;
+attribute x_core_info of stub : architecture is "AXI_UART_DRIVER,Vivado 2018.2";
 begin
 end;

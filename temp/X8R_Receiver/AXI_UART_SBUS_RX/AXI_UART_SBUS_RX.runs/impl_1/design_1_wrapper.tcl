@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -84,6 +85,7 @@ set rc [catch {
   add_files C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/design_1.bd
   set_param project.isImplRun false
   read_xdc C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/constrs_1/new/design_1.xdc
+  read_xdc C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/constrs_1/new/timing_constraints.xdc
   set_param project.isImplRun true
   link_design -top design_1_wrapper -part xc7z020clg400-1
   set_param project.isImplRun false

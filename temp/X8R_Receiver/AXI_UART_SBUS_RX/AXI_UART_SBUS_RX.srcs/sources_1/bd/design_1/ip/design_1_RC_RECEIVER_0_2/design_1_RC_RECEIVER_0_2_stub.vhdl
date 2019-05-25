@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Tue May 21 00:03:52 2019
+-- Date        : Sat May 25 00:08:01 2019
 -- Host        : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_RC_RECEIVER_0_2/design_1_RC_RECEIVER_0_2_stub.vhdl
+--               C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_RC_RECEIVER_0_2/design_1_RC_RECEIVER_0_2_stub.vhdl
 -- Design      : design_1_RC_RECEIVER_0_2
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1
@@ -94,7 +94,7 @@ attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "s_axi_CTRL_AWADDR[5:0],s_axi_CTRL_AWVALID,s_axi_CTRL_AWREADY,s_axi_CTRL_WDATA[31:0],s_axi_CTRL_WSTRB[3:0],s_axi_CTRL_WVALID,s_axi_CTRL_WREADY,s_axi_CTRL_BRESP[1:0],s_axi_CTRL_BVALID,s_axi_CTRL_BREADY,s_axi_CTRL_ARADDR[5:0],s_axi_CTRL_ARVALID,s_axi_CTRL_ARREADY,s_axi_CTRL_RDATA[31:0],s_axi_CTRL_RRESP[1:0],s_axi_CTRL_RVALID,s_axi_CTRL_RREADY,s_axi_TEST_CHAN_AWADDR[14:0],s_axi_TEST_CHAN_AWVALID,s_axi_TEST_CHAN_AWREADY,s_axi_TEST_CHAN_WDATA[31:0],s_axi_TEST_CHAN_WSTRB[3:0],s_axi_TEST_CHAN_WVALID,s_axi_TEST_CHAN_WREADY,s_axi_TEST_CHAN_BRESP[1:0],s_axi_TEST_CHAN_BVALID,s_axi_TEST_CHAN_BREADY,s_axi_TEST_CHAN_ARADDR[14:0],s_axi_TEST_CHAN_ARVALID,s_axi_TEST_CHAN_ARREADY,s_axi_TEST_CHAN_RDATA[31:0],s_axi_TEST_CHAN_RRESP[1:0],s_axi_TEST_CHAN_RVALID,s_axi_TEST_CHAN_RREADY,s_axi_TEST_NORM_AWADDR[14:0],s_axi_TEST_NORM_AWVALID,s_axi_TEST_NORM_AWREADY,s_axi_TEST_NORM_WDATA[31:0],s_axi_TEST_NORM_WSTRB[3:0],s_axi_TEST_NORM_WVALID,s_axi_TEST_NORM_WREADY,s_axi_TEST_NORM_BRESP[1:0],s_axi_TEST_NORM_BVALID,s_axi_TEST_NORM_BREADY,s_axi_TEST_NORM_ARADDR[14:0],s_axi_TEST_NORM_ARVALID,s_axi_TEST_NORM_ARREADY,s_axi_TEST_NORM_RDATA[31:0],s_axi_TEST_NORM_RRESP[1:0],s_axi_TEST_NORM_RVALID,s_axi_TEST_NORM_RREADY,s_axi_TEST_REV_AWADDR[14:0],s_axi_TEST_REV_AWVALID,s_axi_TEST_REV_AWREADY,s_axi_TEST_REV_WDATA[31:0],s_axi_TEST_REV_WSTRB[3:0],s_axi_TEST_REV_WVALID,s_axi_TEST_REV_WREADY,s_axi_TEST_REV_BRESP[1:0],s_axi_TEST_REV_BVALID,s_axi_TEST_REV_BREADY,s_axi_TEST_REV_ARADDR[14:0],s_axi_TEST_REV_ARVALID,s_axi_TEST_REV_ARREADY,s_axi_TEST_REV_RDATA[31:0],s_axi_TEST_REV_RRESP[1:0],s_axi_TEST_REV_RVALID,s_axi_TEST_REV_RREADY,ap_clk,ap_rst_n,interrupt";
-attribute X_CORE_INFO : string;
-attribute X_CORE_INFO of stub : architecture is "RC_RECEIVER,Vivado 2018.2";
+attribute x_core_info : string;
+attribute x_core_info of stub : architecture is "RC_RECEIVER,Vivado 2018.2";
 begin
 end;

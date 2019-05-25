@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Tue May 14 23:59:20 2019
+// Date        : Fri May 24 17:29:11 2019
 // Host        : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top design_1_axi_uart16550_0_0 -prefix
-//               design_1_axi_uart16550_0_0_ design_1_axi_uart16550_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_UART_SBUS_RX/AXI_UART_SBUS_RX.srcs/sources_1/bd/design_1/ip/design_1_axi_uart16550_0_0/design_1_axi_uart16550_0_0_sim_netlist.v
 // Design      : design_1_axi_uart16550_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,168 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "design_1_axi_uart16550_0_0,axi_uart16550,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_uart16550,Vivado 2018.2" *) 
+(* NotValidForBitStream *)
+module design_1_axi_uart16550_0_0
+   (s_axi_aclk,
+    s_axi_aresetn,
+    ip2intc_irpt,
+    freeze,
+    s_axi_awaddr,
+    s_axi_awvalid,
+    s_axi_awready,
+    s_axi_wdata,
+    s_axi_wstrb,
+    s_axi_wvalid,
+    s_axi_wready,
+    s_axi_bresp,
+    s_axi_bvalid,
+    s_axi_bready,
+    s_axi_araddr,
+    s_axi_arvalid,
+    s_axi_arready,
+    s_axi_rdata,
+    s_axi_rresp,
+    s_axi_rvalid,
+    s_axi_rready,
+    baudoutn,
+    ctsn,
+    dcdn,
+    ddis,
+    dsrn,
+    dtrn,
+    out1n,
+    out2n,
+    rin,
+    rtsn,
+    rxrdyn,
+    sin,
+    sout,
+    txrdyn);
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *) input s_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 ARESETN RST" *) (* x_interface_parameter = "XIL_INTERFACENAME ARESETN, POLARITY ACTIVE_LOW" *) input s_axi_aresetn;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 INTERRUPT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME INTERRUPT, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output ip2intc_irpt;
+  input freeze;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 13, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [12:0]s_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input s_axi_awvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output s_axi_awready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]s_axi_wdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]s_axi_wstrb;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input s_axi_wvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output s_axi_wready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]s_axi_bresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output s_axi_bvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input s_axi_bready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) input [12:0]s_axi_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input s_axi_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output s_axi_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]s_axi_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]s_axi_rresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output s_axi_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input s_axi_rready;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART BAUDOUTn" *) (* x_interface_parameter = "XIL_INTERFACENAME UART, BOARD.ASSOCIATED_PARAM UART_BOARD_INTERFACE" *) output baudoutn;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART CTSn" *) input ctsn;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART DCDn" *) input dcdn;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART DDIS" *) output ddis;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART DSRn" *) input dsrn;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART DTRn" *) output dtrn;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART OUT1n" *) output out1n;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART OUT2n" *) output out2n;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RI" *) input rin;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RTSn" *) output rtsn;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RXRDYn" *) output rxrdyn;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RxD" *) input sin;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART TxD" *) output sout;
+  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART TXRDYn" *) output txrdyn;
+
+  wire baudoutn;
+  wire ctsn;
+  wire dcdn;
+  wire ddis;
+  wire dsrn;
+  wire dtrn;
+  wire freeze;
+  wire ip2intc_irpt;
+  wire out1n;
+  wire out2n;
+  wire rin;
+  wire rtsn;
+  wire rxrdyn;
+  wire s_axi_aclk;
+  wire [12:0]s_axi_araddr;
+  wire s_axi_aresetn;
+  wire s_axi_arready;
+  wire s_axi_arvalid;
+  wire [12:0]s_axi_awaddr;
+  wire s_axi_awready;
+  wire s_axi_awvalid;
+  wire s_axi_bready;
+  wire [1:0]s_axi_bresp;
+  wire s_axi_bvalid;
+  wire [31:0]s_axi_rdata;
+  wire s_axi_rready;
+  wire [1:0]s_axi_rresp;
+  wire s_axi_rvalid;
+  wire [31:0]s_axi_wdata;
+  wire s_axi_wready;
+  wire [3:0]s_axi_wstrb;
+  wire s_axi_wvalid;
+  wire sin;
+  wire sout;
+  wire txrdyn;
+  wire NLW_U0_xout_UNCONNECTED;
+
+  (* C_EXTERNAL_XIN_CLK_HZ = "25000000" *) 
+  (* C_FAMILY = "zynq" *) 
+  (* C_HAS_EXTERNAL_RCLK = "0" *) 
+  (* C_HAS_EXTERNAL_XIN = "0" *) 
+  (* C_IS_A_16550 = "1" *) 
+  (* C_S_AXI_ACLK_FREQ_HZ = "100000000" *) 
+  (* C_S_AXI_ADDR_WIDTH = "13" *) 
+  (* C_S_AXI_DATA_WIDTH = "32" *) 
+  (* downgradeipidentifiedwarnings = "yes" *) 
+  design_1_axi_uart16550_0_0_axi_uart16550 U0
+       (.baudoutn(baudoutn),
+        .ctsn(ctsn),
+        .dcdn(dcdn),
+        .ddis(ddis),
+        .dsrn(dsrn),
+        .dtrn(dtrn),
+        .freeze(freeze),
+        .ip2intc_irpt(ip2intc_irpt),
+        .out1n(out1n),
+        .out2n(out2n),
+        .rclk(1'b0),
+        .rin(rin),
+        .rtsn(rtsn),
+        .rxrdyn(rxrdyn),
+        .s_axi_aclk(s_axi_aclk),
+        .s_axi_araddr(s_axi_araddr),
+        .s_axi_aresetn(s_axi_aresetn),
+        .s_axi_arready(s_axi_arready),
+        .s_axi_arvalid(s_axi_arvalid),
+        .s_axi_awaddr(s_axi_awaddr),
+        .s_axi_awready(s_axi_awready),
+        .s_axi_awvalid(s_axi_awvalid),
+        .s_axi_bready(s_axi_bready),
+        .s_axi_bresp(s_axi_bresp),
+        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_rdata(s_axi_rdata),
+        .s_axi_rready(s_axi_rready),
+        .s_axi_rresp(s_axi_rresp),
+        .s_axi_rvalid(s_axi_rvalid),
+        .s_axi_wdata(s_axi_wdata),
+        .s_axi_wready(s_axi_wready),
+        .s_axi_wstrb(s_axi_wstrb),
+        .s_axi_wvalid(s_axi_wvalid),
+        .sin(sin),
+        .sout(sout),
+        .txrdyn(txrdyn),
+        .xin(1'b0),
+        .xout(NLW_U0_xout_UNCONNECTED));
+endmodule
+
+(* ORIG_REF_NAME = "address_decoder" *) 
 module design_1_axi_uart16550_0_0_address_decoder
    (chipSelect_reg,
     bus2ip_rdce_i,
@@ -104,6 +266,7 @@ module design_1_axi_uart16550_0_0_address_decoder
         .O(Wr));
 endmodule
 
+(* ORIG_REF_NAME = "axi_lite_ipif" *) 
 module design_1_axi_uart16550_0_0_axi_lite_ipif
    (ce_out_i,
     s_axi_rvalid,
@@ -200,7 +363,8 @@ endmodule
 
 (* C_EXTERNAL_XIN_CLK_HZ = "25000000" *) (* C_FAMILY = "zynq" *) (* C_HAS_EXTERNAL_RCLK = "0" *) 
 (* C_HAS_EXTERNAL_XIN = "0" *) (* C_IS_A_16550 = "1" *) (* C_S_AXI_ACLK_FREQ_HZ = "100000000" *) 
-(* C_S_AXI_ADDR_WIDTH = "13" *) (* C_S_AXI_DATA_WIDTH = "32" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* C_S_AXI_ADDR_WIDTH = "13" *) (* C_S_AXI_DATA_WIDTH = "32" *) (* ORIG_REF_NAME = "axi_uart16550" *) 
+(* downgradeipidentifiedwarnings = "yes" *) 
 module design_1_axi_uart16550_0_0_axi_uart16550
    (s_axi_aclk,
     s_axi_aresetn,
@@ -419,6 +583,7 @@ module design_1_axi_uart16550_0_0_axi_uart16550
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "cntr_incr_decr_addn_f" *) 
 module design_1_axi_uart16550_0_0_cntr_incr_decr_addn_f
    (fifo_full_p1,
     Q,
@@ -866,167 +1031,7 @@ module design_1_axi_uart16550_0_0_cntr_incr_decr_addn_f_0
         .O(lsr4_set));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "design_1_axi_uart16550_0_0,axi_uart16550,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_uart16550,Vivado 2018.2" *) 
-(* NotValidForBitStream *)
-module design_1_axi_uart16550_0_0
-   (s_axi_aclk,
-    s_axi_aresetn,
-    ip2intc_irpt,
-    freeze,
-    s_axi_awaddr,
-    s_axi_awvalid,
-    s_axi_awready,
-    s_axi_wdata,
-    s_axi_wstrb,
-    s_axi_wvalid,
-    s_axi_wready,
-    s_axi_bresp,
-    s_axi_bvalid,
-    s_axi_bready,
-    s_axi_araddr,
-    s_axi_arvalid,
-    s_axi_arready,
-    s_axi_rdata,
-    s_axi_rresp,
-    s_axi_rvalid,
-    s_axi_rready,
-    baudoutn,
-    ctsn,
-    dcdn,
-    ddis,
-    dsrn,
-    dtrn,
-    out1n,
-    out2n,
-    rin,
-    rtsn,
-    rxrdyn,
-    sin,
-    sout,
-    txrdyn);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *) input s_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 ARESETN RST" *) (* x_interface_parameter = "XIL_INTERFACENAME ARESETN, POLARITY ACTIVE_LOW" *) input s_axi_aresetn;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 INTERRUPT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME INTERRUPT, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output ip2intc_irpt;
-  input freeze;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 13, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [12:0]s_axi_awaddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input s_axi_awvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output s_axi_awready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]s_axi_wdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]s_axi_wstrb;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input s_axi_wvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output s_axi_wready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]s_axi_bresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output s_axi_bvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input s_axi_bready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) input [12:0]s_axi_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input s_axi_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output s_axi_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]s_axi_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]s_axi_rresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output s_axi_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input s_axi_rready;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART BAUDOUTn" *) (* x_interface_parameter = "XIL_INTERFACENAME UART, BOARD.ASSOCIATED_PARAM UART_BOARD_INTERFACE" *) output baudoutn;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART CTSn" *) input ctsn;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART DCDn" *) input dcdn;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART DDIS" *) output ddis;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART DSRn" *) input dsrn;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART DTRn" *) output dtrn;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART OUT1n" *) output out1n;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART OUT2n" *) output out2n;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RI" *) input rin;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RTSn" *) output rtsn;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RXRDYn" *) output rxrdyn;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART RxD" *) input sin;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART TxD" *) output sout;
-  (* x_interface_info = "xilinx.com:interface:uart:1.0 UART TXRDYn" *) output txrdyn;
-
-  wire baudoutn;
-  wire ctsn;
-  wire dcdn;
-  wire ddis;
-  wire dsrn;
-  wire dtrn;
-  wire freeze;
-  wire ip2intc_irpt;
-  wire out1n;
-  wire out2n;
-  wire rin;
-  wire rtsn;
-  wire rxrdyn;
-  wire s_axi_aclk;
-  wire [12:0]s_axi_araddr;
-  wire s_axi_aresetn;
-  wire s_axi_arready;
-  wire s_axi_arvalid;
-  wire [12:0]s_axi_awaddr;
-  wire s_axi_awready;
-  wire s_axi_awvalid;
-  wire s_axi_bready;
-  wire [1:0]s_axi_bresp;
-  wire s_axi_bvalid;
-  wire [31:0]s_axi_rdata;
-  wire s_axi_rready;
-  wire [1:0]s_axi_rresp;
-  wire s_axi_rvalid;
-  wire [31:0]s_axi_wdata;
-  wire s_axi_wready;
-  wire [3:0]s_axi_wstrb;
-  wire s_axi_wvalid;
-  wire sin;
-  wire sout;
-  wire txrdyn;
-  wire NLW_U0_xout_UNCONNECTED;
-
-  (* C_EXTERNAL_XIN_CLK_HZ = "25000000" *) 
-  (* C_FAMILY = "zynq" *) 
-  (* C_HAS_EXTERNAL_RCLK = "0" *) 
-  (* C_HAS_EXTERNAL_XIN = "0" *) 
-  (* C_IS_A_16550 = "1" *) 
-  (* C_S_AXI_ACLK_FREQ_HZ = "100000000" *) 
-  (* C_S_AXI_ADDR_WIDTH = "13" *) 
-  (* C_S_AXI_DATA_WIDTH = "32" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
-  design_1_axi_uart16550_0_0_axi_uart16550 U0
-       (.baudoutn(baudoutn),
-        .ctsn(ctsn),
-        .dcdn(dcdn),
-        .ddis(ddis),
-        .dsrn(dsrn),
-        .dtrn(dtrn),
-        .freeze(freeze),
-        .ip2intc_irpt(ip2intc_irpt),
-        .out1n(out1n),
-        .out2n(out2n),
-        .rclk(1'b0),
-        .rin(rin),
-        .rtsn(rtsn),
-        .rxrdyn(rxrdyn),
-        .s_axi_aclk(s_axi_aclk),
-        .s_axi_araddr(s_axi_araddr),
-        .s_axi_aresetn(s_axi_aresetn),
-        .s_axi_arready(s_axi_arready),
-        .s_axi_arvalid(s_axi_arvalid),
-        .s_axi_awaddr(s_axi_awaddr),
-        .s_axi_awready(s_axi_awready),
-        .s_axi_awvalid(s_axi_awvalid),
-        .s_axi_bready(s_axi_bready),
-        .s_axi_bresp(s_axi_bresp),
-        .s_axi_bvalid(s_axi_bvalid),
-        .s_axi_rdata(s_axi_rdata),
-        .s_axi_rready(s_axi_rready),
-        .s_axi_rresp(s_axi_rresp),
-        .s_axi_rvalid(s_axi_rvalid),
-        .s_axi_wdata(s_axi_wdata),
-        .s_axi_wready(s_axi_wready),
-        .s_axi_wstrb(s_axi_wstrb),
-        .s_axi_wvalid(s_axi_wvalid),
-        .sin(sin),
-        .sout(sout),
-        .txrdyn(txrdyn),
-        .xin(1'b0),
-        .xout(NLW_U0_xout_UNCONNECTED));
-endmodule
-
+(* ORIG_REF_NAME = "dynshreg_f" *) 
 module design_1_axi_uart16550_0_0_dynshreg_f
    (\tsr_reg[7] ,
     out,
@@ -1563,6 +1568,7 @@ module design_1_axi_uart16550_0_0_dynshreg_f__parameterized0
         .O(lsr2_set));
 endmodule
 
+(* ORIG_REF_NAME = "ipic_if" *) 
 module design_1_axi_uart16550_0_0_ipic_if
    (wrReq_d1,
     s_axi_wready,
@@ -1686,6 +1692,7 @@ module design_1_axi_uart16550_0_0_ipic_if
         .R(bus2ip_reset_int_core));
 endmodule
 
+(* ORIG_REF_NAME = "rx16550" *) 
 module design_1_axi_uart16550_0_0_rx16550
    (rclk_int,
     rx_fifo_data_in,
@@ -3337,6 +3344,7 @@ module design_1_axi_uart16550_0_0_rx16550
         .R(rx_rst));
 endmodule
 
+(* ORIG_REF_NAME = "rx_fifo_block" *) 
 module design_1_axi_uart16550_0_0_rx_fifo_block
    (rx_fifo_full,
     Rx_error_in_fifo,
@@ -3662,6 +3670,7 @@ module design_1_axi_uart16550_0_0_rx_fifo_block
         .wr_d(wr_d));
 endmodule
 
+(* ORIG_REF_NAME = "rx_fifo_control" *) 
 module design_1_axi_uart16550_0_0_rx_fifo_control
    (Rx_error_in_fifo,
     \iir_reg[1] ,
@@ -4058,6 +4067,7 @@ module design_1_axi_uart16550_0_0_rx_fifo_control
         .O(thre_iir_set_reg));
 endmodule
 
+(* ORIG_REF_NAME = "slave_attachment" *) 
 module design_1_axi_uart16550_0_0_slave_attachment
    (chipSelect_reg,
     s_axi_rvalid,
@@ -4410,6 +4420,7 @@ module design_1_axi_uart16550_0_0_slave_attachment
         .R(bus2ip_reset_int_core));
 endmodule
 
+(* ORIG_REF_NAME = "srl_fifo_rbu_f" *) 
 module design_1_axi_uart16550_0_0_srl_fifo_rbu_f
    (Q,
     txrdyN_int_reg,
@@ -4734,6 +4745,7 @@ module design_1_axi_uart16550_0_0_srl_fifo_rbu_f__parameterized0
         .R(rx_fifo_rst));
 endmodule
 
+(* ORIG_REF_NAME = "tx16550" *) 
 module design_1_axi_uart16550_0_0_tx16550
    (out,
     tx_empty,
@@ -5325,6 +5337,7 @@ module design_1_axi_uart16550_0_0_tx16550
         .R(bus2ip_reset_int_core));
 endmodule
 
+(* ORIG_REF_NAME = "tx_fifo_block" *) 
 module design_1_axi_uart16550_0_0_tx_fifo_block
    (Q,
     txrdyN_int_reg,
@@ -5391,6 +5404,7 @@ module design_1_axi_uart16550_0_0_tx_fifo_block
         .txrdyn(txrdyn));
 endmodule
 
+(* ORIG_REF_NAME = "uart16550" *) 
 module design_1_axi_uart16550_0_0_uart16550
    (baudoutn,
     ip2intc_irpt,
@@ -8139,6 +8153,7 @@ module design_1_axi_uart16550_0_0_uart16550
         .writing_thr(writing_thr));
 endmodule
 
+(* ORIG_REF_NAME = "xuart" *) 
 module design_1_axi_uart16550_0_0_xuart
    (baudoutn,
     ip2intc_irpt,
@@ -8263,6 +8278,7 @@ module design_1_axi_uart16550_0_0_xuart
         .txrdyn(txrdyn));
 endmodule
 
+(* ORIG_REF_NAME = "xuart_tx_load_sm" *) 
 module design_1_axi_uart16550_0_0_xuart_tx_load_sm
    (\lsr_reg[6] ,
     \FSM_sequential_transmit_state_reg[0] ,

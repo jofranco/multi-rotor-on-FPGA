@@ -1,0 +1,1178 @@
+
+
+================================================================
+== Vivado HLS Report for 'RC_RECEIVER'
+================================================================
+* Date:           Sat May 25 00:05:45 2019
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        RC_Receiver
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     6.938|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   50|   50|   51|   51| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 1
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 51, depth = 51
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 51
+* Pipeline : 1
+  Pipeline-0 : II = 51, D = 51, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.25>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%SBUS_data_addr = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 0" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 52 'getelementptr' 'SBUS_data_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 53 [2/2] (2.32ns)   --->   "%SBUS_data_load = load i8* %SBUS_data_addr, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 53 'load' 'SBUS_data_load' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%norm_out_addr_26 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 25" [RC_Receiver/RC_Receiver.cpp:47]   --->   Operation 54 'getelementptr' 'norm_out_addr_26' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (3.25ns)   --->   "store i32 69, i32* %norm_out_addr_26, align 4" [RC_Receiver/RC_Receiver.cpp:47]   --->   Operation 55 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_1 : Operation 56 [2/2] (2.32ns)   --->   "%buffer_load = load i8* getelementptr ([25 x i8]* @buffer_r, i64 1, i64 1), align 1" [RC_Receiver/RC_Receiver.cpp:48]   --->   Operation 56 'load' 'buffer_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_1 : Operation 57 [2/2] (2.32ns)   --->   "%buffer_load_1 = load i8* getelementptr ([25 x i8]* @buffer_r, i64 1, i64 2), align 1" [RC_Receiver/RC_Receiver.cpp:49]   --->   Operation 57 'load' 'buffer_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+
+State 2 <SV = 1> <Delay = 5.57>
+ST_2 : Operation 58 [1/2] (2.32ns)   --->   "%SBUS_data_load = load i8* %SBUS_data_addr, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 58 'load' 'SBUS_data_load' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_2 : Operation 59 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 0), align 16" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 59 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%SBUS_data_addr_1 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 60 'getelementptr' 'SBUS_data_addr_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 61 [2/2] (2.32ns)   --->   "%SBUS_data_load_1 = load i8* %SBUS_data_addr_1, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 61 'load' 'SBUS_data_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_2 : Operation 62 [1/2] (2.32ns)   --->   "%buffer_load = load i8* getelementptr ([25 x i8]* @buffer_r, i64 1, i64 1), align 1" [RC_Receiver/RC_Receiver.cpp:48]   --->   Operation 62 'load' 'buffer_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%tmp = zext i8 %buffer_load to i32" [RC_Receiver/RC_Receiver.cpp:48]   --->   Operation 63 'zext' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%norm_out_addr_16 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 26" [RC_Receiver/RC_Receiver.cpp:48]   --->   Operation 64 'getelementptr' 'norm_out_addr_16' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (3.25ns)   --->   "store i32 %tmp, i32* %norm_out_addr_16, align 4" [RC_Receiver/RC_Receiver.cpp:48]   --->   Operation 65 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_2 : Operation 66 [1/2] (2.32ns)   --->   "%buffer_load_1 = load i8* getelementptr ([25 x i8]* @buffer_r, i64 1, i64 2), align 1" [RC_Receiver/RC_Receiver.cpp:49]   --->   Operation 66 'load' 'buffer_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+
+State 3 <SV = 2> <Delay = 4.64>
+ST_3 : Operation 67 [1/2] (2.32ns)   --->   "%SBUS_data_load_1 = load i8* %SBUS_data_addr_1, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 67 'load' 'SBUS_data_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_3 : Operation 68 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_1, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 1), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 68 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_3 : Operation 69 [1/1] (0.00ns)   --->   "%SBUS_data_addr_2 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 2" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 69 'getelementptr' 'SBUS_data_addr_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 70 [2/2] (2.32ns)   --->   "%SBUS_data_load_2 = load i8* %SBUS_data_addr_2, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 70 'load' 'SBUS_data_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_3 : Operation 71 [1/1] (0.00ns)   --->   "%tmp_1 = zext i8 %buffer_load_1 to i32" [RC_Receiver/RC_Receiver.cpp:49]   --->   Operation 71 'zext' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%norm_out_addr_27 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 27" [RC_Receiver/RC_Receiver.cpp:49]   --->   Operation 72 'getelementptr' 'norm_out_addr_27' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 73 [1/1] (3.25ns)   --->   "store i32 %tmp_1, i32* %norm_out_addr_27, align 4" [RC_Receiver/RC_Receiver.cpp:49]   --->   Operation 73 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 4 <SV = 3> <Delay = 4.64>
+ST_4 : Operation 74 [1/1] (0.00ns)   --->   "%tmp_4 = zext i8 %SBUS_data_load to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 74 'zext' 'tmp_4' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 75 [1/1] (0.00ns)   --->   "%norm_out_addr = getelementptr [4096 x i32]* %norm_out, i64 0, i64 0" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 75 'getelementptr' 'norm_out_addr' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 76 [1/1] (3.25ns)   --->   "store i32 %tmp_4, i32* %norm_out_addr, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 76 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_4 : Operation 77 [1/2] (2.32ns)   --->   "%SBUS_data_load_2 = load i8* %SBUS_data_addr_2, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 77 'load' 'SBUS_data_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_4 : Operation 78 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_2, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 2), align 2" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 78 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "%SBUS_data_addr_3 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 3" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 79 'getelementptr' 'SBUS_data_addr_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 80 [2/2] (2.32ns)   --->   "%SBUS_data_load_3 = load i8* %SBUS_data_addr_3, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 80 'load' 'SBUS_data_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_4 : Operation 81 [1/1] (1.55ns)   --->   "%tmp_2 = icmp eq i8 %SBUS_data_load, 15" [RC_Receiver/RC_Receiver.cpp:60]   --->   Operation 81 'icmp' 'tmp_2' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 4.64>
+ST_5 : Operation 82 [1/1] (0.00ns)   --->   "%tmp_4_1 = zext i8 %SBUS_data_load_1 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 82 'zext' 'tmp_4_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 83 [1/1] (0.00ns)   --->   "%norm_out_addr_1 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 1" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 83 'getelementptr' 'norm_out_addr_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 84 [1/1] (3.25ns)   --->   "store i32 %tmp_4_1, i32* %norm_out_addr_1, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 84 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_5 : Operation 85 [1/2] (2.32ns)   --->   "%SBUS_data_load_3 = load i8* %SBUS_data_addr_3, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 85 'load' 'SBUS_data_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_5 : Operation 86 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_3, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 3), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 86 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_5 : Operation 87 [1/1] (0.00ns)   --->   "%SBUS_data_addr_4 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 4" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 87 'getelementptr' 'SBUS_data_addr_4' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 88 [2/2] (2.32ns)   --->   "%SBUS_data_load_4 = load i8* %SBUS_data_addr_4, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 88 'load' 'SBUS_data_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 6 <SV = 5> <Delay = 4.64>
+ST_6 : Operation 89 [1/1] (0.00ns)   --->   "%tmp_4_2 = zext i8 %SBUS_data_load_2 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 89 'zext' 'tmp_4_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 90 [1/1] (0.00ns)   --->   "%norm_out_addr_2 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 2" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 90 'getelementptr' 'norm_out_addr_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 91 [1/1] (3.25ns)   --->   "store i32 %tmp_4_2, i32* %norm_out_addr_2, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 91 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_6 : Operation 92 [1/2] (2.32ns)   --->   "%SBUS_data_load_4 = load i8* %SBUS_data_addr_4, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 92 'load' 'SBUS_data_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_6 : Operation 93 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_4, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 4), align 4" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 93 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_6 : Operation 94 [1/1] (0.00ns)   --->   "%SBUS_data_addr_5 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 5" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 94 'getelementptr' 'SBUS_data_addr_5' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 95 [2/2] (2.32ns)   --->   "%SBUS_data_load_5 = load i8* %SBUS_data_addr_5, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 95 'load' 'SBUS_data_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 7 <SV = 6> <Delay = 4.64>
+ST_7 : Operation 96 [1/1] (0.00ns)   --->   "%tmp_4_3 = zext i8 %SBUS_data_load_3 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 96 'zext' 'tmp_4_3' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 97 [1/1] (0.00ns)   --->   "%norm_out_addr_3 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 3" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 97 'getelementptr' 'norm_out_addr_3' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 98 [1/1] (3.25ns)   --->   "store i32 %tmp_4_3, i32* %norm_out_addr_3, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 98 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_7 : Operation 99 [1/2] (2.32ns)   --->   "%SBUS_data_load_5 = load i8* %SBUS_data_addr_5, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 99 'load' 'SBUS_data_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_7 : Operation 100 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_5, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 5), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 100 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_7 : Operation 101 [1/1] (0.00ns)   --->   "%SBUS_data_addr_6 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 6" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 101 'getelementptr' 'SBUS_data_addr_6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 102 [2/2] (2.32ns)   --->   "%SBUS_data_load_6 = load i8* %SBUS_data_addr_6, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 102 'load' 'SBUS_data_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 8 <SV = 7> <Delay = 4.64>
+ST_8 : Operation 103 [1/1] (0.00ns)   --->   "%tmp_4_4 = zext i8 %SBUS_data_load_4 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 103 'zext' 'tmp_4_4' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 104 [1/1] (0.00ns)   --->   "%norm_out_addr_4 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 104 'getelementptr' 'norm_out_addr_4' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 105 [1/1] (3.25ns)   --->   "store i32 %tmp_4_4, i32* %norm_out_addr_4, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 105 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_8 : Operation 106 [1/2] (2.32ns)   --->   "%SBUS_data_load_6 = load i8* %SBUS_data_addr_6, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 106 'load' 'SBUS_data_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_8 : Operation 107 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_6, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 6), align 2" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 107 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_8 : Operation 108 [1/1] (0.00ns)   --->   "%SBUS_data_addr_7 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 7" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 108 'getelementptr' 'SBUS_data_addr_7' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 109 [2/2] (2.32ns)   --->   "%SBUS_data_load_7 = load i8* %SBUS_data_addr_7, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 109 'load' 'SBUS_data_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 9 <SV = 8> <Delay = 4.64>
+ST_9 : Operation 110 [1/1] (0.00ns)   --->   "%tmp_4_5 = zext i8 %SBUS_data_load_5 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 110 'zext' 'tmp_4_5' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 111 [1/1] (0.00ns)   --->   "%norm_out_addr_5 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 5" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 111 'getelementptr' 'norm_out_addr_5' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 112 [1/1] (3.25ns)   --->   "store i32 %tmp_4_5, i32* %norm_out_addr_5, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 112 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_9 : Operation 113 [1/2] (2.32ns)   --->   "%SBUS_data_load_7 = load i8* %SBUS_data_addr_7, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 113 'load' 'SBUS_data_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_9 : Operation 114 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_7, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 7), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 114 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_9 : Operation 115 [1/1] (0.00ns)   --->   "%SBUS_data_addr_8 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 8" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 115 'getelementptr' 'SBUS_data_addr_8' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 116 [2/2] (2.32ns)   --->   "%SBUS_data_load_8 = load i8* %SBUS_data_addr_8, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 116 'load' 'SBUS_data_load_8' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 10 <SV = 9> <Delay = 4.64>
+ST_10 : Operation 117 [1/1] (0.00ns)   --->   "%tmp_4_6 = zext i8 %SBUS_data_load_6 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 117 'zext' 'tmp_4_6' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 118 [1/1] (0.00ns)   --->   "%norm_out_addr_6 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 6" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 118 'getelementptr' 'norm_out_addr_6' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 119 [1/1] (3.25ns)   --->   "store i32 %tmp_4_6, i32* %norm_out_addr_6, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 119 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_10 : Operation 120 [1/2] (2.32ns)   --->   "%SBUS_data_load_8 = load i8* %SBUS_data_addr_8, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 120 'load' 'SBUS_data_load_8' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_10 : Operation 121 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_8, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 8), align 8" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 121 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_10 : Operation 122 [1/1] (0.00ns)   --->   "%SBUS_data_addr_9 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 9" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 122 'getelementptr' 'SBUS_data_addr_9' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 123 [2/2] (2.32ns)   --->   "%SBUS_data_load_9 = load i8* %SBUS_data_addr_9, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 123 'load' 'SBUS_data_load_9' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 11 <SV = 10> <Delay = 4.64>
+ST_11 : Operation 124 [1/1] (0.00ns)   --->   "%tmp_4_7 = zext i8 %SBUS_data_load_7 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 124 'zext' 'tmp_4_7' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 125 [1/1] (0.00ns)   --->   "%norm_out_addr_7 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 7" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 125 'getelementptr' 'norm_out_addr_7' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 126 [1/1] (3.25ns)   --->   "store i32 %tmp_4_7, i32* %norm_out_addr_7, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 126 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_11 : Operation 127 [1/2] (2.32ns)   --->   "%SBUS_data_load_9 = load i8* %SBUS_data_addr_9, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 127 'load' 'SBUS_data_load_9' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_11 : Operation 128 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_9, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 9), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 128 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_11 : Operation 129 [1/1] (0.00ns)   --->   "%SBUS_data_addr_10 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 10" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 129 'getelementptr' 'SBUS_data_addr_10' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 130 [2/2] (2.32ns)   --->   "%SBUS_data_load_10 = load i8* %SBUS_data_addr_10, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 130 'load' 'SBUS_data_load_10' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 12 <SV = 11> <Delay = 4.64>
+ST_12 : Operation 131 [1/1] (0.00ns)   --->   "%tmp_4_8 = zext i8 %SBUS_data_load_8 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 131 'zext' 'tmp_4_8' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 132 [1/1] (0.00ns)   --->   "%norm_out_addr_8 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 8" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 132 'getelementptr' 'norm_out_addr_8' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 133 [1/1] (3.25ns)   --->   "store i32 %tmp_4_8, i32* %norm_out_addr_8, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 133 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_12 : Operation 134 [1/2] (2.32ns)   --->   "%SBUS_data_load_10 = load i8* %SBUS_data_addr_10, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 134 'load' 'SBUS_data_load_10' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_12 : Operation 135 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_10, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 10), align 2" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 135 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_12 : Operation 136 [1/1] (0.00ns)   --->   "%SBUS_data_addr_11 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 11" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 136 'getelementptr' 'SBUS_data_addr_11' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 137 [2/2] (2.32ns)   --->   "%SBUS_data_load_11 = load i8* %SBUS_data_addr_11, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 137 'load' 'SBUS_data_load_11' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 13 <SV = 12> <Delay = 4.64>
+ST_13 : Operation 138 [1/1] (0.00ns)   --->   "%tmp_4_9 = zext i8 %SBUS_data_load_9 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 138 'zext' 'tmp_4_9' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 139 [1/1] (0.00ns)   --->   "%norm_out_addr_9 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 9" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 139 'getelementptr' 'norm_out_addr_9' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 140 [1/1] (3.25ns)   --->   "store i32 %tmp_4_9, i32* %norm_out_addr_9, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 140 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_13 : Operation 141 [1/2] (2.32ns)   --->   "%SBUS_data_load_11 = load i8* %SBUS_data_addr_11, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 141 'load' 'SBUS_data_load_11' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_13 : Operation 142 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_11, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 11), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 142 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_13 : Operation 143 [1/1] (0.00ns)   --->   "%SBUS_data_addr_12 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 12" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 143 'getelementptr' 'SBUS_data_addr_12' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 144 [2/2] (2.32ns)   --->   "%SBUS_data_load_12 = load i8* %SBUS_data_addr_12, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 144 'load' 'SBUS_data_load_12' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 14 <SV = 13> <Delay = 4.64>
+ST_14 : Operation 145 [1/1] (0.00ns)   --->   "%tmp_4_s = zext i8 %SBUS_data_load_10 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 145 'zext' 'tmp_4_s' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 146 [1/1] (0.00ns)   --->   "%norm_out_addr_10 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 10" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 146 'getelementptr' 'norm_out_addr_10' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 147 [1/1] (3.25ns)   --->   "store i32 %tmp_4_s, i32* %norm_out_addr_10, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 147 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_14 : Operation 148 [1/2] (2.32ns)   --->   "%SBUS_data_load_12 = load i8* %SBUS_data_addr_12, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 148 'load' 'SBUS_data_load_12' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_14 : Operation 149 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_12, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 12), align 4" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 149 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_14 : Operation 150 [1/1] (0.00ns)   --->   "%SBUS_data_addr_13 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 13" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 150 'getelementptr' 'SBUS_data_addr_13' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 151 [2/2] (2.32ns)   --->   "%SBUS_data_load_13 = load i8* %SBUS_data_addr_13, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 151 'load' 'SBUS_data_load_13' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 15 <SV = 14> <Delay = 4.64>
+ST_15 : Operation 152 [1/1] (0.00ns)   --->   "%tmp_4_10 = zext i8 %SBUS_data_load_11 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 152 'zext' 'tmp_4_10' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 153 [1/1] (0.00ns)   --->   "%norm_out_addr_11 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 11" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 153 'getelementptr' 'norm_out_addr_11' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 154 [1/1] (3.25ns)   --->   "store i32 %tmp_4_10, i32* %norm_out_addr_11, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 154 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_15 : Operation 155 [1/2] (2.32ns)   --->   "%SBUS_data_load_13 = load i8* %SBUS_data_addr_13, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 155 'load' 'SBUS_data_load_13' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_15 : Operation 156 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_13, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 13), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 156 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_15 : Operation 157 [1/1] (0.00ns)   --->   "%SBUS_data_addr_14 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 14" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 157 'getelementptr' 'SBUS_data_addr_14' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 158 [2/2] (2.32ns)   --->   "%SBUS_data_load_14 = load i8* %SBUS_data_addr_14, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 158 'load' 'SBUS_data_load_14' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 16 <SV = 15> <Delay = 4.64>
+ST_16 : Operation 159 [1/1] (0.00ns)   --->   "%tmp_4_11 = zext i8 %SBUS_data_load_12 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 159 'zext' 'tmp_4_11' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 160 [1/1] (0.00ns)   --->   "%norm_out_addr_12 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 12" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 160 'getelementptr' 'norm_out_addr_12' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 161 [1/1] (3.25ns)   --->   "store i32 %tmp_4_11, i32* %norm_out_addr_12, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 161 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_16 : Operation 162 [1/2] (2.32ns)   --->   "%SBUS_data_load_14 = load i8* %SBUS_data_addr_14, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 162 'load' 'SBUS_data_load_14' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_16 : Operation 163 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_14, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 14), align 2" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 163 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_16 : Operation 164 [1/1] (0.00ns)   --->   "%SBUS_data_addr_15 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 15" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 164 'getelementptr' 'SBUS_data_addr_15' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 165 [2/2] (2.32ns)   --->   "%SBUS_data_load_15 = load i8* %SBUS_data_addr_15, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 165 'load' 'SBUS_data_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 17 <SV = 16> <Delay = 4.64>
+ST_17 : Operation 166 [1/1] (0.00ns)   --->   "%tmp_4_12 = zext i8 %SBUS_data_load_13 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 166 'zext' 'tmp_4_12' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 167 [1/1] (0.00ns)   --->   "%norm_out_addr_13 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 13" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 167 'getelementptr' 'norm_out_addr_13' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 168 [1/1] (3.25ns)   --->   "store i32 %tmp_4_12, i32* %norm_out_addr_13, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 168 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_17 : Operation 169 [1/2] (2.32ns)   --->   "%SBUS_data_load_15 = load i8* %SBUS_data_addr_15, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 169 'load' 'SBUS_data_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_17 : Operation 170 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_15, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 15), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 170 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_17 : Operation 171 [1/1] (0.00ns)   --->   "%SBUS_data_addr_16 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 16" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 171 'getelementptr' 'SBUS_data_addr_16' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 172 [2/2] (2.32ns)   --->   "%SBUS_data_load_16 = load i8* %SBUS_data_addr_16, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 172 'load' 'SBUS_data_load_16' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 18 <SV = 17> <Delay = 4.64>
+ST_18 : Operation 173 [1/1] (0.00ns)   --->   "%tmp_4_13 = zext i8 %SBUS_data_load_14 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 173 'zext' 'tmp_4_13' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 174 [1/1] (0.00ns)   --->   "%norm_out_addr_14 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 14" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 174 'getelementptr' 'norm_out_addr_14' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 175 [1/1] (3.25ns)   --->   "store i32 %tmp_4_13, i32* %norm_out_addr_14, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 175 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_18 : Operation 176 [1/2] (2.32ns)   --->   "%SBUS_data_load_16 = load i8* %SBUS_data_addr_16, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 176 'load' 'SBUS_data_load_16' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_18 : Operation 177 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_16, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 16), align 16" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 177 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_18 : Operation 178 [1/1] (0.00ns)   --->   "%SBUS_data_addr_17 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 17" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 178 'getelementptr' 'SBUS_data_addr_17' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 179 [2/2] (2.32ns)   --->   "%SBUS_data_load_17 = load i8* %SBUS_data_addr_17, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 179 'load' 'SBUS_data_load_17' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 19 <SV = 18> <Delay = 4.64>
+ST_19 : Operation 180 [1/1] (0.00ns)   --->   "%tmp_4_14 = zext i8 %SBUS_data_load_15 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 180 'zext' 'tmp_4_14' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 181 [1/1] (0.00ns)   --->   "%norm_out_addr_15 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 15" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 181 'getelementptr' 'norm_out_addr_15' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 182 [1/1] (3.25ns)   --->   "store i32 %tmp_4_14, i32* %norm_out_addr_15, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 182 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_19 : Operation 183 [1/2] (2.32ns)   --->   "%SBUS_data_load_17 = load i8* %SBUS_data_addr_17, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 183 'load' 'SBUS_data_load_17' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_19 : Operation 184 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_17, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 17), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 184 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_19 : Operation 185 [1/1] (0.00ns)   --->   "%SBUS_data_addr_18 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 18" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 185 'getelementptr' 'SBUS_data_addr_18' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 186 [2/2] (2.32ns)   --->   "%SBUS_data_load_18 = load i8* %SBUS_data_addr_18, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 186 'load' 'SBUS_data_load_18' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 20 <SV = 19> <Delay = 4.64>
+ST_20 : Operation 187 [1/1] (0.00ns)   --->   "%tmp_4_15 = zext i8 %SBUS_data_load_16 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 187 'zext' 'tmp_4_15' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 188 [1/1] (0.00ns)   --->   "%norm_out_addr_17 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 16" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 188 'getelementptr' 'norm_out_addr_17' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 189 [1/1] (3.25ns)   --->   "store i32 %tmp_4_15, i32* %norm_out_addr_17, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 189 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_20 : Operation 190 [1/2] (2.32ns)   --->   "%SBUS_data_load_18 = load i8* %SBUS_data_addr_18, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 190 'load' 'SBUS_data_load_18' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_20 : Operation 191 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_18, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 18), align 2" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 191 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_20 : Operation 192 [1/1] (0.00ns)   --->   "%SBUS_data_addr_19 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 19" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 192 'getelementptr' 'SBUS_data_addr_19' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 193 [2/2] (2.32ns)   --->   "%SBUS_data_load_19 = load i8* %SBUS_data_addr_19, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 193 'load' 'SBUS_data_load_19' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 21 <SV = 20> <Delay = 4.64>
+ST_21 : Operation 194 [1/1] (0.00ns)   --->   "%tmp_4_16 = zext i8 %SBUS_data_load_17 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 194 'zext' 'tmp_4_16' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 195 [1/1] (0.00ns)   --->   "%norm_out_addr_18 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 17" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 195 'getelementptr' 'norm_out_addr_18' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 196 [1/1] (3.25ns)   --->   "store i32 %tmp_4_16, i32* %norm_out_addr_18, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 196 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_21 : Operation 197 [1/2] (2.32ns)   --->   "%SBUS_data_load_19 = load i8* %SBUS_data_addr_19, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 197 'load' 'SBUS_data_load_19' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_21 : Operation 198 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_19, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 19), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 198 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_21 : Operation 199 [1/1] (0.00ns)   --->   "%SBUS_data_addr_20 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 20" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 199 'getelementptr' 'SBUS_data_addr_20' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 200 [2/2] (2.32ns)   --->   "%SBUS_data_load_20 = load i8* %SBUS_data_addr_20, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 200 'load' 'SBUS_data_load_20' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 22 <SV = 21> <Delay = 4.64>
+ST_22 : Operation 201 [1/1] (0.00ns)   --->   "%tmp_4_17 = zext i8 %SBUS_data_load_18 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 201 'zext' 'tmp_4_17' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 202 [1/1] (0.00ns)   --->   "%norm_out_addr_19 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 18" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 202 'getelementptr' 'norm_out_addr_19' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 203 [1/1] (3.25ns)   --->   "store i32 %tmp_4_17, i32* %norm_out_addr_19, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 203 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_22 : Operation 204 [1/2] (2.32ns)   --->   "%SBUS_data_load_20 = load i8* %SBUS_data_addr_20, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 204 'load' 'SBUS_data_load_20' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_22 : Operation 205 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_20, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 20), align 4" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 205 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_22 : Operation 206 [1/1] (0.00ns)   --->   "%SBUS_data_addr_21 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 21" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 206 'getelementptr' 'SBUS_data_addr_21' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 207 [2/2] (2.32ns)   --->   "%SBUS_data_load_21 = load i8* %SBUS_data_addr_21, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 207 'load' 'SBUS_data_load_21' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 23 <SV = 22> <Delay = 4.64>
+ST_23 : Operation 208 [1/1] (0.00ns)   --->   "%tmp_4_18 = zext i8 %SBUS_data_load_19 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 208 'zext' 'tmp_4_18' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 209 [1/1] (0.00ns)   --->   "%norm_out_addr_20 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 19" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 209 'getelementptr' 'norm_out_addr_20' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 210 [1/1] (3.25ns)   --->   "store i32 %tmp_4_18, i32* %norm_out_addr_20, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 210 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_23 : Operation 211 [1/2] (2.32ns)   --->   "%SBUS_data_load_21 = load i8* %SBUS_data_addr_21, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 211 'load' 'SBUS_data_load_21' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_23 : Operation 212 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_21, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 21), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 212 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_23 : Operation 213 [1/1] (0.00ns)   --->   "%SBUS_data_addr_22 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 22" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 213 'getelementptr' 'SBUS_data_addr_22' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 214 [2/2] (2.32ns)   --->   "%SBUS_data_load_22 = load i8* %SBUS_data_addr_22, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 214 'load' 'SBUS_data_load_22' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 24 <SV = 23> <Delay = 4.64>
+ST_24 : Operation 215 [1/1] (0.00ns)   --->   "%tmp_4_19 = zext i8 %SBUS_data_load_20 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 215 'zext' 'tmp_4_19' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 216 [1/1] (0.00ns)   --->   "%norm_out_addr_21 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 20" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 216 'getelementptr' 'norm_out_addr_21' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 217 [1/1] (3.25ns)   --->   "store i32 %tmp_4_19, i32* %norm_out_addr_21, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 217 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_24 : Operation 218 [1/2] (2.32ns)   --->   "%SBUS_data_load_22 = load i8* %SBUS_data_addr_22, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 218 'load' 'SBUS_data_load_22' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_24 : Operation 219 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_22, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 22), align 2" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 219 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_24 : Operation 220 [1/1] (0.00ns)   --->   "%SBUS_data_addr_23 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 23" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 220 'getelementptr' 'SBUS_data_addr_23' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 221 [2/2] (2.32ns)   --->   "%SBUS_data_load_23 = load i8* %SBUS_data_addr_23, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 221 'load' 'SBUS_data_load_23' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 25 <SV = 24> <Delay = 4.64>
+ST_25 : Operation 222 [1/1] (0.00ns)   --->   "%tmp_4_20 = zext i8 %SBUS_data_load_21 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 222 'zext' 'tmp_4_20' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 223 [1/1] (0.00ns)   --->   "%norm_out_addr_22 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 21" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 223 'getelementptr' 'norm_out_addr_22' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 224 [1/1] (3.25ns)   --->   "store i32 %tmp_4_20, i32* %norm_out_addr_22, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 224 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_25 : Operation 225 [1/2] (2.32ns)   --->   "%SBUS_data_load_23 = load i8* %SBUS_data_addr_23, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 225 'load' 'SBUS_data_load_23' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_25 : Operation 226 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_23, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 23), align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 226 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_25 : Operation 227 [1/1] (0.00ns)   --->   "%SBUS_data_addr_24 = getelementptr [30 x i8]* %SBUS_data, i64 0, i64 24" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 227 'getelementptr' 'SBUS_data_addr_24' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 228 [2/2] (2.32ns)   --->   "%SBUS_data_load_24 = load i8* %SBUS_data_addr_24, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 228 'load' 'SBUS_data_load_24' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+
+State 26 <SV = 25> <Delay = 4.85>
+ST_26 : Operation 229 [1/1] (0.00ns)   --->   "%tmp_4_21 = zext i8 %SBUS_data_load_22 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 229 'zext' 'tmp_4_21' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 230 [1/1] (0.00ns)   --->   "%norm_out_addr_23 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 22" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 230 'getelementptr' 'norm_out_addr_23' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 231 [1/1] (3.25ns)   --->   "store i32 %tmp_4_21, i32* %norm_out_addr_23, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 231 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_26 : Operation 232 [1/2] (2.32ns)   --->   "%SBUS_data_load_24 = load i8* %SBUS_data_addr_24, align 1" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 232 'load' 'SBUS_data_load_24' <Predicate = true> <Delay = 2.32> <Core = "RAM_1P_LUTRAM">   --->   Core 43 'RAM_1P_LUTRAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 8> <Depth = 30> <RAM>
+ST_26 : Operation 233 [1/1] (2.32ns)   --->   "store i8 %SBUS_data_load_24, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 24), align 8" [RC_Receiver/RC_Receiver.cpp:39]   --->   Operation 233 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_26 : Operation 234 [1/1] (1.55ns)   --->   "%tmp_6 = icmp eq i8 %SBUS_data_load_24, 0" [RC_Receiver/RC_Receiver.cpp:60]   --->   Operation 234 'icmp' 'tmp_6' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 235 [1/1] (0.97ns)   --->   "%or_cond = and i1 %tmp_2, %tmp_6" [RC_Receiver/RC_Receiver.cpp:60]   --->   Operation 235 'and' 'or_cond' <Predicate = true> <Delay = 0.97> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 236 [1/1] (0.00ns)   --->   "%tmp_i = zext i8 %SBUS_data_load_1 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 236 'zext' 'tmp_i' <Predicate = (or_cond)> <Delay = 0.00>
+ST_26 : Operation 237 [1/1] (0.00ns)   --->   "%lookuptable_addr = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 237 'getelementptr' 'lookuptable_addr' <Predicate = (or_cond)> <Delay = 0.00>
+ST_26 : Operation 238 [2/2] (3.25ns)   --->   "%reverse_num = load i8* %lookuptable_addr, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 238 'load' 'reverse_num' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_26 : Operation 239 [1/1] (0.00ns)   --->   "%reverse_out_addr = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 0" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 239 'getelementptr' 'reverse_out_addr' <Predicate = (or_cond)> <Delay = 0.00>
+ST_26 : Operation 240 [1/1] (3.25ns)   --->   "store i32 15, i32* %reverse_out_addr, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 240 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_26 : Operation 241 [1/1] (0.00ns)   --->   "%tmp_65 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %SBUS_data_load_23, i32 7)" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 241 'bitselect' 'tmp_65' <Predicate = (or_cond)> <Delay = 0.00>
+ST_26 : Operation 242 [1/1] (0.99ns)   --->   "%tmp_95_cast_cast_cas = select i1 %tmp_65, i11 -1, i11 0" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 242 'select' 'tmp_95_cast_cast_cas' <Predicate = (or_cond)> <Delay = 0.99> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_26 : Operation 243 [1/1] (0.00ns)   --->   "store i11 %tmp_95_cast_cast_cas, i11* @channels_16, align 2" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 243 'store' <Predicate = (or_cond)> <Delay = 0.00>
+
+State 27 <SV = 26> <Delay = 5.57>
+ST_27 : Operation 244 [1/1] (0.00ns)   --->   "%tmp_4_22 = zext i8 %SBUS_data_load_23 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 244 'zext' 'tmp_4_22' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 245 [1/1] (0.00ns)   --->   "%norm_out_addr_24 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 23" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 245 'getelementptr' 'norm_out_addr_24' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 246 [1/1] (3.25ns)   --->   "store i32 %tmp_4_22, i32* %norm_out_addr_24, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 246 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_27 : Operation 247 [1/1] (0.00ns)   --->   "%errors_load = load i8* @errors, align 1" [RC_Receiver/RC_Receiver.cpp:112]   --->   Operation 247 'load' 'errors_load' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 248 [1/2] (3.25ns)   --->   "%reverse_num = load i8* %lookuptable_addr, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 248 'load' 'reverse_num' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_27 : Operation 249 [1/1] (2.32ns)   --->   "store i8 %reverse_num, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 1), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 249 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_27 : Operation 250 [1/1] (0.00ns)   --->   "%tmp_i1 = zext i8 %SBUS_data_load_2 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 250 'zext' 'tmp_i1' <Predicate = (or_cond)> <Delay = 0.00>
+ST_27 : Operation 251 [1/1] (0.00ns)   --->   "%lookuptable_addr_1 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 251 'getelementptr' 'lookuptable_addr_1' <Predicate = (or_cond)> <Delay = 0.00>
+ST_27 : Operation 252 [2/2] (3.25ns)   --->   "%reverse_num_1 = load i8* %lookuptable_addr_1, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 252 'load' 'reverse_num_1' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_27 : Operation 253 [1/1] (0.00ns)   --->   "%reverse_out_addr_24 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 24" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 253 'getelementptr' 'reverse_out_addr_24' <Predicate = (or_cond)> <Delay = 0.00>
+ST_27 : Operation 254 [1/1] (3.25ns)   --->   "store i32 0, i32* %reverse_out_addr_24, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 254 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_27 : Operation 255 [1/1] (1.76ns)   --->   "br label %2" [RC_Receiver/RC_Receiver.cpp:108]   --->   Operation 255 'br' <Predicate = (or_cond)> <Delay = 1.76>
+ST_27 : Operation 256 [1/1] (0.00ns)   --->   "%channels_16_load = load i11* @channels_16, align 2"   --->   Operation 256 'load' 'channels_16_load' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 257 [1/1] (0.00ns)   --->   "%tmp_113_15 = zext i11 %channels_16_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 257 'zext' 'tmp_113_15' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 258 [1/1] (0.00ns)   --->   "%channel_data_addr_16 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 16" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 258 'getelementptr' 'channel_data_addr_16' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 259 [1/1] (3.25ns)   --->   "store i32 %tmp_113_15, i32* %channel_data_addr_16, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 259 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 28 <SV = 27> <Delay = 6.93>
+ST_28 : Operation 260 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([30 x i8]* %SBUS_data) nounwind, !map !20"   --->   Operation 260 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 261 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([4096 x i32]* %norm_out) nounwind, !map !26"   --->   Operation 261 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 262 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([4096 x i32]* %reverse_out) nounwind, !map !32"   --->   Operation 262 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 263 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([4096 x i32]* %channel_data) nounwind, !map !36"   --->   Operation 263 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 264 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([12 x i8]* @RC_RECEIVER_str) nounwind"   --->   Operation 264 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 265 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 2, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [RC_Receiver/RC_Receiver.cpp:7]   --->   Operation 265 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 266 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [RC_Receiver/RC_Receiver.cpp:9]   --->   Operation 266 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 267 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([30 x i8]* %SBUS_data, [1 x i8]* @p_str, [14 x i8]* @RAM_1P_LUTRAM_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 267 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 268 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([30 x i8]* %SBUS_data, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 268 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 269 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([4096 x i32]* %norm_out, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 4096, [10 x i8]* @p_str4, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 269 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 270 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([4096 x i32]* %norm_out, [1 x i8]* @p_str, [12 x i8]* @p_str5, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 270 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 271 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([4096 x i32]* %reverse_out, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 4096, [9 x i8]* @p_str6, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 271 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 272 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([4096 x i32]* %reverse_out, [1 x i8]* @p_str, [12 x i8]* @p_str5, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 272 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 273 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([4096 x i32]* %channel_data, [10 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 4096, [10 x i8]* @p_str7, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 273 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 274 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([4096 x i32]* %channel_data, [1 x i8]* @p_str, [12 x i8]* @p_str5, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 274 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 275 [1/1] (0.00ns)   --->   "%tmp_4_23 = zext i8 %SBUS_data_load_24 to i32" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 275 'zext' 'tmp_4_23' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 276 [1/1] (0.00ns)   --->   "%norm_out_addr_25 = getelementptr [4096 x i32]* %norm_out, i64 0, i64 24" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 276 'getelementptr' 'norm_out_addr_25' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 277 [1/1] (3.25ns)   --->   "store i32 %tmp_4_23, i32* %norm_out_addr_25, align 4" [RC_Receiver/RC_Receiver.cpp:42]   --->   Operation 277 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_28 : Operation 278 [1/1] (0.00ns)   --->   "br i1 %or_cond, label %.preheader.preheader, label %._crit_edge" [RC_Receiver/RC_Receiver.cpp:60]   --->   Operation 278 'br' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 279 [1/1] (1.91ns)   --->   "%tmp_7 = add i8 %errors_load, 1" [RC_Receiver/RC_Receiver.cpp:112]   --->   Operation 279 'add' 'tmp_7' <Predicate = (!or_cond)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 280 [1/1] (0.00ns)   --->   "store i8 %tmp_7, i8* @errors, align 1" [RC_Receiver/RC_Receiver.cpp:112]   --->   Operation 280 'store' <Predicate = (!or_cond)> <Delay = 0.00>
+ST_28 : Operation 281 [1/1] (1.76ns)   --->   "br label %2"   --->   Operation 281 'br' <Predicate = (!or_cond)> <Delay = 1.76>
+ST_28 : Operation 282 [1/2] (3.25ns)   --->   "%reverse_num_1 = load i8* %lookuptable_addr_1, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 282 'load' 'reverse_num_1' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_28 : Operation 283 [1/1] (2.32ns)   --->   "store i8 %reverse_num_1, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 2), align 2" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 283 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_28 : Operation 284 [1/1] (0.00ns)   --->   "%tmp_i2 = zext i8 %SBUS_data_load_3 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 284 'zext' 'tmp_i2' <Predicate = (or_cond)> <Delay = 0.00>
+ST_28 : Operation 285 [1/1] (0.00ns)   --->   "%lookuptable_addr_2 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i2" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 285 'getelementptr' 'lookuptable_addr_2' <Predicate = (or_cond)> <Delay = 0.00>
+ST_28 : Operation 286 [2/2] (3.25ns)   --->   "%reverse_num_2 = load i8* %lookuptable_addr_2, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 286 'load' 'reverse_num_2' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_28 : Operation 287 [1/1] (0.00ns)   --->   "%tmp_3 = trunc i8 %reverse_num_1 to i3" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 287 'trunc' 'tmp_3' <Predicate = (or_cond)> <Delay = 0.00>
+ST_28 : Operation 288 [1/1] (0.00ns)   --->   "%tmp_8 = call i11 @_ssdm_op_BitConcatenate.i11.i3.i8(i3 %tmp_3, i8 %reverse_num)" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 288 'bitconcatenate' 'tmp_8' <Predicate = (or_cond)> <Delay = 0.00>
+ST_28 : Operation 289 [1/1] (0.00ns)   --->   "store i11 %tmp_8, i11* @channels_0, align 2" [RC_Receiver/RC_Receiver.cpp:85]   --->   Operation 289 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_28 : Operation 290 [1/1] (0.00ns)   --->   "%tmp_5 = call i5 @_ssdm_op_PartSelect.i5.i8.i32.i32(i8 %reverse_num_1, i32 3, i32 7)" [RC_Receiver/RC_Receiver.cpp:86]   --->   Operation 290 'partselect' 'tmp_5' <Predicate = (or_cond)> <Delay = 0.00>
+ST_28 : Operation 291 [1/1] (0.00ns)   --->   "%errors_loc = phi i8 [ %errors_load, %._crit_edge5 ], [ %tmp_7, %._crit_edge ]" [RC_Receiver/RC_Receiver.cpp:112]   --->   Operation 291 'phi' 'errors_loc' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 292 [1/1] (0.00ns)   --->   "%tmp_70 = zext i8 %errors_loc to i32" [RC_Receiver/RC_Receiver.cpp:121]   --->   Operation 292 'zext' 'tmp_70' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 293 [1/1] (0.00ns)   --->   "%reverse_out_addr_25 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 25" [RC_Receiver/RC_Receiver.cpp:121]   --->   Operation 293 'getelementptr' 'reverse_out_addr_25' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 294 [1/1] (3.25ns)   --->   "store i32 %tmp_70, i32* %reverse_out_addr_25, align 4" [RC_Receiver/RC_Receiver.cpp:121]   --->   Operation 294 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 29 <SV = 28> <Delay = 5.57>
+ST_29 : Operation 295 [1/1] (3.25ns)   --->   "store i32 1, i32* %norm_out_addr_26, align 4" [RC_Receiver/RC_Receiver.cpp:111]   --->   Operation 295 'store' <Predicate = (!or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_29 : Operation 296 [1/1] (3.25ns)   --->   "store i32 69, i32* %norm_out_addr_26, align 4" [RC_Receiver/RC_Receiver.cpp:64]   --->   Operation 296 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_29 : Operation 297 [1/2] (3.25ns)   --->   "%reverse_num_2 = load i8* %lookuptable_addr_2, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 297 'load' 'reverse_num_2' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_29 : Operation 298 [1/1] (2.32ns)   --->   "store i8 %reverse_num_2, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 3), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 298 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_29 : Operation 299 [1/1] (0.00ns)   --->   "%tmp_i3 = zext i8 %SBUS_data_load_4 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 299 'zext' 'tmp_i3' <Predicate = (or_cond)> <Delay = 0.00>
+ST_29 : Operation 300 [1/1] (0.00ns)   --->   "%lookuptable_addr_3 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i3" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 300 'getelementptr' 'lookuptable_addr_3' <Predicate = (or_cond)> <Delay = 0.00>
+ST_29 : Operation 301 [2/2] (3.25ns)   --->   "%reverse_num_3 = load i8* %lookuptable_addr_3, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 301 'load' 'reverse_num_3' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_29 : Operation 302 [1/1] (0.00ns)   --->   "%tmp_109_1 = zext i8 %reverse_num to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 302 'zext' 'tmp_109_1' <Predicate = (or_cond)> <Delay = 0.00>
+ST_29 : Operation 303 [1/1] (0.00ns)   --->   "%reverse_out_addr_1 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 1" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 303 'getelementptr' 'reverse_out_addr_1' <Predicate = (or_cond)> <Delay = 0.00>
+ST_29 : Operation 304 [1/1] (3.25ns)   --->   "store i32 %tmp_109_1, i32* %reverse_out_addr_1, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 304 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_29 : Operation 305 [1/1] (0.00ns)   --->   "%tmp_9 = trunc i8 %reverse_num_2 to i6" [RC_Receiver/RC_Receiver.cpp:86]   --->   Operation 305 'trunc' 'tmp_9' <Predicate = (or_cond)> <Delay = 0.00>
+ST_29 : Operation 306 [1/1] (0.00ns)   --->   "%tmp_s = call i11 @_ssdm_op_BitConcatenate.i11.i6.i5(i6 %tmp_9, i5 %tmp_5)" [RC_Receiver/RC_Receiver.cpp:86]   --->   Operation 306 'bitconcatenate' 'tmp_s' <Predicate = (or_cond)> <Delay = 0.00>
+ST_29 : Operation 307 [1/1] (0.00ns)   --->   "store i11 %tmp_s, i11* @channels_1, align 2" [RC_Receiver/RC_Receiver.cpp:86]   --->   Operation 307 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_29 : Operation 308 [1/1] (0.00ns)   --->   "%tmp_10 = call i2 @_ssdm_op_PartSelect.i2.i8.i32.i32(i8 %reverse_num_2, i32 6, i32 7)" [RC_Receiver/RC_Receiver.cpp:87]   --->   Operation 308 'partselect' 'tmp_10' <Predicate = (or_cond)> <Delay = 0.00>
+ST_29 : Operation 309 [1/1] (0.00ns)   --->   "%channels_0_load = load i11* @channels_0, align 2"   --->   Operation 309 'load' 'channels_0_load' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 310 [1/1] (0.00ns)   --->   "%tmp_69 = zext i11 %channels_0_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 310 'zext' 'tmp_69' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 311 [1/1] (0.00ns)   --->   "%channel_data_addr = getelementptr [4096 x i32]* %channel_data, i64 0, i64 0" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 311 'getelementptr' 'channel_data_addr' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 312 [1/1] (3.25ns)   --->   "store i32 %tmp_69, i32* %channel_data_addr, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 312 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 30 <SV = 29> <Delay = 5.57>
+ST_30 : Operation 313 [1/1] (3.25ns)   --->   "store i32 %tmp, i32* %norm_out_addr_16, align 4" [RC_Receiver/RC_Receiver.cpp:65]   --->   Operation 313 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_30 : Operation 314 [1/2] (3.25ns)   --->   "%reverse_num_3 = load i8* %lookuptable_addr_3, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 314 'load' 'reverse_num_3' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_30 : Operation 315 [1/1] (2.32ns)   --->   "store i8 %reverse_num_3, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 4), align 4" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 315 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_30 : Operation 316 [1/1] (0.00ns)   --->   "%tmp_i4 = zext i8 %SBUS_data_load_5 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 316 'zext' 'tmp_i4' <Predicate = (or_cond)> <Delay = 0.00>
+ST_30 : Operation 317 [1/1] (0.00ns)   --->   "%lookuptable_addr_4 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i4" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 317 'getelementptr' 'lookuptable_addr_4' <Predicate = (or_cond)> <Delay = 0.00>
+ST_30 : Operation 318 [2/2] (3.25ns)   --->   "%reverse_num_4 = load i8* %lookuptable_addr_4, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 318 'load' 'reverse_num_4' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_30 : Operation 319 [1/1] (0.00ns)   --->   "%tmp_109_2 = zext i8 %reverse_num_1 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 319 'zext' 'tmp_109_2' <Predicate = (or_cond)> <Delay = 0.00>
+ST_30 : Operation 320 [1/1] (0.00ns)   --->   "%reverse_out_addr_2 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 2" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 320 'getelementptr' 'reverse_out_addr_2' <Predicate = (or_cond)> <Delay = 0.00>
+ST_30 : Operation 321 [1/1] (3.25ns)   --->   "store i32 %tmp_109_2, i32* %reverse_out_addr_2, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 321 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_30 : Operation 322 [1/1] (0.00ns)   --->   "%channels_1_load = load i11* @channels_1, align 2"   --->   Operation 322 'load' 'channels_1_load' <Predicate = true> <Delay = 0.00>
+ST_30 : Operation 323 [1/1] (0.00ns)   --->   "%tmp_113_1 = zext i11 %channels_1_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 323 'zext' 'tmp_113_1' <Predicate = true> <Delay = 0.00>
+ST_30 : Operation 324 [1/1] (0.00ns)   --->   "%channel_data_addr_1 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 1" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 324 'getelementptr' 'channel_data_addr_1' <Predicate = true> <Delay = 0.00>
+ST_30 : Operation 325 [1/1] (3.25ns)   --->   "store i32 %tmp_113_1, i32* %channel_data_addr_1, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 325 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 31 <SV = 30> <Delay = 5.57>
+ST_31 : Operation 326 [1/1] (3.25ns)   --->   "store i32 %tmp_1, i32* %norm_out_addr_27, align 4" [RC_Receiver/RC_Receiver.cpp:66]   --->   Operation 326 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_31 : Operation 327 [1/2] (3.25ns)   --->   "%reverse_num_4 = load i8* %lookuptable_addr_4, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 327 'load' 'reverse_num_4' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_31 : Operation 328 [1/1] (2.32ns)   --->   "store i8 %reverse_num_4, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 5), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 328 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_31 : Operation 329 [1/1] (0.00ns)   --->   "%tmp_i5 = zext i8 %SBUS_data_load_6 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 329 'zext' 'tmp_i5' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 330 [1/1] (0.00ns)   --->   "%lookuptable_addr_5 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i5" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 330 'getelementptr' 'lookuptable_addr_5' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 331 [2/2] (3.25ns)   --->   "%reverse_num_5 = load i8* %lookuptable_addr_5, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 331 'load' 'reverse_num_5' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_31 : Operation 332 [1/1] (0.00ns)   --->   "%tmp_109_3 = zext i8 %reverse_num_2 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 332 'zext' 'tmp_109_3' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 333 [1/1] (0.00ns)   --->   "%reverse_out_addr_3 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 3" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 333 'getelementptr' 'reverse_out_addr_3' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 334 [1/1] (3.25ns)   --->   "store i32 %tmp_109_3, i32* %reverse_out_addr_3, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 334 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_31 : Operation 335 [1/1] (0.00ns)   --->   "%tmp_11 = zext i2 %tmp_10 to i8" [RC_Receiver/RC_Receiver.cpp:87]   --->   Operation 335 'zext' 'tmp_11' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 336 [1/1] (0.00ns)   --->   "%tmp_12 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %reverse_num_3, i2 0)" [RC_Receiver/RC_Receiver.cpp:87]   --->   Operation 336 'bitconcatenate' 'tmp_12' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 337 [1/1] (0.00ns)   --->   "%tmp_13 = trunc i8 %reverse_num_4 to i1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 337 'trunc' 'tmp_13' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 338 [1/1] (0.00ns)   --->   "%tmp_14 = call i10 @_ssdm_op_BitConcatenate.i10.i2.i8(i2 0, i8 %tmp_11)" [RC_Receiver/RC_Receiver.cpp:87]   --->   Operation 338 'bitconcatenate' 'tmp_14' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 339 [1/1] (0.99ns)   --->   "%tmp_15 = or i10 %tmp_14, %tmp_12" [RC_Receiver/RC_Receiver.cpp:87]   --->   Operation 339 'or' 'tmp_15' <Predicate = (or_cond)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 340 [1/1] (0.00ns)   --->   "%tmp_16 = call i11 @_ssdm_op_BitConcatenate.i11.i1.i10(i1 %tmp_13, i10 %tmp_15)" [RC_Receiver/RC_Receiver.cpp:87]   --->   Operation 340 'bitconcatenate' 'tmp_16' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 341 [1/1] (0.00ns)   --->   "store i11 %tmp_16, i11* @channels_2, align 2" [RC_Receiver/RC_Receiver.cpp:87]   --->   Operation 341 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_31 : Operation 342 [1/1] (0.00ns)   --->   "%tmp_17 = call i7 @_ssdm_op_PartSelect.i7.i8.i32.i32(i8 %reverse_num_4, i32 1, i32 7)" [RC_Receiver/RC_Receiver.cpp:88]   --->   Operation 342 'partselect' 'tmp_17' <Predicate = (or_cond)> <Delay = 0.00>
+
+State 32 <SV = 31> <Delay = 5.57>
+ST_32 : Operation 343 [1/2] (3.25ns)   --->   "%reverse_num_5 = load i8* %lookuptable_addr_5, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 343 'load' 'reverse_num_5' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_32 : Operation 344 [1/1] (2.32ns)   --->   "store i8 %reverse_num_5, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 6), align 2" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 344 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_32 : Operation 345 [1/1] (0.00ns)   --->   "%tmp_i6 = zext i8 %SBUS_data_load_7 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 345 'zext' 'tmp_i6' <Predicate = (or_cond)> <Delay = 0.00>
+ST_32 : Operation 346 [1/1] (0.00ns)   --->   "%lookuptable_addr_6 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i6" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 346 'getelementptr' 'lookuptable_addr_6' <Predicate = (or_cond)> <Delay = 0.00>
+ST_32 : Operation 347 [2/2] (3.25ns)   --->   "%reverse_num_6 = load i8* %lookuptable_addr_6, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 347 'load' 'reverse_num_6' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_32 : Operation 348 [1/1] (0.00ns)   --->   "%tmp_109_4 = zext i8 %reverse_num_3 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 348 'zext' 'tmp_109_4' <Predicate = (or_cond)> <Delay = 0.00>
+ST_32 : Operation 349 [1/1] (0.00ns)   --->   "%reverse_out_addr_4 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 349 'getelementptr' 'reverse_out_addr_4' <Predicate = (or_cond)> <Delay = 0.00>
+ST_32 : Operation 350 [1/1] (3.25ns)   --->   "store i32 %tmp_109_4, i32* %reverse_out_addr_4, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 350 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_32 : Operation 351 [1/1] (0.00ns)   --->   "%tmp_18 = trunc i8 %reverse_num_5 to i4" [RC_Receiver/RC_Receiver.cpp:88]   --->   Operation 351 'trunc' 'tmp_18' <Predicate = (or_cond)> <Delay = 0.00>
+ST_32 : Operation 352 [1/1] (0.00ns)   --->   "%tmp_19 = call i11 @_ssdm_op_BitConcatenate.i11.i4.i7(i4 %tmp_18, i7 %tmp_17)" [RC_Receiver/RC_Receiver.cpp:88]   --->   Operation 352 'bitconcatenate' 'tmp_19' <Predicate = (or_cond)> <Delay = 0.00>
+ST_32 : Operation 353 [1/1] (0.00ns)   --->   "store i11 %tmp_19, i11* @channels_3, align 2" [RC_Receiver/RC_Receiver.cpp:88]   --->   Operation 353 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_32 : Operation 354 [1/1] (0.00ns)   --->   "%tmp_20 = call i4 @_ssdm_op_PartSelect.i4.i8.i32.i32(i8 %reverse_num_5, i32 4, i32 7)" [RC_Receiver/RC_Receiver.cpp:89]   --->   Operation 354 'partselect' 'tmp_20' <Predicate = (or_cond)> <Delay = 0.00>
+ST_32 : Operation 355 [1/1] (0.00ns)   --->   "%channels_2_load = load i11* @channels_2, align 2"   --->   Operation 355 'load' 'channels_2_load' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 356 [1/1] (0.00ns)   --->   "%tmp_113_2 = zext i11 %channels_2_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 356 'zext' 'tmp_113_2' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 357 [1/1] (0.00ns)   --->   "%channel_data_addr_2 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 2" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 357 'getelementptr' 'channel_data_addr_2' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 358 [1/1] (3.25ns)   --->   "store i32 %tmp_113_2, i32* %channel_data_addr_2, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 358 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 33 <SV = 32> <Delay = 5.57>
+ST_33 : Operation 359 [1/2] (3.25ns)   --->   "%reverse_num_6 = load i8* %lookuptable_addr_6, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 359 'load' 'reverse_num_6' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_33 : Operation 360 [1/1] (2.32ns)   --->   "store i8 %reverse_num_6, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 7), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 360 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_33 : Operation 361 [1/1] (0.00ns)   --->   "%tmp_i7 = zext i8 %SBUS_data_load_8 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 361 'zext' 'tmp_i7' <Predicate = (or_cond)> <Delay = 0.00>
+ST_33 : Operation 362 [1/1] (0.00ns)   --->   "%lookuptable_addr_7 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i7" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 362 'getelementptr' 'lookuptable_addr_7' <Predicate = (or_cond)> <Delay = 0.00>
+ST_33 : Operation 363 [2/2] (3.25ns)   --->   "%reverse_num_7 = load i8* %lookuptable_addr_7, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 363 'load' 'reverse_num_7' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_33 : Operation 364 [1/1] (0.00ns)   --->   "%tmp_109_5 = zext i8 %reverse_num_4 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 364 'zext' 'tmp_109_5' <Predicate = (or_cond)> <Delay = 0.00>
+ST_33 : Operation 365 [1/1] (0.00ns)   --->   "%reverse_out_addr_5 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 5" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 365 'getelementptr' 'reverse_out_addr_5' <Predicate = (or_cond)> <Delay = 0.00>
+ST_33 : Operation 366 [1/1] (3.25ns)   --->   "store i32 %tmp_109_5, i32* %reverse_out_addr_5, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 366 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_33 : Operation 367 [1/1] (0.00ns)   --->   "%tmp_21 = trunc i8 %reverse_num_6 to i7" [RC_Receiver/RC_Receiver.cpp:89]   --->   Operation 367 'trunc' 'tmp_21' <Predicate = (or_cond)> <Delay = 0.00>
+ST_33 : Operation 368 [1/1] (0.00ns)   --->   "%tmp_22 = call i11 @_ssdm_op_BitConcatenate.i11.i7.i4(i7 %tmp_21, i4 %tmp_20)" [RC_Receiver/RC_Receiver.cpp:89]   --->   Operation 368 'bitconcatenate' 'tmp_22' <Predicate = (or_cond)> <Delay = 0.00>
+ST_33 : Operation 369 [1/1] (0.00ns)   --->   "store i11 %tmp_22, i11* @channels_4, align 2" [RC_Receiver/RC_Receiver.cpp:89]   --->   Operation 369 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_33 : Operation 370 [1/1] (0.00ns)   --->   "%tmp_23 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %reverse_num_6, i32 7)" [RC_Receiver/RC_Receiver.cpp:90]   --->   Operation 370 'bitselect' 'tmp_23' <Predicate = (or_cond)> <Delay = 0.00>
+ST_33 : Operation 371 [1/1] (0.00ns)   --->   "%channels_3_load = load i11* @channels_3, align 2"   --->   Operation 371 'load' 'channels_3_load' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 372 [1/1] (0.00ns)   --->   "%tmp_113_3 = zext i11 %channels_3_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 372 'zext' 'tmp_113_3' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 373 [1/1] (0.00ns)   --->   "%channel_data_addr_3 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 3" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 373 'getelementptr' 'channel_data_addr_3' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 374 [1/1] (3.25ns)   --->   "store i32 %tmp_113_3, i32* %channel_data_addr_3, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 374 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 34 <SV = 33> <Delay = 5.57>
+ST_34 : Operation 375 [1/2] (3.25ns)   --->   "%reverse_num_7 = load i8* %lookuptable_addr_7, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 375 'load' 'reverse_num_7' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_34 : Operation 376 [1/1] (2.32ns)   --->   "store i8 %reverse_num_7, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 8), align 8" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 376 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_34 : Operation 377 [1/1] (0.00ns)   --->   "%tmp_i8 = zext i8 %SBUS_data_load_9 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 377 'zext' 'tmp_i8' <Predicate = (or_cond)> <Delay = 0.00>
+ST_34 : Operation 378 [1/1] (0.00ns)   --->   "%lookuptable_addr_8 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i8" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 378 'getelementptr' 'lookuptable_addr_8' <Predicate = (or_cond)> <Delay = 0.00>
+ST_34 : Operation 379 [2/2] (3.25ns)   --->   "%reverse_num_8 = load i8* %lookuptable_addr_8, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 379 'load' 'reverse_num_8' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_34 : Operation 380 [1/1] (0.00ns)   --->   "%tmp_109_6 = zext i8 %reverse_num_5 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 380 'zext' 'tmp_109_6' <Predicate = (or_cond)> <Delay = 0.00>
+ST_34 : Operation 381 [1/1] (0.00ns)   --->   "%reverse_out_addr_6 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 6" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 381 'getelementptr' 'reverse_out_addr_6' <Predicate = (or_cond)> <Delay = 0.00>
+ST_34 : Operation 382 [1/1] (3.25ns)   --->   "store i32 %tmp_109_6, i32* %reverse_out_addr_6, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 382 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_34 : Operation 383 [1/1] (0.00ns)   --->   "%channels_4_load = load i11* @channels_4, align 2"   --->   Operation 383 'load' 'channels_4_load' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 384 [1/1] (0.00ns)   --->   "%tmp_113_4 = zext i11 %channels_4_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 384 'zext' 'tmp_113_4' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 385 [1/1] (0.00ns)   --->   "%channel_data_addr_4 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 385 'getelementptr' 'channel_data_addr_4' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 386 [1/1] (3.25ns)   --->   "store i32 %tmp_113_4, i32* %channel_data_addr_4, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 386 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 35 <SV = 34> <Delay = 5.57>
+ST_35 : Operation 387 [1/2] (3.25ns)   --->   "%reverse_num_8 = load i8* %lookuptable_addr_8, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 387 'load' 'reverse_num_8' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_35 : Operation 388 [1/1] (2.32ns)   --->   "store i8 %reverse_num_8, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 9), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 388 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_35 : Operation 389 [1/1] (0.00ns)   --->   "%tmp_i9 = zext i8 %SBUS_data_load_10 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 389 'zext' 'tmp_i9' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 390 [1/1] (0.00ns)   --->   "%lookuptable_addr_9 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i9" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 390 'getelementptr' 'lookuptable_addr_9' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 391 [2/2] (3.25ns)   --->   "%reverse_num_9 = load i8* %lookuptable_addr_9, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 391 'load' 'reverse_num_9' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_35 : Operation 392 [1/1] (0.00ns)   --->   "%tmp_109_7 = zext i8 %reverse_num_6 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 392 'zext' 'tmp_109_7' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 393 [1/1] (0.00ns)   --->   "%reverse_out_addr_7 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 7" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 393 'getelementptr' 'reverse_out_addr_7' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 394 [1/1] (3.25ns)   --->   "store i32 %tmp_109_7, i32* %reverse_out_addr_7, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 394 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_35 : Operation 395 [1/1] (0.00ns)   --->   "%tmp_24 = zext i1 %tmp_23 to i8" [RC_Receiver/RC_Receiver.cpp:90]   --->   Operation 395 'zext' 'tmp_24' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 396 [1/1] (0.00ns)   --->   "%tmp_25 = call i9 @_ssdm_op_BitConcatenate.i9.i8.i1(i8 %reverse_num_7, i1 false)" [RC_Receiver/RC_Receiver.cpp:90]   --->   Operation 396 'bitconcatenate' 'tmp_25' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 397 [1/1] (0.00ns)   --->   "%tmp_26 = trunc i8 %reverse_num_8 to i2" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 397 'trunc' 'tmp_26' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 398 [1/1] (0.00ns)   --->   "%tmp_27 = call i9 @_ssdm_op_BitConcatenate.i9.i1.i8(i1 false, i8 %tmp_24)" [RC_Receiver/RC_Receiver.cpp:90]   --->   Operation 398 'bitconcatenate' 'tmp_27' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 399 [1/1] (0.99ns)   --->   "%tmp_28 = or i9 %tmp_27, %tmp_25" [RC_Receiver/RC_Receiver.cpp:90]   --->   Operation 399 'or' 'tmp_28' <Predicate = (or_cond)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 400 [1/1] (0.00ns)   --->   "%tmp_29 = call i11 @_ssdm_op_BitConcatenate.i11.i2.i9(i2 %tmp_26, i9 %tmp_28)" [RC_Receiver/RC_Receiver.cpp:90]   --->   Operation 400 'bitconcatenate' 'tmp_29' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 401 [1/1] (0.00ns)   --->   "store i11 %tmp_29, i11* @channels_5, align 2" [RC_Receiver/RC_Receiver.cpp:90]   --->   Operation 401 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_35 : Operation 402 [1/1] (0.00ns)   --->   "%tmp_30 = call i6 @_ssdm_op_PartSelect.i6.i8.i32.i32(i8 %reverse_num_8, i32 2, i32 7)" [RC_Receiver/RC_Receiver.cpp:91]   --->   Operation 402 'partselect' 'tmp_30' <Predicate = (or_cond)> <Delay = 0.00>
+
+State 36 <SV = 35> <Delay = 5.57>
+ST_36 : Operation 403 [1/2] (3.25ns)   --->   "%reverse_num_9 = load i8* %lookuptable_addr_9, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 403 'load' 'reverse_num_9' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_36 : Operation 404 [1/1] (2.32ns)   --->   "store i8 %reverse_num_9, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 10), align 2" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 404 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_36 : Operation 405 [1/1] (0.00ns)   --->   "%tmp_i10 = zext i8 %SBUS_data_load_11 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 405 'zext' 'tmp_i10' <Predicate = (or_cond)> <Delay = 0.00>
+ST_36 : Operation 406 [1/1] (0.00ns)   --->   "%lookuptable_addr_10 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i10" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 406 'getelementptr' 'lookuptable_addr_10' <Predicate = (or_cond)> <Delay = 0.00>
+ST_36 : Operation 407 [2/2] (3.25ns)   --->   "%reverse_num_10 = load i8* %lookuptable_addr_10, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 407 'load' 'reverse_num_10' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_36 : Operation 408 [1/1] (0.00ns)   --->   "%tmp_109_8 = zext i8 %reverse_num_7 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 408 'zext' 'tmp_109_8' <Predicate = (or_cond)> <Delay = 0.00>
+ST_36 : Operation 409 [1/1] (0.00ns)   --->   "%reverse_out_addr_8 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 8" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 409 'getelementptr' 'reverse_out_addr_8' <Predicate = (or_cond)> <Delay = 0.00>
+ST_36 : Operation 410 [1/1] (3.25ns)   --->   "store i32 %tmp_109_8, i32* %reverse_out_addr_8, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 410 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_36 : Operation 411 [1/1] (0.00ns)   --->   "%tmp_31 = trunc i8 %reverse_num_9 to i5" [RC_Receiver/RC_Receiver.cpp:91]   --->   Operation 411 'trunc' 'tmp_31' <Predicate = (or_cond)> <Delay = 0.00>
+ST_36 : Operation 412 [1/1] (0.00ns)   --->   "%tmp_32 = call i11 @_ssdm_op_BitConcatenate.i11.i5.i6(i5 %tmp_31, i6 %tmp_30)" [RC_Receiver/RC_Receiver.cpp:91]   --->   Operation 412 'bitconcatenate' 'tmp_32' <Predicate = (or_cond)> <Delay = 0.00>
+ST_36 : Operation 413 [1/1] (0.00ns)   --->   "store i11 %tmp_32, i11* @channels_6, align 2" [RC_Receiver/RC_Receiver.cpp:91]   --->   Operation 413 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_36 : Operation 414 [1/1] (0.00ns)   --->   "%tmp_33 = call i3 @_ssdm_op_PartSelect.i3.i8.i32.i32(i8 %reverse_num_9, i32 5, i32 7)" [RC_Receiver/RC_Receiver.cpp:92]   --->   Operation 414 'partselect' 'tmp_33' <Predicate = (or_cond)> <Delay = 0.00>
+ST_36 : Operation 415 [1/1] (0.00ns)   --->   "%channels_5_load = load i11* @channels_5, align 2"   --->   Operation 415 'load' 'channels_5_load' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 416 [1/1] (0.00ns)   --->   "%tmp_113_5 = zext i11 %channels_5_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 416 'zext' 'tmp_113_5' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 417 [1/1] (0.00ns)   --->   "%channel_data_addr_5 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 5" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 417 'getelementptr' 'channel_data_addr_5' <Predicate = true> <Delay = 0.00>
+ST_36 : Operation 418 [1/1] (3.25ns)   --->   "store i32 %tmp_113_5, i32* %channel_data_addr_5, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 418 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 37 <SV = 36> <Delay = 5.57>
+ST_37 : Operation 419 [1/2] (3.25ns)   --->   "%reverse_num_10 = load i8* %lookuptable_addr_10, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 419 'load' 'reverse_num_10' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_37 : Operation 420 [1/1] (2.32ns)   --->   "store i8 %reverse_num_10, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 11), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 420 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_37 : Operation 421 [1/1] (0.00ns)   --->   "%tmp_i11 = zext i8 %SBUS_data_load_12 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 421 'zext' 'tmp_i11' <Predicate = (or_cond)> <Delay = 0.00>
+ST_37 : Operation 422 [1/1] (0.00ns)   --->   "%lookuptable_addr_11 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i11" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 422 'getelementptr' 'lookuptable_addr_11' <Predicate = (or_cond)> <Delay = 0.00>
+ST_37 : Operation 423 [2/2] (3.25ns)   --->   "%reverse_num_11 = load i8* %lookuptable_addr_11, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 423 'load' 'reverse_num_11' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_37 : Operation 424 [1/1] (0.00ns)   --->   "%tmp_109_9 = zext i8 %reverse_num_8 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 424 'zext' 'tmp_109_9' <Predicate = (or_cond)> <Delay = 0.00>
+ST_37 : Operation 425 [1/1] (0.00ns)   --->   "%reverse_out_addr_9 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 9" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 425 'getelementptr' 'reverse_out_addr_9' <Predicate = (or_cond)> <Delay = 0.00>
+ST_37 : Operation 426 [1/1] (3.25ns)   --->   "store i32 %tmp_109_9, i32* %reverse_out_addr_9, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 426 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_37 : Operation 427 [1/1] (0.00ns)   --->   "%tmp_34 = call i11 @_ssdm_op_BitConcatenate.i11.i8.i3(i8 %reverse_num_10, i3 %tmp_33)" [RC_Receiver/RC_Receiver.cpp:92]   --->   Operation 427 'bitconcatenate' 'tmp_34' <Predicate = (or_cond)> <Delay = 0.00>
+ST_37 : Operation 428 [1/1] (0.00ns)   --->   "store i11 %tmp_34, i11* @channels_7, align 2" [RC_Receiver/RC_Receiver.cpp:92]   --->   Operation 428 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_37 : Operation 429 [1/1] (0.00ns)   --->   "%channels_6_load = load i11* @channels_6, align 2"   --->   Operation 429 'load' 'channels_6_load' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 430 [1/1] (0.00ns)   --->   "%tmp_113_6 = zext i11 %channels_6_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 430 'zext' 'tmp_113_6' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 431 [1/1] (0.00ns)   --->   "%channel_data_addr_6 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 6" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 431 'getelementptr' 'channel_data_addr_6' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 432 [1/1] (3.25ns)   --->   "store i32 %tmp_113_6, i32* %channel_data_addr_6, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 432 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 38 <SV = 37> <Delay = 5.57>
+ST_38 : Operation 433 [1/2] (3.25ns)   --->   "%reverse_num_11 = load i8* %lookuptable_addr_11, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 433 'load' 'reverse_num_11' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_38 : Operation 434 [1/1] (2.32ns)   --->   "store i8 %reverse_num_11, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 12), align 4" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 434 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_38 : Operation 435 [1/1] (0.00ns)   --->   "%tmp_i12 = zext i8 %SBUS_data_load_13 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 435 'zext' 'tmp_i12' <Predicate = (or_cond)> <Delay = 0.00>
+ST_38 : Operation 436 [1/1] (0.00ns)   --->   "%lookuptable_addr_12 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i12" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 436 'getelementptr' 'lookuptable_addr_12' <Predicate = (or_cond)> <Delay = 0.00>
+ST_38 : Operation 437 [2/2] (3.25ns)   --->   "%reverse_num_12 = load i8* %lookuptable_addr_12, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 437 'load' 'reverse_num_12' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_38 : Operation 438 [1/1] (0.00ns)   --->   "%tmp_109_s = zext i8 %reverse_num_9 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 438 'zext' 'tmp_109_s' <Predicate = (or_cond)> <Delay = 0.00>
+ST_38 : Operation 439 [1/1] (0.00ns)   --->   "%reverse_out_addr_10 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 10" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 439 'getelementptr' 'reverse_out_addr_10' <Predicate = (or_cond)> <Delay = 0.00>
+ST_38 : Operation 440 [1/1] (3.25ns)   --->   "store i32 %tmp_109_s, i32* %reverse_out_addr_10, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 440 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_38 : Operation 441 [1/1] (0.00ns)   --->   "%channels_7_load = load i11* @channels_7, align 2"   --->   Operation 441 'load' 'channels_7_load' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 442 [1/1] (0.00ns)   --->   "%tmp_113_7 = zext i11 %channels_7_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 442 'zext' 'tmp_113_7' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 443 [1/1] (0.00ns)   --->   "%channel_data_addr_7 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 7" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 443 'getelementptr' 'channel_data_addr_7' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 444 [1/1] (3.25ns)   --->   "store i32 %tmp_113_7, i32* %channel_data_addr_7, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 444 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 39 <SV = 38> <Delay = 5.57>
+ST_39 : Operation 445 [1/2] (3.25ns)   --->   "%reverse_num_12 = load i8* %lookuptable_addr_12, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 445 'load' 'reverse_num_12' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_39 : Operation 446 [1/1] (2.32ns)   --->   "store i8 %reverse_num_12, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 13), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 446 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_39 : Operation 447 [1/1] (0.00ns)   --->   "%tmp_i13 = zext i8 %SBUS_data_load_14 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 447 'zext' 'tmp_i13' <Predicate = (or_cond)> <Delay = 0.00>
+ST_39 : Operation 448 [1/1] (0.00ns)   --->   "%lookuptable_addr_13 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i13" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 448 'getelementptr' 'lookuptable_addr_13' <Predicate = (or_cond)> <Delay = 0.00>
+ST_39 : Operation 449 [2/2] (3.25ns)   --->   "%reverse_num_13 = load i8* %lookuptable_addr_13, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 449 'load' 'reverse_num_13' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_39 : Operation 450 [1/1] (0.00ns)   --->   "%tmp_109_10 = zext i8 %reverse_num_10 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 450 'zext' 'tmp_109_10' <Predicate = (or_cond)> <Delay = 0.00>
+ST_39 : Operation 451 [1/1] (0.00ns)   --->   "%reverse_out_addr_11 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 11" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 451 'getelementptr' 'reverse_out_addr_11' <Predicate = (or_cond)> <Delay = 0.00>
+ST_39 : Operation 452 [1/1] (3.25ns)   --->   "store i32 %tmp_109_10, i32* %reverse_out_addr_11, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 452 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_39 : Operation 453 [1/1] (0.00ns)   --->   "%tmp_35 = trunc i8 %reverse_num_12 to i3" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 453 'trunc' 'tmp_35' <Predicate = (or_cond)> <Delay = 0.00>
+ST_39 : Operation 454 [1/1] (0.00ns)   --->   "%tmp_36 = call i11 @_ssdm_op_BitConcatenate.i11.i3.i8(i3 %tmp_35, i8 %reverse_num_11)" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 454 'bitconcatenate' 'tmp_36' <Predicate = (or_cond)> <Delay = 0.00>
+ST_39 : Operation 455 [1/1] (0.00ns)   --->   "store i11 %tmp_36, i11* @channels_8, align 2" [RC_Receiver/RC_Receiver.cpp:93]   --->   Operation 455 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_39 : Operation 456 [1/1] (0.00ns)   --->   "%tmp_37 = call i5 @_ssdm_op_PartSelect.i5.i8.i32.i32(i8 %reverse_num_12, i32 3, i32 7)" [RC_Receiver/RC_Receiver.cpp:94]   --->   Operation 456 'partselect' 'tmp_37' <Predicate = (or_cond)> <Delay = 0.00>
+
+State 40 <SV = 39> <Delay = 5.57>
+ST_40 : Operation 457 [1/2] (3.25ns)   --->   "%reverse_num_13 = load i8* %lookuptable_addr_13, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 457 'load' 'reverse_num_13' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_40 : Operation 458 [1/1] (2.32ns)   --->   "store i8 %reverse_num_13, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 14), align 2" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 458 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_40 : Operation 459 [1/1] (0.00ns)   --->   "%tmp_i14 = zext i8 %SBUS_data_load_15 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 459 'zext' 'tmp_i14' <Predicate = (or_cond)> <Delay = 0.00>
+ST_40 : Operation 460 [1/1] (0.00ns)   --->   "%lookuptable_addr_14 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i14" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 460 'getelementptr' 'lookuptable_addr_14' <Predicate = (or_cond)> <Delay = 0.00>
+ST_40 : Operation 461 [2/2] (3.25ns)   --->   "%reverse_num_14 = load i8* %lookuptable_addr_14, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 461 'load' 'reverse_num_14' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_40 : Operation 462 [1/1] (0.00ns)   --->   "%tmp_109_11 = zext i8 %reverse_num_11 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 462 'zext' 'tmp_109_11' <Predicate = (or_cond)> <Delay = 0.00>
+ST_40 : Operation 463 [1/1] (0.00ns)   --->   "%reverse_out_addr_12 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 12" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 463 'getelementptr' 'reverse_out_addr_12' <Predicate = (or_cond)> <Delay = 0.00>
+ST_40 : Operation 464 [1/1] (3.25ns)   --->   "store i32 %tmp_109_11, i32* %reverse_out_addr_12, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 464 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_40 : Operation 465 [1/1] (0.00ns)   --->   "%tmp_38 = trunc i8 %reverse_num_13 to i6" [RC_Receiver/RC_Receiver.cpp:94]   --->   Operation 465 'trunc' 'tmp_38' <Predicate = (or_cond)> <Delay = 0.00>
+ST_40 : Operation 466 [1/1] (0.00ns)   --->   "%tmp_39 = call i11 @_ssdm_op_BitConcatenate.i11.i6.i5(i6 %tmp_38, i5 %tmp_37)" [RC_Receiver/RC_Receiver.cpp:94]   --->   Operation 466 'bitconcatenate' 'tmp_39' <Predicate = (or_cond)> <Delay = 0.00>
+ST_40 : Operation 467 [1/1] (0.00ns)   --->   "store i11 %tmp_39, i11* @channels_9, align 2" [RC_Receiver/RC_Receiver.cpp:94]   --->   Operation 467 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_40 : Operation 468 [1/1] (0.00ns)   --->   "%tmp_40 = call i2 @_ssdm_op_PartSelect.i2.i8.i32.i32(i8 %reverse_num_13, i32 6, i32 7)" [RC_Receiver/RC_Receiver.cpp:95]   --->   Operation 468 'partselect' 'tmp_40' <Predicate = (or_cond)> <Delay = 0.00>
+ST_40 : Operation 469 [1/1] (0.00ns)   --->   "%channels_8_load = load i11* @channels_8, align 2"   --->   Operation 469 'load' 'channels_8_load' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 470 [1/1] (0.00ns)   --->   "%tmp_113_8 = zext i11 %channels_8_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 470 'zext' 'tmp_113_8' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 471 [1/1] (0.00ns)   --->   "%channel_data_addr_8 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 8" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 471 'getelementptr' 'channel_data_addr_8' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 472 [1/1] (3.25ns)   --->   "store i32 %tmp_113_8, i32* %channel_data_addr_8, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 472 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 41 <SV = 40> <Delay = 5.57>
+ST_41 : Operation 473 [1/2] (3.25ns)   --->   "%reverse_num_14 = load i8* %lookuptable_addr_14, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 473 'load' 'reverse_num_14' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_41 : Operation 474 [1/1] (2.32ns)   --->   "store i8 %reverse_num_14, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 15), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 474 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_41 : Operation 475 [1/1] (0.00ns)   --->   "%tmp_i15 = zext i8 %SBUS_data_load_16 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 475 'zext' 'tmp_i15' <Predicate = (or_cond)> <Delay = 0.00>
+ST_41 : Operation 476 [1/1] (0.00ns)   --->   "%lookuptable_addr_15 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i15" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 476 'getelementptr' 'lookuptable_addr_15' <Predicate = (or_cond)> <Delay = 0.00>
+ST_41 : Operation 477 [2/2] (3.25ns)   --->   "%reverse_num_15 = load i8* %lookuptable_addr_15, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 477 'load' 'reverse_num_15' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_41 : Operation 478 [1/1] (0.00ns)   --->   "%tmp_109_12 = zext i8 %reverse_num_12 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 478 'zext' 'tmp_109_12' <Predicate = (or_cond)> <Delay = 0.00>
+ST_41 : Operation 479 [1/1] (0.00ns)   --->   "%reverse_out_addr_13 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 13" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 479 'getelementptr' 'reverse_out_addr_13' <Predicate = (or_cond)> <Delay = 0.00>
+ST_41 : Operation 480 [1/1] (3.25ns)   --->   "store i32 %tmp_109_12, i32* %reverse_out_addr_13, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 480 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_41 : Operation 481 [1/1] (0.00ns)   --->   "%channels_9_load = load i11* @channels_9, align 2"   --->   Operation 481 'load' 'channels_9_load' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 482 [1/1] (0.00ns)   --->   "%tmp_113_9 = zext i11 %channels_9_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 482 'zext' 'tmp_113_9' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 483 [1/1] (0.00ns)   --->   "%channel_data_addr_9 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 9" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 483 'getelementptr' 'channel_data_addr_9' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 484 [1/1] (3.25ns)   --->   "store i32 %tmp_113_9, i32* %channel_data_addr_9, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 484 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 42 <SV = 41> <Delay = 5.57>
+ST_42 : Operation 485 [1/2] (3.25ns)   --->   "%reverse_num_15 = load i8* %lookuptable_addr_15, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 485 'load' 'reverse_num_15' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_42 : Operation 486 [1/1] (2.32ns)   --->   "store i8 %reverse_num_15, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 16), align 16" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 486 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_42 : Operation 487 [1/1] (0.00ns)   --->   "%tmp_i16 = zext i8 %SBUS_data_load_17 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 487 'zext' 'tmp_i16' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 488 [1/1] (0.00ns)   --->   "%lookuptable_addr_16 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i16" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 488 'getelementptr' 'lookuptable_addr_16' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 489 [2/2] (3.25ns)   --->   "%reverse_num_16 = load i8* %lookuptable_addr_16, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 489 'load' 'reverse_num_16' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_42 : Operation 490 [1/1] (0.00ns)   --->   "%tmp_109_13 = zext i8 %reverse_num_13 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 490 'zext' 'tmp_109_13' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 491 [1/1] (0.00ns)   --->   "%reverse_out_addr_14 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 14" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 491 'getelementptr' 'reverse_out_addr_14' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 492 [1/1] (3.25ns)   --->   "store i32 %tmp_109_13, i32* %reverse_out_addr_14, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 492 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_42 : Operation 493 [1/1] (0.00ns)   --->   "%tmp_41 = zext i2 %tmp_40 to i8" [RC_Receiver/RC_Receiver.cpp:95]   --->   Operation 493 'zext' 'tmp_41' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 494 [1/1] (0.00ns)   --->   "%tmp_42 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %reverse_num_14, i2 0)" [RC_Receiver/RC_Receiver.cpp:95]   --->   Operation 494 'bitconcatenate' 'tmp_42' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 495 [1/1] (0.00ns)   --->   "%tmp_43 = trunc i8 %reverse_num_15 to i1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 495 'trunc' 'tmp_43' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 496 [1/1] (0.00ns)   --->   "%tmp_44 = call i10 @_ssdm_op_BitConcatenate.i10.i2.i8(i2 0, i8 %tmp_41)" [RC_Receiver/RC_Receiver.cpp:95]   --->   Operation 496 'bitconcatenate' 'tmp_44' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 497 [1/1] (0.99ns)   --->   "%tmp_45 = or i10 %tmp_44, %tmp_42" [RC_Receiver/RC_Receiver.cpp:95]   --->   Operation 497 'or' 'tmp_45' <Predicate = (or_cond)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_42 : Operation 498 [1/1] (0.00ns)   --->   "%tmp_46 = call i11 @_ssdm_op_BitConcatenate.i11.i1.i10(i1 %tmp_43, i10 %tmp_45)" [RC_Receiver/RC_Receiver.cpp:95]   --->   Operation 498 'bitconcatenate' 'tmp_46' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 499 [1/1] (0.00ns)   --->   "store i11 %tmp_46, i11* @channels_10, align 2" [RC_Receiver/RC_Receiver.cpp:95]   --->   Operation 499 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_42 : Operation 500 [1/1] (0.00ns)   --->   "%tmp_47 = call i7 @_ssdm_op_PartSelect.i7.i8.i32.i32(i8 %reverse_num_15, i32 1, i32 7)" [RC_Receiver/RC_Receiver.cpp:96]   --->   Operation 500 'partselect' 'tmp_47' <Predicate = (or_cond)> <Delay = 0.00>
+
+State 43 <SV = 42> <Delay = 5.57>
+ST_43 : Operation 501 [1/2] (3.25ns)   --->   "%reverse_num_16 = load i8* %lookuptable_addr_16, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 501 'load' 'reverse_num_16' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_43 : Operation 502 [1/1] (2.32ns)   --->   "store i8 %reverse_num_16, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 17), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 502 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_43 : Operation 503 [1/1] (0.00ns)   --->   "%tmp_i17 = zext i8 %SBUS_data_load_18 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 503 'zext' 'tmp_i17' <Predicate = (or_cond)> <Delay = 0.00>
+ST_43 : Operation 504 [1/1] (0.00ns)   --->   "%lookuptable_addr_17 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i17" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 504 'getelementptr' 'lookuptable_addr_17' <Predicate = (or_cond)> <Delay = 0.00>
+ST_43 : Operation 505 [2/2] (3.25ns)   --->   "%reverse_num_17 = load i8* %lookuptable_addr_17, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 505 'load' 'reverse_num_17' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_43 : Operation 506 [1/1] (0.00ns)   --->   "%tmp_109_14 = zext i8 %reverse_num_14 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 506 'zext' 'tmp_109_14' <Predicate = (or_cond)> <Delay = 0.00>
+ST_43 : Operation 507 [1/1] (0.00ns)   --->   "%reverse_out_addr_15 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 15" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 507 'getelementptr' 'reverse_out_addr_15' <Predicate = (or_cond)> <Delay = 0.00>
+ST_43 : Operation 508 [1/1] (3.25ns)   --->   "store i32 %tmp_109_14, i32* %reverse_out_addr_15, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 508 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_43 : Operation 509 [1/1] (0.00ns)   --->   "%tmp_48 = trunc i8 %reverse_num_16 to i4" [RC_Receiver/RC_Receiver.cpp:96]   --->   Operation 509 'trunc' 'tmp_48' <Predicate = (or_cond)> <Delay = 0.00>
+ST_43 : Operation 510 [1/1] (0.00ns)   --->   "%tmp_49 = call i11 @_ssdm_op_BitConcatenate.i11.i4.i7(i4 %tmp_48, i7 %tmp_47)" [RC_Receiver/RC_Receiver.cpp:96]   --->   Operation 510 'bitconcatenate' 'tmp_49' <Predicate = (or_cond)> <Delay = 0.00>
+ST_43 : Operation 511 [1/1] (0.00ns)   --->   "store i11 %tmp_49, i11* @channels_11, align 2" [RC_Receiver/RC_Receiver.cpp:96]   --->   Operation 511 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_43 : Operation 512 [1/1] (0.00ns)   --->   "%tmp_50 = call i4 @_ssdm_op_PartSelect.i4.i8.i32.i32(i8 %reverse_num_16, i32 4, i32 7)" [RC_Receiver/RC_Receiver.cpp:97]   --->   Operation 512 'partselect' 'tmp_50' <Predicate = (or_cond)> <Delay = 0.00>
+ST_43 : Operation 513 [1/1] (0.00ns)   --->   "%channels_10_load = load i11* @channels_10, align 2"   --->   Operation 513 'load' 'channels_10_load' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 514 [1/1] (0.00ns)   --->   "%tmp_113_s = zext i11 %channels_10_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 514 'zext' 'tmp_113_s' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 515 [1/1] (0.00ns)   --->   "%channel_data_addr_10 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 10" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 515 'getelementptr' 'channel_data_addr_10' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 516 [1/1] (3.25ns)   --->   "store i32 %tmp_113_s, i32* %channel_data_addr_10, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 516 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 44 <SV = 43> <Delay = 5.57>
+ST_44 : Operation 517 [1/2] (3.25ns)   --->   "%reverse_num_17 = load i8* %lookuptable_addr_17, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 517 'load' 'reverse_num_17' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_44 : Operation 518 [1/1] (2.32ns)   --->   "store i8 %reverse_num_17, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 18), align 2" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 518 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_44 : Operation 519 [1/1] (0.00ns)   --->   "%tmp_i18 = zext i8 %SBUS_data_load_19 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 519 'zext' 'tmp_i18' <Predicate = (or_cond)> <Delay = 0.00>
+ST_44 : Operation 520 [1/1] (0.00ns)   --->   "%lookuptable_addr_18 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i18" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 520 'getelementptr' 'lookuptable_addr_18' <Predicate = (or_cond)> <Delay = 0.00>
+ST_44 : Operation 521 [2/2] (3.25ns)   --->   "%reverse_num_18 = load i8* %lookuptable_addr_18, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 521 'load' 'reverse_num_18' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_44 : Operation 522 [1/1] (0.00ns)   --->   "%tmp_109_15 = zext i8 %reverse_num_15 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 522 'zext' 'tmp_109_15' <Predicate = (or_cond)> <Delay = 0.00>
+ST_44 : Operation 523 [1/1] (0.00ns)   --->   "%reverse_out_addr_16 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 16" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 523 'getelementptr' 'reverse_out_addr_16' <Predicate = (or_cond)> <Delay = 0.00>
+ST_44 : Operation 524 [1/1] (3.25ns)   --->   "store i32 %tmp_109_15, i32* %reverse_out_addr_16, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 524 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_44 : Operation 525 [1/1] (0.00ns)   --->   "%tmp_51 = trunc i8 %reverse_num_17 to i7" [RC_Receiver/RC_Receiver.cpp:97]   --->   Operation 525 'trunc' 'tmp_51' <Predicate = (or_cond)> <Delay = 0.00>
+ST_44 : Operation 526 [1/1] (0.00ns)   --->   "%tmp_52 = call i11 @_ssdm_op_BitConcatenate.i11.i7.i4(i7 %tmp_51, i4 %tmp_50)" [RC_Receiver/RC_Receiver.cpp:97]   --->   Operation 526 'bitconcatenate' 'tmp_52' <Predicate = (or_cond)> <Delay = 0.00>
+ST_44 : Operation 527 [1/1] (0.00ns)   --->   "store i11 %tmp_52, i11* @channels_12, align 2" [RC_Receiver/RC_Receiver.cpp:97]   --->   Operation 527 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_44 : Operation 528 [1/1] (0.00ns)   --->   "%tmp_53 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %reverse_num_17, i32 7)" [RC_Receiver/RC_Receiver.cpp:98]   --->   Operation 528 'bitselect' 'tmp_53' <Predicate = (or_cond)> <Delay = 0.00>
+ST_44 : Operation 529 [1/1] (0.00ns)   --->   "%channels_11_load = load i11* @channels_11, align 2"   --->   Operation 529 'load' 'channels_11_load' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 530 [1/1] (0.00ns)   --->   "%tmp_113_10 = zext i11 %channels_11_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 530 'zext' 'tmp_113_10' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 531 [1/1] (0.00ns)   --->   "%channel_data_addr_11 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 11" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 531 'getelementptr' 'channel_data_addr_11' <Predicate = true> <Delay = 0.00>
+ST_44 : Operation 532 [1/1] (3.25ns)   --->   "store i32 %tmp_113_10, i32* %channel_data_addr_11, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 532 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 45 <SV = 44> <Delay = 5.57>
+ST_45 : Operation 533 [1/2] (3.25ns)   --->   "%reverse_num_18 = load i8* %lookuptable_addr_18, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 533 'load' 'reverse_num_18' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_45 : Operation 534 [1/1] (2.32ns)   --->   "store i8 %reverse_num_18, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 19), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 534 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_45 : Operation 535 [1/1] (0.00ns)   --->   "%tmp_i19 = zext i8 %SBUS_data_load_20 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 535 'zext' 'tmp_i19' <Predicate = (or_cond)> <Delay = 0.00>
+ST_45 : Operation 536 [1/1] (0.00ns)   --->   "%lookuptable_addr_19 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i19" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 536 'getelementptr' 'lookuptable_addr_19' <Predicate = (or_cond)> <Delay = 0.00>
+ST_45 : Operation 537 [2/2] (3.25ns)   --->   "%reverse_num_19 = load i8* %lookuptable_addr_19, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 537 'load' 'reverse_num_19' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_45 : Operation 538 [1/1] (0.00ns)   --->   "%tmp_109_16 = zext i8 %reverse_num_16 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 538 'zext' 'tmp_109_16' <Predicate = (or_cond)> <Delay = 0.00>
+ST_45 : Operation 539 [1/1] (0.00ns)   --->   "%reverse_out_addr_17 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 17" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 539 'getelementptr' 'reverse_out_addr_17' <Predicate = (or_cond)> <Delay = 0.00>
+ST_45 : Operation 540 [1/1] (3.25ns)   --->   "store i32 %tmp_109_16, i32* %reverse_out_addr_17, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 540 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_45 : Operation 541 [1/1] (0.00ns)   --->   "%channels_12_load = load i11* @channels_12, align 2"   --->   Operation 541 'load' 'channels_12_load' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 542 [1/1] (0.00ns)   --->   "%tmp_113_11 = zext i11 %channels_12_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 542 'zext' 'tmp_113_11' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 543 [1/1] (0.00ns)   --->   "%channel_data_addr_12 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 12" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 543 'getelementptr' 'channel_data_addr_12' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 544 [1/1] (3.25ns)   --->   "store i32 %tmp_113_11, i32* %channel_data_addr_12, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 544 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 46 <SV = 45> <Delay = 5.57>
+ST_46 : Operation 545 [1/2] (3.25ns)   --->   "%reverse_num_19 = load i8* %lookuptable_addr_19, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 545 'load' 'reverse_num_19' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_46 : Operation 546 [1/1] (2.32ns)   --->   "store i8 %reverse_num_19, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 20), align 4" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 546 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_46 : Operation 547 [1/1] (0.00ns)   --->   "%tmp_i20 = zext i8 %SBUS_data_load_21 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 547 'zext' 'tmp_i20' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 548 [1/1] (0.00ns)   --->   "%lookuptable_addr_20 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i20" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 548 'getelementptr' 'lookuptable_addr_20' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 549 [2/2] (3.25ns)   --->   "%reverse_num_20 = load i8* %lookuptable_addr_20, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 549 'load' 'reverse_num_20' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_46 : Operation 550 [1/1] (0.00ns)   --->   "%tmp_109_17 = zext i8 %reverse_num_17 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 550 'zext' 'tmp_109_17' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 551 [1/1] (0.00ns)   --->   "%reverse_out_addr_18 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 18" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 551 'getelementptr' 'reverse_out_addr_18' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 552 [1/1] (3.25ns)   --->   "store i32 %tmp_109_17, i32* %reverse_out_addr_18, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 552 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_46 : Operation 553 [1/1] (0.00ns)   --->   "%tmp_54 = zext i1 %tmp_53 to i8" [RC_Receiver/RC_Receiver.cpp:98]   --->   Operation 553 'zext' 'tmp_54' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 554 [1/1] (0.00ns)   --->   "%tmp_55 = call i9 @_ssdm_op_BitConcatenate.i9.i8.i1(i8 %reverse_num_18, i1 false)" [RC_Receiver/RC_Receiver.cpp:98]   --->   Operation 554 'bitconcatenate' 'tmp_55' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 555 [1/1] (0.00ns)   --->   "%tmp_56 = trunc i8 %reverse_num_19 to i2" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 555 'trunc' 'tmp_56' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 556 [1/1] (0.00ns)   --->   "%tmp_57 = call i9 @_ssdm_op_BitConcatenate.i9.i1.i8(i1 false, i8 %tmp_54)" [RC_Receiver/RC_Receiver.cpp:98]   --->   Operation 556 'bitconcatenate' 'tmp_57' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 557 [1/1] (0.99ns)   --->   "%tmp_58 = or i9 %tmp_57, %tmp_55" [RC_Receiver/RC_Receiver.cpp:98]   --->   Operation 557 'or' 'tmp_58' <Predicate = (or_cond)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_46 : Operation 558 [1/1] (0.00ns)   --->   "%tmp_59 = call i11 @_ssdm_op_BitConcatenate.i11.i2.i9(i2 %tmp_56, i9 %tmp_58)" [RC_Receiver/RC_Receiver.cpp:98]   --->   Operation 558 'bitconcatenate' 'tmp_59' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 559 [1/1] (0.00ns)   --->   "store i11 %tmp_59, i11* @channels_13, align 2" [RC_Receiver/RC_Receiver.cpp:98]   --->   Operation 559 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_46 : Operation 560 [1/1] (0.00ns)   --->   "%tmp_60 = call i6 @_ssdm_op_PartSelect.i6.i8.i32.i32(i8 %reverse_num_19, i32 2, i32 7)" [RC_Receiver/RC_Receiver.cpp:99]   --->   Operation 560 'partselect' 'tmp_60' <Predicate = (or_cond)> <Delay = 0.00>
+
+State 47 <SV = 46> <Delay = 5.57>
+ST_47 : Operation 561 [1/2] (3.25ns)   --->   "%reverse_num_20 = load i8* %lookuptable_addr_20, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 561 'load' 'reverse_num_20' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_47 : Operation 562 [1/1] (2.32ns)   --->   "store i8 %reverse_num_20, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 21), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 562 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_47 : Operation 563 [1/1] (0.00ns)   --->   "%tmp_i21 = zext i8 %SBUS_data_load_22 to i64" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 563 'zext' 'tmp_i21' <Predicate = (or_cond)> <Delay = 0.00>
+ST_47 : Operation 564 [1/1] (0.00ns)   --->   "%lookuptable_addr_21 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i21" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 564 'getelementptr' 'lookuptable_addr_21' <Predicate = (or_cond)> <Delay = 0.00>
+ST_47 : Operation 565 [2/2] (3.25ns)   --->   "%reverse_num_21 = load i8* %lookuptable_addr_21, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 565 'load' 'reverse_num_21' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_47 : Operation 566 [1/1] (0.00ns)   --->   "%tmp_109_18 = zext i8 %reverse_num_18 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 566 'zext' 'tmp_109_18' <Predicate = (or_cond)> <Delay = 0.00>
+ST_47 : Operation 567 [1/1] (0.00ns)   --->   "%reverse_out_addr_19 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 19" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 567 'getelementptr' 'reverse_out_addr_19' <Predicate = (or_cond)> <Delay = 0.00>
+ST_47 : Operation 568 [1/1] (3.25ns)   --->   "store i32 %tmp_109_18, i32* %reverse_out_addr_19, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 568 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_47 : Operation 569 [1/1] (0.00ns)   --->   "%tmp_61 = trunc i8 %reverse_num_20 to i5" [RC_Receiver/RC_Receiver.cpp:99]   --->   Operation 569 'trunc' 'tmp_61' <Predicate = (or_cond)> <Delay = 0.00>
+ST_47 : Operation 570 [1/1] (0.00ns)   --->   "%tmp_62 = call i11 @_ssdm_op_BitConcatenate.i11.i5.i6(i5 %tmp_61, i6 %tmp_60)" [RC_Receiver/RC_Receiver.cpp:99]   --->   Operation 570 'bitconcatenate' 'tmp_62' <Predicate = (or_cond)> <Delay = 0.00>
+ST_47 : Operation 571 [1/1] (0.00ns)   --->   "store i11 %tmp_62, i11* @channels_14, align 2" [RC_Receiver/RC_Receiver.cpp:99]   --->   Operation 571 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_47 : Operation 572 [1/1] (0.00ns)   --->   "%tmp_63 = call i3 @_ssdm_op_PartSelect.i3.i8.i32.i32(i8 %reverse_num_20, i32 5, i32 7)" [RC_Receiver/RC_Receiver.cpp:100]   --->   Operation 572 'partselect' 'tmp_63' <Predicate = (or_cond)> <Delay = 0.00>
+ST_47 : Operation 573 [1/1] (0.00ns)   --->   "%channels_13_load = load i11* @channels_13, align 2"   --->   Operation 573 'load' 'channels_13_load' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 574 [1/1] (0.00ns)   --->   "%tmp_113_12 = zext i11 %channels_13_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 574 'zext' 'tmp_113_12' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 575 [1/1] (0.00ns)   --->   "%channel_data_addr_13 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 13" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 575 'getelementptr' 'channel_data_addr_13' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 576 [1/1] (3.25ns)   --->   "store i32 %tmp_113_12, i32* %channel_data_addr_13, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 576 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 48 <SV = 47> <Delay = 5.57>
+ST_48 : Operation 577 [1/2] (3.25ns)   --->   "%reverse_num_21 = load i8* %lookuptable_addr_21, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 577 'load' 'reverse_num_21' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_48 : Operation 578 [1/1] (2.32ns)   --->   "store i8 %reverse_num_21, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 22), align 2" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 578 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_48 : Operation 579 [1/1] (0.00ns)   --->   "%tmp_i22 = zext i8 %SBUS_data_load_23 to i64" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 579 'zext' 'tmp_i22' <Predicate = (or_cond)> <Delay = 0.00>
+ST_48 : Operation 580 [1/1] (0.00ns)   --->   "%lookuptable_addr_22 = getelementptr inbounds [256 x i8]* @lookuptable, i64 0, i64 %tmp_i22" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 580 'getelementptr' 'lookuptable_addr_22' <Predicate = (or_cond)> <Delay = 0.00>
+ST_48 : Operation 581 [2/2] (3.25ns)   --->   "%reverse_num_22 = load i8* %lookuptable_addr_22, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 581 'load' 'reverse_num_22' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_48 : Operation 582 [1/1] (0.00ns)   --->   "%tmp_109_19 = zext i8 %reverse_num_19 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 582 'zext' 'tmp_109_19' <Predicate = (or_cond)> <Delay = 0.00>
+ST_48 : Operation 583 [1/1] (0.00ns)   --->   "%reverse_out_addr_20 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 20" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 583 'getelementptr' 'reverse_out_addr_20' <Predicate = (or_cond)> <Delay = 0.00>
+ST_48 : Operation 584 [1/1] (3.25ns)   --->   "store i32 %tmp_109_19, i32* %reverse_out_addr_20, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 584 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_48 : Operation 585 [1/1] (0.00ns)   --->   "%tmp_64 = call i11 @_ssdm_op_BitConcatenate.i11.i8.i3(i8 %reverse_num_21, i3 %tmp_63)" [RC_Receiver/RC_Receiver.cpp:100]   --->   Operation 585 'bitconcatenate' 'tmp_64' <Predicate = (or_cond)> <Delay = 0.00>
+ST_48 : Operation 586 [1/1] (0.00ns)   --->   "store i11 %tmp_64, i11* @channels_15, align 2" [RC_Receiver/RC_Receiver.cpp:100]   --->   Operation 586 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_48 : Operation 587 [1/1] (0.00ns)   --->   "%channels_14_load = load i11* @channels_14, align 2"   --->   Operation 587 'load' 'channels_14_load' <Predicate = true> <Delay = 0.00>
+ST_48 : Operation 588 [1/1] (0.00ns)   --->   "%tmp_113_13 = zext i11 %channels_14_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 588 'zext' 'tmp_113_13' <Predicate = true> <Delay = 0.00>
+ST_48 : Operation 589 [1/1] (0.00ns)   --->   "%channel_data_addr_14 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 14" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 589 'getelementptr' 'channel_data_addr_14' <Predicate = true> <Delay = 0.00>
+ST_48 : Operation 590 [1/1] (3.25ns)   --->   "store i32 %tmp_113_13, i32* %channel_data_addr_14, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 590 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 49 <SV = 48> <Delay = 5.57>
+ST_49 : Operation 591 [1/2] (3.25ns)   --->   "%reverse_num_22 = load i8* %lookuptable_addr_22, align 1" [RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 591 'load' 'reverse_num_22' <Predicate = (or_cond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_49 : Operation 592 [1/1] (2.32ns)   --->   "store i8 %reverse_num_22, i8* getelementptr inbounds ([25 x i8]* @buffer_r, i64 0, i64 23), align 1" [RC_Receiver/RC_Receiver.cpp:73]   --->   Operation 592 'store' <Predicate = (or_cond)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 25> <RAM>
+ST_49 : Operation 593 [1/1] (0.00ns)   --->   "%tmp_109_20 = zext i8 %reverse_num_20 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 593 'zext' 'tmp_109_20' <Predicate = (or_cond)> <Delay = 0.00>
+ST_49 : Operation 594 [1/1] (0.00ns)   --->   "%reverse_out_addr_21 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 21" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 594 'getelementptr' 'reverse_out_addr_21' <Predicate = (or_cond)> <Delay = 0.00>
+ST_49 : Operation 595 [1/1] (3.25ns)   --->   "store i32 %tmp_109_20, i32* %reverse_out_addr_21, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 595 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_49 : Operation 596 [1/1] (0.00ns)   --->   "%tmp_66 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %reverse_num_22, i32 1)" [RC_Receiver/RC_Receiver.cpp:103]   --->   Operation 596 'bitselect' 'tmp_66' <Predicate = (or_cond)> <Delay = 0.00>
+ST_49 : Operation 597 [1/1] (0.99ns)   --->   "%tmp_98_cast_cast_cas = select i1 %tmp_66, i11 -1, i11 0" [RC_Receiver/RC_Receiver.cpp:103]   --->   Operation 597 'select' 'tmp_98_cast_cast_cas' <Predicate = (or_cond)> <Delay = 0.99> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_49 : Operation 598 [1/1] (0.00ns)   --->   "store i11 %tmp_98_cast_cast_cas, i11* @channels_17, align 2" [RC_Receiver/RC_Receiver.cpp:103]   --->   Operation 598 'store' <Predicate = (or_cond)> <Delay = 0.00>
+ST_49 : Operation 599 [1/1] (0.00ns)   --->   "%tmp_67 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %reverse_num_22, i32 2)" [RC_Receiver/RC_Receiver.cpp:106]   --->   Operation 599 'bitselect' 'tmp_67' <Predicate = (or_cond)> <Delay = 0.00>
+ST_49 : Operation 600 [1/1] (0.00ns)   --->   "%channels_15_load = load i11* @channels_15, align 2"   --->   Operation 600 'load' 'channels_15_load' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 601 [1/1] (0.00ns)   --->   "%tmp_113_14 = zext i11 %channels_15_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 601 'zext' 'tmp_113_14' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 602 [1/1] (0.00ns)   --->   "%channel_data_addr_15 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 15" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 602 'getelementptr' 'channel_data_addr_15' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 603 [1/1] (3.25ns)   --->   "store i32 %tmp_113_14, i32* %channel_data_addr_15, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 603 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 50 <SV = 49> <Delay = 3.25>
+ST_50 : Operation 604 [1/1] (0.00ns)   --->   "%tmp_109_21 = zext i8 %reverse_num_21 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 604 'zext' 'tmp_109_21' <Predicate = (or_cond)> <Delay = 0.00>
+ST_50 : Operation 605 [1/1] (0.00ns)   --->   "%reverse_out_addr_22 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 22" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 605 'getelementptr' 'reverse_out_addr_22' <Predicate = (or_cond)> <Delay = 0.00>
+ST_50 : Operation 606 [1/1] (3.25ns)   --->   "store i32 %tmp_109_21, i32* %reverse_out_addr_22, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 606 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_50 : Operation 607 [1/1] (0.00ns)   --->   "%channels_17_load = load i11* @channels_17, align 2"   --->   Operation 607 'load' 'channels_17_load' <Predicate = true> <Delay = 0.00>
+ST_50 : Operation 608 [1/1] (0.00ns)   --->   "%tmp_113_16 = zext i11 %channels_17_load to i32" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 608 'zext' 'tmp_113_16' <Predicate = true> <Delay = 0.00>
+ST_50 : Operation 609 [1/1] (0.00ns)   --->   "%channel_data_addr_17 = getelementptr [4096 x i32]* %channel_data, i64 0, i64 17" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 609 'getelementptr' 'channel_data_addr_17' <Predicate = true> <Delay = 0.00>
+ST_50 : Operation 610 [1/1] (3.25ns)   --->   "store i32 %tmp_113_16, i32* %channel_data_addr_17, align 4" [RC_Receiver/RC_Receiver.cpp:118]   --->   Operation 610 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+
+State 51 <SV = 50> <Delay = 3.25>
+ST_51 : Operation 611 [1/1] (0.00ns)   --->   "%tmp_109_22 = zext i8 %reverse_num_22 to i32" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 611 'zext' 'tmp_109_22' <Predicate = (or_cond)> <Delay = 0.00>
+ST_51 : Operation 612 [1/1] (0.00ns)   --->   "%reverse_out_addr_23 = getelementptr [4096 x i32]* %reverse_out, i64 0, i64 23" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 612 'getelementptr' 'reverse_out_addr_23' <Predicate = (or_cond)> <Delay = 0.00>
+ST_51 : Operation 613 [1/1] (3.25ns)   --->   "store i32 %tmp_109_22, i32* %reverse_out_addr_23, align 4" [RC_Receiver/RC_Receiver.cpp:80]   --->   Operation 613 'store' <Predicate = (or_cond)> <Delay = 3.25> <Core = "RAM_1P_BRAM">   --->   Core 44 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 4096> <RAM>
+ST_51 : Operation 614 [1/1] (0.00ns)   --->   "br i1 %tmp_67, label %1, label %._crit_edge5" [RC_Receiver/RC_Receiver.cpp:106]   --->   Operation 614 'br' <Predicate = (or_cond)> <Delay = 0.00>
+ST_51 : Operation 615 [1/1] (0.00ns)   --->   "%lost_load = load i32* @lost, align 4" [RC_Receiver/RC_Receiver.cpp:106]   --->   Operation 615 'load' 'lost_load' <Predicate = (or_cond & tmp_67)> <Delay = 0.00>
+ST_51 : Operation 616 [1/1] (2.55ns)   --->   "%tmp_68 = add nsw i32 %lost_load, 1" [RC_Receiver/RC_Receiver.cpp:106]   --->   Operation 616 'add' 'tmp_68' <Predicate = (or_cond & tmp_67)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_51 : Operation 617 [1/1] (0.00ns)   --->   "store i32 %tmp_68, i32* @lost, align 4" [RC_Receiver/RC_Receiver.cpp:106]   --->   Operation 617 'store' <Predicate = (or_cond & tmp_67)> <Delay = 0.00>
+ST_51 : Operation 618 [1/1] (0.00ns)   --->   "br label %._crit_edge5" [RC_Receiver/RC_Receiver.cpp:106]   --->   Operation 618 'br' <Predicate = (or_cond & tmp_67)> <Delay = 0.00>
+ST_51 : Operation 619 [1/1] (0.00ns)   --->   "ret void" [RC_Receiver/RC_Receiver.cpp:123]   --->   Operation 619 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 3.25ns
+The critical path consists of the following:
+	'getelementptr' operation ('norm_out_addr_26', RC_Receiver/RC_Receiver.cpp:47) [191]  (0 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:47) of constant 69 on array 'norm_out' [192]  (3.25 ns)
+
+ <State 2>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('buffer_load', RC_Receiver/RC_Receiver.cpp:48) on array 'buffer_r' [193]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:48) of variable 'tmp', RC_Receiver/RC_Receiver.cpp:48 on array 'norm_out' [196]  (3.25 ns)
+
+ <State 3>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [48]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [49]  (2.32 ns)
+
+ <State 4>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [54]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [55]  (2.32 ns)
+
+ <State 5>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [60]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [61]  (2.32 ns)
+
+ <State 6>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [66]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [67]  (2.32 ns)
+
+ <State 7>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [72]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [73]  (2.32 ns)
+
+ <State 8>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [78]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [79]  (2.32 ns)
+
+ <State 9>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [84]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [85]  (2.32 ns)
+
+ <State 10>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [90]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [91]  (2.32 ns)
+
+ <State 11>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [96]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [97]  (2.32 ns)
+
+ <State 12>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [102]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [103]  (2.32 ns)
+
+ <State 13>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [108]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [109]  (2.32 ns)
+
+ <State 14>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [114]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [115]  (2.32 ns)
+
+ <State 15>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [120]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [121]  (2.32 ns)
+
+ <State 16>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [126]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [127]  (2.32 ns)
+
+ <State 17>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [132]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [133]  (2.32 ns)
+
+ <State 18>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [138]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [139]  (2.32 ns)
+
+ <State 19>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [144]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [145]  (2.32 ns)
+
+ <State 20>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [150]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [151]  (2.32 ns)
+
+ <State 21>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [156]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [157]  (2.32 ns)
+
+ <State 22>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [162]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [163]  (2.32 ns)
+
+ <State 23>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [168]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [169]  (2.32 ns)
+
+ <State 24>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [174]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [175]  (2.32 ns)
+
+ <State 25>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('num', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [180]  (2.32 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:39) of variable 'num', RC_Receiver/RC_Receiver.cpp:39 on array 'buffer_r' [181]  (2.32 ns)
+
+ <State 26>: 4.85ns
+The critical path consists of the following:
+	'load' operation ('SBUS_data_load_24', RC_Receiver/RC_Receiver.cpp:39) on array 'SBUS_data' [186]  (2.32 ns)
+	'icmp' operation ('tmp_6', RC_Receiver/RC_Receiver.cpp:60) [203]  (1.55 ns)
+	'and' operation ('or_cond', RC_Receiver/RC_Receiver.cpp:60) [204]  (0.978 ns)
+
+ <State 27>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [217]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [218]  (2.32 ns)
+
+ <State 28>: 6.94ns
+The critical path consists of the following:
+	'add' operation ('tmp_7', RC_Receiver/RC_Receiver.cpp:112) [208]  (1.92 ns)
+	multiplexor before 'phi' operation ('errors_loc', RC_Receiver/RC_Receiver.cpp:112) with incoming values : ('errors_load', RC_Receiver/RC_Receiver.cpp:112) ('tmp_7', RC_Receiver/RC_Receiver.cpp:112) [472]  (1.77 ns)
+	'phi' operation ('errors_loc', RC_Receiver/RC_Receiver.cpp:112) with incoming values : ('errors_load', RC_Receiver/RC_Receiver.cpp:112) ('tmp_7', RC_Receiver/RC_Receiver.cpp:112) [472]  (0 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:121) of variable 'tmp_70', RC_Receiver/RC_Receiver.cpp:121 on array 'reverse_out' [547]  (3.25 ns)
+
+ <State 29>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [225]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [226]  (2.32 ns)
+
+ <State 30>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [229]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [230]  (2.32 ns)
+
+ <State 31>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [233]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [234]  (2.32 ns)
+
+ <State 32>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [237]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [238]  (2.32 ns)
+
+ <State 33>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [241]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [242]  (2.32 ns)
+
+ <State 34>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [245]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [246]  (2.32 ns)
+
+ <State 35>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [249]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [250]  (2.32 ns)
+
+ <State 36>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [253]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [254]  (2.32 ns)
+
+ <State 37>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [257]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [258]  (2.32 ns)
+
+ <State 38>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [261]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [262]  (2.32 ns)
+
+ <State 39>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [265]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [266]  (2.32 ns)
+
+ <State 40>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [269]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [270]  (2.32 ns)
+
+ <State 41>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [273]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [274]  (2.32 ns)
+
+ <State 42>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [277]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [278]  (2.32 ns)
+
+ <State 43>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [281]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [282]  (2.32 ns)
+
+ <State 44>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [285]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [286]  (2.32 ns)
+
+ <State 45>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [289]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [290]  (2.32 ns)
+
+ <State 46>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [293]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [294]  (2.32 ns)
+
+ <State 47>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [297]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [298]  (2.32 ns)
+
+ <State 48>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [301]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [302]  (2.32 ns)
+
+ <State 49>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73) on array 'lookuptable' [305]  (3.25 ns)
+	'store' operation (RC_Receiver/RC_Receiver.cpp:73) of variable 'reverse_num', RC_Receiver/RC_Receiver.h:38->RC_Receiver/RC_Receiver.cpp:73 on array 'buffer_r' [306]  (2.32 ns)
+
+ <State 50>: 3.25ns
+The critical path consists of the following:
+	'store' operation (RC_Receiver/RC_Receiver.cpp:80) of variable 'tmp_109_21', RC_Receiver/RC_Receiver.cpp:80 on array 'reverse_out' [374]  (3.25 ns)
+
+ <State 51>: 3.25ns
+The critical path consists of the following:
+	'store' operation (RC_Receiver/RC_Receiver.cpp:80) of variable 'tmp_109_22', RC_Receiver/RC_Receiver.cpp:80 on array 'reverse_out' [377]  (3.25 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

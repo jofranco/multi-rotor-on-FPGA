@@ -1,0 +1,265 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'RC_RECEIVER'" level="0">
+<item name = "Date">Sat May 25 00:05:46 2019
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">RC_Receiver</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 6.938, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">50, 50, 51, 51, function</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 120</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">26, -, 446, 440</column>
+<column name="Memory">2, -, 0, 0</column>
+<column name="Multiplexer">-, -, -, 1354</column>
+<column name="Register">-, -, 561, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">10, 0, ~0, 3</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="RC_RECEIVER_CTRL_s_axi_U">RC_RECEIVER_CTRL_s_axi, 2, 0, 116, 110</column>
+<column name="RC_RECEIVER_TEST_CHAN_s_axi_U">RC_RECEIVER_TEST_CHAN_s_axi, 8, 0, 110, 110</column>
+<column name="RC_RECEIVER_TEST_NORM_s_axi_U">RC_RECEIVER_TEST_NORM_s_axi, 8, 0, 110, 110</column>
+<column name="RC_RECEIVER_TEST_REV_s_axi_U">RC_RECEIVER_TEST_REV_s_axi, 8, 0, 110, 110</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="buffer_r_U">RC_RECEIVER_buffecud, 1, 0, 0, 25, 8, 1, 200</column>
+<column name="lookuptable_U">RC_RECEIVER_lookubkb, 1, 0, 0, 256, 8, 1, 2048</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="tmp_68_fu_2468_p2">+, 0, 0, 39, 32, 1</column>
+<column name="tmp_7_fu_1683_p2">+, 0, 0, 15, 8, 1</column>
+<column name="or_cond_fu_1625_p2">and, 0, 0, 2, 1, 1</column>
+<column name="tmp_2_fu_1523_p2">icmp, 0, 0, 11, 8, 4</column>
+<column name="tmp_6_fu_1619_p2">icmp, 0, 0, 11, 8, 1</column>
+<column name="tmp_15_fu_1809_p2">or, 0, 0, 10, 10, 10</column>
+<column name="tmp_28_fu_1951_p2">or, 0, 0, 9, 9, 9</column>
+<column name="tmp_45_fu_2171_p2">or, 0, 0, 10, 10, 10</column>
+<column name="tmp_58_fu_2313_p2">or, 0, 0, 9, 9, 9</column>
+<column name="tmp_95_cast_cast_cas_fu_1642_p3">select, 0, 0, 2, 1, 2</column>
+<column name="tmp_98_cast_cast_cas_fu_2414_p3">select, 0, 0, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="SBUS_data_address0">121, 26, 5, 130</column>
+<column name="ap_NS_fsm">225, 52, 1, 52</column>
+<column name="ap_phi_mux_errors_loc_phi_fu_1395_p4">9, 2, 8, 16</column>
+<column name="buffer_r_address0">62, 15, 5, 75</column>
+<column name="buffer_r_address1">59, 14, 5, 70</column>
+<column name="buffer_r_d0">15, 3, 8, 24</column>
+<column name="buffer_r_d1">15, 3, 8, 24</column>
+<column name="channel_data_address0">93, 19, 12, 228</column>
+<column name="channel_data_d0">93, 19, 32, 608</column>
+<column name="errors_loc_reg_1392">9, 2, 8, 16</column>
+<column name="lookuptable_address0">113, 24, 8, 192</column>
+<column name="norm_out_address0">145, 32, 12, 384</column>
+<column name="norm_out_d0">145, 32, 32, 1024</column>
+<column name="reverse_out_address0">125, 27, 12, 324</column>
+<column name="reverse_out_d0">125, 27, 32, 864</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="SBUS_data_load_10_reg_2612">8, 0, 8, 0</column>
+<column name="SBUS_data_load_11_reg_2623">8, 0, 8, 0</column>
+<column name="SBUS_data_load_12_reg_2634">8, 0, 8, 0</column>
+<column name="SBUS_data_load_13_reg_2645">8, 0, 8, 0</column>
+<column name="SBUS_data_load_14_reg_2656">8, 0, 8, 0</column>
+<column name="SBUS_data_load_15_reg_2667">8, 0, 8, 0</column>
+<column name="SBUS_data_load_16_reg_2678">8, 0, 8, 0</column>
+<column name="SBUS_data_load_17_reg_2689">8, 0, 8, 0</column>
+<column name="SBUS_data_load_18_reg_2700">8, 0, 8, 0</column>
+<column name="SBUS_data_load_19_reg_2711">8, 0, 8, 0</column>
+<column name="SBUS_data_load_20_reg_2722">8, 0, 8, 0</column>
+<column name="SBUS_data_load_21_reg_2733">8, 0, 8, 0</column>
+<column name="SBUS_data_load_22_reg_2744">8, 0, 8, 0</column>
+<column name="SBUS_data_load_23_reg_2755">8, 0, 8, 0</column>
+<column name="SBUS_data_load_3_reg_2535">8, 0, 8, 0</column>
+<column name="SBUS_data_load_4_reg_2546">8, 0, 8, 0</column>
+<column name="SBUS_data_load_5_reg_2557">8, 0, 8, 0</column>
+<column name="SBUS_data_load_6_reg_2568">8, 0, 8, 0</column>
+<column name="SBUS_data_load_7_reg_2579">8, 0, 8, 0</column>
+<column name="SBUS_data_load_8_reg_2590">8, 0, 8, 0</column>
+<column name="SBUS_data_load_9_reg_2601">8, 0, 8, 0</column>
+<column name="ap_CS_fsm">51, 0, 51, 0</column>
+<column name="buffer_load_1_reg_2505">8, 0, 8, 0</column>
+<column name="channels_0">11, 0, 11, 0</column>
+<column name="channels_1">11, 0, 11, 0</column>
+<column name="channels_10">11, 0, 11, 0</column>
+<column name="channels_11">11, 0, 11, 0</column>
+<column name="channels_12">11, 0, 11, 0</column>
+<column name="channels_13">11, 0, 11, 0</column>
+<column name="channels_14">11, 0, 11, 0</column>
+<column name="channels_15">11, 0, 11, 0</column>
+<column name="channels_16">11, 0, 11, 0</column>
+<column name="channels_17">11, 0, 11, 0</column>
+<column name="channels_2">11, 0, 11, 0</column>
+<column name="channels_3">11, 0, 11, 0</column>
+<column name="channels_4">11, 0, 11, 0</column>
+<column name="channels_5">11, 0, 11, 0</column>
+<column name="channels_6">11, 0, 11, 0</column>
+<column name="channels_7">11, 0, 11, 0</column>
+<column name="channels_8">11, 0, 11, 0</column>
+<column name="channels_9">11, 0, 11, 0</column>
+<column name="errors">8, 0, 8, 0</column>
+<column name="errors_load_reg_2776">8, 0, 8, 0</column>
+<column name="errors_loc_reg_1392">8, 0, 8, 0</column>
+<column name="lost">32, 0, 32, 0</column>
+<column name="or_cond_reg_2767">1, 0, 1, 0</column>
+<column name="reg_1469">8, 0, 8, 0</column>
+<column name="reg_1473">8, 0, 8, 0</column>
+<column name="reg_1477">8, 0, 8, 0</column>
+<column name="reg_1481">8, 0, 8, 0</column>
+<column name="reg_1485">5, 0, 5, 0</column>
+<column name="reg_1489">2, 0, 2, 0</column>
+<column name="reg_1493">7, 0, 7, 0</column>
+<column name="reg_1497">4, 0, 4, 0</column>
+<column name="reg_1501">6, 0, 6, 0</column>
+<column name="reg_1505">3, 0, 3, 0</column>
+<column name="tmp_1_reg_2515">8, 0, 32, 24</column>
+<column name="tmp_23_reg_2817">1, 0, 1, 0</column>
+<column name="tmp_2_reg_2530">1, 0, 1, 0</column>
+<column name="tmp_53_reg_2877">1, 0, 1, 0</column>
+<column name="tmp_67_reg_2902">1, 0, 1, 0</column>
+<column name="tmp_reg_2495">8, 0, 32, 24</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_CTRL_AWVALID">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_AWREADY">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_AWADDR">in, 6, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_WVALID">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_WREADY">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_WDATA">in, 32, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_WSTRB">in, 4, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_ARVALID">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_ARREADY">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_ARADDR">in, 6, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_RVALID">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_RREADY">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_RDATA">out, 32, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_RRESP">out, 2, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_BVALID">out, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_BREADY">in, 1, s_axi, CTRL, array</column>
+<column name="s_axi_CTRL_BRESP">out, 2, s_axi, CTRL, array</column>
+<column name="s_axi_TEST_CHAN_AWVALID">in, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_AWREADY">out, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_AWADDR">in, 15, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_WVALID">in, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_WREADY">out, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_WDATA">in, 32, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_WSTRB">in, 4, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_ARVALID">in, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_ARREADY">out, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_ARADDR">in, 15, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_RVALID">out, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_RREADY">in, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_RDATA">out, 32, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_RRESP">out, 2, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_BVALID">out, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_BREADY">in, 1, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_CHAN_BRESP">out, 2, s_axi, TEST_CHAN, array</column>
+<column name="s_axi_TEST_NORM_AWVALID">in, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_AWREADY">out, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_AWADDR">in, 15, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_WVALID">in, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_WREADY">out, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_WDATA">in, 32, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_WSTRB">in, 4, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_ARVALID">in, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_ARREADY">out, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_ARADDR">in, 15, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_RVALID">out, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_RREADY">in, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_RDATA">out, 32, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_RRESP">out, 2, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_BVALID">out, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_BREADY">in, 1, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_NORM_BRESP">out, 2, s_axi, TEST_NORM, array</column>
+<column name="s_axi_TEST_REV_AWVALID">in, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_AWREADY">out, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_AWADDR">in, 15, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_WVALID">in, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_WREADY">out, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_WDATA">in, 32, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_WSTRB">in, 4, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_ARVALID">in, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_ARREADY">out, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_ARADDR">in, 15, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_RVALID">out, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_RREADY">in, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_RDATA">out, 32, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_RRESP">out, 2, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_BVALID">out, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_BREADY">in, 1, s_axi, TEST_REV, array</column>
+<column name="s_axi_TEST_REV_BRESP">out, 2, s_axi, TEST_REV, array</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, RC_RECEIVER, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, RC_RECEIVER, return value</column>
+<column name="interrupt">out, 1, ap_ctrl_hs, RC_RECEIVER, return value</column>
+</table>
+</item>
+</section>
+</profile>

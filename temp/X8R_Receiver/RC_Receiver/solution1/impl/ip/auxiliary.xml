@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="RC_RECEIVER" xd:componentRef="RC_RECEIVER" xd:initiationInterval="51" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="SBUS_data[]" xd:originalName="SBUS_data" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="30" xd:dataWidth="8"/>
+  <xd:arg xd:name="norm_out[]" xd:originalName="norm_out" xd:direction="out" xd:interfaceRef="s_axi_TEST_NORM" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
+  <xd:arg xd:name="reverse_out[]" xd:originalName="reverse_out" xd:direction="out" xd:interfaceRef="s_axi_TEST_REV" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
+  <xd:arg xd:name="channel_data[]" xd:originalName="channel_data" xd:direction="out" xd:interfaceRef="s_axi_TEST_CHAN" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="50" xd:worst-case="50" xd:average-case="50"/>
+  <xd:resourceEstimates xd:LUT="1914" xd:FF="1007" xd:BRAM="28" xd:DSP="0"/>
+</xd:acceleratorMap>
