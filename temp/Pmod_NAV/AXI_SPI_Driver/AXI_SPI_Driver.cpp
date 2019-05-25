@@ -5,13 +5,17 @@
 #include "AXI_SPI_Driver.h"
 #include "navSpi.hpp"
 
-/*
- * Returns message that will be packed into spi_bus[]
+/**
+ * 
+ * uint16_t xspi_write(uint8_t addr, uint8_t val)
+ * 		Returns message that will be packed into spi_bus[]
  *
- * @param 	addr is the register address that will be written to
- * @param	val is the data that will be written to specific register address
+ * @param 	addr - is the register address that will be written to
+ * @param	val - is the data that will be written to specific register address
  *
- * @note - needs to be tested through jupyter notebook to see if it works
+ * @return	uint16_t - packed message for quad spi
+ * 
+ * @note None.
  */
 uint16_t xspi_write(uint8_t addr, uint8_t val)
 {
@@ -25,6 +29,18 @@ uint16_t xspi_write(uint8_t addr, uint8_t val)
 	return message;
 }
 
+/**
+ * 
+ * uint16_t xspi_read(uint8_t addr, uint8_t val)
+ * 		Returns message that will be packed into spi_bus[]
+ *
+ * @param 	addr - is the register address that will be written to
+ * @param	val - is the data that will be written to specific register address
+ *
+ * @return	uint16_t - packed message for quad spi
+ * 
+ * @note - needs to be tested through jupyter notebook to see if it works
+ */
 uint16_t xspi_read(uint8_t addr, uint8_t val)
 {
 	uint8_t tx_buff;
@@ -37,8 +53,22 @@ uint16_t xspi_read(uint8_t addr, uint8_t val)
 	return message;
 }
 
-void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16_t pmod_test[4096])
-//void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])	// test with pmod_data uint16_t and uint32_t
+/**
+ * 
+ * void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
+ *
+ * @param spi_bus[4096] - array that is used to read/write data with the AXI Quad Spi
+ * @param pmod_data[4096] -  raw data from pmod
+ * 							{accX, accY, accZ, gyroX, gyroY, gyroZ}
+ * 
+ * @return pmod_data[4096] - is used by positionCtrl() which converts the raw data from the nav
+ * 							to useable data 
+ * 
+ * @note pmod_data[4096] might need to be converted to uint16_t after jupyter testing. In order to read
+ * 						the data correctly through jupyter notebook it needs to be uint32_t.
+ */
+//void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16_t pmod_test[4096])
+void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
 {
 
 	//SETUP PRAGMAS
@@ -46,95 +76,57 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 	#pragma HLS INTERFACE m_axi depth=4096 port=spi_bus offset=off bundle=SPI
-	//#pragma HLS INTERFACE m_axi depth=4096 port=pmod_data bundle=OUT
 
 	// test code for python debug
 	#pragma HLS INTERFACE s_axilite depth=4096 port=pmod_data bundle=DATA
 	#pragma HLS RESOURCE variable=pmod_data core=RAM_1P_BRAM
 	
 	// test code for python debug
-	#pragma HLS INTERFACE s_axilite depth=4096 port=pmod_test bundle=TEST
-	#pragma HLS RESOURCE variable=pmod_test core=RAM_1P_BRAM
+	//#pragma HLS INTERFACE s_axilite depth=4096 port=pmod_test bundle=TEST
+	//#pragma HLS RESOURCE variable=pmod_test core=RAM_1P_BRAM
 	
 	// configuring AXI QUAD SPI Core
 	static unsigned char state = 0;
 	#pragma HLS RESET variable=state
 
-	uint8_t ADDRESS;
-	uint8_t DATA;
-	uint16_t MESSAGE;
-	uint16_t temp = 0x0000;
-
 	switch (state)
 	{
 		case 0: // SPI Control Register setup
-			//spi_bus[SPICR] = 0x6;
 
 			spi_bus[SPICR] = 0x6;		// enable SPI core in master mode, auto SS
 			// -- *(m+SPICR_OFFSET) = 0x4 | 0x8 | 0x2; // Master, CPOL, SPE
-#ifdef DEBUG_PRINT
-			pmod_test[0] = 0xC0;
-#endif
+
 			state++;
 			break;
-		case 1: // SPI Slave select Register setup (active low)
-			//spi_bus[SPISSR] = 0xFFFE;
+		case 1: //	SPI Slave select Register setup (active low)
 
 			spi_bus[SPISSR] = 0xFFFE;	// enable SS 0 - PMODNav ACC/GYRO
-#ifdef DEBUG_PRINT
-			pmod_test[1] = 0xC1;
-#endif
+
 			state++;
 			break;
 
 		case 2:	//	Enabling Pmod_Nav
 
-			pmod_test[1] = Nav_Acc_Gyro_Pwr(spi_bus, 1);
-			/*
-			ADDRESS = CTRL_REG5_XL & WRITE_CFG;
-			DATA = 0x38; // enable all 3 GYRO axis
+			pmod_data[0] = Nav_Acc_Gyro_Pwr(spi_bus, 1);
 
-			MESSAGE = (ADDRESS << 8) | DATA;
-			spi_bus[SPI_DTR] = MESSAGE;	// writing to nav
-
-			ADDRESS = CTRL_REG6_XL & WRITE_CFG;
-			DATA = 0xC0;  // set GYRO odr to 952 Hz
-			MESSAGE = (ADDRESS << 8) | DATA;
-
-			spi_bus[SPI_DTR] = MESSAGE;	// writing to nav
-			*/
-#ifdef DEBUG_PRINT
-			//pmod_test[2] = 0xC2;
-			pmod_test[2] = pmod_test[1];
-#endif
 			state++;
 			break;
 
 		default:
-
-			pmod_data[0] = 0x1111;
-			pmod_data[1] = 0x2222;	// 13107d
-			pmod_data[2] = 0x3333;	// 17476d
-			pmod_data[3] = 0x4444;
-			pmod_data[4] = 0x5555;
-			pmod_data[5] = 0x6666;
-			pmod_data[6] = 0x7777;
-			pmod_data[7] = 0x8888;
-			
-
-			pmod_test[0] = 0x1111;
-			pmod_test[1] = 0x2222;
-			pmod_test[2] = 0x3333;
-			pmod_test[3] = 0x4444;	// 17476d
-			pmod_test[4] = 0x5555;	// 21845d
-			pmod_test[5] = 0x6666;
-			pmod_test[6] = 0x7777;
-			pmod_test[7] = 0x8888;
-
+			/***************************** TO-DO *********************
+			 * Add code to get raw data from nav sensor and pack it inside
+			 * pmod_data
+			 * 
+			 */
 
 			// python debug code
 			// test code for reading "WHO_AM_I"
-			
+			spi_bus[SPI_DTR] = xspi_read(GYRO_WHO_AM_I, 0x00);
+			pmod_data[0] = spi_bus[SPI_DRR]; // expect 0x68h (104d)
+			pmod_data[1] = 0x2222;	// 13107d
+			pmod_data[2] = 0x3333;	// 17476d
+
+			/* Below code works and has been tested on jupyter notebook
 			ADDRESS = GYRO_WHO_AM_I | READ_CFG;
 			DATA = 0x00;
 			MESSAGE = (ADDRESS << 8) | DATA; //Testing read from SPI Core
@@ -149,27 +141,8 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16
 			pmod_data[1] = (uint32_t)temp;
 
 			pmod_test[0] = temp;
-			//spi_bus[SPI_DRR]
-			//spi_bus[SPI_DTR]
-
-
-			// -- *(spi_bus + (0x1C >> 2)) = 0xDEADBEEF;	// test write
-
-			// testing write capability
-			//spi_bus[SPI_DTR] = 0xDEADBEEF;
-			//temp = *TX_message;
-
-			//delay_until_ms<1>();
-
-			// testing read capability
-			//RX_message = *(spi_bus + SPI_DTR);
-			//RX_message = *(spi_bus + SPI_DRR);
-			//pmod_data[0] = spi_bus[SPI_DRR];
-			//*RX_message = temp;
-
+			*/
 			break;
-
-
 	} // end switch
 
 }

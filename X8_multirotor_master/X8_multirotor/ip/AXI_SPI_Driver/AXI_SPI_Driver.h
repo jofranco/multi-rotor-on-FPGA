@@ -66,40 +66,6 @@ using namespace std;
 
 #define MAKE_LONGER  (0x00000000)
 
-// LOOP BACK MODE ENABLE :  1 = ON. 0 = OFF
-#define LOOP_BACK_EN  0
-
-
-/*
- * Function definitions
- */
-
-// main driver
-
-//void AXI_SPI_DRIVER(ap_uint<32> *spi_bus, ap_uint<32> *TX_message, ap_uint<32> *RX_message);
-//void AXI_SPI_DRIVER(volatile int *spi_bus);
-void AXI_SPI_DRIVER(volatile int spi_bus[4096], volatile int TX_message[1], volatile int RX_message[1]);
-//void AXI_SPI_DRIVER(DTYPE2 spi_bus[4096]);
-
-
-//delay function in milliseconds
-template <unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL>
-void delay_until_ms(){
-#define MSEC_PER_SEC 1000ULL
-#pragma HLS INLINE
-#pragma HLS PROTOCOL floating
-	volatile char dummy;
-	ap_uint<64> ctr;
-	ap_uint<64> cyc = (F_OVERLAY_HZ * MILLISECONDS / MSEC_PER_SEC);
-	for (ctr = 0; ctr < cyc; ++ctr){
-		dummy = dummy;
-	}
-	return;
-#undef MSEC_PER_SEC
-}
-
-
-// streaming interface
 
 //typedef volatile int DTYPE;
 
@@ -122,3 +88,31 @@ struct DTYPE2
 	ap_int<1> last;
 };
 */
+
+
+/*
+ * Function definitions
+ */
+uint16_t xspi_write(uint8_t address, uint8_t val);
+uint16_t xspi_read(uint8_t addr, uint8_t val);
+
+// main driver
+void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16_t pmod_test[4096]);
+//void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096]);
+
+
+//delay function in milliseconds
+template <unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL>
+void delay_until_ms(){
+#define MSEC_PER_SEC 1000ULL
+#pragma HLS INLINE
+#pragma HLS PROTOCOL floating
+	volatile char dummy;
+	ap_uint<64> ctr;
+	ap_uint<64> cyc = (F_OVERLAY_HZ * MILLISECONDS / MSEC_PER_SEC);
+	for (ctr = 0; ctr < cyc; ++ctr){
+		dummy = dummy;
+	}
+	return;
+#undef MSEC_PER_SEC
+}

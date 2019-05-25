@@ -108,7 +108,6 @@ float Nav_GetXLRangeLSB(uint8_t bRangeXL)
  * 
  * @note	None.
  */
-
 void positionCtrl(uint32_t pmod_data[SIZE], uint16_t pos_data[SIZE])
 {
 	// HLS PRAGMAS
