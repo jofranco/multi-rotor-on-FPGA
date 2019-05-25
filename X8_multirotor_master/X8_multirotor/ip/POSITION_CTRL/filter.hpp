@@ -1,3 +1,8 @@
+#ifndef FILTER_HPP /* prevent circular inclusions */
+#define FILTER_HPP /* by using protection macros */
+
+#include "stdint.h"
+
 #define DT 0.1
 
 class KalmanFilter {
@@ -20,5 +25,7 @@ private:
         float KFangle;
 public:
     KalmanFilter(); // default constructor
-    float update(); // updates Kalman Filter parameters
+    float update(float accAngle, float gyroRate); // updates Kalman Filter parameters
 };
+
+#endif /* end of protection macro, FILTER_HPP */

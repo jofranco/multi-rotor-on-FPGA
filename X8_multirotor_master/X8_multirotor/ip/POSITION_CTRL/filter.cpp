@@ -1,44 +1,28 @@
 #include "filter.hpp"
+#include "stdint.h"
 
 
-class KalmanFilter {
-private:
-        float Q_angle = 0.01;
-        float Q_gyro = 0.0003;
-        float R_angle = 0.01;
-        float x_bias;
-        float y_bias;
-        float XP_00;
-        float XP_01;
-        float XP_10;
-        float XP_11;
+
+KalmanFilter:: KalmanFilter() {
+        Q_angle = 0.01;
+        Q_gyro = 0.0003;
+        R_angle = 0.01;
+        x_bias = 0;
+        y_bias = 0;
+        XP_00 = 0;
+        XP_01 = 0;
+        XP_10 = 0;
+        XP_11 = 0;
         
-        float YP_00;
-        float YP_01;
-        float YP_10;
-        float YP_11;
+        YP_00 = 0;
+        YP_01 = 0;
+        YP_10 = 0;
+        YP_11 = 0;
         
-        float KFangle;
-public:
-    KalmanFilter() {
-        float Q_angle = 0.01;
-        float Q_gyro = 0.0003;
-        float R_angle = 0.01;
-        float x_bias = 0;
-        float y_bias = 0;
-        float XP_00 = 0;
-        float XP_01 = 0;
-        float XP_10 = 0;
-        float XP_11 = 0;
-        
-        float YP_00 = 0;
-        float YP_01 = 0;
-        float YP_10 = 0;
-        float YP_11 = 0;
-        
-        float KFangle = 0.0;
+        KFangle = 0.0;
     }
-    float update(float accAngle, float gyroRate) {
+
+float KalmanFilter:: update(float accAngle, float gyroRate) {
         float y, S, K_0, K_1;
         
         KFangle = KFangle + DT *(gyroRate - y_bias);
@@ -63,4 +47,3 @@ public:
 
         return KFangle;
     };
-};
