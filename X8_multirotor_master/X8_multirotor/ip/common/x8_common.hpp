@@ -1,7 +1,8 @@
 //include libraries
-#include "ap_utils.h"
-#include "ap_int.h"
-#include "stdint.h"
+#ifndef X8_COMMON_HPP
+#define X8_COMMON_HPP
+
+
 #include "ap_fixed.h"
 
 #define SIZE_4k     4096
@@ -47,4 +48,4 @@ typedef enum
 // scales raw RC channel data to [0:1)
 uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
 
-
+#endif
