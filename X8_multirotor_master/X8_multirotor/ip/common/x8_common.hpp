@@ -23,12 +23,12 @@
 #define ARM_CHAN    		 4
 #define MODE_CHAN 			 5
 
-// type definitions
+// t    ype definitions
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
 typedef ap_fixed<19, 4> F19_t;
-typedef ap_fixed<16,1> F16_t;
+typedef ap_fixed<16,2> F16_t;
 
 typedef ap_uint<6> uint6_t;
 

@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 module flightmain_CTRL_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 5,
+    C_S_AXI_ADDR_WIDTH = 4,
     C_S_AXI_DATA_WIDTH = 32
 )(
     // axi4 lite slave signals
@@ -37,52 +37,43 @@ module flightmain_CTRL_s_axi
     output wire                          ap_start,
     input  wire                          ap_done,
     input  wire                          ap_ready,
-    input  wire                          ap_idle,
-    input  wire [2:0]                    rcCmdIn_address0,
-    input  wire                          rcCmdIn_ce0,
-    output wire [15:0]                   rcCmdIn_q0
+    input  wire                          ap_idle
 );
 //------------------------Address Info-------------------
-// 0x00 : Control signals
-//        bit 0  - ap_start (Read/Write/COH)
-//        bit 1  - ap_done (Read/COR)
-//        bit 2  - ap_idle (Read)
-//        bit 3  - ap_ready (Read)
-//        bit 7  - auto_restart (Read/Write)
-//        others - reserved
-// 0x04 : Global Interrupt Enable Register
-//        bit 0  - Global Interrupt Enable (Read/Write)
-//        others - reserved
-// 0x08 : IP Interrupt Enable Register (Read/Write)
-//        bit 0  - Channel 0 (ap_done)
-//        bit 1  - Channel 1 (ap_ready)
-//        others - reserved
-// 0x0c : IP Interrupt Status Register (Read/TOW)
-//        bit 0  - Channel 0 (ap_done)
-//        bit 1  - Channel 1 (ap_ready)
-//        others - reserved
-// 0x10 ~
-// 0x1f : Memory 'rcCmdIn' (6 * 16b)
-//        Word n : bit [15: 0] - rcCmdIn[2n]
-//                 bit [31:16] - rcCmdIn[2n+1]
+// 0x0 : Control signals
+//       bit 0  - ap_start (Read/Write/COH)
+//       bit 1  - ap_done (Read/COR)
+//       bit 2  - ap_idle (Read)
+//       bit 3  - ap_ready (Read)
+//       bit 7  - auto_restart (Read/Write)
+//       others - reserved
+// 0x4 : Global Interrupt Enable Register
+//       bit 0  - Global Interrupt Enable (Read/Write)
+//       others - reserved
+// 0x8 : IP Interrupt Enable Register (Read/Write)
+//       bit 0  - Channel 0 (ap_done)
+//       bit 1  - Channel 1 (ap_ready)
+//       others - reserved
+// 0xc : IP Interrupt Status Register (Read/TOW)
+//       bit 0  - Channel 0 (ap_done)
+//       bit 1  - Channel 1 (ap_ready)
+//       others - reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL      = 5'h00,
-    ADDR_GIE          = 5'h04,
-    ADDR_IER          = 5'h08,
-    ADDR_ISR          = 5'h0c,
-    ADDR_RCCMDIN_BASE = 5'h10,
-    ADDR_RCCMDIN_HIGH = 5'h1f,
-    WRIDLE            = 2'd0,
-    WRDATA            = 2'd1,
-    WRRESP            = 2'd2,
-    WRRESET           = 2'd3,
-    RDIDLE            = 2'd0,
-    RDDATA            = 2'd1,
-    RDRESET           = 2'd2,
-    ADDR_BITS         = 5;
+    ADDR_AP_CTRL = 4'h0,
+    ADDR_GIE     = 4'h4,
+    ADDR_IER     = 4'h8,
+    ADDR_ISR     = 4'hc,
+    WRIDLE       = 2'd0,
+    WRDATA       = 2'd1,
+    WRRESP       = 2'd2,
+    WRRESET      = 2'd3,
+    RDIDLE       = 2'd0,
+    RDDATA       = 2'd1,
+    RDRESET      = 2'd2,
+    ADDR_BITS         = 4;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -105,44 +96,8 @@ localparam
     reg                           int_gie = 1'b0;
     reg  [1:0]                    int_ier = 2'b0;
     reg  [1:0]                    int_isr = 2'b0;
-    // memory signals
-    wire [1:0]                    int_rcCmdIn_address0;
-    wire                          int_rcCmdIn_ce0;
-    wire                          int_rcCmdIn_we0;
-    wire [3:0]                    int_rcCmdIn_be0;
-    wire [31:0]                   int_rcCmdIn_d0;
-    wire [31:0]                   int_rcCmdIn_q0;
-    wire [1:0]                    int_rcCmdIn_address1;
-    wire                          int_rcCmdIn_ce1;
-    wire                          int_rcCmdIn_we1;
-    wire [3:0]                    int_rcCmdIn_be1;
-    wire [31:0]                   int_rcCmdIn_d1;
-    wire [31:0]                   int_rcCmdIn_q1;
-    reg                           int_rcCmdIn_read;
-    reg                           int_rcCmdIn_write;
-    reg  [0:0]                    int_rcCmdIn_shift;
 
 //------------------------Instantiation------------------
-// int_rcCmdIn
-flightmain_CTRL_s_axi_ram #(
-    .BYTES    ( 4 ),
-    .DEPTH    ( 3 )
-) int_rcCmdIn (
-    .clk0     ( ACLK ),
-    .address0 ( int_rcCmdIn_address0 ),
-    .ce0      ( int_rcCmdIn_ce0 ),
-    .we0      ( int_rcCmdIn_we0 ),
-    .be0      ( int_rcCmdIn_be0 ),
-    .d0       ( int_rcCmdIn_d0 ),
-    .q0       ( int_rcCmdIn_q0 ),
-    .clk1     ( ACLK ),
-    .address1 ( int_rcCmdIn_address1 ),
-    .ce1      ( int_rcCmdIn_ce1 ),
-    .we1      ( int_rcCmdIn_we1 ),
-    .be1      ( int_rcCmdIn_be1 ),
-    .d1       ( int_rcCmdIn_d1 ),
-    .q1       ( int_rcCmdIn_q1 )
-);
 
 //------------------------AXI write fsm------------------
 assign AWREADY = (wstate == WRIDLE);
@@ -196,7 +151,7 @@ end
 assign ARREADY = (rstate == RDIDLE);
 assign RDATA   = rdata;
 assign RRESP   = 2'b00;  // OKAY
-assign RVALID  = (rstate == RDDATA) & !int_rcCmdIn_read;
+assign RVALID  = (rstate == RDDATA);
 assign ar_hs   = ARVALID & ARREADY;
 assign raddr   = ARADDR[ADDR_BITS-1:0];
 
@@ -249,9 +204,6 @@ always @(posedge ACLK) begin
                     rdata <= int_isr;
                 end
             endcase
-        end
-        else if (int_rcCmdIn_read) begin
-            rdata <= int_rcCmdIn_q1;
         end
     end
 end
@@ -358,121 +310,5 @@ end
 
 
 //------------------------Memory logic-------------------
-// rcCmdIn
-assign int_rcCmdIn_address0 = rcCmdIn_address0 >> 1;
-assign int_rcCmdIn_ce0      = rcCmdIn_ce0;
-assign int_rcCmdIn_we0      = 1'b0;
-assign int_rcCmdIn_be0      = 1'b0;
-assign int_rcCmdIn_d0       = 1'b0;
-assign rcCmdIn_q0           = int_rcCmdIn_q0 >> (int_rcCmdIn_shift * 16);
-assign int_rcCmdIn_address1 = ar_hs? raddr[3:2] : waddr[3:2];
-assign int_rcCmdIn_ce1      = ar_hs | (int_rcCmdIn_write & WVALID);
-assign int_rcCmdIn_we1      = int_rcCmdIn_write & WVALID;
-assign int_rcCmdIn_be1      = WSTRB;
-assign int_rcCmdIn_d1       = WDATA;
-// int_rcCmdIn_read
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_rcCmdIn_read <= 1'b0;
-    else if (ACLK_EN) begin
-        if (ar_hs && raddr >= ADDR_RCCMDIN_BASE && raddr <= ADDR_RCCMDIN_HIGH)
-            int_rcCmdIn_read <= 1'b1;
-        else
-            int_rcCmdIn_read <= 1'b0;
-    end
-end
-
-// int_rcCmdIn_write
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_rcCmdIn_write <= 1'b0;
-    else if (ACLK_EN) begin
-        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_RCCMDIN_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_RCCMDIN_HIGH)
-            int_rcCmdIn_write <= 1'b1;
-        else if (WVALID)
-            int_rcCmdIn_write <= 1'b0;
-    end
-end
-
-// int_rcCmdIn_shift
-always @(posedge ACLK) begin
-    if (ACLK_EN) begin
-        if (rcCmdIn_ce0)
-            int_rcCmdIn_shift <= rcCmdIn_address0[0];
-    end
-end
-
 
 endmodule
-
-
-`timescale 1ns/1ps
-
-module flightmain_CTRL_s_axi_ram
-#(parameter
-    BYTES  = 4,
-    DEPTH  = 256,
-    AWIDTH = log2(DEPTH)
-) (
-    input  wire               clk0,
-    input  wire [AWIDTH-1:0]  address0,
-    input  wire               ce0,
-    input  wire               we0,
-    input  wire [BYTES-1:0]   be0,
-    input  wire [BYTES*8-1:0] d0,
-    output reg  [BYTES*8-1:0] q0,
-    input  wire               clk1,
-    input  wire [AWIDTH-1:0]  address1,
-    input  wire               ce1,
-    input  wire               we1,
-    input  wire [BYTES-1:0]   be1,
-    input  wire [BYTES*8-1:0] d1,
-    output reg  [BYTES*8-1:0] q1
-);
-//------------------------Local signal-------------------
-reg  [BYTES*8-1:0] mem[0:DEPTH-1];
-//------------------------Task and function--------------
-function integer log2;
-    input integer x;
-    integer n, m;
-begin
-    n = 1;
-    m = 2;
-    while (m < x) begin
-        n = n + 1;
-        m = m * 2;
-    end
-    log2 = n;
-end
-endfunction
-//------------------------Body---------------------------
-// read port 0
-always @(posedge clk0) begin
-    if (ce0) q0 <= mem[address0];
-end
-
-// read port 1
-always @(posedge clk1) begin
-    if (ce1) q1 <= mem[address1];
-end
-
-genvar i;
-generate
-    for (i = 0; i < BYTES; i = i + 1) begin : gen_write
-        // write port 0
-        always @(posedge clk0) begin
-            if (ce0 & we0 & be0[i]) begin
-                mem[address0][8*i+7:8*i] <= d0[8*i+7:8*i];
-            end
-        end
-        // write port 1
-        always @(posedge clk1) begin
-            if (ce1 & we1 & be1[i]) begin
-                mem[address1][8*i+7:8*i] <= d1[8*i+7:8*i];
-            end
-        end
-    end
-endgenerate
-
-endmodule
-

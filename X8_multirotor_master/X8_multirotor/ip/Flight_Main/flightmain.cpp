@@ -2,28 +2,22 @@
 
 
 /**  Flight Main
- * rcCmdIn[6] {t,r,p,y,armFlag,modeFlag} [0:1000)
- * measured[6] {r,p,y,gyroX,gyroY,gyroZ} [0:1000)
- * obj_avd_cmd[5] {t,r,p,y,obj_flag} [0:1000)
- * kp[4] {t,r,p,y} [0,1)
- * kd[4] {t,r,p,y}[0,1)
- * ki[4] {t,r,p,y} [0,1)
- * cmdOut[4] {t,r,p,y} [0:1000)
- * measOut[6] {r,p,y,gyroX,gyroY,gyroZ} [0:1000)
+ * rcCmdIn[6] {t,r,p,y,armFlag,modeFlag} [0:1)
+ * obj_avd_cmd[5] {t,r,p,y,obj_flag} [0:1)
+ * cmdOut[4] {t,r,p,y} [0:1)
 */
 
-// probably do not need this
-//static uint16_t lastrcCmdIn[5]={0.5,0.5,0.5,0.5,0.0};
-
-void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[SIZE_4k])
+// main function call
+void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k])
 {
 	#pragma HLS PIPELINE II=1 enable_flush
 
     #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
-    #pragma HLS INTERFACE s_axilite port=rcCmdIn bundle=CTRL
-    #pragma HLS INTERFACE s_axilite port=obj_avd_cmd bundle=OBJ_AVD
-	//#pragma HLS INTERFACE s_axilite port=measured bundle=CTRL
 
+	// input commands port
+    #pragma HLS INTERFACE s_axilite port=rcCmdIn bundle=CMD
+    #pragma HLS INTERFACE s_axilite port=obj_avd_cmd bundle=CMD
+	// output port
     #pragma HLS INTERFACE m_axi port=cmdOut  bundle=OUT offset=off
 
 
@@ -38,7 +32,7 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[S
 	// check for Arm switch state
 	isArmed = rcCmdIn[ARM_CHAN];
 	// get current flight mode
-    flightModeFlag = rcCmdIn[MODE_CHAN];
+    flightModeFlag = uint8_t(rcCmdIn[MODE_CHAN]);
     // not currently implementing object avoidance, setting flag to zero
     objAvoidFlag = false;
 
@@ -59,16 +53,16 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[S
             case HORIZON_MODE:
 
                 // checking if pilot has hands off sticks
-                noRollCmd = (rcCmdIn[ROLL_CHAN] > ROLL_MIN) && (rcCmdIn[ROLL_CHAN] < ROLL_MAX);
-                noPitchCmd = (rcCmdIn[PITCH_CHAN] > PITCH_MIN) && (rcCmdIn[PITCH_CHAN] < PITCH_MAX);
+                noRollCmd = ((rcCmdIn[ROLL_CHAN] > ROLL_MIN) && (rcCmdIn[ROLL_CHAN] < ROLL_MAX));
+                noPitchCmd = ((rcCmdIn[PITCH_CHAN] > PITCH_MIN) && (rcCmdIn[PITCH_CHAN] < PITCH_MAX));
 
                 // if no pilot input, self level roll/pitch only
                 if(noRollCmd && noPitchCmd)
                 {
                     cmdOut[THROT_CHAN] = rcCmdIn[THROT_CHAN];
                     cmdOut[YAW_CHAN] = rcCmdIn[YAW_CHAN];
-                    cmdOut[ROLL_CHAN] = 500;
-                    cmdOut[PITCH_CHAN] = 500;
+                    cmdOut[ROLL_CHAN] = F16_t(0.500);
+                    cmdOut[PITCH_CHAN] = F16_t(0.500);
                 }
                 else
                 {
@@ -85,7 +79,7 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[S
 
                 if(objAvoidFlag)
                 {
-
+                	// add object avoidance MUX logic here
                 }
                 else
                 {
@@ -99,8 +93,8 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[S
                     {
                         cmdOut[THROT_CHAN] = rcCmdIn[THROT_CHAN];
                         cmdOut[YAW_CHAN] = rcCmdIn[YAW_CHAN];
-                        cmdOut[ROLL_CHAN] = 500;
-                        cmdOut[PITCH_CHAN] = 500;
+                        cmdOut[ROLL_CHAN] = F16_t(0.500);
+                        cmdOut[PITCH_CHAN] = F16_t(0.500);
                     }
                     else
                     {
@@ -116,11 +110,11 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[S
 
             default:
 
-                // set throttle to zero and return sticks midpoint
-                cmdOut[THROT_CHAN] = 000;
-                cmdOut[YAW_CHAN]   = 500;
-                cmdOut[ROLL_CHAN]  = 500;
-                cmdOut[PITCH_CHAN] = 500;
+                // set throttle to zero and return sticks to midpoint
+                cmdOut[THROT_CHAN] = F16_t(0.000);
+                cmdOut[YAW_CHAN]   = F16_t(0.500);
+                cmdOut[ROLL_CHAN]  = F16_t(0.500);
+                cmdOut[PITCH_CHAN] = F16_t(0.500);
 
                 break;
         }
@@ -128,5 +122,10 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[S
     else
     {
         // motors are off here, make sure output PWM command is zero!!!!
+    	// set throttle to zero and return sticks to midpoint
+    	cmdOut[THROT_CHAN] = F16_t(0.000);
+    	cmdOut[YAW_CHAN]   = F16_t(0.500);
+		cmdOut[ROLL_CHAN]  = F16_t(0.500);
+		cmdOut[PITCH_CHAN] = F16_t(0.500);
     }
 }

@@ -47,9 +47,9 @@
 			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp</location>
 		</link>
 		<link>
-			<name>source/AXI_UART_Driver.h</name>
+			<name>source/AXI_UART_Driver.hpp</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver/AXI_UART_Driver.h</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver/AXI_UART_Driver.hpp</location>
 		</link>
 		<link>
 			<name>testbench/main.cpp</name>

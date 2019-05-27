@@ -1,8 +1,6 @@
 //include libraries
-#include "ap_utils.h"
-#include "ap_int.h"
-#include "stdint.h"
-#include "stdio.h"
+#include "../common/x8_common.hpp"
+//#include "stdio.h"
 
 using namespace std;
 

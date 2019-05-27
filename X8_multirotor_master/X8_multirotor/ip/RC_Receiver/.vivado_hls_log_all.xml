@@ -3,48 +3,17 @@
   <errorLogs>
     <logs>
       <synLog/>
-      <simLog/>
-      <mgLog/>
-      <packageLog/>
-      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'errors' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.269-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'lost' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.260-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_17' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.255-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_16' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.251-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_15' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.246-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_14' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.241-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_13' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.236-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_12' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.231-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_11' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.227-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_10' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.222-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_9' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.217-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_8' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.213-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_7' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.208-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_6' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.203-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_5' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.199-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_4' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.194-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_3' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.190-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_2' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.185-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_1' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.181-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_0' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:53.176-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('SBUS_data_load_20', RC_Receiver/RC_Receiver.cpp:25) on array 'SBUS_data' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'SBUS_data'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:52.425-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:64) within the last 19 cycles (II = 19).&#xD;&#xA;Please consider increasing the initiation interval of the pipeline." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:52.314-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)&#xD;&#xA;   between bus request on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:71) and bus request on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:64)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:52.296-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xD;&#xA;   between bus request on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:71) and bus request on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:64)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:52.241-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between bus request on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:71) and bus request on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:64)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:52.231-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between bus request on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:71) and bus request on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:64)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:52.221-0700" type="Warning"/>
-        <logs message="WARNING: [SYN 201-107] Renaming port name 'rcReceiver/OUT' to 'rcReceiver/OUT_r' to avoid the conflict with HDL keywords or other object names." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:51.970-0700" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-803] Cannot bundle argument 'norm_out' to m_axi port 'OUT' since its offset mode is off." projectName="RC_Receiver" solutionName="solution1" date="2019-05-26T23:00:51.940-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'errors' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-27T16:10:22.771-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'lost' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-27T16:10:22.760-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_17' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-27T16:10:22.757-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_16' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-27T16:10:22.752-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_15' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-27T16:10:22.748-0700" type="Warning"/>
       </synLog>
-      <simLog/>
-      <mgLog/>
-      <packageLog/>
-      <csimLog/>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

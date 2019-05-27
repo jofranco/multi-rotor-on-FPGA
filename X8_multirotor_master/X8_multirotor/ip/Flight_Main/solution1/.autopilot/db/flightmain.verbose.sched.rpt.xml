@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'flightmain'" level="0">
-<item name = "Date">Mon May 27 11:22:52 2019
+<item name = "Date">Mon May 27 16:33:22 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">Flight_Main</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">22, 22, 9, 9, function</column>
+<column name="">21, 21, 8, 8, function</column>
 </table>
 </item>
 <item name = "Detail">

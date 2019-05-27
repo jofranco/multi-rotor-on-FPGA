@@ -7,18 +7,22 @@ if {${::AESL::PGuard_autoexp_gen}} {
     AESL_LIB_XILADAPTER::native_axis_begin
 }
 
-set port_CTRL {
-ap_start { }
-ap_done { }
-ap_ready { }
-ap_idle { }
-rcCmdIn { 
+set port_CMD {
+rcCmdIn_V { 
 	dir I
 	width 16
 	depth 6
 	mode ap_memory
 	offset 16
 	offset_end 31
+}
+obj_avd_cmd_V { 
+	dir X
+	width 16
+	depth 5
+	mode ap_memory
+	offset 32
+	offset_end 47
 }
 }
 
@@ -28,6 +32,34 @@ if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
 			id 1 \
+			corename flightmain_CMD_axilite \
+			name flightmain_CMD_s_axi \
+			ports {$port_CMD} \
+			op interface \
+			is_flushable 0 \ 
+		} "
+	} else {
+		puts "@W \[IMPL-110\] Cannot find AXI Lite interface model in the library. Ignored generation of AXI Lite  interface for 'CMD'"
+	}
+}
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler flightmain_CMD_s_axi
+}
+
+set port_CTRL {
+ap_start { }
+ap_done { }
+ap_ready { }
+ap_idle { }
+}
+
+
+# Native S_AXILite:
+if {${::AESL::PGuard_simmodel_gen}} {
+	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
+		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
+			id 2 \
 			corename flightmain_CTRL_axilite \
 			name flightmain_CTRL_s_axi \
 			ports {$port_CTRL} \
@@ -41,38 +73,6 @@ if {${::AESL::PGuard_simmodel_gen}} {
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler flightmain_CTRL_s_axi
-}
-
-set port_OBJ_AVD {
-obj_avd_cmd { 
-	dir X
-	width 16
-	depth 5
-	mode ap_memory
-	offset 16
-	offset_end 31
-}
-}
-
-
-# Native S_AXILite:
-if {${::AESL::PGuard_simmodel_gen}} {
-	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
-		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 2 \
-			corename flightmain_OBJ_AVD_axilite \
-			name flightmain_OBJ_AVD_s_axi \
-			ports {$port_OBJ_AVD} \
-			op interface \
-			is_flushable 0 \ 
-		} "
-	} else {
-		puts "@W \[IMPL-110\] Cannot find AXI Lite interface model in the library. Ignored generation of AXI Lite  interface for 'OBJ_AVD'"
-	}
-}
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler flightmain_OBJ_AVD_s_axi
 }
 
 # Native M_AXI:

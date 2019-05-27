@@ -1,8 +1,8 @@
 //include libraries
-#include "RC_Receiver.h"
+#include "RC_Receiver.hpp"
 
 
-void rcReceiver(uint8_t SBUS_data[NUM_BYTES], uint16_t norm_out[SIZE_4k])
+void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k])
 {
     // HLS PRAGMAS
 	#pragma HLS PIPELINE II=1 enable_flush
@@ -61,24 +61,24 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], uint16_t norm_out[SIZE_4k])
     //  Map  ~ 200 : 1800   -->   0 : 999
     for(int i = 0; i < NUM_CHANNELS; i++)
     {
-    	norm_out[i] = scaleRange(clip(channels[i],SRC_MIN,SRC_MAX),SRC_MIN,SRC_MAX,DEST_MIN,DEST_MAX);
+    	norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN, DEST_MAX);
     }
 
     // ARM switch state select
-    norm_out[ARM_CHAN] = selectMotorState(norm_out[ARM_CHAN]);
+    norm_out[ARM_CHAN] = F16_t(selectMotorState(norm_out[ARM_CHAN]));
 
     // Flight Mode switch state select
-    norm_out[MODE_CHAN] = selectFlightModeState(norm_out[MODE_CHAN]);
+    norm_out[MODE_CHAN] = F16_t(selectFlightModeState(norm_out[MODE_CHAN]));
 
 }
 
 // scales raw RC channel data to [0:1000)
-uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo)
+F16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, F16_t destFrom, F16_t destTo)
 {
-	uint64_t a, b;
-	a = ((uint32_t)destTo - (uint32_t)destFrom) * ((uint32_t)x - (uint32_t)srcFrom);
-	b = ((uint32_t)srcTo - (uint32_t)srcFrom);
-	return ((a/b) + destFrom);
+	F32_t a, b;
+	a = ((F32_t)destTo - (F32_t)destFrom) * ((F32_t)x - (F32_t)srcFrom);
+	b = ((F32_t)srcTo - (F32_t)srcFrom);
+	return F16_t((a/b) + destFrom);
 }
 
 motorState_e selectMotorState(uint16_t value)

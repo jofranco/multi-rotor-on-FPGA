@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'AXI_UART_DRIVER'" level="0">
-<item name = "Date">Sun May 26 19:41:34 2019
+<item name = "Date">Mon May 27 15:49:22 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">SBUS_AXI_UART_Driver</item>

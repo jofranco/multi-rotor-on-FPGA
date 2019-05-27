@@ -3,6 +3,6 @@
   <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
   <xd:arg xd:name="SBUS_data[]" xd:originalName="SBUS_data" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="25" xd:dataWidth="8"/>
   <xd:arg xd:name="norm_out[]" xd:originalName="norm_out" xd:direction="inout" xd:interfaceRef="m_axi_OUT_r" xd:busTypeRef="aximm" xd:arraySize="4096" xd:dataWidth="16" xd:bufferDirection="out"/>
-  <xd:latencyEstimates xd:best-case="36" xd:worst-case="36" xd:average-case="36"/>
-  <xd:resourceEstimates xd:LUT="2987" xd:FF="1939" xd:BRAM="4" xd:DSP="72"/>
+  <xd:latencyEstimates xd:best-case="37" xd:worst-case="37" xd:average-case="37"/>
+  <xd:resourceEstimates xd:LUT="2924" xd:FF="1918" xd:BRAM="4" xd:DSP="36"/>
 </xd:acceleratorMap>

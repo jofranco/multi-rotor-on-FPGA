@@ -150,6 +150,9 @@ extern "C" {
 
 # 1 "Flight_Main/../common/x8_common.hpp" 1
 
+
+
+
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 1
 # 59 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h"
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
@@ -896,7 +899,7 @@ enum SsdmRegionTypes {
     _ssdm_region_parallel,
 };
 # 74 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 2
-# 2 "Flight_Main/../common/x8_common.hpp" 2
+# 5 "Flight_Main/../common/x8_common.hpp" 2
 
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 1
 # 63 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h"
@@ -24335,7 +24338,7 @@ inline bool operator!=(const ap_int<_AP_W> &__x, const complex<ap_int<_AP_W> > &
 
 }
 # 69 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 2
-# 3 "Flight_Main/../common/x8_common.hpp" 2
+# 6 "Flight_Main/../common/x8_common.hpp" 2
 
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 1 3 4
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 3 4
@@ -24388,21 +24391,8 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 2 3 4
-# 4 "Flight_Main/../common/x8_common.hpp" 2
-# 23 "Flight_Main/../common/x8_common.hpp"
-typedef enum
-{
- MOTOR_OFF,
- MOTOR_ON
-}motorState_e;
+# 7 "Flight_Main/../common/x8_common.hpp" 2
 
-typedef enum
-{
- RATE_MODE,
- HORIZON_MODE,
- HOR_OBJAVD_MODE
-}flightMode_e;
-# 3 "Flight_Main/flightmain.hpp" 2
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 1
 # 61 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h"
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h" 1
@@ -24611,23 +24601,36 @@ inline bool operator!=(
 
 }
 # 62 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 2
-# 4 "Flight_Main/flightmain.hpp" 2
-
-
-
-
-
-
-
+# 8 "Flight_Main/../common/x8_common.hpp" 2
+# 27 "Flight_Main/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
 typedef ap_fixed<19, 4> F19_t;
-typedef ap_fixed<16,1> F16_t;
+typedef ap_fixed<16,2> F16_t;
 
 typedef ap_uint<6> uint6_t;
 
-void flightmain (uint16_t rcCmdIn[5],uint16_t measured[4],int obj_avd_cmd,int horizon_cmd,int obj_avd_flag);
+
+typedef enum
+{
+ MOTOR_OFF,
+ MOTOR_ON
+}motorState_e;
+
+typedef enum
+{
+ RATE_MODE,
+ HORIZON_MODE,
+ HOR_OBJAVD_MODE
+}flightMode_e;
+
+
+
+uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
+# 3 "Flight_Main/flightmain.hpp" 2
+# 12 "Flight_Main/flightmain.hpp"
+void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096]);
 
 typedef enum
 {
@@ -24641,15 +24644,16 @@ typedef enum
     OBJ_AVD_CMD
 }cmdMode_e;
 # 2 "Flight_Main/flightMain.cpp" 2
-# 18 "Flight_Main/flightMain.cpp"
-void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[4096])
+# 11 "Flight_Main/flightMain.cpp"
+void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
 {_ssdm_SpecArrayDimSize(rcCmdIn, 6);_ssdm_SpecArrayDimSize(obj_avd_cmd, 5);_ssdm_SpecArrayDimSize(cmdOut, 4096);
 #pragma HLS PIPELINE II=1 enable_flush
 
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
-#pragma HLS INTERFACE s_axilite port=&rcCmdIn bundle=CTRL
-#pragma HLS INTERFACE s_axilite port=&obj_avd_cmd bundle=OBJ_AVD
 
+
+#pragma HLS INTERFACE s_axilite port=&rcCmdIn bundle=CMD
+#pragma HLS INTERFACE s_axilite port=&obj_avd_cmd bundle=CMD
 
 #pragma HLS INTERFACE m_axi port=&cmdOut bundle=OUT offset=off
 
@@ -24665,7 +24669,7 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[4
 
  isArmed = rcCmdIn[4];
 
-    flightModeFlag = rcCmdIn[5];
+    flightModeFlag = uint8_t(rcCmdIn[5]);
 
     objAvoidFlag = false;
 
@@ -24686,16 +24690,16 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[4
             case HORIZON_MODE:
 
 
-                noRollCmd = (rcCmdIn[1] > 490) && (rcCmdIn[1] < 510);
-                noPitchCmd = (rcCmdIn[2] > 490) && (rcCmdIn[2] < 510);
+                noRollCmd = ((rcCmdIn[1] > F16_t(0.490)) && (rcCmdIn[1] < F16_t(0.510)));
+                noPitchCmd = ((rcCmdIn[2] > F16_t(0.490)) && (rcCmdIn[2] < F16_t(0.510)));
 
 
                 if(noRollCmd && noPitchCmd)
                 {
                     cmdOut[0] = rcCmdIn[0];
                     cmdOut[3] = rcCmdIn[3];
-                    cmdOut[1] = 500;
-                    cmdOut[2] = 500;
+                    cmdOut[1] = F16_t(0.500);
+                    cmdOut[2] = F16_t(0.500);
                 }
                 else
                 {
@@ -24718,16 +24722,16 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[4
                 {
 
 
-                    noRollCmd = (rcCmdIn[1] > 490) && (rcCmdIn[1] < 510);
-                    noPitchCmd = (rcCmdIn[2] > 490) && (rcCmdIn[2] < 510);
+                    noRollCmd = (rcCmdIn[1] > F16_t(0.490)) && (rcCmdIn[1] < F16_t(0.510));
+                    noPitchCmd = (rcCmdIn[2] > F16_t(0.490)) && (rcCmdIn[2] < F16_t(0.510));
 
 
                     if(noRollCmd && noPitchCmd)
                     {
                         cmdOut[0] = rcCmdIn[0];
                         cmdOut[3] = rcCmdIn[3];
-                        cmdOut[1] = 500;
-                        cmdOut[2] = 500;
+                        cmdOut[1] = F16_t(0.500);
+                        cmdOut[2] = F16_t(0.500);
                     }
                     else
                     {
@@ -24744,10 +24748,10 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[4
             default:
 
 
-                cmdOut[0] = 000;
-                cmdOut[3] = 500;
-                cmdOut[1] = 500;
-                cmdOut[2] = 500;
+                cmdOut[0] = F16_t(0.000);
+                cmdOut[3] = F16_t(0.500);
+                cmdOut[1] = F16_t(0.500);
+                cmdOut[2] = F16_t(0.500);
 
                 break;
         }
@@ -24755,5 +24759,10 @@ void flightmain (uint16_t rcCmdIn[6], uint16_t obj_avd_cmd[5], uint16_t cmdOut[4
     else
     {
 
+
+     cmdOut[0] = F16_t(0.000);
+     cmdOut[3] = F16_t(0.500);
+  cmdOut[1] = F16_t(0.500);
+  cmdOut[2] = F16_t(0.500);
     }
 }

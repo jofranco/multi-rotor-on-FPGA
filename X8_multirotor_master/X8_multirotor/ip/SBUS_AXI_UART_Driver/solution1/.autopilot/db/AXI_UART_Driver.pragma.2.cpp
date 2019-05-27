@@ -295,7 +295,12 @@ extern "C" {
 # 1 "<built-in>" 2
 # 1 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp" 2
 
-# 1 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h" 1
+# 1 "SBUS_AXI_UART_Driver/AXI_UART_Driver.hpp" 1
+
+# 1 "SBUS_AXI_UART_Driver/../common/x8_common.hpp" 1
+
+
+
 
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 1
 # 59 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h"
@@ -1045,7 +1050,8 @@ enum SsdmRegionTypes {
     _ssdm_region_parallel,
 };
 # 74 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 2
-# 3 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h" 2
+# 5 "SBUS_AXI_UART_Driver/../common/x8_common.hpp" 2
+
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 1
 # 63 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h"
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_int_syn.h" 1
@@ -24494,7 +24500,8 @@ inline bool operator!=(const ap_int<_AP_W> &__x, const complex<ap_int<_AP_W> > &
 
 }
 # 69 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 2
-# 4 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h" 2
+# 6 "SBUS_AXI_UART_Driver/../common/x8_common.hpp" 2
+
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 1 3 4
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 3 4
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 1 3 4
@@ -24546,11 +24553,248 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 2 3 4
-# 5 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h" 2
+# 7 "SBUS_AXI_UART_Driver/../common/x8_common.hpp" 2
+
+# 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 1
+# 61 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h"
+# 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h" 1
+# 65 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h"
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 1 3
+# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 3
+# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 3
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 1 3
+# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 3
+# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 3
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stddef.h" 1 3 4
+# 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 2 3
+# 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 2 3
+# 66 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h" 2
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdlib" 1 3
+# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdlib" 3
+# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdlib" 3
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 1 3
+# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 3
+# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 3
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stddef.h" 1 3 4
+# 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 2 3
+# 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdlib" 2 3
+# 67 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h" 2
+
+
+
+namespace std {
+template<typename _Tp> class complex;
+}
+
+
+
+
+
+
+
+namespace std {
+# 98 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h"
+template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
+struct complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > {
+  typedef ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> _Tp;
+  typedef _Tp value_type;
+
+
+
+
+  complex() : _M_real(_Tp()), _M_imag(_Tp()) {}
+
+
+  complex(const _Tp &__r, const _Tp &__i = _Tp(0))
+      : _M_real(__r), _M_imag(__i) {}
+
+
+  template <typename _Up>
+  complex(const complex<_Up> &__z) : _M_real(__z.real()), _M_imag(__z.imag()) {}
+
+
+
+
+
+  _Tp& real() { return _M_real; }
+  const _Tp& real() const { return _M_real; }
+  _Tp& imag() { return _M_imag; }
+  const _Tp& imag() const { return _M_imag; }
+
+
+  void real(_Tp __val) { _M_real = __val; }
+
+  void imag(_Tp __val) { _M_imag = __val; }
+
+
+
+  complex<_Tp> &operator=(const _Tp __t) {
+    _M_real = __t;
+    _M_imag = _Tp(0);
+    return *this;
+  }
+
+
+
+  complex<_Tp> &operator+=(const _Tp &__t) {
+    _M_real += __t;
+    return *this;
+  }
+
+
+
+  complex<_Tp> &operator-=(const _Tp &__t) {
+    _M_real -= __t;
+    return *this;
+  }
+
+
+
+  complex<_Tp> &operator*=(const _Tp &__t) {
+    _M_real *= __t;
+    _M_imag *= __t;
+    return *this;
+  }
+
+
+
+  complex<_Tp> &operator/=(const _Tp &__t) {
+    _M_real /= __t;
+    _M_imag /= __t;
+    return *this;
+  }
+
+
+  template <typename _Up>
+  complex<_Tp> &operator=(const complex<_Up> &__z) {
+    _M_real = __z.real();
+    _M_imag = __z.imag();
+    return *this;
+  }
+
+
+
+  template <typename _Up>
+  complex<_Tp> &operator+=(const complex<_Up> &__z) {
+    _M_real += __z.real();
+    _M_imag += __z.imag();
+    return *this;
+  }
+
+
+
+  template <typename _Up>
+  complex<_Tp> &operator-=(const complex<_Up> &__z) {
+    _M_real -= __z.real();
+    _M_imag -= __z.imag();
+    return *this;
+  }
+
+
+
+  template <typename _Up>
+  complex<_Tp> &operator*=(const complex<_Up> &__z) {
+    const _Tp __r = _M_real * __z.real() - _M_imag * __z.imag();
+    _M_imag = _M_real * __z.imag() + _M_imag * __z.real();
+    _M_real = __r;
+    return *this;
+  }
+
+
+
+  template <typename _Up>
+  complex<_Tp> &operator/=(const complex<_Up> &__z) {
+    complex<_Tp> cj (__z.real(), -__z.imag());
+    complex<_Tp> a = (*this) * cj;
+    complex<_Tp> b = cj * __z;
+    _M_real = a.real() / b.real();
+    _M_imag = a.imag() / b.real();
+    return *this;
+  }
+
+ private:
+  _Tp _M_real;
+  _Tp _M_imag;
+
+};
+# 229 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h"
+template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
+inline bool operator==(
+    const complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > &__x,
+    const ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> &__y) {
+  return __x.real() == __y &&
+         __x.imag() == 0;
+}
+
+
+template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
+inline bool operator==(
+    const ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> &__x,
+    const complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > &__y) {
+  return __x == __y.real() &&
+         0 == __y.imag();
+}
+
+
+template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
+inline bool operator!=(
+    const complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > &__x,
+    const ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> &__y) {
+  return __x.real() != __y ||
+         __x.imag() != 0;
+}
+
+
+template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
+inline bool operator!=(
+    const ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> &__x,
+    const complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > &__y) {
+  return __x != __y.real() ||
+         0 != __y.imag();
+}
+
+}
+# 62 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 2
+# 8 "SBUS_AXI_UART_Driver/../common/x8_common.hpp" 2
+# 27 "SBUS_AXI_UART_Driver/../common/x8_common.hpp"
+typedef ap_fixed<128,96> F128_t;
+typedef ap_fixed<64,32> F64_t;
+typedef ap_fixed<32, 16> F32_t;
+typedef ap_fixed<19, 4> F19_t;
+typedef ap_fixed<16,1> F16_t;
+
+typedef ap_uint<6> uint6_t;
+
+
+typedef enum
+{
+ MOTOR_OFF,
+ MOTOR_ON
+}motorState_e;
+
+typedef enum
+{
+ RATE_MODE,
+ HORIZON_MODE,
+ HOR_OBJAVD_MODE
+}flightMode_e;
+
+
+
+uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
+# 3 "SBUS_AXI_UART_Driver/AXI_UART_Driver.hpp" 2
 
 
 using namespace std;
-# 31 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h"
+# 29 "SBUS_AXI_UART_Driver/AXI_UART_Driver.hpp"
 void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096]);
 
 bool edge2pulse(bool signal);

@@ -47,9 +47,9 @@
 			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/RC_Receiver/RC_Receiver.cpp</location>
 		</link>
 		<link>
-			<name>source/RC_Receiver.h</name>
+			<name>source/RC_Receiver.hpp</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/RC_Receiver/RC_Receiver.h</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/RC_Receiver/RC_Receiver.hpp</location>
 		</link>
 		<link>
 			<name>testbench/main.cpp</name>
