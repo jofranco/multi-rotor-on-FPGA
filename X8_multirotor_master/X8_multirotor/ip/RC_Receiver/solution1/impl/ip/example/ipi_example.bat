@@ -8,4 +8,4 @@
 
 @echo off
 
-C:/CAD/Vivado/2018.2/bin/vivado  -notrace -mode batch -source ipi_example.tcl -tclargs xc7z020clg400-1 ../xilinx_com_hls_RC_RECEIVER_1_0.zip
+C:/CAD/Vivado/2018.2/bin/vivado  -notrace -mode batch -source ipi_example.tcl -tclargs xc7z020clg400-1 ../xilinx_com_hls_rcReceiver_1_0.zip

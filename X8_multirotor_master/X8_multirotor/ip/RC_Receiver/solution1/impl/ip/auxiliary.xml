@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="RC_RECEIVER" xd:componentRef="RC_RECEIVER" xd:initiationInterval="46" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="rcReceiver" xd:componentRef="rcReceiver" xd:initiationInterval="25" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
   <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
-  <xd:arg xd:name="SBUS_data[]" xd:originalName="SBUS_data" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="30" xd:dataWidth="8"/>
-  <xd:arg xd:name="norm_out[]" xd:originalName="norm_out" xd:direction="out" xd:interfaceRef="s_axi_TEST_NORM" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
-  <xd:arg xd:name="channel_scaled[]" xd:originalName="channel_scaled" xd:direction="out" xd:interfaceRef="s_axi_TEST_SCALE" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
-  <xd:arg xd:name="channel_data[]" xd:originalName="channel_data" xd:direction="out" xd:interfaceRef="s_axi_TEST_CHAN" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
-  <xd:latencyEstimates xd:best-case="45" xd:worst-case="45" xd:average-case="45"/>
-  <xd:resourceEstimates xd:LUT="3189" xd:FF="2043" xd:BRAM="26" xd:DSP="72"/>
+  <xd:arg xd:name="SBUS_data[]" xd:originalName="SBUS_data" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="25" xd:dataWidth="8"/>
+  <xd:arg xd:name="norm_out[]" xd:originalName="norm_out" xd:direction="inout" xd:interfaceRef="m_axi_OUT_r" xd:busTypeRef="aximm" xd:arraySize="4096" xd:dataWidth="16" xd:bufferDirection="out"/>
+  <xd:latencyEstimates xd:best-case="36" xd:worst-case="36" xd:average-case="36"/>
+  <xd:resourceEstimates xd:LUT="2987" xd:FF="1939" xd:BRAM="4" xd:DSP="72"/>
 </xd:acceleratorMap>

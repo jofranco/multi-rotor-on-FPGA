@@ -285,8 +285,8 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	AXI_UART_DRIVER {
-		UART {Type IO LastRead 63 FirstWrite 1}
-		OUT_r {Type O LastRead 72 FirstWrite 43}
+		UART {Type IO LastRead 57 FirstWrite 1}
+		OUT_r {Type O LastRead 59 FirstWrite 37}
 		firstSample {Type IO LastRead -1 FirstWrite -1}
 		calibrationSuccess {Type IO LastRead -1 FirstWrite -1}
 		cycle_count {Type IO LastRead -1 FirstWrite -1}}}

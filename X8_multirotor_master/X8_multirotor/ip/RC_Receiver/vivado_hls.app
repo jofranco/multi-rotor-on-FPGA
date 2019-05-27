@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" name="RC_Receiver" top="RC_RECEIVER">
+<project xmlns="com.autoesl.autopilot.project" name="RC_Receiver" top="rcReceiver">
     <includePaths/>
     <libraryPaths/>
     <Simulation>

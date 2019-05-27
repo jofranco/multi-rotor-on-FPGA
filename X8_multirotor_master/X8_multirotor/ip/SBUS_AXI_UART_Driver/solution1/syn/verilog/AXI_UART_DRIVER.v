@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="AXI_UART_DRIVER,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=1281,HLS_SYN_LUT=2232,HLS_VERSION=2018_2}" *)
+(* CORE_GENERATION_INFO="AXI_UART_DRIVER,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.750000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=1256,HLS_SYN_LUT=2112,HLS_VERSION=2018_2}" *)
 
 module AXI_UART_DRIVER (
         ap_clk,
@@ -122,83 +122,70 @@ module AXI_UART_DRIVER (
         interrupt
 );
 
-parameter    ap_ST_fsm_state1 = 77'd1;
-parameter    ap_ST_fsm_state2 = 77'd2;
-parameter    ap_ST_fsm_state3 = 77'd4;
-parameter    ap_ST_fsm_state4 = 77'd8;
-parameter    ap_ST_fsm_state5 = 77'd16;
-parameter    ap_ST_fsm_state6 = 77'd32;
-parameter    ap_ST_fsm_state7 = 77'd64;
-parameter    ap_ST_fsm_state8 = 77'd128;
-parameter    ap_ST_fsm_state9 = 77'd256;
-parameter    ap_ST_fsm_state10 = 77'd512;
-parameter    ap_ST_fsm_state11 = 77'd1024;
-parameter    ap_ST_fsm_state12 = 77'd2048;
-parameter    ap_ST_fsm_state13 = 77'd4096;
-parameter    ap_ST_fsm_state14 = 77'd8192;
-parameter    ap_ST_fsm_state15 = 77'd16384;
-parameter    ap_ST_fsm_state16 = 77'd32768;
-parameter    ap_ST_fsm_state17 = 77'd65536;
-parameter    ap_ST_fsm_state18 = 77'd131072;
-parameter    ap_ST_fsm_state19 = 77'd262144;
-parameter    ap_ST_fsm_state20 = 77'd524288;
-parameter    ap_ST_fsm_state21 = 77'd1048576;
-parameter    ap_ST_fsm_state22 = 77'd2097152;
-parameter    ap_ST_fsm_state23 = 77'd4194304;
-parameter    ap_ST_fsm_state24 = 77'd8388608;
-parameter    ap_ST_fsm_state25 = 77'd16777216;
-parameter    ap_ST_fsm_state26 = 77'd33554432;
-parameter    ap_ST_fsm_state27 = 77'd67108864;
-parameter    ap_ST_fsm_state28 = 77'd134217728;
-parameter    ap_ST_fsm_state29 = 77'd268435456;
-parameter    ap_ST_fsm_state30 = 77'd536870912;
-parameter    ap_ST_fsm_state31 = 77'd1073741824;
-parameter    ap_ST_fsm_state32 = 77'd2147483648;
-parameter    ap_ST_fsm_state33 = 77'd4294967296;
-parameter    ap_ST_fsm_state34 = 77'd8589934592;
-parameter    ap_ST_fsm_state35 = 77'd17179869184;
-parameter    ap_ST_fsm_state36 = 77'd34359738368;
-parameter    ap_ST_fsm_state37 = 77'd68719476736;
-parameter    ap_ST_fsm_state38 = 77'd137438953472;
-parameter    ap_ST_fsm_state39 = 77'd274877906944;
-parameter    ap_ST_fsm_state40 = 77'd549755813888;
-parameter    ap_ST_fsm_state41 = 77'd1099511627776;
-parameter    ap_ST_fsm_state42 = 77'd2199023255552;
-parameter    ap_ST_fsm_state43 = 77'd4398046511104;
-parameter    ap_ST_fsm_state44 = 77'd8796093022208;
-parameter    ap_ST_fsm_state45 = 77'd17592186044416;
-parameter    ap_ST_fsm_state46 = 77'd35184372088832;
-parameter    ap_ST_fsm_state47 = 77'd70368744177664;
-parameter    ap_ST_fsm_state48 = 77'd140737488355328;
-parameter    ap_ST_fsm_state49 = 77'd281474976710656;
-parameter    ap_ST_fsm_state50 = 77'd562949953421312;
-parameter    ap_ST_fsm_state51 = 77'd1125899906842624;
-parameter    ap_ST_fsm_state52 = 77'd2251799813685248;
-parameter    ap_ST_fsm_state53 = 77'd4503599627370496;
-parameter    ap_ST_fsm_state54 = 77'd9007199254740992;
-parameter    ap_ST_fsm_state55 = 77'd18014398509481984;
-parameter    ap_ST_fsm_state56 = 77'd36028797018963968;
-parameter    ap_ST_fsm_state57 = 77'd72057594037927936;
-parameter    ap_ST_fsm_state58 = 77'd144115188075855872;
-parameter    ap_ST_fsm_state59 = 77'd288230376151711744;
-parameter    ap_ST_fsm_state60 = 77'd576460752303423488;
-parameter    ap_ST_fsm_state61 = 77'd1152921504606846976;
-parameter    ap_ST_fsm_state62 = 77'd2305843009213693952;
-parameter    ap_ST_fsm_state63 = 77'd4611686018427387904;
-parameter    ap_ST_fsm_state64 = 77'd9223372036854775808;
-parameter    ap_ST_fsm_state65 = 77'd18446744073709551616;
-parameter    ap_ST_fsm_state66 = 77'd36893488147419103232;
-parameter    ap_ST_fsm_state67 = 77'd73786976294838206464;
-parameter    ap_ST_fsm_state68 = 77'd147573952589676412928;
-parameter    ap_ST_fsm_state69 = 77'd295147905179352825856;
-parameter    ap_ST_fsm_state70 = 77'd590295810358705651712;
-parameter    ap_ST_fsm_state71 = 77'd1180591620717411303424;
-parameter    ap_ST_fsm_state72 = 77'd2361183241434822606848;
-parameter    ap_ST_fsm_state73 = 77'd4722366482869645213696;
-parameter    ap_ST_fsm_state74 = 77'd9444732965739290427392;
-parameter    ap_ST_fsm_state75 = 77'd18889465931478580854784;
-parameter    ap_ST_fsm_state76 = 77'd37778931862957161709568;
-parameter    ap_ST_fsm_state77 = 77'd75557863725914323419136;
+parameter    ap_ST_fsm_state1 = 64'd1;
+parameter    ap_ST_fsm_state2 = 64'd2;
+parameter    ap_ST_fsm_state3 = 64'd4;
+parameter    ap_ST_fsm_state4 = 64'd8;
+parameter    ap_ST_fsm_state5 = 64'd16;
+parameter    ap_ST_fsm_state6 = 64'd32;
+parameter    ap_ST_fsm_state7 = 64'd64;
+parameter    ap_ST_fsm_state8 = 64'd128;
+parameter    ap_ST_fsm_state9 = 64'd256;
+parameter    ap_ST_fsm_state10 = 64'd512;
+parameter    ap_ST_fsm_state11 = 64'd1024;
+parameter    ap_ST_fsm_state12 = 64'd2048;
+parameter    ap_ST_fsm_state13 = 64'd4096;
+parameter    ap_ST_fsm_state14 = 64'd8192;
+parameter    ap_ST_fsm_state15 = 64'd16384;
+parameter    ap_ST_fsm_state16 = 64'd32768;
+parameter    ap_ST_fsm_state17 = 64'd65536;
+parameter    ap_ST_fsm_state18 = 64'd131072;
+parameter    ap_ST_fsm_state19 = 64'd262144;
+parameter    ap_ST_fsm_state20 = 64'd524288;
+parameter    ap_ST_fsm_state21 = 64'd1048576;
+parameter    ap_ST_fsm_state22 = 64'd2097152;
+parameter    ap_ST_fsm_state23 = 64'd4194304;
+parameter    ap_ST_fsm_state24 = 64'd8388608;
+parameter    ap_ST_fsm_state25 = 64'd16777216;
+parameter    ap_ST_fsm_state26 = 64'd33554432;
+parameter    ap_ST_fsm_state27 = 64'd67108864;
+parameter    ap_ST_fsm_state28 = 64'd134217728;
+parameter    ap_ST_fsm_state29 = 64'd268435456;
+parameter    ap_ST_fsm_state30 = 64'd536870912;
+parameter    ap_ST_fsm_state31 = 64'd1073741824;
+parameter    ap_ST_fsm_state32 = 64'd2147483648;
+parameter    ap_ST_fsm_state33 = 64'd4294967296;
+parameter    ap_ST_fsm_state34 = 64'd8589934592;
+parameter    ap_ST_fsm_state35 = 64'd17179869184;
+parameter    ap_ST_fsm_state36 = 64'd34359738368;
+parameter    ap_ST_fsm_state37 = 64'd68719476736;
+parameter    ap_ST_fsm_state38 = 64'd137438953472;
+parameter    ap_ST_fsm_state39 = 64'd274877906944;
+parameter    ap_ST_fsm_state40 = 64'd549755813888;
+parameter    ap_ST_fsm_state41 = 64'd1099511627776;
+parameter    ap_ST_fsm_state42 = 64'd2199023255552;
+parameter    ap_ST_fsm_state43 = 64'd4398046511104;
+parameter    ap_ST_fsm_state44 = 64'd8796093022208;
+parameter    ap_ST_fsm_state45 = 64'd17592186044416;
+parameter    ap_ST_fsm_state46 = 64'd35184372088832;
+parameter    ap_ST_fsm_state47 = 64'd70368744177664;
+parameter    ap_ST_fsm_state48 = 64'd140737488355328;
+parameter    ap_ST_fsm_state49 = 64'd281474976710656;
+parameter    ap_ST_fsm_state50 = 64'd562949953421312;
+parameter    ap_ST_fsm_state51 = 64'd1125899906842624;
+parameter    ap_ST_fsm_state52 = 64'd2251799813685248;
+parameter    ap_ST_fsm_state53 = 64'd4503599627370496;
+parameter    ap_ST_fsm_state54 = 64'd9007199254740992;
+parameter    ap_ST_fsm_state55 = 64'd18014398509481984;
+parameter    ap_ST_fsm_state56 = 64'd36028797018963968;
+parameter    ap_ST_fsm_state57 = 64'd72057594037927936;
+parameter    ap_ST_fsm_state58 = 64'd144115188075855872;
+parameter    ap_ST_fsm_state59 = 64'd288230376151711744;
+parameter    ap_ST_fsm_state60 = 64'd576460752303423488;
+parameter    ap_ST_fsm_state61 = 64'd1152921504606846976;
+parameter    ap_ST_fsm_state62 = 64'd2305843009213693952;
+parameter    ap_ST_fsm_state63 = 64'd4611686018427387904;
+parameter    ap_ST_fsm_state64 = 64'd9223372036854775808;
 parameter    C_S_AXI_CTRL_DATA_WIDTH = 32;
 parameter    C_S_AXI_CTRL_ADDR_WIDTH = 4;
 parameter    C_S_AXI_DATA_WIDTH = 32;
@@ -349,14 +336,14 @@ output   interrupt;
 wire    ap_start;
 reg    ap_done;
 reg    ap_idle;
-(* fsm_encoding = "none" *) reg   [76:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [63:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    ap_ready;
 reg   [0:0] firstSample;
 reg   [0:0] calibrationSuccess;
 reg   [13:0] cycle_count;
 reg    UART_blk_n_AW;
-wire   [0:0] firstSample_load_load_fu_351_p1;
+wire   [0:0] firstSample_load_load_fu_285_p1;
 reg    UART_blk_n_W;
 wire    ap_CS_fsm_state2;
 reg    UART_blk_n_B;
@@ -365,12 +352,6 @@ reg    UART_blk_n_AR;
 wire    ap_CS_fsm_state14;
 reg    UART_blk_n_R;
 wire    ap_CS_fsm_state21;
-wire    ap_CS_fsm_state22;
-wire   [0:0] tmp_fu_387_p2;
-wire    ap_CS_fsm_state23;
-wire    ap_CS_fsm_state28;
-reg   [0:0] firstSample_load_reg_507;
-reg   [0:0] tmp_reg_544;
 wire    ap_CS_fsm_state3;
 wire    ap_CS_fsm_state8;
 wire    ap_CS_fsm_state5;
@@ -381,31 +362,28 @@ wire    ap_CS_fsm_state9;
 wire    ap_CS_fsm_state10;
 wire    ap_CS_fsm_state13;
 wire    ap_CS_fsm_state12;
-wire    ap_CS_fsm_state29;
-wire    ap_CS_fsm_state36;
-wire    ap_CS_fsm_state50;
-wire   [0:0] tmp_6_fu_433_p2;
-wire    ap_CS_fsm_state57;
-wire   [0:0] tmp_8_fu_415_p1;
-wire    ap_CS_fsm_state43;
-wire   [0:0] tmp_10_fu_439_p1;
-wire    ap_CS_fsm_state64;
+wire    ap_CS_fsm_state23;
+wire   [0:0] calibrationSuccess_l_load_fu_338_p1;
+wire    ap_CS_fsm_state30;
+wire    ap_CS_fsm_state44;
+wire   [0:0] tmp_6_fu_370_p2;
+wire    ap_CS_fsm_state51;
+wire   [0:0] tmp_4_fu_349_p1;
+wire    ap_CS_fsm_state37;
+wire   [0:0] tmp_9_fu_376_p1;
+wire    ap_CS_fsm_state58;
 reg    OUT_r_blk_n_AW;
 reg    OUT_r_blk_n_W;
-wire    ap_CS_fsm_state44;
+wire    ap_CS_fsm_state38;
 reg    OUT_r_blk_n_B;
-wire    ap_CS_fsm_state49;
-wire    ap_CS_fsm_state65;
-wire    ap_CS_fsm_state70;
-reg   [0:0] tmp_5_reg_568;
-reg   [0:0] tmp_6_reg_586;
-reg   [0:0] tmp_10_reg_590;
-wire   [0:0] tmp_7_fu_477_p2;
-wire    ap_CS_fsm_state71;
-wire    ap_CS_fsm_state72;
-wire    ap_CS_fsm_state77;
-reg   [0:0] calibrationSuccess_l_reg_548;
-reg   [0:0] tmp_8_reg_558;
+wire    ap_CS_fsm_state43;
+wire    ap_CS_fsm_state59;
+wire    ap_CS_fsm_state64;
+reg   [0:0] calibrationSuccess_l_reg_470;
+reg   [0:0] tmp_4_reg_480;
+reg   [0:0] tmp_5_reg_490;
+reg   [0:0] tmp_6_reg_507;
+reg   [0:0] tmp_9_reg_511;
 reg    UART_AWVALID;
 wire    UART_AWREADY;
 reg   [31:0] UART_AWADDR;
@@ -430,7 +408,6 @@ wire   [0:0] UART_BUSER;
 reg    OUT_r_AWVALID;
 wire    OUT_r_AWREADY;
 reg   [31:0] OUT_r_AWADDR;
-reg   [31:0] OUT_r_AWLEN;
 reg    OUT_r_WVALID;
 wire    OUT_r_WREADY;
 reg   [7:0] OUT_r_WDATA;
@@ -446,44 +423,33 @@ reg    OUT_r_BREADY;
 wire   [1:0] OUT_r_BRESP;
 wire   [0:0] OUT_r_BID;
 wire   [0:0] OUT_r_BUSER;
-wire   [31:0] reg_343;
+wire   [31:0] reg_277;
 reg    ap_sig_ioackin_UART_WREADY;
 reg    ap_sig_ioackin_UART_AWREADY;
 reg    ap_block_state3_io;
 reg    ap_sig_ioackin_UART_ARREADY;
-reg    ap_block_state36_io;
+reg    ap_block_state30_io;
 reg    ap_block_state1_io;
-wire   [31:0] UART_addr_reg_511;
-wire   [31:0] UART_addr_1_reg_519;
+wire   [31:0] UART_addr_1_reg_442;
 reg    ap_block_state2_io;
-wire   [31:0] UART_addr_3_reg_526;
+wire   [31:0] UART_addr_3_reg_449;
 reg    ap_block_state4_io;
 reg    ap_block_state6_io;
-wire   [7:0] temp_fu_383_p1;
-reg   [7:0] temp_reg_539;
-reg    ap_block_state22_io;
-wire   [0:0] calibrationSuccess_l_load_fu_404_p1;
-reg    ap_predicate_op159_writeresp_state28;
-reg    ap_block_state28;
-wire   [31:0] UART_addr_5_reg_552;
-wire   [7:0] tmp_9_fu_419_p1;
-reg   [7:0] tmp_9_reg_562;
+wire   [7:0] temp_fu_317_p1;
+reg   [7:0] temp_reg_462;
+reg    ap_block_state23_io;
+wire   [31:0] UART_addr_5_reg_474;
+wire   [7:0] tmp_8_fu_353_p1;
+reg   [7:0] tmp_8_reg_484;
 reg    ap_sig_ioackin_OUT_r_AWREADY;
-wire   [0:0] tmp_5_fu_423_p2;
+wire   [0:0] tmp_5_fu_357_p2;
 reg    ap_sig_ioackin_OUT_r_WREADY;
-reg   [4:0] NUM_BYTES_READ_load_reg_579;
-reg    ap_block_state50_io;
-reg    ap_block_state57_io;
-wire   [7:0] tmp_11_fu_449_p1;
-reg   [7:0] tmp_11_reg_594;
-reg    ap_predicate_op231_writeresp_state70;
-reg    ap_block_state70;
-reg    ap_predicate_op243_writereq_state70;
-reg    ap_block_state70_io;
-reg   [4:0] ap_phi_mux_NUM_BYTES_READ_3_ph_phi_fu_312_p4;
-reg   [4:0] NUM_BYTES_READ_3_ph_reg_309;
-reg   [4:0] NUM_BYTES_READ_3_reg_319;
-wire   [63:0] tmp_1_fu_453_p1;
+reg   [4:0] NUM_BYTES_READ_load_reg_501;
+reg    ap_block_state44_io;
+reg    ap_block_state51_io;
+wire   [7:0] tmp_10_fu_386_p1;
+reg   [7:0] tmp_10_reg_515;
+wire   [63:0] tmp_1_fu_390_p1;
 reg    ap_reg_ioackin_UART_AWREADY;
 reg    ap_block_state7_io;
 reg    ap_reg_ioackin_UART_ARREADY;
@@ -491,22 +457,22 @@ reg    ap_reg_ioackin_UART_WREADY;
 reg    ap_block_state5_io;
 reg    ap_reg_ioackin_OUT_r_AWREADY;
 reg    ap_reg_ioackin_OUT_r_WREADY;
-reg    ap_predicate_op252_writeresp_state77;
-reg    ap_block_state77;
-wire   [7:0] tmp_3_fu_502_p1;
-wire   [13:0] tmp_2_fu_483_p2;
-reg   [4:0] NUM_BYTES_READ_fu_104;
-wire   [4:0] NUM_BYTES_READ_1_fu_463_p2;
-wire    ap_CS_fsm_state69;
-reg   [76:0] ap_NS_fsm;
-reg    ap_condition_966;
-reg    ap_condition_920;
-reg    ap_condition_927;
-reg    ap_condition_212;
+reg    ap_predicate_op211_writeresp_state64;
+reg    ap_block_state64;
+wire    ap_CS_fsm_state22;
+wire   [0:0] tmp_fu_321_p2;
+wire   [13:0] tmp_2_fu_420_p2;
+wire   [0:0] tmp_7_fu_414_p2;
+reg   [4:0] NUM_BYTES_READ_fu_98;
+wire   [4:0] NUM_BYTES_READ_1_fu_400_p2;
+reg   [63:0] ap_NS_fsm;
+reg    ap_condition_799;
+reg    ap_condition_806;
+reg    ap_condition_199;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 77'd1;
+#0 ap_CS_fsm = 64'd1;
 #0 firstSample = 1'd1;
 #0 calibrationSuccess = 1'd0;
 #0 cycle_count = 14'd0;
@@ -759,7 +725,7 @@ AXI_UART_DRIVER_OUT_r_m_axi_U(
     .I_AWREADY(OUT_r_AWREADY),
     .I_AWADDR(OUT_r_AWADDR),
     .I_AWID(1'd0),
-    .I_AWLEN(OUT_r_AWLEN),
+    .I_AWLEN(32'd1),
     .I_AWSIZE(3'd0),
     .I_AWLOCK(2'd0),
     .I_AWCACHE(4'd0),
@@ -794,9 +760,9 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         ap_reg_ioackin_OUT_r_AWREADY <= 1'b0;
     end else begin
-        if (((~((1'b1 == ap_block_state70_io) | ((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID))) & (ap_predicate_op243_writereq_state70 == 1'b1) & (1'b1 == ap_CS_fsm_state70)) | (~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state64)) | (~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state43)))) begin
+        if (((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state58)) | (~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state37)))) begin
             ap_reg_ioackin_OUT_r_AWREADY <= 1'b0;
-        end else if (((~((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (ap_predicate_op243_writereq_state70 == 1'b1) & (1'b1 == OUT_r_AWREADY) & (1'b1 == ap_CS_fsm_state70)) | ((1'b1 == UART_RVALID) & (1'b1 == OUT_r_AWREADY) & (1'b1 == ap_CS_fsm_state64)) | ((1'b1 == UART_RVALID) & (1'b1 == OUT_r_AWREADY) & (1'b1 == ap_CS_fsm_state43)))) begin
+        end else if ((((1'b1 == UART_RVALID) & (1'b1 == OUT_r_AWREADY) & (1'b1 == ap_CS_fsm_state58)) | ((1'b1 == UART_RVALID) & (1'b1 == OUT_r_AWREADY) & (1'b1 == ap_CS_fsm_state37)))) begin
             ap_reg_ioackin_OUT_r_AWREADY <= 1'b1;
         end
     end
@@ -806,9 +772,9 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         ap_reg_ioackin_OUT_r_WREADY <= 1'b0;
     end else begin
-        if ((((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state72)) | ((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state71)) | ((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state65)) | ((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state44)))) begin
+        if ((((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state59)) | ((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state38)))) begin
             ap_reg_ioackin_OUT_r_WREADY <= 1'b0;
-        end else if ((((1'b1 == OUT_r_WREADY) & (1'b1 == ap_CS_fsm_state72)) | ((1'b1 == OUT_r_WREADY) & (1'b1 == ap_CS_fsm_state71)) | ((1'b1 == OUT_r_WREADY) & (1'b1 == ap_CS_fsm_state65)) | ((1'b1 == OUT_r_WREADY) & (1'b1 == ap_CS_fsm_state44)))) begin
+        end else if ((((1'b1 == OUT_r_WREADY) & (1'b1 == ap_CS_fsm_state59)) | ((1'b1 == OUT_r_WREADY) & (1'b1 == ap_CS_fsm_state38)))) begin
             ap_reg_ioackin_OUT_r_WREADY <= 1'b1;
         end
     end
@@ -818,9 +784,9 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         ap_reg_ioackin_UART_ARREADY <= 1'b0;
     end else begin
-        if (((~((1'b1 == ap_block_state57_io) | (1'b0 == UART_RVALID)) & (tmp_10_fu_439_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state57)) | ((1'b0 == ap_block_state50_io) & (tmp_6_fu_433_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state50)) | (~((1'b1 == ap_block_state36_io) | (1'b0 == UART_RVALID)) & (tmp_8_fu_415_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state36)) | ((ap_sig_ioackin_UART_ARREADY == 1'b1) & (1'b1 == ap_CS_fsm_state29)) | ((ap_sig_ioackin_UART_ARREADY == 1'b1) & (1'b1 == ap_CS_fsm_state14)))) begin
+        if (((~((1'b1 == ap_block_state51_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state51) & (tmp_9_fu_376_p1 == 1'd1)) | ((1'b0 == ap_block_state44_io) & (1'b1 == ap_CS_fsm_state44) & (tmp_6_fu_370_p2 == 1'd1)) | (~((1'b1 == ap_block_state30_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state30) & (tmp_4_fu_349_p1 == 1'd1)) | ((1'b0 == ap_block_state23_io) & (1'b1 == ap_CS_fsm_state23) & (calibrationSuccess == 1'd1)) | ((ap_sig_ioackin_UART_ARREADY == 1'b1) & (1'b1 == ap_CS_fsm_state14)))) begin
             ap_reg_ioackin_UART_ARREADY <= 1'b0;
-        end else if ((((1'b1 == UART_RVALID) & (tmp_10_fu_439_p1 == 1'd1) & (1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state57)) | ((tmp_6_fu_433_p2 == 1'd1) & (1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state50)) | ((1'b1 == UART_RVALID) & (tmp_8_fu_415_p1 == 1'd1) & (1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state36)) | ((1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state29)) | ((1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state14)))) begin
+        end else if ((((1'b1 == UART_RVALID) & (1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state51) & (tmp_9_fu_376_p1 == 1'd1)) | ((1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state44) & (tmp_6_fu_370_p2 == 1'd1)) | ((1'b1 == UART_RVALID) & (1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state30) & (tmp_4_fu_349_p1 == 1'd1)) | ((1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state23) & (calibrationSuccess == 1'd1)) | ((1'b1 == UART_ARREADY) & (1'b1 == ap_CS_fsm_state14)))) begin
             ap_reg_ioackin_UART_ARREADY <= 1'b1;
         end
     end
@@ -830,9 +796,9 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         ap_reg_ioackin_UART_AWREADY <= 1'b0;
     end else begin
-        if (((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (firstSample == 1'd1) & (1'b1 == ap_CS_fsm_state1)) | ((1'b0 == ap_block_state4_io) & (1'b1 == ap_CS_fsm_state4)) | ((1'b0 == ap_block_state6_io) & (1'b1 == ap_CS_fsm_state6)) | ((1'b0 == ap_block_state5_io) & (1'b1 == ap_CS_fsm_state5)) | ((1'b0 == ap_block_state3_io) & (1'b1 == ap_CS_fsm_state3)) | ((1'b0 == ap_block_state22_io) & (tmp_fu_387_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state22)) | (~((1'b1 == ap_block_state7_io) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state7)) | ((1'b0 == ap_block_state2_io) & (1'b1 == ap_CS_fsm_state2)))) begin
+        if (((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1) & (firstSample == 1'd1)) | ((1'b0 == ap_block_state4_io) & (1'b1 == ap_CS_fsm_state4)) | ((1'b0 == ap_block_state6_io) & (1'b1 == ap_CS_fsm_state6)) | ((1'b0 == ap_block_state5_io) & (1'b1 == ap_CS_fsm_state5)) | ((1'b0 == ap_block_state3_io) & (1'b1 == ap_CS_fsm_state3)) | (~((1'b1 == ap_block_state7_io) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state7)) | ((1'b0 == ap_block_state2_io) & (1'b1 == ap_CS_fsm_state2)))) begin
             ap_reg_ioackin_UART_AWREADY <= 1'b0;
-        end else if ((((ap_start == 1'b1) & (firstSample == 1'd1) & (1'b1 == ap_CS_fsm_state1) & (1'b1 == UART_AWREADY)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state4)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state6)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state5)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state3)) | ((tmp_fu_387_p2 == 1'd1) & (1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state22)) | ((1'b1 == UART_BVALID) & (1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state7)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state2)))) begin
+        end else if ((((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (1'b1 == UART_AWREADY) & (firstSample == 1'd1)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state4)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state6)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state5)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state3)) | ((1'b1 == UART_BVALID) & (1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state7)) | ((1'b1 == UART_AWREADY) & (1'b1 == ap_CS_fsm_state2)))) begin
             ap_reg_ioackin_UART_AWREADY <= 1'b1;
         end
     end
@@ -842,9 +808,9 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         ap_reg_ioackin_UART_WREADY <= 1'b0;
     end else begin
-        if ((((1'b0 == ap_block_state4_io) & (1'b1 == ap_CS_fsm_state4)) | ((1'b0 == ap_block_state6_io) & (1'b1 == ap_CS_fsm_state6)) | ((1'b0 == ap_block_state5_io) & (1'b1 == ap_CS_fsm_state5)) | (~((ap_sig_ioackin_UART_WREADY == 1'b0) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state8)) | ((1'b0 == ap_block_state3_io) & (1'b1 == ap_CS_fsm_state3)) | ((ap_sig_ioackin_UART_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state23)) | (~((1'b1 == ap_block_state7_io) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state7)) | ((1'b0 == ap_block_state2_io) & (1'b1 == ap_CS_fsm_state2)))) begin
+        if ((((1'b0 == ap_block_state4_io) & (1'b1 == ap_CS_fsm_state4)) | ((1'b0 == ap_block_state6_io) & (1'b1 == ap_CS_fsm_state6)) | ((1'b0 == ap_block_state5_io) & (1'b1 == ap_CS_fsm_state5)) | (~((ap_sig_ioackin_UART_WREADY == 1'b0) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state8)) | ((1'b0 == ap_block_state3_io) & (1'b1 == ap_CS_fsm_state3)) | (~((1'b1 == ap_block_state7_io) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state7)) | ((1'b0 == ap_block_state2_io) & (1'b1 == ap_CS_fsm_state2)))) begin
             ap_reg_ioackin_UART_WREADY <= 1'b0;
-        end else if ((((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state4)) | ((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state6)) | ((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state5)) | ((1'b1 == UART_BVALID) & (1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state8)) | ((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state3)) | ((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state23)) | ((1'b1 == UART_BVALID) & (1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state7)) | ((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state2)))) begin
+        end else if ((((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state4)) | ((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state6)) | ((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state5)) | ((1'b1 == UART_BVALID) & (1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state8)) | ((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state3)) | ((1'b1 == UART_BVALID) & (1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state7)) | ((1'b1 == UART_WREADY) & (1'b1 == ap_CS_fsm_state2)))) begin
             ap_reg_ioackin_UART_WREADY <= 1'b1;
         end
     end
@@ -854,116 +820,88 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         firstSample <= 1'd1;
     end else begin
-        if ((~((ap_predicate_op159_writeresp_state28 == 1'b1) & (1'b0 == UART_BVALID)) & (firstSample_load_reg_507 == 1'd1) & (1'b1 == ap_CS_fsm_state28))) begin
+        if ((1'b1 == ap_CS_fsm_state22)) begin
             firstSample <= 1'd0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((1'b1 == ap_block_state70_io) | ((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID))) & (1'b1 == ap_CS_fsm_state70) & (((tmp_7_fu_477_p2 == 1'd1) & (tmp_5_reg_568 == 1'd1)) | ((tmp_6_reg_586 == 1'd0) & (tmp_5_reg_568 == 1'd1))))) begin
-        NUM_BYTES_READ_3_reg_319 <= ap_phi_mux_NUM_BYTES_READ_3_ph_phi_fu_312_p4;
-    end else if (((1'b1 == OUT_r_BVALID) & (tmp_5_reg_568 == 1'd0) & (1'b1 == ap_CS_fsm_state49))) begin
-        NUM_BYTES_READ_3_reg_319 <= 5'd0;
+    if ((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state58))) begin
+        NUM_BYTES_READ_fu_98 <= NUM_BYTES_READ_1_fu_400_p2;
+    end else if (((1'b1 == OUT_r_BVALID) & (1'b1 == ap_CS_fsm_state43) & (tmp_5_reg_490 == 1'd1))) begin
+        NUM_BYTES_READ_fu_98 <= 5'd1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state69)) begin
-        NUM_BYTES_READ_fu_104 <= NUM_BYTES_READ_1_fu_463_p2;
-    end else if (((1'b1 == OUT_r_BVALID) & (tmp_5_reg_568 == 1'd1) & (1'b1 == ap_CS_fsm_state49))) begin
-        NUM_BYTES_READ_fu_104 <= 5'd1;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((~((1'b1 == ap_block_state70_io) | ((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID))) & (tmp_7_fu_477_p2 == 1'd0) & (tmp_6_reg_586 == 1'd1) & (tmp_5_reg_568 == 1'd1) & (1'b1 == ap_CS_fsm_state70))) begin
-        cycle_count <= tmp_2_fu_483_p2;
-    end else if ((~((1'b1 == ap_block_state57_io) | (1'b0 == UART_RVALID)) & (tmp_10_fu_439_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state57))) begin
+    if ((~((ap_predicate_op211_writeresp_state64 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (1'b1 == ap_CS_fsm_state64) & (tmp_7_fu_414_p2 == 1'd0) & (tmp_6_reg_507 == 1'd1) & (tmp_5_reg_490 == 1'd1) & (tmp_4_reg_480 == 1'd1) & (calibrationSuccess_l_reg_470 == 1'd1))) begin
+        cycle_count <= tmp_2_fu_420_p2;
+    end else if ((~((1'b1 == ap_block_state51_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state51) & (tmp_9_fu_376_p1 == 1'd1))) begin
         cycle_count <= 14'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((~((1'b1 == ap_block_state70_io) | ((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID))) & (tmp_7_fu_477_p2 == 1'd1) & (tmp_6_reg_586 == 1'd1) & (tmp_5_reg_568 == 1'd1) & (1'b1 == ap_CS_fsm_state70)) | ((1'b0 == ap_block_state50_io) & (tmp_6_fu_433_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state50)))) begin
-        NUM_BYTES_READ_3_ph_reg_309 <= NUM_BYTES_READ_fu_104;
+    if (((1'b0 == ap_block_state44_io) & (1'b1 == ap_CS_fsm_state44))) begin
+        NUM_BYTES_READ_load_reg_501 <= NUM_BYTES_READ_fu_98;
+        tmp_6_reg_507 <= tmp_6_fu_370_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state50_io) & (1'b1 == ap_CS_fsm_state50))) begin
-        NUM_BYTES_READ_load_reg_579 <= NUM_BYTES_READ_fu_104;
-        tmp_6_reg_586 <= tmp_6_fu_433_p2;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state22_io) & (tmp_fu_387_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state22))) begin
+    if (((1'b1 == ap_CS_fsm_state22) & (tmp_fu_321_p2 == 1'd1))) begin
         calibrationSuccess <= 1'd1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((ap_predicate_op159_writeresp_state28 == 1'b1) & (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state28))) begin
-        calibrationSuccess_l_reg_548 <= calibrationSuccess;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-        firstSample_load_reg_507 <= firstSample;
+    if (((1'b0 == ap_block_state23_io) & (1'b1 == ap_CS_fsm_state23))) begin
+        calibrationSuccess_l_reg_470 <= calibrationSuccess;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == UART_RVALID) & (1'b1 == ap_CS_fsm_state21))) begin
-        temp_reg_539 <= temp_fu_383_p1;
+        temp_reg_462 <= temp_fu_317_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((1'b1 == ap_block_state57_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state57))) begin
-        tmp_10_reg_590 <= tmp_10_fu_439_p1;
+    if ((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state58))) begin
+        tmp_10_reg_515 <= tmp_10_fu_386_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state64))) begin
-        tmp_11_reg_594 <= tmp_11_fu_449_p1;
+    if ((~((1'b1 == ap_block_state30_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state30))) begin
+        tmp_4_reg_480 <= tmp_4_fu_349_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state44))) begin
-        tmp_5_reg_568 <= tmp_5_fu_423_p2;
+    if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state38))) begin
+        tmp_5_reg_490 <= tmp_5_fu_357_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((1'b1 == ap_block_state36_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state36))) begin
-        tmp_8_reg_558 <= tmp_8_fu_415_p1;
+    if ((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state37))) begin
+        tmp_8_reg_484 <= tmp_8_fu_353_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state43))) begin
-        tmp_9_reg_562 <= tmp_9_fu_419_p1;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state22_io) & (1'b1 == ap_CS_fsm_state22))) begin
-        tmp_reg_544 <= tmp_fu_387_p2;
+    if ((~((1'b1 == ap_block_state51_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state51))) begin
+        tmp_9_reg_511 <= tmp_9_fu_376_p1;
     end
 end
 
 always @ (*) begin
-    if ((ap_reg_ioackin_OUT_r_AWREADY == 1'b0)) begin
-        if ((1'b1 == ap_condition_966)) begin
-            OUT_r_AWADDR = 64'd26;
-        end else if (((1'b1 == UART_RVALID) & (1'b1 == ap_CS_fsm_state64))) begin
-            OUT_r_AWADDR = tmp_1_fu_453_p1;
-        end else if (((1'b1 == UART_RVALID) & (1'b1 == ap_CS_fsm_state43))) begin
+    if (((1'b1 == UART_RVALID) & (ap_reg_ioackin_OUT_r_AWREADY == 1'b0))) begin
+        if ((1'b1 == ap_CS_fsm_state58)) begin
+            OUT_r_AWADDR = tmp_1_fu_390_p1;
+        end else if ((1'b1 == ap_CS_fsm_state37)) begin
             OUT_r_AWADDR = 32'd0;
         end else begin
             OUT_r_AWADDR = 'bx;
@@ -974,17 +912,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (ap_predicate_op243_writereq_state70 == 1'b1) & (ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state70))) begin
-        OUT_r_AWLEN = 32'd2;
-    end else if ((((1'b1 == UART_RVALID) & (ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state64)) | ((1'b1 == UART_RVALID) & (ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state43)))) begin
-        OUT_r_AWLEN = 32'd1;
-    end else begin
-        OUT_r_AWLEN = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((~((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (ap_predicate_op243_writereq_state70 == 1'b1) & (ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state70)) | ((1'b1 == UART_RVALID) & (ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state64)) | ((1'b1 == UART_RVALID) & (ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state43)))) begin
+    if ((((1'b1 == UART_RVALID) & (ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state58)) | ((1'b1 == UART_RVALID) & (ap_reg_ioackin_OUT_r_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state37)))) begin
         OUT_r_AWVALID = 1'b1;
     end else begin
         OUT_r_AWVALID = 1'b0;
@@ -992,7 +920,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((~((ap_predicate_op252_writeresp_state77 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (ap_predicate_op252_writeresp_state77 == 1'b1) & (1'b1 == ap_CS_fsm_state77)) | (~((1'b1 == ap_block_state70_io) | ((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID))) & (ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b1 == ap_CS_fsm_state70)) | ((1'b1 == OUT_r_BVALID) & (1'b1 == ap_CS_fsm_state49)))) begin
+    if (((~((ap_predicate_op211_writeresp_state64 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (ap_predicate_op211_writeresp_state64 == 1'b1) & (1'b1 == ap_CS_fsm_state64)) | ((1'b1 == OUT_r_BVALID) & (1'b1 == ap_CS_fsm_state43)))) begin
         OUT_r_BREADY = 1'b1;
     end else begin
         OUT_r_BREADY = 1'b0;
@@ -1001,14 +929,10 @@ end
 
 always @ (*) begin
     if ((ap_reg_ioackin_OUT_r_WREADY == 1'b0)) begin
-        if ((1'b1 == ap_CS_fsm_state72)) begin
-            OUT_r_WDATA = tmp_3_fu_502_p1;
-        end else if ((1'b1 == ap_CS_fsm_state71)) begin
-            OUT_r_WDATA = 8'd69;
-        end else if ((1'b1 == ap_CS_fsm_state65)) begin
-            OUT_r_WDATA = tmp_11_reg_594;
-        end else if ((1'b1 == ap_CS_fsm_state44)) begin
-            OUT_r_WDATA = tmp_9_reg_562;
+        if ((1'b1 == ap_CS_fsm_state59)) begin
+            OUT_r_WDATA = tmp_10_reg_515;
+        end else if ((1'b1 == ap_CS_fsm_state38)) begin
+            OUT_r_WDATA = tmp_8_reg_484;
         end else begin
             OUT_r_WDATA = 'bx;
         end
@@ -1018,7 +942,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((ap_reg_ioackin_OUT_r_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state72)) | ((ap_reg_ioackin_OUT_r_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state71)) | ((ap_reg_ioackin_OUT_r_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state65)) | ((ap_reg_ioackin_OUT_r_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state44)))) begin
+    if ((((ap_reg_ioackin_OUT_r_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state59)) | ((ap_reg_ioackin_OUT_r_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state38)))) begin
         OUT_r_WVALID = 1'b1;
     end else begin
         OUT_r_WVALID = 1'b0;
@@ -1026,7 +950,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state64) | (1'b1 == ap_CS_fsm_state43) | ((1'b1 == ap_CS_fsm_state70) & ((tmp_6_reg_586 == 1'd0) | (tmp_5_reg_568 == 1'd0) | (tmp_7_fu_477_p2 == 1'd1))))) begin
+    if (((1'b1 == ap_CS_fsm_state58) | (1'b1 == ap_CS_fsm_state37))) begin
         OUT_r_blk_n_AW = m_axi_OUT_r_AWREADY;
     end else begin
         OUT_r_blk_n_AW = 1'b1;
@@ -1034,7 +958,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state49) | ((tmp_8_reg_558 == 1'd1) & (calibrationSuccess_l_reg_548 == 1'd1) & (1'b1 == ap_CS_fsm_state77)) | ((tmp_10_reg_590 == 1'd1) & (tmp_6_reg_586 == 1'd1) & (tmp_5_reg_568 == 1'd1) & (1'b1 == ap_CS_fsm_state70)))) begin
+    if (((1'b1 == ap_CS_fsm_state43) | ((1'b1 == ap_CS_fsm_state64) & (tmp_9_reg_511 == 1'd1) & (tmp_6_reg_507 == 1'd1) & (tmp_5_reg_490 == 1'd1) & (tmp_4_reg_480 == 1'd1) & (calibrationSuccess_l_reg_470 == 1'd1)))) begin
         OUT_r_blk_n_B = m_axi_OUT_r_BVALID;
     end else begin
         OUT_r_blk_n_B = 1'b1;
@@ -1042,7 +966,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state72) | (1'b1 == ap_CS_fsm_state71) | (1'b1 == ap_CS_fsm_state65) | (1'b1 == ap_CS_fsm_state44))) begin
+    if (((1'b1 == ap_CS_fsm_state59) | (1'b1 == ap_CS_fsm_state38))) begin
         OUT_r_blk_n_W = m_axi_OUT_r_WREADY;
     end else begin
         OUT_r_blk_n_W = 1'b1;
@@ -1051,13 +975,13 @@ end
 
 always @ (*) begin
     if ((ap_reg_ioackin_UART_ARREADY == 1'b0)) begin
-        if ((1'b1 == ap_condition_927)) begin
-            UART_ARADDR = reg_343;
-        end else if ((1'b1 == ap_condition_920)) begin
+        if ((1'b1 == ap_condition_806)) begin
+            UART_ARADDR = reg_277;
+        end else if ((1'b1 == ap_condition_799)) begin
             UART_ARADDR = 64'd1024;
-        end else if (((tmp_6_fu_433_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state50))) begin
-            UART_ARADDR = UART_addr_5_reg_552;
-        end else if ((1'b1 == ap_CS_fsm_state29)) begin
+        end else if (((1'b1 == ap_CS_fsm_state44) & (tmp_6_fu_370_p2 == 1'd1))) begin
+            UART_ARADDR = UART_addr_5_reg_474;
+        end else if (((1'b1 == ap_CS_fsm_state23) & (calibrationSuccess == 1'd1))) begin
             UART_ARADDR = 64'd1029;
         end else if ((1'b1 == ap_CS_fsm_state14)) begin
             UART_ARADDR = 64'd1031;
@@ -1070,7 +994,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((1'b1 == UART_RVALID) & (ap_reg_ioackin_UART_ARREADY == 1'b0) & (tmp_10_fu_439_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state57)) | ((ap_reg_ioackin_UART_ARREADY == 1'b0) & (tmp_6_fu_433_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state50)) | ((1'b1 == UART_RVALID) & (ap_reg_ioackin_UART_ARREADY == 1'b0) & (tmp_8_fu_415_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state36)) | ((ap_reg_ioackin_UART_ARREADY == 1'b0) & (1'b1 == ap_CS_fsm_state29)) | ((ap_reg_ioackin_UART_ARREADY == 1'b0) & (1'b1 == ap_CS_fsm_state14)))) begin
+    if ((((1'b1 == UART_RVALID) & (ap_reg_ioackin_UART_ARREADY == 1'b0) & (1'b1 == ap_CS_fsm_state51) & (tmp_9_fu_376_p1 == 1'd1)) | ((ap_reg_ioackin_UART_ARREADY == 1'b0) & (1'b1 == ap_CS_fsm_state44) & (tmp_6_fu_370_p2 == 1'd1)) | ((1'b1 == UART_RVALID) & (ap_reg_ioackin_UART_ARREADY == 1'b0) & (1'b1 == ap_CS_fsm_state30) & (tmp_4_fu_349_p1 == 1'd1)) | ((ap_reg_ioackin_UART_ARREADY == 1'b0) & (1'b1 == ap_CS_fsm_state23) & (calibrationSuccess == 1'd1)) | ((ap_reg_ioackin_UART_ARREADY == 1'b0) & (1'b1 == ap_CS_fsm_state14)))) begin
         UART_ARVALID = 1'b1;
     end else begin
         UART_ARVALID = 1'b0;
@@ -1082,18 +1006,16 @@ always @ (*) begin
         if ((1'b1 == ap_CS_fsm_state6)) begin
             UART_AWADDR = 64'd1026;
         end else if (((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state7))) begin
-            UART_AWADDR = UART_addr_3_reg_526;
+            UART_AWADDR = UART_addr_3_reg_449;
         end else if ((1'b1 == ap_CS_fsm_state4)) begin
             UART_AWADDR = 64'd1025;
         end else if ((1'b1 == ap_CS_fsm_state3)) begin
             UART_AWADDR = 64'd1024;
         end else if ((1'b1 == ap_CS_fsm_state5)) begin
-            UART_AWADDR = UART_addr_1_reg_519;
+            UART_AWADDR = UART_addr_1_reg_442;
         end else if ((1'b1 == ap_CS_fsm_state2)) begin
             UART_AWADDR = 64'd1027;
-        end else if (((tmp_fu_387_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state22))) begin
-            UART_AWADDR = UART_addr_reg_511;
-        end else if ((1'b1 == ap_condition_212)) begin
+        end else if ((1'b1 == ap_condition_199)) begin
             UART_AWADDR = 64'd1031;
         end else begin
             UART_AWADDR = 'bx;
@@ -1104,7 +1026,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((ap_start == 1'b1) & (ap_reg_ioackin_UART_AWREADY == 1'b0) & (firstSample == 1'd1) & (1'b1 == ap_CS_fsm_state1)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state4)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state6)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state5)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state3)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (tmp_fu_387_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state22)) | ((1'b1 == UART_BVALID) & (ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state7)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state2)))) begin
+    if ((((ap_start == 1'b1) & (ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state1) & (firstSample == 1'd1)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state4)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state6)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state5)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state3)) | ((1'b1 == UART_BVALID) & (ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state7)) | ((ap_reg_ioackin_UART_AWREADY == 1'b0) & (1'b1 == ap_CS_fsm_state2)))) begin
         UART_AWVALID = 1'b1;
     end else begin
         UART_AWVALID = 1'b0;
@@ -1112,7 +1034,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state12)) | ((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state13)) | ((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state10)) | ((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state9)) | ((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state11)) | (~((ap_sig_ioackin_UART_WREADY == 1'b0) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state8)) | (~((ap_predicate_op159_writeresp_state28 == 1'b1) & (1'b0 == UART_BVALID)) & (ap_predicate_op159_writeresp_state28 == 1'b1) & (1'b1 == ap_CS_fsm_state28)) | (~((1'b1 == ap_block_state7_io) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state7)))) begin
+    if ((((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state12)) | ((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state13)) | ((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state10)) | ((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state9)) | ((1'b1 == UART_BVALID) & (1'b1 == ap_CS_fsm_state11)) | (~((ap_sig_ioackin_UART_WREADY == 1'b0) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state8)) | (~((1'b1 == ap_block_state7_io) | (1'b0 == UART_BVALID)) & (1'b1 == ap_CS_fsm_state7)))) begin
         UART_BREADY = 1'b1;
     end else begin
         UART_BREADY = 1'b0;
@@ -1120,7 +1042,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state64)) | (~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state43)) | (~((1'b1 == ap_block_state57_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state57)) | (~((1'b1 == ap_block_state36_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state36)) | ((1'b1 == UART_RVALID) & (1'b1 == ap_CS_fsm_state21)))) begin
+    if (((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state58)) | (~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state37)) | (~((1'b1 == ap_block_state51_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state51)) | (~((1'b1 == ap_block_state30_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state30)) | ((1'b1 == UART_RVALID) & (1'b1 == ap_CS_fsm_state21)))) begin
         UART_RREADY = 1'b1;
     end else begin
         UART_RREADY = 1'b0;
@@ -1132,7 +1054,7 @@ always @ (*) begin
         UART_WDATA = 32'd1;
     end else if (((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state6))) begin
         UART_WDATA = 32'd31;
-    end else if ((((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state5)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state23)))) begin
+    end else if (((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state5))) begin
         UART_WDATA = 32'd0;
     end else if (((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state4))) begin
         UART_WDATA = 32'd62;
@@ -1146,7 +1068,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state4)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state6)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state5)) | ((1'b1 == UART_BVALID) & (ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state8)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state3)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state23)) | ((1'b1 == UART_BVALID) & (ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state7)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state2)))) begin
+    if ((((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state4)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state6)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state5)) | ((1'b1 == UART_BVALID) & (ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state8)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state3)) | ((1'b1 == UART_BVALID) & (ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state7)) | ((ap_reg_ioackin_UART_WREADY == 1'b0) & (1'b1 == ap_CS_fsm_state2)))) begin
         UART_WVALID = 1'b1;
     end else begin
         UART_WVALID = 1'b0;
@@ -1154,7 +1076,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state29) | (1'b1 == ap_CS_fsm_state14) | ((tmp_10_fu_439_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state57)) | ((tmp_6_fu_433_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state50)) | ((tmp_8_fu_415_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state36)))) begin
+    if (((1'b1 == ap_CS_fsm_state14) | ((1'b1 == ap_CS_fsm_state51) & (tmp_9_fu_376_p1 == 1'd1)) | ((1'b1 == ap_CS_fsm_state44) & (tmp_6_fu_370_p2 == 1'd1)) | ((1'b1 == ap_CS_fsm_state30) & (tmp_4_fu_349_p1 == 1'd1)) | ((1'b1 == ap_CS_fsm_state23) & (calibrationSuccess == 1'd1)))) begin
         UART_blk_n_AR = m_axi_UART_ARREADY;
     end else begin
         UART_blk_n_AR = 1'b1;
@@ -1162,7 +1084,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state2) | ((ap_start == 1'b1) & (firstSample == 1'd1) & (1'b1 == ap_CS_fsm_state1)) | ((tmp_fu_387_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state22)))) begin
+    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state2) | ((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (firstSample == 1'd1)))) begin
         UART_blk_n_AW = m_axi_UART_AWREADY;
     end else begin
         UART_blk_n_AW = 1'b1;
@@ -1170,7 +1092,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7) | ((tmp_reg_544 == 1'd1) & (firstSample_load_reg_507 == 1'd1) & (1'b1 == ap_CS_fsm_state28)))) begin
+    if (((1'b1 == ap_CS_fsm_state12) | (1'b1 == ap_CS_fsm_state13) | (1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state11) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state7))) begin
         UART_blk_n_B = m_axi_UART_BVALID;
     end else begin
         UART_blk_n_B = 1'b1;
@@ -1178,7 +1100,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state64) | (1'b1 == ap_CS_fsm_state43) | (1'b1 == ap_CS_fsm_state57) | (1'b1 == ap_CS_fsm_state36) | (1'b1 == ap_CS_fsm_state21))) begin
+    if (((1'b1 == ap_CS_fsm_state58) | (1'b1 == ap_CS_fsm_state37) | (1'b1 == ap_CS_fsm_state51) | (1'b1 == ap_CS_fsm_state30) | (1'b1 == ap_CS_fsm_state21))) begin
         UART_blk_n_R = m_axi_UART_RVALID;
     end else begin
         UART_blk_n_R = 1'b1;
@@ -1186,7 +1108,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state23) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state2))) begin
+    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state8) | (1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state7) | (1'b1 == ap_CS_fsm_state2))) begin
         UART_blk_n_W = m_axi_UART_WREADY;
     end else begin
         UART_blk_n_W = 1'b1;
@@ -1194,7 +1116,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((ap_predicate_op252_writeresp_state77 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (1'b1 == ap_CS_fsm_state77))) begin
+    if ((~((ap_predicate_op211_writeresp_state64 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (1'b1 == ap_CS_fsm_state64) & ((tmp_6_reg_507 == 1'd0) | (tmp_5_reg_490 == 1'd0) | (tmp_4_reg_480 == 1'd0) | (calibrationSuccess_l_reg_470 == 1'd0) | (tmp_7_fu_414_p2 == 1'd1)))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -1210,15 +1132,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((tmp_7_fu_477_p2 == 1'd1) & (tmp_6_reg_586 == 1'd1) & (tmp_5_reg_568 == 1'd1) & (1'b1 == ap_CS_fsm_state70))) begin
-        ap_phi_mux_NUM_BYTES_READ_3_ph_phi_fu_312_p4 = NUM_BYTES_READ_fu_104;
-    end else begin
-        ap_phi_mux_NUM_BYTES_READ_3_ph_phi_fu_312_p4 = NUM_BYTES_READ_3_ph_reg_309;
-    end
-end
-
-always @ (*) begin
-    if ((~((ap_predicate_op252_writeresp_state77 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (1'b1 == ap_CS_fsm_state77))) begin
+    if ((~((ap_predicate_op211_writeresp_state64 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (1'b1 == ap_CS_fsm_state64) & ((tmp_6_reg_507 == 1'd0) | (tmp_5_reg_490 == 1'd0) | (tmp_4_reg_480 == 1'd0) | (calibrationSuccess_l_reg_470 == 1'd0) | (tmp_7_fu_414_p2 == 1'd1)))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -1268,9 +1182,9 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (firstSample_load_load_fu_351_p1 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
-                ap_NS_fsm = ap_ST_fsm_state28;
-            end else if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (firstSample == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+            if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1) & (firstSample_load_load_fu_285_p1 == 1'd0))) begin
+                ap_NS_fsm = ap_ST_fsm_state23;
+            end else if ((~((1'b1 == ap_block_state1_io) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1) & (firstSample == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
@@ -1393,16 +1307,12 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state22 : begin
-            if (((1'b0 == ap_block_state22_io) & (tmp_fu_387_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state22))) begin
-                ap_NS_fsm = ap_ST_fsm_state28;
-            end else if (((1'b0 == ap_block_state22_io) & (tmp_fu_387_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state22))) begin
-                ap_NS_fsm = ap_ST_fsm_state23;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state22;
-            end
+            ap_NS_fsm = ap_ST_fsm_state23;
         end
         ap_ST_fsm_state23 : begin
-            if (((ap_sig_ioackin_UART_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state23))) begin
+            if (((1'b0 == ap_block_state23_io) & (1'b1 == ap_CS_fsm_state23) & (calibrationSuccess_l_load_fu_338_p1 == 1'd0))) begin
+                ap_NS_fsm = ap_ST_fsm_state64;
+            end else if (((1'b0 == ap_block_state23_io) & (1'b1 == ap_CS_fsm_state23) & (calibrationSuccess == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state24;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state23;
@@ -1421,23 +1331,19 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state28;
         end
         ap_ST_fsm_state28 : begin
-            if ((~((ap_predicate_op159_writeresp_state28 == 1'b1) & (1'b0 == UART_BVALID)) & (calibrationSuccess_l_load_fu_404_p1 == 1'd0) & (1'b1 == ap_CS_fsm_state28))) begin
-                ap_NS_fsm = ap_ST_fsm_state77;
-            end else if ((~((ap_predicate_op159_writeresp_state28 == 1'b1) & (1'b0 == UART_BVALID)) & (calibrationSuccess_l_load_fu_404_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state28))) begin
-                ap_NS_fsm = ap_ST_fsm_state29;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state28;
-            end
+            ap_NS_fsm = ap_ST_fsm_state29;
         end
         ap_ST_fsm_state29 : begin
-            if (((ap_sig_ioackin_UART_ARREADY == 1'b1) & (1'b1 == ap_CS_fsm_state29))) begin
-                ap_NS_fsm = ap_ST_fsm_state30;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state29;
-            end
+            ap_NS_fsm = ap_ST_fsm_state30;
         end
         ap_ST_fsm_state30 : begin
-            ap_NS_fsm = ap_ST_fsm_state31;
+            if ((~((1'b1 == ap_block_state30_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state30) & (tmp_4_fu_349_p1 == 1'd0))) begin
+                ap_NS_fsm = ap_ST_fsm_state64;
+            end else if ((~((1'b1 == ap_block_state30_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state30) & (tmp_4_fu_349_p1 == 1'd1))) begin
+                ap_NS_fsm = ap_ST_fsm_state31;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state30;
+            end
         end
         ap_ST_fsm_state31 : begin
             ap_NS_fsm = ap_ST_fsm_state32;
@@ -1455,19 +1361,21 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state36;
         end
         ap_ST_fsm_state36 : begin
-            if ((~((1'b1 == ap_block_state36_io) | (1'b0 == UART_RVALID)) & (tmp_8_fu_415_p1 == 1'd0) & (1'b1 == ap_CS_fsm_state36))) begin
-                ap_NS_fsm = ap_ST_fsm_state77;
-            end else if ((~((1'b1 == ap_block_state36_io) | (1'b0 == UART_RVALID)) & (tmp_8_fu_415_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state36))) begin
-                ap_NS_fsm = ap_ST_fsm_state37;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state36;
-            end
+            ap_NS_fsm = ap_ST_fsm_state37;
         end
         ap_ST_fsm_state37 : begin
-            ap_NS_fsm = ap_ST_fsm_state38;
+            if ((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state37))) begin
+                ap_NS_fsm = ap_ST_fsm_state38;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state37;
+            end
         end
         ap_ST_fsm_state38 : begin
-            ap_NS_fsm = ap_ST_fsm_state39;
+            if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state38))) begin
+                ap_NS_fsm = ap_ST_fsm_state39;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state38;
+            end
         end
         ap_ST_fsm_state39 : begin
             ap_NS_fsm = ap_ST_fsm_state40;
@@ -1482,14 +1390,18 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state43;
         end
         ap_ST_fsm_state43 : begin
-            if ((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state43))) begin
+            if (((1'b1 == OUT_r_BVALID) & (1'b1 == ap_CS_fsm_state43) & (tmp_5_reg_490 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state44;
+            end else if (((1'b1 == OUT_r_BVALID) & (1'b1 == ap_CS_fsm_state43) & (tmp_5_reg_490 == 1'd0))) begin
+                ap_NS_fsm = ap_ST_fsm_state64;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state43;
             end
         end
         ap_ST_fsm_state44 : begin
-            if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state44))) begin
+            if (((1'b0 == ap_block_state44_io) & (1'b1 == ap_CS_fsm_state44) & (tmp_6_fu_370_p2 == 1'd0))) begin
+                ap_NS_fsm = ap_ST_fsm_state64;
+            end else if (((1'b0 == ap_block_state44_io) & (1'b1 == ap_CS_fsm_state44) & (tmp_6_fu_370_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state45;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state44;
@@ -1508,25 +1420,19 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state49;
         end
         ap_ST_fsm_state49 : begin
-            if (((1'b1 == OUT_r_BVALID) & (tmp_5_reg_568 == 1'd1) & (1'b1 == ap_CS_fsm_state49))) begin
-                ap_NS_fsm = ap_ST_fsm_state50;
-            end else if (((1'b1 == OUT_r_BVALID) & (tmp_5_reg_568 == 1'd0) & (1'b1 == ap_CS_fsm_state49))) begin
-                ap_NS_fsm = ap_ST_fsm_state70;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state49;
-            end
+            ap_NS_fsm = ap_ST_fsm_state50;
         end
         ap_ST_fsm_state50 : begin
-            if (((1'b0 == ap_block_state50_io) & (tmp_6_fu_433_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state50))) begin
-                ap_NS_fsm = ap_ST_fsm_state70;
-            end else if (((1'b0 == ap_block_state50_io) & (tmp_6_fu_433_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state50))) begin
-                ap_NS_fsm = ap_ST_fsm_state51;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state50;
-            end
+            ap_NS_fsm = ap_ST_fsm_state51;
         end
         ap_ST_fsm_state51 : begin
-            ap_NS_fsm = ap_ST_fsm_state52;
+            if ((~((1'b1 == ap_block_state51_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state51) & (tmp_9_fu_376_p1 == 1'd0))) begin
+                ap_NS_fsm = ap_ST_fsm_state64;
+            end else if ((~((1'b1 == ap_block_state51_io) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state51) & (tmp_9_fu_376_p1 == 1'd1))) begin
+                ap_NS_fsm = ap_ST_fsm_state52;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state51;
+            end
         end
         ap_ST_fsm_state52 : begin
             ap_NS_fsm = ap_ST_fsm_state53;
@@ -1544,19 +1450,21 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state57;
         end
         ap_ST_fsm_state57 : begin
-            if ((~((1'b1 == ap_block_state57_io) | (1'b0 == UART_RVALID)) & (tmp_10_fu_439_p1 == 1'd0) & (1'b1 == ap_CS_fsm_state57))) begin
-                ap_NS_fsm = ap_ST_fsm_state70;
-            end else if ((~((1'b1 == ap_block_state57_io) | (1'b0 == UART_RVALID)) & (tmp_10_fu_439_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state57))) begin
-                ap_NS_fsm = ap_ST_fsm_state58;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state57;
-            end
+            ap_NS_fsm = ap_ST_fsm_state58;
         end
         ap_ST_fsm_state58 : begin
-            ap_NS_fsm = ap_ST_fsm_state59;
+            if ((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state58))) begin
+                ap_NS_fsm = ap_ST_fsm_state59;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state58;
+            end
         end
         ap_ST_fsm_state59 : begin
-            ap_NS_fsm = ap_ST_fsm_state60;
+            if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state59))) begin
+                ap_NS_fsm = ap_ST_fsm_state60;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state59;
+            end
         end
         ap_ST_fsm_state60 : begin
             ap_NS_fsm = ap_ST_fsm_state61;
@@ -1571,71 +1479,12 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state64;
         end
         ap_ST_fsm_state64 : begin
-            if ((~((ap_sig_ioackin_OUT_r_AWREADY == 1'b0) | (1'b0 == UART_RVALID)) & (1'b1 == ap_CS_fsm_state64))) begin
-                ap_NS_fsm = ap_ST_fsm_state65;
+            if ((~((ap_predicate_op211_writeresp_state64 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (1'b1 == ap_CS_fsm_state64) & ((tmp_6_reg_507 == 1'd0) | (tmp_5_reg_490 == 1'd0) | (tmp_4_reg_480 == 1'd0) | (calibrationSuccess_l_reg_470 == 1'd0) | (tmp_7_fu_414_p2 == 1'd1)))) begin
+                ap_NS_fsm = ap_ST_fsm_state1;
+            end else if ((~((ap_predicate_op211_writeresp_state64 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (1'b1 == ap_CS_fsm_state64) & (tmp_7_fu_414_p2 == 1'd0) & (tmp_6_reg_507 == 1'd1) & (tmp_5_reg_490 == 1'd1) & (tmp_4_reg_480 == 1'd1) & (calibrationSuccess_l_reg_470 == 1'd1))) begin
+                ap_NS_fsm = ap_ST_fsm_state44;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state64;
-            end
-        end
-        ap_ST_fsm_state65 : begin
-            if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state65))) begin
-                ap_NS_fsm = ap_ST_fsm_state66;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state65;
-            end
-        end
-        ap_ST_fsm_state66 : begin
-            ap_NS_fsm = ap_ST_fsm_state67;
-        end
-        ap_ST_fsm_state67 : begin
-            ap_NS_fsm = ap_ST_fsm_state68;
-        end
-        ap_ST_fsm_state68 : begin
-            ap_NS_fsm = ap_ST_fsm_state69;
-        end
-        ap_ST_fsm_state69 : begin
-            ap_NS_fsm = ap_ST_fsm_state70;
-        end
-        ap_ST_fsm_state70 : begin
-            if ((~((1'b1 == ap_block_state70_io) | ((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID))) & (1'b1 == ap_CS_fsm_state70) & ((tmp_6_reg_586 == 1'd0) | (tmp_5_reg_568 == 1'd0) | (tmp_7_fu_477_p2 == 1'd1)))) begin
-                ap_NS_fsm = ap_ST_fsm_state71;
-            end else if ((~((1'b1 == ap_block_state70_io) | ((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID))) & (tmp_7_fu_477_p2 == 1'd0) & (tmp_6_reg_586 == 1'd1) & (tmp_5_reg_568 == 1'd1) & (1'b1 == ap_CS_fsm_state70))) begin
-                ap_NS_fsm = ap_ST_fsm_state50;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state70;
-            end
-        end
-        ap_ST_fsm_state71 : begin
-            if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state71))) begin
-                ap_NS_fsm = ap_ST_fsm_state72;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state71;
-            end
-        end
-        ap_ST_fsm_state72 : begin
-            if (((ap_sig_ioackin_OUT_r_WREADY == 1'b1) & (1'b1 == ap_CS_fsm_state72))) begin
-                ap_NS_fsm = ap_ST_fsm_state73;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state72;
-            end
-        end
-        ap_ST_fsm_state73 : begin
-            ap_NS_fsm = ap_ST_fsm_state74;
-        end
-        ap_ST_fsm_state74 : begin
-            ap_NS_fsm = ap_ST_fsm_state75;
-        end
-        ap_ST_fsm_state75 : begin
-            ap_NS_fsm = ap_ST_fsm_state76;
-        end
-        ap_ST_fsm_state76 : begin
-            ap_NS_fsm = ap_ST_fsm_state77;
-        end
-        ap_ST_fsm_state77 : begin
-            if ((~((ap_predicate_op252_writeresp_state77 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (1'b1 == ap_CS_fsm_state77))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state77;
             end
         end
         default : begin
@@ -1644,15 +1493,13 @@ always @ (*) begin
     endcase
 end
 
-assign NUM_BYTES_READ_1_fu_463_p2 = (5'd1 + NUM_BYTES_READ_load_reg_579);
+assign NUM_BYTES_READ_1_fu_400_p2 = (5'd1 + NUM_BYTES_READ_load_reg_501);
 
-assign UART_addr_1_reg_519 = 64'd1027;
+assign UART_addr_1_reg_442 = 64'd1027;
 
-assign UART_addr_3_reg_526 = 64'd1025;
+assign UART_addr_3_reg_449 = 64'd1025;
 
-assign UART_addr_5_reg_552 = 64'd1029;
-
-assign UART_addr_reg_511 = 64'd1031;
+assign UART_addr_5_reg_474 = 64'd1029;
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -1674,13 +1521,13 @@ assign ap_CS_fsm_state22 = ap_CS_fsm[32'd21];
 
 assign ap_CS_fsm_state23 = ap_CS_fsm[32'd22];
 
-assign ap_CS_fsm_state28 = ap_CS_fsm[32'd27];
-
-assign ap_CS_fsm_state29 = ap_CS_fsm[32'd28];
-
 assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
-assign ap_CS_fsm_state36 = ap_CS_fsm[32'd35];
+assign ap_CS_fsm_state30 = ap_CS_fsm[32'd29];
+
+assign ap_CS_fsm_state37 = ap_CS_fsm[32'd36];
+
+assign ap_CS_fsm_state38 = ap_CS_fsm[32'd37];
 
 assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
@@ -1688,31 +1535,19 @@ assign ap_CS_fsm_state43 = ap_CS_fsm[32'd42];
 
 assign ap_CS_fsm_state44 = ap_CS_fsm[32'd43];
 
-assign ap_CS_fsm_state49 = ap_CS_fsm[32'd48];
-
 assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
-assign ap_CS_fsm_state50 = ap_CS_fsm[32'd49];
+assign ap_CS_fsm_state51 = ap_CS_fsm[32'd50];
 
-assign ap_CS_fsm_state57 = ap_CS_fsm[32'd56];
+assign ap_CS_fsm_state58 = ap_CS_fsm[32'd57];
+
+assign ap_CS_fsm_state59 = ap_CS_fsm[32'd58];
 
 assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
 
 assign ap_CS_fsm_state64 = ap_CS_fsm[32'd63];
 
-assign ap_CS_fsm_state65 = ap_CS_fsm[32'd64];
-
-assign ap_CS_fsm_state69 = ap_CS_fsm[32'd68];
-
 assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
-
-assign ap_CS_fsm_state70 = ap_CS_fsm[32'd69];
-
-assign ap_CS_fsm_state71 = ap_CS_fsm[32'd70];
-
-assign ap_CS_fsm_state72 = ap_CS_fsm[32'd71];
-
-assign ap_CS_fsm_state77 = ap_CS_fsm[32'd76];
 
 assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 
@@ -1723,11 +1558,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_block_state22_io = ((ap_sig_ioackin_UART_AWREADY == 1'b0) & (tmp_fu_387_p2 == 1'd1));
-end
-
-always @ (*) begin
-    ap_block_state28 = ((ap_predicate_op159_writeresp_state28 == 1'b1) & (1'b0 == UART_BVALID));
+    ap_block_state23_io = ((ap_sig_ioackin_UART_ARREADY == 1'b0) & (calibrationSuccess == 1'd1));
 end
 
 always @ (*) begin
@@ -1735,7 +1566,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_block_state36_io = ((ap_sig_ioackin_UART_ARREADY == 1'b0) & (tmp_8_fu_415_p1 == 1'd1));
+    ap_block_state30_io = ((ap_sig_ioackin_UART_ARREADY == 1'b0) & (tmp_4_fu_349_p1 == 1'd1));
 end
 
 always @ (*) begin
@@ -1743,15 +1574,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
+    ap_block_state44_io = ((ap_sig_ioackin_UART_ARREADY == 1'b0) & (tmp_6_fu_370_p2 == 1'd1));
+end
+
+always @ (*) begin
     ap_block_state4_io = ((ap_sig_ioackin_UART_AWREADY == 1'b0) | (ap_sig_ioackin_UART_WREADY == 1'b0));
 end
 
 always @ (*) begin
-    ap_block_state50_io = ((ap_sig_ioackin_UART_ARREADY == 1'b0) & (tmp_6_fu_433_p2 == 1'd1));
-end
-
-always @ (*) begin
-    ap_block_state57_io = ((ap_sig_ioackin_UART_ARREADY == 1'b0) & (tmp_10_fu_439_p1 == 1'd1));
+    ap_block_state51_io = ((ap_sig_ioackin_UART_ARREADY == 1'b0) & (tmp_9_fu_376_p1 == 1'd1));
 end
 
 always @ (*) begin
@@ -1759,19 +1590,11 @@ always @ (*) begin
 end
 
 always @ (*) begin
+    ap_block_state64 = ((ap_predicate_op211_writeresp_state64 == 1'b1) & (1'b0 == OUT_r_BVALID));
+end
+
+always @ (*) begin
     ap_block_state6_io = ((ap_sig_ioackin_UART_AWREADY == 1'b0) | (ap_sig_ioackin_UART_WREADY == 1'b0));
-end
-
-always @ (*) begin
-    ap_block_state70 = ((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID));
-end
-
-always @ (*) begin
-    ap_block_state70_io = ((ap_predicate_op243_writereq_state70 == 1'b1) & (ap_sig_ioackin_OUT_r_AWREADY == 1'b0));
-end
-
-always @ (*) begin
-    ap_block_state77 = ((ap_predicate_op252_writeresp_state77 == 1'b1) & (1'b0 == OUT_r_BVALID));
 end
 
 always @ (*) begin
@@ -1779,69 +1602,51 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_condition_212 = ((ap_start == 1'b1) & (firstSample == 1'd1) & (1'b1 == ap_CS_fsm_state1));
+    ap_condition_199 = ((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1) & (firstSample == 1'd1));
 end
 
 always @ (*) begin
-    ap_condition_920 = ((1'b1 == UART_RVALID) & (tmp_8_fu_415_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state36));
+    ap_condition_799 = ((1'b1 == UART_RVALID) & (1'b1 == ap_CS_fsm_state30) & (tmp_4_fu_349_p1 == 1'd1));
 end
 
 always @ (*) begin
-    ap_condition_927 = ((1'b1 == UART_RVALID) & (tmp_10_fu_439_p1 == 1'd1) & (1'b1 == ap_CS_fsm_state57));
+    ap_condition_806 = ((1'b1 == UART_RVALID) & (1'b1 == ap_CS_fsm_state51) & (tmp_9_fu_376_p1 == 1'd1));
 end
 
 always @ (*) begin
-    ap_condition_966 = (~((ap_predicate_op231_writeresp_state70 == 1'b1) & (1'b0 == OUT_r_BVALID)) & (ap_predicate_op243_writereq_state70 == 1'b1) & (1'b1 == ap_CS_fsm_state70));
-end
-
-always @ (*) begin
-    ap_predicate_op159_writeresp_state28 = ((tmp_reg_544 == 1'd1) & (firstSample_load_reg_507 == 1'd1));
-end
-
-always @ (*) begin
-    ap_predicate_op231_writeresp_state70 = ((tmp_10_reg_590 == 1'd1) & (tmp_6_reg_586 == 1'd1) & (tmp_5_reg_568 == 1'd1));
-end
-
-always @ (*) begin
-    ap_predicate_op243_writereq_state70 = ((tmp_6_reg_586 == 1'd0) | (tmp_5_reg_568 == 1'd0) | (tmp_7_fu_477_p2 == 1'd1));
-end
-
-always @ (*) begin
-    ap_predicate_op252_writeresp_state77 = ((tmp_8_reg_558 == 1'd1) & (calibrationSuccess_l_reg_548 == 1'd1));
+    ap_predicate_op211_writeresp_state64 = ((tmp_9_reg_511 == 1'd1) & (tmp_6_reg_507 == 1'd1) & (tmp_5_reg_490 == 1'd1) & (tmp_4_reg_480 == 1'd1) & (calibrationSuccess_l_reg_470 == 1'd1));
 end
 
 always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-assign calibrationSuccess_l_load_fu_404_p1 = calibrationSuccess;
+assign calibrationSuccess_l_load_fu_338_p1 = calibrationSuccess;
 
-assign firstSample_load_load_fu_351_p1 = firstSample;
+assign firstSample_load_load_fu_285_p1 = firstSample;
 
-assign reg_343 = 64'd1024;
+assign reg_277 = 64'd1024;
 
-assign temp_fu_383_p1 = UART_RDATA[7:0];
+assign temp_fu_317_p1 = UART_RDATA[7:0];
 
-assign tmp_10_fu_439_p1 = UART_RDATA[0:0];
+assign tmp_10_fu_386_p1 = UART_RDATA[7:0];
 
-assign tmp_11_fu_449_p1 = UART_RDATA[7:0];
+assign tmp_1_fu_390_p1 = NUM_BYTES_READ_load_reg_501;
 
-assign tmp_1_fu_453_p1 = NUM_BYTES_READ_load_reg_579;
+assign tmp_2_fu_420_p2 = (cycle_count + 14'd1);
 
-assign tmp_2_fu_483_p2 = (cycle_count + 14'd1);
+assign tmp_4_fu_349_p1 = UART_RDATA[0:0];
 
-assign tmp_3_fu_502_p1 = NUM_BYTES_READ_3_reg_319;
+assign tmp_5_fu_357_p2 = ((tmp_8_reg_484 == 8'd15) ? 1'b1 : 1'b0);
 
-assign tmp_5_fu_423_p2 = ((tmp_9_reg_562 == 8'd15) ? 1'b1 : 1'b0);
+assign tmp_6_fu_370_p2 = ((NUM_BYTES_READ_fu_98 < 5'd25) ? 1'b1 : 1'b0);
 
-assign tmp_6_fu_433_p2 = ((NUM_BYTES_READ_fu_104 < 5'd25) ? 1'b1 : 1'b0);
+assign tmp_7_fu_414_p2 = ((cycle_count > 14'd10000) ? 1'b1 : 1'b0);
 
-assign tmp_7_fu_477_p2 = ((cycle_count > 14'd10000) ? 1'b1 : 1'b0);
+assign tmp_8_fu_353_p1 = UART_RDATA[7:0];
 
-assign tmp_8_fu_415_p1 = UART_RDATA[0:0];
+assign tmp_9_fu_376_p1 = UART_RDATA[0:0];
 
-assign tmp_9_fu_419_p1 = UART_RDATA[7:0];
-
-assign tmp_fu_387_p2 = ((temp_reg_539 == 8'd69) ? 1'b1 : 1'b0);
+assign tmp_fu_321_p2 = ((temp_reg_462 == 8'd69) ? 1'b1 : 1'b0);
 
 endmodule //AXI_UART_DRIVER

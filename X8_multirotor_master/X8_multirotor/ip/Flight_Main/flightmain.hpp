@@ -1,15 +1,13 @@
-
-#include "ap_int.h"
+//include libraries
+#include "../common/x8_common.hpp"
 #include "ap_fixed.h"
-#include <stdio.h>
-#include "ap_utils.h"
-#include "stdint.h"
 
-#define MOTOR_COUNT 6
-#define RC_CHANNELS 6
-#define clip(in,low,high) ((in)<(low)?(low):((in)>(high)?(high):(in)))
+#define ROLL_MIN    490
+#define ROLL_MAX    510
+#define PITCH_MIN   490
+#define PITCH_MAX   510
 
-//Constants
+// type definition
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
@@ -18,27 +16,19 @@ typedef ap_fixed<16,1> F16_t;
 
 typedef ap_uint<6> uint6_t;
 
-void flightmain (uint16_t rcCmdIn[5],
-		 uint16_t measured[4],
-		int obj_avd_cmd,
-		int  horizon_cmd,
-		int obj_avd_flag);
+void flightmain (uint16_t rcCmdIn[5],uint16_t measured[4],int obj_avd_cmd,int  horizon_cmd,int obj_avd_flag);
 
-/*
-void pid (F16_t rcCmdIn[5],
-		F16_t measured[4],
-		F32_t kp[3],
-		F32_t kd[2],
-		F32_t ki[2],
-		F16_t commandOut[4096]);
-*/
+typedef enum
+{
+    RATE_LOOP;
+    POS_LOOP
+}pidLoop_e;
 
-const F19_t MIX_C[6][3] = {
-		//beta flight should have the correct values.
-	{.5,	-0.57735026919,	1},
-	{1,		0,	           -1},
-	{.5,	.57735026919,   1},
-	{-.5,	-.57735026919, -1},
-	{-1,	0,			    1},
-	{-.5,	.57735026919,  -1}
-};
+typedef enum
+{
+    RC_CMD,
+    OBJ_AVD_CMD
+}cmdMode_e;
+
+
+

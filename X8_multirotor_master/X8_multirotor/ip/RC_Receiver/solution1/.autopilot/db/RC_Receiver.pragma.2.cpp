@@ -297,6 +297,8 @@ extern "C" {
 
 # 1 "RC_Receiver/RC_Receiver.h" 1
 
+# 1 "RC_Receiver/../common/x8_common.hpp" 1
+
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 1
 # 59 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h"
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
@@ -1045,7 +1047,8 @@ enum SsdmRegionTypes {
     _ssdm_region_parallel,
 };
 # 74 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 2
-# 3 "RC_Receiver/RC_Receiver.h" 2
+# 2 "RC_Receiver/../common/x8_common.hpp" 2
+
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 1
 # 63 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h"
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_int_syn.h" 1
@@ -24494,216 +24497,8 @@ inline bool operator!=(const ap_int<_AP_W> &__x, const complex<ap_int<_AP_W> > &
 
 }
 # 69 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 2
-# 4 "RC_Receiver/RC_Receiver.h" 2
-# 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 1
-# 61 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h"
-# 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h" 1
-# 65 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h"
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 1 3
-# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 3
-# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 3
+# 3 "RC_Receiver/../common/x8_common.hpp" 2
 
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 1 3
-# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 3
-# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 3
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stddef.h" 1 3 4
-# 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 2 3
-# 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 2 3
-# 66 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h" 2
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdlib" 1 3
-# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdlib" 3
-# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdlib" 3
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 1 3
-# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 3
-# 41 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 3
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stddef.h" 1 3 4
-# 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 2 3
-# 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdlib" 2 3
-# 67 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h" 2
-
-
-
-namespace std {
-template<typename _Tp> class complex;
-}
-
-
-
-
-
-
-
-namespace std {
-# 98 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h"
-template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
-struct complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > {
-  typedef ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> _Tp;
-  typedef _Tp value_type;
-
-
-
-
-  complex() : _M_real(_Tp()), _M_imag(_Tp()) {}
-
-
-  complex(const _Tp &__r, const _Tp &__i = _Tp(0))
-      : _M_real(__r), _M_imag(__i) {}
-
-
-  template <typename _Up>
-  complex(const complex<_Up> &__z) : _M_real(__z.real()), _M_imag(__z.imag()) {}
-
-
-
-
-
-  _Tp& real() { return _M_real; }
-  const _Tp& real() const { return _M_real; }
-  _Tp& imag() { return _M_imag; }
-  const _Tp& imag() const { return _M_imag; }
-
-
-  void real(_Tp __val) { _M_real = __val; }
-
-  void imag(_Tp __val) { _M_imag = __val; }
-
-
-
-  complex<_Tp> &operator=(const _Tp __t) {
-    _M_real = __t;
-    _M_imag = _Tp(0);
-    return *this;
-  }
-
-
-
-  complex<_Tp> &operator+=(const _Tp &__t) {
-    _M_real += __t;
-    return *this;
-  }
-
-
-
-  complex<_Tp> &operator-=(const _Tp &__t) {
-    _M_real -= __t;
-    return *this;
-  }
-
-
-
-  complex<_Tp> &operator*=(const _Tp &__t) {
-    _M_real *= __t;
-    _M_imag *= __t;
-    return *this;
-  }
-
-
-
-  complex<_Tp> &operator/=(const _Tp &__t) {
-    _M_real /= __t;
-    _M_imag /= __t;
-    return *this;
-  }
-
-
-  template <typename _Up>
-  complex<_Tp> &operator=(const complex<_Up> &__z) {
-    _M_real = __z.real();
-    _M_imag = __z.imag();
-    return *this;
-  }
-
-
-
-  template <typename _Up>
-  complex<_Tp> &operator+=(const complex<_Up> &__z) {
-    _M_real += __z.real();
-    _M_imag += __z.imag();
-    return *this;
-  }
-
-
-
-  template <typename _Up>
-  complex<_Tp> &operator-=(const complex<_Up> &__z) {
-    _M_real -= __z.real();
-    _M_imag -= __z.imag();
-    return *this;
-  }
-
-
-
-  template <typename _Up>
-  complex<_Tp> &operator*=(const complex<_Up> &__z) {
-    const _Tp __r = _M_real * __z.real() - _M_imag * __z.imag();
-    _M_imag = _M_real * __z.imag() + _M_imag * __z.real();
-    _M_real = __r;
-    return *this;
-  }
-
-
-
-  template <typename _Up>
-  complex<_Tp> &operator/=(const complex<_Up> &__z) {
-    complex<_Tp> cj (__z.real(), -__z.imag());
-    complex<_Tp> a = (*this) * cj;
-    complex<_Tp> b = cj * __z;
-    _M_real = a.real() / b.real();
-    _M_imag = a.imag() / b.real();
-    return *this;
-  }
-
- private:
-  _Tp _M_real;
-  _Tp _M_imag;
-
-};
-# 229 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h"
-template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
-inline bool operator==(
-    const complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > &__x,
-    const ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> &__y) {
-  return __x.real() == __y &&
-         __x.imag() == 0;
-}
-
-
-template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
-inline bool operator==(
-    const ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> &__x,
-    const complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > &__y) {
-  return __x == __y.real() &&
-         0 == __y.imag();
-}
-
-
-template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
-inline bool operator!=(
-    const complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > &__x,
-    const ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> &__y) {
-  return __x.real() != __y ||
-         __x.imag() != 0;
-}
-
-
-template <int _AP_W, int _AP_I, ap_q_mode _AP_Q, ap_o_mode _AP_O, int _AP_N>
-inline bool operator!=(
-    const ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> &__x,
-    const complex<ap_fixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N> > &__y) {
-  return __x != __y.real() ||
-         0 != __y.imag();
-}
-
-}
-# 62 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 2
-# 5 "RC_Receiver/RC_Receiver.h" 2
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 1 3 4
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 3 4
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 1 3 4
@@ -24755,58 +24550,43 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 2 3 4
-# 6 "RC_Receiver/RC_Receiver.h" 2
+# 4 "RC_Receiver/../common/x8_common.hpp" 2
+# 23 "RC_Receiver/../common/x8_common.hpp"
+typedef enum
+{
+ MOTOR_OFF,
+ MOTOR_ON
+}motorState_e;
 
-
-using namespace std;
-# 17 "RC_Receiver/RC_Receiver.h"
-typedef ap_fixed<128,96> F128_t;
-typedef ap_fixed<64,32> F64_t;
-typedef ap_fixed<32, 16> F32_t;
-typedef ap_fixed<19, 4> F19_t;
-typedef ap_fixed<16,1> F16_t;
-# 47 "RC_Receiver/RC_Receiver.h"
-void RC_RECEIVER(uint8_t SBUS_data[30], uint32_t norm_out[4096], F32_t channel_scaled[4096], uint32_t channel_data[4096]);
+typedef enum
+{
+ RATE_MODE,
+ HORIZON_MODE,
+ HOR_OBJAVD_MODE
+}flightMode_e;
+# 3 "RC_Receiver/RC_Receiver.h" 2
+# 19 "RC_Receiver/RC_Receiver.h"
+void rcReceiver(uint8_t SBUS_data[30], uint16_t norm_out[4096]);
 
 
 uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
 
 
+motorState_e selectMotorState(uint16_t value);
 
 
-
-
-uint8_t reverseBits(uint8_t num);
+flightMode_e selectFlightModeState(uint16_t value);
 # 3 "RC_Receiver/RC_Receiver.cpp" 2
 
 
-uint8_t lookuptable[256] = { 0, 0 + 2*64, 0 + 1*64, 0 + 3*64, 0 + 2*16, 0 + 2*16 + 2*64, 0 + 2*16 + 1*64, 0 + 2*16 + 3*64, 0 + 1*16, 0 + 1*16 + 2*64, 0 + 1*16 + 1*64, 0 + 1*16 + 3*64, 0 + 3*16, 0 + 3*16 + 2*64, 0 + 3*16 + 1*64, 0 + 3*16 + 3*64, 0 + 2*4, 0 + 2*4 + 2*64, 0 + 2*4 + 1*64, 0 + 2*4 + 3*64, 0 + 2*4 + 2*16, 0 + 2*4 + 2*16 + 2*64, 0 + 2*4 + 2*16 + 1*64, 0 + 2*4 + 2*16 + 3*64, 0 + 2*4 + 1*16, 0 + 2*4 + 1*16 + 2*64, 0 + 2*4 + 1*16 + 1*64, 0 + 2*4 + 1*16 + 3*64, 0 + 2*4 + 3*16, 0 + 2*4 + 3*16 + 2*64, 0 + 2*4 + 3*16 + 1*64, 0 + 2*4 + 3*16 + 3*64, 0 + 1*4, 0 + 1*4 + 2*64, 0 + 1*4 + 1*64, 0 + 1*4 + 3*64, 0 + 1*4 + 2*16, 0 + 1*4 + 2*16 + 2*64, 0 + 1*4 + 2*16 + 1*64, 0 + 1*4 + 2*16 + 3*64, 0 + 1*4 + 1*16, 0 + 1*4 + 1*16 + 2*64, 0 + 1*4 + 1*16 + 1*64, 0 + 1*4 + 1*16 + 3*64, 0 + 1*4 + 3*16, 0 + 1*4 + 3*16 + 2*64, 0 + 1*4 + 3*16 + 1*64, 0 + 1*4 + 3*16 + 3*64, 0 + 3*4, 0 + 3*4 + 2*64, 0 + 3*4 + 1*64, 0 + 3*4 + 3*64, 0 + 3*4 + 2*16, 0 + 3*4 + 2*16 + 2*64, 0 + 3*4 + 2*16 + 1*64, 0 + 3*4 + 2*16 + 3*64, 0 + 3*4 + 1*16, 0 + 3*4 + 1*16 + 2*64, 0 + 3*4 + 1*16 + 1*64, 0 + 3*4 + 1*16 + 3*64, 0 + 3*4 + 3*16, 0 + 3*4 + 3*16 + 2*64, 0 + 3*4 + 3*16 + 1*64, 0 + 3*4 + 3*16 + 3*64, 2, 2 + 2*64, 2 + 1*64, 2 + 3*64, 2 + 2*16, 2 + 2*16 + 2*64, 2 + 2*16 + 1*64, 2 + 2*16 + 3*64, 2 + 1*16, 2 + 1*16 + 2*64, 2 + 1*16 + 1*64, 2 + 1*16 + 3*64, 2 + 3*16, 2 + 3*16 + 2*64, 2 + 3*16 + 1*64, 2 + 3*16 + 3*64, 2 + 2*4, 2 + 2*4 + 2*64, 2 + 2*4 + 1*64, 2 + 2*4 + 3*64, 2 + 2*4 + 2*16, 2 + 2*4 + 2*16 + 2*64, 2 + 2*4 + 2*16 + 1*64, 2 + 2*4 + 2*16 + 3*64, 2 + 2*4 + 1*16, 2 + 2*4 + 1*16 + 2*64, 2 + 2*4 + 1*16 + 1*64, 2 + 2*4 + 1*16 + 3*64, 2 + 2*4 + 3*16, 2 + 2*4 + 3*16 + 2*64, 2 + 2*4 + 3*16 + 1*64, 2 + 2*4 + 3*16 + 3*64, 2 + 1*4, 2 + 1*4 + 2*64, 2 + 1*4 + 1*64, 2 + 1*4 + 3*64, 2 + 1*4 + 2*16, 2 + 1*4 + 2*16 + 2*64, 2 + 1*4 + 2*16 + 1*64, 2 + 1*4 + 2*16 + 3*64, 2 + 1*4 + 1*16, 2 + 1*4 + 1*16 + 2*64, 2 + 1*4 + 1*16 + 1*64, 2 + 1*4 + 1*16 + 3*64, 2 + 1*4 + 3*16, 2 + 1*4 + 3*16 + 2*64, 2 + 1*4 + 3*16 + 1*64, 2 + 1*4 + 3*16 + 3*64, 2 + 3*4, 2 + 3*4 + 2*64, 2 + 3*4 + 1*64, 2 + 3*4 + 3*64, 2 + 3*4 + 2*16, 2 + 3*4 + 2*16 + 2*64, 2 + 3*4 + 2*16 + 1*64, 2 + 3*4 + 2*16 + 3*64, 2 + 3*4 + 1*16, 2 + 3*4 + 1*16 + 2*64, 2 + 3*4 + 1*16 + 1*64, 2 + 3*4 + 1*16 + 3*64, 2 + 3*4 + 3*16, 2 + 3*4 + 3*16 + 2*64, 2 + 3*4 + 3*16 + 1*64, 2 + 3*4 + 3*16 + 3*64, 1, 1 + 2*64, 1 + 1*64, 1 + 3*64, 1 + 2*16, 1 + 2*16 + 2*64, 1 + 2*16 + 1*64, 1 + 2*16 + 3*64, 1 + 1*16, 1 + 1*16 + 2*64, 1 + 1*16 + 1*64, 1 + 1*16 + 3*64, 1 + 3*16, 1 + 3*16 + 2*64, 1 + 3*16 + 1*64, 1 + 3*16 + 3*64, 1 + 2*4, 1 + 2*4 + 2*64, 1 + 2*4 + 1*64, 1 + 2*4 + 3*64, 1 + 2*4 + 2*16, 1 + 2*4 + 2*16 + 2*64, 1 + 2*4 + 2*16 + 1*64, 1 + 2*4 + 2*16 + 3*64, 1 + 2*4 + 1*16, 1 + 2*4 + 1*16 + 2*64, 1 + 2*4 + 1*16 + 1*64, 1 + 2*4 + 1*16 + 3*64, 1 + 2*4 + 3*16, 1 + 2*4 + 3*16 + 2*64, 1 + 2*4 + 3*16 + 1*64, 1 + 2*4 + 3*16 + 3*64, 1 + 1*4, 1 + 1*4 + 2*64, 1 + 1*4 + 1*64, 1 + 1*4 + 3*64, 1 + 1*4 + 2*16, 1 + 1*4 + 2*16 + 2*64, 1 + 1*4 + 2*16 + 1*64, 1 + 1*4 + 2*16 + 3*64, 1 + 1*4 + 1*16, 1 + 1*4 + 1*16 + 2*64, 1 + 1*4 + 1*16 + 1*64, 1 + 1*4 + 1*16 + 3*64, 1 + 1*4 + 3*16, 1 + 1*4 + 3*16 + 2*64, 1 + 1*4 + 3*16 + 1*64, 1 + 1*4 + 3*16 + 3*64, 1 + 3*4, 1 + 3*4 + 2*64, 1 + 3*4 + 1*64, 1 + 3*4 + 3*64, 1 + 3*4 + 2*16, 1 + 3*4 + 2*16 + 2*64, 1 + 3*4 + 2*16 + 1*64, 1 + 3*4 + 2*16 + 3*64, 1 + 3*4 + 1*16, 1 + 3*4 + 1*16 + 2*64, 1 + 3*4 + 1*16 + 1*64, 1 + 3*4 + 1*16 + 3*64, 1 + 3*4 + 3*16, 1 + 3*4 + 3*16 + 2*64, 1 + 3*4 + 3*16 + 1*64, 1 + 3*4 + 3*16 + 3*64, 3, 3 + 2*64, 3 + 1*64, 3 + 3*64, 3 + 2*16, 3 + 2*16 + 2*64, 3 + 2*16 + 1*64, 3 + 2*16 + 3*64, 3 + 1*16, 3 + 1*16 + 2*64, 3 + 1*16 + 1*64, 3 + 1*16 + 3*64, 3 + 3*16, 3 + 3*16 + 2*64, 3 + 3*16 + 1*64, 3 + 3*16 + 3*64, 3 + 2*4, 3 + 2*4 + 2*64, 3 + 2*4 + 1*64, 3 + 2*4 + 3*64, 3 + 2*4 + 2*16, 3 + 2*4 + 2*16 + 2*64, 3 + 2*4 + 2*16 + 1*64, 3 + 2*4 + 2*16 + 3*64, 3 + 2*4 + 1*16, 3 + 2*4 + 1*16 + 2*64, 3 + 2*4 + 1*16 + 1*64, 3 + 2*4 + 1*16 + 3*64, 3 + 2*4 + 3*16, 3 + 2*4 + 3*16 + 2*64, 3 + 2*4 + 3*16 + 1*64, 3 + 2*4 + 3*16 + 3*64, 3 + 1*4, 3 + 1*4 + 2*64, 3 + 1*4 + 1*64, 3 + 1*4 + 3*64, 3 + 1*4 + 2*16, 3 + 1*4 + 2*16 + 2*64, 3 + 1*4 + 2*16 + 1*64, 3 + 1*4 + 2*16 + 3*64, 3 + 1*4 + 1*16, 3 + 1*4 + 1*16 + 2*64, 3 + 1*4 + 1*16 + 1*64, 3 + 1*4 + 1*16 + 3*64, 3 + 1*4 + 3*16, 3 + 1*4 + 3*16 + 2*64, 3 + 1*4 + 3*16 + 1*64, 3 + 1*4 + 3*16 + 3*64, 3 + 3*4, 3 + 3*4 + 2*64, 3 + 3*4 + 1*64, 3 + 3*4 + 3*64, 3 + 3*4 + 2*16, 3 + 3*4 + 2*16 + 2*64, 3 + 3*4 + 2*16 + 1*64, 3 + 3*4 + 2*16 + 3*64, 3 + 3*4 + 1*16, 3 + 3*4 + 1*16 + 2*64, 3 + 3*4 + 1*16 + 1*64, 3 + 3*4 + 1*16 + 3*64, 3 + 3*4 + 3*16, 3 + 3*4 + 3*16 + 2*64, 3 + 3*4 + 3*16 + 1*64, 3 + 3*4 + 3*16 + 3*64 };
-
-
-
-void RC_RECEIVER(uint8_t SBUS_data[30], uint32_t norm_out[4096], F32_t channel_scaled[4096], uint32_t channel_data[4096])
-{_ssdm_SpecArrayDimSize(SBUS_data, 30);_ssdm_SpecArrayDimSize(norm_out, 4096);_ssdm_SpecArrayDimSize(channel_scaled, 4096);_ssdm_SpecArrayDimSize(channel_data, 4096);
+void rcReceiver(uint8_t SBUS_data[25], uint16_t norm_out[4096])
+{_ssdm_SpecArrayDimSize(SBUS_data, 25);_ssdm_SpecArrayDimSize(norm_out, 4096);
 
 _ssdm_op_SpecPipeline(1, 2, 1, 0, "");
 
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(SBUS_data, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
-
-
-
-
-
-_ssdm_op_SpecInterface(norm_out, "s_axilite", 0, 0, "", 0, 4096, "TEST_NORM", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecResource(norm_out, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
-
-
-_ssdm_op_SpecInterface(channel_scaled, "s_axilite", 0, 0, "", 0, 4096, "TEST_SCALE", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecResource(channel_scaled, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
-
-
-_ssdm_op_SpecInterface(channel_data, "s_axilite", 0, 0, "", 0, 4096, "TEST_CHAN", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecResource(channel_data, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
-
+_ssdm_op_SpecInterface(norm_out, "m_axi", 0, 0, "", 0, 4096, "OUT", "off", "", 16, 16, 16, 16, "", "");
 
 
  static uint8_t buffer[25];
@@ -24820,21 +24600,13 @@ _ssdm_op_SpecResource(channel_data, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "
     for(int i = 0; i < 25; i++)
     {
      buffer[i] = SBUS_data[i];
-
-
-     norm_out[i] = (0x000000FF & buffer[i]);
-
     }
-# 67 "RC_Receiver/RC_Receiver.cpp"
- if ((buffer[0] == (0x0F)) && (buffer[24] == (0x00)))
+
+    if ((buffer[0] == (0x0F)) && (buffer[24] == (0x00)))
     {
 
 
-     norm_out[25] = 0x45;
-     norm_out[26] = SBUS_data[26];
-     norm_out[27] = SBUS_data[27];
-# 94 "RC_Receiver/RC_Receiver.cpp"
- channels[0] = (( buffer[1] | ( buffer[2]<<8 )) & 0x07FF);
+        channels[0] = (( buffer[1] | ( buffer[2]<<8 )) & 0x07FF);
         channels[1] = ((( buffer[2]>>3 ) | ( buffer[3]<<5 )) & 0x07FF);
         channels[2] = ((((buffer[3]>>6 ) | ( buffer[4]<<2 ) | ( buffer[5]<<10 ))) & 0x07FF);
         channels[3] = ((( buffer[5]>>1 ) | ( buffer[6]<<7 )) & 0x07FF);
@@ -24860,28 +24632,22 @@ _ssdm_op_SpecResource(channel_data, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "
     }
     else
     {
-
-     norm_out[25] = 0x01;
-
         errors++;
     }
 
 
     for(int i = 0; i < 18; i++)
     {
-     channel_scaled[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))),200,1800,0,999);
-
-
-     channel_data[i] = channels[i];
+     norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))),200,1800,0,999);
     }
 
 
-    channel_data[19] = errors;
+    norm_out[4] = selectMotorState(norm_out[4]);
+
+
+    norm_out[5] = selectFlightModeState(norm_out[5]);
 
 }
-
-
-
 
 
 uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo)
@@ -24892,12 +24658,17 @@ uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destF
  return ((a/b) + destFrom);
 }
 
-
-uint8_t reverseBits(uint8_t num)
+motorState_e selectMotorState(uint16_t value)
 {
-    uint8_t reverse_num = 0;
+ uint16_t midValue = 500;
 
-    reverse_num = lookuptable[num];
-# 169 "RC_Receiver/RC_Receiver.cpp"
- return reverse_num;
+ return value < midValue ? MOTOR_OFF : MOTOR_ON;
+}
+
+flightMode_e selectFlightModeState(uint16_t value)
+{
+ uint16_t quarterValue = 250;
+ uint16_t threeQuarterValue = 750;
+
+ return value < quarterValue ? RATE_MODE : value < threeQuarterValue ? HORIZON_MODE : HOR_OBJAVD_MODE;
 }

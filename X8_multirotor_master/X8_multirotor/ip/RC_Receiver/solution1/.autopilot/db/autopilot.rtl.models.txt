@@ -1,6 +1,4 @@
-RC_RECEIVER_mac_mbkb
-RC_RECEIVER_CTRL_s_axi
-RC_RECEIVER_TEST_CHAN_s_axi
-RC_RECEIVER_TEST_NORM_s_axi
-RC_RECEIVER_TEST_SCALE_s_axi
-RC_RECEIVER
+rcReceiver_mac_mubkb
+rcReceiver_CTRL_s_axi
+rcReceiver_OUT_r_m_axi
+rcReceiver

@@ -1,10 +1,7 @@
 #include "stdio.h"
 
-
+// see ./debug/ for debug code
 int main()
 {
-
-	//printf("check");
-
 	return 0;
 }

@@ -1,5 +1,5 @@
 
-set TopModule "RC_RECEIVER"
+set TopModule "rcReceiver"
 set ClockPeriod "10.000000"
 set ClockList {ap_clk}
 set multiClockList {}
@@ -7,7 +7,7 @@ set PortClockMap {}
 set CombLogicFlag 0
 set PipelineFlag 1
 set DataflowTaskPipelineFlag  1
-set TrivialPipelineFlag 1
+set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
 set FloatingPointFlag 0
 set FftOrFirFlag 0

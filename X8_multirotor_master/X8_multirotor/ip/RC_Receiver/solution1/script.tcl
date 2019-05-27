@@ -4,7 +4,7 @@
 ## Copyright (C) 1986-2018 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project RC_Receiver
-set_top RC_RECEIVER
+set_top rcReceiver
 add_files RC_Receiver/RC_Receiver.cpp
 add_files RC_Receiver/RC_Receiver.h
 add_files -tb RC_Receiver/main.cpp -cflags "-Wno-unknown-pragmas -Wno-unknown-pragmas"

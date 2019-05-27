@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'AXI_UART_DRIVER'
 ================================================================
-* Date:           Sun May 26 19:00:28 2019
+* Date:           Sun May 26 19:41:34 2019
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        SBUS_AXI_UART_Driver
@@ -54,18 +54,18 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
 +-----------------+---------+-------+--------+-------+
 |DSP              |        -|      -|       -|      -|
-|Expression       |        -|      -|       0|    116|
+|Expression       |        -|      -|       0|    102|
 |FIFO             |        -|      -|       -|      -|
 |Instance         |        4|      -|    1132|   1440|
 |Memory           |        -|      -|       -|      -|
-|Multiplexer      |        -|      -|       -|    676|
-|Register         |        -|      -|     149|      -|
+|Multiplexer      |        -|      -|       -|    570|
+|Register         |        -|      -|     124|      -|
 +-----------------+---------+-------+--------+-------+
-|Total            |        4|      0|    1281|   2232|
+|Total            |        4|      0|    1256|   2112|
 +-----------------+---------+-------+--------+-------+
 |Available        |      280|    220|  106400|  53200|
 +-----------------+---------+-------+--------+-------+
-|Utilization (%)  |        1|      0|       1|      4|
+|Utilization (%)  |        1|      0|       1|      3|
 +-----------------+---------+-------+--------+-------+
 
 + Detail: 
@@ -93,95 +93,81 @@
     +--------------------------------------+----------+-------+---+----+------------+------------+
     |             Variable Name            | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +--------------------------------------+----------+-------+---+----+------------+------------+
-    |NUM_BYTES_READ_1_fu_463_p2            |     +    |      0|  0|  15|           1|           5|
-    |tmp_2_fu_483_p2                       |     +    |      0|  0|  19|          14|           1|
+    |NUM_BYTES_READ_1_fu_400_p2            |     +    |      0|  0|  15|           1|           5|
+    |tmp_2_fu_420_p2                       |     +    |      0|  0|  19|          14|           1|
     |ap_block_state1_io                    |    and   |      0|  0|   2|           1|           1|
-    |ap_block_state22_io                   |    and   |      0|  0|   2|           1|           1|
-    |ap_block_state28                      |    and   |      0|  0|   2|           1|           1|
-    |ap_block_state36_io                   |    and   |      0|  0|   2|           1|           1|
-    |ap_block_state50_io                   |    and   |      0|  0|   2|           1|           1|
-    |ap_block_state57_io                   |    and   |      0|  0|   2|           1|           1|
-    |ap_block_state70                      |    and   |      0|  0|   2|           1|           1|
-    |ap_block_state70_io                   |    and   |      0|  0|   2|           1|           1|
-    |ap_block_state77                      |    and   |      0|  0|   2|           1|           1|
-    |ap_condition_212                      |    and   |      0|  0|   2|           1|           1|
-    |ap_condition_920                      |    and   |      0|  0|   2|           1|           1|
-    |ap_condition_927                      |    and   |      0|  0|   2|           1|           1|
-    |ap_condition_966                      |    and   |      0|  0|   2|           1|           1|
-    |ap_predicate_op159_writeresp_state28  |    and   |      0|  0|   2|           1|           1|
-    |ap_predicate_op231_writeresp_state70  |    and   |      0|  0|   2|           1|           1|
-    |ap_predicate_op252_writeresp_state77  |    and   |      0|  0|   2|           1|           1|
-    |tmp_5_fu_423_p2                       |   icmp   |      0|  0|  11|           8|           4|
-    |tmp_6_fu_433_p2                       |   icmp   |      0|  0|  11|           5|           4|
-    |tmp_7_fu_477_p2                       |   icmp   |      0|  0|  13|          14|          14|
-    |tmp_fu_387_p2                         |   icmp   |      0|  0|  11|           8|           7|
+    |ap_block_state23_io                   |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state30_io                   |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state44_io                   |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state51_io                   |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state64                      |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_199                      |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_799                      |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_806                      |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op211_writeresp_state64  |    and   |      0|  0|   2|           1|           1|
+    |tmp_5_fu_357_p2                       |   icmp   |      0|  0|  11|           8|           4|
+    |tmp_6_fu_370_p2                       |   icmp   |      0|  0|  11|           5|           4|
+    |tmp_7_fu_414_p2                       |   icmp   |      0|  0|  13|          14|          14|
+    |tmp_fu_321_p2                         |   icmp   |      0|  0|  11|           8|           7|
     |ap_block_state2_io                    |    or    |      0|  0|   2|           1|           1|
-    |ap_predicate_op243_writereq_state70   |    or    |      0|  0|   2|           1|           1|
     +--------------------------------------+----------+-------+---+----+------------+------------+
-    |Total                                 |          |      0|  0| 116|          68|          53|
+    |Total                                 |          |      0|  0| 102|          61|          46|
     +--------------------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
-    +----------------------------------------------+-----+-----------+-----+-----------+
-    |                     Name                     | LUT | Input Size| Bits| Total Bits|
-    +----------------------------------------------+-----+-----------+-----+-----------+
-    |NUM_BYTES_READ_3_reg_319                      |    9|          2|    5|         10|
-    |NUM_BYTES_READ_fu_104                         |    9|          2|    5|         10|
-    |OUT_r_AWADDR                                  |   21|          4|   32|        128|
-    |OUT_r_AWLEN                                   |   15|          3|   32|         96|
-    |OUT_r_WDATA                                   |   27|          5|    8|         40|
-    |OUT_r_blk_n_AW                                |    9|          2|    1|          2|
-    |OUT_r_blk_n_B                                 |    9|          2|    1|          2|
-    |OUT_r_blk_n_W                                 |    9|          2|    1|          2|
-    |UART_ARADDR                                   |   33|          6|   32|        192|
-    |UART_AWADDR                                   |   44|          9|   32|        288|
-    |UART_WDATA                                    |   38|          7|   32|        224|
-    |UART_blk_n_AR                                 |    9|          2|    1|          2|
-    |UART_blk_n_AW                                 |    9|          2|    1|          2|
-    |UART_blk_n_B                                  |    9|          2|    1|          2|
-    |UART_blk_n_R                                  |    9|          2|    1|          2|
-    |UART_blk_n_W                                  |    9|          2|    1|          2|
-    |ap_NS_fsm                                     |  345|         78|    1|         78|
-    |ap_phi_mux_NUM_BYTES_READ_3_ph_phi_fu_312_p4  |    9|          2|    5|         10|
-    |ap_sig_ioackin_OUT_r_AWREADY                  |    9|          2|    1|          2|
-    |ap_sig_ioackin_OUT_r_WREADY                   |    9|          2|    1|          2|
-    |ap_sig_ioackin_UART_ARREADY                   |    9|          2|    1|          2|
-    |ap_sig_ioackin_UART_AWREADY                   |    9|          2|    1|          2|
-    |ap_sig_ioackin_UART_WREADY                    |    9|          2|    1|          2|
-    |cycle_count                                   |    9|          2|   14|         28|
-    +----------------------------------------------+-----+-----------+-----+-----------+
-    |Total                                         |  676|        146|  211|       1130|
-    +----------------------------------------------+-----+-----------+-----+-----------+
+    +------------------------------+-----+-----------+-----+-----------+
+    |             Name             | LUT | Input Size| Bits| Total Bits|
+    +------------------------------+-----+-----------+-----+-----------+
+    |NUM_BYTES_READ_fu_98          |    9|          2|    5|         10|
+    |OUT_r_AWADDR                  |   15|          3|   32|         96|
+    |OUT_r_WDATA                   |   15|          3|    8|         24|
+    |OUT_r_blk_n_AW                |    9|          2|    1|          2|
+    |OUT_r_blk_n_B                 |    9|          2|    1|          2|
+    |OUT_r_blk_n_W                 |    9|          2|    1|          2|
+    |UART_ARADDR                   |   33|          6|   32|        192|
+    |UART_AWADDR                   |   41|          8|   32|        256|
+    |UART_WDATA                    |   38|          7|   32|        224|
+    |UART_blk_n_AR                 |    9|          2|    1|          2|
+    |UART_blk_n_AW                 |    9|          2|    1|          2|
+    |UART_blk_n_B                  |    9|          2|    1|          2|
+    |UART_blk_n_R                  |    9|          2|    1|          2|
+    |UART_blk_n_W                  |    9|          2|    1|          2|
+    |ap_NS_fsm                     |  293|         65|    1|         65|
+    |ap_sig_ioackin_OUT_r_AWREADY  |    9|          2|    1|          2|
+    |ap_sig_ioackin_OUT_r_WREADY   |    9|          2|    1|          2|
+    |ap_sig_ioackin_UART_ARREADY   |    9|          2|    1|          2|
+    |ap_sig_ioackin_UART_AWREADY   |    9|          2|    1|          2|
+    |ap_sig_ioackin_UART_WREADY    |    9|          2|    1|          2|
+    |cycle_count                   |    9|          2|   14|         28|
+    +------------------------------+-----+-----------+-----+-----------+
+    |Total                         |  570|        122|  169|        921|
+    +------------------------------+-----+-----------+-----+-----------+
 
     * Register: 
     +------------------------------+----+----+-----+-----------+
     |             Name             | FF | LUT| Bits| Const Bits|
     +------------------------------+----+----+-----+-----------+
-    |NUM_BYTES_READ_3_ph_reg_309   |   5|   0|    5|          0|
-    |NUM_BYTES_READ_3_reg_319      |   5|   0|    5|          0|
-    |NUM_BYTES_READ_fu_104         |   5|   0|    5|          0|
-    |NUM_BYTES_READ_load_reg_579   |   5|   0|    5|          0|
-    |ap_CS_fsm                     |  77|   0|   77|          0|
+    |NUM_BYTES_READ_fu_98          |   5|   0|    5|          0|
+    |NUM_BYTES_READ_load_reg_501   |   5|   0|    5|          0|
+    |ap_CS_fsm                     |  64|   0|   64|          0|
     |ap_reg_ioackin_OUT_r_AWREADY  |   1|   0|    1|          0|
     |ap_reg_ioackin_OUT_r_WREADY   |   1|   0|    1|          0|
     |ap_reg_ioackin_UART_ARREADY   |   1|   0|    1|          0|
     |ap_reg_ioackin_UART_AWREADY   |   1|   0|    1|          0|
     |ap_reg_ioackin_UART_WREADY    |   1|   0|    1|          0|
     |calibrationSuccess            |   1|   0|    1|          0|
-    |calibrationSuccess_l_reg_548  |   1|   0|    1|          0|
+    |calibrationSuccess_l_reg_470  |   1|   0|    1|          0|
     |cycle_count                   |  14|   0|   14|          0|
     |firstSample                   |   1|   0|    1|          0|
-    |firstSample_load_reg_507      |   1|   0|    1|          0|
-    |temp_reg_539                  |   8|   0|    8|          0|
-    |tmp_10_reg_590                |   1|   0|    1|          0|
-    |tmp_11_reg_594                |   8|   0|    8|          0|
-    |tmp_5_reg_568                 |   1|   0|    1|          0|
-    |tmp_6_reg_586                 |   1|   0|    1|          0|
-    |tmp_8_reg_558                 |   1|   0|    1|          0|
-    |tmp_9_reg_562                 |   8|   0|    8|          0|
-    |tmp_reg_544                   |   1|   0|    1|          0|
+    |temp_reg_462                  |   8|   0|    8|          0|
+    |tmp_10_reg_515                |   8|   0|    8|          0|
+    |tmp_4_reg_480                 |   1|   0|    1|          0|
+    |tmp_5_reg_490                 |   1|   0|    1|          0|
+    |tmp_6_reg_507                 |   1|   0|    1|          0|
+    |tmp_8_reg_484                 |   8|   0|    8|          0|
+    |tmp_9_reg_511                 |   1|   0|    1|          0|
     +------------------------------+----+----+-----+-----------+
-    |Total                         | 149|   0|  149|          0|
+    |Total                         | 124|   0|  124|          0|
     +------------------------------+----+----+-----+-----------+
 
 
