@@ -24392,22 +24392,30 @@ using namespace std;
 # 36 "SBUS_AXI_UART_Driver/AXI_UART_Driver.h"
 void AXI_UART_DRIVER(volatile int uart_bus[4096], uint32_t SBUS_data[4096]);
 
+bool edge2pulse(bool signal);
+# 3 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp" 2
+
+
 
 template <unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL>
-void delay_until_ms(){
+void delay_until_ms()
+{
 
 #pragma HLS INLINE
 #pragma HLS PROTOCOL floating
+
  volatile char dummy;
  ap_uint<64> ctr;
  ap_uint<64> cyc = (F_OVERLAY_HZ * MILLISECONDS / 1000ULL);
- for (ctr = 0; ctr < cyc; ++ctr){
+ for (ctr = 0; ctr < cyc; ++ctr)
+ {
   dummy = dummy;
  }
  return;
 
+
 }
-# 3 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp" 2
+
 
 
 void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
@@ -24419,10 +24427,12 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 #pragma HLS INTERFACE m_axi depth=4096 port=&uart_bus offset=off bundle=UART
 #pragma HLS INTERFACE m_axi depth=4096 port=&SBUS_data offset=off bundle=OUT
-# 23 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
+# 45 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
  static bool calibrationSuccess = false;
  static uint8_t RX_buffer[25] = {0};
  uint8_t DATA_READY = 0;
+ uint32_t NUM_BYTES_READ = 0;
+ static uint32_t cycle_count = 0;
 
 
  static bool firstSample = true;
@@ -24442,7 +24452,10 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
 
 
 
-  uart_bus[(0x1000 >> 2)] = 0x3F;
+
+  uart_bus[(0x1000 >> 2)] = 0x3E;
+
+
 
 
   uart_bus[(0x1004 >> 2)] = 0x00000000;
@@ -24477,7 +24490,7 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
  if (calibrationSuccess)
  {
 
-  if(1)
+  if(0)
   {
    if(0)
    {
@@ -24512,11 +24525,11 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
    {
 
     SBUS_data[0] = 0x0F;
-    SBUS_data[1] = 0x13;
-    SBUS_data[2] = 0x0F;
+    SBUS_data[1] = 0xBC;
+    SBUS_data[2] = 0x1B;
     SBUS_data[3] = 0x1F;
     SBUS_data[4] = 0xFB;
-    SBUS_data[5] = 0xD0;
+    SBUS_data[5] = 0xD6;
     SBUS_data[6] = 0xC7;
     SBUS_data[7] = 0x0A;
     SBUS_data[8] = 0x56;
@@ -24539,24 +24552,48 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
    }
   }
 
+
   DATA_READY = uart_bus[(0x1014 >> 2)];
   if( (DATA_READY & (0x1)) == 1)
   {
-   SBUS_data[0] = uart_bus[(0x1000 >> 2)];
+   SBUS_data[NUM_BYTES_READ] = uart_bus[(0x1000 >> 2)];
 
 
-   if(SBUS_data[0] == (0x0F))
+
+   if(SBUS_data[NUM_BYTES_READ] == (0x0F))
    {
-    for(int index = 1; index < 25; )
+    NUM_BYTES_READ++;
+    while(NUM_BYTES_READ < 25)
+
     {
         DATA_READY = uart_bus[(0x1014 >> 2)];
                     if( (DATA_READY & (0x1)) == 1)
         {
-                        SBUS_data[index++] = uart_bus[(0x1000 >> 2)];
+                        SBUS_data[NUM_BYTES_READ] = uart_bus[(0x1000 >> 2)];
+                        NUM_BYTES_READ++;
+                        cycle_count = 0;
                     }
+                    if(cycle_count > 10000)
+                    {
+                     break;
+                    }
+                    cycle_count++;
     }
    }
+   else
+            {
+
+   }
+
+
+   SBUS_data[26] = 0x45;
+   SBUS_data[27] = NUM_BYTES_READ;
+
   }
+# 215 "SBUS_AXI_UART_Driver/AXI_UART_Driver.cpp"
+  NUM_BYTES_READ = 0;
+
+
     }
     else
     {
@@ -24564,4 +24601,18 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
  }
 
 
+}
+
+
+
+
+bool edge2pulse(bool signal)
+{
+#pragma HLS INTERFACE ap_ctrl_none port=return
+
+ static ap_int<3> reg=0;
+ reg= reg << 1;
+ reg.bit(0)=signal;
+ if(!reg.bit(2) & reg.bit(1)) return true;
+ else return false;
 }

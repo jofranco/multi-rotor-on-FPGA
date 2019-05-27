@@ -25,7 +25,7 @@
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
 // 0x20 ~
-// 0x3f : Memory 'SBUS_data' (25 * 8b)
+// 0x3f : Memory 'SBUS_data' (30 * 8b)
 //        Word n : bit [ 7: 0] - SBUS_data[4n]
 //                 bit [15: 8] - SBUS_data[4n+1]
 //                 bit [23:16] - SBUS_data[4n+2]
@@ -39,7 +39,7 @@
 #define XRC_RECEIVER_CTRL_ADDR_SBUS_DATA_BASE 0x20
 #define XRC_RECEIVER_CTRL_ADDR_SBUS_DATA_HIGH 0x3f
 #define XRC_RECEIVER_CTRL_WIDTH_SBUS_DATA     8
-#define XRC_RECEIVER_CTRL_DEPTH_SBUS_DATA     25
+#define XRC_RECEIVER_CTRL_DEPTH_SBUS_DATA     30
 
 // TEST_CHAN
 // 0x4000 ~
@@ -63,14 +63,14 @@
 #define XRC_RECEIVER_TEST_NORM_WIDTH_NORM_OUT     32
 #define XRC_RECEIVER_TEST_NORM_DEPTH_NORM_OUT     4096
 
-// TEST_REV
+// TEST_SCALE
 // 0x4000 ~
-// 0x7fff : Memory 'reverse_out' (4096 * 32b)
-//          Word n : bit [31:0] - reverse_out[n]
+// 0x7fff : Memory 'channel_scaled_V' (4096 * 32b)
+//          Word n : bit [31:0] - channel_scaled_V[n]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE 0x4000
-#define XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_HIGH 0x7fff
-#define XRC_RECEIVER_TEST_REV_WIDTH_REVERSE_OUT     32
-#define XRC_RECEIVER_TEST_REV_DEPTH_REVERSE_OUT     4096
+#define XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE 0x4000
+#define XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_HIGH 0x7fff
+#define XRC_RECEIVER_TEST_SCALE_WIDTH_CHANNEL_SCALED_V     32
+#define XRC_RECEIVER_TEST_SCALE_DEPTH_CHANNEL_SCALED_V     4096
 

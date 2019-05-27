@@ -546,11 +546,11 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>s_axi_TEST_REV</spirit:name>
+      <spirit:name>s_axi_TEST_SCALE</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm_rtl" spirit:version="1.0"/>
       <spirit:slave>
-        <spirit:memoryMapRef spirit:memoryMapRef="s_axi_TEST_REV"/>
+        <spirit:memoryMapRef spirit:memoryMapRef="s_axi_TEST_SCALE"/>
       </spirit:slave>
       <spirit:portMaps>
         <spirit:portMap>
@@ -558,7 +558,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>AWADDR</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_AWADDR</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_AWADDR</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -566,7 +566,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>AWVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_AWVALID</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_AWVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -574,7 +574,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>AWREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_AWREADY</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_AWREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -582,7 +582,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>WDATA</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_WDATA</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_WDATA</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -590,7 +590,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>WSTRB</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_WSTRB</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_WSTRB</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -598,7 +598,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>WVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_WVALID</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_WVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -606,7 +606,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>WREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_WREADY</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_WREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -614,7 +614,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>BRESP</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_BRESP</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_BRESP</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -622,7 +622,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>BVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_BVALID</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_BVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -630,7 +630,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>BREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_BREADY</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_BREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -638,7 +638,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>ARADDR</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_ARADDR</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_ARADDR</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -646,7 +646,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>ARVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_ARVALID</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_ARVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -654,7 +654,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>ARREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_ARREADY</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_ARREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -662,7 +662,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>RDATA</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_RDATA</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_RDATA</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -670,7 +670,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>RRESP</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_RRESP</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_RRESP</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -678,7 +678,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>RVALID</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_RVALID</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_RVALID</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -686,30 +686,30 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
             <spirit:name>RREADY</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>s_axi_TEST_REV_RREADY</spirit:name>
+            <spirit:name>s_axi_TEST_SCALE_RREADY</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ADDR_WIDTH</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_REV.ADDR_WIDTH">15</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_SCALE.ADDR_WIDTH">15</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>DATA_WIDTH</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_REV.DATA_WIDTH">32</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_SCALE.DATA_WIDTH">32</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>PROTOCOL</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_REV.PROTOCOL">AXI4LITE</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_SCALE.PROTOCOL">AXI4LITE</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>READ_WRITE_MODE</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_REV.READ_WRITE_MODE">READ_WRITE</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_SCALE.READ_WRITE_MODE">READ_WRITE</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>LAYERED_METADATA</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_REV.LAYERED_METADATA">xilinx.com:interface:datatypes:1.0 {AWVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} AWREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolv
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI_TEST_SCALE.LAYERED_METADATA">xilinx.com:interface:datatypes:1.0 {AWVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} AWREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolv
 e_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} WVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} WR
 EADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} BVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format lo
 ng minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} BREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} BRESP {datatype {name {attribs {resolve_ty
@@ -718,10 +718,10 @@ ue {}} bitwidth {attribs {resolve_type immediate dependency {} format long minim
 imum {} maximum {}} value 0}}} RVALID {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} RREADY {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type 
 immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} RRESP {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {sig
 ned {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} AWADDR {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 15} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool mini
-mum {} maximum {}} value false}}}} WDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} WSTRB {datatype {name {attribs {r
-esolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 4} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} ARADDR {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum
- {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 15} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} RDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency 
-{} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}</spirit:value>
+mum {} maximum {}} value false}}}} WDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} signed {attribs {resolve_type i
+mmediate dependency {} format bool minimum {} maximum {}} value true}}}}} WSTRB {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 4} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false
+}}}} ARADDR {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 15} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} RDATA {datatype {name {attribs {resolve_type immediate depende
+ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -743,7 +743,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_BUSIF">s_axi_CTRL:s_axi_TEST_CHAN:s_axi_TEST_NORM:s_axi_TEST_REV</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.AP_CLK.ASSOCIATED_BUSIF">s_axi_CTRL:s_axi_TEST_CHAN:s_axi_TEST_NORM:s_axi_TEST_SCALE</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
@@ -1147,7 +1147,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
       </spirit:addressBlock>
     </spirit:memoryMap>
     <spirit:memoryMap>
-      <spirit:name>s_axi_TEST_REV</spirit:name>
+      <spirit:name>s_axi_TEST_SCALE</spirit:name>
       <spirit:addressBlock>
         <spirit:name>Reg</spirit:name>
         <spirit:baseAddress spirit:format="long">0</spirit:baseAddress>
@@ -1158,17 +1158,17 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>OFFSET_BASE_PARAM</spirit:name>
-            <spirit:value spirit:id="ADDRBLOCKPARAM_VALUE.S_AXI_TEST_REV.REG.OFFSET_BASE_PARAM">C_S_AXI_TEST_REV_BASEADDR</spirit:value>
+            <spirit:value spirit:id="ADDRBLOCKPARAM_VALUE.S_AXI_TEST_SCALE.REG.OFFSET_BASE_PARAM">C_S_AXI_TEST_SCALE_BASEADDR</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>OFFSET_HIGH_PARAM</spirit:name>
-            <spirit:value spirit:id="ADDRBLOCKPARAM_VALUE.S_AXI_TEST_REV.REG.OFFSET_HIGH_PARAM">C_S_AXI_TEST_REV_HIGHADDR</spirit:value>
+            <spirit:value spirit:id="ADDRBLOCKPARAM_VALUE.S_AXI_TEST_SCALE.REG.OFFSET_HIGH_PARAM">C_S_AXI_TEST_SCALE_HIGHADDR</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
         <spirit:register>
-          <spirit:name>Memory_reverse_out</spirit:name>
-          <spirit:displayName>Memory_reverse_out</spirit:displayName>
-          <spirit:description>Memory reverse_out</spirit:description>
+          <spirit:name>Memory_channel_scaled_V</spirit:name>
+          <spirit:displayName>Memory_channel_scaled_V</spirit:displayName>
+          <spirit:description>Memory channel_scaled_V</spirit:description>
           <spirit:addressOffset>16384</spirit:addressOffset>
           <spirit:size spirit:format="long">16384</spirit:size>
           <spirit:access>read-write</spirit:access>
@@ -1193,7 +1193,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4e62926f</spirit:value>
+            <spirit:value>cbbb9290</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1209,7 +1209,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0b99deee</spirit:value>
+            <spirit:value>2430e0f8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1225,7 +1225,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>be4345fe</spirit:value>
+            <spirit:value>d3bc403b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1241,7 +1241,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>12261583</spirit:value>
+            <spirit:value>5ffd4cca</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1255,7 +1255,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1f35cc57</spirit:value>
+            <spirit:value>f5647d23</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1291,7 +1291,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>af04521e</spirit:value>
+            <spirit:value>8a696150</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2059,11 +2059,11 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_AWADDR</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_AWADDR</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_REV_ADDR_WIDTH&apos;)) - 1)">14</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_ADDR_WIDTH&apos;)) - 1)">14</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -2076,7 +2076,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_AWVALID</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_AWVALID</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -2089,7 +2089,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_AWREADY</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_AWREADY</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -2102,11 +2102,11 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_WDATA</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_WDATA</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_REV_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -2119,11 +2119,11 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_WSTRB</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_WSTRB</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_REV_DATA_WIDTH&apos;)) div 8) - 1)">3</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_DATA_WIDTH&apos;)) div 8) - 1)">3</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -2136,7 +2136,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_WVALID</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_WVALID</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -2149,7 +2149,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_WREADY</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_WREADY</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -2162,110 +2162,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_BRESP</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">1</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>s_axi_TEST_REV_BVALID</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>s_axi_TEST_REV_BREADY</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>s_axi_TEST_REV_ARADDR</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_REV_ADDR_WIDTH&apos;)) - 1)">14</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>s_axi_TEST_REV_ARVALID</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>s_axi_TEST_REV_ARREADY</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>s_axi_TEST_REV_RDATA</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_REV_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>s_axi_TEST_REV_RRESP</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_BRESP</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -2282,7 +2179,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_RVALID</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_BVALID</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -2295,7 +2192,110 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>s_axi_TEST_REV_RREADY</spirit:name>
+        <spirit:name>s_axi_TEST_SCALE_BREADY</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_TEST_SCALE_ARADDR</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_ADDR_WIDTH&apos;)) - 1)">14</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_TEST_SCALE_ARVALID</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_TEST_SCALE_ARREADY</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_TEST_SCALE_RDATA</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_DATA_WIDTH&apos;)) - 1)">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_TEST_SCALE_RRESP</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_TEST_SCALE_RVALID</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axi_TEST_SCALE_RREADY</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -2373,12 +2373,12 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:value spirit:format="long" spirit:id="MODELPARAM_VALUE.C_S_AXI_TEST_NORM_DATA_WIDTH">32</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_S_AXI_TEST_REV_ADDR_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_TEST_REV_ADDR_WIDTH">15</spirit:value>
+        <spirit:name>C_S_AXI_TEST_SCALE_ADDR_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_ADDR_WIDTH">15</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>C_S_AXI_TEST_REV_DATA_WIDTH</spirit:name>
-        <spirit:value spirit:format="long" spirit:id="MODELPARAM_VALUE.C_S_AXI_TEST_REV_DATA_WIDTH">32</spirit:value>
+        <spirit:name>C_S_AXI_TEST_SCALE_DATA_WIDTH</spirit:name>
+        <spirit:value spirit:format="long" spirit:id="MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_DATA_WIDTH">32</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -2395,12 +2395,8 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/RC_RECEIVER_lookubkb.v</spirit:name>
+        <spirit:name>hdl/verilog/RC_RECEIVER_mac_mbkb.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/RC_RECEIVER_lookubkb_rom.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/RC_RECEIVER_TEST_CHAN_s_axi.v</spirit:name>
@@ -2411,7 +2407,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/RC_RECEIVER_TEST_REV_s_axi.v</spirit:name>
+        <spirit:name>hdl/verilog/RC_RECEIVER_TEST_SCALE_s_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2427,13 +2423,9 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/RC_RECEIVER_lookubkb.v</spirit:name>
+        <spirit:name>hdl/verilog/RC_RECEIVER_mac_mbkb.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/RC_RECEIVER_lookubkb_rom.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/RC_RECEIVER_TEST_CHAN_s_axi.v</spirit:name>
@@ -2446,7 +2438,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/RC_RECEIVER_TEST_REV_s_axi.v</spirit:name>
+        <spirit:name>hdl/verilog/RC_RECEIVER_TEST_SCALE_s_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2468,7 +2460,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/RC_RECEIVER_lookubkb.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/RC_RECEIVER_mac_mbkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2480,13 +2472,13 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/RC_RECEIVER_TEST_REV_s_axi.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/RC_RECEIVER_TEST_SCALE_s_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/RC_RECEIVER.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_4ea2e9f0</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_d15e9465</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -2497,7 +2489,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/RC_RECEIVER_lookubkb.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/RC_RECEIVER_mac_mbkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2512,7 +2504,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/RC_RECEIVER_TEST_REV_s_axi.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/RC_RECEIVER_TEST_SCALE_s_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2576,7 +2568,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
       <spirit:file>
         <spirit:name>xgui/RC_RECEIVER_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_af04521e</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_8a696150</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -2609,11 +2601,11 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">50</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">45</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>II</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="6">51</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="6">46</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -2626,17 +2618,17 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
       </xilinx:taxonomies>
       <xilinx:displayName>Rc_receiver</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1905210002</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-05-21T07:02:06Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1905261846</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-05-27T01:46:20Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="b6933b35"/>
-      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="e99d0316"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a08515ae"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="0b004c54"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="bba257b0"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2f7d95c1"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="6b3e2303"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="789e411c"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b3bea199"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="d6c38990"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="22f312d8"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="fc1610f0"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

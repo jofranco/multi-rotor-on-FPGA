@@ -13,4 +13,7 @@ obj/RC_Receiver.o: ../../../RC_Receiver.cpp ../../../RC_Receiver.h \
  C:/CAD/Vivado/2018.2/include/etc/ap_private.h \
  C:/CAD/Vivado/2018.2/include/hls_half.h \
  C:/CAD/Vivado/2018.2/include/ap_common.h \
- C:/CAD/Vivado/2018.2/include/ap_int_special.h
+ C:/CAD/Vivado/2018.2/include/ap_int_special.h \
+ C:/CAD/Vivado/2018.2/include/ap_fixed.h \
+ C:/CAD/Vivado/2018.2/include/ap_int.h \
+ C:/CAD/Vivado/2018.2/include/ap_fixed_special.h

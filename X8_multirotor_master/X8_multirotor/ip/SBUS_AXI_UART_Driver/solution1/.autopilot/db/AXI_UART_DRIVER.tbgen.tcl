@@ -276,7 +276,8 @@ set RtlHierarchyInfo {[
 					{"Name" : "OUT_r_blk_n_W", "Type" : "RtlSignal"},
 					{"Name" : "OUT_r_blk_n_B", "Type" : "RtlSignal"}]},
 			{"Name" : "firstSample", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "calibrationSuccess", "Type" : "OVld", "Direction" : "IO"}]},
+			{"Name" : "calibrationSuccess", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "cycle_count", "Type" : "OVld", "Direction" : "IO"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.AXI_UART_DRIVER_CTRL_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.AXI_UART_DRIVER_UART_m_axi_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.AXI_UART_DRIVER_OUT_r_m_axi_U", "Parent" : "0"}]}
@@ -284,10 +285,11 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	AXI_UART_DRIVER {
-		UART {Type IO LastRead 85 FirstWrite 1}
-		OUT_r {Type O LastRead 87 FirstWrite 28}
+		UART {Type IO LastRead 63 FirstWrite 1}
+		OUT_r {Type O LastRead 72 FirstWrite 43}
 		firstSample {Type IO LastRead -1 FirstWrite -1}
-		calibrationSuccess {Type IO LastRead -1 FirstWrite -1}}}
+		calibrationSuccess {Type IO LastRead -1 FirstWrite -1}
+		cycle_count {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

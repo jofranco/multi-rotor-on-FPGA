@@ -67,7 +67,7 @@ end entity RC_RECEIVER_CTRL_s_axi;
 --        bit 1  - Channel 1 (ap_ready)
 --        others - reserved
 -- 0x20 ~
--- 0x3f : Memory 'SBUS_data' (25 * 8b)
+-- 0x3f : Memory 'SBUS_data' (30 * 8b)
 --        Word n : bit [ 7: 0] - SBUS_data[4n]
 --                 bit [15: 8] - SBUS_data[4n+1]
 --                 bit [23:16] - SBUS_data[4n+2]
@@ -164,8 +164,8 @@ begin
 int_SBUS_data : RC_RECEIVER_CTRL_s_axi_ram
 generic map (
      BYTES    => 4,
-     DEPTH    => 7,
-     AWIDTH   => log2(7))
+     DEPTH    => 8,
+     AWIDTH   => log2(8))
 port map (
      clk0     => ACLK,
      address0 => int_SBUS_data_address0,

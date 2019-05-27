@@ -17,7 +17,7 @@ int XRc_receiver_CfgInitialize(XRc_receiver *InstancePtr, XRc_receiver_Config *C
     InstancePtr->Ctrl_BaseAddress = ConfigPtr->Ctrl_BaseAddress;
     InstancePtr->Test_chan_BaseAddress = ConfigPtr->Test_chan_BaseAddress;
     InstancePtr->Test_norm_BaseAddress = ConfigPtr->Test_norm_BaseAddress;
-    InstancePtr->Test_rev_BaseAddress = ConfigPtr->Test_rev_BaseAddress;
+    InstancePtr->Test_scale_BaseAddress = ConfigPtr->Test_scale_BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -364,97 +364,97 @@ u32 XRc_receiver_Read_norm_out_Bytes(XRc_receiver *InstancePtr, int offset, char
     return length;
 }
 
-u32 XRc_receiver_Get_reverse_out_BaseAddress(XRc_receiver *InstancePtr) {
+u32 XRc_receiver_Get_channel_scaled_V_BaseAddress(XRc_receiver *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return (InstancePtr->Test_rev_BaseAddress + XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE);
+    return (InstancePtr->Test_scale_BaseAddress + XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE);
 }
 
-u32 XRc_receiver_Get_reverse_out_HighAddress(XRc_receiver *InstancePtr) {
+u32 XRc_receiver_Get_channel_scaled_V_HighAddress(XRc_receiver *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return (InstancePtr->Test_rev_BaseAddress + XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_HIGH);
+    return (InstancePtr->Test_scale_BaseAddress + XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_HIGH);
 }
 
-u32 XRc_receiver_Get_reverse_out_TotalBytes(XRc_receiver *InstancePtr) {
+u32 XRc_receiver_Get_channel_scaled_V_TotalBytes(XRc_receiver *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return (XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_HIGH - XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE + 1);
+    return (XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_HIGH - XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE + 1);
 }
 
-u32 XRc_receiver_Get_reverse_out_BitWidth(XRc_receiver *InstancePtr) {
+u32 XRc_receiver_Get_channel_scaled_V_BitWidth(XRc_receiver *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return XRC_RECEIVER_TEST_REV_WIDTH_REVERSE_OUT;
+    return XRC_RECEIVER_TEST_SCALE_WIDTH_CHANNEL_SCALED_V;
 }
 
-u32 XRc_receiver_Get_reverse_out_Depth(XRc_receiver *InstancePtr) {
+u32 XRc_receiver_Get_channel_scaled_V_Depth(XRc_receiver *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return XRC_RECEIVER_TEST_REV_DEPTH_REVERSE_OUT;
+    return XRC_RECEIVER_TEST_SCALE_DEPTH_CHANNEL_SCALED_V;
 }
 
-u32 XRc_receiver_Write_reverse_out_Words(XRc_receiver *InstancePtr, int offset, int *data, int length) {
+u32 XRc_receiver_Write_channel_scaled_V_Words(XRc_receiver *InstancePtr, int offset, int *data, int length) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
 
     int i;
 
-    if ((offset + length)*4 > (XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_HIGH - XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE + 1))
+    if ((offset + length)*4 > (XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_HIGH - XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE + 1))
         return 0;
 
     for (i = 0; i < length; i++) {
-        *(int *)(InstancePtr->Test_rev_BaseAddress + XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE + (offset + i)*4) = *(data + i);
+        *(int *)(InstancePtr->Test_scale_BaseAddress + XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE + (offset + i)*4) = *(data + i);
     }
     return length;
 }
 
-u32 XRc_receiver_Read_reverse_out_Words(XRc_receiver *InstancePtr, int offset, int *data, int length) {
+u32 XRc_receiver_Read_channel_scaled_V_Words(XRc_receiver *InstancePtr, int offset, int *data, int length) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
 
     int i;
 
-    if ((offset + length)*4 > (XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_HIGH - XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE + 1))
+    if ((offset + length)*4 > (XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_HIGH - XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE + 1))
         return 0;
 
     for (i = 0; i < length; i++) {
-        *(data + i) = *(int *)(InstancePtr->Test_rev_BaseAddress + XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE + (offset + i)*4);
+        *(data + i) = *(int *)(InstancePtr->Test_scale_BaseAddress + XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE + (offset + i)*4);
     }
     return length;
 }
 
-u32 XRc_receiver_Write_reverse_out_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length) {
+u32 XRc_receiver_Write_channel_scaled_V_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
 
     int i;
 
-    if ((offset + length) > (XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_HIGH - XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE + 1))
+    if ((offset + length) > (XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_HIGH - XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE + 1))
         return 0;
 
     for (i = 0; i < length; i++) {
-        *(char *)(InstancePtr->Test_rev_BaseAddress + XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE + offset + i) = *(data + i);
+        *(char *)(InstancePtr->Test_scale_BaseAddress + XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE + offset + i) = *(data + i);
     }
     return length;
 }
 
-u32 XRc_receiver_Read_reverse_out_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length) {
+u32 XRc_receiver_Read_channel_scaled_V_Bytes(XRc_receiver *InstancePtr, int offset, char *data, int length) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
 
     int i;
 
-    if ((offset + length) > (XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_HIGH - XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE + 1))
+    if ((offset + length) > (XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_HIGH - XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE + 1))
         return 0;
 
     for (i = 0; i < length; i++) {
-        *(data + i) = *(char *)(InstancePtr->Test_rev_BaseAddress + XRC_RECEIVER_TEST_REV_ADDR_REVERSE_OUT_BASE + offset + i);
+        *(data + i) = *(char *)(InstancePtr->Test_scale_BaseAddress + XRC_RECEIVER_TEST_SCALE_ADDR_CHANNEL_SCALED_V_BASE + offset + i);
     }
     return length;
 }

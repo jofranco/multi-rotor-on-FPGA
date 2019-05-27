@@ -29,9 +29,9 @@ proc update_MODELPARAM_VALUE.C_S_AXI_TEST_NORM_ADDR_WIDTH { MODELPARAM_VALUE.C_S
 set_property value 15 ${MODELPARAM_VALUE.C_S_AXI_TEST_NORM_ADDR_WIDTH}
 }
 
-proc update_MODELPARAM_VALUE.C_S_AXI_TEST_REV_ADDR_WIDTH { MODELPARAM_VALUE.C_S_AXI_TEST_REV_ADDR_WIDTH } {
+proc update_MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_ADDR_WIDTH { MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_ADDR_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	# WARNING: There is no corresponding user parameter named "C_S_AXI_TEST_REV_ADDR_WIDTH". Setting updated value from the model parameter.
-set_property value 15 ${MODELPARAM_VALUE.C_S_AXI_TEST_REV_ADDR_WIDTH}
+	# WARNING: There is no corresponding user parameter named "C_S_AXI_TEST_SCALE_ADDR_WIDTH". Setting updated value from the model parameter.
+set_property value 15 ${MODELPARAM_VALUE.C_S_AXI_TEST_SCALE_ADDR_WIDTH}
 }
 

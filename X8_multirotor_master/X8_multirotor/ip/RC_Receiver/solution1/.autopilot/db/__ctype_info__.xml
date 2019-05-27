@@ -20,13 +20,13 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>reverse_out</name>
+<name>channel_scaled_V</name>
 <CType>
-<TypeName>unsigned int</TypeName>
+<TypeName>ap_fixed 32 16 5 3 0</TypeName>
 <TypeWidth>32</TypeWidth>
 <PhysicalWidth>32</PhysicalWidth>
 </CType>
-<CFractionWidth>0</CFractionWidth>
+<CFractionWidth>16</CFractionWidth>
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>

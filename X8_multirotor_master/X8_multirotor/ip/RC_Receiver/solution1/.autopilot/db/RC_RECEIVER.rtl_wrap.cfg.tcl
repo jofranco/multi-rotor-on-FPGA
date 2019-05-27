@@ -11,7 +11,7 @@ set Const0 "0"
 set Volatile0 "0"
 set Pointer0 "0"
 set Reference0 "0"
-set Dims0 [list 25]
+set Dims0 [list 30]
 set Interface0 "wire"
 set DataType0 "unsigned char"
 set Port0 [list $PortName0 $Interface0 $DataType0 $Pointer0 $Dims0 $Const0 $Volatile0 $ArrayOpt0]
@@ -28,7 +28,7 @@ set Interface1 "wire"
 set DataType1 "unsigned int"
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
-set PortName2 "reverse_out"
+set PortName2 "channel_scaled"
 set BitWidth2 "64"
 set ArrayOpt2 ""
 set Const2 "0"
@@ -37,7 +37,7 @@ set Pointer2 "0"
 set Reference2 "0"
 set Dims2 [list 4096]
 set Interface2 "wire"
-set DataType2 "unsigned int"
+set DataType2 "[list ap_fixed 32 16 5 3 0 ]"
 set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2]
 lappend PortList $Port2
 set PortName3 "channel_data"
@@ -56,7 +56,7 @@ set globalAPint ""
 set returnAPInt "" 
 set hasCPPAPInt 0 
 set argAPInt "" 
-set hasCPPAPFix 0 
+set hasCPPAPFix 1 
 set hasSCFix 0 
 set hasCBool 0 
 set hasCPPComplex 0 

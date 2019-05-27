@@ -137,9 +137,9 @@ int XRc_receiver_Initialize(XRc_receiver *InstancePtr, const char* InstanceName)
     InstancePtr->Test_norm_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[2].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 2 * getpagesize());
     assert(InstancePtr->Test_norm_BaseAddress);
 
-    // NOTE: slave interface 'Test_rev' should be mapped to uioX/map3
-    InstancePtr->Test_rev_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[3].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 3 * getpagesize());
-    assert(InstancePtr->Test_rev_BaseAddress);
+    // NOTE: slave interface 'Test_scale' should be mapped to uioX/map3
+    InstancePtr->Test_scale_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[3].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 3 * getpagesize());
+    assert(InstancePtr->Test_scale_BaseAddress);
 
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
@@ -155,7 +155,7 @@ int XRc_receiver_Release(XRc_receiver *InstancePtr) {
     munmap((void*)InstancePtr->Ctrl_BaseAddress, InfoPtr->maps[0].size);
     munmap((void*)InstancePtr->Test_chan_BaseAddress, InfoPtr->maps[1].size);
     munmap((void*)InstancePtr->Test_norm_BaseAddress, InfoPtr->maps[2].size);
-    munmap((void*)InstancePtr->Test_rev_BaseAddress, InfoPtr->maps[3].size);
+    munmap((void*)InstancePtr->Test_scale_BaseAddress, InfoPtr->maps[3].size);
 
     close(InfoPtr->uio_fd);
 
