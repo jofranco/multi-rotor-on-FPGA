@@ -2,7 +2,9 @@
 #ifndef X8_COMMON_HPP /* prevent circular inclusions */
 #define X8_COMMON_HPP /* by using protection macros */
 
-
+#include "ap_utils.h"
+#include "ap_int.h"
+#include "stdint.h"
 #include "ap_fixed.h"
 
 #define SIZE_4k     4096
