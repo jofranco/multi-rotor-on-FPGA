@@ -125,21 +125,13 @@ int XPid_Initialize(XPid *InstancePtr, const char* InstanceName) {
         return XST_OPEN_DEVICE_FAILED;
     }
 
-    // NOTE: slave interface 'Cmd' should be mapped to uioX/map0
-    InstancePtr->Cmd_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[0].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 0 * getpagesize());
-    assert(InstancePtr->Cmd_BaseAddress);
-
-    // NOTE: slave interface 'Ctrl' should be mapped to uioX/map1
-    InstancePtr->Ctrl_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[1].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 1 * getpagesize());
+    // NOTE: slave interface 'Ctrl' should be mapped to uioX/map0
+    InstancePtr->Ctrl_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[0].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 0 * getpagesize());
     assert(InstancePtr->Ctrl_BaseAddress);
 
-    // NOTE: slave interface 'Gains' should be mapped to uioX/map2
-    InstancePtr->Gains_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[2].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 2 * getpagesize());
-    assert(InstancePtr->Gains_BaseAddress);
-
-    // NOTE: slave interface 'Meas' should be mapped to uioX/map3
-    InstancePtr->Meas_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[3].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 3 * getpagesize());
-    assert(InstancePtr->Meas_BaseAddress);
+    // NOTE: slave interface 'Input' should be mapped to uioX/map1
+    InstancePtr->Input_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[1].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 1 * getpagesize());
+    assert(InstancePtr->Input_BaseAddress);
 
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
@@ -152,10 +144,8 @@ int XPid_Release(XPid *InstancePtr) {
     assert(InstancePtr != NULL);
     assert(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    munmap((void*)InstancePtr->Cmd_BaseAddress, InfoPtr->maps[0].size);
-    munmap((void*)InstancePtr->Ctrl_BaseAddress, InfoPtr->maps[1].size);
-    munmap((void*)InstancePtr->Gains_BaseAddress, InfoPtr->maps[2].size);
-    munmap((void*)InstancePtr->Meas_BaseAddress, InfoPtr->maps[3].size);
+    munmap((void*)InstancePtr->Ctrl_BaseAddress, InfoPtr->maps[0].size);
+    munmap((void*)InstancePtr->Input_BaseAddress, InfoPtr->maps[1].size);
 
     close(InfoPtr->uio_fd);
 

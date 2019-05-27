@@ -2,6 +2,7 @@
 #include "ap_utils.h"
 #include "ap_int.h"
 #include "stdint.h"
+#include "ap_fixed.h"
 
 #define SIZE_4k     4096
 #define SIZE_8k     8192
@@ -19,6 +20,15 @@
 #define ARM_CHAN    		 4
 #define MODE_CHAN 			 5
 
+// type definitions
+typedef ap_fixed<128,96> F128_t;
+typedef ap_fixed<64,32> F64_t;
+typedef ap_fixed<32, 16> F32_t;
+typedef ap_fixed<19, 4> F19_t;
+typedef ap_fixed<16,1> F16_t;
+
+typedef ap_uint<6> uint6_t;
+
 
 typedef enum
 {
@@ -32,3 +42,9 @@ typedef enum
 	HORIZON_MODE,
 	HOR_OBJAVD_MODE
 }flightMode_e;
+
+// function declarations
+// scales raw RC channel data to [0:1)
+uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
+
+

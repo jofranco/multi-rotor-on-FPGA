@@ -1,5 +1,5 @@
-# 1 "pid.cpp"
-# 1 "pid.cpp" 1
+# 1 "PID/pid.cpp"
+# 1 "PID/pid.cpp" 1
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 152 "<built-in>" 3
@@ -145,13 +145,759 @@ extern "C" {
 }
 # 9 "<command line>" 2
 # 1 "<built-in>" 2
-# 1 "pid.cpp" 2
+# 1 "PID/pid.cpp" 2
+
+# 1 "PID/pid.hpp" 1
+
+# 1 "PID/../common/x8_common.hpp" 1
+
+# 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 1
+# 59 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h"
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
 
 
-# 1 "./pid.hpp" 1
 
 
 
+
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3
+# 10 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include/_mingw_mac.h" 1 3
+# 10 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3
+# 277 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 1 3
+# 13 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 3
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3
+# 674 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include/sdks/_mingw_directx.h" 1 3
+# 674 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include/sdks/_mingw_ddk.h" 1 3
+# 675 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3
+# 13 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 2 3
+
+
+#pragma pack(push,_CRT_PACKING)
+
+
+extern "C" {
+
+
+
+
+
+  typedef __builtin_va_list __gnuc_va_list;
+
+
+
+
+
+
+  typedef __gnuc_va_list va_list;
+# 99 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 3
+}
+
+
+#pragma pack(pop)
+# 277 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3
+
+
+#pragma pack(push,_CRT_PACKING)
+# 370 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+__extension__ typedef unsigned long long size_t;
+# 380 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+__extension__ typedef long long ssize_t;
+# 392 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+__extension__ typedef long long intptr_t;
+# 405 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+__extension__ typedef unsigned long long uintptr_t;
+# 418 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+__extension__ typedef long long ptrdiff_t;
+# 436 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+typedef unsigned short wint_t;
+typedef unsigned short wctype_t;
+# 456 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+typedef int errno_t;
+
+
+
+
+typedef long __time32_t;
+
+
+
+
+__extension__ typedef long long __time64_t;
+
+
+
+
+
+
+
+typedef __time64_t time_t;
+# 607 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
+struct threadlocaleinfostruct;
+struct threadmbcinfostruct;
+typedef struct threadlocaleinfostruct *pthreadlocinfo;
+typedef struct threadmbcinfostruct *pthreadmbcinfo;
+struct __lc_time_data;
+
+typedef struct localeinfo_struct {
+  pthreadlocinfo locinfo;
+  pthreadmbcinfo mbcinfo;
+} _locale_tstruct,*_locale_t;
+
+
+
+typedef struct tagLC_ID {
+  unsigned short wLanguage;
+  unsigned short wCountry;
+  unsigned short wCodePage;
+} LC_ID,*LPLC_ID;
+
+
+
+
+typedef struct threadlocaleinfostruct {
+  int refcount;
+  unsigned int lc_codepage;
+  unsigned int lc_collate_cp;
+  unsigned long lc_handle[6];
+  LC_ID lc_id[6];
+  struct {
+    char *locale;
+    wchar_t *wlocale;
+    int *refcount;
+    int *wrefcount;
+  } lc_category[6];
+  int lc_clike;
+  int mb_cur_max;
+  int *lconv_intl_refcount;
+  int *lconv_num_refcount;
+  int *lconv_mon_refcount;
+  struct lconv *lconv;
+  int *ctype1_refcount;
+  unsigned short *ctype1;
+  const unsigned short *pctype;
+  const unsigned char *pclmap;
+  const unsigned char *pcumap;
+  struct __lc_time_data *lc_time_curr;
+} threadlocinfo;
+
+
+
+extern "C" {
+
+
+
+const char *__mingw_get_crt_info (void);
+
+
+}
+
+
+#pragma pack(pop)
+# 9 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 2 3
+
+
+
+extern "C" {
+# 36 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 3
+  __attribute__ ((__dllimport__)) void * _memccpy(void *_Dst,const void *_Src,int _Val,size_t _MaxCount);
+                void * memchr(const void *_Buf ,int _Val,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) int _memicmp(const void *_Buf1,const void *_Buf2,size_t _Size);
+  __attribute__ ((__dllimport__)) int _memicmp_l(const void *_Buf1,const void *_Buf2,size_t _Size,_locale_t _Locale);
+  int memcmp(const void *_Buf1,const void *_Buf2,size_t _Size);
+  void * memcpy(void * __restrict__ _Dst,const void * __restrict__ _Src,size_t _Size) ;
+  void * memset(void *_Dst,int _Val,size_t _Size);
+
+  void * memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size) ;
+  int memicmp(const void *_Buf1,const void *_Buf2,size_t _Size) ;
+
+
+  char * _strset(char *_Str,int _Val) ;
+  char * _strset_l(char *_Str,int _Val,_locale_t _Locale) ;
+  char * strcpy(char * __restrict__ _Dest,const char * __restrict__ _Source);
+  char * strcat(char * __restrict__ _Dest,const char * __restrict__ _Source);
+  int strcmp(const char *_Str1,const char *_Str2);
+  size_t strlen(const char *_Str);
+  size_t strnlen(const char *_Str,size_t _MaxCount);
+  void * memmove(void *_Dst,const void *_Src,size_t _Size) ;
+  __attribute__ ((__dllimport__)) char * _strdup(const char *_Src);
+                char * strchr(const char *_Str,int _Val);
+  __attribute__ ((__dllimport__)) int _stricmp(const char *_Str1,const char *_Str2);
+  __attribute__ ((__dllimport__)) int _strcmpi(const char *_Str1,const char *_Str2);
+  __attribute__ ((__dllimport__)) int _stricmp_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
+  int strcoll(const char *_Str1,const char *_Str2);
+  __attribute__ ((__dllimport__)) int _strcoll_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
+  __attribute__ ((__dllimport__)) int _stricoll(const char *_Str1,const char *_Str2);
+  __attribute__ ((__dllimport__)) int _stricoll_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
+  __attribute__ ((__dllimport__)) int _strncoll (const char *_Str1,const char *_Str2,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) int _strncoll_l(const char *_Str1,const char *_Str2,size_t _MaxCount,_locale_t _Locale);
+  __attribute__ ((__dllimport__)) int _strnicoll (const char *_Str1,const char *_Str2,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) int _strnicoll_l(const char *_Str1,const char *_Str2,size_t _MaxCount,_locale_t _Locale);
+  size_t strcspn(const char *_Str,const char *_Control);
+  __attribute__ ((__dllimport__)) char * _strerror(const char *_ErrMsg) ;
+  char * strerror(int) ;
+  __attribute__ ((__dllimport__)) char * _strlwr(char *_String) ;
+  char *strlwr_l(char *_String,_locale_t _Locale) ;
+  char * strncat(char * __restrict__ _Dest,const char * __restrict__ _Source,size_t _Count) ;
+  int strncmp(const char *_Str1,const char *_Str2,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) int _strnicmp(const char *_Str1,const char *_Str2,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) int _strnicmp_l(const char *_Str1,const char *_Str2,size_t _MaxCount,_locale_t _Locale);
+  char *strncpy(char * __restrict__ _Dest,const char * __restrict__ _Source,size_t _Count) ;
+  __attribute__ ((__dllimport__)) char * _strnset(char *_Str,int _Val,size_t _MaxCount) ;
+  __attribute__ ((__dllimport__)) char * _strnset_l(char *str,int c,size_t count,_locale_t _Locale) ;
+                char * strpbrk(const char *_Str,const char *_Control);
+                char * strrchr(const char *_Str,int _Ch);
+  __attribute__ ((__dllimport__)) char * _strrev(char *_Str);
+  size_t strspn(const char *_Str,const char *_Control);
+                char * strstr(const char *_Str,const char *_SubStr);
+  char * strtok(char * __restrict__ _Str,const char * __restrict__ _Delim) ;
+  __attribute__ ((__dllimport__)) char * _strupr(char *_String) ;
+  __attribute__ ((__dllimport__)) char *_strupr_l(char *_String,_locale_t _Locale) ;
+  size_t strxfrm(char * __restrict__ _Dst,const char * __restrict__ _Src,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) size_t _strxfrm_l(char * __restrict__ _Dst,const char * __restrict__ _Src,size_t _MaxCount,_locale_t _Locale);
+
+
+  char * strdup(const char *_Src) ;
+  int strcmpi(const char *_Str1,const char *_Str2) ;
+  int stricmp(const char *_Str1,const char *_Str2) ;
+  char * strlwr(char *_Str) ;
+  int strnicmp(const char *_Str1,const char *_Str,size_t _MaxCount) ;
+  int strncasecmp (const char *, const char *, size_t);
+  int strcasecmp (const char *, const char *);
+
+
+
+
+
+
+
+  char * strnset(char *_Str,int _Val,size_t _MaxCount) ;
+  char * strrev(char *_Str) ;
+  char * strset(char *_Str,int _Val) ;
+  char * strupr(char *_Str) ;
+
+
+
+
+
+  __attribute__ ((__dllimport__)) wchar_t * _wcsdup(const wchar_t *_Str);
+  wchar_t * wcscat(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source) ;
+                wchar_t * wcschr(const wchar_t *_Str,wchar_t _Ch);
+  int wcscmp(const wchar_t *_Str1,const wchar_t *_Str2);
+  wchar_t * wcscpy(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source) ;
+  size_t wcscspn(const wchar_t *_Str,const wchar_t *_Control);
+  size_t wcslen(const wchar_t *_Str);
+  size_t wcsnlen(const wchar_t *_Src,size_t _MaxCount);
+  wchar_t *wcsncat(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source,size_t _Count) ;
+  int wcsncmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
+  wchar_t *wcsncpy(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source,size_t _Count) ;
+  wchar_t * _wcsncpy_l(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source,size_t _Count,_locale_t _Locale) ;
+                wchar_t * wcspbrk(const wchar_t *_Str,const wchar_t *_Control);
+                wchar_t * wcsrchr(const wchar_t *_Str,wchar_t _Ch);
+  size_t wcsspn(const wchar_t *_Str,const wchar_t *_Control);
+                wchar_t * wcsstr(const wchar_t *_Str,const wchar_t *_SubStr);
+  wchar_t * wcstok(wchar_t * __restrict__ _Str,const wchar_t * __restrict__ _Delim) ;
+  __attribute__ ((__dllimport__)) wchar_t * _wcserror(int _ErrNum) ;
+  __attribute__ ((__dllimport__)) wchar_t * __wcserror(const wchar_t *_Str) ;
+  __attribute__ ((__dllimport__)) int _wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2);
+  __attribute__ ((__dllimport__)) int _wcsicmp_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
+  __attribute__ ((__dllimport__)) int _wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) int _wcsnicmp_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
+  __attribute__ ((__dllimport__)) wchar_t * _wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount) ;
+  __attribute__ ((__dllimport__)) wchar_t * _wcsrev(wchar_t *_Str);
+  __attribute__ ((__dllimport__)) wchar_t * _wcsset(wchar_t *_Str,wchar_t _Val) ;
+  __attribute__ ((__dllimport__)) wchar_t * _wcslwr(wchar_t *_String) ;
+  __attribute__ ((__dllimport__)) wchar_t *_wcslwr_l(wchar_t *_String,_locale_t _Locale) ;
+  __attribute__ ((__dllimport__)) wchar_t * _wcsupr(wchar_t *_String) ;
+  __attribute__ ((__dllimport__)) wchar_t *_wcsupr_l(wchar_t *_String,_locale_t _Locale) ;
+  size_t wcsxfrm(wchar_t * __restrict__ _Dst,const wchar_t * __restrict__ _Src,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) size_t _wcsxfrm_l(wchar_t * __restrict__ _Dst,const wchar_t * __restrict__ _Src,size_t _MaxCount,_locale_t _Locale);
+  int wcscoll(const wchar_t *_Str1,const wchar_t *_Str2);
+  __attribute__ ((__dllimport__)) int _wcscoll_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
+  __attribute__ ((__dllimport__)) int _wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2);
+  __attribute__ ((__dllimport__)) int _wcsicoll_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
+  __attribute__ ((__dllimport__)) int _wcsncoll(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) int _wcsncoll_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
+  __attribute__ ((__dllimport__)) int _wcsnicoll(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
+  __attribute__ ((__dllimport__)) int _wcsnicoll_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
+
+
+  wchar_t * wcsdup(const wchar_t *_Str) ;
+
+  int wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2) ;
+  int wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount) ;
+  wchar_t * wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount) ;
+  wchar_t * wcsrev(wchar_t *_Str) ;
+  wchar_t * wcsset(wchar_t *_Str,wchar_t _Val) ;
+  wchar_t * wcslwr(wchar_t *_Str) ;
+  wchar_t * wcsupr(wchar_t *_Str) ;
+  int wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2) ;
+
+
+
+
+}
+
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/string_s.h" 1 3
+
+
+
+
+
+
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
+# 9 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/string_s.h" 2 3
+# 175 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 2 3
+# 60 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 2
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 1 3
+
+
+
+
+
+
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3
+# 9 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw_print_push.h" 1 3
+# 11 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
+
+
+#pragma pack(push,_CRT_PACKING)
+
+
+extern "C" {
+# 26 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
+  struct _iobuf {
+    char *_ptr;
+    int _cnt;
+    char *_base;
+    int _flag;
+    int _file;
+    int _charbuf;
+    int _bufsiz;
+    char *_tmpfname;
+  };
+  typedef struct _iobuf FILE;
+# 84 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
+  typedef long _off_t;
+
+  typedef long off_t;
+
+
+
+
+
+
+  __extension__ typedef long long _off64_t;
+
+  __extension__ typedef long long off64_t;
+
+
+
+
+
+  __attribute__ ((__dllimport__)) FILE * __iob_func(void);
+# 120 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
+  __extension__ typedef long long fpos_t;
+# 157 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
+  __attribute__ ((__dllimport__)) int _filbuf(FILE *_File);
+  __attribute__ ((__dllimport__)) int _flsbuf(int _Ch,FILE *_File);
+
+
+
+  __attribute__ ((__dllimport__)) FILE * _fsopen(const char *_Filename,const char *_Mode,int _ShFlag);
+
+  void clearerr(FILE *_File);
+  int fclose(FILE *_File);
+  __attribute__ ((__dllimport__)) int _fcloseall(void);
+
+
+
+  __attribute__ ((__dllimport__)) FILE * _fdopen(int _FileHandle,const char *_Mode);
+
+  int feof(FILE *_File);
+  int ferror(FILE *_File);
+  int fflush(FILE *_File);
+  int fgetc(FILE *_File);
+  __attribute__ ((__dllimport__)) int _fgetchar(void);
+  int fgetpos(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos);
+  char * fgets(char * __restrict__ _Buf,int _MaxCount,FILE * __restrict__ _File);
+  __attribute__ ((__dllimport__)) int _fileno(FILE *_File);
+
+
+
+  __attribute__ ((__dllimport__)) char * _tempnam(const char *_DirName,const char *_FilePrefix);
+  __attribute__ ((__dllimport__)) int _flushall(void);
+  FILE * fopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode) ;
+  FILE *fopen64(const char * __restrict__ filename,const char * __restrict__ mode);
+  int fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
+  int fputc(int _Ch,FILE *_File);
+  __attribute__ ((__dllimport__)) int _fputchar(int _Ch);
+  int fputs(const char * __restrict__ _Str,FILE * __restrict__ _File);
+  size_t fread(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
+  FILE * freopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode,FILE * __restrict__ _File) ;
+  int fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...) ;
+  int _fscanf_l(FILE * __restrict__ _File,const char * __restrict__ _Format,_locale_t locale,...) ;
+  int fsetpos(FILE *_File,const fpos_t *_Pos);
+  int fseek(FILE *_File,long _Offset,int _Origin);
+  int fseeko64(FILE* stream, _off64_t offset, int whence);
+  long ftell(FILE *_File);
+  _off64_t ftello64(FILE * stream);
+  __extension__ int _fseeki64(FILE *_File,long long _Offset,int _Origin);
+  __extension__ long long _ftelli64(FILE *_File);
+  size_t fwrite(const void * __restrict__ _Str,size_t _Size,size_t _Count,FILE * __restrict__ _File);
+  int getc(FILE *_File);
+  int getchar(void);
+  __attribute__ ((__dllimport__)) int _getmaxstdio(void);
+  char * gets(char *_Buffer) ;
+  int _getw(FILE *_File);
+
+
+  void perror(const char *_ErrMsg);
+
+  __attribute__ ((__dllimport__)) int _pclose(FILE *_File);
+  __attribute__ ((__dllimport__)) FILE * _popen(const char *_Command,const char *_Mode);
+
+
+
+
+  int printf(const char * __restrict__ _Format,...);
+  int putc(int _Ch,FILE *_File);
+  int putchar(int _Ch);
+  int puts(const char *_Str);
+  __attribute__ ((__dllimport__)) int _putw(int _Word,FILE *_File);
+
+
+  int remove(const char *_Filename);
+  int rename(const char *_OldFilename,const char *_NewFilename);
+  __attribute__ ((__dllimport__)) int _unlink(const char *_Filename);
+
+  int unlink(const char *_Filename) ;
+
+
+  void rewind(FILE *_File);
+  __attribute__ ((__dllimport__)) int _rmtmp(void);
+  int scanf(const char * __restrict__ _Format,...) ;
+  int _scanf_l(const char * __restrict__ format,_locale_t locale,... ) ;
+  void setbuf(FILE * __restrict__ _File,char * __restrict__ _Buffer) ;
+  __attribute__ ((__dllimport__)) int _setmaxstdio(int _Max);
+  __attribute__ ((__dllimport__)) unsigned int _set_output_format(unsigned int _Format);
+  __attribute__ ((__dllimport__)) unsigned int _get_output_format(void);
+  unsigned int __mingw_set_output_format(unsigned int _Format);
+  unsigned int __mingw_get_output_format(void);
+
+
+
+
+  int setvbuf(FILE * __restrict__ _File,char * __restrict__ _Buf,int _Mode,size_t _Size);
+  __attribute__ ((__dllimport__)) int _scprintf(const char * __restrict__ _Format,...);
+  int sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...) ;
+  int _sscanf_l(const char * __restrict__ buffer,const char * __restrict__ format,_locale_t locale,...) ;
+  __attribute__ ((__dllimport__)) int _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...) ;
+  __attribute__ ((__dllimport__)) int _snscanf_l(const char * __restrict__ input,size_t length,const char * __restrict__ format,_locale_t locale,...) ;
+  FILE * tmpfile(void) ;
+  char * tmpnam(char *_Buffer);
+  int ungetc(int _Ch,FILE *_File);
+  int vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList);
+  int vprintf(const char * __restrict__ _Format,va_list _ArgList);
+
+
+  extern
+    __attribute__((__format__ (gnu_printf, 3, 0))) __attribute__ ((__nonnull__ (3)))
+    int __mingw_vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,
+      va_list _ArgList);
+  extern
+    __attribute__((__format__ (gnu_printf, 3, 4))) __attribute__ ((__nonnull__ (3)))
+    int __mingw_snprintf(char * __restrict__ s, size_t n, const char * __restrict__ format, ...);
+  extern
+    __attribute__((__format__ (gnu_printf, 1, 2))) __attribute__ ((__nonnull__ (1)))
+    int __mingw_printf(const char * __restrict__ , ... ) __attribute__ ((__nothrow__));
+  extern
+    __attribute__((__format__ (gnu_printf, 1, 0))) __attribute__ ((__nonnull__ (1)))
+    int __mingw_vprintf (const char * __restrict__ , va_list) __attribute__ ((__nothrow__));
+  extern
+    __attribute__((__format__ (gnu_printf, 2, 3))) __attribute__ ((__nonnull__ (2)))
+    int __mingw_fprintf (FILE * __restrict__ , const char * __restrict__ , ...) __attribute__ ((__nothrow__));
+  extern
+    __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__ ((__nonnull__ (2)))
+    int __mingw_vfprintf (FILE * __restrict__ , const char * __restrict__ , va_list) __attribute__ ((__nothrow__));
+  extern
+    __attribute__((__format__ (gnu_printf, 2, 3))) __attribute__ ((__nonnull__ (2)))
+    int __mingw_sprintf (char * __restrict__ , const char * __restrict__ , ...) __attribute__ ((__nothrow__));
+  extern
+    __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__ ((__nonnull__ (2)))
+    int __mingw_vsprintf (char * __restrict__ , const char * __restrict__ , va_list) __attribute__ ((__nothrow__));
+
+  __attribute__ ((__dllimport__)) int _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...) ;
+  __attribute__ ((__dllimport__)) int _snprintf_l(char * __restrict__ buffer,size_t count,const char * __restrict__ format,_locale_t locale,...) ;
+  __attribute__ ((__dllimport__)) int _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) ;
+  __attribute__ ((__dllimport__)) int _vsnprintf_l(char * __restrict__ buffer,size_t count,const char * __restrict__ format,_locale_t locale,va_list argptr) ;
+  int sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,...) ;
+  int _sprintf_l(char * __restrict__ buffer,const char * __restrict__ format,_locale_t locale,...) ;
+  int vsprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,va_list _Args) ;
+
+
+
+
+
+
+
+  int vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,va_list _ArgList) ;
+
+  int snprintf(char * __restrict__ s, size_t n, const char * __restrict__ format, ...);
+# 312 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
+  int vscanf(const char * __restrict__ Format, va_list argp);
+  int vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
+  int vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
+
+  __attribute__ ((__dllimport__)) int _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _set_printf_count_output(int _Value);
+  __attribute__ ((__dllimport__)) int _get_printf_count_output(void);
+# 330 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
+  __attribute__ ((__dllimport__)) FILE * _wfsopen(const wchar_t *_Filename,const wchar_t *_Mode,int _ShFlag);
+
+
+  wint_t fgetwc(FILE *_File);
+  __attribute__ ((__dllimport__)) wint_t _fgetwchar(void);
+  wint_t fputwc(wchar_t _Ch,FILE *_File);
+  __attribute__ ((__dllimport__)) wint_t _fputwchar(wchar_t _Ch);
+  wint_t getwc(FILE *_File);
+  wint_t getwchar(void);
+  wint_t putwc(wchar_t _Ch,FILE *_File);
+  wint_t putwchar(wchar_t _Ch);
+  wint_t ungetwc(wint_t _Ch,FILE *_File);
+  wchar_t * fgetws(wchar_t * __restrict__ _Dst,int _SizeInWords,FILE * __restrict__ _File);
+  int fputws(const wchar_t * __restrict__ _Str,FILE * __restrict__ _File);
+  __attribute__ ((__dllimport__)) wchar_t * _getws(wchar_t *_String) ;
+  __attribute__ ((__dllimport__)) int _putws(const wchar_t *_Str);
+  int fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  int wprintf(const wchar_t * __restrict__ _Format,...);
+  __attribute__ ((__dllimport__)) int _scwprintf(const wchar_t * __restrict__ _Format,...);
+  int vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
+  int vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...) ;
+  __attribute__ ((__dllimport__)) int _swprintf_l(wchar_t * __restrict__ buffer,size_t count,const wchar_t * __restrict__ format,_locale_t locale,... ) ;
+  __attribute__ ((__dllimport__)) int vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list) ;
+  __attribute__ ((__dllimport__)) int _swprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,...);
+  __attribute__ ((__dllimport__)) int _vswprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) ;
+  __attribute__ ((__dllimport__)) int _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) ;
+
+
+
+
+
+  int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
+  int vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
+# 373 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
+  int vwscanf (const wchar_t * __restrict__ , va_list);
+  int vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+  int vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+
+  __attribute__ ((__dllimport__)) int _fwprintf_p(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+  __attribute__ ((__dllimport__)) int _wprintf_p(const wchar_t * __restrict__ _Format,...);
+  __attribute__ ((__dllimport__)) int _vfwprintf_p(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _vwprintf_p(const wchar_t * __restrict__ _Format,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _swprintf_p(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
+  __attribute__ ((__dllimport__)) int _vswprintf_p(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _scwprintf_p(const wchar_t * __restrict__ _Format,...);
+  __attribute__ ((__dllimport__)) int _vscwprintf_p(const wchar_t * __restrict__ _Format,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _wprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  __attribute__ ((__dllimport__)) int _wprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  __attribute__ ((__dllimport__)) int _vwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _vwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _fwprintf_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  __attribute__ ((__dllimport__)) int _fwprintf_p_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  __attribute__ ((__dllimport__)) int _vfwprintf_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _vfwprintf_p_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _swprintf_c_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  __attribute__ ((__dllimport__)) int _swprintf_p_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  __attribute__ ((__dllimport__)) int _vswprintf_c_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _vswprintf_p_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _scwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  __attribute__ ((__dllimport__)) int _scwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  __attribute__ ((__dllimport__)) int _vscwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _snwprintf_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  __attribute__ ((__dllimport__)) int _vsnwprintf_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList) ;
+  __attribute__ ((__dllimport__)) int _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...);
+  __attribute__ ((__dllimport__)) int _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args);
+  __attribute__ ((__dllimport__)) int __swprintf_l(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,_locale_t _Plocinfo,...) ;
+  __attribute__ ((__dllimport__)) int _vswprintf_l(wchar_t * __restrict__ buffer,size_t count,const wchar_t * __restrict__ format,_locale_t locale,va_list argptr) ;
+  __attribute__ ((__dllimport__)) int __vswprintf_l(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,_locale_t _Plocinfo,va_list _Args) ;
+# 417 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
+  __attribute__ ((__dllimport__)) wchar_t * _wtempnam(const wchar_t *_Directory,const wchar_t *_FilePrefix);
+  __attribute__ ((__dllimport__)) int _vscwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+  __attribute__ ((__dllimport__)) int _vscwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
+  int fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...) ;
+  __attribute__ ((__dllimport__)) int _fwscanf_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,...) ;
+  int swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...) ;
+  __attribute__ ((__dllimport__)) int _swscanf_l(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,_locale_t _Locale,...) ;
+  __attribute__ ((__dllimport__)) int _snwscanf(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
+  __attribute__ ((__dllimport__)) int _snwscanf_l(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
+  int wscanf(const wchar_t * __restrict__ _Format,...) ;
+  __attribute__ ((__dllimport__)) int _wscanf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...) ;
+  __attribute__ ((__dllimport__)) FILE * _wfdopen(int _FileHandle ,const wchar_t *_Mode);
+  __attribute__ ((__dllimport__)) FILE * _wfopen(const wchar_t * __restrict__ _Filename,const wchar_t *__restrict__ _Mode) ;
+  __attribute__ ((__dllimport__)) FILE * _wfreopen(const wchar_t * __restrict__ _Filename,const wchar_t * __restrict__ _Mode,FILE * __restrict__ _OldFile) ;
+
+
+
+  __attribute__ ((__dllimport__)) void _wperror(const wchar_t *_ErrMsg);
+
+  __attribute__ ((__dllimport__)) FILE * _wpopen(const wchar_t *_Command,const wchar_t *_Mode);
+
+
+
+
+  __attribute__ ((__dllimport__)) int _wremove(const wchar_t *_Filename);
+  __attribute__ ((__dllimport__)) wchar_t * _wtmpnam(wchar_t *_Buffer);
+  __attribute__ ((__dllimport__)) wint_t _fgetwc_nolock(FILE *_File);
+  __attribute__ ((__dllimport__)) wint_t _fputwc_nolock(wchar_t _Ch,FILE *_File);
+  __attribute__ ((__dllimport__)) wint_t _ungetwc_nolock(wint_t _Ch,FILE *_File);
+# 475 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
+  __attribute__ ((__dllimport__)) void _lock_file(FILE *_File);
+  __attribute__ ((__dllimport__)) void _unlock_file(FILE *_File);
+  __attribute__ ((__dllimport__)) int _fclose_nolock(FILE *_File);
+  __attribute__ ((__dllimport__)) int _fflush_nolock(FILE *_File);
+  __attribute__ ((__dllimport__)) size_t _fread_nolock(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
+  __attribute__ ((__dllimport__)) int _fseek_nolock(FILE *_File,long _Offset,int _Origin);
+  __attribute__ ((__dllimport__)) long _ftell_nolock(FILE *_File);
+  __extension__ __attribute__ ((__dllimport__)) int _fseeki64_nolock(FILE *_File,long long _Offset,int _Origin);
+  __extension__ __attribute__ ((__dllimport__)) long long _ftelli64_nolock(FILE *_File);
+  __attribute__ ((__dllimport__)) size_t _fwrite_nolock(const void * __restrict__ _DstBuf,size_t _Size,size_t _Count,FILE * __restrict__ _File);
+  __attribute__ ((__dllimport__)) int _ungetc_nolock(int _Ch,FILE *_File);
+
+
+
+
+
+  char * tempnam(const char *_Directory,const char *_FilePrefix) ;
+  int fcloseall(void) ;
+  FILE * fdopen(int _FileHandle,const char *_Format) ;
+  int fgetchar(void) ;
+  int fileno(FILE *_File) ;
+  int flushall(void) ;
+  int fputchar(int _Ch) ;
+  int getw(FILE *_File) ;
+  int putw(int _Ch,FILE *_File) ;
+  int rmtmp(void) ;
+
+
+
+}
+
+
+#pragma pack(pop)
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/stdio_s.h" 1 3
+
+
+
+
+
+
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 1 3
+# 9 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/stdio_s.h" 2 3
+# 509 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw_print_pop.h" 1 3
+# 511 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
+# 61 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 2
+# 73 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h"
+# 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot/etc/autopilot_enum.h" 1
+# 58 "C:/CAD/Vivado/2018.2/common/technology/autopilot/etc/autopilot_enum.h"
+enum SsdmDataTypes {
+    _ssdm_sc_int = 0,
+    _ssdm_c_int = _ssdm_sc_int,
+    _ssdm_sc_uint = 1,
+    _ssdm_c_uint = _ssdm_sc_uint,
+    _ssdm_sc_bigint = 2,
+    _ssdm_sc_biguint = 3,
+};
+
+
+
+enum SsdmPortTypes {
+    _ssdm_sc_in = 0,
+    _ssdm_sc_out = 1,
+    _ssdm_sc_inout = 2,
+    _ssdm_sc_in_clk,
+
+    _ssdm_fifo_in,
+    _ssdm_sc_fifo_in = _ssdm_fifo_in,
+    _ssdm_tlm_fifo_in = _ssdm_fifo_in,
+    _ssdm_fifo_out,
+    _ssdm_sc_fifo_out = _ssdm_fifo_out,
+    _ssdm_tlm_fifo_out = _ssdm_fifo_out,
+    _ssdm_fifo_inout,
+    _ssdm_sc_fifo_inout = _ssdm_fifo_inout,
+    _ssdm_tlm_fifo_inout = _ssdm_fifo_inout,
+    _ssdm_sc_bus,
+    _ssdm_hls_bus_port = _ssdm_sc_bus,
+    _ssdm_AXI4M_bus_port = _ssdm_sc_bus,
+    _ssdm_port_end,
+};
+
+
+
+enum SsdmProcessTypes {
+    _ssdm_method = 0,
+    _ssdm_sc_method = _ssdm_method,
+    _ssdm_thread = 1,
+    _ssdm_sc_thread = _ssdm_thread,
+    _ssdm_cthread = 2,
+    _ssdm_sc_cthread = _ssdm_cthread,
+    _ssdm_process_end,
+};
+
+
+
+enum SsdmSensitiveTypes {
+    _ssdm_sensitive = 0,
+    _ssdm_sensitive_pos,
+    _ssdm_sensitive_neg,
+    _ssdm_sensitive_reset0,
+    _ssdm_sensitive_reset1,
+    _ssdm_sensitive_end,
+};
+
+
+
+enum SsdmChannelTypes {
+    _ssdm_sc_sig,
+    _ssdm_fifo,
+    _ssdm_sc_fifo = _ssdm_fifo,
+    _ssdm_mem_fifo,
+    _ssdm_sc_mem_fifo = _ssdm_mem_fifo,
+};
+
+
+enum SsdmRegionTypes {
+    _ssdm_region_reset,
+    _ssdm_region_protocol,
+    _ssdm_region_pipeline,
+    _ssdm_region_parallel,
+};
+# 74 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 2
+# 2 "PID/../common/x8_common.hpp" 2
 
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 1
 # 63 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h"
@@ -705,143 +1451,6 @@ namespace __gnu_cxx {
 
 
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3
-# 10 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include/_mingw_mac.h" 1 3
-# 10 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3
-# 277 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 1 3
-# 13 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 3
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3
-# 674 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include/sdks/_mingw_directx.h" 1 3
-# 674 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include/sdks/_mingw_ddk.h" 1 3
-# 675 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3
-# 13 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 2 3
-
-
-#pragma pack(push,_CRT_PACKING)
-
-
-extern "C" {
-
-
-
-
-
-  typedef __builtin_va_list __gnuc_va_list;
-
-
-
-
-
-
-  typedef __gnuc_va_list va_list;
-# 99 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\vadefs.h" 3
-}
-
-
-#pragma pack(pop)
-# 277 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 2 3
-
-
-#pragma pack(push,_CRT_PACKING)
-# 370 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-__extension__ typedef unsigned long long size_t;
-# 380 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-__extension__ typedef long long ssize_t;
-# 392 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-__extension__ typedef long long intptr_t;
-# 405 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-__extension__ typedef unsigned long long uintptr_t;
-# 418 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-__extension__ typedef long long ptrdiff_t;
-# 436 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-typedef unsigned short wint_t;
-typedef unsigned short wctype_t;
-# 456 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-typedef int errno_t;
-
-
-
-
-typedef long __time32_t;
-
-
-
-
-__extension__ typedef long long __time64_t;
-
-
-
-
-
-
-
-typedef __time64_t time_t;
-# 607 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 3
-struct threadlocaleinfostruct;
-struct threadmbcinfostruct;
-typedef struct threadlocaleinfostruct *pthreadlocinfo;
-typedef struct threadmbcinfostruct *pthreadmbcinfo;
-struct __lc_time_data;
-
-typedef struct localeinfo_struct {
-  pthreadlocinfo locinfo;
-  pthreadmbcinfo mbcinfo;
-} _locale_tstruct,*_locale_t;
-
-
-
-typedef struct tagLC_ID {
-  unsigned short wLanguage;
-  unsigned short wCountry;
-  unsigned short wCodePage;
-} LC_ID,*LPLC_ID;
-
-
-
-
-typedef struct threadlocaleinfostruct {
-  int refcount;
-  unsigned int lc_codepage;
-  unsigned int lc_collate_cp;
-  unsigned long lc_handle[6];
-  LC_ID lc_id[6];
-  struct {
-    char *locale;
-    wchar_t *wlocale;
-    int *refcount;
-    int *wrefcount;
-  } lc_category[6];
-  int lc_clike;
-  int mb_cur_max;
-  int *lconv_intl_refcount;
-  int *lconv_num_refcount;
-  int *lconv_mon_refcount;
-  struct lconv *lconv;
-  int *ctype1_refcount;
-  unsigned short *ctype1;
-  const unsigned short *pctype;
-  const unsigned char *pclmap;
-  const unsigned char *pcumap;
-  struct __lc_time_data *lc_time_curr;
-} threadlocinfo;
-
-
-
-extern "C" {
-
-
-
-const char *__mingw_get_crt_info (void);
-
-
-}
-
-
-#pragma pack(pop)
 # 12 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\math.h" 2 3
 
 
@@ -2018,24 +2627,6 @@ namespace std {
 
 
 extern "C" {
-# 27 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\wchar.h" 3
-  struct _iobuf {
-    char *_ptr;
-    int _cnt;
-    char *_base;
-    int _flag;
-    int _file;
-    int _charbuf;
-    int _bufsiz;
-    char *_tmpfname;
-  };
-  typedef struct _iobuf FILE;
-
-
-
-
-
-  __attribute__ ((__dllimport__)) FILE * __iob_func(void);
 # 66 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\wchar.h" 3
   typedef unsigned long _fsize_t;
 
@@ -2199,25 +2790,6 @@ extern "C" {
   typedef unsigned int _dev_t;
 
   typedef unsigned int dev_t;
-
-
-
-
-
-
-
-  typedef long _off_t;
-
-  typedef long off_t;
-
-
-
-
-
-
-  __extension__ typedef long long _off64_t;
-
-  __extension__ typedef long long off64_t;
 # 412 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\wchar.h" 3
   struct _stat32 {
     _dev_t st_dev;
@@ -2317,107 +2889,6 @@ extern "C" {
   wint_t _getwch_nolock(void);
   wint_t _getwche_nolock(void);
   wint_t _ungetwch_nolock(wint_t _WCh);
-# 540 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\wchar.h" 3
-  __attribute__ ((__dllimport__)) FILE * _wfsopen(const wchar_t *_Filename,const wchar_t *_Mode,int _ShFlag);
-
-
-  wint_t fgetwc(FILE *_File);
-  __attribute__ ((__dllimport__)) wint_t _fgetwchar(void);
-  wint_t fputwc(wchar_t _Ch,FILE *_File);
-  __attribute__ ((__dllimport__)) wint_t _fputwchar(wchar_t _Ch);
-  wint_t getwc(FILE *_File);
-  wint_t getwchar(void);
-  wint_t putwc(wchar_t _Ch,FILE *_File);
-  wint_t putwchar(wchar_t _Ch);
-  wint_t ungetwc(wint_t _Ch,FILE *_File);
-  wchar_t * fgetws(wchar_t * __restrict__ _Dst,int _SizeInWords,FILE * __restrict__ _File);
-  int fputws(const wchar_t * __restrict__ _Str,FILE * __restrict__ _File);
-  __attribute__ ((__dllimport__)) wchar_t * _getws(wchar_t *_String) ;
-  __attribute__ ((__dllimport__)) int _putws(const wchar_t *_Str);
-  int fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-  int wprintf(const wchar_t * __restrict__ _Format,...);
-  __attribute__ ((__dllimport__)) int _scwprintf(const wchar_t * __restrict__ _Format,...);
-  int vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
-  int vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...) ;
-  __attribute__ ((__dllimport__)) int _swprintf_l(wchar_t * __restrict__ ,size_t _SizeInWords,const wchar_t * __restrict__ _Format,_locale_t _Locale,... ) ;
-  __attribute__ ((__dllimport__)) int vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list) ;
-  __attribute__ ((__dllimport__)) int _swprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,...);
-  __attribute__ ((__dllimport__)) int _vswprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) ;
-  __attribute__ ((__dllimport__)) int _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) ;
-
-  int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
-  int vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
-
-
-
-
-
-
-  int vwscanf (const wchar_t * __restrict__ , va_list);
-  int vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
-  int vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
-
-  __attribute__ ((__dllimport__)) int _fwprintf_p(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-  __attribute__ ((__dllimport__)) int _wprintf_p(const wchar_t * __restrict__ _Format,...);
-  __attribute__ ((__dllimport__)) int _vfwprintf_p(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _vwprintf_p(const wchar_t * __restrict__ _Format,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _swprintf_p(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
-  __attribute__ ((__dllimport__)) int _vswprintf_p(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _scwprintf_p(const wchar_t * __restrict__ _Format,...);
-  __attribute__ ((__dllimport__)) int _vscwprintf_p(const wchar_t * __restrict__ _Format,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _wprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  __attribute__ ((__dllimport__)) int _wprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  __attribute__ ((__dllimport__)) int _vwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _vwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _fwprintf_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  __attribute__ ((__dllimport__)) int _fwprintf_p_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  __attribute__ ((__dllimport__)) int _vfwprintf_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _vfwprintf_p_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _swprintf_c_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  __attribute__ ((__dllimport__)) int _swprintf_p_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  __attribute__ ((__dllimport__)) int _vswprintf_c_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _vswprintf_p_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _scwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  __attribute__ ((__dllimport__)) int _scwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  __attribute__ ((__dllimport__)) int _vscwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _snwprintf_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  __attribute__ ((__dllimport__)) int _vsnwprintf_l(wchar_t * __restrict__ _DstBuf,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList) ;
-  __attribute__ ((__dllimport__)) int _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...);
-  __attribute__ ((__dllimport__)) int _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args);
-  __attribute__ ((__dllimport__)) int __swprintf_l(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,_locale_t _Plocinfo,...) ;
-  __attribute__ ((__dllimport__)) int _vswprintf_l(wchar_t * __restrict__ _Dest,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList) ;
-  __attribute__ ((__dllimport__)) int __vswprintf_l(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,_locale_t _Plocinfo,va_list _Args) ;
-# 621 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\wchar.h" 3
-  __attribute__ ((__dllimport__)) wchar_t * _wtempnam(const wchar_t *_Directory,const wchar_t *_FilePrefix);
-  __attribute__ ((__dllimport__)) int _vscwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _vscwprintf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
-  int fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...) ;
-  __attribute__ ((__dllimport__)) int _fwscanf_l(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,_locale_t _Locale,...) ;
-  int swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...) ;
-  __attribute__ ((__dllimport__)) int _swscanf_l(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,_locale_t _Locale,...) ;
-  __attribute__ ((__dllimport__)) int _snwscanf(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
-  __attribute__ ((__dllimport__)) int _snwscanf_l(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
-  int wscanf(const wchar_t * __restrict__ _Format,...) ;
-  __attribute__ ((__dllimport__)) int _wscanf_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...) ;
-  __attribute__ ((__dllimport__)) FILE * _wfdopen(int _FileHandle ,const wchar_t *_Mode);
-  __attribute__ ((__dllimport__)) FILE * _wfopen(const wchar_t * __restrict__ _Filename,const wchar_t * __restrict__ _Mode) ;
-  __attribute__ ((__dllimport__)) FILE * _wfreopen(const wchar_t * __restrict__ _Filename,const wchar_t * __restrict__ _Mode,FILE * __restrict__ _OldFile) ;
-
-
-
-  __attribute__ ((__dllimport__)) void _wperror(const wchar_t *_ErrMsg);
-
-  __attribute__ ((__dllimport__)) FILE * _wpopen(const wchar_t *_Command,const wchar_t *_Mode);
-
-
-
-  __attribute__ ((__dllimport__)) int _wremove(const wchar_t *_Filename);
-  __attribute__ ((__dllimport__)) wchar_t * _wtmpnam(wchar_t *_Buffer);
-  __attribute__ ((__dllimport__)) wint_t _fgetwc_nolock(FILE *_File);
-  __attribute__ ((__dllimport__)) wint_t _fputwc_nolock(wchar_t _Ch,FILE *_File);
-  __attribute__ ((__dllimport__)) wint_t _ungetwc_nolock(wint_t _Ch,FILE *_File);
 # 669 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\wchar.h" 3
   __attribute__ ((__dllimport__)) wchar_t * _itow(int _Value,wchar_t *_Dest,int _Radix) ;
   __attribute__ ((__dllimport__)) wchar_t * _ltow(long _Value,wchar_t *_Dest,int _Radix) ;
@@ -2467,68 +2938,7 @@ extern "C" {
   __attribute__ ((__dllimport__)) int _wputenv(const wchar_t *_EnvString);
   __attribute__ ((__dllimport__)) void _wsearchenv(const wchar_t *_Filename,const wchar_t *_EnvVar,wchar_t *_ResultPath) ;
   __attribute__ ((__dllimport__)) void _wsplitpath(const wchar_t *_FullPath,wchar_t *_Drive,wchar_t *_Dir,wchar_t *_Filename,wchar_t *_Ext) ;
-
-
-
-
-
-  __attribute__ ((__dllimport__)) wchar_t * _wcsdup(const wchar_t *_Str);
-  wchar_t * wcscat(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source) ;
-                wchar_t * wcschr(const wchar_t *_Str,wchar_t _Ch);
-  int wcscmp(const wchar_t *_Str1,const wchar_t *_Str2);
-  wchar_t * wcscpy(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source) ;
-  size_t wcscspn(const wchar_t *_Str,const wchar_t *_Control);
-  size_t wcslen(const wchar_t *_Str);
-  size_t wcsnlen(const wchar_t *_Src,size_t _MaxCount);
-  wchar_t * wcsncat(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source,size_t _Count) ;
-  int wcsncmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
-  wchar_t * wcsncpy(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source,size_t _Count) ;
-  wchar_t * _wcsncpy_l(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Source,size_t _Count,_locale_t _Locale) ;
-                wchar_t * wcspbrk(const wchar_t *_Str,const wchar_t *_Control);
-                wchar_t * wcsrchr(const wchar_t *_Str,wchar_t _Ch);
-  size_t wcsspn(const wchar_t *_Str,const wchar_t *_Control);
-                wchar_t * wcsstr(const wchar_t *_Str,const wchar_t *_SubStr);
-  wchar_t * wcstok(wchar_t * __restrict__ _Str,const wchar_t * __restrict__ _Delim) ;
-  __attribute__ ((__dllimport__)) wchar_t * _wcserror(int _ErrNum) ;
-  __attribute__ ((__dllimport__)) wchar_t * __wcserror(const wchar_t *_Str) ;
-  __attribute__ ((__dllimport__)) int _wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2);
-  __attribute__ ((__dllimport__)) int _wcsicmp_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
-  __attribute__ ((__dllimport__)) int _wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) int _wcsnicmp_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
-  __attribute__ ((__dllimport__)) wchar_t * _wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount) ;
-  __attribute__ ((__dllimport__)) wchar_t * _wcsrev(wchar_t *_Str);
-  __attribute__ ((__dllimport__)) wchar_t * _wcsset(wchar_t *_Str,wchar_t _Val) ;
-  __attribute__ ((__dllimport__)) wchar_t * _wcslwr(wchar_t *_String) ;
-  __attribute__ ((__dllimport__)) wchar_t *_wcslwr_l(wchar_t *_String,_locale_t _Locale) ;
-  __attribute__ ((__dllimport__)) wchar_t * _wcsupr(wchar_t *_String) ;
-  __attribute__ ((__dllimport__)) wchar_t *_wcsupr_l(wchar_t *_String,_locale_t _Locale) ;
-  size_t wcsxfrm(wchar_t * __restrict__ _Dst,const wchar_t * __restrict__ _Src,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) size_t _wcsxfrm_l(wchar_t * __restrict__ _Dst,const wchar_t * __restrict__ _Src,size_t _MaxCount,_locale_t _Locale);
-  int wcscoll(const wchar_t *_Str1,const wchar_t *_Str2);
-  __attribute__ ((__dllimport__)) int _wcscoll_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
-  __attribute__ ((__dllimport__)) int _wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2);
-  __attribute__ ((__dllimport__)) int _wcsicoll_l(const wchar_t *_Str1,const wchar_t *_Str2,_locale_t _Locale);
-  __attribute__ ((__dllimport__)) int _wcsncoll(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) int _wcsncoll_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
-  __attribute__ ((__dllimport__)) int _wcsnicoll(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) int _wcsnicoll_l(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount,_locale_t _Locale);
-
-
-  wchar_t * wcsdup(const wchar_t *_Str) ;
-
-  int wcsicmp(const wchar_t *_Str1,const wchar_t *_Str2) ;
-  int wcsnicmp(const wchar_t *_Str1,const wchar_t *_Str2,size_t _MaxCount) ;
-  wchar_t * wcsnset(wchar_t *_Str,wchar_t _Val,size_t _MaxCount) ;
-  wchar_t * wcsrev(wchar_t *_Str) ;
-  wchar_t * wcsset(wchar_t *_Str,wchar_t _Val) ;
-  wchar_t * wcslwr(wchar_t *_Str) ;
-  wchar_t * wcsupr(wchar_t *_Str) ;
-  int wcsicoll(const wchar_t *_Str1,const wchar_t *_Str2) ;
-
-
-
-
-
+# 779 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\wchar.h" 3
   struct tm {
     int tm_sec;
     int tm_min;
@@ -23079,238 +23489,6 @@ struct ap_ufixed : ap_fixed_base<_AP_W, _AP_I, false, _AP_Q, _AP_O, _AP_N> {
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stddef.h" 1 3 4
 # 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstddef" 2 3
 # 44 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 2 3
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 1 3
-
-
-
-
-
-
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3
-# 9 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw_print_push.h" 1 3
-# 11 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
-
-
-#pragma pack(push,_CRT_PACKING)
-
-
-extern "C" {
-# 101 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
-  __attribute__ ((__dllimport__)) FILE * __iob_func(void);
-# 120 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
-  __extension__ typedef long long fpos_t;
-# 157 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
-  __attribute__ ((__dllimport__)) int _filbuf(FILE *_File);
-  __attribute__ ((__dllimport__)) int _flsbuf(int _Ch,FILE *_File);
-
-
-
-  __attribute__ ((__dllimport__)) FILE * _fsopen(const char *_Filename,const char *_Mode,int _ShFlag);
-
-  void clearerr(FILE *_File);
-  int fclose(FILE *_File);
-  __attribute__ ((__dllimport__)) int _fcloseall(void);
-
-
-
-  __attribute__ ((__dllimport__)) FILE * _fdopen(int _FileHandle,const char *_Mode);
-
-  int feof(FILE *_File);
-  int ferror(FILE *_File);
-  int fflush(FILE *_File);
-  int fgetc(FILE *_File);
-  __attribute__ ((__dllimport__)) int _fgetchar(void);
-  int fgetpos(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos);
-  char * fgets(char * __restrict__ _Buf,int _MaxCount,FILE * __restrict__ _File);
-  __attribute__ ((__dllimport__)) int _fileno(FILE *_File);
-
-
-
-  __attribute__ ((__dllimport__)) char * _tempnam(const char *_DirName,const char *_FilePrefix);
-  __attribute__ ((__dllimport__)) int _flushall(void);
-  FILE * fopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode) ;
-  FILE *fopen64(const char * __restrict__ filename,const char * __restrict__ mode);
-  int fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
-  int fputc(int _Ch,FILE *_File);
-  __attribute__ ((__dllimport__)) int _fputchar(int _Ch);
-  int fputs(const char * __restrict__ _Str,FILE * __restrict__ _File);
-  size_t fread(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
-  FILE * freopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode,FILE * __restrict__ _File) ;
-  int fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...) ;
-  int _fscanf_l(FILE * __restrict__ _File,const char * __restrict__ _Format,_locale_t locale,...) ;
-  int fsetpos(FILE *_File,const fpos_t *_Pos);
-  int fseek(FILE *_File,long _Offset,int _Origin);
-  int fseeko64(FILE* stream, _off64_t offset, int whence);
-  long ftell(FILE *_File);
-  _off64_t ftello64(FILE * stream);
-  __extension__ int _fseeki64(FILE *_File,long long _Offset,int _Origin);
-  __extension__ long long _ftelli64(FILE *_File);
-  size_t fwrite(const void * __restrict__ _Str,size_t _Size,size_t _Count,FILE * __restrict__ _File);
-  int getc(FILE *_File);
-  int getchar(void);
-  __attribute__ ((__dllimport__)) int _getmaxstdio(void);
-  char * gets(char *_Buffer) ;
-  int _getw(FILE *_File);
-
-
-  void perror(const char *_ErrMsg);
-
-  __attribute__ ((__dllimport__)) int _pclose(FILE *_File);
-  __attribute__ ((__dllimport__)) FILE * _popen(const char *_Command,const char *_Mode);
-
-
-
-
-  int printf(const char * __restrict__ _Format,...);
-  int putc(int _Ch,FILE *_File);
-  int putchar(int _Ch);
-  int puts(const char *_Str);
-  __attribute__ ((__dllimport__)) int _putw(int _Word,FILE *_File);
-
-
-  int remove(const char *_Filename);
-  int rename(const char *_OldFilename,const char *_NewFilename);
-  __attribute__ ((__dllimport__)) int _unlink(const char *_Filename);
-
-  int unlink(const char *_Filename) ;
-
-
-  void rewind(FILE *_File);
-  __attribute__ ((__dllimport__)) int _rmtmp(void);
-  int scanf(const char * __restrict__ _Format,...) ;
-  int _scanf_l(const char * __restrict__ format,_locale_t locale,... ) ;
-  void setbuf(FILE * __restrict__ _File,char * __restrict__ _Buffer) ;
-  __attribute__ ((__dllimport__)) int _setmaxstdio(int _Max);
-  __attribute__ ((__dllimport__)) unsigned int _set_output_format(unsigned int _Format);
-  __attribute__ ((__dllimport__)) unsigned int _get_output_format(void);
-  unsigned int __mingw_set_output_format(unsigned int _Format);
-  unsigned int __mingw_get_output_format(void);
-
-
-
-
-  int setvbuf(FILE * __restrict__ _File,char * __restrict__ _Buf,int _Mode,size_t _Size);
-  __attribute__ ((__dllimport__)) int _scprintf(const char * __restrict__ _Format,...);
-  int sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...) ;
-  int _sscanf_l(const char * __restrict__ buffer,const char * __restrict__ format,_locale_t locale,...) ;
-  __attribute__ ((__dllimport__)) int _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...) ;
-  __attribute__ ((__dllimport__)) int _snscanf_l(const char * __restrict__ input,size_t length,const char * __restrict__ format,_locale_t locale,...) ;
-  FILE * tmpfile(void) ;
-  char * tmpnam(char *_Buffer);
-  int ungetc(int _Ch,FILE *_File);
-  int vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList);
-  int vprintf(const char * __restrict__ _Format,va_list _ArgList);
-
-
-  extern
-    __attribute__((__format__ (gnu_printf, 3, 0))) __attribute__ ((__nonnull__ (3)))
-    int __mingw_vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,
-      va_list _ArgList);
-  extern
-    __attribute__((__format__ (gnu_printf, 3, 4))) __attribute__ ((__nonnull__ (3)))
-    int __mingw_snprintf(char * __restrict__ s, size_t n, const char * __restrict__ format, ...);
-  extern
-    __attribute__((__format__ (gnu_printf, 1, 2))) __attribute__ ((__nonnull__ (1)))
-    int __mingw_printf(const char * __restrict__ , ... ) __attribute__ ((__nothrow__));
-  extern
-    __attribute__((__format__ (gnu_printf, 1, 0))) __attribute__ ((__nonnull__ (1)))
-    int __mingw_vprintf (const char * __restrict__ , va_list) __attribute__ ((__nothrow__));
-  extern
-    __attribute__((__format__ (gnu_printf, 2, 3))) __attribute__ ((__nonnull__ (2)))
-    int __mingw_fprintf (FILE * __restrict__ , const char * __restrict__ , ...) __attribute__ ((__nothrow__));
-  extern
-    __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__ ((__nonnull__ (2)))
-    int __mingw_vfprintf (FILE * __restrict__ , const char * __restrict__ , va_list) __attribute__ ((__nothrow__));
-  extern
-    __attribute__((__format__ (gnu_printf, 2, 3))) __attribute__ ((__nonnull__ (2)))
-    int __mingw_sprintf (char * __restrict__ , const char * __restrict__ , ...) __attribute__ ((__nothrow__));
-  extern
-    __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__ ((__nonnull__ (2)))
-    int __mingw_vsprintf (char * __restrict__ , const char * __restrict__ , va_list) __attribute__ ((__nothrow__));
-
-  __attribute__ ((__dllimport__)) int _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...) ;
-  __attribute__ ((__dllimport__)) int _snprintf_l(char * __restrict__ buffer,size_t count,const char * __restrict__ format,_locale_t locale,...) ;
-  __attribute__ ((__dllimport__)) int _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) ;
-  __attribute__ ((__dllimport__)) int _vsnprintf_l(char * __restrict__ buffer,size_t count,const char * __restrict__ format,_locale_t locale,va_list argptr) ;
-  int sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,...) ;
-  int _sprintf_l(char * __restrict__ buffer,const char * __restrict__ format,_locale_t locale,...) ;
-  int vsprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,va_list _Args) ;
-
-
-
-
-
-
-
-  int vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,va_list _ArgList) ;
-
-  int snprintf(char * __restrict__ s, size_t n, const char * __restrict__ format, ...);
-# 312 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
-  int vscanf(const char * __restrict__ Format, va_list argp);
-  int vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
-  int vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
-
-  __attribute__ ((__dllimport__)) int _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
-  __attribute__ ((__dllimport__)) int _set_printf_count_output(int _Value);
-  __attribute__ ((__dllimport__)) int _get_printf_count_output(void);
-# 475 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 3
-  __attribute__ ((__dllimport__)) void _lock_file(FILE *_File);
-  __attribute__ ((__dllimport__)) void _unlock_file(FILE *_File);
-  __attribute__ ((__dllimport__)) int _fclose_nolock(FILE *_File);
-  __attribute__ ((__dllimport__)) int _fflush_nolock(FILE *_File);
-  __attribute__ ((__dllimport__)) size_t _fread_nolock(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
-  __attribute__ ((__dllimport__)) int _fseek_nolock(FILE *_File,long _Offset,int _Origin);
-  __attribute__ ((__dllimport__)) long _ftell_nolock(FILE *_File);
-  __extension__ __attribute__ ((__dllimport__)) int _fseeki64_nolock(FILE *_File,long long _Offset,int _Origin);
-  __extension__ __attribute__ ((__dllimport__)) long long _ftelli64_nolock(FILE *_File);
-  __attribute__ ((__dllimport__)) size_t _fwrite_nolock(const void * __restrict__ _DstBuf,size_t _Size,size_t _Count,FILE * __restrict__ _File);
-  __attribute__ ((__dllimport__)) int _ungetc_nolock(int _Ch,FILE *_File);
-
-
-
-
-
-  char * tempnam(const char *_Directory,const char *_FilePrefix) ;
-  int fcloseall(void) ;
-  FILE * fdopen(int _FileHandle,const char *_Format) ;
-  int fgetchar(void) ;
-  int fileno(FILE *_File) ;
-  int flushall(void) ;
-  int fputchar(int _Ch) ;
-  int getw(FILE *_File) ;
-  int putw(int _Ch,FILE *_File) ;
-  int rmtmp(void) ;
-
-
-
-}
-
-
-#pragma pack(pop)
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/stdio_s.h" 1 3
-
-
-
-
-
-
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 1 3
-# 9 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/stdio_s.h" 2 3
-# 509 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw_print_pop.h" 1 3
-# 511 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdio.h" 2 3
-# 45 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 2 3
 # 92 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin\\..\\lib\\clang\\3.1/../../../include/c++/4.5.2\\cstdio" 3
 namespace std {
 
@@ -24158,195 +24336,61 @@ inline bool operator!=(const ap_int<_AP_W> &__x, const complex<ap_int<_AP_W> > &
 
 }
 # 69 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 2
-# 6 "./pid.hpp" 2
-# 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 1
-# 59 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h"
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
+# 3 "PID/../common/x8_common.hpp" 2
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 1 3 4
+# 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 3 4
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 1 3 4
+# 28 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 3 4
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3 4
+# 28 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 2 3 4
+
+
+
+
+# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stddef.h" 1 3 4
+# 32 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 2 3 4
+
+
+
+typedef signed char int8_t;
+typedef unsigned char uint8_t;
+typedef short int16_t;
+typedef unsigned short uint16_t;
+typedef int int32_t;
+typedef unsigned uint32_t;
+__extension__ typedef long long int64_t;
+__extension__ typedef unsigned long long uint64_t;
+
+
+typedef signed char int_least8_t;
+typedef unsigned char uint_least8_t;
+typedef short int_least16_t;
+typedef unsigned short uint_least16_t;
+typedef int int_least32_t;
+typedef unsigned uint_least32_t;
+__extension__ typedef long long int_least64_t;
+__extension__ typedef unsigned long long uint_least64_t;
 
 
 
 
 
+typedef signed char int_fast8_t;
+typedef unsigned char uint_fast8_t;
+typedef short int_fast16_t;
+typedef unsigned short uint_fast16_t;
+typedef int int_fast32_t;
+typedef unsigned int uint_fast32_t;
+__extension__ typedef long long int_fast64_t;
+__extension__ typedef unsigned long long uint_fast64_t;
 
 
+__extension__ typedef long long intmax_t;
+__extension__ typedef unsigned long long uintmax_t;
+# 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 2 3 4
+# 4 "PID/../common/x8_common.hpp" 2
 
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3
-# 9 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 2 3
-
-
-
-extern "C" {
-# 36 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 3
-  __attribute__ ((__dllimport__)) void * _memccpy(void *_Dst,const void *_Src,int _Val,size_t _MaxCount);
-                void * memchr(const void *_Buf ,int _Val,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) int _memicmp(const void *_Buf1,const void *_Buf2,size_t _Size);
-  __attribute__ ((__dllimport__)) int _memicmp_l(const void *_Buf1,const void *_Buf2,size_t _Size,_locale_t _Locale);
-  int memcmp(const void *_Buf1,const void *_Buf2,size_t _Size);
-  void * memcpy(void * __restrict__ _Dst,const void * __restrict__ _Src,size_t _Size) ;
-  void * memset(void *_Dst,int _Val,size_t _Size);
-
-  void * memccpy(void *_Dst,const void *_Src,int _Val,size_t _Size) ;
-  int memicmp(const void *_Buf1,const void *_Buf2,size_t _Size) ;
-
-
-  char * _strset(char *_Str,int _Val) ;
-  char * _strset_l(char *_Str,int _Val,_locale_t _Locale) ;
-  char * strcpy(char * __restrict__ _Dest,const char * __restrict__ _Source);
-  char * strcat(char * __restrict__ _Dest,const char * __restrict__ _Source);
-  int strcmp(const char *_Str1,const char *_Str2);
-  size_t strlen(const char *_Str);
-  size_t strnlen(const char *_Str,size_t _MaxCount);
-  void * memmove(void *_Dst,const void *_Src,size_t _Size) ;
-  __attribute__ ((__dllimport__)) char * _strdup(const char *_Src);
-                char * strchr(const char *_Str,int _Val);
-  __attribute__ ((__dllimport__)) int _stricmp(const char *_Str1,const char *_Str2);
-  __attribute__ ((__dllimport__)) int _strcmpi(const char *_Str1,const char *_Str2);
-  __attribute__ ((__dllimport__)) int _stricmp_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
-  int strcoll(const char *_Str1,const char *_Str2);
-  __attribute__ ((__dllimport__)) int _strcoll_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
-  __attribute__ ((__dllimport__)) int _stricoll(const char *_Str1,const char *_Str2);
-  __attribute__ ((__dllimport__)) int _stricoll_l(const char *_Str1,const char *_Str2,_locale_t _Locale);
-  __attribute__ ((__dllimport__)) int _strncoll (const char *_Str1,const char *_Str2,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) int _strncoll_l(const char *_Str1,const char *_Str2,size_t _MaxCount,_locale_t _Locale);
-  __attribute__ ((__dllimport__)) int _strnicoll (const char *_Str1,const char *_Str2,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) int _strnicoll_l(const char *_Str1,const char *_Str2,size_t _MaxCount,_locale_t _Locale);
-  size_t strcspn(const char *_Str,const char *_Control);
-  __attribute__ ((__dllimport__)) char * _strerror(const char *_ErrMsg) ;
-  char * strerror(int) ;
-  __attribute__ ((__dllimport__)) char * _strlwr(char *_String) ;
-  char *strlwr_l(char *_String,_locale_t _Locale) ;
-  char * strncat(char * __restrict__ _Dest,const char * __restrict__ _Source,size_t _Count) ;
-  int strncmp(const char *_Str1,const char *_Str2,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) int _strnicmp(const char *_Str1,const char *_Str2,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) int _strnicmp_l(const char *_Str1,const char *_Str2,size_t _MaxCount,_locale_t _Locale);
-  char *strncpy(char * __restrict__ _Dest,const char * __restrict__ _Source,size_t _Count) ;
-  __attribute__ ((__dllimport__)) char * _strnset(char *_Str,int _Val,size_t _MaxCount) ;
-  __attribute__ ((__dllimport__)) char * _strnset_l(char *str,int c,size_t count,_locale_t _Locale) ;
-                char * strpbrk(const char *_Str,const char *_Control);
-                char * strrchr(const char *_Str,int _Ch);
-  __attribute__ ((__dllimport__)) char * _strrev(char *_Str);
-  size_t strspn(const char *_Str,const char *_Control);
-                char * strstr(const char *_Str,const char *_SubStr);
-  char * strtok(char * __restrict__ _Str,const char * __restrict__ _Delim) ;
-  __attribute__ ((__dllimport__)) char * _strupr(char *_String) ;
-  __attribute__ ((__dllimport__)) char *_strupr_l(char *_String,_locale_t _Locale) ;
-  size_t strxfrm(char * __restrict__ _Dst,const char * __restrict__ _Src,size_t _MaxCount);
-  __attribute__ ((__dllimport__)) size_t _strxfrm_l(char * __restrict__ _Dst,const char * __restrict__ _Src,size_t _MaxCount,_locale_t _Locale);
-
-
-  char * strdup(const char *_Src) ;
-  int strcmpi(const char *_Str1,const char *_Str2) ;
-  int stricmp(const char *_Str1,const char *_Str2) ;
-  char * strlwr(char *_Str) ;
-  int strnicmp(const char *_Str1,const char *_Str,size_t _MaxCount) ;
-  int strncasecmp (const char *, const char *, size_t);
-  int strcasecmp (const char *, const char *);
-
-
-
-
-
-
-
-  char * strnset(char *_Str,int _Val,size_t _MaxCount) ;
-  char * strrev(char *_Str) ;
-  char * strset(char *_Str,int _Val) ;
-  char * strupr(char *_Str) ;
-# 172 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 3
-}
-
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/string_s.h" 1 3
-
-
-
-
-
-
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
-# 9 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\sec_api/string_s.h" 2 3
-# 175 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 2 3
-# 60 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 2
-# 73 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h"
-# 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot/etc/autopilot_enum.h" 1
-# 58 "C:/CAD/Vivado/2018.2/common/technology/autopilot/etc/autopilot_enum.h"
-enum SsdmDataTypes {
-    _ssdm_sc_int = 0,
-    _ssdm_c_int = _ssdm_sc_int,
-    _ssdm_sc_uint = 1,
-    _ssdm_c_uint = _ssdm_sc_uint,
-    _ssdm_sc_bigint = 2,
-    _ssdm_sc_biguint = 3,
-};
-
-
-
-enum SsdmPortTypes {
-    _ssdm_sc_in = 0,
-    _ssdm_sc_out = 1,
-    _ssdm_sc_inout = 2,
-    _ssdm_sc_in_clk,
-
-    _ssdm_fifo_in,
-    _ssdm_sc_fifo_in = _ssdm_fifo_in,
-    _ssdm_tlm_fifo_in = _ssdm_fifo_in,
-    _ssdm_fifo_out,
-    _ssdm_sc_fifo_out = _ssdm_fifo_out,
-    _ssdm_tlm_fifo_out = _ssdm_fifo_out,
-    _ssdm_fifo_inout,
-    _ssdm_sc_fifo_inout = _ssdm_fifo_inout,
-    _ssdm_tlm_fifo_inout = _ssdm_fifo_inout,
-    _ssdm_sc_bus,
-    _ssdm_hls_bus_port = _ssdm_sc_bus,
-    _ssdm_AXI4M_bus_port = _ssdm_sc_bus,
-    _ssdm_port_end,
-};
-
-
-
-enum SsdmProcessTypes {
-    _ssdm_method = 0,
-    _ssdm_sc_method = _ssdm_method,
-    _ssdm_thread = 1,
-    _ssdm_sc_thread = _ssdm_thread,
-    _ssdm_cthread = 2,
-    _ssdm_sc_cthread = _ssdm_cthread,
-    _ssdm_process_end,
-};
-
-
-
-enum SsdmSensitiveTypes {
-    _ssdm_sensitive = 0,
-    _ssdm_sensitive_pos,
-    _ssdm_sensitive_neg,
-    _ssdm_sensitive_reset0,
-    _ssdm_sensitive_reset1,
-    _ssdm_sensitive_end,
-};
-
-
-
-enum SsdmChannelTypes {
-    _ssdm_sc_sig,
-    _ssdm_fifo,
-    _ssdm_sc_fifo = _ssdm_fifo,
-    _ssdm_mem_fifo,
-    _ssdm_sc_mem_fifo = _ssdm_mem_fifo,
-};
-
-
-enum SsdmRegionTypes {
-    _ssdm_region_reset,
-    _ssdm_region_protocol,
-    _ssdm_region_pipeline,
-    _ssdm_region_parallel,
-};
-# 74 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 2
-# 7 "./pid.hpp" 2
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 1
 # 61 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h"
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot/ap_fixed_special.h" 1
@@ -24555,138 +24599,186 @@ inline bool operator!=(
 
 }
 # 62 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 2
-# 8 "./pid.hpp" 2
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 1 3 4
-# 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 3 4
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 1 3 4
-# 28 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 3 4
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\_mingw.h" 1 3 4
-# 28 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 2 3 4
-
-
-
-
-# 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stddef.h" 1 3 4
-# 32 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\stdint.h" 2 3 4
-
-
-
-typedef signed char int8_t;
-typedef unsigned char uint8_t;
-typedef short int16_t;
-typedef unsigned short uint16_t;
-typedef int int32_t;
-typedef unsigned uint32_t;
-__extension__ typedef long long int64_t;
-__extension__ typedef unsigned long long uint64_t;
-
-
-typedef signed char int_least8_t;
-typedef unsigned char uint_least8_t;
-typedef short int_least16_t;
-typedef unsigned short uint_least16_t;
-typedef int int_least32_t;
-typedef unsigned uint_least32_t;
-__extension__ typedef long long int_least64_t;
-__extension__ typedef unsigned long long uint_least64_t;
-
-
-
-
-
-typedef signed char int_fast8_t;
-typedef unsigned char uint_fast8_t;
-typedef short int_fast16_t;
-typedef unsigned short uint_fast16_t;
-typedef int int_fast32_t;
-typedef unsigned int uint_fast32_t;
-__extension__ typedef long long int_fast64_t;
-__extension__ typedef unsigned long long uint_fast64_t;
-
-
-__extension__ typedef long long intmax_t;
-__extension__ typedef unsigned long long uintmax_t;
-# 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 2 3 4
-# 9 "./pid.hpp" 2
-
-
-
-
-
-
+# 5 "PID/../common/x8_common.hpp" 2
+# 24 "PID/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
-
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
 typedef ap_fixed<19, 4> F19_t;
 typedef ap_fixed<16,1> F16_t;
 
 typedef ap_uint<6> uint6_t;
-# 37 "./pid.hpp"
-void pid (uint16_t rcCmdIn[4],uint16_t measured[4],uint32_t kp[3],uint32_t kd[2],uint32_t ki[2],uint16_t commandOut[3]);
-# 4 "pid.cpp" 2
-# 59 "pid.cpp"
-void pid (uint16_t rcCmdIn[4], uint16_t measured[6], uint32_t kp[3], uint32_t kd[2], uint32_t ki[2], uint16_t commandOut[3])
-{_ssdm_SpecArrayDimSize(rcCmdIn, 4);_ssdm_SpecArrayDimSize(measured, 6);_ssdm_SpecArrayDimSize(kp, 3);_ssdm_SpecArrayDimSize(kd, 2);_ssdm_SpecArrayDimSize(ki, 2);_ssdm_SpecArrayDimSize(commandOut, 3);
 
+
+typedef enum
+{
+ MOTOR_OFF,
+ MOTOR_ON
+}motorState_e;
+
+typedef enum
+{
+ RATE_MODE,
+ HORIZON_MODE,
+ HOR_OBJAVD_MODE
+}flightMode_e;
+
+
+
+uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
+# 3 "PID/pid.hpp" 2
+
+
+static const F19_t MIX_X8[8][3] = {
+ {-1.000, 1.000, -1.000},
+ {-1.000, -1.000, 1.000},
+ { 1.000, 1.000, 1.000},
+ { 1.000, -1.000, -1.000},
+ {-1.000, 1.000, 1.000},
+ {-1.000, -1.000, -1.000},
+ { 1.000, 1.000, -1.000},
+ { 1.000, -1.000, 1.000},
+};
+# 33 "PID/pid.hpp"
+void pid (uint16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9]);
+# 3 "PID/pid.cpp" 2
+# 15 "PID/pid.cpp"
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
+{_ssdm_SpecArrayDimSize(cmdIn, 6);_ssdm_SpecArrayDimSize(measured, 6);_ssdm_SpecArrayDimSize(kp, 6);_ssdm_SpecArrayDimSize(kd, 4);_ssdm_SpecArrayDimSize(ki, 4);_ssdm_SpecArrayDimSize(commandOut, 9);
+
+#pragma HLS PIPELINE II=1 enable_flush
 
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
-#pragma HLS INTERFACE s_axilite port=&rcCmdIn bundle=CMD
-#pragma HLS INTERFACE s_axilite port=&measured bundle=MEAS
+#pragma HLS INTERFACE s_axilite port=&cmdIn bundle=INPUT
+#pragma HLS INTERFACE s_axilite port=&measured bundle=INPUT
 
-#pragma HLS INTERFACE s_axilite port=&kp bundle=GAINS
-#pragma HLS INTERFACE s_axilite port=&kd bundle=GAINS
-#pragma HLS INTERFACE s_axilite port=&ki bundle=GAINS
+
+#pragma HLS INTERFACE s_axilite port=&kp bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=&kd bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=&ki bundle=CTRL
+
 
 #pragma HLS INTERFACE m_axi port=&commandOut bundle=OUT offset=off
 
-#pragma HLS PIPELINE II=1 enable_flush
-# 85 "pid.cpp"
- static float last_error[2]={0,0};
- static float integral[2]={0,0};
- float pid_o[3];
- float curr_error[2];
- float deriv[2];
- float correction[2];
+
+ F16_t scaled_cmdIn[4] = {0.0};
+ static bool isPositionMode;
+ F16_t rateCmd[3] = {0.0};
+
+
+ static F16_t last_error_pos[2]={0,0};
+ static F32_t integral_pos[2]={0,0};
+ F32_t pid_o_pos[3];
+ F32_t curr_error_pos[2];
+ F32_t deriv_pos[2];
+ F32_t correction_pos[2];
+
+
+ static F16_t last_error_rate[2]={0,0};
+ static F32_t integral_rate[2]={0,0};
+ F32_t pid_o_rate[3];
+ F32_t curr_error_rate[2];
+ F32_t deriv_rate[2];
+ F32_t correction_rate[2];
+
+
+ isPositionMode = cmdIn[5];
+
+
+
+ if(isPositionMode)
+ {
+
+
+
+
+  curr_error_pos[0] = cmdIn[1] - measured[3];
+  integral_pos[0] = ((F32_t(integral_pos[0] + curr_error_pos[0]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_pos[0] + curr_error_pos[0]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_pos[0] + curr_error_pos[0]))));
+  deriv_pos[0] = (curr_error_pos[0] - last_error_pos[0]);
+  correction_pos[0] = (kp[0] * curr_error_pos[0]) + (ki[0] * integral_pos[0]) + (kd[0] * deriv_pos[0]);
+  pid_o_pos[0] = ((correction_pos[0])<(F32_t(-1))?(F32_t(-1)):((correction_pos[0])>(F32_t(.999))?(F32_t(.999)):(correction_pos[0])));
+  last_error_pos[0] = curr_error_pos[0];
+
+
+
+
+
+  curr_error_pos[1] = cmdIn[2] - measured[1];
+  integral_pos[1] = ((F32_t(integral_pos[1] + curr_error_pos[1]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_pos[1] + curr_error_pos[1]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_pos[1] + curr_error_pos[1]))));
+  deriv_pos[1] = (curr_error_pos[1] - last_error_pos[1]);
+  correction_pos[1] = (kp[1] * curr_error_pos[1]) + (ki[1] * integral_pos[1]) + (kd[1] * deriv_pos[1]);
+  pid_o_pos[1] = ((correction_pos[1])<(F32_t(-1))?(F32_t(-1)):((correction_pos[1])>(F32_t(.999))?(F32_t(.999)):(correction_pos[1])));
+  last_error_pos[1] = curr_error_pos[1];
+
+
+
+
+
+  pid_o_pos[2] = kp[2]*(cmdIn[3] - measured[2]);
+ }
+
+
+ if(isPositionMode)
+ {
+  rateCmd[0] = pid_o_pos[0];
+  rateCmd[1] = pid_o_pos[1];
+  rateCmd[2] = pid_o_pos[2];
+ }
+ else
+ {
+  rateCmd[0] = cmdIn[1];
+  rateCmd[1] = cmdIn[2];
+  rateCmd[2] = cmdIn[3];
+ }
 
 
 
 
 
 
- curr_error[0]= rcCmdIn[0] - measured[0];
- integral[0] = ((float(integral[0] + curr_error[0]))<(float(-100))?(float(-100)):((float(integral[0] + curr_error[0]))>(float(100))?(float(100)):(float(integral[0] + curr_error[0]))));
- deriv[0] = (curr_error[0]-last_error[0]);
- correction[0] = (kp[0] * curr_error[0]) + (ki[0] * integral[0]) + (kd[0] * deriv[0]);
- pid_o[0] = ((correction[0])<(float(-1))?(float(-1)):((correction[0])>(float(.999))?(float(.999)):(correction[0])));
- last_error[0] = curr_error[0];
+
+ curr_error_rate[0]= rateCmd[0] - measured[3];
+ integral_rate[0] = ((F32_t(integral_rate[0] + curr_error_rate[0]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_rate[0] + curr_error_rate[0]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_rate[0] + curr_error_rate[0]))));
+ deriv_rate[0] = (curr_error_rate[0] - last_error_rate[0]);
+ correction_rate[0] = (kp[3] * curr_error_rate[0]) + (ki[2] * integral_rate[0]) + (kd[2] * deriv_rate[0]);
+ pid_o_rate[0] = ((correction_rate[0])<(F32_t(-1))?(F32_t(-1)):((correction_rate[0])>(F32_t(.999))?(F32_t(.999)):(correction_rate[0])));
+ last_error_rate[0] = curr_error_rate[0];
 
 
 
 
 
- curr_error[1] = rcCmdIn[1] - measured[1];
- integral[1] = ((float(integral[1] + curr_error[1]))<(float(-100))?(float(-100)):((float(integral[1] + curr_error[1]))>(float(100))?(float(100)):(float(integral[1] + curr_error[1]))));
- deriv[1] = (curr_error[1]-last_error[1]);
- correction[1] = (kp[1] * curr_error[1]) + (ki[1] * integral[1]) + (kd[1] * deriv[1]);
- pid_o[1] = ((correction[1])<(float(-1))?(float(-1)):((correction[1])>(float(.999))?(float(.999)):(correction[1])));
- last_error[1] = curr_error[1];
+
+ curr_error_rate[1] = rateCmd[1] - measured[4];
+ integral_rate[1] = ((F32_t(integral_rate[1] + curr_error_rate[1]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_rate[1] + curr_error_rate[1]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_rate[1] + curr_error_rate[1]))));
+ deriv_rate[1] = (curr_error_rate[1] - last_error_rate[1]);
+ correction_rate[1] = (kp[4] * curr_error_rate[1]) + (ki[3] * integral_rate[1]) + (kd[3] * deriv_rate[1]);
+ pid_o_rate[1] = ((correction_rate[1])<(F32_t(-1))?(F32_t(-1)):((correction_rate[1])>(F32_t(.999))?(F32_t(.999)):(correction_rate[1])));
+ last_error_rate[1] = curr_error_rate[1];
 
 
 
 
 
- pid_o[2] = kp[2]*(rcCmdIn[3] - measured[3]);
-# 151 "pid.cpp"
- float corrections[3];
+ pid_o_rate[2] = kp[5]*(rateCmd[2] - measured[5]);
+# 144 "PID/pid.cpp"
+ F19_t t_command = cmdIn[0];
+ F19_t r_command = pid_o_rate[0];
+ F19_t p_command = pid_o_rate[1];
+ F19_t y_command = pid_o_rate[2];
 
- corrections[0] = pid_o[0];
- corrections[1] = pid_o[1];
- corrections[2] = pid_o[2];
+ for(int i = 0; i < 8; i++)
+ {
+#pragma HLS unroll
 
- commandOut[0] = pid_o[0];
- commandOut[1] = pid_o[1];
- commandOut[2] = pid_o[2];
-# 173 "pid.cpp"
+
+ F19_t scaled_power = t_command + (r_command * MIX_X8[i][0] + p_command * MIX_X8[i][1] + y_command * MIX_X8[i][2]) * F19_t(.33);
+
+
+
+  commandOut[i] = F16_t(((scaled_power)<(F19_t(0))?(F19_t(0)):((scaled_power)>(F19_t(.999))?(F19_t(.999)):(scaled_power))));
+ }
+
+ commandOut[9] = cmdIn[4];
 }

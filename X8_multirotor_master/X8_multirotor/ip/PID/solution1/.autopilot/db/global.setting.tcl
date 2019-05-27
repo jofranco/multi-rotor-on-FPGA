@@ -9,7 +9,7 @@ set PipelineFlag 1
 set DataflowTaskPipelineFlag  1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 1
-set FloatingPointFlag 1
+set FloatingPointFlag 0
 set FftOrFirFlag 0
 set NbRWValue 0
 set intNbAccess 0
@@ -41,10 +41,10 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7z020:clg400:-1"
-set SourceFiles {sc {} c ../../pid.cpp}
+set SourceFiles {sc {} c ../pid.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile {C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID/solution1/solution1.directive}
-set TBFiles {verilog ../../main.cpp bc ../../main.cpp vhdl ../../main.cpp sc ../../main.cpp cas ../../main.cpp c {}}
+set TBFiles {verilog ../main.cpp bc ../main.cpp vhdl ../main.cpp sc ../main.cpp cas ../main.cpp c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

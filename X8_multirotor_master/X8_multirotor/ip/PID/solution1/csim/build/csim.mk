@@ -21,7 +21,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../main.cpp ../../../../pid.cpp
+HLS_SOURCES = ../../../main.cpp ../../../pid.cpp
 
 TARGET := csim.exe
 
@@ -73,14 +73,14 @@ all: $(TARGET)
 
 
 
-$(ObjDir)/main.o: ../../../../main.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../main.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/main.o: ../../../main.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../main.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/main.d
 
-$(ObjDir)/pid.o: ../../../../pid.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../pid.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/pid.o: ../../../pid.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../pid.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/pid.d
