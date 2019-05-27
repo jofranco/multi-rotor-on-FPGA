@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="pid.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\pid.cpp"/>
-    <originFiles name="pid.hpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\pid.hpp"/>
+    <originFiles name="pid.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\pid.cpp"/>
+    <originFiles name="pid.hpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\pid.hpp"/>
   </source>
   <testbench>
-    <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\main.cpp"/>
+    <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\main.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

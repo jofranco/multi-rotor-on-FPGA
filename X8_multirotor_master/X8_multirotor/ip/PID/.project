@@ -29,47 +29,32 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID/.apc/.src</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/PID/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID/.apc/.tb</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/PID/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID/solution1/.tcls</location>
-		</link>
-		<link>
-			<name>source/pid.cpp</name>
-			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/pid.cpp</location>
-		</link>
-		<link>
-			<name>source/pid.hpp</name>
-			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/pid.hpp</location>
-		</link>
-		<link>
-			<name>testbench/main.cpp</name>
-			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/main.cpp</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/PID/solution1/.tcls</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID/solution1/solution1.directive</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/PID/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID/solution1/directives.tcl</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/PID/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID/solution1/script.tcl</location>
+			<location>C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/PID/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

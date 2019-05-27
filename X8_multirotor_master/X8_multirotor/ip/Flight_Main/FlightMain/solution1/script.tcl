@@ -14,5 +14,5 @@ create_clock -period 10 -name default
 #source "./FlightMain/solution1/directives.tcl"
 csim_design
 csynth_design
-cosim_design
+cosim_design -rtl vhdl
 export_design -rtl vhdl -format ip_catalog

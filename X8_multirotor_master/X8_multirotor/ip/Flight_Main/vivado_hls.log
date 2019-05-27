@@ -1,0 +1,24 @@
+INFO: [HLS 200-10] Running 'C:/CAD/Vivado/2018.2/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Aaron' on host 'desktop-9ngiuqu' (Windows NT_amd64 version 6.2) on Mon May 27 10:57:07 -0700 2019
+INFO: [HLS 200-10] In directory 'C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main'
+INFO: [HLS 200-10] Opening project 'C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/FlightMain'.
+INFO: [HLS 200-10] Opening solution 'C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/FlightMain/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg400-1'
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../main.cpp in debug mode
+make: *** No rule to make target '../../../../pid.hpp', needed by 'obj/flightmain.o'.  Stop.
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+4
+    while executing
+"source C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/FlightMain/solution1/csim.tcl"
+    invoked from within
+"hls::main C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/FlightMain/solution1/csim.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel 1 hls::main {*}$args"
+    (procedure "hls_proc" line 5)
+    invoked from within
+"hls_proc $argv"

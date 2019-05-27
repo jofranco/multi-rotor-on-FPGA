@@ -722,3 +722,104 @@ INFO: [HLS 200-100] Command   export_design returned 0; 53.742 sec.
 INFO: [HLS 200-100] Command ap_source returned 0; 54.489 sec.
 INFO: [HLS 200-100] Execute cleanup_all 
 INFO: [HLS 200-100] Command cleanup_all returned 0; 0 sec.
+INFO-FLOW: Workspace C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/FlightMain/solution1 opened at Mon May 27 10:57:07 -0700 2019
+Execute     config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/CAD/Vivado/2018.2/common/technology/xilinx/zynq/zynq 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx.lib 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/plb46.lib 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/fsl.lib 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/axi4.lib 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/maxi.lib 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/saxilite.lib 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/dsp48.lib 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/ip/xfft.lib 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/ip/xfir.lib 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx_old.lib 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute       config_chip_info -quiet -speed medium 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute     source C:/CAD/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.12 sec.
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.19 sec.
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.195 sec.
+Command     ap_source done; 0.196 sec.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/CAD/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute         source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute             source C:/CAD/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+Execute     source C:/CAD/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/CAD/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     set_part xc7z020clg400-1 
+Execute       add_library xilinx/zynq/zynq:xc7z020:clg400:-1 
+Execute         get_default_platform 
+Execute         license_isbetapart xc7z020 
+Command         license_isbetapart done; error code: 1; 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute         config_chip_info -quiet -speed slow 
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg400-1'
+Execute       get_default_platform 
+Execute     get_default_platform 
+Execute     config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute     config_chip_info -quiet -speed slow 
+Command   open_solution done; 0.355 sec.
+Execute   csim_design -quiet 
+Execute     source C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/FlightMain/solution1/.autopilot/db/global.setting.tcl 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+Execute     source csim/.lst_opt.tcl 
+Execute     is_encrypted C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/main.cpp 
+Execute     is_xip C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/main.cpp 
+Execute     is_encrypted C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/flightmain.hpp 
+Execute     is_xip C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/flightmain.hpp 
+Execute     is_encrypted C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/flightmain.cpp 
+Execute     is_xip C:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/Flight_Main/flightmain.cpp 
+Execute     get_default_platform 
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command   csim_design done; error code: 2; 0.938 sec.
+Command ap_source done; error code: 1; 1.3 sec.
+Execute cleanup_all 
