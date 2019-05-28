@@ -30,7 +30,7 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k])
 
 
 	// check for Arm switch state
-	isArmed = rcCmdIn[ARM_CHAN];
+	isArmed = uint8_t(rcCmdIn[ARM_CHAN]);
 	// get current flight mode
     flightModeFlag = uint8_t(rcCmdIn[MODE_CHAN]);
     // not currently implementing object avoidance, setting flag to zero

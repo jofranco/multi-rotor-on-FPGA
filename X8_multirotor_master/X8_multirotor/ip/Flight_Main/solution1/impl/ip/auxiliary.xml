@@ -5,5 +5,5 @@
   <xd:arg xd:name="obj_avd_cmd[]" xd:originalName="obj_avd_cmd" xd:direction="in" xd:interfaceRef="s_axi_CMD" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="5" xd:dataWidth="16"/>
   <xd:arg xd:name="cmdOut[]" xd:originalName="cmdOut" xd:direction="inout" xd:interfaceRef="m_axi_OUT_r" xd:busTypeRef="aximm" xd:arraySize="4096" xd:dataWidth="16" xd:bufferDirection="out"/>
   <xd:latencyEstimates xd:best-case="21" xd:worst-case="21" xd:average-case="21"/>
-  <xd:resourceEstimates xd:LUT="1399" xd:FF="993" xd:BRAM="6" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="1411" xd:FF="993" xd:BRAM="6" xd:DSP="0"/>
 </xd:acceleratorMap>

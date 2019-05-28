@@ -24828,7 +24828,7 @@ _ssdm_op_SpecInterface(cmdOut, "m_axi", 0, 0, "", 0, 0, "OUT", "off", "", 16, 16
 
 
 
- isArmed = rcCmdIn[4];
+ isArmed = uint8_t(rcCmdIn[4]);
 
     flightModeFlag = uint8_t(rcCmdIn[5]);
 

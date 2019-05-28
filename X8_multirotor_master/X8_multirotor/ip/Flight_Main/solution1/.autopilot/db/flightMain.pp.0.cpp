@@ -24667,7 +24667,7 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
 
 
 
- isArmed = rcCmdIn[4];
+ isArmed = uint8_t(rcCmdIn[4]);
 
     flightModeFlag = uint8_t(rcCmdIn[5]);
 
