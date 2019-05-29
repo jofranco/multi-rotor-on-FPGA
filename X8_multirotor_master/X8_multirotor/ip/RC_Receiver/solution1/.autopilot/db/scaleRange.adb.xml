@@ -100,7 +100,7 @@
 
 <Node id="6" bw="43" op_0_bw="43" op_1_bw="43">
 <![CDATA[
-:4  %p_Val2_1 = mul i43 %OP2_V_cast, 65468
+:4  %p_Val2_1 = mul i43 %OP2_V_cast, 65464
 
 ]]></Node>
 <StgValue><ssdm name="p_Val2_1"/></StgValue>
@@ -194,9 +194,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="11" bw="14" op_0_bw="14" op_1_bw="87" op_2_bw="32" op_3_bw="32">
+<Node id="11" bw="13" op_0_bw="13" op_1_bw="87" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-:9  %tmp = call i14 @_ssdm_op_PartSelect.i14.i87.i32.i32(i87 %mul, i32 72, i32 85)
+:9  %tmp = call i13 @_ssdm_op_PartSelect.i13.i87.i32.i32(i87 %mul, i32 73, i32 85)
 
 ]]></Node>
 <StgValue><ssdm name="tmp"/></StgValue>
@@ -209,9 +209,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="12" bw="0" op_0_bw="14">
+<Node id="12" bw="0" op_0_bw="13">
 <![CDATA[
-:10  ret i14 %tmp
+:10  ret i13 %tmp
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
@@ -272,7 +272,7 @@
 </dataflow>
 <dataflow id="56" from="StgValue_53" to="mul" fromId="53" toId="14">
 </dataflow>
-<dataflow id="58" from="_ssdm_op_PartSelect.i14.i87.i32.i32" to="tmp" fromId="57" toId="15">
+<dataflow id="58" from="_ssdm_op_PartSelect.i13.i87.i32.i32" to="tmp" fromId="57" toId="15">
 </dataflow>
 <dataflow id="59" from="mul" to="tmp" fromId="14" toId="15">
 </dataflow>

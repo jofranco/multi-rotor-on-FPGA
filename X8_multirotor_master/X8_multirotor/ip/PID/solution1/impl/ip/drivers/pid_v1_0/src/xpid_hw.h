@@ -5,78 +5,81 @@
 // 
 // ==============================================================
 
-// CMD
-// 0x10 ~
-// 0x17 : Memory 'rcCmdIn' (4 * 16b)
-//        Word n : bit [15: 0] - rcCmdIn[2n]
-//                 bit [31:16] - rcCmdIn[2n+1]
-// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
-
-#define XPID_CMD_ADDR_RCCMDIN_BASE 0x10
-#define XPID_CMD_ADDR_RCCMDIN_HIGH 0x17
-#define XPID_CMD_WIDTH_RCCMDIN     16
-#define XPID_CMD_DEPTH_RCCMDIN     4
-
 // CTRL
-// 0x0 : Control signals
-//       bit 0  - ap_start (Read/Write/COH)
-//       bit 1  - ap_done (Read/COR)
-//       bit 2  - ap_idle (Read)
-//       bit 3  - ap_ready (Read)
-//       bit 7  - auto_restart (Read/Write)
-//       others - reserved
-// 0x4 : Global Interrupt Enable Register
-//       bit 0  - Global Interrupt Enable (Read/Write)
-//       others - reserved
-// 0x8 : IP Interrupt Enable Register (Read/Write)
-//       bit 0  - Channel 0 (ap_done)
-//       bit 1  - Channel 1 (ap_ready)
-//       others - reserved
-// 0xc : IP Interrupt Status Register (Read/TOW)
-//       bit 0  - Channel 0 (ap_done)
-//       bit 1  - Channel 1 (ap_ready)
-//       others - reserved
-// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
-
-#define XPID_CTRL_ADDR_AP_CTRL 0x0
-#define XPID_CTRL_ADDR_GIE     0x4
-#define XPID_CTRL_ADDR_IER     0x8
-#define XPID_CTRL_ADDR_ISR     0xc
-
-// GAINS
-// 0x10 ~
-// 0x1f : Memory 'kp' (3 * 32b)
-//        Word n : bit [31:0] - kp[n]
+// 0x00 : Control signals
+//        bit 0  - ap_start (Read/Write/COH)
+//        bit 1  - ap_done (Read/COR)
+//        bit 2  - ap_idle (Read)
+//        bit 3  - ap_ready (Read)
+//        bit 7  - auto_restart (Read/Write)
+//        others - reserved
+// 0x04 : Global Interrupt Enable Register
+//        bit 0  - Global Interrupt Enable (Read/Write)
+//        others - reserved
+// 0x08 : IP Interrupt Enable Register (Read/Write)
+//        bit 0  - Channel 0 (ap_done)
+//        bit 1  - Channel 1 (ap_ready)
+//        others - reserved
+// 0x0c : IP Interrupt Status Register (Read/TOW)
+//        bit 0  - Channel 0 (ap_done)
+//        bit 1  - Channel 1 (ap_ready)
+//        others - reserved
 // 0x20 ~
-// 0x27 : Memory 'kd' (2 * 32b)
-//        Word n : bit [31:0] - kd[n]
-// 0x28 ~
-// 0x2f : Memory 'ki' (2 * 32b)
-//        Word n : bit [31:0] - ki[n]
+// 0x3f : Memory 'kp_V' (6 * 32b)
+//        Word n : bit [31:0] - kp_V[n]
+// 0x40 ~
+// 0x4f : Memory 'kd_V' (4 * 32b)
+//        Word n : bit [31:0] - kd_V[n]
+// 0x50 ~
+// 0x5f : Memory 'ki_V' (4 * 32b)
+//        Word n : bit [31:0] - ki_V[n]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XPID_GAINS_ADDR_KP_BASE 0x10
-#define XPID_GAINS_ADDR_KP_HIGH 0x1f
-#define XPID_GAINS_WIDTH_KP     32
-#define XPID_GAINS_DEPTH_KP     3
-#define XPID_GAINS_ADDR_KD_BASE 0x20
-#define XPID_GAINS_ADDR_KD_HIGH 0x27
-#define XPID_GAINS_WIDTH_KD     32
-#define XPID_GAINS_DEPTH_KD     2
-#define XPID_GAINS_ADDR_KI_BASE 0x28
-#define XPID_GAINS_ADDR_KI_HIGH 0x2f
-#define XPID_GAINS_WIDTH_KI     32
-#define XPID_GAINS_DEPTH_KI     2
+#define XPID_CTRL_ADDR_AP_CTRL   0x00
+#define XPID_CTRL_ADDR_GIE       0x04
+#define XPID_CTRL_ADDR_IER       0x08
+#define XPID_CTRL_ADDR_ISR       0x0c
+#define XPID_CTRL_ADDR_KP_V_BASE 0x20
+#define XPID_CTRL_ADDR_KP_V_HIGH 0x3f
+#define XPID_CTRL_WIDTH_KP_V     32
+#define XPID_CTRL_DEPTH_KP_V     6
+#define XPID_CTRL_ADDR_KD_V_BASE 0x40
+#define XPID_CTRL_ADDR_KD_V_HIGH 0x4f
+#define XPID_CTRL_WIDTH_KD_V     32
+#define XPID_CTRL_DEPTH_KD_V     4
+#define XPID_CTRL_ADDR_KI_V_BASE 0x50
+#define XPID_CTRL_ADDR_KI_V_HIGH 0x5f
+#define XPID_CTRL_WIDTH_KI_V     32
+#define XPID_CTRL_DEPTH_KI_V     4
 
-// MEAS
+// INPUT
 // 0x10 ~
-// 0x1f : Memory 'measured' (6 * 16b)
-//        Word n : bit [15: 0] - measured[2n]
-//                 bit [31:16] - measured[2n+1]
+// 0x1f : Memory 'cmdIn_V' (6 * 16b)
+//        Word n : bit [15: 0] - cmdIn_V[2n]
+//                 bit [31:16] - cmdIn_V[2n+1]
+// 0x20 ~
+// 0x2f : Memory 'measured_V' (6 * 16b)
+//        Word n : bit [15: 0] - measured_V[2n]
+//                 bit [31:16] - measured_V[2n+1]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XPID_MEAS_ADDR_MEASURED_BASE 0x10
-#define XPID_MEAS_ADDR_MEASURED_HIGH 0x1f
-#define XPID_MEAS_WIDTH_MEASURED     16
-#define XPID_MEAS_DEPTH_MEASURED     6
+#define XPID_INPUT_ADDR_CMDIN_V_BASE    0x10
+#define XPID_INPUT_ADDR_CMDIN_V_HIGH    0x1f
+#define XPID_INPUT_WIDTH_CMDIN_V        16
+#define XPID_INPUT_DEPTH_CMDIN_V        6
+#define XPID_INPUT_ADDR_MEASURED_V_BASE 0x20
+#define XPID_INPUT_ADDR_MEASURED_V_HIGH 0x2f
+#define XPID_INPUT_WIDTH_MEASURED_V     16
+#define XPID_INPUT_DEPTH_MEASURED_V     6
+
+// TEST
+// 0x4000 ~
+// 0x7fff : Memory 'test' (4096 * 32b)
+//          Word n : bit [31:0] - test[n]
+// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
+
+#define XPID_TEST_ADDR_TEST_BASE 0x4000
+#define XPID_TEST_ADDR_TEST_HIGH 0x7fff
+#define XPID_TEST_WIDTH_TEST     32
+#define XPID_TEST_DEPTH_TEST     4096
 

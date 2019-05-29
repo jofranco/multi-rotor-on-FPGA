@@ -11,7 +11,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity pid_CTRL_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 4;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 7;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     -- axi4 lite slave signals
@@ -40,29 +40,47 @@ port (
     ap_start              :out  STD_LOGIC;
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
-    ap_idle               :in   STD_LOGIC
+    ap_idle               :in   STD_LOGIC;
+    kp_V_address0         :in   STD_LOGIC_VECTOR(2 downto 0);
+    kp_V_ce0              :in   STD_LOGIC;
+    kp_V_q0               :out  STD_LOGIC_VECTOR(31 downto 0);
+    kd_V_address0         :in   STD_LOGIC_VECTOR(1 downto 0);
+    kd_V_ce0              :in   STD_LOGIC;
+    kd_V_q0               :out  STD_LOGIC_VECTOR(31 downto 0);
+    ki_V_address0         :in   STD_LOGIC_VECTOR(1 downto 0);
+    ki_V_ce0              :in   STD_LOGIC;
+    ki_V_q0               :out  STD_LOGIC_VECTOR(31 downto 0)
 );
 end entity pid_CTRL_s_axi;
 
 -- ------------------------Address Info-------------------
--- 0x0 : Control signals
---       bit 0  - ap_start (Read/Write/COH)
---       bit 1  - ap_done (Read/COR)
---       bit 2  - ap_idle (Read)
---       bit 3  - ap_ready (Read)
---       bit 7  - auto_restart (Read/Write)
---       others - reserved
--- 0x4 : Global Interrupt Enable Register
---       bit 0  - Global Interrupt Enable (Read/Write)
---       others - reserved
--- 0x8 : IP Interrupt Enable Register (Read/Write)
---       bit 0  - Channel 0 (ap_done)
---       bit 1  - Channel 1 (ap_ready)
---       others - reserved
--- 0xc : IP Interrupt Status Register (Read/TOW)
---       bit 0  - Channel 0 (ap_done)
---       bit 1  - Channel 1 (ap_ready)
---       others - reserved
+-- 0x00 : Control signals
+--        bit 0  - ap_start (Read/Write/COH)
+--        bit 1  - ap_done (Read/COR)
+--        bit 2  - ap_idle (Read)
+--        bit 3  - ap_ready (Read)
+--        bit 7  - auto_restart (Read/Write)
+--        others - reserved
+-- 0x04 : Global Interrupt Enable Register
+--        bit 0  - Global Interrupt Enable (Read/Write)
+--        others - reserved
+-- 0x08 : IP Interrupt Enable Register (Read/Write)
+--        bit 0  - Channel 0 (ap_done)
+--        bit 1  - Channel 1 (ap_ready)
+--        others - reserved
+-- 0x0c : IP Interrupt Status Register (Read/TOW)
+--        bit 0  - Channel 0 (ap_done)
+--        bit 1  - Channel 1 (ap_ready)
+--        others - reserved
+-- 0x20 ~
+-- 0x3f : Memory 'kp_V' (6 * 32b)
+--        Word n : bit [31:0] - kp_V[n]
+-- 0x40 ~
+-- 0x4f : Memory 'kd_V' (4 * 32b)
+--        Word n : bit [31:0] - kd_V[n]
+-- 0x50 ~
+-- 0x5f : Memory 'ki_V' (4 * 32b)
+--        Word n : bit [31:0] - ki_V[n]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of pid_CTRL_s_axi is
@@ -70,11 +88,17 @@ architecture behave of pid_CTRL_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL : INTEGER := 16#0#;
-    constant ADDR_GIE     : INTEGER := 16#4#;
-    constant ADDR_IER     : INTEGER := 16#8#;
-    constant ADDR_ISR     : INTEGER := 16#c#;
-    constant ADDR_BITS         : INTEGER := 4;
+    constant ADDR_AP_CTRL   : INTEGER := 16#00#;
+    constant ADDR_GIE       : INTEGER := 16#04#;
+    constant ADDR_IER       : INTEGER := 16#08#;
+    constant ADDR_ISR       : INTEGER := 16#0c#;
+    constant ADDR_KP_V_BASE : INTEGER := 16#20#;
+    constant ADDR_KP_V_HIGH : INTEGER := 16#3f#;
+    constant ADDR_KD_V_BASE : INTEGER := 16#40#;
+    constant ADDR_KD_V_HIGH : INTEGER := 16#4f#;
+    constant ADDR_KI_V_BASE : INTEGER := 16#50#;
+    constant ADDR_KI_V_HIGH : INTEGER := 16#5f#;
+    constant ADDR_BITS         : INTEGER := 7;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(31 downto 0);
@@ -96,10 +120,149 @@ architecture behave of pid_CTRL_s_axi is
     signal int_gie             : STD_LOGIC := '0';
     signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
+    -- memory signals
+    signal int_kp_V_address0   : UNSIGNED(2 downto 0);
+    signal int_kp_V_ce0        : STD_LOGIC;
+    signal int_kp_V_we0        : STD_LOGIC;
+    signal int_kp_V_be0        : UNSIGNED(3 downto 0);
+    signal int_kp_V_d0         : UNSIGNED(31 downto 0);
+    signal int_kp_V_q0         : UNSIGNED(31 downto 0);
+    signal int_kp_V_address1   : UNSIGNED(2 downto 0);
+    signal int_kp_V_ce1        : STD_LOGIC;
+    signal int_kp_V_we1        : STD_LOGIC;
+    signal int_kp_V_be1        : UNSIGNED(3 downto 0);
+    signal int_kp_V_d1         : UNSIGNED(31 downto 0);
+    signal int_kp_V_q1         : UNSIGNED(31 downto 0);
+    signal int_kp_V_read       : STD_LOGIC;
+    signal int_kp_V_write      : STD_LOGIC;
+    signal int_kd_V_address0   : UNSIGNED(1 downto 0);
+    signal int_kd_V_ce0        : STD_LOGIC;
+    signal int_kd_V_we0        : STD_LOGIC;
+    signal int_kd_V_be0        : UNSIGNED(3 downto 0);
+    signal int_kd_V_d0         : UNSIGNED(31 downto 0);
+    signal int_kd_V_q0         : UNSIGNED(31 downto 0);
+    signal int_kd_V_address1   : UNSIGNED(1 downto 0);
+    signal int_kd_V_ce1        : STD_LOGIC;
+    signal int_kd_V_we1        : STD_LOGIC;
+    signal int_kd_V_be1        : UNSIGNED(3 downto 0);
+    signal int_kd_V_d1         : UNSIGNED(31 downto 0);
+    signal int_kd_V_q1         : UNSIGNED(31 downto 0);
+    signal int_kd_V_read       : STD_LOGIC;
+    signal int_kd_V_write      : STD_LOGIC;
+    signal int_ki_V_address0   : UNSIGNED(1 downto 0);
+    signal int_ki_V_ce0        : STD_LOGIC;
+    signal int_ki_V_we0        : STD_LOGIC;
+    signal int_ki_V_be0        : UNSIGNED(3 downto 0);
+    signal int_ki_V_d0         : UNSIGNED(31 downto 0);
+    signal int_ki_V_q0         : UNSIGNED(31 downto 0);
+    signal int_ki_V_address1   : UNSIGNED(1 downto 0);
+    signal int_ki_V_ce1        : STD_LOGIC;
+    signal int_ki_V_we1        : STD_LOGIC;
+    signal int_ki_V_be1        : UNSIGNED(3 downto 0);
+    signal int_ki_V_d1         : UNSIGNED(31 downto 0);
+    signal int_ki_V_q1         : UNSIGNED(31 downto 0);
+    signal int_ki_V_read       : STD_LOGIC;
+    signal int_ki_V_write      : STD_LOGIC;
 
+    component pid_CTRL_s_axi_ram is
+        generic (
+            BYTES   : INTEGER :=4;
+            DEPTH   : INTEGER :=256;
+            AWIDTH  : INTEGER :=8);
+        port (
+            clk0    : in  STD_LOGIC;
+            address0: in  UNSIGNED(AWIDTH-1 downto 0);
+            ce0     : in  STD_LOGIC;
+            we0     : in  STD_LOGIC;
+            be0     : in  UNSIGNED(BYTES-1 downto 0);
+            d0      : in  UNSIGNED(BYTES*8-1 downto 0);
+            q0      : out UNSIGNED(BYTES*8-1 downto 0);
+            clk1    : in  STD_LOGIC;
+            address1: in  UNSIGNED(AWIDTH-1 downto 0);
+            ce1     : in  STD_LOGIC;
+            we1     : in  STD_LOGIC;
+            be1     : in  UNSIGNED(BYTES-1 downto 0);
+            d1      : in  UNSIGNED(BYTES*8-1 downto 0);
+            q1      : out UNSIGNED(BYTES*8-1 downto 0));
+    end component pid_CTRL_s_axi_ram;
+
+    function log2 (x : INTEGER) return INTEGER is
+        variable n, m : INTEGER;
+    begin
+        n := 1;
+        m := 2;
+        while m < x loop
+            n := n + 1;
+            m := m * 2;
+        end loop;
+        return n;
+    end function log2;
 
 begin
 -- ----------------------- Instantiation------------------
+-- int_kp_V
+int_kp_V : pid_CTRL_s_axi_ram
+generic map (
+     BYTES    => 4,
+     DEPTH    => 6,
+     AWIDTH   => log2(6))
+port map (
+     clk0     => ACLK,
+     address0 => int_kp_V_address0,
+     ce0      => int_kp_V_ce0,
+     we0      => int_kp_V_we0,
+     be0      => int_kp_V_be0,
+     d0       => int_kp_V_d0,
+     q0       => int_kp_V_q0,
+     clk1     => ACLK,
+     address1 => int_kp_V_address1,
+     ce1      => int_kp_V_ce1,
+     we1      => int_kp_V_we1,
+     be1      => int_kp_V_be1,
+     d1       => int_kp_V_d1,
+     q1       => int_kp_V_q1);
+-- int_kd_V
+int_kd_V : pid_CTRL_s_axi_ram
+generic map (
+     BYTES    => 4,
+     DEPTH    => 4,
+     AWIDTH   => log2(4))
+port map (
+     clk0     => ACLK,
+     address0 => int_kd_V_address0,
+     ce0      => int_kd_V_ce0,
+     we0      => int_kd_V_we0,
+     be0      => int_kd_V_be0,
+     d0       => int_kd_V_d0,
+     q0       => int_kd_V_q0,
+     clk1     => ACLK,
+     address1 => int_kd_V_address1,
+     ce1      => int_kd_V_ce1,
+     we1      => int_kd_V_we1,
+     be1      => int_kd_V_be1,
+     d1       => int_kd_V_d1,
+     q1       => int_kd_V_q1);
+-- int_ki_V
+int_ki_V : pid_CTRL_s_axi_ram
+generic map (
+     BYTES    => 4,
+     DEPTH    => 4,
+     AWIDTH   => log2(4))
+port map (
+     clk0     => ACLK,
+     address0 => int_ki_V_address0,
+     ce0      => int_ki_V_ce0,
+     we0      => int_ki_V_we0,
+     be0      => int_ki_V_be0,
+     d0       => int_ki_V_d0,
+     q0       => int_ki_V_q0,
+     clk1     => ACLK,
+     address1 => int_ki_V_address1,
+     ce1      => int_ki_V_ce1,
+     we1      => int_ki_V_we1,
+     be1      => int_ki_V_be1,
+     d1       => int_ki_V_d1,
+     q1       => int_ki_V_q1);
 
 -- ----------------------- AXI WRITE ---------------------
     AWREADY_t <=  '1' when wstate = wridle else '0';
@@ -166,7 +329,7 @@ begin
     ARREADY <= ARREADY_t;
     RDATA   <= STD_LOGIC_VECTOR(rdata_data);
     RRESP   <= "00";  -- OKAY
-    RVALID_t  <= '1' when (rstate = rddata) else '0';
+    RVALID_t  <= '1' when (rstate = rddata) and (int_kp_V_read = '0') and (int_kd_V_read = '0') and (int_ki_V_read = '0') else '0';
     RVALID    <= RVALID_t;
     ar_hs   <= ARVALID and ARREADY_t;
     raddr   <= UNSIGNED(ARADDR(ADDR_BITS-1 downto 0));
@@ -220,6 +383,12 @@ begin
                     when others =>
                         rdata_data <= (others => '0');
                     end case;
+                elsif (int_kp_V_read = '1') then
+                    rdata_data <= int_kp_V_q1;
+                elsif (int_kd_V_read = '1') then
+                    rdata_data <= int_kd_V_q1;
+                elsif (int_ki_V_read = '1') then
+                    rdata_data <= int_ki_V_q1;
                 end if;
             end if;
         end if;
@@ -356,5 +525,236 @@ begin
 
 
 -- ----------------------- Memory logic ------------------
+    -- kp_V
+    int_kp_V_address0    <= UNSIGNED(kp_V_address0);
+    int_kp_V_ce0         <= kp_V_ce0;
+    int_kp_V_we0         <= '0';
+    int_kp_V_be0         <= (others => '0');
+    int_kp_V_d0          <= (others => '0');
+    kp_V_q0              <= STD_LOGIC_VECTOR(RESIZE(int_kp_V_q0, 32));
+    int_kp_V_address1    <= raddr(4 downto 2) when ar_hs = '1' else waddr(4 downto 2);
+    int_kp_V_ce1         <= '1' when ar_hs = '1' or (int_kp_V_write = '1' and WVALID  = '1') else '0';
+    int_kp_V_we1         <= '1' when int_kp_V_write = '1' and WVALID = '1' else '0';
+    int_kp_V_be1         <= UNSIGNED(WSTRB);
+    int_kp_V_d1          <= UNSIGNED(WDATA);
+    -- kd_V
+    int_kd_V_address0    <= UNSIGNED(kd_V_address0);
+    int_kd_V_ce0         <= kd_V_ce0;
+    int_kd_V_we0         <= '0';
+    int_kd_V_be0         <= (others => '0');
+    int_kd_V_d0          <= (others => '0');
+    kd_V_q0              <= STD_LOGIC_VECTOR(RESIZE(int_kd_V_q0, 32));
+    int_kd_V_address1    <= raddr(3 downto 2) when ar_hs = '1' else waddr(3 downto 2);
+    int_kd_V_ce1         <= '1' when ar_hs = '1' or (int_kd_V_write = '1' and WVALID  = '1') else '0';
+    int_kd_V_we1         <= '1' when int_kd_V_write = '1' and WVALID = '1' else '0';
+    int_kd_V_be1         <= UNSIGNED(WSTRB);
+    int_kd_V_d1          <= UNSIGNED(WDATA);
+    -- ki_V
+    int_ki_V_address0    <= UNSIGNED(ki_V_address0);
+    int_ki_V_ce0         <= ki_V_ce0;
+    int_ki_V_we0         <= '0';
+    int_ki_V_be0         <= (others => '0');
+    int_ki_V_d0          <= (others => '0');
+    ki_V_q0              <= STD_LOGIC_VECTOR(RESIZE(int_ki_V_q0, 32));
+    int_ki_V_address1    <= raddr(3 downto 2) when ar_hs = '1' else waddr(3 downto 2);
+    int_ki_V_ce1         <= '1' when ar_hs = '1' or (int_ki_V_write = '1' and WVALID  = '1') else '0';
+    int_ki_V_we1         <= '1' when int_ki_V_write = '1' and WVALID = '1' else '0';
+    int_ki_V_be1         <= UNSIGNED(WSTRB);
+    int_ki_V_d1          <= UNSIGNED(WDATA);
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_kp_V_read <= '0';
+            elsif (ACLK_EN = '1') then
+                if (ar_hs = '1' and raddr >= ADDR_KP_V_BASE and raddr <= ADDR_KP_V_HIGH) then
+                    int_kp_V_read <= '1';
+                else
+                    int_kp_V_read <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_kp_V_write <= '0';
+            elsif (ACLK_EN = '1') then
+                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_KP_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_KP_V_HIGH) then
+                    int_kp_V_write <= '1';
+                elsif (WVALID = '1') then
+                    int_kp_V_write <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_kd_V_read <= '0';
+            elsif (ACLK_EN = '1') then
+                if (ar_hs = '1' and raddr >= ADDR_KD_V_BASE and raddr <= ADDR_KD_V_HIGH) then
+                    int_kd_V_read <= '1';
+                else
+                    int_kd_V_read <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_kd_V_write <= '0';
+            elsif (ACLK_EN = '1') then
+                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_KD_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_KD_V_HIGH) then
+                    int_kd_V_write <= '1';
+                elsif (WVALID = '1') then
+                    int_kd_V_write <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_ki_V_read <= '0';
+            elsif (ACLK_EN = '1') then
+                if (ar_hs = '1' and raddr >= ADDR_KI_V_BASE and raddr <= ADDR_KI_V_HIGH) then
+                    int_ki_V_read <= '1';
+                else
+                    int_ki_V_read <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_ki_V_write <= '0';
+            elsif (ACLK_EN = '1') then
+                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_KI_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_KI_V_HIGH) then
+                    int_ki_V_write <= '1';
+                elsif (WVALID = '1') then
+                    int_ki_V_write <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
 
 end architecture behave;
+
+library IEEE;
+USE IEEE.std_logic_1164.all;
+USE IEEE.numeric_std.all;
+
+entity pid_CTRL_s_axi_ram is
+    generic (
+        BYTES   : INTEGER :=4;
+        DEPTH   : INTEGER :=256;
+        AWIDTH  : INTEGER :=8);
+    port (
+        clk0    : in  STD_LOGIC;
+        address0: in  UNSIGNED(AWIDTH-1 downto 0);
+        ce0     : in  STD_LOGIC;
+        we0     : in  STD_LOGIC;
+        be0     : in  UNSIGNED(BYTES-1 downto 0);
+        d0      : in  UNSIGNED(BYTES*8-1 downto 0);
+        q0      : out UNSIGNED(BYTES*8-1 downto 0);
+        clk1    : in  STD_LOGIC;
+        address1: in  UNSIGNED(AWIDTH-1 downto 0);
+        ce1     : in  STD_LOGIC;
+        we1     : in  STD_LOGIC;
+        be1     : in  UNSIGNED(BYTES-1 downto 0);
+        d1      : in  UNSIGNED(BYTES*8-1 downto 0);
+        q1      : out UNSIGNED(BYTES*8-1 downto 0));
+
+end entity pid_CTRL_s_axi_ram;
+
+architecture behave of pid_CTRL_s_axi_ram is
+    signal address0_tmp : UNSIGNED(AWIDTH-1 downto 0);
+    signal address1_tmp : UNSIGNED(AWIDTH-1 downto 0);
+    type RAM_T is array (0 to DEPTH - 1) of UNSIGNED(BYTES*8 - 1 downto 0);
+    shared variable mem : RAM_T := (others => (others => '0'));
+begin
+
+    process (address0)
+    begin
+    address0_tmp <= address0;
+    --synthesis translate_off
+          if (address0 > DEPTH-1) then
+              address0_tmp <= (others => '0');
+          else
+              address0_tmp <= address0;
+          end if;
+    --synthesis translate_on
+    end process;
+
+    process (address1)
+    begin
+    address1_tmp <= address1;
+    --synthesis translate_off
+          if (address1 > DEPTH-1) then
+              address1_tmp <= (others => '0');
+          else
+              address1_tmp <= address1;
+          end if;
+    --synthesis translate_on
+    end process;
+
+    --read port 0
+    process (clk0) begin
+        if (clk0'event and clk0 = '1') then
+            if (ce0 = '1') then
+                q0 <= mem(to_integer(address0_tmp));
+            end if;
+        end if;
+    end process;
+
+    --read port 1
+    process (clk1) begin
+        if (clk1'event and clk1 = '1') then
+            if (ce1 = '1') then
+                q1 <= mem(to_integer(address1_tmp));
+            end if;
+        end if;
+    end process;
+
+    gen_write : for i in 0 to BYTES - 1 generate
+    begin
+        --write port 0
+        process (clk0)
+        begin
+            if (clk0'event and clk0 = '1') then
+                if (ce0 = '1' and we0 = '1' and be0(i) = '1') then
+                    mem(to_integer(address0_tmp))(8*i+7 downto 8*i) := d0(8*i+7 downto 8*i);
+                end if;
+            end if;
+        end process;
+
+        --write port 1
+        process (clk1)
+        begin
+            if (clk1'event and clk1 = '1') then
+                if (ce1 = '1' and we1 = '1' and be1(i) = '1') then
+                    mem(to_integer(address1_tmp))(8*i+7 downto 8*i) := d1(8*i+7 downto 8*i);
+                end if;
+            end if;
+        end process;
+
+    end generate;
+
+end architecture behave;
+
+

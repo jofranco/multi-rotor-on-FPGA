@@ -6,7 +6,7 @@
 	<userIPName></userIPName>
 	<cdfg class_id="1" tracking_level="1" version="0" object_id="_0">
 		<name>scaleRange</name>
-		<ret_bitwidth>14</ret_bitwidth>
+		<ret_bitwidth>13</ret_bitwidth>
 		<ports class_id="2" tracking_level="0" version="0">
 			<count>1</count>
 			<item_version>0</item_version>
@@ -82,7 +82,7 @@
 						<name>p_Val2_s</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>79</lineNumber>
+						<lineNumber>100</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -97,7 +97,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>79</second>
+										<second>100</second>
 									</item>
 								</second>
 							</item>
@@ -129,7 +129,7 @@
 						<name>r_V</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>79</lineNumber>
+						<lineNumber>100</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -144,7 +144,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>79</second>
+										<second>100</second>
 									</item>
 								</second>
 							</item>
@@ -175,7 +175,7 @@
 						<name>OP2_V_cast</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>79</lineNumber>
+						<lineNumber>100</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -190,7 +190,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>79</second>
+										<second>100</second>
 									</item>
 								</second>
 							</item>
@@ -220,7 +220,7 @@
 						<name>p_Val2_1</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>79</lineNumber>
+						<lineNumber>100</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -235,7 +235,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>79</second>
+										<second>100</second>
 									</item>
 								</second>
 							</item>
@@ -266,7 +266,7 @@
 						<name>tmp_1</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>79</lineNumber>
+						<lineNumber>100</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -281,7 +281,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>79</second>
+										<second>100</second>
 									</item>
 								</second>
 							</item>
@@ -314,7 +314,7 @@
 						<name>tmp_4</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>81</lineNumber>
+						<lineNumber>102</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -329,7 +329,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>81</second>
+										<second>102</second>
 									</item>
 								</second>
 							</item>
@@ -361,7 +361,7 @@
 						<name>zext_cast</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>81</lineNumber>
+						<lineNumber>102</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -376,7 +376,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>81</second>
+										<second>102</second>
 									</item>
 								</second>
 							</item>
@@ -406,7 +406,7 @@
 						<name>mul</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>81</lineNumber>
+						<lineNumber>102</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -421,7 +421,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>81</second>
+										<second>102</second>
 									</item>
 								</second>
 							</item>
@@ -452,7 +452,7 @@
 						<name>tmp</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>81</lineNumber>
+						<lineNumber>102</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -467,7 +467,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>81</second>
+										<second>102</second>
 									</item>
 								</second>
 							</item>
@@ -476,7 +476,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>14</bitwidth>
+					<bitwidth>13</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
@@ -500,7 +500,7 @@
 						<name></name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>81</lineNumber>
+						<lineNumber>102</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -515,7 +515,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>81</second>
+										<second>102</second>
 									</item>
 								</second>
 							</item>
@@ -608,7 +608,7 @@
 					<bitwidth>43</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>65468</content>
+				<content>65464</content>
 			</item>
 			<item class_id_reference="16" object_id="_16">
 				<Value>
@@ -700,7 +700,7 @@
 					<bitwidth>32</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>72</content>
+				<content>73</content>
 			</item>
 			<item class_id_reference="16" object_id="_20">
 				<Value>

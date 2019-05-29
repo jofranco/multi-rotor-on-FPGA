@@ -1,0 +1,7 @@
+set_property SRC_FILE_INFO {cfile:C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/constrs_1/new/design_1.xdc rfile:../../../Flight_Main_PID_Test.srcs/constrs_1/new/design_1.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:5 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN T14 IOSTANDARD LVCMOS33} [get_ports {sin}]
+set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN U12 IOSTANDARD LVCMOS33} [get_ports {sout}]
+set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN V15 IOSTANDARD LVCMOS33} [get_ports {inv_sbus}]

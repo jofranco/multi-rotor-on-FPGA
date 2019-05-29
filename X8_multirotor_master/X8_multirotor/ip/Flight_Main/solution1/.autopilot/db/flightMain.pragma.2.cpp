@@ -24768,7 +24768,7 @@ typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
 typedef ap_fixed<19, 4> F19_t;
-typedef ap_fixed<16,2> F16_t;
+typedef ap_fixed<16,3> F16_t;
 
 typedef ap_uint<6> uint6_t;
 
@@ -24806,8 +24806,8 @@ typedef enum
 }cmdMode_e;
 # 2 "Flight_Main/flightMain.cpp" 2
 # 11 "Flight_Main/flightMain.cpp"
-void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
-{_ssdm_SpecArrayDimSize(rcCmdIn, 6);_ssdm_SpecArrayDimSize(obj_avd_cmd, 5);_ssdm_SpecArrayDimSize(cmdOut, 4096);
+void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096], int32_t test[4096])
+{_ssdm_SpecArrayDimSize(rcCmdIn, 6);_ssdm_SpecArrayDimSize(obj_avd_cmd, 5);_ssdm_SpecArrayDimSize(cmdOut, 4096);_ssdm_SpecArrayDimSize(test, 4096);
 _ssdm_op_SpecPipeline(1, 2, 1, 0, "");
 
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
@@ -24817,6 +24817,10 @@ _ssdm_op_SpecInterface(rcCmdIn, "s_axilite", 0, 0, "", 0, 0, "CMD", "", "", 0, 0
 _ssdm_op_SpecInterface(obj_avd_cmd, "s_axilite", 0, 0, "", 0, 0, "CMD", "", "", 0, 0, 0, 0, "", "");
 
 _ssdm_op_SpecInterface(cmdOut, "m_axi", 0, 0, "", 0, 0, "OUT", "off", "", 16, 16, 16, 16, "", "");
+
+
+_ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
+_ssdm_op_SpecInterface(test, "s_axilite", 0, 0, "", 0, 0, "TEST", "", "", 0, 0, 0, 0, "", "");
 
 
 
@@ -24861,6 +24865,8 @@ _ssdm_op_SpecInterface(cmdOut, "m_axi", 0, 0, "", 0, 0, "OUT", "off", "", 16, 16
                     cmdOut[3] = rcCmdIn[3];
                     cmdOut[1] = F16_t(0.500);
                     cmdOut[2] = F16_t(0.500);
+                    cmdOut[4] = rcCmdIn[4];
+                    cmdOut[5] = rcCmdIn[5];
                 }
                 else
                 {
@@ -24870,6 +24876,7 @@ _ssdm_op_SpecInterface(cmdOut, "m_axi", 0, 0, "", 0, 0, "OUT", "off", "", 16, 16
                         cmdOut[i] = rcCmdIn[i];
                     }
                 }
+
 
                 break;
 
@@ -24893,6 +24900,8 @@ _ssdm_op_SpecInterface(cmdOut, "m_axi", 0, 0, "", 0, 0, "OUT", "off", "", 16, 16
                         cmdOut[3] = rcCmdIn[3];
                         cmdOut[1] = F16_t(0.500);
                         cmdOut[2] = F16_t(0.500);
+                        cmdOut[4] = rcCmdIn[4];
+                        cmdOut[5] = rcCmdIn[5];
                     }
                     else
                     {
@@ -24913,6 +24922,8 @@ _ssdm_op_SpecInterface(cmdOut, "m_axi", 0, 0, "", 0, 0, "OUT", "off", "", 16, 16
                 cmdOut[3] = F16_t(0.500);
                 cmdOut[1] = F16_t(0.500);
                 cmdOut[2] = F16_t(0.500);
+                cmdOut[4] = rcCmdIn[4];
+                cmdOut[5] = rcCmdIn[5];
 
                 break;
         }
@@ -24925,5 +24936,22 @@ _ssdm_op_SpecInterface(cmdOut, "m_axi", 0, 0, "", 0, 0, "OUT", "off", "", 16, 16
      cmdOut[3] = F16_t(0.500);
   cmdOut[1] = F16_t(0.500);
   cmdOut[2] = F16_t(0.500);
+  cmdOut[4] = rcCmdIn[4];
+        cmdOut[5] = rcCmdIn[5];
     }
+
+
+ test[0] = (int32_t)rcCmdIn[0];
+ test[1] = (int32_t)rcCmdIn[1];
+ test[2] = (int32_t)rcCmdIn[2];
+ test[3] = (int32_t)rcCmdIn[3];
+ test[4] = (int32_t)rcCmdIn[4];
+ test[5] = (int32_t)rcCmdIn[5];
+
+ test[6] = (int32_t)cmdOut[0];
+ test[7] = (int32_t)cmdOut[1];
+ test[8] = (int32_t)cmdOut[2];
+ test[9] = (int32_t)cmdOut[3];
+ test[10] = (int32_t)cmdOut[4];
+ test[11] = (int32_t)cmdOut[5];
 }

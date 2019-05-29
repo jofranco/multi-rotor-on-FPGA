@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'scaleRange'
 ================================================================
-* Date:           Mon May 27 16:10:22 2019
+* Date:           Wed May 29 00:35:22 2019
 
 * Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
 * Project:        RC_Receiver
@@ -54,9 +54,9 @@
 |Instance         |        -|      9|     217|     77|
 |Memory           |        -|      -|       -|      -|
 |Multiplexer      |        -|      -|       -|      9|
-|Register         |        -|      -|      64|      -|
+|Register         |        -|      -|      63|      -|
 +-----------------+---------+-------+--------+-------+
-|Total            |        0|     12|     281|    160|
+|Total            |        0|     12|     280|    160|
 +-----------------+---------+-------+--------+-------+
 |Available        |      280|    220|  106400|  53200|
 +-----------------+---------+-------+--------+-------+
@@ -96,9 +96,9 @@
     +-----------+----+-----------+-----+-----------+
     |    Name   | LUT| Input Size| Bits| Total Bits|
     +-----------+----+-----------+-----+-----------+
-    |ap_return  |   9|          2|   14|         28|
+    |ap_return  |   9|          2|   13|         26|
     +-----------+----+-----------+-----+-----------+
-    |Total      |   9|          2|   14|         28|
+    |Total      |   9|          2|   13|         26|
     +-----------+----+-----------+-----+-----------+
 
     * Register: 
@@ -106,12 +106,12 @@
     |        Name       | FF | LUT| Bits| Const Bits|
     +-------------------+----+----+-----+-----------+
     |ap_ce_reg          |   1|   0|    1|          0|
-    |ap_return_int_reg  |  14|   0|   14|          0|
+    |ap_return_int_reg  |  13|   0|   13|          0|
     |r_V_reg_94         |  11|   0|   27|         16|
     |tmp_1_reg_99       |  27|   0|   27|          0|
     |x_int_reg          |  11|   0|   11|          0|
     +-------------------+----+----+-----+-----------+
-    |Total              |  64|   0|   80|         16|
+    |Total              |  63|   0|   79|         16|
     +-------------------+----+----+-----+-----------+
 
 
@@ -125,7 +125,7 @@
 +-----------+-----+-----+------------+--------------+--------------+
 |ap_clk     |  in |    1| ap_ctrl_hs |  scaleRange  | return value |
 |ap_rst     |  in |    1| ap_ctrl_hs |  scaleRange  | return value |
-|ap_return  | out |   14| ap_ctrl_hs |  scaleRange  | return value |
+|ap_return  | out |   13| ap_ctrl_hs |  scaleRange  | return value |
 |ap_ce      |  in |    1| ap_ctrl_hs |  scaleRange  | return value |
 |x          |  in |   11|   ap_none  |       x      |    scalar    |
 +-----------+-----+-----+------------+--------------+--------------+
@@ -177,23 +177,23 @@ IsGatedGlobalClock: 0
 
 State 1 <SV = 0> <Delay = 2.40>
 ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%x_read = call i11 @_ssdm_op_Read.ap_auto.i11(i11 %x)"   --->   Operation 5 'read' 'x_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%p_Val2_s = call i27 @_ssdm_op_BitConcatenate.i27.i11.i16(i11 %x_read, i16 0)" [RC_Receiver/RC_Receiver.cpp:79]   --->   Operation 6 'bitconcatenate' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (2.40ns)   --->   "%r_V = add i27 %p_Val2_s, -13107200" [RC_Receiver/RC_Receiver.cpp:79]   --->   Operation 7 'add' 'r_V' <Predicate = true> <Delay = 2.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%p_Val2_s = call i27 @_ssdm_op_BitConcatenate.i27.i11.i16(i11 %x_read, i16 0)" [RC_Receiver/RC_Receiver.cpp:100]   --->   Operation 6 'bitconcatenate' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (2.40ns)   --->   "%r_V = add i27 %p_Val2_s, -13107200" [RC_Receiver/RC_Receiver.cpp:100]   --->   Operation 7 'add' 'r_V' <Predicate = true> <Delay = 2.40> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.40> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 
 State 2 <SV = 1> <Delay = 7.18>
-ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%OP2_V_cast = zext i27 %r_V to i43" [RC_Receiver/RC_Receiver.cpp:79]   --->   Operation 8 'zext' 'OP2_V_cast' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 9 [1/1] (7.18ns)   --->   "%p_Val2_1 = mul i43 %OP2_V_cast, 65468" [RC_Receiver/RC_Receiver.cpp:79]   --->   Operation 9 'mul' 'p_Val2_1' <Predicate = true> <Delay = 7.18> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 7.18> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%tmp_1 = call i27 @_ssdm_op_PartSelect.i27.i43.i32.i32(i43 %p_Val2_1, i32 16, i32 42)" [RC_Receiver/RC_Receiver.cpp:79]   --->   Operation 10 'partselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%OP2_V_cast = zext i27 %r_V to i43" [RC_Receiver/RC_Receiver.cpp:100]   --->   Operation 8 'zext' 'OP2_V_cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (7.18ns)   --->   "%p_Val2_1 = mul i43 %OP2_V_cast, 65464" [RC_Receiver/RC_Receiver.cpp:100]   --->   Operation 9 'mul' 'p_Val2_1' <Predicate = true> <Delay = 7.18> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 7.18> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%tmp_1 = call i27 @_ssdm_op_PartSelect.i27.i43.i32.i32(i43 %p_Val2_1, i32 16, i32 42)" [RC_Receiver/RC_Receiver.cpp:100]   --->   Operation 10 'partselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
 
 State 3 <SV = 2> <Delay = 8.62>
-ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_4 = call i43 @_ssdm_op_BitConcatenate.i43.i27.i16(i27 %tmp_1, i16 0)" [RC_Receiver/RC_Receiver.cpp:81]   --->   Operation 11 'bitconcatenate' 'tmp_4' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%zext_cast = zext i43 %tmp_4 to i87" [RC_Receiver/RC_Receiver.cpp:81]   --->   Operation 12 'zext' 'zext_cast' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 13 [2/2] (8.62ns)   --->   "%mul = mul i87 %zext_cast, 11258999068427" [RC_Receiver/RC_Receiver.cpp:81]   --->   Operation 13 'mul' 'mul' <Predicate = true> <Delay = 8.62> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 1> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_4 = call i43 @_ssdm_op_BitConcatenate.i43.i27.i16(i27 %tmp_1, i16 0)" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 11 'bitconcatenate' 'tmp_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%zext_cast = zext i43 %tmp_4 to i87" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 12 'zext' 'zext_cast' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 13 [2/2] (8.62ns)   --->   "%mul = mul i87 %zext_cast, 11258999068427" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 13 'mul' 'mul' <Predicate = true> <Delay = 8.62> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 1> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
 
 State 4 <SV = 3> <Delay = 8.62>
-ST_4 : Operation 14 [1/2] (8.62ns)   --->   "%mul = mul i87 %zext_cast, 11258999068427" [RC_Receiver/RC_Receiver.cpp:81]   --->   Operation 14 'mul' 'mul' <Predicate = true> <Delay = 8.62> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 1> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 15 [1/1] (0.00ns)   --->   "%tmp = call i14 @_ssdm_op_PartSelect.i14.i87.i32.i32(i87 %mul, i32 72, i32 85)" [RC_Receiver/RC_Receiver.cpp:81]   --->   Operation 15 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 16 [1/1] (0.00ns)   --->   "ret i14 %tmp" [RC_Receiver/RC_Receiver.cpp:81]   --->   Operation 16 'ret' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 14 [1/2] (8.62ns)   --->   "%mul = mul i87 %zext_cast, 11258999068427" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 14 'mul' 'mul' <Predicate = true> <Delay = 8.62> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 1> <II = 1> <Delay = 8.62> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 15 [1/1] (0.00ns)   --->   "%tmp = call i13 @_ssdm_op_PartSelect.i13.i87.i32.i32(i87 %mul, i32 73, i32 85)" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 15 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "ret i13 %tmp" [RC_Receiver/RC_Receiver.cpp:102]   --->   Operation 16 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -334,7 +334,7 @@ StgValue_16 (ret           ) [ 00000]
 <pin id="23" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_PartSelect.i14.i87.i32.i32"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_PartSelect.i13.i87.i32.i32"/></StgValue>
 </bind>
 </comp>
 
@@ -468,11 +468,11 @@ StgValue_16 (ret           ) [ 00000]
 
 <comp id="84" class="1004" name="tmp_fu_84">
 <pin_list>
-<pin id="85" dir="0" index="0" bw="14" slack="0"/>
+<pin id="85" dir="0" index="0" bw="13" slack="0"/>
 <pin id="86" dir="0" index="1" bw="87" slack="0"/>
 <pin id="87" dir="0" index="2" bw="8" slack="0"/>
 <pin id="88" dir="0" index="3" bw="8" slack="0"/>
-<pin id="89" dir="1" index="4" bw="14" slack="2147483647"/>
+<pin id="89" dir="1" index="4" bw="13" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>

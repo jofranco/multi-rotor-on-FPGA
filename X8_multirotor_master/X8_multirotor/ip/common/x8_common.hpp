@@ -1,7 +1,7 @@
-//include libraries
 #ifndef X8_COMMON_HPP /* prevent circular inclusions */
 #define X8_COMMON_HPP /* by using protection macros */
 
+//include libraries
 #include "ap_utils.h"
 #include "ap_int.h"
 #include "stdint.h"
@@ -23,7 +23,7 @@
 #define ARM_CHAN    		 4
 #define MODE_CHAN 			 5
 
-// t    ype definitions
+// type definitions
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;

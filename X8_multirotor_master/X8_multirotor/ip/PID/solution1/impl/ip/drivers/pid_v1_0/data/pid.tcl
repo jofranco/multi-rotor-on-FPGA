@@ -9,31 +9,26 @@ proc generate {drv_handle} {
     xdefine_include_file $drv_handle "xparameters.h" "XPid" \
         "NUM_INSTANCES" \
         "DEVICE_ID" \
-        "C_S_AXI_CMD_BASEADDR" \
-        "C_S_AXI_CMD_HIGHADDR" \
         "C_S_AXI_CTRL_BASEADDR" \
         "C_S_AXI_CTRL_HIGHADDR" \
-        "C_S_AXI_GAINS_BASEADDR" \
-        "C_S_AXI_GAINS_HIGHADDR" \
-        "C_S_AXI_MEAS_BASEADDR" \
-        "C_S_AXI_MEAS_HIGHADDR"
+        "C_S_AXI_INPUT_BASEADDR" \
+        "C_S_AXI_INPUT_HIGHADDR" \
+        "C_S_AXI_TEST_BASEADDR" \
+        "C_S_AXI_TEST_HIGHADDR"
 
     xdefine_config_file $drv_handle "xpid_g.c" "XPid" \
         "DEVICE_ID" \
-        "C_S_AXI_CMD_BASEADDR" \
         "C_S_AXI_CTRL_BASEADDR" \
-        "C_S_AXI_GAINS_BASEADDR" \
-        "C_S_AXI_MEAS_BASEADDR"
+        "C_S_AXI_INPUT_BASEADDR" \
+        "C_S_AXI_TEST_BASEADDR"
 
     xdefine_canonical_xpars $drv_handle "xparameters.h" "XPid" \
         "DEVICE_ID" \
-        "C_S_AXI_CMD_BASEADDR" \
-        "C_S_AXI_CMD_HIGHADDR" \
         "C_S_AXI_CTRL_BASEADDR" \
         "C_S_AXI_CTRL_HIGHADDR" \
-        "C_S_AXI_GAINS_BASEADDR" \
-        "C_S_AXI_GAINS_HIGHADDR" \
-        "C_S_AXI_MEAS_BASEADDR" \
-        "C_S_AXI_MEAS_HIGHADDR"
+        "C_S_AXI_INPUT_BASEADDR" \
+        "C_S_AXI_INPUT_HIGHADDR" \
+        "C_S_AXI_TEST_BASEADDR" \
+        "C_S_AXI_TEST_HIGHADDR"
 }
 

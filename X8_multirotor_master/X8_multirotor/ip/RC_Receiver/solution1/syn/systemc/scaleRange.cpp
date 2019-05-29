@@ -17,11 +17,11 @@ const sc_logic scaleRange::ap_const_logic_0 = sc_dt::Log_0;
 const bool scaleRange::ap_const_boolean_1 = true;
 const sc_lv<16> scaleRange::ap_const_lv16_0 = "0000000000000000";
 const sc_lv<27> scaleRange::ap_const_lv27_7380000 = "111001110000000000000000000";
-const sc_lv<43> scaleRange::ap_const_lv43_FFBC = "1111111110111100";
+const sc_lv<43> scaleRange::ap_const_lv43_FFB8 = "1111111110111000";
 const sc_lv<32> scaleRange::ap_const_lv32_10 = "10000";
 const sc_lv<32> scaleRange::ap_const_lv32_2A = "101010";
 const sc_lv<87> scaleRange::ap_const_lv87_A3D70A3D70B = "10100011110101110000101000111101011100001011";
-const sc_lv<32> scaleRange::ap_const_lv32_48 = "1001000";
+const sc_lv<32> scaleRange::ap_const_lv32_49 = "1001001";
 const sc_lv<32> scaleRange::ap_const_lv32_55 = "1010101";
 
 scaleRange::scaleRange(sc_module_name name) : sc_module(name), mVcdFile(0) {
@@ -129,7 +129,7 @@ scaleRange::~scaleRange() {
 void scaleRange::thread_ap_clk_no_reset_() {
     ap_ce_reg = ap_ce.read();
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_ce_reg.read())) {
-        ap_return_int_reg = grp_fu_78_p2.read().range(85, 72);
+        ap_return_int_reg = grp_fu_78_p2.read().range(85, 73);
     }
     if (esl_seteq<1,1,1>(ap_ce_reg.read(), ap_const_logic_1)) {
         r_V_reg_94 = r_V_fu_42_p2.read();
@@ -160,7 +160,7 @@ void scaleRange::thread_ap_return() {
     if (esl_seteq<1,1,1>(ap_const_logic_0, ap_ce_reg.read())) {
         ap_return = ap_return_int_reg.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_ce_reg.read())) {
-        ap_return = grp_fu_78_p2.read().range(85, 72);
+        ap_return = grp_fu_78_p2.read().range(85, 73);
     }
 }
 
@@ -193,7 +193,7 @@ void scaleRange::thread_p_Val2_1_fu_51_p00() {
 }
 
 void scaleRange::thread_p_Val2_1_fu_51_p2() {
-    p_Val2_1_fu_51_p2 = (!p_Val2_1_fu_51_p0.read().is_01() || !ap_const_lv43_FFBC.is_01())? sc_lv<43>(): sc_biguint<27>(p_Val2_1_fu_51_p0.read()) * sc_biguint<43>(ap_const_lv43_FFBC);
+    p_Val2_1_fu_51_p2 = (!p_Val2_1_fu_51_p0.read().is_01() || !ap_const_lv43_FFB8.is_01())? sc_lv<43>(): sc_biguint<27>(p_Val2_1_fu_51_p0.read()) * sc_biguint<43>(ap_const_lv43_FFB8);
 }
 
 void scaleRange::thread_p_Val2_s_fu_34_p3() {

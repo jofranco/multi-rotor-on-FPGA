@@ -72,3 +72,14 @@
 #define XPID_INPUT_WIDTH_MEASURED_V     16
 #define XPID_INPUT_DEPTH_MEASURED_V     6
 
+// TEST
+// 0x4000 ~
+// 0x7fff : Memory 'test' (4096 * 32b)
+//          Word n : bit [31:0] - test[n]
+// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
+
+#define XPID_TEST_ADDR_TEST_BASE 0x4000
+#define XPID_TEST_ADDR_TEST_HIGH 0x7fff
+#define XPID_TEST_WIDTH_TEST     32
+#define XPID_TEST_DEPTH_TEST     4096
+

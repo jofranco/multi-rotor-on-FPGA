@@ -20,7 +20,7 @@ struct scaleRange : public sc_module {
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst;
     sc_in< sc_lv<11> > x;
-    sc_out< sc_lv<14> > ap_return;
+    sc_out< sc_lv<13> > ap_return;
     sc_in< sc_logic > ap_ce;
 
 
@@ -50,7 +50,7 @@ struct scaleRange : public sc_module {
     sc_signal< sc_logic > grp_fu_78_ce;
     sc_signal< sc_logic > ap_ce_reg;
     sc_signal< sc_lv<11> > x_int_reg;
-    sc_signal< sc_lv<14> > ap_return_int_reg;
+    sc_signal< sc_lv<13> > ap_return_int_reg;
     sc_signal< sc_lv<87> > grp_fu_78_p00;
     sc_signal< sc_lv<43> > p_Val2_1_fu_51_p00;
     static const sc_logic ap_const_logic_1;
@@ -58,11 +58,11 @@ struct scaleRange : public sc_module {
     static const bool ap_const_boolean_1;
     static const sc_lv<16> ap_const_lv16_0;
     static const sc_lv<27> ap_const_lv27_7380000;
-    static const sc_lv<43> ap_const_lv43_FFBC;
+    static const sc_lv<43> ap_const_lv43_FFB8;
     static const sc_lv<32> ap_const_lv32_10;
     static const sc_lv<32> ap_const_lv32_2A;
     static const sc_lv<87> ap_const_lv87_A3D70A3D70B;
-    static const sc_lv<32> ap_const_lv32_48;
+    static const sc_lv<32> ap_const_lv32_49;
     static const sc_lv<32> ap_const_lv32_55;
     // Thread declarations
     void thread_ap_clk_no_reset_();

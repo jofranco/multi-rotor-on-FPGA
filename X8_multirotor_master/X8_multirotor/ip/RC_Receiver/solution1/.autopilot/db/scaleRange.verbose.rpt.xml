@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'scaleRange'" level="0">
-<item name = "Date">Mon May 27 16:10:22 2019
+<item name = "Date">Wed May 29 00:35:22 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">RC_Receiver</item>
@@ -52,7 +52,7 @@
 <column name="Instance">-, 9, 217, 77</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, 9</column>
-<column name="Register">-, -, 64, -</column>
+<column name="Register">-, -, 63, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
 <specialColumn name="Utilization (%)">0, 5, ~0, ~0</specialColumn>
 </table>
@@ -84,13 +84,13 @@
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_return">9, 2, 14, 28</column>
+<column name="ap_return">9, 2, 13, 26</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_ce_reg">1, 0, 1, 0</column>
-<column name="ap_return_int_reg">14, 0, 14, 0</column>
+<column name="ap_return_int_reg">13, 0, 13, 0</column>
 <column name="r_V_reg_94">11, 0, 27, 16</column>
 <column name="tmp_1_reg_99">27, 0, 27, 0</column>
 <column name="x_int_reg">11, 0, 11, 0</column>
@@ -105,7 +105,7 @@
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
 <column name="ap_clk">in, 1, ap_ctrl_hs, scaleRange, return value</column>
 <column name="ap_rst">in, 1, ap_ctrl_hs, scaleRange, return value</column>
-<column name="ap_return">out, 14, ap_ctrl_hs, scaleRange, return value</column>
+<column name="ap_return">out, 13, ap_ctrl_hs, scaleRange, return value</column>
 <column name="ap_ce">in, 1, ap_ctrl_hs, scaleRange, return value</column>
 <column name="x">in, 11, ap_none, x, scalar</column>
 </table>

@@ -10,27 +10,27 @@ set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
 set C_modelName {scaleRange}
-set C_modelType { int 14 }
+set C_modelType { int 13 }
 set C_modelArgList {
 	{ x uint 11 regular  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "x", "interface" : "wire", "bitwidth" : 11, "direction" : "READONLY"} , 
- 	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 14} ]}
+ 	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 13} ]}
 # RTL Port declarations: 
 set portNum 5
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
 	{ x sc_in sc_lv 11 signal 0 } 
-	{ ap_return sc_out sc_lv 14 signal -1 } 
+	{ ap_return sc_out sc_lv 13 signal -1 } 
 	{ ap_ce sc_in sc_logic 1 ce -1 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
  	{ "name": "ap_rst", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst", "role": "default" }} , 
  	{ "name": "x", "direction": "in", "datatype": "sc_lv", "bitwidth":11, "type": "signal", "bundle":{"name": "x", "role": "default" }} , 
- 	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":14, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }} , 
+ 	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":13, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }} , 
  	{ "name": "ap_ce", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "ce", "bundle":{"name": "ap_ce", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[

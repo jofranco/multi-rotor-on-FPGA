@@ -19,10 +19,10 @@ module scaleRange (
 input   ap_clk;
 input   ap_rst;
 input  [10:0] x;
-output  [13:0] ap_return;
+output  [12:0] ap_return;
 input   ap_ce;
 
-reg[13:0] ap_return;
+reg[12:0] ap_return;
 
 wire   [26:0] r_V_fu_42_p2;
 reg   [26:0] r_V_reg_94;
@@ -41,7 +41,7 @@ wire   [86:0] grp_fu_78_p2;
 reg    grp_fu_78_ce;
 reg    ap_ce_reg;
 reg   [10:0] x_int_reg;
-reg   [13:0] ap_return_int_reg;
+reg   [12:0] ap_return_int_reg;
 wire   [86:0] grp_fu_78_p00;
 wire   [42:0] p_Val2_1_fu_51_p00;
 
@@ -66,7 +66,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_ce_reg)) begin
-        ap_return_int_reg <= {{grp_fu_78_p2[85:72]}};
+        ap_return_int_reg <= {{grp_fu_78_p2[85:73]}};
         r_V_reg_94[26 : 16] <= r_V_fu_42_p2[26 : 16];
         tmp_1_reg_99 <= {{p_Val2_1_fu_51_p2[42:16]}};
     end
@@ -82,7 +82,7 @@ always @ (*) begin
     if ((1'b0 == ap_ce_reg)) begin
         ap_return = ap_return_int_reg;
     end else if ((1'b1 == ap_ce_reg)) begin
-        ap_return = {{grp_fu_78_p2[85:72]}};
+        ap_return = {{grp_fu_78_p2[85:73]}};
     end
 end
 
@@ -112,7 +112,7 @@ assign p_Val2_1_fu_51_p0 = p_Val2_1_fu_51_p00;
 
 assign p_Val2_1_fu_51_p00 = r_V_reg_94;
 
-assign p_Val2_1_fu_51_p2 = (p_Val2_1_fu_51_p0 * $signed('hFFBC));
+assign p_Val2_1_fu_51_p2 = (p_Val2_1_fu_51_p0 * $signed('hFFB8));
 
 assign p_Val2_s_fu_34_p3 = {{x_int_reg}, {16'd0}};
 

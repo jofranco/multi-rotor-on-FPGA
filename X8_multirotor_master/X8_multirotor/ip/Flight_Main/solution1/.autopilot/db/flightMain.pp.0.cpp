@@ -24607,7 +24607,7 @@ typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
 typedef ap_fixed<19, 4> F19_t;
-typedef ap_fixed<16,2> F16_t;
+typedef ap_fixed<16,3> F16_t;
 
 typedef ap_uint<6> uint6_t;
 
@@ -24645,8 +24645,8 @@ typedef enum
 }cmdMode_e;
 # 2 "Flight_Main/flightMain.cpp" 2
 # 11 "Flight_Main/flightMain.cpp"
-void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
-{_ssdm_SpecArrayDimSize(rcCmdIn, 6);_ssdm_SpecArrayDimSize(obj_avd_cmd, 5);_ssdm_SpecArrayDimSize(cmdOut, 4096);
+void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096], int32_t test[4096])
+{_ssdm_SpecArrayDimSize(rcCmdIn, 6);_ssdm_SpecArrayDimSize(obj_avd_cmd, 5);_ssdm_SpecArrayDimSize(cmdOut, 4096);_ssdm_SpecArrayDimSize(test, 4096);
 #pragma HLS PIPELINE II=1 enable_flush
 
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
@@ -24656,6 +24656,10 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
 #pragma HLS INTERFACE s_axilite port=&obj_avd_cmd bundle=CMD
 
 #pragma HLS INTERFACE m_axi port=&cmdOut bundle=OUT offset=off
+
+
+#pragma HLS RESOURCE variable=&test core=RAM_1P_BRAM
+#pragma HLS INTERFACE s_axilite port=&test bundle=TEST
 
 
 
@@ -24700,6 +24704,8 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
                     cmdOut[3] = rcCmdIn[3];
                     cmdOut[1] = F16_t(0.500);
                     cmdOut[2] = F16_t(0.500);
+                    cmdOut[4] = rcCmdIn[4];
+                    cmdOut[5] = rcCmdIn[5];
                 }
                 else
                 {
@@ -24709,6 +24715,7 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
                         cmdOut[i] = rcCmdIn[i];
                     }
                 }
+
 
                 break;
 
@@ -24732,6 +24739,8 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
                         cmdOut[3] = rcCmdIn[3];
                         cmdOut[1] = F16_t(0.500);
                         cmdOut[2] = F16_t(0.500);
+                        cmdOut[4] = rcCmdIn[4];
+                        cmdOut[5] = rcCmdIn[5];
                     }
                     else
                     {
@@ -24752,6 +24761,8 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
                 cmdOut[3] = F16_t(0.500);
                 cmdOut[1] = F16_t(0.500);
                 cmdOut[2] = F16_t(0.500);
+                cmdOut[4] = rcCmdIn[4];
+                cmdOut[5] = rcCmdIn[5];
 
                 break;
         }
@@ -24764,5 +24775,22 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[4096])
      cmdOut[3] = F16_t(0.500);
   cmdOut[1] = F16_t(0.500);
   cmdOut[2] = F16_t(0.500);
+  cmdOut[4] = rcCmdIn[4];
+        cmdOut[5] = rcCmdIn[5];
     }
+
+
+ test[0] = (int32_t)rcCmdIn[0];
+ test[1] = (int32_t)rcCmdIn[1];
+ test[2] = (int32_t)rcCmdIn[2];
+ test[3] = (int32_t)rcCmdIn[3];
+ test[4] = (int32_t)rcCmdIn[4];
+ test[5] = (int32_t)rcCmdIn[5];
+
+ test[6] = (int32_t)cmdOut[0];
+ test[7] = (int32_t)cmdOut[1];
+ test[8] = (int32_t)cmdOut[2];
+ test[9] = (int32_t)cmdOut[3];
+ test[10] = (int32_t)cmdOut[4];
+ test[11] = (int32_t)cmdOut[5];
 }

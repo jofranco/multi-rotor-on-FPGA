@@ -13,7 +13,7 @@ set Pointer0 "0"
 set Reference0 "0"
 set Dims0 [list 6]
 set Interface0 "wire"
-set DataType0 "[list ap_fixed 16 2 5 3 0 ]"
+set DataType0 "[list ap_fixed 16 3 5 3 0 ]"
 set Port0 [list $PortName0 $Interface0 $DataType0 $Pointer0 $Dims0 $Const0 $Volatile0 $ArrayOpt0]
 lappend PortList $Port0
 set PortName1 "obj_avd_cmd"
@@ -25,7 +25,7 @@ set Pointer1 "0"
 set Reference1 "0"
 set Dims1 [list 5]
 set Interface1 "wire"
-set DataType1 "[list ap_fixed 16 2 5 3 0 ]"
+set DataType1 "[list ap_fixed 16 3 5 3 0 ]"
 set Port1 [list $PortName1 $Interface1 $DataType1 $Pointer1 $Dims1 $Const1 $Volatile1 $ArrayOpt1]
 lappend PortList $Port1
 set PortName2 "cmdOut"
@@ -37,9 +37,21 @@ set Pointer2 "0"
 set Reference2 "0"
 set Dims2 [list 4096]
 set Interface2 "wire"
-set DataType2 "[list ap_fixed 16 2 5 3 0 ]"
+set DataType2 "[list ap_fixed 16 3 5 3 0 ]"
 set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2]
 lappend PortList $Port2
+set PortName3 "test"
+set BitWidth3 "64"
+set ArrayOpt3 ""
+set Const3 "0"
+set Volatile3 "0"
+set Pointer3 "0"
+set Reference3 "0"
+set Dims3 [list 4096]
+set Interface3 "wire"
+set DataType3 "int"
+set Port3 [list $PortName3 $Interface3 $DataType3 $Pointer3 $Dims3 $Const3 $Volatile3 $ArrayOpt3]
+lappend PortList $Port3
 set globalAPint "" 
 set returnAPInt "" 
 set hasCPPAPInt 0 

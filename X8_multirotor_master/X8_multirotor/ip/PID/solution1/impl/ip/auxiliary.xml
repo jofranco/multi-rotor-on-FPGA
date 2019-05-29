@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="pid" xd:componentRef="pid" xd:initiationInterval="5" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="pid" xd:componentRef="pid" xd:initiationInterval="23" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
   <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
-  <xd:arg xd:name="rcCmdIn[]" xd:originalName="rcCmdIn" xd:direction="in" xd:interfaceRef="s_axi_CMD" xd:busTypeRef="axilite" xd:offset="0x10" xd:arraySize="4" xd:dataWidth="16"/>
-  <xd:arg xd:name="measured[]" xd:originalName="measured" xd:direction="in" xd:interfaceRef="s_axi_MEAS" xd:busTypeRef="axilite" xd:offset="0x10" xd:arraySize="6" xd:dataWidth="16"/>
-  <xd:arg xd:name="kp[]" xd:originalName="kp" xd:direction="in" xd:interfaceRef="s_axi_GAINS" xd:busTypeRef="axilite" xd:offset="0x10" xd:arraySize="3" xd:dataWidth="32"/>
-  <xd:arg xd:name="kd[]" xd:originalName="kd" xd:direction="in" xd:interfaceRef="s_axi_GAINS" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="2" xd:dataWidth="32"/>
-  <xd:arg xd:name="ki[]" xd:originalName="ki" xd:direction="in" xd:interfaceRef="s_axi_GAINS" xd:busTypeRef="axilite" xd:offset="0x28" xd:arraySize="2" xd:dataWidth="32"/>
-  <xd:arg xd:name="commandOut[]" xd:originalName="commandOut" xd:direction="inout" xd:interfaceRef="m_axi_OUT_r" xd:busTypeRef="aximm" xd:arraySize="3" xd:dataWidth="16" xd:bufferDirection="out"/>
-  <xd:latencyEstimates xd:best-case="36" xd:worst-case="36" xd:average-case="36"/>
-  <xd:resourceEstimates xd:LUT="9540" xd:FF="5704" xd:BRAM="12" xd:DSP="20"/>
+  <xd:arg xd:name="cmdIn[]" xd:originalName="cmdIn" xd:direction="in" xd:interfaceRef="s_axi_INPUT" xd:busTypeRef="axilite" xd:offset="0x10" xd:arraySize="6" xd:dataWidth="16"/>
+  <xd:arg xd:name="measured[]" xd:originalName="measured" xd:direction="in" xd:interfaceRef="s_axi_INPUT" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="6" xd:dataWidth="16"/>
+  <xd:arg xd:name="kp[]" xd:originalName="kp" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="6" xd:dataWidth="32"/>
+  <xd:arg xd:name="kd[]" xd:originalName="kd" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x40" xd:arraySize="4" xd:dataWidth="32"/>
+  <xd:arg xd:name="ki[]" xd:originalName="ki" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x50" xd:arraySize="4" xd:dataWidth="32"/>
+  <xd:arg xd:name="commandOut[]" xd:originalName="commandOut" xd:direction="inout" xd:interfaceRef="m_axi_OUT_r" xd:busTypeRef="aximm" xd:arraySize="9" xd:dataWidth="16" xd:bufferDirection="out"/>
+  <xd:arg xd:name="test[]" xd:originalName="test" xd:direction="out" xd:interfaceRef="s_axi_TEST" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="28" xd:worst-case="28" xd:average-case="28"/>
+  <xd:resourceEstimates xd:LUT="6294" xd:FF="4116" xd:BRAM="20" xd:DSP="74"/>
 </xd:acceleratorMap>

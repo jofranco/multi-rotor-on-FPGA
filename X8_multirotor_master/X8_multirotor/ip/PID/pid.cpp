@@ -12,7 +12,8 @@
 */
 
 // PID function call
-void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
+//void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], int32_t test[SIZE_4k])
 {
 	//SETUP PRAGMAS
 	#pragma HLS PIPELINE II=1 enable_flush
@@ -29,6 +30,16 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 
 	// output to PWM
 	#pragma HLS INTERFACE m_axi port=commandOut bundle=OUT offset=off
+
+	// test code for python
+	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
+	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
+
+	// test code for python
+	for(int i = 0; i < RC_CHANNELS; i++)
+	{
+		test[i] = (int32_t)cmdIn[i];
+	}
 
 	// variable declarations
 	F16_t scaled_cmdIn[4] = {0.0};
@@ -135,7 +146,7 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 
 
 	/********************************************************
-      motor command output scaling
+            motor command output scaling
 	*********************************************************/
 
 	// mixed _in contains normalized values for each channel
@@ -155,9 +166,16 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 							 p_command * MIX_X8[i][1] + \
 							 y_command * MIX_X8[i][2]) * F19_t(.33);  // note Yaw is scaled by 0.33
 
-		commandOut[i] = F16_t(clip(scaled_power, F19_t(0), F19_t(.999)));
+		commandOut[i] = (F16_t)clip(scaled_power, F19_t(0), F19_t(.999));
 	}
 
 	commandOut[9] = cmdIn[4]; // passing ARM flag to PWM for failsafe
+
+
+	// test code for python
+	for(int i = 0; i < MOTOR_COUNT ; i++)
+	{
+		test[i + RC_CHANNELS] = (int32_t)commandOut[i];
+	}
 }
 

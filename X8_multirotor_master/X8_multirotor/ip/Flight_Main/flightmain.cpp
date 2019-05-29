@@ -8,7 +8,7 @@
 */
 
 // main function call
-void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k])
+void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k], int32_t test[SIZE_4k])
 {
 	#pragma HLS PIPELINE II=1 enable_flush
 
@@ -19,6 +19,10 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k])
     #pragma HLS INTERFACE s_axilite port=obj_avd_cmd bundle=CMD
 	// output port
     #pragma HLS INTERFACE m_axi port=cmdOut  bundle=OUT offset=off
+
+	// python test code
+	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
+	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
 
 
     // variable declarations
@@ -63,6 +67,8 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k])
                     cmdOut[YAW_CHAN] = rcCmdIn[YAW_CHAN];
                     cmdOut[ROLL_CHAN] = F16_t(0.500);
                     cmdOut[PITCH_CHAN] = F16_t(0.500);
+                    cmdOut[ARM_CHAN] = rcCmdIn[ARM_CHAN];
+                    cmdOut[MODE_CHAN] = rcCmdIn[MODE_CHAN];
                 }
                 else
                 {
@@ -72,6 +78,7 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k])
                         cmdOut[i] = rcCmdIn[i];
                     }
                 }
+
 
                 break;
 
@@ -95,6 +102,8 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k])
                         cmdOut[YAW_CHAN] = rcCmdIn[YAW_CHAN];
                         cmdOut[ROLL_CHAN] = F16_t(0.500);
                         cmdOut[PITCH_CHAN] = F16_t(0.500);
+                        cmdOut[ARM_CHAN] = rcCmdIn[ARM_CHAN];
+                        cmdOut[MODE_CHAN] = rcCmdIn[MODE_CHAN];
                     }
                     else
                     {
@@ -115,6 +124,8 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k])
                 cmdOut[YAW_CHAN]   = F16_t(0.500);
                 cmdOut[ROLL_CHAN]  = F16_t(0.500);
                 cmdOut[PITCH_CHAN] = F16_t(0.500);
+                cmdOut[ARM_CHAN] = rcCmdIn[ARM_CHAN];
+                cmdOut[MODE_CHAN] = rcCmdIn[MODE_CHAN];
 
                 break;
         }
@@ -127,5 +138,22 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k])
     	cmdOut[YAW_CHAN]   = F16_t(0.500);
 		cmdOut[ROLL_CHAN]  = F16_t(0.500);
 		cmdOut[PITCH_CHAN] = F16_t(0.500);
+		cmdOut[ARM_CHAN] = rcCmdIn[ARM_CHAN];
+        cmdOut[MODE_CHAN] = rcCmdIn[MODE_CHAN];
     }
+
+    // python test code
+	test[0] = (int32_t)rcCmdIn[0]; // throttle
+	test[1] = (int32_t)rcCmdIn[1]; // roll
+	test[2] = (int32_t)rcCmdIn[2]; // pitch
+	test[3] = (int32_t)rcCmdIn[3]; // yaw
+	test[4] = (int32_t)rcCmdIn[4]; // arm
+	test[5] = (int32_t)rcCmdIn[5]; // mode
+
+	test[6] = (int32_t)cmdOut[0]; // throttle
+	test[7] = (int32_t)cmdOut[1]; // roll
+	test[8] = (int32_t)cmdOut[2]; // pitch
+	test[9] = (int32_t)cmdOut[3]; // yaw
+	test[10] = (int32_t)cmdOut[4]; // arm
+	test[11] = (int32_t)cmdOut[5]; // mode
 }

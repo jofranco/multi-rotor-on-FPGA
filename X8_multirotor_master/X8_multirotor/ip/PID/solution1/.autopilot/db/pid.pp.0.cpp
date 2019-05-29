@@ -151,6 +151,9 @@ extern "C" {
 
 # 1 "PID/../common/x8_common.hpp" 1
 
+
+
+
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 1
 # 59 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h"
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/../../../x86_64-w64-mingw32/include\\string.h" 1 3
@@ -897,7 +900,7 @@ enum SsdmRegionTypes {
     _ssdm_region_parallel,
 };
 # 74 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_utils.h" 2
-# 2 "PID/../common/x8_common.hpp" 2
+# 5 "PID/../common/x8_common.hpp" 2
 
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 1
 # 63 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h"
@@ -24336,7 +24339,7 @@ inline bool operator!=(const ap_int<_AP_W> &__x, const complex<ap_int<_AP_W> > &
 
 }
 # 69 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_int.h" 2
-# 3 "PID/../common/x8_common.hpp" 2
+# 6 "PID/../common/x8_common.hpp" 2
 
 # 1 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 1 3 4
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 3 4
@@ -24389,7 +24392,7 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 33 "C:/CAD/Vivado/2018.2/win64/tools/clang/bin/../lib/clang/3.1/include\\stdint.h" 2 3 4
-# 4 "PID/../common/x8_common.hpp" 2
+# 7 "PID/../common/x8_common.hpp" 2
 
 # 1 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 1
 # 61 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h"
@@ -24599,13 +24602,13 @@ inline bool operator!=(
 
 }
 # 62 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 2
-# 5 "PID/../common/x8_common.hpp" 2
-# 24 "PID/../common/x8_common.hpp"
+# 8 "PID/../common/x8_common.hpp" 2
+# 27 "PID/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
 typedef ap_fixed<19, 4> F19_t;
-typedef ap_fixed<16,1> F16_t;
+typedef ap_fixed<16,3> F16_t;
 
 typedef ap_uint<6> uint6_t;
 
@@ -24639,12 +24642,12 @@ static const F19_t MIX_X8[8][3] = {
  { 1.000, 1.000, -1.000},
  { 1.000, -1.000, 1.000},
 };
-# 33 "PID/pid.hpp"
-void pid (uint16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9]);
+# 34 "PID/pid.hpp"
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], int32_t test[4096]);
 # 3 "PID/pid.cpp" 2
-# 15 "PID/pid.cpp"
-void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
-{_ssdm_SpecArrayDimSize(cmdIn, 6);_ssdm_SpecArrayDimSize(measured, 6);_ssdm_SpecArrayDimSize(kp, 6);_ssdm_SpecArrayDimSize(kd, 4);_ssdm_SpecArrayDimSize(ki, 4);_ssdm_SpecArrayDimSize(commandOut, 9);
+# 16 "PID/pid.cpp"
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], int32_t test[4096])
+{_ssdm_SpecArrayDimSize(cmdIn, 6);_ssdm_SpecArrayDimSize(measured, 6);_ssdm_SpecArrayDimSize(kp, 6);_ssdm_SpecArrayDimSize(kd, 4);_ssdm_SpecArrayDimSize(ki, 4);_ssdm_SpecArrayDimSize(commandOut, 9);_ssdm_SpecArrayDimSize(test, 4096);
 
 #pragma HLS PIPELINE II=1 enable_flush
 
@@ -24660,6 +24663,16 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 
 
 #pragma HLS INTERFACE m_axi port=&commandOut bundle=OUT offset=off
+
+
+#pragma HLS INTERFACE s_axilite port=&test bundle=TEST
+#pragma HLS RESOURCE variable=&test core=RAM_1P_BRAM
+
+
+ for(int i = 0; i < 6; i++)
+ {
+  test[i] = (int32_t)cmdIn[i];
+ }
 
 
  F16_t scaled_cmdIn[4] = {0.0};
@@ -24762,7 +24775,7 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 
 
  pid_o_rate[2] = kp[5]*(rateCmd[2] - measured[5]);
-# 144 "PID/pid.cpp"
+# 155 "PID/pid.cpp"
  F19_t t_command = cmdIn[0];
  F19_t r_command = pid_o_rate[0];
  F19_t p_command = pid_o_rate[1];
@@ -24777,8 +24790,15 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 
 
 
-  commandOut[i] = F16_t(((scaled_power)<(F19_t(0))?(F19_t(0)):((scaled_power)>(F19_t(.999))?(F19_t(.999)):(scaled_power))));
+  commandOut[i] = (F16_t)((scaled_power)<(F19_t(0))?(F19_t(0)):((scaled_power)>(F19_t(.999))?(F19_t(.999)):(scaled_power)));
  }
 
  commandOut[9] = cmdIn[4];
+
+
+
+ for(int i = 0; i < 8 ; i++)
+ {
+  test[i + 6] = (int32_t)commandOut[i];
+ }
 }

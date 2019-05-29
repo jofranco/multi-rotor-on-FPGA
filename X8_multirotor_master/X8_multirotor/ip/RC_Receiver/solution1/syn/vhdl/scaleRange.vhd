@@ -14,7 +14,7 @@ port (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
     x : IN STD_LOGIC_VECTOR (10 downto 0);
-    ap_return : OUT STD_LOGIC_VECTOR (13 downto 0);
+    ap_return : OUT STD_LOGIC_VECTOR (12 downto 0);
     ap_ce : IN STD_LOGIC );
 end;
 
@@ -25,11 +25,11 @@ architecture behav of scaleRange is
     constant ap_const_boolean_1 : BOOLEAN := true;
     constant ap_const_lv16_0 : STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";
     constant ap_const_lv27_7380000 : STD_LOGIC_VECTOR (26 downto 0) := "111001110000000000000000000";
-    constant ap_const_lv43_FFBC : STD_LOGIC_VECTOR (42 downto 0) := "0000000000000000000000000001111111110111100";
+    constant ap_const_lv43_FFB8 : STD_LOGIC_VECTOR (42 downto 0) := "0000000000000000000000000001111111110111000";
     constant ap_const_lv32_10 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010000";
     constant ap_const_lv32_2A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101010";
     constant ap_const_lv87_A3D70A3D70B : STD_LOGIC_VECTOR (86 downto 0) := "000000000000000000000000000000000000000000010100011110101110000101000111101011100001011";
-    constant ap_const_lv32_48 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001001000";
+    constant ap_const_lv32_49 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001001001";
     constant ap_const_lv32_55 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001010101";
 
     signal r_V_fu_42_p2 : STD_LOGIC_VECTOR (26 downto 0);
@@ -49,7 +49,7 @@ architecture behav of scaleRange is
     signal grp_fu_78_ce : STD_LOGIC;
     signal ap_ce_reg : STD_LOGIC;
     signal x_int_reg : STD_LOGIC_VECTOR (10 downto 0);
-    signal ap_return_int_reg : STD_LOGIC_VECTOR (13 downto 0);
+    signal ap_return_int_reg : STD_LOGIC_VECTOR (12 downto 0);
     signal grp_fu_78_p00 : STD_LOGIC_VECTOR (86 downto 0);
     signal p_Val2_1_fu_51_p00 : STD_LOGIC_VECTOR (42 downto 0);
 
@@ -101,7 +101,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_ce_reg)) then
-                ap_return_int_reg <= grp_fu_78_p2(85 downto 72);
+                ap_return_int_reg <= grp_fu_78_p2(85 downto 73);
                     r_V_reg_94(26 downto 16) <= r_V_fu_42_p2(26 downto 16);
                 tmp_1_reg_99 <= p_Val2_1_fu_51_p2(42 downto 16);
             end if;
@@ -126,7 +126,7 @@ begin
         if ((ap_const_logic_0 = ap_ce_reg)) then 
             ap_return <= ap_return_int_reg;
         elsif ((ap_const_logic_1 = ap_ce_reg)) then 
-            ap_return <= grp_fu_78_p2(85 downto 72);
+            ap_return <= grp_fu_78_p2(85 downto 73);
         end if; 
     end process;
 
@@ -145,7 +145,7 @@ begin
     grp_fu_78_p1 <= ap_const_lv87_A3D70A3D70B(45 - 1 downto 0);
     p_Val2_1_fu_51_p0 <= p_Val2_1_fu_51_p00(27 - 1 downto 0);
     p_Val2_1_fu_51_p00 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(r_V_reg_94),43));
-    p_Val2_1_fu_51_p2 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(p_Val2_1_fu_51_p0) * unsigned(ap_const_lv43_FFBC), 43));
+    p_Val2_1_fu_51_p2 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(p_Val2_1_fu_51_p0) * unsigned(ap_const_lv43_FFB8), 43));
     p_Val2_s_fu_34_p3 <= (x_int_reg & ap_const_lv16_0);
     r_V_fu_42_p2 <= std_logic_vector(unsigned(p_Val2_s_fu_34_p3) + unsigned(ap_const_lv27_7380000));
     tmp_4_fu_67_p3 <= (tmp_1_reg_99 & ap_const_lv16_0);

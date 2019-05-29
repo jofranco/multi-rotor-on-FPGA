@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Messages>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;PID/pid.cpp&apos; ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:00 ; elapsed = 00:00:14 . Memory (MB): peak = 102.148 ; gain = 46.492"/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:00 ; elapsed = 00:00:14 . Memory (MB): peak = 102.148 ; gain = 46.492"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:22 . Memory (MB): peak = 101.996 ; gain = 46.129"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:22 . Memory (MB): peak = 101.996 ; gain = 46.129"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1467" tag="" content="Starting code transformations ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:16 . Memory (MB): peak = 126.656 ; gain = 71.000"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:02 ; elapsed = 00:00:24 . Memory (MB): peak = 126.742 ; gain = 70.875"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1472" tag="" content="Checking synthesizability ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:16 . Memory (MB): peak = 137.090 ; gain = 81.434"/>
-	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;pid&apos; (PID/pid.cpp:15)."/>
-	<Message severity="INFO" prefix="[XFORM 203-501]" key="XFORM_UNROLL_STATUS_325" tag="" content="Unrolling loop &apos;Loop-1&apos; (PID/pid.cpp:149) in function &apos;pid&apos; completely."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:25 . Memory (MB): peak = 138.902 ; gain = 83.035"/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;pid&apos; (PID/pid.cpp:16)."/>
+	<Message severity="INFO" prefix="[XFORM 203-501]" key="XFORM_UNROLL_STATUS_325" tag="" content="Unrolling loop &apos;Loop-1&apos; (PID/pid.cpp:39) in function &apos;pid&apos; completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-501]" key="XFORM_UNROLL_STATUS_325" tag="" content="Unrolling loop &apos;Loop-2&apos; (PID/pid.cpp:160) in function &apos;pid&apos; completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-501]" key="XFORM_UNROLL_STATUS_325" tag="" content="Unrolling loop &apos;Loop-3&apos; (PID/pid.cpp:176) in function &apos;pid&apos; completely."/>
 	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;last_error_rate.V&apos; automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;last_error_pos.V&apos; automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;integral_rate.V&apos; automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;integral_pos.V&apos; automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (PID/pid.cpp:65:23) to (PID/pid.cpp:88:2) in function &apos;pid&apos;... converting 9 basic blocks."/>
-	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (PID/pid.cpp:91:2) to (PID/pid.cpp:162:1) in function &apos;pid&apos;... converting 30 basic blocks."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:02 ; elapsed = 00:00:16 . Memory (MB): peak = 170.031 ; gain = 114.375"/>
+	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock to (PID/pid.cpp:70:2) in function &apos;pid&apos;... converting 13 basic blocks."/>
+	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (PID/pid.cpp:76:23) to (PID/pid.cpp:99:2) in function &apos;pid&apos;... converting 9 basic blocks."/>
+	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (PID/pid.cpp:102:2) to (PID/pid.cpp:180:1) in function &apos;pid&apos;... converting 53 basic blocks."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:04 ; elapsed = 00:00:26 . Memory (MB): peak = 171.000 ; gain = 115.133"/>
 	<Message severity="WARNING" prefix="[XFORM 203-803]" key="XFORM_IF_TY_INCOMPATIBLE_WARN_333" tag="" content="Cannot bundle argument &apos;commandOut.V&apos; to m_axi port &apos;OUT&apos; since its offset mode is off."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 173.195 ; gain = 117.539"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:04 ; elapsed = 00:00:27 . Memory (MB): peak = 174.676 ; gain = 118.809"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1317" tag="" content="Starting hardware synthesis ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1385" tag="" content="Synthesizing &apos;pid&apos; ..."/>
 	<Message severity="WARNING" prefix="[SYN 201-107]" key="SYN_PORT_NAME_ILLEGAL_593" tag="" content="Renaming port name &apos;pid/OUT&apos; to &apos;pid/OUT_r&apos; to avoid the conflict with HDL keywords or other object names."/>
@@ -27,30 +30,23 @@
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_46" tag="" content="Pipelining function &apos;pid&apos;."/>
 	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="SDX_LOOP,SCHEDULE" content="Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
-   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:161) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:158)."/>
+   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:172) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:169)."/>
 	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="SDX_LOOP,SCHEDULE" content="Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
-   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:161) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:158)."/>
+   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:172) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:169)."/>
 	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="SDX_LOOP,SCHEDULE" content="Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
-   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:161) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:158)."/>
+   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:172) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:169)."/>
 	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="SDX_LOOP,SCHEDULE" content="Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
-   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:161) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:158)."/>
-	<Message severity="WARNING" prefix="[SCHED 204-63]" key="SCHED_PORT_ACCESS_TOO_LATE_51" tag="SCHEDULE" content="Unable to schedule bus write on port &apos;OUT_r&apos; (PID/pid.cpp:158) within the last 11 cycles (II = 11).
-Please consider increasing the initiation interval of the pipeline."/>
-	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="SDX_LOOP,SCHEDULE" content="Unable to enforce a carried dependence constraint (II = 7, distance = 1, offset = 1)
-   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:161) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:158)."/>
-	<Message severity="WARNING" prefix="[SCHED 204-63]" key="SCHED_PORT_ACCESS_TOO_LATE_51" tag="SCHEDULE" content="Unable to schedule bus write on port &apos;OUT_r&apos; (PID/pid.cpp:158) within the last 9 cycles (II = 9).
-Please consider increasing the initiation interval of the pipeline."/>
-	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="SDX_LOOP,SCHEDULE" content="Unable to enforce a carried dependence constraint (II = 8, distance = 1, offset = 1)
-   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:161) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:158)."/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 9, Depth = 29."/>
+   between bus request on port &apos;OUT_r&apos; (PID/pid.cpp:172) and bus request on port &apos;OUT_r&apos; (PID/pid.cpp:169)."/>
+	<Message severity="WARNING" prefix="[SCHED 204-69]" key="SCHED_RESOURCE_CONSTRAINT_NOT_MET_38" tag="SDX,SCHEDULE" content="Unable to schedule &apos;store&apos; operation (PID/pid.cpp:178) of variable &apos;tmp_126_4&apos;, PID/pid.cpp:178 on array &apos;test&apos; due to limited memory ports. Please consider using a memory core with more ports or partitioning the array &apos;test&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 23, Depth = 29."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 17.28 seconds; current allocated memory: 122.642 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 27.899 seconds; current allocated memory: 125.243 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.301 seconds; current allocated memory: 124.119 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.763 seconds; current allocated memory: 127.200 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;pid&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
@@ -60,6 +56,7 @@ Please consider increasing the initiation interval of the pipeline."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;pid/kd_V&apos; to &apos;s_axilite &amp; ap_memory&apos;."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;pid/ki_V&apos; to &apos;s_axilite &amp; ap_memory&apos;."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;pid/OUT_r&apos; to &apos;m_axi&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;pid/test&apos; to &apos;s_axilite &amp; ap_memory&apos;."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on function &apos;pid&apos; to &apos;s_axilite &amp; ap_ctrl_hs&apos;."/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;integral_pos_V_0&apos; is power-on initialization."/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;last_error_pos_V_0&apos; is power-on initialization."/>
@@ -71,11 +68,12 @@ Please consider increasing the initiation interval of the pipeline."/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;last_error_rate_V_1&apos; is power-on initialization."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_851" tag="" content="Bundling port &apos;return&apos;, &apos;kp_V&apos;, &apos;kd_V&apos; and &apos;ki_V&apos; to AXI-Lite port CTRL."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_851" tag="" content="Bundling port &apos;cmdIn_V&apos; and &apos;measured_V&apos; to AXI-Lite port INPUT."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_851" tag="" content="Bundling port &apos;test&apos; to AXI-Lite port TEST."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;pid&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.706 seconds; current allocated memory: 127.441 MB."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:05 ; elapsed = 00:00:21 . Memory (MB): peak = 188.180 ; gain = 132.523"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 1.504 seconds; current allocated memory: 131.358 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:11 ; elapsed = 00:00:36 . Memory (MB): peak = 196.176 ; gain = 140.309"/>
 	<Message severity="INFO" prefix="[SYSC 207-301]" key="SYSC_301_1065" tag="" content="Generating SystemC RTL for pid."/>
 	<Message severity="INFO" prefix="[VHDL 208-304]" key="VHDL_304_1066" tag="" content="Generating VHDL RTL for pid."/>
 	<Message severity="INFO" prefix="[VLOG 209-307]" key="VLOG_307_1067" tag="" content="Generating Verilog RTL for pid."/>
-	<Message severity="INFO" prefix="[HLS 200-112]" key="HLS_112_964" tag="" content="Total elapsed time: 20.93 seconds; peak allocated memory: 127.441 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-112]" key="HLS_112_964" tag="" content="Total elapsed time: 36.01 seconds; peak allocated memory: 131.358 MB."/>
 </Messages>
