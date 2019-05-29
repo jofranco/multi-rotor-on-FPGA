@@ -1,4 +1,4 @@
-obj/main.o: ../../../main.cpp ../../../RC_Receiver.h \
+obj/main.o: ../../../main.cpp ../../../RC_Receiver.hpp \
  ../../../../common/x8_common.hpp C:/CAD/Vivado/2018.2/include/ap_utils.h \
  C:/CAD/Vivado/2018.2/include/etc/autopilot_enum.h \
  C:/CAD/Vivado/2018.2/include/etc/autopilot_ssdm_op.h \
@@ -13,4 +13,7 @@ obj/main.o: ../../../main.cpp ../../../RC_Receiver.h \
  C:/CAD/Vivado/2018.2/include/etc/ap_private.h \
  C:/CAD/Vivado/2018.2/include/hls_half.h \
  C:/CAD/Vivado/2018.2/include/ap_common.h \
- C:/CAD/Vivado/2018.2/include/ap_int_special.h
+ C:/CAD/Vivado/2018.2/include/ap_int_special.h \
+ C:/CAD/Vivado/2018.2/include/ap_fixed.h \
+ C:/CAD/Vivado/2018.2/include/ap_int.h \
+ C:/CAD/Vivado/2018.2/include/ap_fixed_special.h

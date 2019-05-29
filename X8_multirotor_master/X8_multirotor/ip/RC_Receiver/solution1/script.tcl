@@ -6,8 +6,8 @@
 open_project RC_Receiver
 set_top rcReceiver
 add_files RC_Receiver/RC_Receiver.cpp
-add_files RC_Receiver/RC_Receiver.h
-add_files -tb RC_Receiver/main.cpp -cflags "-Wno-unknown-pragmas -Wno-unknown-pragmas"
+add_files RC_Receiver/RC_Receiver.hpp
+add_files -tb RC_Receiver/main.cpp -cflags "-Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas"
 open_solution "solution1"
 set_part {xc7z020clg400-1} -tool vivado
 create_clock -period 10 -name default

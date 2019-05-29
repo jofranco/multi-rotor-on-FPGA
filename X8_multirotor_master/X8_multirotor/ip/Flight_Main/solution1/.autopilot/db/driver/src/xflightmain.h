@@ -40,14 +40,14 @@ typedef uint32_t u32;
 #else
 typedef struct {
     u16 DeviceId;
+    u32 Cmd_BaseAddress;
     u32 Ctrl_BaseAddress;
-    u32 Obj_avd_BaseAddress;
 } XFlightmain_Config;
 #endif
 
 typedef struct {
+    u32 Cmd_BaseAddress;
     u32 Ctrl_BaseAddress;
-    u32 Obj_avd_BaseAddress;
     u32 IsReady;
 } XFlightmain;
 
@@ -89,24 +89,24 @@ u32 XFlightmain_IsReady(XFlightmain *InstancePtr);
 void XFlightmain_EnableAutoRestart(XFlightmain *InstancePtr);
 void XFlightmain_DisableAutoRestart(XFlightmain *InstancePtr);
 
-u32 XFlightmain_Get_rcCmdIn_BaseAddress(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_rcCmdIn_HighAddress(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_rcCmdIn_TotalBytes(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_rcCmdIn_BitWidth(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_rcCmdIn_Depth(XFlightmain *InstancePtr);
-u32 XFlightmain_Write_rcCmdIn_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
-u32 XFlightmain_Read_rcCmdIn_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
-u32 XFlightmain_Write_rcCmdIn_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
-u32 XFlightmain_Read_rcCmdIn_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
-u32 XFlightmain_Get_obj_avd_cmd_BaseAddress(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_obj_avd_cmd_HighAddress(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_obj_avd_cmd_TotalBytes(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_obj_avd_cmd_BitWidth(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_obj_avd_cmd_Depth(XFlightmain *InstancePtr);
-u32 XFlightmain_Write_obj_avd_cmd_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
-u32 XFlightmain_Read_obj_avd_cmd_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
-u32 XFlightmain_Write_obj_avd_cmd_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
-u32 XFlightmain_Read_obj_avd_cmd_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
+u32 XFlightmain_Get_rcCmdIn_V_BaseAddress(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_rcCmdIn_V_HighAddress(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_rcCmdIn_V_TotalBytes(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_rcCmdIn_V_BitWidth(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_rcCmdIn_V_Depth(XFlightmain *InstancePtr);
+u32 XFlightmain_Write_rcCmdIn_V_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
+u32 XFlightmain_Read_rcCmdIn_V_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
+u32 XFlightmain_Write_rcCmdIn_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
+u32 XFlightmain_Read_rcCmdIn_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
+u32 XFlightmain_Get_obj_avd_cmd_V_BaseAddress(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_obj_avd_cmd_V_HighAddress(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_obj_avd_cmd_V_TotalBytes(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_obj_avd_cmd_V_BitWidth(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_obj_avd_cmd_V_Depth(XFlightmain *InstancePtr);
+u32 XFlightmain_Write_obj_avd_cmd_V_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
+u32 XFlightmain_Read_obj_avd_cmd_V_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
+u32 XFlightmain_Write_obj_avd_cmd_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
+u32 XFlightmain_Read_obj_avd_cmd_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
 
 void XFlightmain_InterruptGlobalEnable(XFlightmain *InstancePtr);
 void XFlightmain_InterruptGlobalDisable(XFlightmain *InstancePtr);

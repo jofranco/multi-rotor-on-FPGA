@@ -1,5 +1,5 @@
 //include libraries
-#include "AXI_UART_Driver.h"
+#include "AXI_UART_Driver.hpp"
 
 
 // delay function in milliseconds
@@ -22,7 +22,7 @@ void delay_until_ms()
 	#undef MSEC_PER_SEC
 }
 
-void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
+void AXI_UART_DRIVER(volatile int uart_bus[SIZE_4k], uint8_t SBUS_data[SIZE_4k])
 {
 
 	//SETUP PRAGMAS

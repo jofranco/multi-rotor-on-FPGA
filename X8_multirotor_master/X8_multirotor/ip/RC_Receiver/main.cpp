@@ -1,4 +1,4 @@
-#include "RC_Receiver.h"
+#include "RC_Receiver.hpp"
 
 // see ./debug/ for debug code
 int main()

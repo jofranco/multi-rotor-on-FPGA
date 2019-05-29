@@ -141,16 +141,16 @@ proc validate_PARAM_VALUE.C_M_AXI_OUT_R_TARGET_ADDR { PARAM_VALUE.C_M_AXI_OUT_R_
 }
 
 
+proc update_MODELPARAM_VALUE.C_S_AXI_CMD_ADDR_WIDTH { MODELPARAM_VALUE.C_S_AXI_CMD_ADDR_WIDTH } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	# WARNING: There is no corresponding user parameter named "C_S_AXI_CMD_ADDR_WIDTH". Setting updated value from the model parameter.
+set_property value 6 ${MODELPARAM_VALUE.C_S_AXI_CMD_ADDR_WIDTH}
+}
+
 proc update_MODELPARAM_VALUE.C_S_AXI_CTRL_ADDR_WIDTH { MODELPARAM_VALUE.C_S_AXI_CTRL_ADDR_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	# WARNING: There is no corresponding user parameter named "C_S_AXI_CTRL_ADDR_WIDTH". Setting updated value from the model parameter.
-set_property value 5 ${MODELPARAM_VALUE.C_S_AXI_CTRL_ADDR_WIDTH}
-}
-
-proc update_MODELPARAM_VALUE.C_S_AXI_OBJ_AVD_ADDR_WIDTH { MODELPARAM_VALUE.C_S_AXI_OBJ_AVD_ADDR_WIDTH } {
-	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	# WARNING: There is no corresponding user parameter named "C_S_AXI_OBJ_AVD_ADDR_WIDTH". Setting updated value from the model parameter.
-set_property value 5 ${MODELPARAM_VALUE.C_S_AXI_OBJ_AVD_ADDR_WIDTH}
+set_property value 4 ${MODELPARAM_VALUE.C_S_AXI_CTRL_ADDR_WIDTH}
 }
 
 proc update_MODELPARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH { MODELPARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH PARAM_VALUE.C_M_AXI_OUT_R_ID_WIDTH } {
