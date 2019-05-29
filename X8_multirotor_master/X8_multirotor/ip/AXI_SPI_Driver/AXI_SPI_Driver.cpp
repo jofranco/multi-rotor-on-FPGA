@@ -17,12 +17,12 @@
  * 
  * @note None.
  */
-uint16_t xspi_write(uint8_t addr, uint8_t val)
+uint16_t xspi_write(uint8_t address, uint8_t val)
 {
 	uint8_t tx_buff;
 	uint16_t message;
 
-	tx_buff = addr & WRITE_CFG;
+	tx_buff = address & WRITE_CFG;
 
 	message = (tx_buff << 8) | val;
 
@@ -31,24 +31,23 @@ uint16_t xspi_write(uint8_t addr, uint8_t val)
 
 /**
  * 
- * uint16_t xspi_read(uint8_t addr, uint8_t val)
+ * uint16_t xspi_read(uint8_t address)
  * 		Returns message that will be packed into spi_bus[]
  *
- * @param 	addr - is the register address that will be written to
- * @param	val - is the data that will be written to specific register address
+ * @param 	address - is the register address that will be written to
  *
  * @return	uint16_t - packed message for quad spi
  * 
  * @note - needs to be tested through jupyter notebook to see if it works
  */
-uint16_t xspi_read(uint8_t addr, uint8_t val)
+uint16_t xspi_read(uint8_t address)
 {
 	uint8_t tx_buff;
 	uint16_t message;
 
-	tx_buff = addr | READ_CFG;
+	tx_buff = address | READ_CFG;
 
-	message = (tx_buff << 8) | val;
+	message = (tx_buff << 8) | 0x00;
 
 	return message;
 }
@@ -68,30 +67,38 @@ uint16_t xspi_read(uint8_t addr, uint8_t val)
  * 						the data correctly through jupyter notebook it needs to be uint32_t.
  */
 //void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16_t pmod_test[4096])
-void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
+//void AXI_SPI_DRIVER(volatile int spi_bus[SIZE_4k], uint16_t pmod_data[SIZE_4k])
+//void axiSpiDriver(volatile int spi_bus[SIZE_4k], F32_t pmod_data[SIZE_4k])
+void axiSpiDriver(volatile int spi_bus[SIZE_4k], int pmod_data[SIZE_4k])
 {
 
 	//SETUP PRAGMAS
 	#pragma HLS PIPELINE II=1 enable_flush off
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
-	#pragma HLS INTERFACE m_axi depth=4096 port=spi_bus offset=off bundle=SPI
+	#pragma HLS INTERFACE m_axi port=spi_bus offset=off bundle=SPI
 
 	// test code for python debug
-	#pragma HLS INTERFACE s_axilite depth=4096 port=pmod_data bundle=DATA
+	#pragma HLS INTERFACE s_axilite port=pmod_data bundle=DATA
 	#pragma HLS RESOURCE variable=pmod_data core=RAM_1P_BRAM
 	
 	// test code for python debug
-	//#pragma HLS INTERFACE s_axilite depth=4096 port=pmod_test bundle=TEST
+	//#pragma HLS INTERFACE s_axilite port=pmod_test bundle=TEST
 	//#pragma HLS RESOURCE variable=pmod_test core=RAM_1P_BRAM
 	
 	// configuring AXI QUAD SPI Core
 	static unsigned char state = 0;
+	static unsigned char navDataState = 0;	// used to collect acc/gryo data one at a time
+	uint32_t temp;	// used to check response from GYRO_WHO_AM_I
+	uint16_t statusTemp;
+	int itemp;
 	#pragma HLS RESET variable=state
 
 	switch (state)
 	{
 		case 0: // SPI Control Register setup
+			// debug code for jupyter notebook
+			pmod_data[0] = 0;
 
 			spi_bus[SPICR] = 0x6;		// enable SPI core in master mode, auto SS
 			// -- *(m+SPICR_OFFSET) = 0x4 | 0x8 | 0x2; // Master, CPOL, SPE
@@ -99,6 +106,8 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
 			state++;
 			break;
 		case 1: //	SPI Slave select Register setup (active low)
+			// debug code for jupyter notebook
+			pmod_data[0] = 1;
 
 			spi_bus[SPISSR] = 0xFFFE;	// enable SS 0 - PMODNav ACC/GYRO
 
@@ -106,9 +115,8 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
 			break;
 
 		case 2:	//	Enabling Pmod_Nav, state 1
-
-			//pmod_data[0] = Nav_Acc_Gyro_Pwr(spi_bus, 1);
-			pmod_data[0] = 0x01;
+			// debug code for jupyter notebook
+			pmod_data[0] = 2;
 
 	        //enable acc output
 			spi_bus[SPI_DTR] = xspi_write(CTRL_REG5_XL, 0x38); 	//00111000
@@ -117,8 +125,8 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
 			break;
 
 		case 3:	//	Enabling Pmod_Nav, state 2
-
-			pmod_data[0] = 0x02;
+			// debug code for jupyter notebook
+			pmod_data[0] = 3;
 
 			//set odr rate 952Hz of acc
 			//spi_bus[SPI_DTR] = xspi_write(CTRL_REG6_XL, 0xC0); 	//11000000
@@ -128,8 +136,8 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
 			break;
 
 		case 4:	//	Enabling Pmod_Nav, state 3
-
-			pmod_data[0] = 0x03;
+			// debug code for jupyter notebook
+			pmod_data[0] = 4;
 
 	        //set odr rate 14.9Hz of gyro
 	        //spi_bus[SPI_DTR] = xspi_write(CTRL_REG1_G, 0xC0); 	//11000000
@@ -139,8 +147,8 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
 			break;
 
 		case 5:	//	Enabling Pmod_Nav, state 4
-
-			pmod_data[0] = 0x04;
+			// debug code for jupyter notebook
+			pmod_data[0] = 5;
 
 	        //enable gyro output
 	        spi_bus[SPI_DTR] = xspi_write(CTRL_REG4, 0x38);		//00111000
@@ -148,19 +156,91 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
 			state++;
 			break;
 
+		case 6:
+			// debug code for jupyter notebook
+			pmod_data[0] = 6;
+
+			temp = 0;
+
+			spi_bus[SPI_DTR] = xspi_read(GYRO_WHO_AM_I);
+			state++;
+
+			break;
+		case 7:
+
+			pmod_data[0] = 7;
+			statusTemp = spi_bus[SPISR] & 0x1;
+
+
+			if(statusTemp==0){	// If receive FIFO has data
+				temp = spi_bus[SPI_DRR];
+				temp = temp & 0x000000FF; // expect 0x68h (104d)
+
+				if(temp == WHO_AM_I_RESP){
+					state++;
+					pmod_data[6] = 69;
+				}
+				else{
+					state--;
+				}
+			}
+			break;
+
 		default:
-			/***************************** TO-DO *********************
-			 * Add code to get raw data from nav sensor and pack it inside
-			 * pmod_data
-			 * 
-			 */
+
+			// Get raw data from nav sensor and pack it inside
+			// pmod_data
+			pmod_data[7] = state;
+			switch(navDataState)
+			{
+			case 0:
+				spi_bus[SPI_DTR] = Nav_Acc_GetData(X_DIR_SEL);//	Raw accX
+				pmod_data[0] = spi_bus[SPI_DRR];
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 1:
+				spi_bus[SPI_DTR] = Nav_Acc_GetData(Y_DIR_SEL);//	Raw accY
+				pmod_data[1] = spi_bus[SPI_DRR];
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 2:
+				spi_bus[SPI_DTR] = Nav_Acc_GetData(Z_DIR_SEL);//	Raw accZ
+				pmod_data[2] = spi_bus[SPI_DRR];
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 3:
+				spi_bus[SPI_DTR] = Nav_Gyro_GetData(X_DIR_SEL);// 	Raw gyroX
+				pmod_data[3] = spi_bus[SPI_DRR];
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 4:
+				spi_bus[SPI_DTR] = Nav_Gyro_GetData(Y_DIR_SEL);//	Raw gyroY
+				pmod_data[4] = spi_bus[SPI_DRR];
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 5:
+				spi_bus[SPI_DTR] = Nav_Gyro_GetData(Z_DIR_SEL);//	Raw gyroZ
+				//pmod_data[5] = F32_t(spi_bus[SPI_DRR]);
+				pmod_data[5] = spi_bus[SPI_DRR];
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+
+			default:
+				navDataState = 0;
+				break;
+			}	// end of navData State Machine
 
 			// python debug code
-			// test code for reading "WHO_AM_I"
-			spi_bus[SPI_DTR] = xspi_read(GYRO_WHO_AM_I, 0x00);
-			pmod_data[0] = spi_bus[SPI_DRR]; // expect 0x68h (104d)
-			pmod_data[1] = 0x2222;	// 13107d
-			pmod_data[2] = 0x3333;	// 17476d
+			//pmod_data[6] = F32_t(13107);	// 13107d
+			//pmod_data[7] = F32_t(17476);	// 17476d
+
+				pmod_data[8] = 17476;	// 17476d
 
 			/* Below code works and has been tested on jupyter notebook
 			ADDRESS = GYRO_WHO_AM_I | READ_CFG;
@@ -178,7 +258,7 @@ void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
 
 			pmod_test[0] = temp;
 			*/
-			break;
+				break; // end of main state machine
 	} // end switch
 
 }
