@@ -19,7 +19,7 @@ rcCmdIn_V {
 obj_avd_cmd_V { 
 	dir X
 	width 16
-	depth 5
+	depth 6
 	mode ap_memory
 	offset 32
 	offset_end 47
@@ -76,7 +76,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 }
 
 set port_TEST {
-test { 
+test_V { 
 	dir O
 	width 32
 	depth 4096

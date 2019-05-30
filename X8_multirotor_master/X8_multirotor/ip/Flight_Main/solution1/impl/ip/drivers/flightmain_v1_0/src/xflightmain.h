@@ -109,15 +109,15 @@ u32 XFlightmain_Write_obj_avd_cmd_V_Words(XFlightmain *InstancePtr, int offset, 
 u32 XFlightmain_Read_obj_avd_cmd_V_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
 u32 XFlightmain_Write_obj_avd_cmd_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
 u32 XFlightmain_Read_obj_avd_cmd_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
-u32 XFlightmain_Get_test_BaseAddress(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_test_HighAddress(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_test_TotalBytes(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_test_BitWidth(XFlightmain *InstancePtr);
-u32 XFlightmain_Get_test_Depth(XFlightmain *InstancePtr);
-u32 XFlightmain_Write_test_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
-u32 XFlightmain_Read_test_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
-u32 XFlightmain_Write_test_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
-u32 XFlightmain_Read_test_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
+u32 XFlightmain_Get_test_V_BaseAddress(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_test_V_HighAddress(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_test_V_TotalBytes(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_test_V_BitWidth(XFlightmain *InstancePtr);
+u32 XFlightmain_Get_test_V_Depth(XFlightmain *InstancePtr);
+u32 XFlightmain_Write_test_V_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
+u32 XFlightmain_Read_test_V_Words(XFlightmain *InstancePtr, int offset, int *data, int length);
+u32 XFlightmain_Write_test_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
+u32 XFlightmain_Read_test_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length);
 
 void XFlightmain_InterruptGlobalEnable(XFlightmain *InstancePtr);
 void XFlightmain_InterruptGlobalDisable(XFlightmain *InstancePtr);

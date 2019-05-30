@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog"/>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T03:39:53.570-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T03:37:00.344-0700"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_rate_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.637-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'integral_rate_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.632-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_rate_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.627-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'integral_rate_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.624-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_pos_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.619-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'integral_pos_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.615-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_pos_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.610-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'integral_pos_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.606-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (PID/pid.cpp:210) of variable 'test_buffer_V_load_4', PID/pid.cpp:197 on array 'test_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'test_V'." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.929-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:201) and bus write on port 'OUT_r' (PID/pid.cpp:201)." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.596-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:201) and bus write on port 'OUT_r' (PID/pid.cpp:201)." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.478-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:201) and bus write on port 'OUT_r' (PID/pid.cpp:201)." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.473-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:201) and bus write on port 'OUT_r' (PID/pid.cpp:201)." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.469-0700" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'pid/OUT' to 'pid/OUT_r' to avoid the conflict with HDL keywords or other object names." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.173-0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-803] Cannot bundle argument 'commandOut.V' to m_axi port 'OUT' since its offset mode is off." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:28.977-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

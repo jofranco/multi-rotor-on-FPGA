@@ -8,6 +8,6 @@
   <xd:arg xd:name="ki[]" xd:originalName="ki" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x50" xd:arraySize="4" xd:dataWidth="32"/>
   <xd:arg xd:name="commandOut[]" xd:originalName="commandOut" xd:direction="inout" xd:interfaceRef="m_axi_OUT_r" xd:busTypeRef="aximm" xd:arraySize="9" xd:dataWidth="16" xd:bufferDirection="out"/>
   <xd:arg xd:name="test[]" xd:originalName="test" xd:direction="out" xd:interfaceRef="s_axi_TEST" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
-  <xd:latencyEstimates xd:best-case="28" xd:worst-case="28" xd:average-case="28"/>
-  <xd:resourceEstimates xd:LUT="6294" xd:FF="4116" xd:BRAM="20" xd:DSP="74"/>
+  <xd:latencyEstimates xd:best-case="23" xd:worst-case="23" xd:average-case="23"/>
+  <xd:resourceEstimates xd:LUT="6100" xd:FF="5679" xd:BRAM="20" xd:DSP="114"/>
 </xd:acceleratorMap>

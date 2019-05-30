@@ -33,28 +33,28 @@ module flightmain_TEST_s_axi
     output wire                          RVALID,
     input  wire                          RREADY,
     // user signals
-    input  wire [11:0]                   test_address0,
-    input  wire                          test_ce0,
-    input  wire                          test_we0,
-    input  wire [31:0]                   test_d0
+    input  wire [11:0]                   test_V_address0,
+    input  wire                          test_V_ce0,
+    input  wire                          test_V_we0,
+    input  wire [31:0]                   test_V_d0
 );
 //------------------------Address Info-------------------
 // 0x4000 ~
-// 0x7fff : Memory 'test' (4096 * 32b)
-//          Word n : bit [31:0] - test[n]
+// 0x7fff : Memory 'test_V' (4096 * 32b)
+//          Word n : bit [31:0] - test_V[n]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_TEST_BASE = 15'h4000,
-    ADDR_TEST_HIGH = 15'h7fff,
-    WRIDLE         = 2'd0,
-    WRDATA         = 2'd1,
-    WRRESP         = 2'd2,
-    WRRESET        = 2'd3,
-    RDIDLE         = 2'd0,
-    RDDATA         = 2'd1,
-    RDRESET        = 2'd2,
+    ADDR_TEST_V_BASE = 15'h4000,
+    ADDR_TEST_V_HIGH = 15'h7fff,
+    WRIDLE           = 2'd0,
+    WRDATA           = 2'd1,
+    WRRESP           = 2'd2,
+    WRRESET          = 2'd3,
+    RDIDLE           = 2'd0,
+    RDDATA           = 2'd1,
+    RDRESET          = 2'd2,
     ADDR_BITS         = 15;
 
 //------------------------Local signal-------------------
@@ -70,41 +70,41 @@ localparam
     wire                          ar_hs;
     wire [ADDR_BITS-1:0]          raddr;
     // memory signals
-    wire [11:0]                   int_test_address0;
-    wire                          int_test_ce0;
-    wire                          int_test_we0;
-    wire [3:0]                    int_test_be0;
-    wire [31:0]                   int_test_d0;
-    wire [31:0]                   int_test_q0;
-    wire [11:0]                   int_test_address1;
-    wire                          int_test_ce1;
-    wire                          int_test_we1;
-    wire [3:0]                    int_test_be1;
-    wire [31:0]                   int_test_d1;
-    wire [31:0]                   int_test_q1;
-    reg                           int_test_read;
-    reg                           int_test_write;
+    wire [11:0]                   int_test_V_address0;
+    wire                          int_test_V_ce0;
+    wire                          int_test_V_we0;
+    wire [3:0]                    int_test_V_be0;
+    wire [31:0]                   int_test_V_d0;
+    wire [31:0]                   int_test_V_q0;
+    wire [11:0]                   int_test_V_address1;
+    wire                          int_test_V_ce1;
+    wire                          int_test_V_we1;
+    wire [3:0]                    int_test_V_be1;
+    wire [31:0]                   int_test_V_d1;
+    wire [31:0]                   int_test_V_q1;
+    reg                           int_test_V_read;
+    reg                           int_test_V_write;
 
 //------------------------Instantiation------------------
-// int_test
+// int_test_V
 flightmain_TEST_s_axi_ram #(
     .BYTES    ( 4 ),
     .DEPTH    ( 4096 )
-) int_test (
+) int_test_V (
     .clk0     ( ACLK ),
-    .address0 ( int_test_address0 ),
-    .ce0      ( int_test_ce0 ),
-    .we0      ( int_test_we0 ),
-    .be0      ( int_test_be0 ),
-    .d0       ( int_test_d0 ),
-    .q0       ( int_test_q0 ),
+    .address0 ( int_test_V_address0 ),
+    .ce0      ( int_test_V_ce0 ),
+    .we0      ( int_test_V_we0 ),
+    .be0      ( int_test_V_be0 ),
+    .d0       ( int_test_V_d0 ),
+    .q0       ( int_test_V_q0 ),
     .clk1     ( ACLK ),
-    .address1 ( int_test_address1 ),
-    .ce1      ( int_test_ce1 ),
-    .we1      ( int_test_we1 ),
-    .be1      ( int_test_be1 ),
-    .d1       ( int_test_d1 ),
-    .q1       ( int_test_q1 )
+    .address1 ( int_test_V_address1 ),
+    .ce1      ( int_test_V_ce1 ),
+    .we1      ( int_test_V_we1 ),
+    .be1      ( int_test_V_be1 ),
+    .d1       ( int_test_V_d1 ),
+    .q1       ( int_test_V_q1 )
 );
 
 //------------------------AXI write fsm------------------
@@ -159,7 +159,7 @@ end
 assign ARREADY = (rstate == RDIDLE);
 assign RDATA   = rdata;
 assign RRESP   = 2'b00;  // OKAY
-assign RVALID  = (rstate == RDDATA) & !int_test_read;
+assign RVALID  = (rstate == RDDATA) & !int_test_V_read;
 assign ar_hs   = ARVALID & ARREADY;
 assign raddr   = ARADDR[ADDR_BITS-1:0];
 
@@ -195,8 +195,8 @@ always @(posedge ACLK) begin
         if (ar_hs) begin
             rdata <= 1'b0;
         end
-        else if (int_test_read) begin
-            rdata <= int_test_q1;
+        else if (int_test_V_read) begin
+            rdata <= int_test_V_q1;
         end
     end
 end
@@ -205,38 +205,38 @@ end
 //------------------------Register logic-----------------
 
 //------------------------Memory logic-------------------
-// test
-assign int_test_address0 = test_address0;
-assign int_test_ce0      = test_ce0;
-assign int_test_we0      = test_we0;
-assign int_test_be0      = {4{test_we0}};
-assign int_test_d0       = test_d0;
-assign int_test_address1 = ar_hs? raddr[13:2] : waddr[13:2];
-assign int_test_ce1      = ar_hs | (int_test_write & WVALID);
-assign int_test_we1      = int_test_write & WVALID;
-assign int_test_be1      = WSTRB;
-assign int_test_d1       = WDATA;
-// int_test_read
+// test_V
+assign int_test_V_address0 = test_V_address0;
+assign int_test_V_ce0      = test_V_ce0;
+assign int_test_V_we0      = test_V_we0;
+assign int_test_V_be0      = {4{test_V_we0}};
+assign int_test_V_d0       = test_V_d0;
+assign int_test_V_address1 = ar_hs? raddr[13:2] : waddr[13:2];
+assign int_test_V_ce1      = ar_hs | (int_test_V_write & WVALID);
+assign int_test_V_we1      = int_test_V_write & WVALID;
+assign int_test_V_be1      = WSTRB;
+assign int_test_V_d1       = WDATA;
+// int_test_V_read
 always @(posedge ACLK) begin
     if (ARESET)
-        int_test_read <= 1'b0;
+        int_test_V_read <= 1'b0;
     else if (ACLK_EN) begin
-        if (ar_hs && raddr >= ADDR_TEST_BASE && raddr <= ADDR_TEST_HIGH)
-            int_test_read <= 1'b1;
+        if (ar_hs && raddr >= ADDR_TEST_V_BASE && raddr <= ADDR_TEST_V_HIGH)
+            int_test_V_read <= 1'b1;
         else
-            int_test_read <= 1'b0;
+            int_test_V_read <= 1'b0;
     end
 end
 
-// int_test_write
+// int_test_V_write
 always @(posedge ACLK) begin
     if (ARESET)
-        int_test_write <= 1'b0;
+        int_test_V_write <= 1'b0;
     else if (ACLK_EN) begin
-        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_TEST_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_TEST_HIGH)
-            int_test_write <= 1'b1;
+        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_TEST_V_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_TEST_V_HIGH)
+            int_test_V_write <= 1'b1;
         else if (WVALID)
-            int_test_write <= 1'b0;
+            int_test_V_write <= 1'b0;
     end
 end
 

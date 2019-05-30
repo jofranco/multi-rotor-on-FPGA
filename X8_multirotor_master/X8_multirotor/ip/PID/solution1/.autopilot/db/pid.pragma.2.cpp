@@ -24793,7 +24793,7 @@ uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destF
 # 3 "PID/pid.hpp" 2
 
 
-static const F19_t MIX_X8[8][3] = {
+static const F32_t MIX_X8[8][3] = {
  {-1.000, 1.000, -1.000},
  {-1.000, -1.000, 1.000},
  { 1.000, 1.000, 1.000},
@@ -24804,10 +24804,10 @@ static const F19_t MIX_X8[8][3] = {
  { 1.000, -1.000, 1.000},
 };
 # 34 "PID/pid.hpp"
-void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], int32_t test[4096]);
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[4096]);
 # 3 "PID/pid.cpp" 2
 # 16 "PID/pid.cpp"
-void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], int32_t test[4096])
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[4096])
 {_ssdm_SpecArrayDimSize(cmdIn, 6);_ssdm_SpecArrayDimSize(measured, 6);_ssdm_SpecArrayDimSize(kp, 6);_ssdm_SpecArrayDimSize(kd, 4);_ssdm_SpecArrayDimSize(ki, 4);_ssdm_SpecArrayDimSize(commandOut, 9);_ssdm_SpecArrayDimSize(test, 4096);
 
 _ssdm_op_SpecPipeline(1, 2, 1, 0, "");
@@ -24830,15 +24830,11 @@ _ssdm_op_SpecInterface(test, "s_axilite", 0, 0, "", 0, 0, "TEST", "", "", 0, 0, 
 _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
 
- for(int i = 0; i < 6; i++)
- {
-  test[i] = (int32_t)cmdIn[i];
- }
-
 
  F16_t scaled_cmdIn[4] = {0.0};
  static bool isPositionMode;
  F16_t rateCmd[3] = {0.0};
+ static F16_t buffer[6] = {0.0};
 
 
  static F16_t last_error_pos[2]={0,0};
@@ -24857,7 +24853,20 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
  F32_t correction_rate[2];
 
 
- isPositionMode = cmdIn[5];
+ for(int i = 0; i < 6; i++)
+ {
+  buffer[i] = cmdIn[i];
+ }
+
+
+ F32_t test_buffer[8] = {0.0};
+ for(int i = 0; i < 6; i++)
+ {
+  test[i] = (F32_t)cmdIn[i];
+ }
+
+
+ isPositionMode = buffer[5];
 
 
 
@@ -24867,7 +24876,7 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
 
 
-  curr_error_pos[0] = cmdIn[1] - measured[3];
+  curr_error_pos[0] = buffer[1] - measured[0];
   integral_pos[0] = ((F32_t(integral_pos[0] + curr_error_pos[0]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_pos[0] + curr_error_pos[0]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_pos[0] + curr_error_pos[0]))));
   deriv_pos[0] = (curr_error_pos[0] - last_error_pos[0]);
   correction_pos[0] = (kp[0] * curr_error_pos[0]) + (ki[0] * integral_pos[0]) + (kd[0] * deriv_pos[0]);
@@ -24878,7 +24887,7 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
 
 
-  curr_error_pos[1] = cmdIn[2] - measured[1];
+  curr_error_pos[1] = buffer[2] - measured[1];
   integral_pos[1] = ((F32_t(integral_pos[1] + curr_error_pos[1]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_pos[1] + curr_error_pos[1]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_pos[1] + curr_error_pos[1]))));
   deriv_pos[1] = (curr_error_pos[1] - last_error_pos[1]);
   correction_pos[1] = (kp[1] * curr_error_pos[1]) + (ki[1] * integral_pos[1]) + (kd[1] * deriv_pos[1]);
@@ -24889,7 +24898,7 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
 
 
-  pid_o_pos[2] = kp[2]*(cmdIn[3] - measured[2]);
+  pid_o_pos[2] = kp[2]*(buffer[3] - measured[2]);
  }
 
 
@@ -24901,9 +24910,9 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
  }
  else
  {
-  rateCmd[0] = cmdIn[1];
-  rateCmd[1] = cmdIn[2];
-  rateCmd[2] = cmdIn[3];
+  rateCmd[0] = buffer[1];
+  rateCmd[1] = buffer[2];
+  rateCmd[2] = buffer[3];
  }
 
 
@@ -24936,30 +24945,32 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
 
  pid_o_rate[2] = kp[5]*(rateCmd[2] - measured[5]);
-# 155 "PID/pid.cpp"
- F19_t t_command = cmdIn[0];
- F19_t r_command = pid_o_rate[0];
- F19_t p_command = pid_o_rate[1];
- F19_t y_command = pid_o_rate[2];
+# 170 "PID/pid.cpp"
+ F32_t t_command = (F32_t)buffer[0];
+ F32_t r_command = pid_o_rate[0];
+ F32_t p_command = pid_o_rate[1];
+ F32_t y_command = pid_o_rate[2];
 
  for(int i = 0; i < 8; i++)
  {
 _ssdm_Unroll(0,0,0, "");
+# 194 "PID/pid.cpp"
+ F32_t scaled_power = t_command + (r_command * MIX_X8[i][0] + p_command * MIX_X8[i][1] + y_command * MIX_X8[i][2])*(F32_t)0.33;
 
 
- F19_t scaled_power = t_command + (r_command * MIX_X8[i][0] + p_command * MIX_X8[i][1] + y_command * MIX_X8[i][2]) * F19_t(.33);
+  test_buffer[i] = ((scaled_power)<(F32_t(0.000))?(F32_t(0.000)):((scaled_power)>(F32_t(0.999))?(F32_t(0.999)):(scaled_power)));
 
 
 
-  commandOut[i] = (F16_t)((scaled_power)<(F19_t(0))?(F19_t(0)):((scaled_power)>(F19_t(.999))?(F19_t(.999)):(scaled_power)));
+  commandOut[i] = 0.0;
  }
 
- commandOut[9] = cmdIn[4];
+
 
 
 
  for(int i = 0; i < 8 ; i++)
  {
-  test[i + 6] = (int32_t)commandOut[i];
+  test[i + 6] = test_buffer[i];
  }
 }

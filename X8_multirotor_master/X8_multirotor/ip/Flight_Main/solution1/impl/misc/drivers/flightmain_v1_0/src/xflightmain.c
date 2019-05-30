@@ -268,97 +268,97 @@ u32 XFlightmain_Read_obj_avd_cmd_V_Bytes(XFlightmain *InstancePtr, int offset, c
     return length;
 }
 
-u32 XFlightmain_Get_test_BaseAddress(XFlightmain *InstancePtr) {
+u32 XFlightmain_Get_test_V_BaseAddress(XFlightmain *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return (InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_BASE);
+    return (InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE);
 }
 
-u32 XFlightmain_Get_test_HighAddress(XFlightmain *InstancePtr) {
+u32 XFlightmain_Get_test_V_HighAddress(XFlightmain *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return (InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_HIGH);
+    return (InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_V_HIGH);
 }
 
-u32 XFlightmain_Get_test_TotalBytes(XFlightmain *InstancePtr) {
+u32 XFlightmain_Get_test_V_TotalBytes(XFlightmain *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return (XFLIGHTMAIN_TEST_ADDR_TEST_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_BASE + 1);
+    return (XFLIGHTMAIN_TEST_ADDR_TEST_V_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE + 1);
 }
 
-u32 XFlightmain_Get_test_BitWidth(XFlightmain *InstancePtr) {
+u32 XFlightmain_Get_test_V_BitWidth(XFlightmain *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return XFLIGHTMAIN_TEST_WIDTH_TEST;
+    return XFLIGHTMAIN_TEST_WIDTH_TEST_V;
 }
 
-u32 XFlightmain_Get_test_Depth(XFlightmain *InstancePtr) {
+u32 XFlightmain_Get_test_V_Depth(XFlightmain *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    return XFLIGHTMAIN_TEST_DEPTH_TEST;
+    return XFLIGHTMAIN_TEST_DEPTH_TEST_V;
 }
 
-u32 XFlightmain_Write_test_Words(XFlightmain *InstancePtr, int offset, int *data, int length) {
+u32 XFlightmain_Write_test_V_Words(XFlightmain *InstancePtr, int offset, int *data, int length) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
 
     int i;
 
-    if ((offset + length)*4 > (XFLIGHTMAIN_TEST_ADDR_TEST_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_BASE + 1))
+    if ((offset + length)*4 > (XFLIGHTMAIN_TEST_ADDR_TEST_V_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE + 1))
         return 0;
 
     for (i = 0; i < length; i++) {
-        *(int *)(InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_BASE + (offset + i)*4) = *(data + i);
+        *(int *)(InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE + (offset + i)*4) = *(data + i);
     }
     return length;
 }
 
-u32 XFlightmain_Read_test_Words(XFlightmain *InstancePtr, int offset, int *data, int length) {
+u32 XFlightmain_Read_test_V_Words(XFlightmain *InstancePtr, int offset, int *data, int length) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
 
     int i;
 
-    if ((offset + length)*4 > (XFLIGHTMAIN_TEST_ADDR_TEST_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_BASE + 1))
+    if ((offset + length)*4 > (XFLIGHTMAIN_TEST_ADDR_TEST_V_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE + 1))
         return 0;
 
     for (i = 0; i < length; i++) {
-        *(data + i) = *(int *)(InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_BASE + (offset + i)*4);
+        *(data + i) = *(int *)(InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE + (offset + i)*4);
     }
     return length;
 }
 
-u32 XFlightmain_Write_test_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length) {
+u32 XFlightmain_Write_test_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
 
     int i;
 
-    if ((offset + length) > (XFLIGHTMAIN_TEST_ADDR_TEST_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_BASE + 1))
+    if ((offset + length) > (XFLIGHTMAIN_TEST_ADDR_TEST_V_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE + 1))
         return 0;
 
     for (i = 0; i < length; i++) {
-        *(char *)(InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_BASE + offset + i) = *(data + i);
+        *(char *)(InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE + offset + i) = *(data + i);
     }
     return length;
 }
 
-u32 XFlightmain_Read_test_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length) {
+u32 XFlightmain_Read_test_V_Bytes(XFlightmain *InstancePtr, int offset, char *data, int length) {
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
 
     int i;
 
-    if ((offset + length) > (XFLIGHTMAIN_TEST_ADDR_TEST_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_BASE + 1))
+    if ((offset + length) > (XFLIGHTMAIN_TEST_ADDR_TEST_V_HIGH - XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE + 1))
         return 0;
 
     for (i = 0; i < length; i++) {
-        *(data + i) = *(char *)(InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_BASE + offset + i);
+        *(data + i) = *(char *)(InstancePtr->Test_BaseAddress + XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE + offset + i);
     }
     return length;
 }

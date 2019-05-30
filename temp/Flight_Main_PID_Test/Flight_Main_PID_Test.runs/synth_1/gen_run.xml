@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1559115568">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1559212036">
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="design_1_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="design_1_wrapper_reports.tcl"/>
@@ -54,6 +54,6 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_flightmain_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_util_vector_logic_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_AXI_UART_DRIVER_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_pid_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_rcReceiver_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_pid_0_0"/>
 </GenRun>

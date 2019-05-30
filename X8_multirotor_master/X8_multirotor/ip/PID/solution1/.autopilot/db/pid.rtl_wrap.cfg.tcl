@@ -85,7 +85,7 @@ set Pointer6 "0"
 set Reference6 "0"
 set Dims6 [list 4096]
 set Interface6 "wire"
-set DataType6 "int"
+set DataType6 "[list ap_fixed 32 16 5 3 0 ]"
 set Port6 [list $PortName6 $Interface6 $DataType6 $Pointer6 $Dims6 $Const6 $Volatile6 $ArrayOpt6]
 lappend PortList $Port6
 set globalAPint "" 

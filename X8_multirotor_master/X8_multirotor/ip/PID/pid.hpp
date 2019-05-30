@@ -2,7 +2,7 @@
 #include "../common/x8_common.hpp"
 
 // X8 motor mixer table, read only
-static const F19_t MIX_X8[8][3] = {
+static const F32_t MIX_X8[8][3] = {
 	{-1.000,  1.000, -1.000},	// Motor 1 - Rear Right Top
 	{-1.000, -1.000,  1.000},	// Motor 2 - Front Right Top
 	{ 1.000,  1.000,  1.000},	// Motor 3 - Rear Left Top
@@ -31,7 +31,7 @@ static const F19_t MIX_X8[8][4] = {
 
 // PID function definition
 //void pid (uint16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9]);
-void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], int32_t test[SIZE_4k]);
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[SIZE_4k]);
 
 
 

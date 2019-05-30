@@ -15,8 +15,8 @@ preplace inst flightmain_0 -pg 1 -lvl 1 -y 270 -defaultsOSRD
 preplace inst axi_uart16550_0 -pg 1 -lvl 2 -y 400 -defaultsOSRD
 preplace inst rst_ps7_0_100M -pg 1 -lvl 2 -y 190 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 2 -y -30 -defaultsOSRD
-preplace netloc ps7_0_axi_periph_M02_AXI 1 0 4 -20 -190 NJ -190 NJ -190 1470
 preplace netloc processing_system7_0_DDR 1 2 2 930J -140 1490
+preplace netloc ps7_0_axi_periph_M02_AXI 1 0 4 -20 -190 NJ -190 NJ -190 1470
 preplace netloc sin_1 1 0 2 -40 600 NJ
 preplace netloc ps7_0_axi_periph_M09_AXI 1 0 4 -30 780 NJ 780 NJ 780 1460
 preplace netloc rst_ps7_0_100M_peripheral_aresetn1 1 0 3 20 370 400J 490 990J
@@ -31,9 +31,9 @@ preplace netloc flightmain_0_m_axi_OUT_r 1 1 2 420 -150 910J
 preplace netloc AXI_UART_DRIVER_0_m_axi_UART 1 1 2 440J -130 980
 preplace netloc ps7_0_axi_periph_M03_AXI 1 0 4 -10 -180 NJ -180 NJ -180 1460
 preplace netloc ps7_0_axi_periph_M01_AXI 1 0 4 -30 -200 NJ -200 NJ -200 1480
+preplace netloc processing_system7_0_FIXED_IO 1 2 2 920J -150 1500
 preplace netloc ps7_0_axi_periph_M08_AXI 1 0 4 30 760 NJ 760 NJ 760 1450
 preplace netloc ps7_0_axi_periph_M06_AXI 1 0 4 0 810 NJ 810 NJ 810 1480
-preplace netloc processing_system7_0_FIXED_IO 1 2 2 920J -150 1500
 preplace netloc AXI_UART_DRIVER_0_m_axi_OUT_r 1 1 2 430J -140 900
 preplace netloc ps7_0_axi_periph_M05_AXI 1 0 4 -10 800 NJ 800 NJ 800 1500
 preplace netloc ps7_0_axi_periph_M04_AXI 1 0 4 0 -170 NJ -170 NJ -170 1450

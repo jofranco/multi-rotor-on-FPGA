@@ -47,7 +47,7 @@ module flightmain_CMD_s_axi
 //        Word n : bit [15: 0] - rcCmdIn_V[2n]
 //                 bit [31:16] - rcCmdIn_V[2n+1]
 // 0x20 ~
-// 0x2f : Memory 'obj_avd_cmd_V' (5 * 16b)
+// 0x2f : Memory 'obj_avd_cmd_V' (6 * 16b)
 //        Word n : bit [15: 0] - obj_avd_cmd_V[2n]
 //                 bit [31:16] - obj_avd_cmd_V[2n+1]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)

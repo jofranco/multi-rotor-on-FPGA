@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue May 28 23:43:41 2019
-# Process ID: 11268
+# Start of session at: Wed May 29 23:18:42 2019
+# Process ID: 16604
 # Current directory: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/design_1_flightmain_0_0_synth_1
 # Command line: vivado.exe -log design_1_flightmain_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_flightmain_0_0.tcl
 # Log file: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/design_1_flightmain_0_0_synth_1/design_1_flightmain_0_0.vds
@@ -15,12 +15,12 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15604 
+INFO: Helper process launched with PID 3256 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 399.742 ; gain = 110.379
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 399.922 ; gain = 110.230
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_flightmain_0_0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_flightmain_0_0/synth/design_1_flightmain_0_0.v:59]
-INFO: [Synth 8-6157] synthesizing module 'flightmain' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:12]
+INFO: [Synth 8-6157] synthesizing module 'flightmain' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:12]
 	Parameter ap_ST_iter0_fsm_state1 bound to: 18'b000000000000000001 
 	Parameter ap_ST_iter0_fsm_state2 bound to: 18'b000000000000000010 
 	Parameter ap_ST_iter0_fsm_state3 bound to: 18'b000000000000000100 
@@ -73,7 +73,7 @@ INFO: [Synth 8-6157] synthesizing module 'flightmain' [c:/Users/Aaron/Desktop/Sc
 	Parameter C_S_AXI_TEST_WSTRB_WIDTH bound to: 4 - type: integer 
 	Parameter C_M_AXI_OUT_R_WSTRB_WIDTH bound to: 4 - type: integer 
 	Parameter C_M_AXI_WSTRB_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'flightmain_CMD_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CMD_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_CMD_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CMD_s_axi.v:9]
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 6 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter ADDR_RCCMDIN_V_BASE bound to: 6'b010000 
@@ -88,15 +88,15 @@ INFO: [Synth 8-6157] synthesizing module 'flightmain_CMD_s_axi' [c:/Users/Aaron/
 	Parameter RDDATA bound to: 2'b01 
 	Parameter RDRESET bound to: 2'b10 
 	Parameter ADDR_BITS bound to: 6 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'flightmain_CMD_s_axi_ram' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CMD_s_axi.v:350]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_CMD_s_axi_ram' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CMD_s_axi.v:350]
 	Parameter BYTES bound to: 4 - type: integer 
 	Parameter DEPTH bound to: 3 - type: integer 
 	Parameter AWIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_CMD_s_axi_ram' (1#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CMD_s_axi.v:350]
-WARNING: [Synth 8-6014] Unused sequential element int_obj_avd_cmd_V_shift_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CMD_s_axi.v:340]
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_CMD_s_axi' (2#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CMD_s_axi.v:9]
-WARNING: [Synth 8-350] instance 'flightmain_CMD_s_axi_U' of module 'flightmain_CMD_s_axi' requires 27 connections, but only 23 given [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_CTRL_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CTRL_s_axi.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_CMD_s_axi_ram' (1#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CMD_s_axi.v:350]
+WARNING: [Synth 8-6014] Unused sequential element int_obj_avd_cmd_V_shift_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CMD_s_axi.v:340]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_CMD_s_axi' (2#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CMD_s_axi.v:9]
+WARNING: [Synth 8-350] instance 'flightmain_CMD_s_axi_U' of module 'flightmain_CMD_s_axi' requires 27 connections, but only 23 given [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_CTRL_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CTRL_s_axi.v:9]
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter ADDR_AP_CTRL bound to: 4'b0000 
@@ -111,13 +111,13 @@ INFO: [Synth 8-6157] synthesizing module 'flightmain_CTRL_s_axi' [c:/Users/Aaron
 	Parameter RDDATA bound to: 2'b01 
 	Parameter RDRESET bound to: 2'b10 
 	Parameter ADDR_BITS bound to: 4 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CTRL_s_axi.v:189]
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_CTRL_s_axi' (3#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CTRL_s_axi.v:9]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_TEST_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_TEST_s_axi.v:9]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CTRL_s_axi.v:189]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_CTRL_s_axi' (3#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CTRL_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_TEST_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_TEST_s_axi.v:9]
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 15 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
-	Parameter ADDR_TEST_BASE bound to: 15'b100000000000000 
-	Parameter ADDR_TEST_HIGH bound to: 15'b111111111111111 
+	Parameter ADDR_TEST_V_BASE bound to: 15'b100000000000000 
+	Parameter ADDR_TEST_V_HIGH bound to: 15'b111111111111111 
 	Parameter WRIDLE bound to: 2'b00 
 	Parameter WRDATA bound to: 2'b01 
 	Parameter WRRESP bound to: 2'b10 
@@ -126,13 +126,13 @@ INFO: [Synth 8-6157] synthesizing module 'flightmain_TEST_s_axi' [c:/Users/Aaron
 	Parameter RDDATA bound to: 2'b01 
 	Parameter RDRESET bound to: 2'b10 
 	Parameter ADDR_BITS bound to: 15 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'flightmain_TEST_s_axi_ram' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_TEST_s_axi.v:249]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_TEST_s_axi_ram' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_TEST_s_axi.v:249]
 	Parameter BYTES bound to: 4 - type: integer 
 	Parameter DEPTH bound to: 4096 - type: integer 
 	Parameter AWIDTH bound to: 12 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_TEST_s_axi_ram' (4#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_TEST_s_axi.v:249]
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_TEST_s_axi' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_TEST_s_axi.v:9]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_TEST_s_axi_ram' (4#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_TEST_s_axi.v:249]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_TEST_s_axi' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_TEST_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:10]
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
@@ -153,7 +153,7 @@ INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi' [c:/Users/Aaro
 	Parameter USER_DW bound to: 16 - type: integer 
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:708]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:708]
 	Parameter USED_FIX bound to: 0 - type: integer 
 	Parameter FIX_VALUE bound to: 4 - type: integer 
 	Parameter ADDR_WIDTH bound to: 32 - type: integer 
@@ -161,8 +161,8 @@ INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_throttl' [c:/Us
 	Parameter DEPTH bound to: 16 - type: integer 
 	Parameter USER_MAXREQS bound to: 16 - type: integer 
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_throttl' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:708]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:1697]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_throttl' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:708]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:1697]
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
@@ -187,43 +187,43 @@ INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_write' [c:/User
 	Parameter NUM_WRITE_WIDTH bound to: 4 - type: integer 
 	Parameter TARGET_ADDR bound to: 1074003984 - type: integer 
 	Parameter BOUNDARY_BEATS bound to: 10'b1111111111 
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
 	Parameter DATA_BITS bound to: 10 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_fifo' (7#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:692]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_fifo' (7#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:692]
 	Parameter DIN_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_decoder' (8#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:692]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:314]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_decoder' (8#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:692]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:314]
 	Parameter N bound to: 64 - type: integer 
 	Parameter ZERO bound to: 2'b10 
 	Parameter ONE bound to: 2'b11 
 	Parameter TWO bound to: 2'b01 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_reg_slice' (9#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:314]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_reg_slice' (9#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:314]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
 	Parameter DATA_BITS bound to: 64 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized0' (9#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:527]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized0' (9#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:527]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 18 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_buffer' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:527]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_buffer' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:527]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 15 - type: integer 
 	Parameter DEPTH_BITS bound to: 4 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized1' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized1' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized2' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_write' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:1697]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:900]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_fifo__parameterized2' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:418]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_write' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:1697]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:900]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
@@ -247,41 +247,25 @@ INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_read' [c:/Users
 	Parameter NUM_READ_WIDTH bound to: 4 - type: integer 
 	Parameter TARGET_ADDR bound to: 1074003984 - type: integer 
 	Parameter BOUNDARY_BEATS bound to: 10'b1111111111 
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_buffer__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:527]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_buffer__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:527]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 35 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_buffer__parameterized0' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:527]
-INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_reg_slice__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:314]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_buffer__parameterized0' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:527]
+INFO: [Synth 8-6157] synthesizing module 'flightmain_OUT_r_m_axi_reg_slice__parameterized0' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:314]
 	Parameter N bound to: 18 - type: integer 
 	Parameter ZERO bound to: 2'b10 
 	Parameter ONE bound to: 2'b11 
 	Parameter TWO bound to: 2'b01 
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_reg_slice__parameterized0' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:314]
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_read' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:900]
-INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:10]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1889]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1891]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1893]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1895]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1897]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1899]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1901]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1903]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1905]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1907]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1909]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1911]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1913]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1915]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1917]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1919]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1921]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1923]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1925]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:1927]
-INFO: [Synth 8-6155] done synthesizing module 'flightmain' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_reg_slice__parameterized0' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:314]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi_read' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:900]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain_OUT_r_m_axi' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:10]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:1796]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:1798]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:1800]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:1802]
+INFO: [Synth 8-6155] done synthesizing module 'flightmain' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:12]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_flightmain_0_0' (15#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_flightmain_0_0/synth/design_1_flightmain_0_0.v:59]
 WARNING: [Synth 8-3331] design flightmain_OUT_r_m_axi_read has unconnected port RID[0]
 WARNING: [Synth 8-3331] design flightmain_OUT_r_m_axi_read has unconnected port RUSER[0]
@@ -355,7 +339,7 @@ WARNING: [Synth 8-3331] design flightmain_CTRL_s_axi has unconnected port WSTRB[
 WARNING: [Synth 8-3331] design flightmain_CTRL_s_axi has unconnected port WSTRB[2]
 WARNING: [Synth 8-3331] design flightmain_CTRL_s_axi has unconnected port WSTRB[1]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 504.789 ; gain = 215.426
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 506.488 ; gain = 216.797
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -364,35 +348,35 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_address0[2] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_address0[1] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_address0[0] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_ce0 to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_we0 to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[15] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[14] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[13] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[12] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[11] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[10] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[9] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[8] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[7] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[6] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[5] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[4] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[3] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[2] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[1] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
-WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[0] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain.v:574]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_address0[2] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_address0[1] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_address0[0] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_ce0 to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_we0 to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[15] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[14] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[13] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[12] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[11] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[10] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[9] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[8] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[7] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[6] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[5] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[4] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[3] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[2] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[1] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
+WARNING: [Synth 8-3295] tying undriven pin flightmain_CMD_s_axi_U:obj_avd_cmd_V_d0[0] to constant 0 [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:519]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 504.789 ; gain = 215.426
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 506.488 ; gain = 216.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 504.789 ; gain = 215.426
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 506.488 ; gain = 216.797
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -408,31 +392,31 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.196 . Memory (MB): peak = 847.469 ; gain = 2.418
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.093 . Memory (MB): peak = 845.605 ; gain = 2.094
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 847.469 ; gain = 558.105
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 845.605 ; gain = 555.914
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 847.469 ; gain = 558.105
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 845.605 ; gain = 555.914
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for inst. (constraint file  C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/design_1_flightmain_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 847.469 ; gain = 558.105
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 845.605 ; gain = 555.914
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3936] Found unconnected internal register 'waddr_reg' and it is trimmed from '6' to '4' bits. [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CMD_s_axi.v:200]
-WARNING: [Synth 8-6014] Unused sequential element int_rcCmdIn_V_shift_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CMD_s_axi.v:263]
+WARNING: [Synth 8-3936] Found unconnected internal register 'waddr_reg' and it is trimmed from '6' to '4' bits. [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CMD_s_axi.v:200]
+WARNING: [Synth 8-6014] Unused sequential element int_rcCmdIn_V_shift_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CMD_s_axi.v:263]
 INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'flightmain_CTRL_s_axi'
 INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'flightmain_CTRL_s_axi'
 INFO: [Synth 8-5544] ROM "wnext" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "wnext" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-WARNING: [Synth 8-3936] Found unconnected internal register 'waddr_reg' and it is trimmed from '15' to '14' bits. [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_TEST_s_axi.v:154]
+WARNING: [Synth 8-3936] Found unconnected internal register 'waddr_reg' and it is trimmed from '15' to '14' bits. [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_TEST_s_axi.v:154]
 INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'flightmain_TEST_s_axi'
 INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'flightmain_TEST_s_axi'
 INFO: [Synth 8-5544] ROM "wnext" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -441,21 +425,18 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fligh
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:610]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:506]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:610]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:610]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:506]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:610]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'flightmain_OUT_r_m_axi_reg_slice__parameterized0'
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'tmp_20_cast_reg_1450_reg[2:0]' into 'tmp_18_cast_reg_1440_reg[2:0]' [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain.v:1868]
 INFO: [Synth 8-802] inferred FSM for state register 'ap_CS_iter0_fsm_reg' in module 'flightmain'
 INFO: [Synth 8-802] inferred FSM for state register 'ap_CS_iter1_fsm_reg' in module 'flightmain'
-INFO: [Synth 8-5546] ROM "tmp_2_fu_1180_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "tmp_4_fu_1202_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "tmp_13_fu_1342_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_15_fu_1392_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_17_fu_1442_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_19_fu_1492_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_6_fu_1023_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "tmp_8_fu_1045_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_iter0_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_iter0_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_iter0_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -482,12 +463,8 @@ INFO: [Synth 8-5544] ROM "ap_NS_iter1_fsm" won't be mapped to Block RAM because 
 INFO: [Synth 8-5544] ROM "ap_NS_iter1_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_iter1_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_iter1_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "tmp_2_fu_1180_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "tmp_4_fu_1202_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "tmp_13_fu_1342_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_15_fu_1392_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_17_fu_1442_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_19_fu_1492_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "tmp_6_fu_1023_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "tmp_8_fu_1045_p2" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_iter0_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_iter0_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ap_NS_iter0_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -571,10 +548,10 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
                      TWO |                               01 |                               01
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'flightmain_OUT_r_m_axi_reg_slice__parameterized0'
-INFO: [Synth 8-3898] No Re-encoding of one hot register 'ap_CS_iter1_fsm_reg' in module 'fsm1E736A054901'
-INFO: [Synth 8-3898] No Re-encoding of one hot register 'ap_CS_iter0_fsm_reg' in module 'fsm1E736A054900'
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'ap_CS_iter1_fsm_reg' in module 'fsm222D14768201'
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'ap_CS_iter0_fsm_reg' in module 'fsm222D14768200'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:50 ; elapsed = 00:00:55 . Memory (MB): peak = 847.469 ; gain = 558.105
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 845.605 ; gain = 555.914
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -594,7 +571,7 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit       Adders := 9     
 	   2 Input      6 Bit       Adders := 2     
 	   2 Input      4 Bit       Adders := 2     
-	   2 Input      3 Bit       Adders := 15    
+	   2 Input      3 Bit       Adders := 11    
 	   2 Input      1 Bit       Adders := 1     
 +---XORs : 
 	   2 Input      1 Bit         XORs := 2     
@@ -604,13 +581,13 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 22    
 	               20 Bit    Registers := 2     
 	               18 Bit    Registers := 5     
-	               16 Bit    Registers := 14    
+	               16 Bit    Registers := 16    
 	               14 Bit    Registers := 1     
 	               10 Bit    Registers := 6     
 	                8 Bit    Registers := 9     
 	                6 Bit    Registers := 2     
 	                4 Bit    Registers := 4     
-	                3 Bit    Registers := 14    
+	                3 Bit    Registers := 8     
 	                2 Bit    Registers := 16    
 	                1 Bit    Registers := 75    
 +---RAMs : 
@@ -627,7 +604,7 @@ Detailed RTL Component Info :
 	   2 Input     18 Bit        Muxes := 4     
 	  19 Input     18 Bit        Muxes := 1     
 	   2 Input     17 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 4     
+	   2 Input     16 Bit        Muxes := 1     
 	   2 Input     15 Bit        Muxes := 1     
 	   2 Input     14 Bit        Muxes := 1     
 	   2 Input     13 Bit        Muxes := 1     
@@ -648,12 +625,12 @@ Detailed RTL Component Info :
 	   3 Input      3 Bit        Muxes := 3     
 	   2 Input      3 Bit        Muxes := 11    
 	   7 Input      3 Bit        Muxes := 1     
-	  18 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 46    
 	   3 Input      2 Bit        Muxes := 10    
 	   5 Input      2 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 90    
+	   2 Input      1 Bit        Muxes := 84    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -885,16 +862,16 @@ Detailed RTL Component Info :
 Module flightmain 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      3 Bit       Adders := 5     
+	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
-	               16 Bit    Registers := 12    
-	                3 Bit    Registers := 9     
+	               16 Bit    Registers := 14    
+	                3 Bit    Registers := 3     
 	                1 Bit    Registers := 8     
 +---Muxes : 
 	  19 Input     18 Bit        Muxes := 1     
 	   2 Input     18 Bit        Muxes := 2     
 	   2 Input     17 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 4     
+	   2 Input     16 Bit        Muxes := 1     
 	   2 Input     15 Bit        Muxes := 1     
 	   2 Input     14 Bit        Muxes := 1     
 	   2 Input     13 Bit        Muxes := 1     
@@ -912,9 +889,9 @@ Detailed RTL Component Info :
 	   2 Input      3 Bit        Muxes := 2     
 	   7 Input      3 Bit        Muxes := 1     
 	   3 Input      3 Bit        Muxes := 1     
-	  18 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 12    
+	   2 Input      1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -931,12 +908,8 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-6014] Unused sequential element fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_OUT_r_m_axi.v:456]
-INFO: [Synth 8-5546] ROM "tmp_2_fu_1180_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_19_fu_1492_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_17_fu_1442_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_15_fu_1392_p2" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "tmp_13_fu_1342_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_OUT_r_m_axi.v:456]
+INFO: [Synth 8-5546] ROM "tmp_6_fu_1023_p2" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-3331] design flightmain_OUT_r_m_axi_read has unconnected port RID[0]
 WARNING: [Synth 8-3331] design flightmain_OUT_r_m_axi_read has unconnected port RUSER[0]
 WARNING: [Synth 8-3331] design flightmain_OUT_r_m_axi_read has unconnected port rreq_cache[3]
@@ -968,10 +941,10 @@ WARNING: [Synth 8-3331] design flightmain_OUT_r_m_axi has unconnected port I_AWL
 WARNING: [Synth 8-3331] design flightmain_OUT_r_m_axi has unconnected port I_AWLOCK[0]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3971] The signal int_rcCmdIn_V/gen_write[1].mem_reg was recognized as a true dual port RAM template.
-WARNING: [Synth 8-6014] Unused sequential element int_obj_avd_cmd_V/q0_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_CMD_s_axi.v:390]
+WARNING: [Synth 8-6014] Unused sequential element int_obj_avd_cmd_V/q0_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_CMD_s_axi.v:390]
 INFO: [Synth 8-3971] The signal int_obj_avd_cmd_V/gen_write[1].mem_reg was recognized as a true dual port RAM template.
-WARNING: [Synth 8-6014] Unused sequential element int_test/q0_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/4ef7/hdl/verilog/flightmain_TEST_s_axi.v:289]
-INFO: [Synth 8-3971] The signal int_test/gen_write[1].mem_reg was recognized as a true dual port RAM template.
+WARNING: [Synth 8-6014] Unused sequential element int_test_V/q0_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ipshared/47ef/hdl/verilog/flightmain_TEST_s_axi.v:289]
+INFO: [Synth 8-3971] The signal int_test_V/gen_write[1].mem_reg was recognized as a true dual port RAM template.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/rs_rreq/data_p2_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/rs_rreq/data_p2_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/rs_rreq/data_p2_reg[1] )
@@ -1094,6 +1067,9 @@ INFO: [Synth 8-3886] merging instance 'inst/flightmain_OUT_r_m_axi_U/bus_write/r
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_write/rs_wreq/data_p2_reg[63] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/start_addr_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_write/start_addr_reg[0] )
+INFO: [Synth 8-3886] merging instance 'inst/tmp_18_cast_reg_1440_reg[0]' (FD) to 'inst/tmp_18_cast_reg_1440_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/tmp_18_cast_reg_1440_reg[1]' (FD) to 'inst/tmp_18_cast_reg_1440_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_18_cast_reg_1440_reg[2] )
 INFO: [Synth 8-3886] merging instance 'inst/flightmain_OUT_r_m_axi_U/bus_write/buff_wdata/q_tmp_reg[16]' (FDRE) to 'inst/flightmain_OUT_r_m_axi_U/bus_write/buff_wdata/q_tmp_reg[17]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_write/bus_wide_gen.pad_oh_reg_reg[0] )
 INFO: [Synth 8-3886] merging instance 'inst/flightmain_CTRL_s_axi_U/rdata_reg[4]' (FDE) to 'inst/flightmain_CTRL_s_axi_U/rdata_reg[5]'
@@ -1144,8 +1120,6 @@ INFO: [Synth 8-3886] merging instance 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs
 INFO: [Synth 8-3886] merging instance 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[38]' (FDE) to 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[0]'
 INFO: [Synth 8-3886] merging instance 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[39]' (FDE) to 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[0]'
 INFO: [Synth 8-3886] merging instance 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[40]' (FDE) to 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[0]'
-INFO: [Synth 8-3886] merging instance 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[41]' (FDE) to 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[0]'
-INFO: [Synth 8-3886] merging instance 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[42]' (FDE) to 'inst/flightmain_OUT_r_m_axi_U/bus_read/rs_rreq/data_p1_reg[0]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/fifo_rreq/full_n_reg )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/fifo_rreq/pout_reg[2] )
@@ -1172,7 +1146,6 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flig
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/align_len_reg[10] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/start_addr_reg[11] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/align_len_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/flightmain_OUT_r_m_axi_U/\bus_read/align_len_reg[12] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-3332] Sequential element (i_0) is unused and will be removed from module flightmain_CMD_s_axi.
 WARNING: [Synth 8-3332] Sequential element (i_2) is unused and will be removed from module flightmain_CMD_s_axi.
@@ -1276,7 +1249,7 @@ WARNING: [Synth 8-3332] Sequential element (bus_read/bus_wide_gen.fifo_burst/pou
 WARNING: [Synth 8-3332] Sequential element (bus_read/bus_wide_gen.fifo_burst/pout_reg[1]) is unused and will be removed from module flightmain_OUT_r_m_axi.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:19 ; elapsed = 00:01:26 . Memory (MB): peak = 847.469 ; gain = 558.105
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 845.605 ; gain = 555.914
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1299,11 +1272,11 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 INFO: [Synth 8-4480] The timing for the instance inst/flightmain_CMD_s_axi_U/i_0/int_rcCmdIn_V/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance inst/flightmain_CMD_s_axi_U/i_0/int_rcCmdIn_V/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance inst/flightmain_CMD_s_axi_U/i_1/int_obj_avd_cmd_V/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4652] Swapped enable and write-enable on 4 RAM instances of RAM int_test/gen_write[1].mem_reg to conserve power
-INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/i_1/int_test/gen_write[1].mem_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/i_1/int_test/gen_write[1].mem_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/i_1/int_test/gen_write[1].mem_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/i_1/int_test/gen_write[1].mem_reg_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4652] Swapped enable and write-enable on 4 RAM instances of RAM int_test_V/gen_write[1].mem_reg to conserve power
+INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/i_1/int_test_V/gen_write[1].mem_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/i_1/int_test_V/gen_write[1].mem_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/i_1/int_test_V/gen_write[1].mem_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/i_1/int_test_V/gen_write[1].mem_reg_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance inst/flightmain_OUT_r_m_axi_U/i_2/bus_write/buff_wdata/mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 
 Report RTL Partitions: 
@@ -1315,13 +1288,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:42 ; elapsed = 00:01:51 . Memory (MB): peak = 847.469 ; gain = 558.105
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 845.605 ; gain = 555.914
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:56 ; elapsed = 00:02:05 . Memory (MB): peak = 930.383 ; gain = 641.020
+Finished Timing Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 908.082 ; gain = 618.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1352,13 +1325,13 @@ Start Technology Mapping
 INFO: [Synth 8-4480] The timing for the instance inst/flightmain_CMD_s_axi_U/int_rcCmdIn_V/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance inst/flightmain_CMD_s_axi_U/int_rcCmdIn_V/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance inst/flightmain_CMD_s_axi_U/int_obj_avd_cmd_V/gen_write[1].mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/int_test/gen_write[1].mem_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/int_test/gen_write[1].mem_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/int_test/gen_write[1].mem_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/int_test/gen_write[1].mem_reg_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/int_test_V/gen_write[1].mem_reg_0 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/int_test_V/gen_write[1].mem_reg_1 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/int_test_V/gen_write[1].mem_reg_2 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/flightmain_TEST_s_axi_U/int_test_V/gen_write[1].mem_reg_3 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance inst/flightmain_OUT_r_m_axi_U/bus_write/buff_wdata/mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:59 ; elapsed = 00:02:08 . Memory (MB): peak = 946.980 ; gain = 657.617
+Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:00:58 . Memory (MB): peak = 923.668 ; gain = 633.977
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1382,7 +1355,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:02 ; elapsed = 00:02:10 . Memory (MB): peak = 946.980 ; gain = 657.617
+Finished IO Insertion : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 923.668 ; gain = 633.977
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1395,7 +1368,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 946.980 ; gain = 657.617
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 923.668 ; gain = 633.977
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1407,25 +1380,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 946.980 ; gain = 657.617
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 923.668 ; gain = 633.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 946.980 ; gain = 657.617
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 923.668 ; gain = 633.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 946.980 ; gain = 657.617
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 923.668 ; gain = 633.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 946.980 ; gain = 657.617
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 923.668 ; gain = 633.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1459,17 +1432,17 @@ Report Cell Usage:
 |      |Cell       |Count |
 +------+-----------+------+
 |1     |CARRY4     |    42|
-|2     |LUT1       |    22|
-|3     |LUT2       |   182|
-|4     |LUT3       |   215|
-|5     |LUT4       |   182|
-|6     |LUT5       |   176|
-|7     |LUT6       |   273|
+|2     |LUT1       |    21|
+|3     |LUT2       |   175|
+|4     |LUT3       |   186|
+|5     |LUT4       |   139|
+|6     |LUT5       |   198|
+|7     |LUT6       |   321|
 |8     |RAMB18E1   |     1|
 |9     |RAMB36E1   |     2|
 |10    |RAMB36E1_1 |     4|
 |11    |SRL16E     |    14|
-|12    |FDRE       |   843|
+|12    |FDRE       |   854|
 |13    |FDSE       |    14|
 +------+-----------+------+
 
@@ -1477,34 +1450,34 @@ Report Instance Areas:
 +------+----------------------------------+-------------------------------------------------+------+
 |      |Instance                          |Module                                           |Cells |
 +------+----------------------------------+-------------------------------------------------+------+
-|1     |top                               |                                                 |  1970|
-|2     |  inst                            |flightmain                                       |  1970|
-|3     |    flightmain_CMD_s_axi_U        |flightmain_CMD_s_axi                             |   182|
+|1     |top                               |                                                 |  1971|
+|2     |  inst                            |flightmain                                       |  1971|
+|3     |    flightmain_CMD_s_axi_U        |flightmain_CMD_s_axi                             |   164|
 |4     |      int_obj_avd_cmd_V           |flightmain_CMD_s_axi_ram                         |    39|
-|5     |      int_rcCmdIn_V               |flightmain_CMD_s_axi_ram_1                       |    61|
-|6     |    flightmain_CTRL_s_axi_U       |flightmain_CTRL_s_axi                            |    54|
-|7     |    flightmain_OUT_r_m_axi_U      |flightmain_OUT_r_m_axi                           |  1119|
+|5     |      int_rcCmdIn_V               |flightmain_CMD_s_axi_ram_1                       |    46|
+|6     |    flightmain_CTRL_s_axi_U       |flightmain_CTRL_s_axi                            |    56|
+|7     |    flightmain_OUT_r_m_axi_U      |flightmain_OUT_r_m_axi                           |  1057|
 |8     |      bus_read                    |flightmain_OUT_r_m_axi_read                      |    44|
 |9     |        buff_rdata                |flightmain_OUT_r_m_axi_buffer__parameterized0    |    31|
 |10    |        rs_rdata                  |flightmain_OUT_r_m_axi_reg_slice__parameterized0 |     6|
 |11    |        rs_rreq                   |flightmain_OUT_r_m_axi_reg_slice_0               |     3|
-|12    |      bus_write                   |flightmain_OUT_r_m_axi_write                     |  1057|
-|13    |        buff_wdata                |flightmain_OUT_r_m_axi_buffer                    |   238|
+|12    |      bus_write                   |flightmain_OUT_r_m_axi_write                     |   995|
+|13    |        buff_wdata                |flightmain_OUT_r_m_axi_buffer                    |   183|
 |14    |        \bus_wide_gen.fifo_burst  |flightmain_OUT_r_m_axi_fifo                      |    63|
 |15    |        fifo_resp                 |flightmain_OUT_r_m_axi_fifo__parameterized1      |    72|
-|16    |        fifo_resp_to_user         |flightmain_OUT_r_m_axi_fifo__parameterized2      |   269|
+|16    |        fifo_resp_to_user         |flightmain_OUT_r_m_axi_fifo__parameterized2      |   263|
 |17    |        fifo_wreq                 |flightmain_OUT_r_m_axi_fifo__parameterized0      |    40|
-|18    |        rs_wreq                   |flightmain_OUT_r_m_axi_reg_slice                 |    44|
+|18    |        rs_wreq                   |flightmain_OUT_r_m_axi_reg_slice                 |    43|
 |19    |      wreq_throttl                |flightmain_OUT_r_m_axi_throttl                   |    18|
-|20    |    flightmain_TEST_s_axi_U       |flightmain_TEST_s_axi                            |   139|
-|21    |      int_test                    |flightmain_TEST_s_axi_ram                        |    75|
+|20    |    flightmain_TEST_s_axi_U       |flightmain_TEST_s_axi                            |   228|
+|21    |      int_test_V                  |flightmain_TEST_s_axi_ram                        |   164|
 +------+----------------------------------+-------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 946.980 ; gain = 657.617
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 923.668 ; gain = 633.977
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 724 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:25 ; elapsed = 00:01:47 . Memory (MB): peak = 946.980 ; gain = 314.938
-Synthesis Optimization Complete : Time (s): cpu = 00:02:02 ; elapsed = 00:02:11 . Memory (MB): peak = 946.980 ; gain = 657.617
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:48 . Memory (MB): peak = 923.668 ; gain = 294.859
+Synthesis Optimization Complete : Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 923.668 ; gain = 633.977
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 49 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1514,9 +1487,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-377 Infos, 249 Warnings, 0 Critical Warnings and 0 Errors encountered.
+366 Infos, 233 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:06 ; elapsed = 00:02:16 . Memory (MB): peak = 946.980 ; gain = 664.434
+synth_design: Time (s): cpu = 00:00:58 ; elapsed = 00:01:02 . Memory (MB): peak = 923.668 ; gain = 641.105
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/design_1_flightmain_0_0_synth_1/design_1_flightmain_0_0.dcp' has been generated.
 INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_flightmain_0_0/design_1_flightmain_0_0.xci
@@ -1524,5 +1497,5 @@ INFO: [Coretcl 2-1174] Renamed 20 cell refs.
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/design_1_flightmain_0_0_synth_1/design_1_flightmain_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_flightmain_0_0_utilization_synth.rpt -pb design_1_flightmain_0_0_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.111 . Memory (MB): peak = 946.980 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue May 28 23:46:15 2019...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 923.668 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed May 29 23:19:53 2019...

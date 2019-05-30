@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1559115570">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1559212038">
   <File Type="BITSTR-BMM" Name="design_1_wrapper_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="design_1_wrapper_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="design_1_wrapper_timing_summary_init.rpt"/>
@@ -122,6 +122,6 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_flightmain_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_util_vector_logic_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_AXI_UART_DRIVER_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_pid_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_rcReceiver_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_pid_0_0"/>
 </GenRun>

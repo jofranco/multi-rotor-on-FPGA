@@ -1,10 +1,11 @@
 set C_TypeInfoList {{ 
-"flightmain" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"rcCmdIn": [[], {"array": ["0", [6]]}] }, {"obj_avd_cmd": [[], {"array": ["0", [5]]}] }, {"cmdOut": [[], {"array": ["0", [4096]]}] }, {"test": [[], {"array": ["1", [4096]]}] }],[],""], 
-"0": [ "F16_t", {"typedef": [[[],"2"],""]}], 
-"2": [ "ap_fixed<16, 3, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 16}}],[[], {"scalar": { "int": 3}}],[[], {"scalar": { "3": 5}}],[[], {"scalar": { "4": 3}}],[[], {"scalar": { "int": 0}}]],""]}}], 
-"4": [ "ap_o_mode", {"enum": [[],[],[{"SC_SAT":  {"scalar": "__integer__"}},{"SC_SAT_ZERO":  {"scalar": "__integer__"}},{"SC_SAT_SYM":  {"scalar": "__integer__"}},{"SC_WRAP":  {"scalar": "__integer__"}},{"SC_WRAP_SM":  {"scalar": "__integer__"}}],""]}], 
-"3": [ "ap_q_mode", {"enum": [[],[],[{"SC_RND":  {"scalar": "__integer__"}},{"SC_RND_ZERO":  {"scalar": "__integer__"}},{"SC_RND_MIN_INF":  {"scalar": "__integer__"}},{"SC_RND_INF":  {"scalar": "__integer__"}},{"SC_RND_CONV":  {"scalar": "__integer__"}},{"SC_TRN":  {"scalar": "__integer__"}},{"SC_TRN_ZERO":  {"scalar": "__integer__"}}],""]}], 
-"1": [ "int32_t", {"typedef": [[[], {"scalar": "int"}],""]}]
+"flightmain" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"rcCmdIn": [[], {"array": ["0", [6]]}] }, {"obj_avd_cmd": [[], {"array": ["0", [6]]}] }, {"cmdOut": [[], {"array": ["0", [4096]]}] }, {"test": [[], {"array": ["1", [4096]]}] }],[],""], 
+"1": [ "F32_t", {"typedef": [[[],"2"],""]}], 
+"0": [ "F16_t", {"typedef": [[[],"3"],""]}], 
+"3": [ "ap_fixed<16, 3, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 16}}],[[], {"scalar": { "int": 3}}],[[], {"scalar": { "4": 5}}],[[], {"scalar": { "5": 3}}],[[], {"scalar": { "int": 0}}]],""]}}], 
+"5": [ "ap_o_mode", {"enum": [[],[],[{"SC_SAT":  {"scalar": "__integer__"}},{"SC_SAT_ZERO":  {"scalar": "__integer__"}},{"SC_SAT_SYM":  {"scalar": "__integer__"}},{"SC_WRAP":  {"scalar": "__integer__"}},{"SC_WRAP_SM":  {"scalar": "__integer__"}}],""]}], 
+"4": [ "ap_q_mode", {"enum": [[],[],[{"SC_RND":  {"scalar": "__integer__"}},{"SC_RND_ZERO":  {"scalar": "__integer__"}},{"SC_RND_MIN_INF":  {"scalar": "__integer__"}},{"SC_RND_INF":  {"scalar": "__integer__"}},{"SC_RND_CONV":  {"scalar": "__integer__"}},{"SC_TRN":  {"scalar": "__integer__"}},{"SC_TRN_ZERO":  {"scalar": "__integer__"}}],""]}], 
+"2": [ "ap_fixed<32, 16, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 32}}],[[], {"scalar": { "int": 16}}],[[], {"scalar": { "4": 5}}],[[], {"scalar": { "5": 3}}],[[], {"scalar": { "int": 0}}]],""]}}]
 }}
 set moduleName flightmain
 set isTaskLevelControl 1
@@ -23,13 +24,13 @@ set C_modelArgList {
 	{ rcCmdIn_V int 16 regular {axi_slave 0}  }
 	{ obj_avd_cmd_V int 16 unused {axi_slave 3}  }
 	{ OUT_r int 16 regular {axi_master 1}  }
-	{ test int 32 regular {axi_slave 1}  }
+	{ test_V int 32 regular {axi_slave 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "rcCmdIn_V", "interface" : "axi_slave", "bundle":"CMD","type":"ap_memory","bitwidth" : 16, "direction" : "READONLY", "bitSlice":[{"low":0,"up":15,"cElement": [{"cName": "rcCmdIn.V","cData": "int16","bit_use": { "low": 0,"up": 15},"cArray": [{"low" : 0,"up" : 5,"step" : 1}]}]}], "offset" : {"in":16}, "offset_end" : {"in":31}} , 
- 	{ "Name" : "obj_avd_cmd_V", "interface" : "axi_slave", "bundle":"CMD","type":"ap_memory","bitwidth" : 16, "direction" : "NONE", "bitSlice":[{"low":0,"up":15,"cElement": [{"cName": "obj_avd_cmd.V","cData": "int16","bit_use": { "low": 0,"up": 15},"cArray": [{"low" : 0,"up" : 4,"step" : 1}]}]}], "offset" : {"in":32}, "offset_end" : {"in":47}} , 
+ 	{ "Name" : "obj_avd_cmd_V", "interface" : "axi_slave", "bundle":"CMD","type":"ap_memory","bitwidth" : 16, "direction" : "NONE", "bitSlice":[{"low":0,"up":15,"cElement": [{"cName": "obj_avd_cmd.V","cData": "int16","bit_use": { "low": 0,"up": 15},"cArray": [{"low" : 0,"up" : 5,"step" : 1}]}]}], "offset" : {"in":32}, "offset_end" : {"in":47}} , 
  	{ "Name" : "OUT_r", "interface" : "axi_master", "bitwidth" : 16, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":15,"cElement": [{"cName": "cmdOut.V","cData": "int16","bit_use": { "low": 0,"up": 15},"cArray": [{"low" : 0,"up" : 4095,"step" : 1}]}]}]} , 
- 	{ "Name" : "test", "interface" : "axi_slave", "bundle":"TEST","type":"ap_memory","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "test","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 4095,"step" : 1}]}]}], "offset" : {"out":16384}, "offset_end" : {"out":32767}} ]}
+ 	{ "Name" : "test_V", "interface" : "axi_slave", "bundle":"TEST","type":"ap_memory","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "test.V","cData": "int32","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 4095,"step" : 1}]}]}], "offset" : {"out":16384}, "offset_end" : {"out":32767}} ]}
 # RTL Port declarations: 
 set portNum 99
 set portList { 
@@ -176,7 +177,7 @@ set NewPortList {[
 	{ "name": "s_axi_TEST_WREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "TEST", "role": "WREADY" } },
 	{ "name": "s_axi_TEST_WDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "TEST", "role": "WDATA" } },
 	{ "name": "s_axi_TEST_WSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "TEST", "role": "WSTRB" } },
-	{ "name": "s_axi_TEST_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":15, "type": "signal", "bundle":{"name": "TEST", "role": "ARADDR" },"address":[{"name":"test","role":"data","value":"16384"}] },
+	{ "name": "s_axi_TEST_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":15, "type": "signal", "bundle":{"name": "TEST", "role": "ARADDR" },"address":[{"name":"test_V","role":"data","value":"16384"}] },
 	{ "name": "s_axi_TEST_ARVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "TEST", "role": "ARVALID" } },
 	{ "name": "s_axi_TEST_ARREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "TEST", "role": "ARREADY" } },
 	{ "name": "s_axi_TEST_RVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "TEST", "role": "RVALID" } },
@@ -256,7 +257,7 @@ set RtlHierarchyInfo {[
 					{"Name" : "OUT_r_blk_n_AW", "Type" : "RtlSignal"},
 					{"Name" : "OUT_r_blk_n_W", "Type" : "RtlSignal"},
 					{"Name" : "OUT_r_blk_n_B", "Type" : "RtlSignal"}]},
-			{"Name" : "test", "Type" : "Memory", "Direction" : "O"}]},
+			{"Name" : "test_V", "Type" : "Memory", "Direction" : "O"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.flightmain_CMD_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.flightmain_CTRL_s_axi_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.flightmain_TEST_s_axi_U", "Parent" : "0"},
@@ -265,10 +266,10 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	flightmain {
-		rcCmdIn_V {Type I LastRead 9 FirstWrite -1}
+		rcCmdIn_V {Type I LastRead 5 FirstWrite -1}
 		obj_avd_cmd_V {Type X LastRead -1 FirstWrite -1}
 		OUT_r {Type O LastRead 24 FirstWrite 4}
-		test {Type O LastRead -1 FirstWrite 6}}}
+		test_V {Type O LastRead -1 FirstWrite 6}}}
 
 set hasDtUnsupportedChannel 0
 

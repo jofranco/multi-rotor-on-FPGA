@@ -543,7 +543,7 @@
       "param_prefix": "C_S_AXI_TEST",
       "addr_bits": "15",
       "registers": [],
-      "memories": "test {base_address 16384 range 16384}",
+      "memories": "test_V {base_address 16384 range 16384}",
       "ctype": {
         "AWVALID": {"Type": "bool"},
         "AWREADY": {"Type": "bool"},
@@ -568,7 +568,7 @@
           "Width": "15"
         },
         "WDATA": {
-          "Type": "integer signed",
+          "Type": "real fixed signed 16",
           "Width": "32"
         },
         "WSTRB": {
@@ -580,7 +580,7 @@
           "Width": "15"
         },
         "RDATA": {
-          "Type": "integer signed",
+          "Type": "real fixed signed 16",
           "Width": "32"
         }
       },
@@ -1023,7 +1023,7 @@
       "dir": "in",
       "offset": "0"
     },
-    "test": {
+    "test_V": {
       "interfaceRef": "s_axi_TEST",
       "dir": "out",
       "offset": "16384",
@@ -1054,8 +1054,8 @@
         },
         "Area": {
           "BRAM_18K": "14",
-          "FF": "1184",
-          "LUT": "1973",
+          "FF": "1163",
+          "LUT": "1700",
           "DSP48E": "0"
         }
       }}
@@ -1067,7 +1067,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-05-28 23:07:50 -0700",
+    "Time": "2019-05-29 23:05:11 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

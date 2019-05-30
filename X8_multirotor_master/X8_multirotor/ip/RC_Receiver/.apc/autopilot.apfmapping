@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="RC_Receiver.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\RC_Receiver\RC_Receiver.cpp"/>
     <originFiles name="RC_Receiver.hpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\RC_Receiver\RC_Receiver.hpp"/>
+    <originFiles name="RC_Receiver.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\RC_Receiver\RC_Receiver.cpp"/>
   </source>
   <testbench>
     <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\RC_Receiver\main.cpp"/>

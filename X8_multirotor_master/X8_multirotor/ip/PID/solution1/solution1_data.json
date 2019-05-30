@@ -20,7 +20,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "23",
-    "Latency": "28",
+    "Latency": "23",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -39,6 +39,7 @@
     "Vhdl": [
       "impl\/vhdl\/pid_CTRL_s_axi.vhd",
       "impl\/vhdl\/pid_INPUT_s_axi.vhd",
+      "impl\/vhdl\/pid_mul_16ns_50s_bkb.vhd",
       "impl\/vhdl\/pid_OUT_r_m_axi.vhd",
       "impl\/vhdl\/pid_TEST_s_axi.vhd",
       "impl\/vhdl\/pid.vhd"
@@ -46,6 +47,7 @@
     "Verilog": [
       "impl\/verilog\/pid_CTRL_s_axi.v",
       "impl\/verilog\/pid_INPUT_s_axi.v",
+      "impl\/verilog\/pid_mul_16ns_50s_bkb.v",
       "impl\/verilog\/pid_OUT_r_m_axi.v",
       "impl\/verilog\/pid_TEST_s_axi.v",
       "impl\/verilog\/pid.v"
@@ -543,7 +545,7 @@
       "param_prefix": "C_S_AXI_TEST",
       "addr_bits": "15",
       "registers": [],
-      "memories": "test {base_address 16384 range 16384}",
+      "memories": "test_V {base_address 16384 range 16384}",
       "ctype": {
         "AWVALID": {"Type": "bool"},
         "AWREADY": {"Type": "bool"},
@@ -568,7 +570,7 @@
           "Width": "15"
         },
         "WDATA": {
-          "Type": "integer signed",
+          "Type": "real fixed signed 16",
           "Width": "32"
         },
         "WSTRB": {
@@ -580,7 +582,7 @@
           "Width": "15"
         },
         "RDATA": {
-          "Type": "integer signed",
+          "Type": "real fixed signed 16",
           "Width": "32"
         }
       },
@@ -1044,13 +1046,13 @@
       "statusOffset": "NA",
       "Object": "INPUT"
     },
-    "test": {
+    "test_V": {
       "interfaceRef": "s_axi_TEST",
       "dir": "out",
       "offset": "16384",
       "statusOffset": "NA",
       "Object": "TEST",
-      "firstOutLatency": "5"
+      "firstOutLatency": "1"
     },
     "OUT_r": {
       "interfaceRef": "m_axi_OUT_r",
@@ -1061,11 +1063,11 @@
     "Hierarchy": {"ModuleName": "pid"},
     "Metrics": {"pid": {
         "Latency": {
-          "LatencyBest": "28",
-          "LatencyAvg": "28",
-          "LatencyWorst": "28",
+          "LatencyBest": "23",
+          "LatencyAvg": "23",
+          "LatencyWorst": "23",
           "PipelineII": "23",
-          "PipelineDepth": "29",
+          "PipelineDepth": "24",
           "PipelineType": "function"
         },
         "Timing": {
@@ -1075,9 +1077,9 @@
         },
         "Area": {
           "BRAM_18K": "20",
-          "DSP48E": "74",
-          "FF": "4116",
-          "LUT": "6294"
+          "DSP48E": "114",
+          "FF": "5679",
+          "LUT": "6100"
         }
       }}
   },
@@ -1088,7 +1090,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-05-28 23:21:02 -0700",
+    "Time": "2019-05-30 03:23:33 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

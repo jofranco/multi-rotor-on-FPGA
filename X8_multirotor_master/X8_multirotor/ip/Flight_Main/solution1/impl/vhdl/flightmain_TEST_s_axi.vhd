@@ -36,17 +36,17 @@ port (
     RVALID                :out  STD_LOGIC;
     RREADY                :in   STD_LOGIC;
     -- user signals
-    test_address0         :in   STD_LOGIC_VECTOR(11 downto 0);
-    test_ce0              :in   STD_LOGIC;
-    test_we0              :in   STD_LOGIC;
-    test_d0               :in   STD_LOGIC_VECTOR(31 downto 0)
+    test_V_address0       :in   STD_LOGIC_VECTOR(11 downto 0);
+    test_V_ce0            :in   STD_LOGIC;
+    test_V_we0            :in   STD_LOGIC;
+    test_V_d0             :in   STD_LOGIC_VECTOR(31 downto 0)
 );
 end entity flightmain_TEST_s_axi;
 
 -- ------------------------Address Info-------------------
 -- 0x4000 ~
--- 0x7fff : Memory 'test' (4096 * 32b)
---          Word n : bit [31:0] - test[n]
+-- 0x7fff : Memory 'test_V' (4096 * 32b)
+--          Word n : bit [31:0] - test_V[n]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of flightmain_TEST_s_axi is
@@ -54,8 +54,8 @@ architecture behave of flightmain_TEST_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_TEST_BASE : INTEGER := 16#4000#;
-    constant ADDR_TEST_HIGH : INTEGER := 16#7fff#;
+    constant ADDR_TEST_V_BASE : INTEGER := 16#4000#;
+    constant ADDR_TEST_V_HIGH : INTEGER := 16#7fff#;
     constant ADDR_BITS         : INTEGER := 15;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -70,20 +70,20 @@ architecture behave of flightmain_TEST_s_axi is
     signal ARREADY_t           : STD_LOGIC;
     signal RVALID_t            : STD_LOGIC;
     -- memory signals
-    signal int_test_address0   : UNSIGNED(11 downto 0);
-    signal int_test_ce0        : STD_LOGIC;
-    signal int_test_we0        : STD_LOGIC;
-    signal int_test_be0        : UNSIGNED(3 downto 0);
-    signal int_test_d0         : UNSIGNED(31 downto 0);
-    signal int_test_q0         : UNSIGNED(31 downto 0);
-    signal int_test_address1   : UNSIGNED(11 downto 0);
-    signal int_test_ce1        : STD_LOGIC;
-    signal int_test_we1        : STD_LOGIC;
-    signal int_test_be1        : UNSIGNED(3 downto 0);
-    signal int_test_d1         : UNSIGNED(31 downto 0);
-    signal int_test_q1         : UNSIGNED(31 downto 0);
-    signal int_test_read       : STD_LOGIC;
-    signal int_test_write      : STD_LOGIC;
+    signal int_test_V_address0 : UNSIGNED(11 downto 0);
+    signal int_test_V_ce0      : STD_LOGIC;
+    signal int_test_V_we0      : STD_LOGIC;
+    signal int_test_V_be0      : UNSIGNED(3 downto 0);
+    signal int_test_V_d0       : UNSIGNED(31 downto 0);
+    signal int_test_V_q0       : UNSIGNED(31 downto 0);
+    signal int_test_V_address1 : UNSIGNED(11 downto 0);
+    signal int_test_V_ce1      : STD_LOGIC;
+    signal int_test_V_we1      : STD_LOGIC;
+    signal int_test_V_be1      : UNSIGNED(3 downto 0);
+    signal int_test_V_d1       : UNSIGNED(31 downto 0);
+    signal int_test_V_q1       : UNSIGNED(31 downto 0);
+    signal int_test_V_read     : STD_LOGIC;
+    signal int_test_V_write    : STD_LOGIC;
 
     component flightmain_TEST_s_axi_ram is
         generic (
@@ -121,27 +121,27 @@ architecture behave of flightmain_TEST_s_axi is
 
 begin
 -- ----------------------- Instantiation------------------
--- int_test
-int_test : flightmain_TEST_s_axi_ram
+-- int_test_V
+int_test_V : flightmain_TEST_s_axi_ram
 generic map (
      BYTES    => 4,
      DEPTH    => 4096,
      AWIDTH   => log2(4096))
 port map (
      clk0     => ACLK,
-     address0 => int_test_address0,
-     ce0      => int_test_ce0,
-     we0      => int_test_we0,
-     be0      => int_test_be0,
-     d0       => int_test_d0,
-     q0       => int_test_q0,
+     address0 => int_test_V_address0,
+     ce0      => int_test_V_ce0,
+     we0      => int_test_V_we0,
+     be0      => int_test_V_be0,
+     d0       => int_test_V_d0,
+     q0       => int_test_V_q0,
      clk1     => ACLK,
-     address1 => int_test_address1,
-     ce1      => int_test_ce1,
-     we1      => int_test_we1,
-     be1      => int_test_be1,
-     d1       => int_test_d1,
-     q1       => int_test_q1);
+     address1 => int_test_V_address1,
+     ce1      => int_test_V_ce1,
+     we1      => int_test_V_we1,
+     be1      => int_test_V_be1,
+     d1       => int_test_V_d1,
+     q1       => int_test_V_q1);
 
 -- ----------------------- AXI WRITE ---------------------
     AWREADY_t <=  '1' when wstate = wridle else '0';
@@ -208,7 +208,7 @@ port map (
     ARREADY <= ARREADY_t;
     RDATA   <= STD_LOGIC_VECTOR(rdata_data);
     RRESP   <= "00";  -- OKAY
-    RVALID_t  <= '1' when (rstate = rddata) and (int_test_read = '0') else '0';
+    RVALID_t  <= '1' when (rstate = rddata) and (int_test_V_read = '0') else '0';
     RVALID    <= RVALID_t;
     ar_hs   <= ARVALID and ARREADY_t;
     raddr   <= UNSIGNED(ARADDR(ADDR_BITS-1 downto 0));
@@ -250,8 +250,8 @@ port map (
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
                 if (ar_hs = '1') then
-                elsif (int_test_read = '1') then
-                    rdata_data <= int_test_q1;
+                elsif (int_test_V_read = '1') then
+                    rdata_data <= int_test_V_q1;
                 end if;
             end if;
         end if;
@@ -260,28 +260,28 @@ port map (
 -- ----------------------- Register logic ----------------
 
 -- ----------------------- Memory logic ------------------
-    -- test
-    int_test_address0    <= UNSIGNED(test_address0);
-    int_test_ce0         <= test_ce0;
-    int_test_we0         <= test_we0;
-    int_test_be0         <= (others => test_we0);
-    int_test_d0          <= RESIZE(UNSIGNED(test_d0), 32);
-    int_test_address1    <= raddr(13 downto 2) when ar_hs = '1' else waddr(13 downto 2);
-    int_test_ce1         <= '1' when ar_hs = '1' or (int_test_write = '1' and WVALID  = '1') else '0';
-    int_test_we1         <= '1' when int_test_write = '1' and WVALID = '1' else '0';
-    int_test_be1         <= UNSIGNED(WSTRB);
-    int_test_d1          <= UNSIGNED(WDATA);
+    -- test_V
+    int_test_V_address0  <= UNSIGNED(test_V_address0);
+    int_test_V_ce0       <= test_V_ce0;
+    int_test_V_we0       <= test_V_we0;
+    int_test_V_be0       <= (others => test_V_we0);
+    int_test_V_d0        <= RESIZE(UNSIGNED(test_V_d0), 32);
+    int_test_V_address1  <= raddr(13 downto 2) when ar_hs = '1' else waddr(13 downto 2);
+    int_test_V_ce1       <= '1' when ar_hs = '1' or (int_test_V_write = '1' and WVALID  = '1') else '0';
+    int_test_V_we1       <= '1' when int_test_V_write = '1' and WVALID = '1' else '0';
+    int_test_V_be1       <= UNSIGNED(WSTRB);
+    int_test_V_d1        <= UNSIGNED(WDATA);
 
     process (ACLK)
     begin
         if (ACLK'event and ACLK = '1') then
             if (ARESET = '1') then
-                int_test_read <= '0';
+                int_test_V_read <= '0';
             elsif (ACLK_EN = '1') then
-                if (ar_hs = '1' and raddr >= ADDR_TEST_BASE and raddr <= ADDR_TEST_HIGH) then
-                    int_test_read <= '1';
+                if (ar_hs = '1' and raddr >= ADDR_TEST_V_BASE and raddr <= ADDR_TEST_V_HIGH) then
+                    int_test_V_read <= '1';
                 else
-                    int_test_read <= '0';
+                    int_test_V_read <= '0';
                 end if;
             end if;
         end if;
@@ -291,12 +291,12 @@ port map (
     begin
         if (ACLK'event and ACLK = '1') then
             if (ARESET = '1') then
-                int_test_write <= '0';
+                int_test_V_write <= '0';
             elsif (ACLK_EN = '1') then
-                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_TEST_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_TEST_HIGH) then
-                    int_test_write <= '1';
+                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_TEST_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_TEST_V_HIGH) then
+                    int_test_V_write <= '1';
                 elsif (WVALID = '1') then
-                    int_test_write <= '0';
+                    int_test_V_write <= '0';
                 end if;
             end if;
         end if;

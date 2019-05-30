@@ -11,7 +11,7 @@
 //        Word n : bit [15: 0] - rcCmdIn_V[2n]
 //                 bit [31:16] - rcCmdIn_V[2n+1]
 // 0x20 ~
-// 0x2f : Memory 'obj_avd_cmd_V' (5 * 16b)
+// 0x2f : Memory 'obj_avd_cmd_V' (6 * 16b)
 //        Word n : bit [15: 0] - obj_avd_cmd_V[2n]
 //                 bit [31:16] - obj_avd_cmd_V[2n+1]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
@@ -23,7 +23,7 @@
 #define XFLIGHTMAIN_CMD_ADDR_OBJ_AVD_CMD_V_BASE 0x20
 #define XFLIGHTMAIN_CMD_ADDR_OBJ_AVD_CMD_V_HIGH 0x2f
 #define XFLIGHTMAIN_CMD_WIDTH_OBJ_AVD_CMD_V     16
-#define XFLIGHTMAIN_CMD_DEPTH_OBJ_AVD_CMD_V     5
+#define XFLIGHTMAIN_CMD_DEPTH_OBJ_AVD_CMD_V     6
 
 // CTRL
 // 0x0 : Control signals
@@ -53,12 +53,12 @@
 
 // TEST
 // 0x4000 ~
-// 0x7fff : Memory 'test' (4096 * 32b)
-//          Word n : bit [31:0] - test[n]
+// 0x7fff : Memory 'test_V' (4096 * 32b)
+//          Word n : bit [31:0] - test_V[n]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XFLIGHTMAIN_TEST_ADDR_TEST_BASE 0x4000
-#define XFLIGHTMAIN_TEST_ADDR_TEST_HIGH 0x7fff
-#define XFLIGHTMAIN_TEST_WIDTH_TEST     32
-#define XFLIGHTMAIN_TEST_DEPTH_TEST     4096
+#define XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE 0x4000
+#define XFLIGHTMAIN_TEST_ADDR_TEST_V_HIGH 0x7fff
+#define XFLIGHTMAIN_TEST_WIDTH_TEST_V     32
+#define XFLIGHTMAIN_TEST_DEPTH_TEST_V     4096
 

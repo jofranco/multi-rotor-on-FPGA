@@ -5,15 +5,15 @@
  * cmdIn[6] {t,r,p,y,armFlag,modeFlag} [0:1000)
  * measured[6] {pos_r,pos_p,pos_y,gyroR,gyroP,gyroY} [0:1000)   Roll - X, Pitch - Y, Yaw - Z
  * obj_avd_cmd[5] {t,r,p,y,obj_flag} [0:1000)
- * kp[6] {pos_r,pos_p,pos_y,rate_r,rate_p,rate_y} [0,1)
- * kd[4] {pos_r,pos_p,rate_r,rate_p}[0,1)
- * ki[4] {pos_r,pos_p,rate_r,rate_p} [0,1)
+ * kp[6] {pos_r,pos_p,pos_y,rate_r,rate_p,rate_y} [0:1)
+ * kd[4] {pos_r,pos_p,rate_r,rate_p}[0:1)
+ * ki[4] {pos_r,pos_p,rate_r,rate_p} [0:1)
  * cmdOut[9] {m1,m2,m3,m4,m5,m6,m7,m8,armFlag} [0:1000)
 */
 
 // PID function call
 //void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
-void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], int32_t test[SIZE_4k])
+void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[SIZE_4k])
 {
 	//SETUP PRAGMAS
 	#pragma HLS PIPELINE II=1 enable_flush
@@ -35,16 +35,12 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
 	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
 
-	// test code for python
-	for(int i = 0; i < RC_CHANNELS; i++)
-	{
-		test[i] = (int32_t)cmdIn[i];
-	}
 
 	// variable declarations
 	F16_t scaled_cmdIn[4] = {0.0};
 	static bool isPositionMode;
 	F16_t rateCmd[3] = {0.0};   // {r,p,y}
+	static F16_t buffer[RC_CHANNELS] = {0.0};
 
 	// position controller
 	static F16_t last_error_pos[2]={0,0};
@@ -62,8 +58,21 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 	F32_t deriv_rate[2];
 	F32_t correction_rate[2];
 
+	// moving input to buffer for processing
+	for(int i = 0; i < RC_CHANNELS; i++)
+	{
+		buffer[i] = cmdIn[i];
+	}
+
+	// test code for python
+	F32_t test_buffer[MOTOR_COUNT] = {0.0};
+	for(int i = 0; i < RC_CHANNELS; i++)
+	{
+		test[i] = (F32_t)cmdIn[i];
+	}
+
 	// checking if pilot selected Horizon mode
-	isPositionMode = cmdIn[MODE_CHAN];
+	isPositionMode = buffer[MODE_CHAN];
 
 
 	// Position controller only runs in Horizon mode
@@ -73,7 +82,7 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 				POS ROLL PID CONTROLLER
 		*****************************************/
 
-		curr_error_pos[0] = cmdIn[1] - measured[3];
+		curr_error_pos[0] = buffer[1] - measured[0];
 		integral_pos[0] =  clip(F32_t(integral_pos[0] + curr_error_pos[0]), F32_t(-100), F32_t(100));
 		deriv_pos[0] = (curr_error_pos[0] - last_error_pos[0]);
 		correction_pos[0] = (kp[0] * curr_error_pos[0]) + (ki[0] * integral_pos[0]) + (kd[0] * deriv_pos[0]);
@@ -84,7 +93,7 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 				POS PITCH PID CONTROLLER
 		*****************************************/
 
-		curr_error_pos[1] = cmdIn[2] - measured[1];
+		curr_error_pos[1] = buffer[2] - measured[1];
 		integral_pos[1] =  clip(F32_t(integral_pos[1] + curr_error_pos[1]), F32_t(-100), F32_t(100));
 		deriv_pos[1] = (curr_error_pos[1] - last_error_pos[1]);
 		correction_pos[1] = (kp[1] * curr_error_pos[1]) + (ki[1] * integral_pos[1]) + (kd[1] * deriv_pos[1]);
@@ -95,7 +104,7 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 			   POS YAW P CONTROLLER
 		*****************************************/
 
-		pid_o_pos[2] = kp[2]*(cmdIn[3] - measured[2]);
+		pid_o_pos[2] = kp[2]*(buffer[3] - measured[2]);
 	}
 
 	// rate controller input MUX
@@ -107,9 +116,9 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 	}
 	else
 	{
-		rateCmd[0] = cmdIn[1]; // roll command
-		rateCmd[1] = cmdIn[2]; // pitch command
-		rateCmd[2] = cmdIn[3]; // yaw command
+		rateCmd[0] = buffer[1]; // roll command
+		rateCmd[1] = buffer[2]; // pitch command
+		rateCmd[2] = buffer[3]; // yaw command
 	}
 
 
@@ -151,31 +160,54 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 
 	// mixed _in contains normalized values for each channel
 	// lets convert those to what we want to use
-	// change all to F19_t and make sure thrust is scaled to [0,1)
-	F19_t t_command = cmdIn[0];           //  [0,1) scale
-	F19_t r_command = pid_o_rate[0];
-	F19_t p_command = pid_o_rate[1];
-	F19_t y_command = pid_o_rate[2];
+	// change all to F19_t and make sure thrust is scaled to [0:1)
+	//F19_t t_command = (F19_t)buffer[0];           //  [0:1) scale
+	//F19_t r_command = (F19_t)pid_o_rate[0];
+	//F19_t p_command = (F19_t)pid_o_rate[1];
+	//F19_t y_command = (F19_t)pid_o_rate[2];
+
+	// test scaling
+	F32_t t_command = (F32_t)buffer[0];           //  [0:1) scale
+	F32_t r_command = pid_o_rate[0];
+	F32_t p_command = pid_o_rate[1];
+	F32_t y_command = pid_o_rate[2];
 
 	for(int i = 0; i < MOTOR_COUNT; i++)
 	{
 		#pragma HLS unroll
 
+		/*
 		// exteneded to three lines
 		F19_t scaled_power = t_command + (r_command * MIX_X8[i][0] + \
 							 p_command * MIX_X8[i][1] + \
-							 y_command * MIX_X8[i][2]) * F19_t(.33);  // note Yaw is scaled by 0.33
+							 y_command * MIX_X8[i][2]);
+							 //y_command * MIX_X8[i][2]) * F19_t(.33);  // note output is scaled by 0.33 [0:1)
 
-		commandOut[i] = (F16_t)clip(scaled_power, F19_t(0), F19_t(.999));
+		test_buffer[i] = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
+		//commandOut[i] = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
+
+		test_buffer[i] = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
+		*/
+
+		// test scaling
+		// exteneded to three lines
+		F32_t scaled_power = t_command + (r_command * MIX_X8[i][0] + p_command * MIX_X8[i][1] + y_command * MIX_X8[i][2])*(F32_t)0.33;
+							 //y_command * MIX_X8[i][2]) * F19_t(.33);  // note output is scaled by 0.33 [0:1)
+
+		test_buffer[i] = clip(scaled_power, F32_t(0.000), F32_t(0.999));
+
+		// commented out for testing
+		//commandOut[i] = test_buffer[i];
+		commandOut[i] = 0.0;
 	}
 
-	commandOut[9] = cmdIn[4]; // passing ARM flag to PWM for failsafe
+	//commandOut[9] = buffer[4]; // passing ARM flag to PWM for failsafe
 
 
 	// test code for python
 	for(int i = 0; i < MOTOR_COUNT ; i++)
 	{
-		test[i + RC_CHANNELS] = (int32_t)commandOut[i];
+		test[i + RC_CHANNELS] = test_buffer[i];
 	}
 }
 
