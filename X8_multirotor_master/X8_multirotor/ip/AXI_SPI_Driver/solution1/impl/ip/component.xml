@@ -2608,8 +2608,8 @@ format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type im
       </xilinx:taxonomies>
       <xilinx:displayName>Axi_spi_driver</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1905140033</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-05-14T07:33:45Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1905302219</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-05-31T05:19:39Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
