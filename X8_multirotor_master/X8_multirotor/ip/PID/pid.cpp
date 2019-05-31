@@ -13,7 +13,7 @@
 
 // PID function call
 //void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
-void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[SIZE_4k])
+void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], float test[SIZE_4k])
 {
 	//SETUP PRAGMAS
 	#pragma HLS PIPELINE II=1 enable_flush
@@ -31,7 +31,7 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 	// output to PWM
 	#pragma HLS INTERFACE m_axi port=commandOut bundle=OUT offset=off
 
-	// test code for python
+	// test code for python ---------------------------------------------------------------
 	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
 	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
 
@@ -43,33 +43,59 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 	static F16_t buffer[RC_CHANNELS] = {0.0};
 
 	// position controller
-	static F16_t last_error_pos[2]={0,0};
-	static F32_t integral_pos[2]={0,0};
-	F32_t pid_o_pos[3];
-	F32_t curr_error_pos[2];
-	F32_t deriv_pos[2];
-	F32_t correction_pos[2];
+	static F16_t last_error_pos[2] = {0,0};
+	static F32_t integral_pos[2]   = {0,0};
+	F32_t pid_o_pos[3]             = {0.0};
+	F32_t curr_error_pos[2]        = {0.0};
+	F32_t deriv_pos[2]             = {0.0};
+	F32_t correction_pos[2]        = {0.0};
 
 	// rate controller
-	static F16_t last_error_rate[2]={0,0};
-	static F32_t integral_rate[2]={0,0};
-	F32_t pid_o_rate[3];
-	F32_t curr_error_rate[2];
-	F32_t deriv_rate[2];
-	F32_t correction_rate[2];
+	static F16_t last_error_rate[2] = {0,0};
+	static F32_t integral_rate[2]   = {0,0};
+	F32_t pid_o_rate[3]             = {0.0};
+	F32_t curr_error_rate[2]        = {0.0};
+	F32_t deriv_rate[2]             = {0.0};
+	F32_t correction_rate[2]        = {0.0};
+
+	float temp1 = 0;
+	float temp2 = 0;
+	float temp3 = 0;
+	float temp4 = 0;
+	float temp5 = 0;
 
 	// moving input to buffer for processing
 	for(int i = 0; i < RC_CHANNELS; i++)
 	{
 		buffer[i] = cmdIn[i];
+
+		// test code --------------------------------------------
+		temp1 = (float)buffer[i];
 	}
 
-	// test code for python
+	// test code for python -------------------------------------
 	F32_t test_buffer[MOTOR_COUNT] = {0.0};
 	for(int i = 0; i < RC_CHANNELS; i++)
 	{
 		test[i] = (F32_t)cmdIn[i];
 	}
+	temp1 = kp[0];
+	temp1 = kp[1];
+	temp1 = kp[2];
+	temp1 = kp[3];
+	temp1 = kp[4];
+	temp1 = kp[5];
+
+	temp2 = kd[0];
+	temp2 = kd[1];
+	temp2 = kd[2];
+	temp2 = kd[3];
+
+	temp3 = ki[0];
+	temp3 = ki[1];
+	temp3 = ki[2];
+	temp3 = ki[3];
+
 
 	// checking if pilot selected Horizon mode
 	isPositionMode = buffer[MODE_CHAN];
@@ -116,10 +142,17 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 	}
 	else
 	{
-		rateCmd[0] = buffer[1]; // roll command
-		rateCmd[1] = buffer[2]; // pitch command
-		rateCmd[2] = buffer[3]; // yaw command
+		rateCmd[0] = buffer[ROLL_CHAN]; // roll command
+		rateCmd[1] = buffer[PITCH_CHAN]; // pitch command
+		rateCmd[2] = buffer[YAW_CHAN]; // yaw command
 	}
+
+
+	// ---------------------------------------
+	// TEST CODE
+	temp3 = (float)rateCmd[0]; // roll
+	temp4 = (float)rateCmd[1]; // pitch
+	temp5 = (float)rateCmd[2]; // yaw
 
 
 	// Rate controller always runs
@@ -128,12 +161,28 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 	*****************************************/
 
 	curr_error_rate[0]= rateCmd[0] - measured[3];
+
+	//temp3 = (float)curr_error_rate[0]; // roll
+
 	integral_rate[0] =  clip(F32_t(integral_rate[0] + curr_error_rate[0]), F32_t(-100), F32_t(100));
+
+	//temp3 = (float)integral_rate[0]; // roll
+
 	deriv_rate[0] = (curr_error_rate[0] - last_error_rate[0]);
+
+	//temp3 = (float)deriv_rate[0]; // roll
+
 	correction_rate[0] = (kp[3] * curr_error_rate[0]) + (ki[2] * integral_rate[0]) + (kd[2] * deriv_rate[0]);
+
+	//temp3 = (float)correction_rate[0]; // roll
+
 	pid_o_rate[0] = clip(correction_rate[0], F32_t(-1), F32_t(.999));
+
+	//temp3 = (float)pid_o_rate[0]; // roll
+
 	last_error_rate[0] = curr_error_rate[0];
 
+	//temp3 = (float)last_error_rate[0]; // roll
 
 	/****************************************
 			RATE PITCH PID CONTROLLER
@@ -143,6 +192,9 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 	integral_rate[1] =  clip(F32_t(integral_rate[1] + curr_error_rate[1]), F32_t(-100), F32_t(100));
 	deriv_rate[1] = (curr_error_rate[1] - last_error_rate[1]);
 	correction_rate[1] = (kp[4] * curr_error_rate[1]) + (ki[3] * integral_rate[1]) + (kd[3] * deriv_rate[1]);
+
+	temp4 = (float)correction_rate[1]; // pitch
+
 	pid_o_rate[1] = clip(correction_rate[1], F32_t(-1), F32_t(.999));
 	last_error_rate[1] = curr_error_rate[1];
 
@@ -172,6 +224,13 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 	F32_t p_command = pid_o_rate[1];
 	F32_t y_command = pid_o_rate[2];
 
+	// ---------------------------------------
+	// TEST CODE
+	temp2 = (float)buffer[0];	  // throttle
+	temp3 = (float)pid_o_rate[0]; // roll
+	temp4 = (float)pid_o_rate[1]; // pitch
+	temp5 = (float)pid_o_rate[2]; // yaw
+
 	for(int i = 0; i < MOTOR_COUNT; i++)
 	{
 		#pragma HLS unroll
@@ -191,10 +250,13 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 
 		// test scaling
 		// exteneded to three lines
-		F32_t scaled_power = t_command + (r_command * MIX_X8[i][0] + p_command * MIX_X8[i][1] + y_command * MIX_X8[i][2])*(F32_t)0.33;
+		F32_t scaled_power = t_command + ((r_command * MIX_X8[i][0]) + (p_command * MIX_X8[i][1]) + (y_command * MIX_X8[i][2])) * (F32_t)(0.33);
 							 //y_command * MIX_X8[i][2]) * F19_t(.33);  // note output is scaled by 0.33 [0:1)
 
+		// test code ------------------------------------------------------------------------
+		temp1 = (float)scaled_power;
 		test_buffer[i] = clip(scaled_power, F32_t(0.000), F32_t(0.999));
+		temp1 = (float)test_buffer[i];
 
 		// commented out for testing
 		//commandOut[i] = test_buffer[i];
@@ -204,10 +266,10 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 	//commandOut[9] = buffer[4]; // passing ARM flag to PWM for failsafe
 
 
-	// test code for python
-	for(int i = 0; i < MOTOR_COUNT ; i++)
+	// test code for python -----------------------------------------------------------------
+	for(int i = RC_CHANNELS; i < (MOTOR_COUNT + RC_CHANNELS) ; i++)
 	{
-		test[i + RC_CHANNELS] = test_buffer[i];
+		test[i] = test_buffer[i];
 	}
 }
 

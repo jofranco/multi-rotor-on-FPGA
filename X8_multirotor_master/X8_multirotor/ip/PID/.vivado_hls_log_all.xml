@@ -7,6 +7,22 @@
       <mgLog/>
       <packageLog/>
       <csimLog>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="PID" solutionName="solution1" date="2019-05-30T15:34:08.852-0700"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="PID" solutionName="solution1" date="2019-05-30T15:34:08.844-0700"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="PID" solutionName="solution1" date="2019-05-30T15:33:15.026-0700"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="PID" solutionName="solution1" date="2019-05-30T15:33:15.017-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:21:15.751-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:09:50.514-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:09:08.607-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:07:30.357-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:06:55.060-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:05:03.133-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:04:36.204-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T14:51:19.594-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T13:45:23.785-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T13:43:58.886-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T13:29:17.662-0700"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T13:11:11.876-0700"/>
         <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T03:39:53.570-0700"/>
         <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T03:37:00.344-0700"/>
       </csimLog>

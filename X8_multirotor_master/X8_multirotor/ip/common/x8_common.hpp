@@ -9,12 +9,13 @@
 
 #define SIZE_4k     4096
 #define SIZE_8k     8192
-#define SEIZE_16k   16384
+#define SIZE_16k    16384
 
 #define clip(in,low,high) ((in)<(low)?(low):((in)>(high)?(high):(in)))
 
 #define MOTOR_COUNT          8
 #define RC_CHANNELS          6
+//#define REVERSE_MOTOR_DIRECTION
 
 #define THROT_CHAN    		 0
 #define ROLL_CHAN    		 1
