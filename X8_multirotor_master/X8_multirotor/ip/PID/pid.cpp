@@ -43,62 +43,29 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 	static F16_t buffer[RC_CHANNELS] = {0.0};
 
 	// position controller
-	static F16_t last_error_pos[2] = {0,0};
-	static F32_t integral_pos[2]   = {0,0};
-	F32_t pid_o_pos[3]             = {0.0};
-	F32_t curr_error_pos[2]        = {0.0};
-	F32_t deriv_pos[2]             = {0.0};
-	F32_t correction_pos[2]        = {0.0};
+	static F16_t last_error_pos[2];
+	static F32_t integral_pos[2];
+	F32_t pid_o_pos[3];
+	F32_t curr_error_pos[2];
+	F32_t deriv_pos[2];
+	F32_t correction_pos[2];
 
 	// rate controller
-	static F16_t last_error_rate[2] = {0,0};
-	static F32_t integral_rate[2]   = {0,0};
-	F32_t pid_o_rate[3]             = {0.0};
-	F32_t curr_error_rate[2]        = {0.0};
-	F32_t deriv_rate[2]             = {0.0};
-	F32_t correction_rate[2]        = {0.0};
-
-	float temp1 = 0;
-	float temp2 = 0;
-	float temp3 = 0;
-	float temp4 = 0;
-	float temp5 = 0;
+	static F16_t last_error_rate[2];
+	static F32_t integral_rate[2];
+	F32_t pid_o_rate[3];
+	F32_t curr_error_rate[2];
+	F32_t deriv_rate[2];
+	F32_t correction_rate[2];
 
 	// moving input to buffer for processing
 	for(int i = 0; i < RC_CHANNELS; i++)
 	{
 		buffer[i] = cmdIn[i];
-
-		// test code --------------------------------------------
-		temp1 = (float)buffer[i];
 	}
-
-	// test code for python -------------------------------------
-	F32_t test_buffer[MOTOR_COUNT] = {0.0};
-	for(int i = 0; i < RC_CHANNELS; i++)
-	{
-		test[i] = (F32_t)cmdIn[i];
-	}
-	temp1 = kp[0];
-	temp1 = kp[1];
-	temp1 = kp[2];
-	temp1 = kp[3];
-	temp1 = kp[4];
-	temp1 = kp[5];
-
-	temp2 = kd[0];
-	temp2 = kd[1];
-	temp2 = kd[2];
-	temp2 = kd[3];
-
-	temp3 = ki[0];
-	temp3 = ki[1];
-	temp3 = ki[2];
-	temp3 = ki[3];
-
 
 	// checking if pilot selected Horizon mode
-	isPositionMode = buffer[MODE_CHAN];
+	isPositionMode = (uint8_t)buffer[MODE_CHAN];
 
 
 	// Position controller only runs in Horizon mode
@@ -146,130 +113,84 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 		rateCmd[1] = buffer[PITCH_CHAN]; // pitch command
 		rateCmd[2] = buffer[YAW_CHAN]; // yaw command
 	}
-
-
 	// ---------------------------------------
-	// TEST CODE
-	temp3 = (float)rateCmd[0]; // roll
-	temp4 = (float)rateCmd[1]; // pitch
-	temp5 = (float)rateCmd[2]; // yaw
+		//printf("kp %f|",float(kp[0]));
+		printf("r_pos %f|",float(pid_o_pos[0]));
+		printf("p_pos %f|",float(pid_o_pos[0]));
+		printf("y_pos %f|",float(pid_o_pos[0]));
 
 
-	// Rate controller always runs
-	/****************************************
-			RATE ROLL PID CONTROLLER
-	*****************************************/
-
-	curr_error_rate[0]= rateCmd[0] - measured[3];
-
-	//temp3 = (float)curr_error_rate[0]; // roll
-
-	integral_rate[0] =  clip(F32_t(integral_rate[0] + curr_error_rate[0]), F32_t(-100), F32_t(100));
-
-	//temp3 = (float)integral_rate[0]; // roll
-
-	deriv_rate[0] = (curr_error_rate[0] - last_error_rate[0]);
-
-	//temp3 = (float)deriv_rate[0]; // roll
-
-	correction_rate[0] = (kp[3] * curr_error_rate[0]) + (ki[2] * integral_rate[0]) + (kd[2] * deriv_rate[0]);
-
-	//temp3 = (float)correction_rate[0]; // roll
-
-	pid_o_rate[0] = clip(correction_rate[0], F32_t(-1), F32_t(.999));
-
-	//temp3 = (float)pid_o_rate[0]; // roll
-
-	last_error_rate[0] = curr_error_rate[0];
-
-	//temp3 = (float)last_error_rate[0]; // roll
-
-	/****************************************
-			RATE PITCH PID CONTROLLER
-	*****************************************/
-
-	curr_error_rate[1] = rateCmd[1] - measured[4];
-	integral_rate[1] =  clip(F32_t(integral_rate[1] + curr_error_rate[1]), F32_t(-100), F32_t(100));
-	deriv_rate[1] = (curr_error_rate[1] - last_error_rate[1]);
-	correction_rate[1] = (kp[4] * curr_error_rate[1]) + (ki[3] * integral_rate[1]) + (kd[3] * deriv_rate[1]);
-
-	temp4 = (float)correction_rate[1]; // pitch
-
-	pid_o_rate[1] = clip(correction_rate[1], F32_t(-1), F32_t(.999));
-	last_error_rate[1] = curr_error_rate[1];
-
-	/****************************************
-			RATE YAW P CONTROLLER
-	*****************************************/
-
-	pid_o_rate[2] = kp[5]*(rateCmd[2] - measured[5]);
+			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/
+			// RATE CONTROLLER ALWAYS RUNS							////
+			//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
+			/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+					RATE ROLL PID CONTROLLER
+			$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 
-	/********************************************************
-            motor command output scaling
-	*********************************************************/
+			curr_error_rate[0]= rateCmd[0] - measured[3];
+			integral_rate[0] =  clip(F32_t(integral_rate[0] + curr_error_rate[0]), F32_t(-100), F32_t(100));
+			deriv_rate[0] = (curr_error_rate[0] - last_error_rate[0]);
+			correction_rate[0] = (kp[3] * curr_error_rate[0]) + (ki[2] * integral_rate[0]) + (kd[2] * deriv_rate[0]);
+			pid_o_rate[0] = clip(correction_rate[0], F32_t(-1), F32_t(.999));
+			last_error_rate[0] = curr_error_rate[0];
 
-	// mixed _in contains normalized values for each channel
-	// lets convert those to what we want to use
-	// change all to F19_t and make sure thrust is scaled to [0:1)
-	//F19_t t_command = (F19_t)buffer[0];           //  [0:1) scale
-	//F19_t r_command = (F19_t)pid_o_rate[0];
-	//F19_t p_command = (F19_t)pid_o_rate[1];
-	//F19_t y_command = (F19_t)pid_o_rate[2];
+			/****************************************
+					RATE PITCH PID CONTROLLER
+			*****************************************/
 
-	// test scaling
-	F32_t t_command = (F32_t)buffer[0];           //  [0:1) scale
-	F32_t r_command = pid_o_rate[0];
-	F32_t p_command = pid_o_rate[1];
-	F32_t y_command = pid_o_rate[2];
+			curr_error_rate[1] = rateCmd[1] - measured[4];
+			integral_rate[1] =  clip(F32_t(integral_rate[1] + curr_error_rate[1]), F32_t(-100), F32_t(100));
+			deriv_rate[1] = (curr_error_rate[1] - last_error_rate[1]);
+			correction_rate[1] = (kp[4] * curr_error_rate[1]) + (ki[3] * integral_rate[1]) + (kd[3] * deriv_rate[1]);
 
-	// ---------------------------------------
-	// TEST CODE
-	temp2 = (float)buffer[0];	  // throttle
-	temp3 = (float)pid_o_rate[0]; // roll
-	temp4 = (float)pid_o_rate[1]; // pitch
-	temp5 = (float)pid_o_rate[2]; // yaw
+			pid_o_rate[1] = clip(correction_rate[1], F32_t(-1), F32_t(.999));
+			last_error_rate[1] = curr_error_rate[1];
 
-	for(int i = 0; i < MOTOR_COUNT; i++)
-	{
-		#pragma HLS unroll
+			/****************************************
+					RATE YAW P CONTROLLER
+			*****************************************/
 
-		/*
-		// exteneded to three lines
-		F19_t scaled_power = t_command + (r_command * MIX_X8[i][0] + \
-							 p_command * MIX_X8[i][1] + \
-							 y_command * MIX_X8[i][2]);
-							 //y_command * MIX_X8[i][2]) * F19_t(.33);  // note output is scaled by 0.33 [0:1)
+			pid_o_rate[2] = kp[5]*(rateCmd[2] - measured[5]);
 
-		test_buffer[i] = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
-		//commandOut[i] = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
+			/********************************************************
+		            motor command output scaling
+			*********************************************************/
 
-		test_buffer[i] = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
-		*/
+			// mixed _in contains normalized values for each channel
+			// lets convert those to what we want to use
+			// change all to F19_t and make sure thrust is scaled to [0:1)
 
-		// test scaling
-		// exteneded to three lines
-		F32_t scaled_power = t_command + ((r_command * MIX_X8[i][0]) + (p_command * MIX_X8[i][1]) + (y_command * MIX_X8[i][2])) * (F32_t)(0.33);
-							 //y_command * MIX_X8[i][2]) * F19_t(.33);  // note output is scaled by 0.33 [0:1)
+			F19_t t_command = (F19_t)buffer[0];           //  [0:1) scale
+			F19_t r_command = (F19_t)pid_o_rate[0];
+			F19_t p_command = (F19_t)pid_o_rate[1];
+			F19_t y_command = (F19_t)pid_o_rate[2];
 
-		// test code ------------------------------------------------------------------------
-		temp1 = (float)scaled_power;
-		test_buffer[i] = clip(scaled_power, F32_t(0.000), F32_t(0.999));
-		temp1 = (float)test_buffer[i];
 
-		// commented out for testing
-		//commandOut[i] = test_buffer[i];
-		commandOut[i] = 0.0;
+			// ---------------------------------------
+
+		//	printf("kp %f|",float(kp[0]));
+			printf("r_pos %f|",float(pid_o_pos[0]));
+			printf("p_pos %f|",float(pid_o_pos[0]));
+			printf("y_pos %f|",float(pid_o_pos[0]));
+
+			printf("r_rate %f|",float(pid_o_pos[0]));
+			printf("p_rate %f|",float(pid_o_pos[0]));
+			printf("y_rate %f| \n",float(pid_o_pos[0]));
+
+
+			for(int i = 0; i < MOTOR_COUNT; i++)
+			{
+				#pragma HLS unroll
+				// exteneded to three lines
+				F19_t scaled_power = t_command + (r_command * MIX_X8[i][0] + \
+									 p_command * MIX_X8[i][1] + \
+									 y_command * MIX_X8[i][2])*F19_t(.33);
+
+				commandOut[i] = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
+				}
 	}
 
-	//commandOut[9] = buffer[4]; // passing ARM flag to PWM for failsafe
 
-
-	// test code for python -----------------------------------------------------------------
-	for(int i = RC_CHANNELS; i < (MOTOR_COUNT + RC_CHANNELS) ; i++)
-	{
-		test[i] = test_buffer[i];
-	}
-}
 

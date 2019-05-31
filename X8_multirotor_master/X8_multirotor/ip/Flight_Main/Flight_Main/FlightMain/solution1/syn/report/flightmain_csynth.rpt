@@ -1,0 +1,222 @@
+
+
+================================================================
+== Vivado HLS Report for 'flightmain'
+================================================================
+* Date:           Sat May 25 15:28:40 2019
+
+* Version:        2017.1 (Build 1846317 on Thu Jun 22 18:17:09 MDT 2017)
+* Project:        FlightMain
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.36|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   20|   20|   20|   20| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|    776|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        4|      0|     804|   1390|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|    253|
+|Register         |        -|      -|     375|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        4|      0|    1179|   2419|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        1|      0|       1|      4|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+-----------------------+---------+-------+-----+-----+
+    |         Instance        |         Module        | BRAM_18K| DSP48E|  FF | LUT |
+    +-------------------------+-----------------------+---------+-------+-----+-----+
+    |flightmain_CTRL_s_axi_U  |flightmain_CTRL_s_axi  |        4|      0|  262|  276|
+    |flightmain_dcmp_6bkb_U0  |flightmain_dcmp_6bkb   |        0|      0|  130|  469|
+    |flightmain_sitodpcud_U1  |flightmain_sitodpcud   |        0|      0|  412|  645|
+    +-------------------------+-----------------------+---------+-------+-----+-----+
+    |Total                    |                       |        4|      0|  804| 1390|
+    +-------------------------+-----------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+-------+---+----+------------+------------+
+    |       Variable Name       | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+-------+---+----+------------+------------+
+    |exp_V_10_fu_431_p2         |     +    |      0|  0|  18|           5|          11|
+    |exp_V_11_fu_512_p2         |     +    |      0|  0|  18|           5|          11|
+    |exp_V_8_fu_269_p2          |     +    |      0|  0|  18|           5|          11|
+    |exp_V_9_fu_350_p2          |     +    |      0|  0|  18|           5|          11|
+    |tmp_13_fu_244_p2           |     +    |      0|  0|  24|          16|          17|
+    |tmp_2_fu_199_p2            |     +    |      0|  0|  24|          16|          17|
+    |tmp_7_fu_229_p2            |     +    |      0|  0|  24|          16|          17|
+    |tmp_s_fu_214_p2            |     +    |      0|  0|  24|          16|          17|
+    |ap_block_pp0_stage0_11001  |    and   |      0|  0|   8|           1|           1|
+    |or_cond3_fu_655_p2         |    and   |      0|  0|   8|           1|           1|
+    |or_cond4_fu_673_p2         |    and   |      0|  0|   8|           1|           1|
+    |tmp1_fu_597_p2             |    and   |      0|  0|   8|           1|           1|
+    |tmp2_fu_632_p2             |    and   |      0|  0|   8|           1|           1|
+    |tmp3_fu_649_p2             |    and   |      0|  0|   8|           1|           1|
+    |tmp4_fu_667_p2             |    and   |      0|  0|   8|           1|           1|
+    |tmp_17_fu_612_p2           |    and   |      0|  0|   8|           1|           1|
+    |tmp_24_fu_538_p2           |    and   |      0|  0|   8|           1|           1|
+    |tmp_31_fu_547_p2           |    and   |      0|  0|   8|           1|           1|
+    |tmp_36_fu_638_p2           |    and   |      0|  0|   8|           1|           1|
+    |tmp_42_fu_621_p2           |    and   |      0|  0|   8|           1|           1|
+    |grp_fu_181_p2              |   icmp   |      0|  0|  13|          16|          15|
+    |notlhs1_fu_405_p2          |   icmp   |      0|  0|  13|          11|           2|
+    |notlhs2_fu_486_p2          |   icmp   |      0|  0|  13|          11|           2|
+    |notlhs3_fu_585_p2          |   icmp   |      0|  0|  13|          11|           2|
+    |notlhs_fu_324_p2           |   icmp   |      0|  0|  13|          11|           2|
+    |notrhs1_fu_411_p2          |   icmp   |      0|  0|  29|          52|           1|
+    |notrhs2_fu_492_p2          |   icmp   |      0|  0|  29|          52|           1|
+    |notrhs3_fu_591_p2          |   icmp   |      0|  0|  29|          52|           1|
+    |notrhs_fu_330_p2           |   icmp   |      0|  0|  29|          52|           1|
+    |tmp_35_fu_626_p2           |   icmp   |      0|  0|  13|          16|           1|
+    |tmp_37_fu_643_p2           |   icmp   |      0|  0|  13|          16|           1|
+    |tmp_38_fu_661_p2           |   icmp   |      0|  0|  13|          16|           1|
+    |tmp_15_fu_608_p2           |    or    |      0|  0|   8|           1|           1|
+    |tmp_22_fu_534_p2           |    or    |      0|  0|   8|           1|           1|
+    |tmp_29_fu_543_p2           |    or    |      0|  0|   8|           1|           1|
+    |tmp_40_fu_617_p2           |    or    |      0|  0|   8|           1|           1|
+    |tmp_19_fu_372_p3           |  select  |      0|  0|  63|           1|           1|
+    |tmp_26_fu_453_p3           |  select  |      0|  0|  63|           1|           1|
+    |tmp_33_fu_552_p3           |  select  |      0|  0|  63|           1|           1|
+    |tmp_6_fu_291_p3            |  select  |      0|  0|  63|           1|           1|
+    |ap_enable_pp0              |    xor   |      0|  0|   8|           1|           2|
+    +---------------------------+----------+-------+---+----+------------+------------+
+    |Total                      |          |      0|  0| 776|         421|         164|
+    +---------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+-----+-----------+-----+-----------+
+    |           Name          | LUT | Input Size| Bits| Total Bits|
+    +-------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                |  101|         21|    1|         21|
+    |ap_enable_reg_pp0_iter0  |    9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |    9|          2|    1|          2|
+    |grp_fu_173_p0            |   27|          5|   64|        320|
+    |grp_fu_178_p0            |   27|          5|   32|        160|
+    |rcCmdIn_V_address0       |   53|         12|    3|         36|
+    |rcCmdIn_V_d0             |   27|          5|   16|         80|
+    +-------------------------+-----+-----------+-----+-----------+
+    |Total                    |  253|         52|  118|        621|
+    +-------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------+----+----+-----+-----------+
+    |             Name            | FF | LUT| Bits| Const Bits|
+    +-----------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                    |  20|   0|   20|          0|
+    |ap_enable_reg_pp0_iter0_reg  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1      |   1|   0|    1|          0|
+    |delay                        |   1|   0|    1|          0|
+    |delay_load_reg_729           |   1|   0|    1|          0|
+    |lastrcCmdIn_V_0              |  16|   0|   16|          0|
+    |lastrcCmdIn_V_1              |  16|   0|   16|          0|
+    |lastrcCmdIn_V_2              |  16|   0|   16|          0|
+    |lastrcCmdIn_V_3              |  16|   0|   16|          0|
+    |notlhs1_reg_813              |   1|   0|    1|          0|
+    |notlhs2_reg_833              |   1|   0|    1|          0|
+    |notlhs3_reg_853              |   1|   0|    1|          0|
+    |notlhs_reg_793               |   1|   0|    1|          0|
+    |notrhs1_reg_818              |   1|   0|    1|          0|
+    |notrhs2_reg_838              |   1|   0|    1|          0|
+    |notrhs3_reg_858              |   1|   0|    1|          0|
+    |notrhs_reg_798               |   1|   0|    1|          0|
+    |or_cond3_reg_873             |   1|   0|    1|          0|
+    |or_cond4_reg_877             |   1|   0|    1|          0|
+    |reg_187                      |  16|   0|   16|          0|
+    |tmp1_reg_868                 |   1|   0|    1|          0|
+    |tmp_10_reg_763               |   1|   0|    1|          0|
+    |tmp_14_reg_778               |   1|   0|    1|          0|
+    |tmp_16_reg_803               |   1|   0|    1|          0|
+    |tmp_18_reg_808               |  63|   0|   63|          0|
+    |tmp_23_reg_823               |   1|   0|    1|          0|
+    |tmp_25_reg_828               |  63|   0|   63|          0|
+    |tmp_30_reg_843               |   1|   0|    1|          0|
+    |tmp_32_reg_848               |  63|   0|   63|          0|
+    |tmp_3_reg_733                |   1|   0|    1|          0|
+    |tmp_41_reg_863               |   1|   0|    1|          0|
+    |tmp_4_reg_748                |   1|   0|    1|          0|
+    |tmp_reg_788                  |  63|   0|   63|          0|
+    +-----------------------------+----+----+-----+-----------+
+    |Total                        | 375|   0|  375|          0|
+    +-----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+--------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------------+-----+-----+------------+--------------+--------------+
+|s_axi_CTRL_AWVALID  |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_AWREADY  | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_AWADDR   |  in |    6|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_WVALID   |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_WREADY   | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_WDATA    |  in |   32|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_WSTRB    |  in |    4|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_ARVALID  |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_ARREADY  | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_ARADDR   |  in |    6|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_RVALID   | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_RREADY   |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_RDATA    | out |   32|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_RRESP    | out |    2|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_BVALID   | out |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_BREADY   |  in |    1|    s_axi   |     CTRL     |    scalar    |
+|s_axi_CTRL_BRESP    | out |    2|    s_axi   |     CTRL     |    scalar    |
+|ap_clk              |  in |    1| ap_ctrl_hs |  flightmain  | return value |
+|ap_rst_n            |  in |    1| ap_ctrl_hs |  flightmain  | return value |
+|interrupt           | out |    1| ap_ctrl_hs |  flightmain  | return value |
++--------------------+-----+-----+------------+--------------+--------------+
+

@@ -1,0 +1,36 @@
+
+INFO: [HLS 200-10] Running 'E:/sdsoc171/SDx/2017.1/Vivado_HLS/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'c7benj' on host 'wes-server' (Windows NT_amd64 version 6.1) on Sat May 25 15:30:01 -0700 2019
+INFO: [HLS 200-10] In directory 'C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main'
+INFO: [HLS 200-10] Opening project 'C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main/FlightMain'.
+INFO: [HLS 200-10] Opening solution 'C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main/FlightMain/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg400-1'
+INFO: [IMPL 213-8] Exporting RTL as an IP in IP-XACT.
+
+
+****** Vivado v2017.1_sdx (64-bit)
+  **** SW Build 1915620 on Thu Jun 22 17:54:58 MDT 2017
+  **** IP Build 1908669 on Thu Jun 22 19:20:41 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-1460] Use of init.tcl in E:/sdsoc171/SDx/2017.1/Vivado/scripts/init.tcl is deprecated. Please use Vivado_init.tcl 
+Sourcing tcl script 'E:/sdsoc171/SDx/2017.1/Vivado/scripts/init.tcl'
+16 Beta devices matching pattern found, 16 enabled.
+enable_beta_device: Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 295.273 ; gain = 59.215
+Loaded SDSoC Platform Tcl Library
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/sdsoc171/SDx/2017.1/Vivado/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'flightmain_ap_dcmp_0_no_dsp_64' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 325.199 ; gain = 29.926
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'flightmain_ap_dcmp_0_no_dsp_64'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'flightmain_ap_dcmp_0_no_dsp_64'...
+WARNING: [IP_Flow 19-4832] The IP name 'flightmain_ap_sitodp_4_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'flightmain_ap_sitodp_4_no_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'flightmain_ap_sitodp_4_no_dsp_32'...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/sdsoc171/SDx/2017.1/Vivado/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sat May 25 15:31:00 2019...

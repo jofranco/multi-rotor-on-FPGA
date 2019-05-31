@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="flightmain" xd:componentRef="flightmain" xd:initiationInterval="20" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="rcCmdIn[]" xd:originalName="rcCmdIn" xd:direction="inout" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x10" xd:arraySize="5" xd:dataWidth="16"/>
+  <xd:arg xd:name="measured[]" xd:originalName="measured" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="4" xd:dataWidth="16"/>
+  <xd:arg xd:name="obj_avd_cmd" xd:originalName="obj_avd_cmd" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x28" xd:handshakeRef="ap_none" xd:dataWidth="16"/>
+  <xd:arg xd:name="horizon_cmd" xd:originalName="horizon_cmd" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x30" xd:handshakeRef="ap_none" xd:dataWidth="16"/>
+  <xd:arg xd:name="obj_avd_flag" xd:originalName="obj_avd_flag" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x38" xd:handshakeRef="ap_none" xd:dataWidth="16"/>
+  <xd:latencyEstimates xd:best-case="20" xd:worst-case="20" xd:average-case="20"/>
+  <xd:resourceEstimates xd:LUT="2419" xd:FF="1179" xd:BRAM="4" xd:DSP="0"/>
+</xd:acceleratorMap>

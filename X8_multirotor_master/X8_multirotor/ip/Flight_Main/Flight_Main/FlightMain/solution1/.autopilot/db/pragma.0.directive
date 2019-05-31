@@ -1,0 +1,57 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="flightmain" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="return"/>
+<option name="bundle" value="CTRL"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="flightmain" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="rcCmdIn"/>
+<option name="bundle" value="CTRL"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="flightmain" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="measured"/>
+<option name="bundle" value="CTRL"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="flightmain" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="obj_avd_cmd"/>
+<option name="bundle" value="CTRL"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="flightmain" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="horizon_cmd"/>
+<option name="bundle" value="CTRL"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="flightmain" label="">
+<pragma name="INTERFACE">
+<option name="s_axilite" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="obj_avd_flag"/>
+<option name="bundle" value="CTRL"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="flightmain" label="">
+<pragma name="INTERFACE">
+<option name="m_axi" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="rcCmdOut"/>
+<option name="offset" value="off"/>
+<option name="bundle" value="OUT"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="flightmain" label="">
+<pragma name="PIPELINE"/>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>

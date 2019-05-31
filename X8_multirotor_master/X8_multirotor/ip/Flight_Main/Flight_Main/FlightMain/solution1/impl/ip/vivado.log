@@ -1,0 +1,31 @@
+#-----------------------------------------------------------
+# Vivado v2017.1_sdx (64-bit)
+# SW Build 1915620 on Thu Jun 22 17:54:58 MDT 2017
+# IP Build 1908669 on Thu Jun 22 19:20:41 MDT 2017
+# Start of session at: Sat May 25 15:30:11 2019
+# Process ID: 21248
+# Current directory: C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main/FlightMain/solution1/impl/ip
+# Command line: vivado.exe -notrace -mode batch -source run_ippack.tcl
+# Log file: C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main/FlightMain/solution1/impl/ip/vivado.log
+# Journal file: C:/Users/c7benj/Documents/MULTI_ROTOR/Flight_Main/FlightMain/solution1/impl/ip\vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-1460] Use of init.tcl in E:/sdsoc171/SDx/2017.1/Vivado/scripts/init.tcl is deprecated. Please use Vivado_init.tcl 
+Sourcing tcl script 'E:/sdsoc171/SDx/2017.1/Vivado/scripts/init.tcl'
+16 Beta devices matching pattern found, 16 enabled.
+enable_beta_device: Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 295.273 ; gain = 59.215
+Loaded SDSoC Platform Tcl Library
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/sdsoc171/SDx/2017.1/Vivado/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'flightmain_ap_dcmp_0_no_dsp_64' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 325.199 ; gain = 29.926
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'flightmain_ap_dcmp_0_no_dsp_64'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'flightmain_ap_dcmp_0_no_dsp_64'...
+WARNING: [IP_Flow 19-4832] The IP name 'flightmain_ap_sitodp_4_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'flightmain_ap_sitodp_4_no_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'flightmain_ap_sitodp_4_no_dsp_32'...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/sdsoc171/SDx/2017.1/Vivado/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sat May 25 15:31:00 2019...
