@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="pwm.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\PWM\pwm.cpp"/>
+    <originFiles name="pwm.hpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\PWM\pwm.hpp"/>
+  </source>
+  <testbench>
+    <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\PWM\main.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

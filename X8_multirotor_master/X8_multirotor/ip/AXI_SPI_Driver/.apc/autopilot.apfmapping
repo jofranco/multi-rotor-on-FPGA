@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="AXI_SPI_Driver.h" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Jupyter_Demos\AXI_SPI_Driver\AXI_SPI_Driver.h"/>
-    <originFiles name="AXI_SPI_Driver.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Jupyter_Demos\AXI_SPI_Driver\AXI_SPI_Driver.cpp"/>
+    <originFiles name="AXI_SPI_Driver.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\AXI_SPI_Driver\AXI_SPI_Driver.cpp"/>
+    <originFiles name="AXI_SPI_Driver.h" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\AXI_SPI_Driver\AXI_SPI_Driver.h"/>
   </source>
   <testbench>
-    <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\Jupyter_Demos\AXI_SPI_Driver\main.cpp"/>
+    <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\GIT_Repo\X8_multirotor_master\X8_multirotor\ip\AXI_SPI_Driver\main.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

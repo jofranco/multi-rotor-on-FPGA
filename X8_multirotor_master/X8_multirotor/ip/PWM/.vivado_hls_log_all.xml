@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'out_p_V' is power-on initialization." projectName="PWM" solutionName="solution1" date="2019-05-30T22:38:10.780-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'acc' is power-on initialization." projectName="PWM" solutionName="solution1" date="2019-05-30T22:38:10.774-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'out_V' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="PWM" solutionName="solution1" date="2019-05-30T22:38:10.761-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('m_V_load_1', PWM/pwm.cpp:61) on array 'm_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'm_V'." projectName="PWM" solutionName="solution1" date="2019-05-30T22:38:10.451-0700" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] PWM/pwm.cpp:66: variable-indexed range selection may cause suboptimal QoR." projectName="PWM" solutionName="solution1" date="2019-05-30T22:38:09.744-0700" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-62] PWM/pwm.cpp:58: warning: out of bound array access on variable 'm.V'." projectName="PWM" solutionName="solution1" date="2019-05-30T22:38:09.739-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
