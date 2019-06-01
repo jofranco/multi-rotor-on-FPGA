@@ -1,8 +1,8 @@
 <project xmlns="com.autoesl.autopilot.project" name="PID" top="pid">
     <files>
-        <file name="PID/pid.cpp" sc="0" tb="false" cflags=""/>
+        <file name="../main.cpp" sc="0" tb="1" cflags="  -Wno-unknown-pragmas"/>
         <file name="PID/pid.hpp" sc="0" tb="false" cflags=""/>
-        <file name="../main.cpp" sc="0" tb="1" cflags=""/>
+        <file name="PID/pid.cpp" sc="0" tb="false" cflags=""/>
     </files>
     <includePaths/>
     <libraryPaths/>

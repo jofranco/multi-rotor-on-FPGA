@@ -6,5 +6,5 @@
   <xd:arg xd:name="cmdOut[]" xd:originalName="cmdOut" xd:direction="inout" xd:interfaceRef="m_axi_OUT_r" xd:busTypeRef="aximm" xd:arraySize="4096" xd:dataWidth="16" xd:bufferDirection="out"/>
   <xd:arg xd:name="test[]" xd:originalName="test" xd:direction="out" xd:interfaceRef="s_axi_TEST" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
   <xd:latencyEstimates xd:best-case="24" xd:worst-case="24" xd:average-case="24"/>
-  <xd:resourceEstimates xd:LUT="1700" xd:FF="1163" xd:BRAM="14" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="1697" xd:FF="1163" xd:BRAM="14" xd:DSP="0"/>
 </xd:acceleratorMap>

@@ -24602,7 +24602,7 @@ inline bool operator!=(
 }
 # 62 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 2
 # 8 "Flight_Main/../common/x8_common.hpp" 2
-# 27 "Flight_Main/../common/x8_common.hpp"
+# 29 "Flight_Main/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
@@ -24629,7 +24629,7 @@ typedef enum
 
 uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
 # 3 "Flight_Main/flightmain.hpp" 2
-# 13 "Flight_Main/flightmain.hpp"
+# 14 "Flight_Main/flightmain.hpp"
 void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32_t test[4096]);
 
 typedef enum
@@ -24701,16 +24701,16 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32
             case HORIZON_MODE:
 
 
-                noRollCmd = ((buffer[1] > F16_t(0.490)) && (buffer[1] < F16_t(0.510)));
-                noPitchCmd = ((buffer[2] > F16_t(0.490)) && (buffer[2] < F16_t(0.510)));
+                noRollCmd = ((buffer[1] > F16_t(-0.015)) && (buffer[1] < F16_t(0.015)));
+                noPitchCmd = ((buffer[2] > F16_t(-0.015)) && (buffer[2] < F16_t(0.015)));
 
 
                 if(noRollCmd && noPitchCmd)
                 {
                     cmdOut[0] = buffer[0];
                     cmdOut[3] = buffer[3];
-                    cmdOut[1] = F16_t(0.500);
-                    cmdOut[2] = F16_t(0.500);
+                    cmdOut[1] = F16_t(0.000);
+                    cmdOut[2] = F16_t(0.000);
                     cmdOut[4] = buffer[4];
                     cmdOut[5] = buffer[5];
                 }
@@ -24736,16 +24736,16 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32
                 {
 
 
-                    noRollCmd = (buffer[1] > F16_t(0.490)) && (buffer[1] < F16_t(0.510));
-                    noPitchCmd = (buffer[2] > F16_t(0.490)) && (buffer[2] < F16_t(0.510));
+                    noRollCmd = (buffer[1] > F16_t(-0.015)) && (buffer[1] < F16_t(0.015));
+                    noPitchCmd = (buffer[2] > F16_t(-0.015)) && (buffer[2] < F16_t(0.015));
 
 
                     if(noRollCmd && noPitchCmd)
                     {
                         cmdOut[0] = buffer[0];
                         cmdOut[3] = buffer[3];
-                        cmdOut[1] = F16_t(0.500);
-                        cmdOut[2] = F16_t(0.500);
+                        cmdOut[1] = F16_t(0.000);
+                        cmdOut[2] = F16_t(0.000);
                         cmdOut[4] = buffer[4];
                         cmdOut[5] = buffer[5];
                     }
@@ -24765,9 +24765,9 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32
 
 
                 cmdOut[0] = F16_t(0.000);
-                cmdOut[3] = F16_t(0.500);
-                cmdOut[1] = F16_t(0.500);
-                cmdOut[2] = F16_t(0.500);
+                cmdOut[3] = F16_t(0.000);
+                cmdOut[1] = F16_t(0.000);
+                cmdOut[2] = F16_t(0.000);
                 cmdOut[4] = buffer[4];
                 cmdOut[5] = buffer[5];
 
@@ -24779,9 +24779,9 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32
 
 
      cmdOut[0] = F16_t(0.000);
-     cmdOut[3] = F16_t(0.500);
-  cmdOut[1] = F16_t(0.500);
-  cmdOut[2] = F16_t(0.500);
+     cmdOut[3] = F16_t(0.000);
+  cmdOut[1] = F16_t(0.000);
+  cmdOut[2] = F16_t(0.000);
   cmdOut[4] = buffer[4];
         cmdOut[5] = buffer[5];
     }

@@ -2,11 +2,11 @@ set C_TypeInfoList {{
 "rcReceiver" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"SBUS_data": [[], {"array": ["0", [25]]}] }, {"norm_out": [[], {"array": ["1", [4096]]}] }, {"test": [[], {"array": ["2", [4096]]}] }],[],""], 
 "1": [ "F16_t", {"typedef": [[[],"3"],""]}], 
 "3": [ "ap_fixed<16, 3, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 16}}],[[], {"scalar": { "int": 3}}],[[], {"scalar": { "4": 5}}],[[], {"scalar": { "5": 3}}],[[], {"scalar": { "int": 0}}]],""]}}], 
-"4": [ "ap_q_mode", {"enum": [[],[],[{"SC_RND":  {"scalar": "__integer__"}},{"SC_RND_ZERO":  {"scalar": "__integer__"}},{"SC_RND_MIN_INF":  {"scalar": "__integer__"}},{"SC_RND_INF":  {"scalar": "__integer__"}},{"SC_RND_CONV":  {"scalar": "__integer__"}},{"SC_TRN":  {"scalar": "__integer__"}},{"SC_TRN_ZERO":  {"scalar": "__integer__"}}],""]}], 
-"0": [ "uint8_t", {"typedef": [[[], {"scalar": "unsigned char"}],""]}], 
 "2": [ "F32_t", {"typedef": [[[],"6"],""]}], 
+"0": [ "uint8_t", {"typedef": [[[], {"scalar": "unsigned char"}],""]}], 
 "6": [ "ap_fixed<32, 16, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 32}}],[[], {"scalar": { "int": 16}}],[[], {"scalar": { "4": 5}}],[[], {"scalar": { "5": 3}}],[[], {"scalar": { "int": 0}}]],""]}}], 
-"5": [ "ap_o_mode", {"enum": [[],[],[{"SC_SAT":  {"scalar": "__integer__"}},{"SC_SAT_ZERO":  {"scalar": "__integer__"}},{"SC_SAT_SYM":  {"scalar": "__integer__"}},{"SC_WRAP":  {"scalar": "__integer__"}},{"SC_WRAP_SM":  {"scalar": "__integer__"}}],""]}]
+"5": [ "ap_o_mode", {"enum": [[],[],[{"SC_SAT":  {"scalar": "__integer__"}},{"SC_SAT_ZERO":  {"scalar": "__integer__"}},{"SC_SAT_SYM":  {"scalar": "__integer__"}},{"SC_WRAP":  {"scalar": "__integer__"}},{"SC_WRAP_SM":  {"scalar": "__integer__"}}],""]}], 
+"4": [ "ap_q_mode", {"enum": [[],[],[{"SC_RND":  {"scalar": "__integer__"}},{"SC_RND_ZERO":  {"scalar": "__integer__"}},{"SC_RND_MIN_INF":  {"scalar": "__integer__"}},{"SC_RND_INF":  {"scalar": "__integer__"}},{"SC_RND_CONV":  {"scalar": "__integer__"}},{"SC_TRN":  {"scalar": "__integer__"}},{"SC_TRN_ZERO":  {"scalar": "__integer__"}}],""]}]
 }}
 set moduleName rcReceiver
 set isTaskLevelControl 1
@@ -201,13 +201,13 @@ set NewPortList {[
  	{ "name": "m_axi_OUT_r_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "OUT_r", "role": "BUSER" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "6", "8", "10", "12"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
 		"CDFG" : "rcReceiver",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "26",
-		"VariableLatency" : "0", "ExactLatency" : "39", "EstimateLatencyMin" : "39", "EstimateLatencyMax" : "39",
+		"II" : "23",
+		"VariableLatency" : "0", "ExactLatency" : "27", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -228,146 +228,38 @@ set RtlHierarchyInfo {[
 			{"Name" : "channels_3", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "channels_4", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "channels_5", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_6", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_7", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_8", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_9", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_10", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_11", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_12", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_13", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_14", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_15", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_16", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "channels_17", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "lost", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "errors", "Type" : "OVld", "Direction" : "IO"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rcReceiver_CTRL_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rcReceiver_TEST_s_axi_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rcReceiver_OUT_r_m_axi_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_937", "Parent" : "0", "Child" : ["5"],
-		"CDFG" : "scaleRange",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
-		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "1",
-		"VariableLatency" : "0", "ExactLatency" : "3", "EstimateLatencyMin" : "3", "EstimateLatencyMax" : "3",
-		"Combinational" : "0",
-		"Datapath" : "1",
-		"ClockEnable" : "1",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "x", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_937.rcReceiver_mul_43bkb_U1", "Parent" : "4"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_942", "Parent" : "0", "Child" : ["7"],
-		"CDFG" : "scaleRange",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
-		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "1",
-		"VariableLatency" : "0", "ExactLatency" : "3", "EstimateLatencyMin" : "3", "EstimateLatencyMax" : "3",
-		"Combinational" : "0",
-		"Datapath" : "1",
-		"ClockEnable" : "1",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "x", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_942.rcReceiver_mul_43bkb_U1", "Parent" : "6"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_947", "Parent" : "0", "Child" : ["9"],
-		"CDFG" : "scaleRange",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
-		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "1",
-		"VariableLatency" : "0", "ExactLatency" : "3", "EstimateLatencyMin" : "3", "EstimateLatencyMax" : "3",
-		"Combinational" : "0",
-		"Datapath" : "1",
-		"ClockEnable" : "1",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "x", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_947.rcReceiver_mul_43bkb_U1", "Parent" : "8"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_952", "Parent" : "0", "Child" : ["11"],
-		"CDFG" : "scaleRange",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
-		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "1",
-		"VariableLatency" : "0", "ExactLatency" : "3", "EstimateLatencyMin" : "3", "EstimateLatencyMax" : "3",
-		"Combinational" : "0",
-		"Datapath" : "1",
-		"ClockEnable" : "1",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "x", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_952.rcReceiver_mul_43bkb_U1", "Parent" : "10"},
-	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_957", "Parent" : "0", "Child" : ["13"],
-		"CDFG" : "scaleRange",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
-		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "1",
-		"VariableLatency" : "0", "ExactLatency" : "3", "EstimateLatencyMin" : "3", "EstimateLatencyMax" : "3",
-		"Combinational" : "0",
-		"Datapath" : "1",
-		"ClockEnable" : "1",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "x", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_scaleRange_fu_957.rcReceiver_mul_43bkb_U1", "Parent" : "12"}]}
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rcReceiver_mul_45bkb_U1", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rcReceiver_mul_45bkb_U2", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rcReceiver_mul_45bkb_U3", "Parent" : "0"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rcReceiver_mul_45bkb_U4", "Parent" : "0"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rcReceiver_mul_45bkb_U5", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rcReceiver_mul_45bkb_U6", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	rcReceiver {
-		SBUS_data {Type I LastRead 24 FirstWrite -1}
-		OUT_r {Type O LastRead 37 FirstWrite 16}
-		test_V {Type O LastRead -1 FirstWrite 13}
+		SBUS_data {Type I LastRead 11 FirstWrite -1}
+		OUT_r {Type O LastRead 23 FirstWrite 17}
+		test_V {Type O LastRead -1 FirstWrite 11}
 		channels_0 {Type IO LastRead -1 FirstWrite -1}
 		channels_1 {Type IO LastRead -1 FirstWrite -1}
 		channels_2 {Type IO LastRead -1 FirstWrite -1}
 		channels_3 {Type IO LastRead -1 FirstWrite -1}
 		channels_4 {Type IO LastRead -1 FirstWrite -1}
 		channels_5 {Type IO LastRead -1 FirstWrite -1}
-		channels_6 {Type IO LastRead -1 FirstWrite -1}
-		channels_7 {Type IO LastRead -1 FirstWrite -1}
-		channels_8 {Type IO LastRead -1 FirstWrite -1}
-		channels_9 {Type IO LastRead -1 FirstWrite -1}
-		channels_10 {Type IO LastRead -1 FirstWrite -1}
-		channels_11 {Type IO LastRead -1 FirstWrite -1}
-		channels_12 {Type IO LastRead -1 FirstWrite -1}
-		channels_13 {Type IO LastRead -1 FirstWrite -1}
-		channels_14 {Type IO LastRead -1 FirstWrite -1}
-		channels_15 {Type IO LastRead -1 FirstWrite -1}
-		channels_16 {Type IO LastRead -1 FirstWrite -1}
-		channels_17 {Type IO LastRead -1 FirstWrite -1}
 		lost {Type IO LastRead -1 FirstWrite -1}
-		errors {Type IO LastRead -1 FirstWrite -1}}
-	scaleRange {
-		x {Type I LastRead 0 FirstWrite -1}}
-	scaleRange {
-		x {Type I LastRead 0 FirstWrite -1}}
-	scaleRange {
-		x {Type I LastRead 0 FirstWrite -1}}
-	scaleRange {
-		x {Type I LastRead 0 FirstWrite -1}}
-	scaleRange {
-		x {Type I LastRead 0 FirstWrite -1}}}
+		errors {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "39", "Max" : "39"}
-	, {"Name" : "Interval", "Min" : "26", "Max" : "26"}
+	{"Name" : "Latency", "Min" : "27", "Max" : "27"}
+	, {"Name" : "Interval", "Min" : "23", "Max" : "23"}
 ]}
 
 set PipelineEnableSignalInfo {[

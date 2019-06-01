@@ -1439,7 +1439,7 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>94ab8e9e</spirit:value>
+            <spirit:value>d07388cc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1455,7 +1455,7 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ca59e55c</spirit:value>
+            <spirit:value>6da70c34</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1471,7 +1471,7 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>29db6790</spirit:value>
+            <spirit:value>74d63d3d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1487,7 +1487,7 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e7c251ba</spirit:value>
+            <spirit:value>1b7e50c5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3289,10 +3289,6 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/pid_mul_16ns_50s_bkb.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/verilog/pid_OUT_r_m_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -3314,11 +3310,6 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/pid_INPUT_s_axi.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/pid_mul_16ns_50s_bkb.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -3354,10 +3345,6 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/pid_mul_16ns_50s_bkb.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/vhdl/pid_OUT_r_m_axi.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -3368,7 +3355,7 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
       <spirit:file>
         <spirit:name>hdl/vhdl/pid.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_29d16abb</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_1028d2bd</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -3380,11 +3367,6 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/pid_INPUT_s_axi.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/pid_mul_16ns_50s_bkb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -3605,11 +3587,11 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="18">23</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="18">27</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>II</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="19">23</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="19">8</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -3622,18 +3604,18 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
       </xilinx:taxonomies>
       <xilinx:displayName>Pid</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1905300323</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-05-30T10:23:51Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1905311615</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-05-31T23:15:47Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7cc50c3e"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="93315708"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="a7d74b9c"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="806c1e72"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a71d1ca0"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="72e08750"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="18e642fa"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="ee7389a9"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="5cea65ca"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

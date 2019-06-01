@@ -18,26 +18,26 @@
 <PipelineType>function</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>9.137</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.750</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>39</Best-caseLatency>
-<Average-caseLatency>39</Average-caseLatency>
-<Worst-caseLatency>39</Worst-caseLatency>
-<PipelineInitiationInterval>26</PipelineInitiationInterval>
-<PipelineDepth>40</PipelineDepth>
-<Interval-min>26</Interval-min>
-<Interval-max>26</Interval-max>
+<Best-caseLatency>27</Best-caseLatency>
+<Average-caseLatency>27</Average-caseLatency>
+<Worst-caseLatency>27</Worst-caseLatency>
+<PipelineInitiationInterval>23</PipelineInitiationInterval>
+<PipelineDepth>28</PipelineDepth>
+<Interval-min>23</Interval-min>
+<Interval-max>23</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
 <BRAM_18K>12</BRAM_18K>
-<DSP48E>60</DSP48E>
-<FF>2780</FF>
-<LUT>3651</LUT>
+<DSP48E>78</DSP48E>
+<FF>3454</FF>
+<LUT>3770</LUT>
 </Resources>
 <AvailableResources>
 <BRAM_18K>280</BRAM_18K>

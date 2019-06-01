@@ -24603,7 +24603,7 @@ inline bool operator!=(
 }
 # 62 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 2
 # 8 "RC_Receiver/../common/x8_common.hpp" 2
-# 27 "RC_Receiver/../common/x8_common.hpp"
+# 29 "RC_Receiver/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
@@ -24630,7 +24630,7 @@ typedef enum
 
 uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
 # 3 "RC_Receiver/RC_Receiver.hpp" 2
-# 19 "RC_Receiver/RC_Receiver.hpp"
+# 20 "RC_Receiver/RC_Receiver.hpp"
 void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096]);
 
 
@@ -24706,9 +24706,14 @@ _ssdm_op_SpecInterface(test, "s_axilite", 0, 0, "", 0, 0, "TEST", "", "", 0, 0, 
     }
 
 
-    for(int i = 0; i < 18; i++)
+    for(int i = 0; i < 6; i++)
     {
-     norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(0.000), F16_t(0.999));
+     if( (i == 0) || (i == 4) || (i == 5) )
+     {
+      norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(0.000), F16_t(0.999));
+     }
+
+     norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(-1.000), F16_t(0.999));
     }
 
 

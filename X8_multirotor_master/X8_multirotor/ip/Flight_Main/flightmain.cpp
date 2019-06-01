@@ -72,8 +72,8 @@ void flightmain (F16_t rcCmdIn[RC_CHANNELS], F16_t obj_avd_cmd[RC_CHANNELS], F16
                 {
                     cmdOut[THROT_CHAN] = buffer[THROT_CHAN];
                     cmdOut[YAW_CHAN] = buffer[YAW_CHAN];
-                    cmdOut[ROLL_CHAN] = F16_t(0.500);
-                    cmdOut[PITCH_CHAN] = F16_t(0.500);
+                    cmdOut[ROLL_CHAN] = F16_t(0.000);      // set stick to middle position
+                    cmdOut[PITCH_CHAN] = F16_t(0.000);     // set stick to middle position
                     cmdOut[ARM_CHAN] = buffer[ARM_CHAN];
                     cmdOut[MODE_CHAN] = buffer[MODE_CHAN];
                 }
@@ -107,8 +107,8 @@ void flightmain (F16_t rcCmdIn[RC_CHANNELS], F16_t obj_avd_cmd[RC_CHANNELS], F16
                     {
                         cmdOut[THROT_CHAN] = buffer[THROT_CHAN];
                         cmdOut[YAW_CHAN] = buffer[YAW_CHAN];
-                        cmdOut[ROLL_CHAN] = F16_t(0.500);
-                        cmdOut[PITCH_CHAN] = F16_t(0.500);
+                        cmdOut[ROLL_CHAN] = F16_t(0.000);        // set stick to middle position
+                        cmdOut[PITCH_CHAN] = F16_t(0.000);       // set stick to middle position
                         cmdOut[ARM_CHAN] = buffer[ARM_CHAN];
                         cmdOut[MODE_CHAN] = buffer[MODE_CHAN];
                     }
@@ -128,9 +128,9 @@ void flightmain (F16_t rcCmdIn[RC_CHANNELS], F16_t obj_avd_cmd[RC_CHANNELS], F16
 
                 // set throttle to zero and return sticks to midpoint
                 cmdOut[THROT_CHAN] = F16_t(0.000);
-                cmdOut[YAW_CHAN]   = F16_t(0.500);
-                cmdOut[ROLL_CHAN]  = F16_t(0.500);
-                cmdOut[PITCH_CHAN] = F16_t(0.500);
+                cmdOut[YAW_CHAN]   = F16_t(0.000);
+                cmdOut[ROLL_CHAN]  = F16_t(0.000);
+                cmdOut[PITCH_CHAN] = F16_t(0.000);
                 cmdOut[ARM_CHAN] = buffer[ARM_CHAN];
                 cmdOut[MODE_CHAN] = buffer[MODE_CHAN];
 
@@ -142,9 +142,9 @@ void flightmain (F16_t rcCmdIn[RC_CHANNELS], F16_t obj_avd_cmd[RC_CHANNELS], F16
         // motors are off here, make sure output PWM command is zero!!!!
     	// set throttle to zero and return sticks to midpoint
     	cmdOut[THROT_CHAN] = F16_t(0.000);
-    	cmdOut[YAW_CHAN]   = F16_t(0.500);
-		cmdOut[ROLL_CHAN]  = F16_t(0.500);
-		cmdOut[PITCH_CHAN] = F16_t(0.500);
+    	cmdOut[YAW_CHAN]   = F16_t(0.000);
+		cmdOut[ROLL_CHAN]  = F16_t(0.000);
+		cmdOut[PITCH_CHAN] = F16_t(0.000);
 		cmdOut[ARM_CHAN] = buffer[ARM_CHAN];
         cmdOut[MODE_CHAN] = buffer[MODE_CHAN];
     }

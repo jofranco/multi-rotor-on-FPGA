@@ -19,8 +19,8 @@
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
     "IsCombLogic": "0",
-    "II": "26",
-    "Latency": "39",
+    "II": "23",
+    "Latency": "27",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -38,18 +38,16 @@
     "CSource": ["..\/RC_Receiver.cpp"],
     "Vhdl": [
       "impl\/vhdl\/rcReceiver_CTRL_s_axi.vhd",
-      "impl\/vhdl\/rcReceiver_mul_43bkb.vhd",
+      "impl\/vhdl\/rcReceiver_mul_45bkb.vhd",
       "impl\/vhdl\/rcReceiver_OUT_r_m_axi.vhd",
       "impl\/vhdl\/rcReceiver_TEST_s_axi.vhd",
-      "impl\/vhdl\/scaleRange.vhd",
       "impl\/vhdl\/rcReceiver.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/rcReceiver_CTRL_s_axi.v",
-      "impl\/verilog\/rcReceiver_mul_43bkb.v",
+      "impl\/verilog\/rcReceiver_mul_45bkb.v",
       "impl\/verilog\/rcReceiver_OUT_r_m_axi.v",
       "impl\/verilog\/rcReceiver_TEST_s_axi.v",
-      "impl\/verilog\/scaleRange.v",
       "impl\/verilog\/rcReceiver.v"
     ],
     "SwDriver": [
@@ -898,7 +896,7 @@
       "offset": "16384",
       "statusOffset": "NA",
       "Object": "TEST",
-      "firstOutLatency": "13"
+      "firstOutLatency": "11"
     },
     "OUT_r": {
       "interfaceRef": "m_axi_OUT_r",
@@ -906,75 +904,28 @@
     }
   },
   "ModuleInfo": {
-    "Hierarchy": {
-      "ModuleName": "rcReceiver",
-      "Instances": [
-        {
-          "ModuleName": "scaleRange",
-          "InstanceName": "grp_scaleRange_fu_937"
-        },
-        {
-          "ModuleName": "scaleRange",
-          "InstanceName": "grp_scaleRange_fu_942"
-        },
-        {
-          "ModuleName": "scaleRange",
-          "InstanceName": "grp_scaleRange_fu_947"
-        },
-        {
-          "ModuleName": "scaleRange",
-          "InstanceName": "grp_scaleRange_fu_952"
-        },
-        {
-          "ModuleName": "scaleRange",
-          "InstanceName": "grp_scaleRange_fu_957"
-        }
-      ]
-    },
-    "Metrics": {
-      "scaleRange": {
+    "Hierarchy": {"ModuleName": "rcReceiver"},
+    "Metrics": {"rcReceiver": {
         "Latency": {
-          "LatencyBest": "3",
-          "LatencyAvg": "3",
-          "LatencyWorst": "3",
-          "PipelineII": "1",
-          "PipelineDepth": "4",
+          "LatencyBest": "27",
+          "LatencyAvg": "27",
+          "LatencyWorst": "27",
+          "PipelineII": "23",
+          "PipelineDepth": "28",
           "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.625"
-        },
-        "Area": {
-          "DSP48E": "12",
-          "FF": "280",
-          "LUT": "160",
-          "BRAM_18K": "0"
-        }
-      },
-      "rcReceiver": {
-        "Latency": {
-          "LatencyBest": "39",
-          "LatencyAvg": "39",
-          "LatencyWorst": "39",
-          "PipelineII": "26",
-          "PipelineDepth": "40",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "9.137"
+          "Estimate": "8.750"
         },
         "Area": {
           "BRAM_18K": "12",
-          "DSP48E": "60",
-          "FF": "2780",
-          "LUT": "3651"
+          "DSP48E": "78",
+          "FF": "3454",
+          "LUT": "3770"
         }
-      }
-    }
+      }}
   },
   "Sdx": {
     "Target": "none",
@@ -983,7 +934,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-05-29 00:35:26 -0700",
+    "Time": "2019-05-31 16:28:38 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

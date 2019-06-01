@@ -24603,7 +24603,7 @@ inline bool operator!=(
 }
 # 62 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 2
 # 8 "PID/../common/x8_common.hpp" 2
-# 27 "PID/../common/x8_common.hpp"
+# 29 "PID/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
 typedef ap_fixed<32, 16> F32_t;
@@ -24630,19 +24630,18 @@ typedef enum
 
 uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
 # 3 "PID/pid.hpp" 2
-
-
+# 23 "PID/pid.hpp"
 static const F32_t MIX_X8[8][3] = {
- {-1.000, 1.000, -1.000},
- {-1.000, -1.000, 1.000},
- { 1.000, 1.000, 1.000},
- { 1.000, -1.000, -1.000},
- {-1.000, 1.000, 1.000},
- {-1.000, -1.000, -1.000},
- { 1.000, 1.000, -1.000},
- { 1.000, -1.000, 1.000},
+            {-1.000, 1.000, -1.000},
+            {-1.000, -1.000, 1.000},
+            { 1.000, 1.000, 1.000},
+            { 1.000, -1.000, -1.000},
+            {-1.000, 1.000, 1.000},
+            {-1.000, -1.000, -1.000},
+            { 1.000, 1.000, -1.000},
+            { 1.000, -1.000, 1.000},
 };
-# 34 "PID/pid.hpp"
+# 83 "PID/pid.hpp"
 void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[4096]);
 # 3 "PID/pid.cpp" 2
 # 16 "PID/pid.cpp"
@@ -24670,26 +24669,26 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
 
 
- F16_t scaled_cmdIn[4] = {0.0};
+
  static bool isPositionMode;
- F16_t rateCmd[3] = {0.0};
- static F16_t buffer[6] = {0.0};
+ F16_t rateCmd[3] = {0.0, 0.0, 0.0};
+ static F16_t buffer[6] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
 
- static F16_t last_error_pos[2]={0,0};
- static F32_t integral_pos[2]={0,0};
- F32_t pid_o_pos[3];
- F32_t curr_error_pos[2];
- F32_t deriv_pos[2];
- F32_t correction_pos[2];
+ static F16_t last_error_pos[2] = {0.0, 0.0};
+ static F32_t integral_pos[2] = {0.0, 0.0};
+ F32_t pid_o_pos[3] = {0.0, 0.0, 0.0};
+ F32_t curr_error_pos[2] = {0.0, 0.0};
+ F32_t deriv_pos[2] = {0.0, 0.0};
+ F32_t correction_pos[2] = {0.0, 0.0};
 
 
- static F16_t last_error_rate[2]={0,0};
- static F32_t integral_rate[2]={0,0};
- F32_t pid_o_rate[3];
- F32_t curr_error_rate[2];
- F32_t deriv_rate[2];
- F32_t correction_rate[2];
+ static F16_t last_error_rate[2] = {0.0, 0.0};
+ static F32_t integral_rate[2] = {0.0, 0.0};
+ F32_t pid_o_rate[3] = {0.0, 0.0, 0.0};
+ F32_t curr_error_rate[2] = {0.0, 0.0};
+ F32_t deriv_rate[2] = {0.0, 0.0};
+ F32_t correction_rate[2] = {0.0, 0.0};
 
 
  for(int i = 0; i < 6; i++)
@@ -24698,15 +24697,7 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
  }
 
 
- F32_t test_buffer[8] = {0.0};
- for(int i = 0; i < 6; i++)
- {
-  test[i] = (F32_t)cmdIn[i];
- }
-
-
- isPositionMode = buffer[5];
-
+ isPositionMode = (uint8_t)buffer[5];
 
 
  if(isPositionMode)
@@ -24739,6 +24730,14 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
   pid_o_pos[2] = kp[2]*(buffer[3] - measured[2]);
  }
+ else
+ {
+
+  last_error_pos[0] = 0.0;
+  last_error_pos[1] = 0.0;
+  integral_pos[0] = 0.0;
+  integral_pos[1] = 0.0;
+ }
 
 
  if(isPositionMode)
@@ -24753,63 +24752,46 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
   rateCmd[1] = buffer[2];
   rateCmd[2] = buffer[3];
  }
+# 134 "PID/pid.cpp"
+   curr_error_rate[0]= rateCmd[0] - measured[3];
+   integral_rate[0] = ((F32_t(integral_rate[0] + curr_error_rate[0]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_rate[0] + curr_error_rate[0]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_rate[0] + curr_error_rate[0]))));
+   deriv_rate[0] = (curr_error_rate[0] - last_error_rate[0]);
+   correction_rate[0] = (kp[3] * curr_error_rate[0]) + (ki[2] * integral_rate[0]) + (kd[2] * deriv_rate[0]);
+   pid_o_rate[0] = ((correction_rate[0])<(F32_t(-1))?(F32_t(-1)):((correction_rate[0])>(F32_t(.999))?(F32_t(.999)):(correction_rate[0])));
+   last_error_rate[0] = curr_error_rate[0];
 
 
 
 
 
+   curr_error_rate[1] = rateCmd[1] - measured[4];
+   integral_rate[1] = ((F32_t(integral_rate[1] + curr_error_rate[1]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_rate[1] + curr_error_rate[1]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_rate[1] + curr_error_rate[1]))));
+   deriv_rate[1] = (curr_error_rate[1] - last_error_rate[1]);
+   correction_rate[1] = (kp[4] * curr_error_rate[1]) + (ki[3] * integral_rate[1]) + (kd[3] * deriv_rate[1]);
 
-
- curr_error_rate[0]= rateCmd[0] - measured[3];
- integral_rate[0] = ((F32_t(integral_rate[0] + curr_error_rate[0]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_rate[0] + curr_error_rate[0]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_rate[0] + curr_error_rate[0]))));
- deriv_rate[0] = (curr_error_rate[0] - last_error_rate[0]);
- correction_rate[0] = (kp[3] * curr_error_rate[0]) + (ki[2] * integral_rate[0]) + (kd[2] * deriv_rate[0]);
- pid_o_rate[0] = ((correction_rate[0])<(F32_t(-1))?(F32_t(-1)):((correction_rate[0])>(F32_t(.999))?(F32_t(.999)):(correction_rate[0])));
- last_error_rate[0] = curr_error_rate[0];
-
-
-
-
-
-
- curr_error_rate[1] = rateCmd[1] - measured[4];
- integral_rate[1] = ((F32_t(integral_rate[1] + curr_error_rate[1]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_rate[1] + curr_error_rate[1]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_rate[1] + curr_error_rate[1]))));
- deriv_rate[1] = (curr_error_rate[1] - last_error_rate[1]);
- correction_rate[1] = (kp[4] * curr_error_rate[1]) + (ki[3] * integral_rate[1]) + (kd[3] * deriv_rate[1]);
- pid_o_rate[1] = ((correction_rate[1])<(F32_t(-1))?(F32_t(-1)):((correction_rate[1])>(F32_t(.999))?(F32_t(.999)):(correction_rate[1])));
- last_error_rate[1] = curr_error_rate[1];
+   pid_o_rate[1] = ((correction_rate[1])<(F32_t(-1))?(F32_t(-1)):((correction_rate[1])>(F32_t(.999))?(F32_t(.999)):(correction_rate[1])));
+   last_error_rate[1] = curr_error_rate[1];
 
 
 
 
 
- pid_o_rate[2] = kp[5]*(rateCmd[2] - measured[5]);
-# 170 "PID/pid.cpp"
- F32_t t_command = (F32_t)buffer[0];
- F32_t r_command = pid_o_rate[0];
- F32_t p_command = pid_o_rate[1];
- F32_t y_command = pid_o_rate[2];
+   pid_o_rate[2] = kp[5]*(rateCmd[2] - measured[5]);
+# 167 "PID/pid.cpp"
+   F19_t t_command = (F19_t)buffer[0];
+   F19_t r_command = (F19_t)pid_o_rate[0];
+   F19_t p_command = (F19_t)pid_o_rate[1];
+   F19_t y_command = (F19_t)pid_o_rate[2];
 
- for(int i = 0; i < 8; i++)
- {
+   for(int i = 0; i < 8; i++)
+   {
 _ssdm_Unroll(0,0,0, "");
-# 194 "PID/pid.cpp"
- F32_t scaled_power = t_command + (r_command * MIX_X8[i][0] + p_command * MIX_X8[i][1] + y_command * MIX_X8[i][2])*(F32_t)0.33;
 
-
-  test_buffer[i] = ((scaled_power)<(F32_t(0.000))?(F32_t(0.000)):((scaled_power)>(F32_t(0.999))?(F32_t(0.999)):(scaled_power)));
+ F19_t scaled_power = t_command + (r_command * MIX_X8[i][0] + p_command * MIX_X8[i][1] + y_command * MIX_X8[i][2]) * F19_t(0.33);
 
 
 
-  commandOut[i] = 0.0;
+
+    commandOut[i] = (F16_t)((scaled_power)<(F19_t(0.000))?(F19_t(0.000)):((scaled_power)>(F19_t(0.999))?(F19_t(0.999)):(scaled_power)));
+   }
  }
-
-
-
-
-
- for(int i = 0; i < 8 ; i++)
- {
-  test[i + 6] = test_buffer[i];
- }
-}

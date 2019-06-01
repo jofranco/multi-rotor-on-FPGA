@@ -6,46 +6,30 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="PID" solutionName="solution1" date="2019-05-30T15:34:08.852-0700"/>
-        <logs message="@E Simulation failed: SIGSEGV." projectName="PID" solutionName="solution1" date="2019-05-30T15:34:08.844-0700"/>
-        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="PID" solutionName="solution1" date="2019-05-30T15:33:15.026-0700"/>
-        <logs message="@E Simulation failed: SIGSEGV." projectName="PID" solutionName="solution1" date="2019-05-30T15:33:15.017-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:21:15.751-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:09:50.514-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:09:08.607-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:07:30.357-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:06:55.060-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:05:03.133-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T15:04:36.204-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T14:51:19.594-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T13:45:23.785-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T13:43:58.886-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T13:29:17.662-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T13:11:11.876-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T03:39:53.570-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="PID" solutionName="solution1" date="2019-05-30T03:37:00.344-0700"/>
-      </csimLog>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_rate_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.637-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'integral_rate_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.632-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_rate_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.627-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'integral_rate_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.624-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_pos_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.619-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'integral_pos_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.615-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_pos_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.610-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'integral_pos_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:30.606-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (PID/pid.cpp:210) of variable 'test_buffer_V_load_4', PID/pid.cpp:197 on array 'test_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'test_V'." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.929-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:201) and bus write on port 'OUT_r' (PID/pid.cpp:201)." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.596-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:201) and bus write on port 'OUT_r' (PID/pid.cpp:201)." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.478-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:201) and bus write on port 'OUT_r' (PID/pid.cpp:201)." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.473-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:201) and bus write on port 'OUT_r' (PID/pid.cpp:201)." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.469-0700" type="Warning"/>
-        <logs message="WARNING: [SYN 201-107] Renaming port name 'pid/OUT' to 'pid/OUT_r' to avoid the conflict with HDL keywords or other object names." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:29.173-0700" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-803] Cannot bundle argument 'commandOut.V' to m_axi port 'OUT' since its offset mode is off." projectName="PID" solutionName="solution1" date="2019-05-30T03:23:28.977-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_rate_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:59.643-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'integral_rate_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:59.633-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_rate_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:59.627-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'integral_rate_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:59.622-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_pos_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:59.617-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'integral_pos_V_1' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:59.612-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'last_error_pos_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:59.607-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'integral_pos_V_0' is power-on initialization." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:59.601-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus write on port 'OUT_r' (PID/pid.cpp:181) within the last 8 cycles (II = 8).&#xD;&#xA;Please consider increasing the initiation interval of the pipeline." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.752-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus write on port 'OUT_r' (PID/pid.cpp:181) within the last 9 cycles (II = 9).&#xD;&#xA;Please consider increasing the initiation interval of the pipeline." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.726-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 7, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:181) and bus write on port 'OUT_r' (PID/pid.cpp:181)." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.702-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus write on port 'OUT_r' (PID/pid.cpp:181) within the last 11 cycles (II = 11).&#xD;&#xA;Please consider increasing the initiation interval of the pipeline." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.697-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:181) and bus write on port 'OUT_r' (PID/pid.cpp:181)." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.675-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:181) and bus write on port 'OUT_r' (PID/pid.cpp:181)." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.622-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:181) and bus write on port 'OUT_r' (PID/pid.cpp:181)." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.617-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (PID/pid.cpp:181) and bus write on port 'OUT_r' (PID/pid.cpp:181)." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.612-0700" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'pid/OUT' to 'pid/OUT_r' to avoid the conflict with HDL keywords or other object names." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.210-0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-803] Cannot bundle argument 'commandOut.V' to m_axi port 'OUT' since its offset mode is off." projectName="PID" solutionName="solution1" date="2019-05-31T16:14:58.013-0700" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

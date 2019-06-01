@@ -2,10 +2,11 @@
 #include "../common/x8_common.hpp"
 #include "ap_fixed.h"
 
-#define ROLL_MIN    F16_t(0.490)
-#define ROLL_MAX    F16_t(0.510)
-#define PITCH_MIN   F16_t(0.490)
-#define PITCH_MAX   F16_t(0.510)
+// self level constraints on mid-stick positions
+#define ROLL_MIN    F16_t(-0.015)
+#define ROLL_MAX    F16_t(0.015)
+#define PITCH_MIN   F16_t(-0.015)
+#define PITCH_MAX   F16_t(0.015)
 
 
 // flight main function call

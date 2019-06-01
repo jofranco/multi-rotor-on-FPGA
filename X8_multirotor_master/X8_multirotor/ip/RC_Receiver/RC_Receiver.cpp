@@ -2,7 +2,7 @@
 #include "RC_Receiver.hpp"
 
 
-void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], F32_t test[SIZE_4k])
+void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], float test[SIZE_4k])
 {
     // HLS PRAGMAS
 	#pragma HLS PIPELINE II=1 enable_flush
@@ -63,9 +63,14 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], F32_t tes
         errors++;
     }
 
-    //  Map  ~ 200 : 1800   -->   0 : 0.999
-    for(int i = 0; i < NUM_CHANNELS; i++)
+    //  Map  ~ [200 : 1800]   -->   [-1 : 0.999]  or  [0:0.999]
+    for(int i = 0; i < RC_CHANNELS; i++)  // only scaling used RC Channels
     {
+    	if( (i == THROT_CHAN) || (i == ARM_CHAN) || (i == MODE_CHAN) )
+    	{	// throttle, ARM, MODE is scaled [0:999]
+    		norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN_ZERO, DEST_MAX);
+    	}
+    	// scale Roll, Pitch, Yaw [-1:999]
     	norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN, DEST_MAX);
     }
 
@@ -76,19 +81,19 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], F32_t tes
     norm_out[MODE_CHAN] = F16_t(selectFlightModeState(norm_out[MODE_CHAN]));
 
     // python test code
-    test[0] = (F32_t)channels[0]; // throttle
-    test[1] = (F32_t)channels[1]; // roll
-    test[2] = (F32_t)channels[2]; // pitch
-    test[3] = (F32_t)channels[3]; // yaw
-    test[4] = (F32_t)channels[4]; // arm
-    test[5] = (F32_t)channels[5]; // mode
+    test[0] = (float)channels[0]; // throttle
+    test[1] = (float)channels[1]; // roll
+    test[2] = (float)channels[2]; // pitch
+    test[3] = (float)channels[3]; // yaw
+    test[4] = (float)channels[4]; // arm
+    test[5] = (float)channels[5]; // mode
 
-    test[6] = (F32_t)norm_out[0]; // throttle
-    test[7] = (F32_t)norm_out[1]; // roll
-    test[8] = (F32_t)norm_out[2]; // pitch
-    test[9] = (F32_t)norm_out[3]; // yaw
-    test[10] = (F32_t)norm_out[4]; // arm
-    test[11] = (F32_t)norm_out[5]; // mode
+    test[6] = (float)norm_out[0]; // throttle
+    test[7] = (float)norm_out[1]; // roll
+    test[8] = (float)norm_out[2]; // pitch
+    test[9] = (float)norm_out[3]; // yaw
+    test[10] = (float)norm_out[4]; // arm
+    test[11] = (float)norm_out[5]; // mode
 
 
 }

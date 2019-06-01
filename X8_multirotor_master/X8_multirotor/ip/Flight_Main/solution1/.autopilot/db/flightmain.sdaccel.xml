@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'flightmain'" level="0">
-<item name = "Date">Wed May 29 23:05:10 2019
+<item name = "Date">Fri May 31 16:53:54 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">Flight_Main</item>
@@ -50,7 +50,7 @@
 <column name="FIFO">-, -, -, -</column>
 <column name="Instance">14, -, 873, 1007</column>
 <column name="Memory">-, -, -, -</column>
-<column name="Multiplexer">-, -, -, 480</column>
+<column name="Multiplexer">-, -, -, 477</column>
 <column name="Register">-, -, 290, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
 <specialColumn name="Utilization (%)">5, 0, 1, 3</specialColumn>
@@ -80,7 +80,7 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="grp_fu_886_p2">+, 0, 0, 12, 1, 3</column>
+<column name="grp_fu_884_p2">+, 0, 0, 12, 1, 3</column>
 <column name="ap_block_state11_pp0_stage10_iter0">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state19_pp0_stage0_iter1">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state4_io">and, 0, 0, 2, 1, 1</column>
@@ -103,13 +103,13 @@
 <column name="ap_predicate_op289_writeresp_state20">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op316_writeresp_state21">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op317_writeresp_state21">and, 0, 0, 2, 1, 1</column>
-<column name="grp_fu_892_p2">icmp, 0, 0, 13, 16, 13</column>
-<column name="grp_fu_897_p2">icmp, 0, 0, 13, 16, 12</column>
-<column name="grp_fu_902_p2">icmp, 0, 0, 13, 16, 13</column>
-<column name="grp_fu_907_p2">icmp, 0, 0, 13, 16, 12</column>
-<column name="tmp_5_fu_1063_p2">icmp, 0, 0, 13, 13, 1</column>
-<column name="tmp_6_fu_1023_p2">icmp, 0, 0, 13, 13, 1</column>
-<column name="tmp_8_fu_1045_p2">icmp, 0, 0, 9, 3, 1</column>
+<column name="grp_fu_890_p2">icmp, 0, 0, 13, 16, 7</column>
+<column name="grp_fu_895_p2">icmp, 0, 0, 13, 16, 8</column>
+<column name="grp_fu_900_p2">icmp, 0, 0, 13, 16, 7</column>
+<column name="grp_fu_905_p2">icmp, 0, 0, 13, 16, 8</column>
+<column name="tmp_5_fu_1061_p2">icmp, 0, 0, 13, 13, 1</column>
+<column name="tmp_6_fu_1021_p2">icmp, 0, 0, 13, 13, 1</column>
+<column name="tmp_8_fu_1043_p2">icmp, 0, 0, 9, 3, 1</column>
 <column name="ap_block_state10_io">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state10_pp0_stage9_iter0">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state11_io">or, 0, 0, 2, 1, 1</column>
@@ -133,32 +133,32 @@
 <column name="ap_block_state24_pp0_stage5_iter1">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state25_pp0_stage6_iter1">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state9_io">or, 0, 0, 2, 1, 1</column>
-<column name="brmerge1_fu_1121_p2">or, 0, 0, 2, 1, 1</column>
-<column name="brmerge_fu_1151_p2">or, 0, 0, 2, 1, 1</column>
-<column name="tmp1_fu_1145_p2">or, 0, 0, 2, 1, 1</column>
-<column name="tmp2_fu_1109_p2">or, 0, 0, 2, 1, 1</column>
-<column name="tmp3_fu_1115_p2">or, 0, 0, 2, 1, 1</column>
-<column name="tmp_fu_1139_p2">or, 0, 0, 2, 1, 1</column>
-<column name="p_1_fu_1069_p3">select, 0, 0, 3, 1, 3</column>
-<column name="p_2_fu_1037_p3">select, 0, 0, 3, 1, 3</column>
-<column name="p_3_fu_1077_p3">select, 0, 0, 3, 1, 3</column>
-<column name="p_s_fu_1029_p3">select, 0, 0, 3, 1, 3</column>
+<column name="brmerge1_fu_1119_p2">or, 0, 0, 2, 1, 1</column>
+<column name="brmerge_fu_1149_p2">or, 0, 0, 2, 1, 1</column>
+<column name="tmp1_fu_1143_p2">or, 0, 0, 2, 1, 1</column>
+<column name="tmp2_fu_1107_p2">or, 0, 0, 2, 1, 1</column>
+<column name="tmp3_fu_1113_p2">or, 0, 0, 2, 1, 1</column>
+<column name="tmp_fu_1137_p2">or, 0, 0, 2, 1, 1</column>
+<column name="p_1_fu_1067_p3">select, 0, 0, 3, 1, 3</column>
+<column name="p_2_fu_1035_p3">select, 0, 0, 3, 1, 3</column>
+<column name="p_3_fu_1075_p3">select, 0, 0, 3, 1, 3</column>
+<column name="p_s_fu_1027_p3">select, 0, 0, 3, 1, 3</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="OUT_r_AWADDR">41, 8, 32, 256</column>
 <column name="OUT_r_AWLEN">21, 4, 32, 128</column>
-<column name="OUT_r_WDATA">50, 11, 16, 176</column>
+<column name="OUT_r_WDATA">47, 10, 16, 160</column>
 <column name="OUT_r_blk_n_AW">9, 2, 1, 2</column>
 <column name="OUT_r_blk_n_B">9, 2, 1, 2</column>
 <column name="OUT_r_blk_n_W">9, 2, 1, 2</column>
 <column name="ap_NS_iter0_fsm">93, 19, 18, 342</column>
 <column name="ap_NS_iter1_fsm">44, 9, 8, 72</column>
-<column name="ap_phi_reg_pp0_iter0_p_Val2_2_reg_830">9, 2, 16, 32</column>
-<column name="ap_phi_reg_pp0_iter0_p_Val2_7_reg_784">9, 2, 16, 32</column>
-<column name="ap_phi_reg_pp0_iter0_p_Val2_8_reg_806">9, 2, 16, 32</column>
-<column name="ap_phi_reg_pp0_iter0_p_Val2_9_reg_854">9, 2, 16, 32</column>
+<column name="ap_phi_reg_pp0_iter0_p_Val2_2_reg_828">9, 2, 16, 32</column>
+<column name="ap_phi_reg_pp0_iter0_p_Val2_7_reg_782">9, 2, 16, 32</column>
+<column name="ap_phi_reg_pp0_iter0_p_Val2_8_reg_804">9, 2, 16, 32</column>
+<column name="ap_phi_reg_pp0_iter0_p_Val2_9_reg_852">9, 2, 16, 32</column>
 <column name="ap_sig_ioackin_OUT_r_AWREADY">9, 2, 1, 2</column>
 <column name="ap_sig_ioackin_OUT_r_WREADY">9, 2, 1, 2</column>
 <column name="rcCmdIn_V_address0">38, 7, 3, 21</column>
@@ -170,30 +170,30 @@
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_iter0_fsm">18, 0, 18, 0</column>
 <column name="ap_CS_iter1_fsm">8, 0, 8, 0</column>
-<column name="ap_phi_reg_pp0_iter0_p_Val2_2_reg_830">16, 0, 16, 0</column>
-<column name="ap_phi_reg_pp0_iter0_p_Val2_7_reg_784">16, 0, 16, 0</column>
-<column name="ap_phi_reg_pp0_iter0_p_Val2_8_reg_806">16, 0, 16, 0</column>
-<column name="ap_phi_reg_pp0_iter0_p_Val2_9_reg_854">16, 0, 16, 0</column>
+<column name="ap_phi_reg_pp0_iter0_p_Val2_2_reg_828">16, 0, 16, 0</column>
+<column name="ap_phi_reg_pp0_iter0_p_Val2_7_reg_782">16, 0, 16, 0</column>
+<column name="ap_phi_reg_pp0_iter0_p_Val2_8_reg_804">16, 0, 16, 0</column>
+<column name="ap_phi_reg_pp0_iter0_p_Val2_9_reg_852">16, 0, 16, 0</column>
 <column name="ap_reg_ioackin_OUT_r_AWREADY">1, 0, 1, 0</column>
 <column name="ap_reg_ioackin_OUT_r_WREADY">1, 0, 1, 0</column>
-<column name="brmerge1_reg_1386">1, 0, 1, 0</column>
-<column name="brmerge1_reg_1386_pp0_iter0_reg">1, 0, 1, 0</column>
-<column name="brmerge_reg_1416">1, 0, 1, 0</column>
-<column name="brmerge_reg_1416_pp0_iter0_reg">1, 0, 1, 0</column>
-<column name="p_3_reg_1295">3, 0, 3, 0</column>
-<column name="p_3_reg_1295_pp0_iter0_reg">3, 0, 3, 0</column>
-<column name="p_Val2_1_reg_1283">16, 0, 16, 0</column>
-<column name="p_Val2_1_reg_1283_pp0_iter0_reg">16, 0, 16, 0</column>
-<column name="p_Val2_3_reg_1299">16, 0, 16, 0</column>
-<column name="p_Val2_4_reg_1315">16, 0, 16, 0</column>
-<column name="p_Val2_5_reg_1333">16, 0, 16, 0</column>
-<column name="p_Val2_6_reg_1356">16, 0, 16, 0</column>
-<column name="p_Val2_s_reg_1257">16, 0, 16, 0</column>
-<column name="p_Val2_s_reg_1257_pp0_iter0_reg">16, 0, 16, 0</column>
-<column name="tmp_18_cast_reg_1440">29, 0, 32, 3</column>
-<column name="tmp_20_cast_reg_1450">29, 0, 32, 3</column>
-<column name="tmp_8_reg_1274">1, 0, 1, 0</column>
-<column name="tmp_8_reg_1274_pp0_iter0_reg">1, 0, 1, 0</column>
+<column name="brmerge1_reg_1384">1, 0, 1, 0</column>
+<column name="brmerge1_reg_1384_pp0_iter0_reg">1, 0, 1, 0</column>
+<column name="brmerge_reg_1414">1, 0, 1, 0</column>
+<column name="brmerge_reg_1414_pp0_iter0_reg">1, 0, 1, 0</column>
+<column name="p_3_reg_1293">3, 0, 3, 0</column>
+<column name="p_3_reg_1293_pp0_iter0_reg">3, 0, 3, 0</column>
+<column name="p_Val2_1_reg_1281">16, 0, 16, 0</column>
+<column name="p_Val2_1_reg_1281_pp0_iter0_reg">16, 0, 16, 0</column>
+<column name="p_Val2_3_reg_1297">16, 0, 16, 0</column>
+<column name="p_Val2_4_reg_1313">16, 0, 16, 0</column>
+<column name="p_Val2_5_reg_1331">16, 0, 16, 0</column>
+<column name="p_Val2_6_reg_1354">16, 0, 16, 0</column>
+<column name="p_Val2_s_reg_1255">16, 0, 16, 0</column>
+<column name="p_Val2_s_reg_1255_pp0_iter0_reg">16, 0, 16, 0</column>
+<column name="tmp_18_cast_reg_1438">29, 0, 32, 3</column>
+<column name="tmp_20_cast_reg_1448">29, 0, 32, 3</column>
+<column name="tmp_8_reg_1272">1, 0, 1, 0</column>
+<column name="tmp_8_reg_1272_pp0_iter0_reg">1, 0, 1, 0</column>
 </table>
 </item>
 </section>

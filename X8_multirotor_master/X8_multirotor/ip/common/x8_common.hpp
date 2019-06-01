@@ -15,6 +15,7 @@
 
 #define MOTOR_COUNT          8
 #define RC_CHANNELS          6
+
 #define REVERSE_MOTOR_DIRECTION
 
 #define THROT_CHAN    		 0

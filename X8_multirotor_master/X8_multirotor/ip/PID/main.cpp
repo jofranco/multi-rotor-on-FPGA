@@ -9,15 +9,15 @@ int main()
 	F32_t kd[4] = {0.0, 0.0, 0.0, 0.0};				// PID gains
 	F32_t ki[4] = {0.0, 0.0, 0.0, 0.0};				// PID gains
 	F16_t commandOut[9] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-	float test[SIZE_4k] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	F32_t test[SIZE_4k] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
 	// test RC input
-	cmdIn[THROT_CHAN]  = 0.500;
-	cmdIn[ROLL_CHAN]   = 0.500;
-	cmdIn[PITCH_CHAN]  = 0.500;
-	cmdIn[YAW_CHAN]    = 0.500;
-	cmdIn[ARM_CHAN]    = 1;
-	cmdIn[MODE_CHAN]   = 1;
+	cmdIn[THROT_CHAN]  =   0.3000;  // 0:1 only!!!
+	cmdIn[ROLL_CHAN]   =  -0.3000;
+	cmdIn[PITCH_CHAN]  =  -0.3000;
+	cmdIn[YAW_CHAN]    =  -0.3000;
+	cmdIn[ARM_CHAN]    =  1.0000;
+	cmdIn[MODE_CHAN]   =  0.0000;
 
 	// test measured values
 	measured[0] = 0.00;
@@ -26,6 +26,9 @@ int main()
 	measured[3] = 0.00;
 	measured[4] = 0.00;
 	measured[5] = 0.00;
+
+	pid(cmdIn, measured, kp, kd, ki, commandOut, test);
+
 
 
 	printf("RC Input Commands: \n");
@@ -36,11 +39,6 @@ int main()
 	printf("Arm: \t\t %f \n", (float)cmdIn[ARM_CHAN]);
 	printf("Mode: \t\t %f \n", (float)cmdIn[MODE_CHAN]);
 	printf("\n");
-
-	pid(cmdIn, measured, kp, kd, ki, commandOut, test);
-	pid(cmdIn, measured, kp, kd, ki, commandOut, test);
-
-
 
 	printf("Motor Output Commands: \n");
 	printf("M1: \t %f \n", (float)commandOut[0]);
