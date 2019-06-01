@@ -1,5 +1,5 @@
 # Multirotor on an FPGA
-Welcome to the X8_multirotor project. If you are looking to immediately get started flying, see "Fly Now". If you are wanting to modify this project, take a look at "Getting to Work". If you are publishing a paper or code resulting from the source or information in this project, please cite our paper (REMOVED FOR FCCM).
+Welcome to the X8_multirotor project. If you are looking to immediately get started flying, see "Fly Now". If you are wanting to modify this project, take a look at "Getting to Work".
 
 ## Fly Now
 To get started flying now, You must have the exact parts in the same physical configuration we used. If your system is in any way different, you must modify the project to suit your system. If everything is the same follow these steps:

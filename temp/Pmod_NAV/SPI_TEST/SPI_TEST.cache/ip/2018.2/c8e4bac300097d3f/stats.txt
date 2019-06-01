@@ -1,4 +1,0 @@
-NumberHits:28
-Timestamp: Tue May 21 20:05:07 UTC 2019
-VLNV: xilinx.com:ip:axi_protocol_converter:2.1
-SynthRuntime: 95
