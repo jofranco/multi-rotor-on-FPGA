@@ -52,6 +52,22 @@ uint16_t xspi_read(uint8_t address)
 	return message;
 }
 
+int32_t signBitExtend(int32_t testByte) {
+	int8_t signBit;
+	int32_t signMask = 0x00008000;
+	int32_t testFourByte;
+
+	signBit = ((signMask & testByte) >> 15);
+
+	if(signBit) {
+		testFourByte = 0x0000FF00 | testByte;
+	}
+	else {
+		testFourByte = 0x000000FF & testByte;
+	}
+	return testFourByte;
+}
+
 /**
  * 
  * void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096])
@@ -69,7 +85,7 @@ uint16_t xspi_read(uint8_t address)
 //void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16_t pmod_test[4096])
 //void AXI_SPI_DRIVER(volatile int spi_bus[SIZE_4k], uint16_t pmod_data[SIZE_4k])
 //void axiSpiDriver(volatile int spi_bus[SIZE_4k], F32_t pmod_data[SIZE_4k])
-void axiSpiDriver(volatile int spi_bus[SIZE_4k], int pmod_data[SIZE_4k])
+void axiSpiDriver(volatile int spi_bus[SIZE_4k], int32_t pmod_data[SIZE_4k])
 {
 
 	//SETUP PRAGMAS
@@ -89,16 +105,18 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int pmod_data[SIZE_4k])
 	// configuring AXI QUAD SPI Core
 	static unsigned char state = 0;
 	static unsigned char navDataState = 0;	// used to collect acc/gryo data one at a time
-	uint32_t temp;	// used to check response from GYRO_WHO_AM_I
+	int32_t temp;	// used to check response from GYRO_WHO_AM_I
 	uint16_t statusTemp;
-	int itemp;
+	static int32_t tempDataLow = 0;
+	static int32_t tempDataHigh = 0;
+	int32_t tempData = 0;
 	#pragma HLS RESET variable=state
 
 	switch (state)
 	{
 		case 0: // SPI Control Register setup
 			// debug code for jupyter notebook
-			pmod_data[0] = 0;
+			pmod_data[0] = state;
 
 			spi_bus[SPICR] = 0x6;		// enable SPI core in master mode, auto SS
 			// -- *(m+SPICR_OFFSET) = 0x4 | 0x8 | 0x2; // Master, CPOL, SPE
@@ -107,7 +125,7 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int pmod_data[SIZE_4k])
 			break;
 		case 1: //	SPI Slave select Register setup (active low)
 			// debug code for jupyter notebook
-			pmod_data[0] = 1;
+			pmod_data[0] = state;
 
 			spi_bus[SPISSR] = 0xFFFE;	// enable SS 0 - PMODNav ACC/GYRO
 
@@ -116,7 +134,7 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int pmod_data[SIZE_4k])
 
 		case 2:	//	Enabling Pmod_Nav, state 1
 			// debug code for jupyter notebook
-			pmod_data[0] = 2;
+			pmod_data[0] = state;
 
 	        //enable acc output
 			spi_bus[SPI_DTR] = xspi_write(CTRL_REG5_XL, 0x38); 	//00111000
@@ -126,39 +144,45 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int pmod_data[SIZE_4k])
 
 		case 3:	//	Enabling Pmod_Nav, state 2
 			// debug code for jupyter notebook
-			pmod_data[0] = 3;
+			pmod_data[0] = state;
 
 			//set odr rate 952Hz of acc
 			//spi_bus[SPI_DTR] = xspi_write(CTRL_REG6_XL, 0xC0); 	//11000000
-			spi_bus[SPI_DTR] = xspi_write(CTRL_REG6_XL, 0xDB);
+			spi_bus[SPI_DTR] = xspi_write(CTRL_REG6_XL, 0xD8);
 
 			state++;
 			break;
 
 		case 4:	//	Enabling Pmod_Nav, state 3
 			// debug code for jupyter notebook
-			pmod_data[0] = 4;
+			pmod_data[0] = state;
 
 	        //set odr rate 14.9Hz of gyro
 	        //spi_bus[SPI_DTR] = xspi_write(CTRL_REG1_G, 0xC0); 	//11000000
-	        spi_bus[SPI_DTR] = xspi_write(CTRL_REG1_G, 0x6F);
+	        spi_bus[SPI_DTR] = xspi_write(CTRL_REG1_G, 0xDB);
 
 			state++;
 			break;
 
 		case 5:	//	Enabling Pmod_Nav, state 4
 			// debug code for jupyter notebook
-			pmod_data[0] = 5;
+			pmod_data[0] = state;
 
 	        //enable gyro output
 	        spi_bus[SPI_DTR] = xspi_write(CTRL_REG4, 0x38);		//00111000
 
 			state++;
 			break;
-
 		case 6:
+			pmod_data[0] = state;
+
+			spi_bus[SPICR] = 0x46;		// reset FIFO
+
+			state++;
+			break;
+		case 7:
 			// debug code for jupyter notebook
-			pmod_data[0] = 6;
+			pmod_data[0] = state;
 
 			temp = 0;
 
@@ -166,16 +190,15 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int pmod_data[SIZE_4k])
 			state++;
 
 			break;
-		case 7:
+		case 8:
 
-			pmod_data[0] = 7;
+			pmod_data[0] = state;
 			statusTemp = spi_bus[SPISR] & 0x1;
 
 
 			if(statusTemp==0){	// If receive FIFO has data
 				temp = spi_bus[SPI_DRR];
-				temp = temp & 0x000000FF; // expect 0x68h (104d)
-
+				temp = temp & DATA_MASK; // expect 0x68h (104d)
 				if(temp == WHO_AM_I_RESP){
 					state++;
 					pmod_data[6] = 69;
@@ -190,49 +213,227 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int pmod_data[SIZE_4k])
 
 			// Get raw data from nav sensor and pack it inside
 			// pmod_data
+
+
 			pmod_data[7] = state;
 			switch(navDataState)
 			{
 			case 0:
-				spi_bus[SPI_DTR] = Nav_Acc_GetData(X_DIR_SEL);//	Raw accX
-				pmod_data[0] = spi_bus[SPI_DRR];
+				// first action is to write to bus for low byte data
+				spi_bus[SPI_DTR] = Nav_Acc_GetData(X_DIR_SEL);//	Raw accX Low
+
 				pmod_data[6] = navDataState;
 				navDataState++;
 				break;
 			case 1:
-				spi_bus[SPI_DTR] = Nav_Acc_GetData(Y_DIR_SEL);//	Raw accY
-				pmod_data[1] = spi_bus[SPI_DRR];
+				// second action is to read low byte from bus and store it
+				tempDataLow = spi_bus[SPI_DRR];
+				tempDataLow = tempDataLow & DATA_MASK;
+
 				pmod_data[6] = navDataState;
 				navDataState++;
 				break;
 			case 2:
-				spi_bus[SPI_DTR] = Nav_Acc_GetData(Z_DIR_SEL);//	Raw accZ
-				pmod_data[2] = spi_bus[SPI_DRR];
+				// third action is to write to bus for high byte data
+				spi_bus[SPI_DTR] = Nav_Acc_GetData_H(X_DIR_SEL);//	Raw accX High
+
 				pmod_data[6] = navDataState;
 				navDataState++;
 				break;
 			case 3:
-				spi_bus[SPI_DTR] = Nav_Gyro_GetData(X_DIR_SEL);// 	Raw gyroX
-				pmod_data[3] = spi_bus[SPI_DRR];
+				// fourth action is to read high byte from bus and signExtension
+				tempDataHigh = spi_bus[SPI_DRR];
+				tempDataHigh = tempDataHigh & DATA_MASK;
+				temp = signBitExtend(tempDataHigh);
+
+				// save to pmod_data[]
+				temp = (temp << 8) | tempDataLow;
+				pmod_data[0] = temp;
+
 				pmod_data[6] = navDataState;
 				navDataState++;
 				break;
 			case 4:
-				spi_bus[SPI_DTR] = Nav_Gyro_GetData(Y_DIR_SEL);//	Raw gyroY
-				pmod_data[4] = spi_bus[SPI_DRR];
+				// Repeat first action
+				spi_bus[SPI_DTR] = Nav_Acc_GetData(Y_DIR_SEL);//	Raw accY Low
+
 				pmod_data[6] = navDataState;
 				navDataState++;
 				break;
 			case 5:
-				spi_bus[SPI_DTR] = Nav_Gyro_GetData(Z_DIR_SEL);//	Raw gyroZ
-				//pmod_data[5] = F32_t(spi_bus[SPI_DRR]);
-				pmod_data[5] = spi_bus[SPI_DRR];
+				// Repeat second action
+				tempDataLow = spi_bus[SPI_DRR];
+				tempDataLow = tempDataLow & DATA_MASK;
+
 				pmod_data[6] = navDataState;
 				navDataState++;
 				break;
+			case 6:
+				// Repeat third action
+				spi_bus[SPI_DTR] = Nav_Acc_GetData_H(Y_DIR_SEL);//	Raw accY High
 
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 7:
+				// Repeat fourth action
+				tempDataHigh = spi_bus[SPI_DRR];
+				tempDataHigh = tempDataHigh & DATA_MASK;
+				temp = signBitExtend(tempDataHigh);
+
+				// save to pmod_data[]
+				temp = (temp << 8) | tempDataLow;
+				pmod_data[1] = temp;
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 8:
+				// Repeat first action
+				spi_bus[SPI_DTR] = Nav_Acc_GetData(Z_DIR_SEL);//	Raw accZ Low
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 9:
+				// Repeat second action
+				tempDataLow = spi_bus[SPI_DRR];
+				tempDataLow = tempDataLow & DATA_MASK;
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 10:
+				// Repeat third action
+				spi_bus[SPI_DTR] = Nav_Acc_GetData_H(Z_DIR_SEL);//	Raw accZ High
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 11:
+				// Repeat fourth action
+				tempDataHigh = spi_bus[SPI_DRR];
+				tempDataHigh = tempDataHigh & DATA_MASK;
+				temp = signBitExtend(tempDataHigh);
+
+				// save to pmod_data[]
+				temp = (temp << 8) | tempDataLow;
+				pmod_data[2] = temp;
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 12:
+				// first action is to write to bus for low byte data
+				spi_bus[SPI_DTR] = Nav_Gyro_GetData(X_DIR_SEL);//	Raw gyroX Low
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 13:
+				// second action is to read low byte from bus and store it
+				tempDataLow = spi_bus[SPI_DRR];
+				tempDataLow = tempDataLow & DATA_MASK;
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 14:
+				// third action is to write to bus for high byte data
+				spi_bus[SPI_DTR] = Nav_Gyro_GetData_H(X_DIR_SEL);//	Raw gyroX High
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 15:
+				// fourth action is to read high byte from bus and signExtension
+				tempDataHigh = spi_bus[SPI_DRR];
+				tempDataHigh = tempDataHigh & DATA_MASK;
+				temp = signBitExtend(tempDataHigh);
+
+				// save to pmod_data[]
+				temp = (temp << 8) | tempDataLow;
+				pmod_data[3] = temp;
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 16:
+				// Repeat first action
+				spi_bus[SPI_DTR] = Nav_Gyro_GetData(Y_DIR_SEL);//	Raw gyroY Low
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 17:
+				// Repeat second action
+				tempDataLow = spi_bus[SPI_DRR];
+				tempDataLow = tempDataLow & DATA_MASK;
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 18:
+				// Repeat third action
+				spi_bus[SPI_DTR] = Nav_Gyro_GetData_H(Y_DIR_SEL);//	Raw gyroY High
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 19:
+				// Repeat fourth action
+				tempDataHigh = spi_bus[SPI_DRR];
+				tempDataHigh = tempDataHigh & DATA_MASK;
+				temp = signBitExtend(tempDataHigh);
+
+				// save to pmod_data[]
+				temp = (temp << 8) | tempDataLow;
+				pmod_data[4] = temp;
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 20:
+				// Repeat first action
+				spi_bus[SPI_DTR] = Nav_Gyro_GetData(Z_DIR_SEL);//	Raw gyroZ Low
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 21:
+				// Repeat second action
+				tempDataLow = spi_bus[SPI_DRR];
+				tempDataLow = tempDataLow & DATA_MASK;
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 22:
+				// Repeat third action
+				spi_bus[SPI_DTR] = Nav_Gyro_GetData_H(Z_DIR_SEL);//	Raw gyroZ High
+
+				pmod_data[6] = navDataState;
+				navDataState++;
+				break;
+			case 23:
+				// Repeat fourth action
+				tempDataHigh = spi_bus[SPI_DRR];
+				tempDataHigh = tempDataHigh & DATA_MASK;
+				temp = signBitExtend(tempDataHigh);
+
+				// save to pmod_data[]
+				temp = (temp << 8) | tempDataLow;
+				pmod_data[2] = temp;
+
+				pmod_data[5] = navDataState;
+				navDataState++;
+				break;
 			default:
 				navDataState = 0;
+				temp = 0;
+				tempDataLow = 0;
+				tempDataHigh = 0;
+				pmod_data[6] = navDataState;
 				break;
 			}	// end of navData State Machine
 

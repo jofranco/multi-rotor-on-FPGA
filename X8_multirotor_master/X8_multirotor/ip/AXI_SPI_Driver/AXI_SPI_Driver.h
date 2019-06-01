@@ -9,6 +9,7 @@
 
 #define QSPI_BASE_ADDR	(0x41E00000 >> 2)
 #define NOT_SUPPORTED	(0x00)
+#define DATA_MASK 		(0x000000FF)
 // Core Grouping
 #define SRR 		(0x40 >> 2)	// software reset register
 #define SPICR		(0x60 >> 2)  // SPI control register
@@ -26,14 +27,20 @@
 
 // Address space definitions for PMODNAV
 #define ACC_X_L_ADDR     (0x28)
+#define ACC_X_H_ADDR     (0x29)
 #define ACC_Y_L_ADDR     (0x2A)
+#define ACC_Y_H_ADDR     (0x2B)
 #define ACC_Z_L_ADDR     (0x2C)
+#define ACC_Z_H_ADDR     (0x2D)
 
 #define MAG_X_L_ADDR     (0x28)
 
 #define GYRO_X_L_ADDR    (0x18)
+#define GYRO_X_H_ADDR    (0x19)
 #define GYRO_Y_L_ADDR    (0x1A)
+#define GYRO_Y_H_ADDR    (0x1B)
 #define GYRO_Z_L_ADDR    (0x1C)
+#define GYRO_Z_H_ADDR    (0x1D)
 
 #define ALT_X_L_ADDR     (0x28)
 
@@ -103,6 +110,7 @@ struct DTYPE2
  */
 uint16_t xspi_write(uint8_t address, uint8_t val);
 uint16_t xspi_read(uint8_t address);
+int32_t signBitExtend(int16_t testByte);
 
 // main driver
 //void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16_t pmod_test[4096]);
