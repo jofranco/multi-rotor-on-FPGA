@@ -6,7 +6,7 @@ To get started flying now, You must have the exact parts in the same physical co
 1. Copy the X8 bit stream, X8 tcl file, and X8 Jupyter notebook to your PYNQ-Z1 board.
 2. Power on the X8 multirotor and open the X8 Jupyter notebook
 2. Run the X8 Jupyter notebook to configure the drone and start the HLS IP cores
-3. Perform the [Flight Checks](https://github.com/...)
+3. Perform the [Flight Checks](https://github.com/jofranco/multi-rotor-on-FPGA/wiki/Flight-Instructions)
 6. Take care and fly safely
 
 ## Getting to Work
