@@ -60,7 +60,7 @@ int32_t signBitExtend(int32_t testByte) {
 	signBit = ((signMask & testByte) >> 15);
 
 	if(signBit) {
-		testFourByte = 0x0000FF00 | testByte;
+		testFourByte = 0xFFFFFF00 | testByte;
 	}
 	else {
 		testFourByte = 0x000000FF & testByte;
@@ -148,7 +148,7 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int32_t pmod_data[SIZE_4k])
 
 			//set odr rate 952Hz of acc
 			//spi_bus[SPI_DTR] = xspi_write(CTRL_REG6_XL, 0xC0); 	//11000000
-			spi_bus[SPI_DTR] = xspi_write(CTRL_REG6_XL, 0xD8);
+			spi_bus[SPI_DTR] = xspi_write(CTRL_REG6_XL, 0xD8);		//1101 1000
 
 			state++;
 			break;
@@ -159,7 +159,7 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int32_t pmod_data[SIZE_4k])
 
 	        //set odr rate 14.9Hz of gyro
 	        //spi_bus[SPI_DTR] = xspi_write(CTRL_REG1_G, 0xC0); 	//11000000
-	        spi_bus[SPI_DTR] = xspi_write(CTRL_REG1_G, 0xDB);
+	        spi_bus[SPI_DTR] = xspi_write(CTRL_REG1_G, 0xDB);		//1101 1000
 
 			state++;
 			break;
@@ -248,6 +248,7 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int32_t pmod_data[SIZE_4k])
 
 				// save to pmod_data[]
 				temp = (temp << 8) | tempDataLow;
+				temp = signBitExtend(temp);
 				pmod_data[0] = temp;
 
 				pmod_data[6] = navDataState;
@@ -283,6 +284,7 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int32_t pmod_data[SIZE_4k])
 
 				// save to pmod_data[]
 				temp = (temp << 8) | tempDataLow;
+				temp = signBitExtend(temp);
 				pmod_data[1] = temp;
 
 				pmod_data[6] = navDataState;
@@ -318,6 +320,7 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int32_t pmod_data[SIZE_4k])
 
 				// save to pmod_data[]
 				temp = (temp << 8) | tempDataLow;
+				temp = signBitExtend(temp);
 				pmod_data[2] = temp;
 
 				pmod_data[6] = navDataState;
@@ -353,6 +356,7 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int32_t pmod_data[SIZE_4k])
 
 				// save to pmod_data[]
 				temp = (temp << 8) | tempDataLow;
+				temp = signBitExtend(temp);
 				pmod_data[3] = temp;
 
 				pmod_data[6] = navDataState;
@@ -388,6 +392,7 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int32_t pmod_data[SIZE_4k])
 
 				// save to pmod_data[]
 				temp = (temp << 8) | tempDataLow;
+				temp = signBitExtend(temp);
 				pmod_data[4] = temp;
 
 				pmod_data[6] = navDataState;
@@ -423,9 +428,10 @@ void axiSpiDriver(volatile int spi_bus[SIZE_4k], int32_t pmod_data[SIZE_4k])
 
 				// save to pmod_data[]
 				temp = (temp << 8) | tempDataLow;
-				pmod_data[2] = temp;
+				temp = signBitExtend(temp);
+				pmod_data[5] = temp;
 
-				pmod_data[5] = navDataState;
+				pmod_data[6] = navDataState;
 				navDataState++;
 				break;
 			default:

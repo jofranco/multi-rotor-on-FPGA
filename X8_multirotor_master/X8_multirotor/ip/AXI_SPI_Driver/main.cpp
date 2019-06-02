@@ -29,11 +29,32 @@ int main()
 	//test_spi_bus[SPI_DTR] =
 	int count = 0;
 
-	while(count < 8)
+	int testOne = 30;	// assigning known garbage valiue
+
+	while(count < 32)
 	{
+		// if else for inputs
+		if(count==8){
+			test_spi_bus[SPISR] = 0;
+			test_spi_bus[SPI_DRR] = 0xFF68;
+		}
+		else if(count==10) {	// navDataState Case 1
+			test_spi_bus[SPI_DRR] = -5;
+
+		}
+		else if(count==12) {
+			test_spi_bus[SPI_DRR] = 255;
+		}
 		//AXI_SPI_DRIVER(test_spi_bus, test_pmod_data, test_pmod_test);
 		axiSpiDriver(test_spi_bus, test_pmod_data);
 
+		// if else for outputs
+		if(count==12){
+			printf("In output check \n");
+			testOne = test_pmod_data[0];
+			printf("%f \n", (float) test_pmod_data[0]);
+			printf("%d \n", testOne);
+		}
 		//printf("%d \n", test_pmod_test[count]);
 		printf("%d \n", (float) test_pmod_data[count]);
 		count++;
