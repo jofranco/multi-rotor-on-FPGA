@@ -75,6 +75,8 @@ set rc [catch {
   C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver
   C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main
   C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID
+  C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver
+  C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PWM
 } [current_project]
   set_property ip_output_repo C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]

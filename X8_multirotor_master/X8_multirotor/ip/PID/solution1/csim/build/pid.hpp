@@ -79,8 +79,8 @@ static const F19_t MIX_X8[8][4] = {
 
 
 // PID function definition
-//void pid (uint16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9]);
-void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[SIZE_4k]);
+void pid (uint16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9]);
+
 
 
 

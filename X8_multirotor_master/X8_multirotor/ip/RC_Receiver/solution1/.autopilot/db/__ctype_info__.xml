@@ -19,15 +19,5 @@
 <CFractionWidth>13</CFractionWidth>
 <InvalidType>0</InvalidType>
 </RtlPorts>
-<RtlPorts>
-<name>test_V</name>
-<CType>
-<TypeName>ap_fixed 32 16 5 3 0</TypeName>
-<TypeWidth>32</TypeWidth>
-<PhysicalWidth>32</PhysicalWidth>
-</CType>
-<CFractionWidth>16</CFractionWidth>
-<InvalidType>0</InvalidType>
-</RtlPorts>
 </InterfaceSummary>
 

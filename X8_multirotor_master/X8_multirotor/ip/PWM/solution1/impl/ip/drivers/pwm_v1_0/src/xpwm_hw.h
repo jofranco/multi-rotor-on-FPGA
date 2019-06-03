@@ -5,7 +5,7 @@
 // 
 // ==============================================================
 
-// ctrl
+// CTRL
 // 0x00 : Control signals
 //        bit 0  - ap_start (Read/Write/COH)
 //        bit 1  - ap_done (Read/COR)
@@ -25,19 +25,16 @@
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
 // 0x10 : Data signal of min_duty
-//        bit 15~0 - min_duty[15:0] (Read/Write)
-//        others   - reserved
+//        bit 31~0 - min_duty[31:0] (Read/Write)
 // 0x14 : reserved
 // 0x18 : Data signal of max_duty
-//        bit 15~0 - max_duty[15:0] (Read/Write)
-//        others   - reserved
+//        bit 31~0 - max_duty[31:0] (Read/Write)
 // 0x1c : reserved
 // 0x20 : Data signal of period
-//        bit 15~0 - period[15:0] (Read/Write)
-//        others   - reserved
+//        bit 31~0 - period[31:0] (Read/Write)
 // 0x24 : reserved
-// 0x30 ~
-// 0x3f : Memory 'm_V' (6 * 16b)
+// 0x40 ~
+// 0x5f : Memory 'm_V' (9 * 16b)
 //        Word n : bit [15: 0] - m_V[2n]
 //                 bit [31:16] - m_V[2n+1]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
@@ -47,13 +44,24 @@
 #define XPWM_CTRL_ADDR_IER           0x08
 #define XPWM_CTRL_ADDR_ISR           0x0c
 #define XPWM_CTRL_ADDR_MIN_DUTY_DATA 0x10
-#define XPWM_CTRL_BITS_MIN_DUTY_DATA 16
+#define XPWM_CTRL_BITS_MIN_DUTY_DATA 32
 #define XPWM_CTRL_ADDR_MAX_DUTY_DATA 0x18
-#define XPWM_CTRL_BITS_MAX_DUTY_DATA 16
+#define XPWM_CTRL_BITS_MAX_DUTY_DATA 32
 #define XPWM_CTRL_ADDR_PERIOD_DATA   0x20
-#define XPWM_CTRL_BITS_PERIOD_DATA   16
-#define XPWM_CTRL_ADDR_M_V_BASE      0x30
-#define XPWM_CTRL_ADDR_M_V_HIGH      0x3f
+#define XPWM_CTRL_BITS_PERIOD_DATA   32
+#define XPWM_CTRL_ADDR_M_V_BASE      0x40
+#define XPWM_CTRL_ADDR_M_V_HIGH      0x5f
 #define XPWM_CTRL_WIDTH_M_V          16
-#define XPWM_CTRL_DEPTH_M_V          6
+#define XPWM_CTRL_DEPTH_M_V          9
+
+// TEST
+// 0x4000 ~
+// 0x7fff : Memory 'test' (4096 * 32b)
+//          Word n : bit [31:0] - test[n]
+// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
+
+#define XPWM_TEST_ADDR_TEST_BASE 0x4000
+#define XPWM_TEST_ADDR_TEST_HIGH 0x7fff
+#define XPWM_TEST_WIDTH_TEST     32
+#define XPWM_TEST_DEPTH_TEST     4096
 

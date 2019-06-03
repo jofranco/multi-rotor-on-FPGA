@@ -15,7 +15,6 @@ int XRcreceiver_CfgInitialize(XRcreceiver *InstancePtr, XRcreceiver_Config *Conf
     Xil_AssertNonvoid(ConfigPtr != NULL);
 
     InstancePtr->Ctrl_BaseAddress = ConfigPtr->Ctrl_BaseAddress;
-    InstancePtr->Test_BaseAddress = ConfigPtr->Test_BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -168,101 +167,6 @@ u32 XRcreceiver_Read_SBUS_data_Bytes(XRcreceiver *InstancePtr, int offset, char 
 
     for (i = 0; i < length; i++) {
         *(data + i) = *(char *)(InstancePtr->Ctrl_BaseAddress + XRCRECEIVER_CTRL_ADDR_SBUS_DATA_BASE + offset + i);
-    }
-    return length;
-}
-
-u32 XRcreceiver_Get_test_V_BaseAddress(XRcreceiver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Test_BaseAddress + XRCRECEIVER_TEST_ADDR_TEST_V_BASE);
-}
-
-u32 XRcreceiver_Get_test_V_HighAddress(XRcreceiver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Test_BaseAddress + XRCRECEIVER_TEST_ADDR_TEST_V_HIGH);
-}
-
-u32 XRcreceiver_Get_test_V_TotalBytes(XRcreceiver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (XRCRECEIVER_TEST_ADDR_TEST_V_HIGH - XRCRECEIVER_TEST_ADDR_TEST_V_BASE + 1);
-}
-
-u32 XRcreceiver_Get_test_V_BitWidth(XRcreceiver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XRCRECEIVER_TEST_WIDTH_TEST_V;
-}
-
-u32 XRcreceiver_Get_test_V_Depth(XRcreceiver *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XRCRECEIVER_TEST_DEPTH_TEST_V;
-}
-
-u32 XRcreceiver_Write_test_V_Words(XRcreceiver *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XRCRECEIVER_TEST_ADDR_TEST_V_HIGH - XRCRECEIVER_TEST_ADDR_TEST_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(int *)(InstancePtr->Test_BaseAddress + XRCRECEIVER_TEST_ADDR_TEST_V_BASE + (offset + i)*4) = *(data + i);
-    }
-    return length;
-}
-
-u32 XRcreceiver_Read_test_V_Words(XRcreceiver *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XRCRECEIVER_TEST_ADDR_TEST_V_HIGH - XRCRECEIVER_TEST_ADDR_TEST_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(int *)(InstancePtr->Test_BaseAddress + XRCRECEIVER_TEST_ADDR_TEST_V_BASE + (offset + i)*4);
-    }
-    return length;
-}
-
-u32 XRcreceiver_Write_test_V_Bytes(XRcreceiver *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XRCRECEIVER_TEST_ADDR_TEST_V_HIGH - XRCRECEIVER_TEST_ADDR_TEST_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(char *)(InstancePtr->Test_BaseAddress + XRCRECEIVER_TEST_ADDR_TEST_V_BASE + offset + i) = *(data + i);
-    }
-    return length;
-}
-
-u32 XRcreceiver_Read_test_V_Bytes(XRcreceiver *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XRCRECEIVER_TEST_ADDR_TEST_V_HIGH - XRCRECEIVER_TEST_ADDR_TEST_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(char *)(InstancePtr->Test_BaseAddress + XRCRECEIVER_TEST_ADDR_TEST_V_BASE + offset + i);
     }
     return length;
 }

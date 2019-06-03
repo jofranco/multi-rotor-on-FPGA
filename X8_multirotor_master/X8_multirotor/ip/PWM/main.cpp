@@ -42,7 +42,9 @@
 #include <iostream>
 #include <fstream>
 
-int main() {
+int main()
+{
+	/*
 	char delim = '\t';
 	std::ofstream myfile;
 	myfile.open("out.csv");
@@ -65,7 +67,7 @@ int main() {
     	}
     }
     myfile.close();
-
+	*/
 
     return 0;
 }

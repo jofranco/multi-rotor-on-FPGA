@@ -1,17 +1,15 @@
 //include libraries
 #include "../common/x8_common.hpp"
-#include "ap_fixed.h"
 
 // self level constraints on mid-stick positions
-#define ROLL_MIN    F16_t(-0.015)
-#define ROLL_MAX    F16_t(0.015)
-#define PITCH_MIN   F16_t(-0.015)
-#define PITCH_MAX   F16_t(0.015)
+#define ROLL_MIN    F16_t(-0.05)
+#define ROLL_MAX    F16_t(0.05)
+#define PITCH_MIN   F16_t(-0.05)
+#define PITCH_MAX   F16_t(0.05)
 
 
 // flight main function call
-//void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k]);
-void flightmain (F16_t rcCmdIn[RC_CHANNELS], F16_t obj_avd_cmd[RC_CHANNELS], F16_t cmdOut[SIZE_4k], F32_t test[SIZE_4k]);
+void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[5], F16_t cmdOut[SIZE_4k]);
 
 typedef enum
 {

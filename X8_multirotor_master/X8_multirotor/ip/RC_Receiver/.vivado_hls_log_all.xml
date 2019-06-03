@@ -6,37 +6,27 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T23:13:13.204-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T23:12:42.372-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T23:11:08.723-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T23:07:28.041-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T23:06:28.284-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T22:55:41.712-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T22:50:14.796-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T22:49:40.269-0700"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T22:48:53.021-0700"/>
-      </csimLog>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'errors' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:36.043-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'lost' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:36.038-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_5' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:36.032-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_4' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:36.026-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_3' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:36.021-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_2' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:36.016-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_1' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:36.011-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'channels_0' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:36.007-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (RC_Receiver/RC_Receiver.cpp:93) of variable 'tmp_62_cast', RC_Receiver/RC_Receiver.cpp:93 on array 'test_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'test_V'." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:35.437-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:81) and bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:74)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:35.290-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:81) and bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:74)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:35.221-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:81) and bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:74)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:35.217-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:81) and bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:74)." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:35.212-0700" type="Warning"/>
-        <logs message="WARNING: [SYN 201-107] Renaming port name 'rcReceiver/OUT' to 'rcReceiver/OUT_r' to avoid the conflict with HDL keywords or other object names." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:34.891-0700" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-803] Cannot bundle argument 'norm_out.V' to m_axi port 'OUT' since its offset mode is off." projectName="RC_Receiver" solutionName="solution1" date="2019-05-31T16:28:34.664-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'errors' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:38.071-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'lost' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:38.064-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_5' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:38.056-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_4' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:38.050-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_3' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:38.043-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_2' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:38.037-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_1' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:38.032-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'channels_0' is power-on initialization." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:38.025-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('SBUS_data_load_10', RC_Receiver/RC_Receiver.cpp:25) on array 'SBUS_data' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'SBUS_data'." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:37.525-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:78) and bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:66)." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:37.498-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:78) and bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:66)." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:37.466-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:78) and bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:66)." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:37.456-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:78) and bus write on port 'OUT_r' (RC_Receiver/RC_Receiver.cpp:66)." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:37.449-0700" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'rcReceiver/OUT' to 'rcReceiver/OUT_r' to avoid the conflict with HDL keywords or other object names." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:37.227-0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-803] Cannot bundle argument 'norm_out.V' to m_axi port 'OUT' since its offset mode is off." projectName="RC_Receiver" solutionName="solution1" date="2019-06-02T12:47:37.024-0700" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

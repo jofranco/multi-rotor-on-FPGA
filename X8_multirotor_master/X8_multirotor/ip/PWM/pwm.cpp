@@ -40,34 +40,71 @@
 
 #include "pwm.hpp"
 
-#define duty_range (max_duty-min_duty)
+#define duty_range (max_duty - min_duty)
 
-void pwm(uint16_t  min_duty, uint16_t max_duty, uint16_t period,F16_t m[MOTOR_COUNT] , uint6_t& out) {
-#pragma HLS INTERFACE s_axilite port=min_duty bundle=ctrl
-#pragma HLS INTERFACE s_axilite port=max_duty bundle=ctrl
-#pragma HLS INTERFACE s_axilite port=period bundle=ctrl
-#pragma HLS INTERFACE s_axilite port=m bundle=ctrl
-#pragma HLS INTERFACE ap_none port=out
-#pragma HLS INTERFACE s_axilite port=return bundle=ctrl
-#pragma HLS PIPELINE
-	static uint16_t acc=0;
+void pwm(uint32_t  min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint6_t& out, uint32_t test[4096], F32_t test2[4096])
+{
+	// HLS pragmas
+	#pragma HLS PIPELINE
+
+	// input ports
+	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
+	#pragma HLS INTERFACE s_axilite port=min_duty bundle=CTRL
+	#pragma HLS INTERFACE s_axilite port=max_duty bundle=CTRL
+	#pragma HLS INTERFACE s_axilite port=period bundle=CTRL
+	#pragma HLS INTERFACE s_axilite port=m bundle=CTRL
+
+	// output port
+	#pragma HLS INTERFACE ap_none port=out
+
+	// test code for python
+	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
+	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
+
+
+	static uint16_t acc = 0;
 
 	static uint16_t in_p[MOTOR_COUNT]; //saves input for integrity
-	static uint6_t out_p=0x3F; //prepares output
+	static uint6_t out_p = 0x3F; //prepares output
 	static bool stop;
-	stop= (m[6]*3>1);
 
-	for(char u =0; u <MOTOR_COUNT; u++) { //save inputs
-		in_p[u]=duty_range*m[u]+min_duty;
+	static F16_t buffer;
+
+	for(int i = 0; i < MOTOR_COUNT; i++)
+	{
+		buffer[i] = m[i];
 	}
 
 
-	for(char u =0; u <MOTOR_COUNT; u++) { //for each channel, do pwm logic
-		out_p[u]=((acc<min_duty) | ((acc<in_p[u]) & out_p[u] )) & (acc<max_duty);
+	// checking ARM state
+	stop = (m[8]*3 < 1);
+
+	for(char u = 0; u < MOTOR_COUNT; u++)
+	{ // move inputs to buffer
+		in_p[u] = (uint16_t)duty_range * m[u] + (uint16_t)min_duty;
 	}
 
-	acc=(acc<period) ? uint16_t(acc+1) : uint16_t(0); //inc acc if > per else reset
 
-	out=stop ? uint6_t(0) : out_p;
+	for(char u = 0; u <MOTOR_COUNT; u++)
+	{	//for each channel, do pwm logic
+		#pragma HLS UNROLL
+
+		out_p[u] = ((acc < (uint16_t)min_duty) | ((acc < in_p[u]) & out_p[u] )) & (acc < (uint16_t)max_duty);
+	}
+
+	acc = (acc < (uint16_t)period) ? uint16_t(acc + 1) : uint16_t(0); //inc acc if > per else reset
+
+	out = stop ? uint6_t(0) : out_p;
+
+	// test code for python  -------------------------------------------
+	test[0] = (uint32_t)out[0];
+	test[1] = (uint32_t)out[1];
+	test[2] = (uint32_t)out[2];
+	test[3] = (uint32_t)out[3];
+	test[4] = (uint32_t)out[4];
+	test[5] = (uint32_t)out[5];
+	test[6] = (uint32_t)out[6];
+	test[7] = (uint32_t)out[7];
+
 
 }

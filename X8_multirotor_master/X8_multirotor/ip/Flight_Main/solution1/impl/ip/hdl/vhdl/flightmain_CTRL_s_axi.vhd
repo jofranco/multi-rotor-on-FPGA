@@ -11,7 +11,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity flightmain_CTRL_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 4;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 6;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     -- axi4 lite slave signals
@@ -40,29 +40,44 @@ port (
     ap_start              :out  STD_LOGIC;
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
-    ap_idle               :in   STD_LOGIC
+    ap_idle               :in   STD_LOGIC;
+    rcCmdIn_V_address0    :in   STD_LOGIC_VECTOR(2 downto 0);
+    rcCmdIn_V_ce0         :in   STD_LOGIC;
+    rcCmdIn_V_q0          :out  STD_LOGIC_VECTOR(15 downto 0);
+    obj_avd_cmd_V_address0 :in   STD_LOGIC_VECTOR(2 downto 0);
+    obj_avd_cmd_V_ce0     :in   STD_LOGIC;
+    obj_avd_cmd_V_we0     :in   STD_LOGIC;
+    obj_avd_cmd_V_d0      :in   STD_LOGIC_VECTOR(15 downto 0)
 );
 end entity flightmain_CTRL_s_axi;
 
 -- ------------------------Address Info-------------------
--- 0x0 : Control signals
---       bit 0  - ap_start (Read/Write/COH)
---       bit 1  - ap_done (Read/COR)
---       bit 2  - ap_idle (Read)
---       bit 3  - ap_ready (Read)
---       bit 7  - auto_restart (Read/Write)
---       others - reserved
--- 0x4 : Global Interrupt Enable Register
---       bit 0  - Global Interrupt Enable (Read/Write)
---       others - reserved
--- 0x8 : IP Interrupt Enable Register (Read/Write)
---       bit 0  - Channel 0 (ap_done)
---       bit 1  - Channel 1 (ap_ready)
---       others - reserved
--- 0xc : IP Interrupt Status Register (Read/TOW)
---       bit 0  - Channel 0 (ap_done)
---       bit 1  - Channel 1 (ap_ready)
---       others - reserved
+-- 0x00 : Control signals
+--        bit 0  - ap_start (Read/Write/COH)
+--        bit 1  - ap_done (Read/COR)
+--        bit 2  - ap_idle (Read)
+--        bit 3  - ap_ready (Read)
+--        bit 7  - auto_restart (Read/Write)
+--        others - reserved
+-- 0x04 : Global Interrupt Enable Register
+--        bit 0  - Global Interrupt Enable (Read/Write)
+--        others - reserved
+-- 0x08 : IP Interrupt Enable Register (Read/Write)
+--        bit 0  - Channel 0 (ap_done)
+--        bit 1  - Channel 1 (ap_ready)
+--        others - reserved
+-- 0x0c : IP Interrupt Status Register (Read/TOW)
+--        bit 0  - Channel 0 (ap_done)
+--        bit 1  - Channel 1 (ap_ready)
+--        others - reserved
+-- 0x10 ~
+-- 0x1f : Memory 'rcCmdIn_V' (6 * 16b)
+--        Word n : bit [15: 0] - rcCmdIn_V[2n]
+--                 bit [31:16] - rcCmdIn_V[2n+1]
+-- 0x20 ~
+-- 0x2f : Memory 'obj_avd_cmd_V' (6 * 16b)
+--        Word n : bit [15: 0] - obj_avd_cmd_V[2n]
+--                 bit [31:16] - obj_avd_cmd_V[2n+1]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of flightmain_CTRL_s_axi is
@@ -70,11 +85,15 @@ architecture behave of flightmain_CTRL_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL : INTEGER := 16#0#;
-    constant ADDR_GIE     : INTEGER := 16#4#;
-    constant ADDR_IER     : INTEGER := 16#8#;
-    constant ADDR_ISR     : INTEGER := 16#c#;
-    constant ADDR_BITS         : INTEGER := 4;
+    constant ADDR_AP_CTRL            : INTEGER := 16#00#;
+    constant ADDR_GIE                : INTEGER := 16#04#;
+    constant ADDR_IER                : INTEGER := 16#08#;
+    constant ADDR_ISR                : INTEGER := 16#0c#;
+    constant ADDR_RCCMDIN_V_BASE     : INTEGER := 16#10#;
+    constant ADDR_RCCMDIN_V_HIGH     : INTEGER := 16#1f#;
+    constant ADDR_OBJ_AVD_CMD_V_BASE : INTEGER := 16#20#;
+    constant ADDR_OBJ_AVD_CMD_V_HIGH : INTEGER := 16#2f#;
+    constant ADDR_BITS         : INTEGER := 6;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(31 downto 0);
@@ -96,10 +115,116 @@ architecture behave of flightmain_CTRL_s_axi is
     signal int_gie             : STD_LOGIC := '0';
     signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
+    -- memory signals
+    signal int_rcCmdIn_V_address0 : UNSIGNED(1 downto 0);
+    signal int_rcCmdIn_V_ce0   : STD_LOGIC;
+    signal int_rcCmdIn_V_we0   : STD_LOGIC;
+    signal int_rcCmdIn_V_be0   : UNSIGNED(3 downto 0);
+    signal int_rcCmdIn_V_d0    : UNSIGNED(31 downto 0);
+    signal int_rcCmdIn_V_q0    : UNSIGNED(31 downto 0);
+    signal int_rcCmdIn_V_address1 : UNSIGNED(1 downto 0);
+    signal int_rcCmdIn_V_ce1   : STD_LOGIC;
+    signal int_rcCmdIn_V_we1   : STD_LOGIC;
+    signal int_rcCmdIn_V_be1   : UNSIGNED(3 downto 0);
+    signal int_rcCmdIn_V_d1    : UNSIGNED(31 downto 0);
+    signal int_rcCmdIn_V_q1    : UNSIGNED(31 downto 0);
+    signal int_rcCmdIn_V_read  : STD_LOGIC;
+    signal int_rcCmdIn_V_write : STD_LOGIC;
+    signal int_rcCmdIn_V_shift : UNSIGNED(0 downto 0);
+    signal int_obj_avd_cmd_V_address0 : UNSIGNED(1 downto 0);
+    signal int_obj_avd_cmd_V_ce0 : STD_LOGIC;
+    signal int_obj_avd_cmd_V_we0 : STD_LOGIC;
+    signal int_obj_avd_cmd_V_be0 : UNSIGNED(3 downto 0);
+    signal int_obj_avd_cmd_V_d0 : UNSIGNED(31 downto 0);
+    signal int_obj_avd_cmd_V_q0 : UNSIGNED(31 downto 0);
+    signal int_obj_avd_cmd_V_address1 : UNSIGNED(1 downto 0);
+    signal int_obj_avd_cmd_V_ce1 : STD_LOGIC;
+    signal int_obj_avd_cmd_V_we1 : STD_LOGIC;
+    signal int_obj_avd_cmd_V_be1 : UNSIGNED(3 downto 0);
+    signal int_obj_avd_cmd_V_d1 : UNSIGNED(31 downto 0);
+    signal int_obj_avd_cmd_V_q1 : UNSIGNED(31 downto 0);
+    signal int_obj_avd_cmd_V_read : STD_LOGIC;
+    signal int_obj_avd_cmd_V_write : STD_LOGIC;
+    signal int_obj_avd_cmd_V_shift : UNSIGNED(0 downto 0);
 
+    component flightmain_CTRL_s_axi_ram is
+        generic (
+            BYTES   : INTEGER :=4;
+            DEPTH   : INTEGER :=256;
+            AWIDTH  : INTEGER :=8);
+        port (
+            clk0    : in  STD_LOGIC;
+            address0: in  UNSIGNED(AWIDTH-1 downto 0);
+            ce0     : in  STD_LOGIC;
+            we0     : in  STD_LOGIC;
+            be0     : in  UNSIGNED(BYTES-1 downto 0);
+            d0      : in  UNSIGNED(BYTES*8-1 downto 0);
+            q0      : out UNSIGNED(BYTES*8-1 downto 0);
+            clk1    : in  STD_LOGIC;
+            address1: in  UNSIGNED(AWIDTH-1 downto 0);
+            ce1     : in  STD_LOGIC;
+            we1     : in  STD_LOGIC;
+            be1     : in  UNSIGNED(BYTES-1 downto 0);
+            d1      : in  UNSIGNED(BYTES*8-1 downto 0);
+            q1      : out UNSIGNED(BYTES*8-1 downto 0));
+    end component flightmain_CTRL_s_axi_ram;
+
+    function log2 (x : INTEGER) return INTEGER is
+        variable n, m : INTEGER;
+    begin
+        n := 1;
+        m := 2;
+        while m < x loop
+            n := n + 1;
+            m := m * 2;
+        end loop;
+        return n;
+    end function log2;
 
 begin
 -- ----------------------- Instantiation------------------
+-- int_rcCmdIn_V
+int_rcCmdIn_V : flightmain_CTRL_s_axi_ram
+generic map (
+     BYTES    => 4,
+     DEPTH    => 3,
+     AWIDTH   => log2(3))
+port map (
+     clk0     => ACLK,
+     address0 => int_rcCmdIn_V_address0,
+     ce0      => int_rcCmdIn_V_ce0,
+     we0      => int_rcCmdIn_V_we0,
+     be0      => int_rcCmdIn_V_be0,
+     d0       => int_rcCmdIn_V_d0,
+     q0       => int_rcCmdIn_V_q0,
+     clk1     => ACLK,
+     address1 => int_rcCmdIn_V_address1,
+     ce1      => int_rcCmdIn_V_ce1,
+     we1      => int_rcCmdIn_V_we1,
+     be1      => int_rcCmdIn_V_be1,
+     d1       => int_rcCmdIn_V_d1,
+     q1       => int_rcCmdIn_V_q1);
+-- int_obj_avd_cmd_V
+int_obj_avd_cmd_V : flightmain_CTRL_s_axi_ram
+generic map (
+     BYTES    => 4,
+     DEPTH    => 3,
+     AWIDTH   => log2(3))
+port map (
+     clk0     => ACLK,
+     address0 => int_obj_avd_cmd_V_address0,
+     ce0      => int_obj_avd_cmd_V_ce0,
+     we0      => int_obj_avd_cmd_V_we0,
+     be0      => int_obj_avd_cmd_V_be0,
+     d0       => int_obj_avd_cmd_V_d0,
+     q0       => int_obj_avd_cmd_V_q0,
+     clk1     => ACLK,
+     address1 => int_obj_avd_cmd_V_address1,
+     ce1      => int_obj_avd_cmd_V_ce1,
+     we1      => int_obj_avd_cmd_V_we1,
+     be1      => int_obj_avd_cmd_V_be1,
+     d1       => int_obj_avd_cmd_V_d1,
+     q1       => int_obj_avd_cmd_V_q1);
 
 -- ----------------------- AXI WRITE ---------------------
     AWREADY_t <=  '1' when wstate = wridle else '0';
@@ -166,7 +291,7 @@ begin
     ARREADY <= ARREADY_t;
     RDATA   <= STD_LOGIC_VECTOR(rdata_data);
     RRESP   <= "00";  -- OKAY
-    RVALID_t  <= '1' when (rstate = rddata) else '0';
+    RVALID_t  <= '1' when (rstate = rddata) and (int_rcCmdIn_V_read = '0') and (int_obj_avd_cmd_V_read = '0') else '0';
     RVALID    <= RVALID_t;
     ar_hs   <= ARVALID and ARREADY_t;
     raddr   <= UNSIGNED(ARADDR(ADDR_BITS-1 downto 0));
@@ -220,6 +345,10 @@ begin
                     when others =>
                         rdata_data <= (others => '0');
                     end case;
+                elsif (int_rcCmdIn_V_read = '1') then
+                    rdata_data <= int_rcCmdIn_V_q1;
+                elsif (int_obj_avd_cmd_V_read = '1') then
+                    rdata_data <= int_obj_avd_cmd_V_q1;
                 end if;
             end if;
         end if;
@@ -356,5 +485,215 @@ begin
 
 
 -- ----------------------- Memory logic ------------------
+    -- rcCmdIn_V
+    int_rcCmdIn_V_address0 <= SHIFT_RIGHT(UNSIGNED(rcCmdIn_V_address0), 1)(1 downto 0);
+    int_rcCmdIn_V_ce0    <= rcCmdIn_V_ce0;
+    int_rcCmdIn_V_we0    <= '0';
+    int_rcCmdIn_V_be0    <= (others => '0');
+    int_rcCmdIn_V_d0     <= (others => '0');
+    rcCmdIn_V_q0         <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_rcCmdIn_V_q0, TO_INTEGER(int_rcCmdIn_V_shift) * 16)(15 downto 0));
+    int_rcCmdIn_V_address1 <= raddr(3 downto 2) when ar_hs = '1' else waddr(3 downto 2);
+    int_rcCmdIn_V_ce1    <= '1' when ar_hs = '1' or (int_rcCmdIn_V_write = '1' and WVALID  = '1') else '0';
+    int_rcCmdIn_V_we1    <= '1' when int_rcCmdIn_V_write = '1' and WVALID = '1' else '0';
+    int_rcCmdIn_V_be1    <= UNSIGNED(WSTRB);
+    int_rcCmdIn_V_d1     <= UNSIGNED(WDATA);
+    -- obj_avd_cmd_V
+    int_obj_avd_cmd_V_address0 <= SHIFT_RIGHT(UNSIGNED(obj_avd_cmd_V_address0), 1)(1 downto 0);
+    int_obj_avd_cmd_V_ce0 <= obj_avd_cmd_V_ce0;
+    int_obj_avd_cmd_V_we0 <= obj_avd_cmd_V_we0;
+    int_obj_avd_cmd_V_be0 <= SHIFT_LEFT(TO_UNSIGNED(3, 4), TO_INTEGER(UNSIGNED(obj_avd_cmd_V_address0(0 downto 0)))*2);
+    int_obj_avd_cmd_V_d0 <= UNSIGNED(obj_avd_cmd_V_d0) & UNSIGNED(obj_avd_cmd_V_d0);
+    int_obj_avd_cmd_V_address1 <= raddr(3 downto 2) when ar_hs = '1' else waddr(3 downto 2);
+    int_obj_avd_cmd_V_ce1 <= '1' when ar_hs = '1' or (int_obj_avd_cmd_V_write = '1' and WVALID  = '1') else '0';
+    int_obj_avd_cmd_V_we1 <= '1' when int_obj_avd_cmd_V_write = '1' and WVALID = '1' else '0';
+    int_obj_avd_cmd_V_be1 <= UNSIGNED(WSTRB);
+    int_obj_avd_cmd_V_d1 <= UNSIGNED(WDATA);
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_rcCmdIn_V_read <= '0';
+            elsif (ACLK_EN = '1') then
+                if (ar_hs = '1' and raddr >= ADDR_RCCMDIN_V_BASE and raddr <= ADDR_RCCMDIN_V_HIGH) then
+                    int_rcCmdIn_V_read <= '1';
+                else
+                    int_rcCmdIn_V_read <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_rcCmdIn_V_write <= '0';
+            elsif (ACLK_EN = '1') then
+                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_RCCMDIN_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_RCCMDIN_V_HIGH) then
+                    int_rcCmdIn_V_write <= '1';
+                elsif (WVALID = '1') then
+                    int_rcCmdIn_V_write <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (rcCmdIn_V_ce0 = '1') then
+                    int_rcCmdIn_V_shift(0) <= rcCmdIn_V_address0(0);
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_obj_avd_cmd_V_read <= '0';
+            elsif (ACLK_EN = '1') then
+                if (ar_hs = '1' and raddr >= ADDR_OBJ_AVD_CMD_V_BASE and raddr <= ADDR_OBJ_AVD_CMD_V_HIGH) then
+                    int_obj_avd_cmd_V_read <= '1';
+                else
+                    int_obj_avd_cmd_V_read <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_obj_avd_cmd_V_write <= '0';
+            elsif (ACLK_EN = '1') then
+                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_OBJ_AVD_CMD_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_OBJ_AVD_CMD_V_HIGH) then
+                    int_obj_avd_cmd_V_write <= '1';
+                elsif (WVALID = '1') then
+                    int_obj_avd_cmd_V_write <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (obj_avd_cmd_V_ce0 = '1') then
+                    int_obj_avd_cmd_V_shift(0) <= obj_avd_cmd_V_address0(0);
+                end if;
+            end if;
+        end if;
+    end process;
+
 
 end architecture behave;
+
+library IEEE;
+USE IEEE.std_logic_1164.all;
+USE IEEE.numeric_std.all;
+
+entity flightmain_CTRL_s_axi_ram is
+    generic (
+        BYTES   : INTEGER :=4;
+        DEPTH   : INTEGER :=256;
+        AWIDTH  : INTEGER :=8);
+    port (
+        clk0    : in  STD_LOGIC;
+        address0: in  UNSIGNED(AWIDTH-1 downto 0);
+        ce0     : in  STD_LOGIC;
+        we0     : in  STD_LOGIC;
+        be0     : in  UNSIGNED(BYTES-1 downto 0);
+        d0      : in  UNSIGNED(BYTES*8-1 downto 0);
+        q0      : out UNSIGNED(BYTES*8-1 downto 0);
+        clk1    : in  STD_LOGIC;
+        address1: in  UNSIGNED(AWIDTH-1 downto 0);
+        ce1     : in  STD_LOGIC;
+        we1     : in  STD_LOGIC;
+        be1     : in  UNSIGNED(BYTES-1 downto 0);
+        d1      : in  UNSIGNED(BYTES*8-1 downto 0);
+        q1      : out UNSIGNED(BYTES*8-1 downto 0));
+
+end entity flightmain_CTRL_s_axi_ram;
+
+architecture behave of flightmain_CTRL_s_axi_ram is
+    signal address0_tmp : UNSIGNED(AWIDTH-1 downto 0);
+    signal address1_tmp : UNSIGNED(AWIDTH-1 downto 0);
+    type RAM_T is array (0 to DEPTH - 1) of UNSIGNED(BYTES*8 - 1 downto 0);
+    shared variable mem : RAM_T := (others => (others => '0'));
+begin
+
+    process (address0)
+    begin
+    address0_tmp <= address0;
+    --synthesis translate_off
+          if (address0 > DEPTH-1) then
+              address0_tmp <= (others => '0');
+          else
+              address0_tmp <= address0;
+          end if;
+    --synthesis translate_on
+    end process;
+
+    process (address1)
+    begin
+    address1_tmp <= address1;
+    --synthesis translate_off
+          if (address1 > DEPTH-1) then
+              address1_tmp <= (others => '0');
+          else
+              address1_tmp <= address1;
+          end if;
+    --synthesis translate_on
+    end process;
+
+    --read port 0
+    process (clk0) begin
+        if (clk0'event and clk0 = '1') then
+            if (ce0 = '1') then
+                q0 <= mem(to_integer(address0_tmp));
+            end if;
+        end if;
+    end process;
+
+    --read port 1
+    process (clk1) begin
+        if (clk1'event and clk1 = '1') then
+            if (ce1 = '1') then
+                q1 <= mem(to_integer(address1_tmp));
+            end if;
+        end if;
+    end process;
+
+    gen_write : for i in 0 to BYTES - 1 generate
+    begin
+        --write port 0
+        process (clk0)
+        begin
+            if (clk0'event and clk0 = '1') then
+                if (ce0 = '1' and we0 = '1' and be0(i) = '1') then
+                    mem(to_integer(address0_tmp))(8*i+7 downto 8*i) := d0(8*i+7 downto 8*i);
+                end if;
+            end if;
+        end process;
+
+        --write port 1
+        process (clk1)
+        begin
+            if (clk1'event and clk1 = '1') then
+                if (ce1 = '1' and we1 = '1' and be1(i) = '1') then
+                    mem(to_integer(address1_tmp))(8*i+7 downto 8*i) := d1(8*i+7 downto 8*i);
+                end if;
+            end if;
+        end process;
+
+    end generate;
+
+end architecture behave;
+
+

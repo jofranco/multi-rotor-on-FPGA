@@ -10,20 +10,15 @@ proc generate {drv_handle} {
         "NUM_INSTANCES" \
         "DEVICE_ID" \
         "C_S_AXI_CTRL_BASEADDR" \
-        "C_S_AXI_CTRL_HIGHADDR" \
-        "C_S_AXI_TEST_BASEADDR" \
-        "C_S_AXI_TEST_HIGHADDR"
+        "C_S_AXI_CTRL_HIGHADDR"
 
     xdefine_config_file $drv_handle "xrcreceiver_g.c" "XRcreceiver" \
         "DEVICE_ID" \
-        "C_S_AXI_CTRL_BASEADDR" \
-        "C_S_AXI_TEST_BASEADDR"
+        "C_S_AXI_CTRL_BASEADDR"
 
     xdefine_canonical_xpars $drv_handle "xparameters.h" "XRcreceiver" \
         "DEVICE_ID" \
         "C_S_AXI_CTRL_BASEADDR" \
-        "C_S_AXI_CTRL_HIGHADDR" \
-        "C_S_AXI_TEST_BASEADDR" \
-        "C_S_AXI_TEST_HIGHADDR"
+        "C_S_AXI_CTRL_HIGHADDR"
 }
 

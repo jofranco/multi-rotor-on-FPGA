@@ -12,16 +12,15 @@
 */
 
 // PID function call
-//void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
-void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[SIZE_4k])
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
 {
 	//SETUP PRAGMAS
 	#pragma HLS PIPELINE II=1 enable_flush
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
-	#pragma HLS INTERFACE s_axilite port=cmdIn bundle=INPUT
-	#pragma HLS INTERFACE s_axilite port=measured bundle=INPUT
+	#pragma HLS INTERFACE s_axilite port=cmdIn bundle=CTRL
+	#pragma HLS INTERFACE s_axilite port=measured bundle=CTRL
 
 	// PID gains set from Jupyter Python code
 	#pragma HLS INTERFACE s_axilite port=kp bundle=CTRL
@@ -30,10 +29,6 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 
 	// output to PWM
 	#pragma HLS INTERFACE m_axi port=commandOut bundle=OUT offset=off
-
-	// test code for python ---------------------------------------------------------------
-	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
-	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
 
 
 	// variable declarations

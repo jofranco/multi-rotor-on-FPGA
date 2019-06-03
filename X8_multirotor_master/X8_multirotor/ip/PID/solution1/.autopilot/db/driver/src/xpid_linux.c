@@ -129,14 +129,6 @@ int XPid_Initialize(XPid *InstancePtr, const char* InstanceName) {
     InstancePtr->Ctrl_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[0].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 0 * getpagesize());
     assert(InstancePtr->Ctrl_BaseAddress);
 
-    // NOTE: slave interface 'Input' should be mapped to uioX/map1
-    InstancePtr->Input_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[1].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 1 * getpagesize());
-    assert(InstancePtr->Input_BaseAddress);
-
-    // NOTE: slave interface 'Test' should be mapped to uioX/map2
-    InstancePtr->Test_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[2].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 2 * getpagesize());
-    assert(InstancePtr->Test_BaseAddress);
-
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -149,8 +141,6 @@ int XPid_Release(XPid *InstancePtr) {
     assert(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     munmap((void*)InstancePtr->Ctrl_BaseAddress, InfoPtr->maps[0].size);
-    munmap((void*)InstancePtr->Input_BaseAddress, InfoPtr->maps[1].size);
-    munmap((void*)InstancePtr->Test_BaseAddress, InfoPtr->maps[2].size);
 
     close(InfoPtr->uio_fd);
 

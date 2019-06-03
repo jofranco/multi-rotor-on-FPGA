@@ -33,6 +33,8 @@ set_property ip_repo_paths {
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID
+  c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PWM
 } [current_project]
 set_property ip_output_repo c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
@@ -50,12 +52,12 @@ set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_5/design_1_auto_pc_5_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_4/design_1_auto_pc_4_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3/design_1_auto_pc_3_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_5_1/design_1_auto_pc_5_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_4_1/design_1_auto_pc_4_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3_1/design_1_auto_pc_3_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2_1/design_1_auto_pc_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1_1/design_1_auto_pc_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0_1/design_1_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being

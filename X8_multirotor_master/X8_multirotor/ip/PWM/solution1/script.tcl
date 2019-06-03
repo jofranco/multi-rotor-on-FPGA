@@ -5,9 +5,9 @@
 ############################################################
 open_project PWM
 set_top pwm
-add_files PWM/pwm.cpp
 add_files PWM/pwm.hpp
-add_files -tb PWM/main.cpp
+add_files PWM/pwm.cpp
+add_files -tb PWM/main.cpp -cflags "-Wno-unknown-pragmas"
 open_solution "solution1"
 set_part {xc7z020clg400-1} -tool vivado
 create_clock -period 10 -name default

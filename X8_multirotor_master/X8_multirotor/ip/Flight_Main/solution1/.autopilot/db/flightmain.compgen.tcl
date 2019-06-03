@@ -7,7 +7,11 @@ if {${::AESL::PGuard_autoexp_gen}} {
     AESL_LIB_XILADAPTER::native_axis_begin
 }
 
-set port_CMD {
+set port_CTRL {
+ap_start { }
+ap_done { }
+ap_ready { }
+ap_idle { }
 rcCmdIn_V { 
 	dir I
 	width 16
@@ -32,34 +36,6 @@ if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
 			id 1 \
-			corename flightmain_CMD_axilite \
-			name flightmain_CMD_s_axi \
-			ports {$port_CMD} \
-			op interface \
-			is_flushable 0 \ 
-		} "
-	} else {
-		puts "@W \[IMPL-110\] Cannot find AXI Lite interface model in the library. Ignored generation of AXI Lite  interface for 'CMD'"
-	}
-}
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler flightmain_CMD_s_axi
-}
-
-set port_CTRL {
-ap_start { }
-ap_done { }
-ap_ready { }
-ap_idle { }
-}
-
-
-# Native S_AXILite:
-if {${::AESL::PGuard_simmodel_gen}} {
-	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
-		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 2 \
 			corename flightmain_CTRL_axilite \
 			name flightmain_CTRL_s_axi \
 			ports {$port_CTRL} \
@@ -75,43 +51,11 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler flightmain_CTRL_s_axi
 }
 
-set port_TEST {
-test_V { 
-	dir O
-	width 32
-	depth 4096
-	mode ap_memory
-	offset 16384
-	offset_end 32767
-}
-}
-
-
-# Native S_AXILite:
-if {${::AESL::PGuard_simmodel_gen}} {
-	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
-		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 3 \
-			corename flightmain_TEST_axilite \
-			name flightmain_TEST_s_axi \
-			ports {$port_TEST} \
-			op interface \
-			is_flushable 0 \ 
-		} "
-	} else {
-		puts "@W \[IMPL-110\] Cannot find AXI Lite interface model in the library. Ignored generation of AXI Lite  interface for 'TEST'"
-	}
-}
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler flightmain_TEST_s_axi
-}
-
 # Native M_AXI:
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
 eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
-    id 4 \
+    id 2 \
     corename {m_axi} \
     op interface \
     max_latency -1 \ 

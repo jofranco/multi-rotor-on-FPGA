@@ -19,7 +19,7 @@
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
     "IsCombLogic": "0",
-    "II": "18",
+    "II": "11",
     "Latency": "24",
     "Uncertainty": "1.25"
   },
@@ -37,17 +37,13 @@
   "Files": {
     "CSource": ["..\/flightMain.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/flightmain_CMD_s_axi.vhd",
       "impl\/vhdl\/flightmain_CTRL_s_axi.vhd",
       "impl\/vhdl\/flightmain_OUT_r_m_axi.vhd",
-      "impl\/vhdl\/flightmain_TEST_s_axi.vhd",
       "impl\/vhdl\/flightmain.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/flightmain_CMD_s_axi.v",
       "impl\/verilog\/flightmain_CTRL_s_axi.v",
       "impl\/verilog\/flightmain_OUT_r_m_axi.v",
-      "impl\/verilog\/flightmain_TEST_s_axi.v",
       "impl\/verilog\/flightmain.v"
     ],
     "SwDriver": [
@@ -71,7 +67,7 @@
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
-      "buses": "s_axi_CMD s_axi_CTRL s_axi_TEST m_axi_OUT_r",
+      "buses": "s_axi_CTRL m_axi_OUT_r",
       "reset": "ap_rst_n"
     },
     "ap_rst_n": {
@@ -262,71 +258,13 @@
         "WUSER": "1"
       }
     },
-    "s_axi_CMD": {
-      "type": "axi4lite",
-      "is_adaptor": "true",
-      "mode": "slave",
-      "port_prefix": "s_axi_CMD",
-      "param_prefix": "C_S_AXI_CMD",
-      "addr_bits": "6",
-      "registers": [],
-      "memories": "rcCmdIn_V {base_address 16 range 16} obj_avd_cmd_V {base_address 32 range 16}",
-      "ctype": {
-        "AWVALID": {"Type": "bool"},
-        "AWREADY": {"Type": "bool"},
-        "WVALID": {"Type": "bool"},
-        "WREADY": {"Type": "bool"},
-        "BVALID": {"Type": "bool"},
-        "BREADY": {"Type": "bool"},
-        "BRESP": {
-          "Type": "integer unsigned",
-          "Width": "2"
-        },
-        "ARVALID": {"Type": "bool"},
-        "ARREADY": {"Type": "bool"},
-        "RVALID": {"Type": "bool"},
-        "RREADY": {"Type": "bool"},
-        "RRESP": {
-          "Type": "integer unsigned",
-          "Width": "2"
-        },
-        "AWADDR": {
-          "Type": "integer unsigned",
-          "Width": "6"
-        },
-        "WDATA": {
-          "Type": "real fixed signed 13",
-          "Width": "16"
-        },
-        "WSTRB": {
-          "Type": "integer unsigned",
-          "Width": "4"
-        },
-        "ARADDR": {
-          "Type": "integer unsigned",
-          "Width": "6"
-        },
-        "RDATA": {
-          "Type": "real fixed signed 13",
-          "Width": "16"
-        }
-      },
-      "data_width": "32",
-      "port_width": {
-        "ARADDR": "6",
-        "AWADDR": "6",
-        "RDATA": "32",
-        "WDATA": "32",
-        "WSTRB": "4"
-      }
-    },
     "s_axi_CTRL": {
       "type": "axi4lite",
       "is_adaptor": "true",
       "mode": "slave",
       "port_prefix": "s_axi_CTRL",
       "param_prefix": "C_S_AXI_CTRL",
-      "addr_bits": "4",
+      "addr_bits": "6",
       "registers": [
         {
           "offset": "0x00",
@@ -485,7 +423,7 @@
           ]
         }
       ],
-      "memories": "",
+      "memories": "rcCmdIn_V {base_address 16 range 16} obj_avd_cmd_V {base_address 32 range 16}",
       "ctype": {
         "AWVALID": {"Type": "bool"},
         "AWREADY": {"Type": "bool"},
@@ -507,11 +445,11 @@
         },
         "AWADDR": {
           "Type": "integer unsigned",
-          "Width": "4"
+          "Width": "6"
         },
         "WDATA": {
-          "Type": "null",
-          "Width": "32"
+          "Type": "real fixed signed 13",
+          "Width": "16"
         },
         "WSTRB": {
           "Type": "integer unsigned",
@@ -519,75 +457,17 @@
         },
         "ARADDR": {
           "Type": "integer unsigned",
-          "Width": "4"
+          "Width": "6"
         },
         "RDATA": {
-          "Type": "null",
-          "Width": "32"
+          "Type": "real fixed signed 13",
+          "Width": "16"
         }
       },
       "data_width": "32",
       "port_width": {
-        "ARADDR": "4",
-        "AWADDR": "4",
-        "RDATA": "32",
-        "WDATA": "32",
-        "WSTRB": "4"
-      }
-    },
-    "s_axi_TEST": {
-      "type": "axi4lite",
-      "is_adaptor": "true",
-      "mode": "slave",
-      "port_prefix": "s_axi_TEST",
-      "param_prefix": "C_S_AXI_TEST",
-      "addr_bits": "15",
-      "registers": [],
-      "memories": "test_V {base_address 16384 range 16384}",
-      "ctype": {
-        "AWVALID": {"Type": "bool"},
-        "AWREADY": {"Type": "bool"},
-        "WVALID": {"Type": "bool"},
-        "WREADY": {"Type": "bool"},
-        "BVALID": {"Type": "bool"},
-        "BREADY": {"Type": "bool"},
-        "BRESP": {
-          "Type": "integer unsigned",
-          "Width": "2"
-        },
-        "ARVALID": {"Type": "bool"},
-        "ARREADY": {"Type": "bool"},
-        "RVALID": {"Type": "bool"},
-        "RREADY": {"Type": "bool"},
-        "RRESP": {
-          "Type": "integer unsigned",
-          "Width": "2"
-        },
-        "AWADDR": {
-          "Type": "integer unsigned",
-          "Width": "15"
-        },
-        "WDATA": {
-          "Type": "real fixed signed 16",
-          "Width": "32"
-        },
-        "WSTRB": {
-          "Type": "integer unsigned",
-          "Width": "4"
-        },
-        "ARADDR": {
-          "Type": "integer unsigned",
-          "Width": "15"
-        },
-        "RDATA": {
-          "Type": "real fixed signed 16",
-          "Width": "32"
-        }
-      },
-      "data_width": "32",
-      "port_width": {
-        "ARADDR": "15",
-        "AWADDR": "15",
+        "ARADDR": "6",
+        "AWADDR": "6",
         "RDATA": "32",
         "WDATA": "32",
         "WSTRB": "4"
@@ -595,74 +475,6 @@
     }
   },
   "RtlPorts": {
-    "s_axi_CMD_AWVALID": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_CMD_AWREADY": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_CMD_AWADDR": {
-      "dir": "in",
-      "width": "6"
-    },
-    "s_axi_CMD_WVALID": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_CMD_WREADY": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_CMD_WDATA": {
-      "dir": "in",
-      "width": "32"
-    },
-    "s_axi_CMD_WSTRB": {
-      "dir": "in",
-      "width": "4"
-    },
-    "s_axi_CMD_ARVALID": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_CMD_ARREADY": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_CMD_ARADDR": {
-      "dir": "in",
-      "width": "6"
-    },
-    "s_axi_CMD_RVALID": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_CMD_RREADY": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_CMD_RDATA": {
-      "dir": "out",
-      "width": "32"
-    },
-    "s_axi_CMD_RRESP": {
-      "dir": "out",
-      "width": "2"
-    },
-    "s_axi_CMD_BVALID": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_CMD_BREADY": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_CMD_BRESP": {
-      "dir": "out",
-      "width": "2"
-    },
     "s_axi_CTRL_AWVALID": {
       "dir": "in",
       "width": "1"
@@ -673,7 +485,7 @@
     },
     "s_axi_CTRL_AWADDR": {
       "dir": "in",
-      "width": "4"
+      "width": "6"
     },
     "s_axi_CTRL_WVALID": {
       "dir": "in",
@@ -701,7 +513,7 @@
     },
     "s_axi_CTRL_ARADDR": {
       "dir": "in",
-      "width": "4"
+      "width": "6"
     },
     "s_axi_CTRL_RVALID": {
       "dir": "out",
@@ -728,74 +540,6 @@
       "width": "1"
     },
     "s_axi_CTRL_BRESP": {
-      "dir": "out",
-      "width": "2"
-    },
-    "s_axi_TEST_AWVALID": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_TEST_AWREADY": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_TEST_AWADDR": {
-      "dir": "in",
-      "width": "15"
-    },
-    "s_axi_TEST_WVALID": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_TEST_WREADY": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_TEST_WDATA": {
-      "dir": "in",
-      "width": "32"
-    },
-    "s_axi_TEST_WSTRB": {
-      "dir": "in",
-      "width": "4"
-    },
-    "s_axi_TEST_ARVALID": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_TEST_ARREADY": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_TEST_ARADDR": {
-      "dir": "in",
-      "width": "15"
-    },
-    "s_axi_TEST_RVALID": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_TEST_RREADY": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_TEST_RDATA": {
-      "dir": "out",
-      "width": "32"
-    },
-    "s_axi_TEST_RRESP": {
-      "dir": "out",
-      "width": "2"
-    },
-    "s_axi_TEST_BVALID": {
-      "dir": "out",
-      "width": "1"
-    },
-    "s_axi_TEST_BREADY": {
-      "dir": "in",
-      "width": "1"
-    },
-    "s_axi_TEST_BRESP": {
       "dir": "out",
       "width": "2"
     },
@@ -1005,31 +749,23 @@
   },
   "CPorts": {
     "rcCmdIn_V": {
-      "interfaceRef": "s_axi_CMD",
+      "interfaceRef": "s_axi_CTRL",
       "dir": "in",
       "offset": "16",
       "statusOffset": "NA",
-      "Object": "CMD"
+      "Object": "CTRL"
     },
     "obj_avd_cmd_V": {
-      "interfaceRef": "s_axi_CMD",
+      "interfaceRef": "s_axi_CTRL",
       "dir": "in",
       "offset": "32",
       "statusOffset": "NA",
-      "Object": "CMD"
+      "Object": "CTRL"
     },
     "ap_ctrl": {
       "interfaceRef": "s_axi_CTRL",
       "dir": "in",
       "offset": "0"
-    },
-    "test_V": {
-      "interfaceRef": "s_axi_TEST",
-      "dir": "out",
-      "offset": "16384",
-      "statusOffset": "NA",
-      "Object": "TEST",
-      "firstOutLatency": "6"
     },
     "OUT_r": {
       "interfaceRef": "m_axi_OUT_r",
@@ -1043,7 +779,7 @@
           "LatencyBest": "24",
           "LatencyAvg": "24",
           "LatencyWorst": "24",
-          "PipelineII": "18",
+          "PipelineII": "11",
           "PipelineDepth": "25",
           "PipelineType": "function"
         },
@@ -1053,9 +789,9 @@
           "Estimate": "8.750"
         },
         "Area": {
-          "BRAM_18K": "14",
-          "FF": "1163",
-          "LUT": "1697",
+          "BRAM_18K": "6",
+          "FF": "956",
+          "LUT": "1416",
           "DSP48E": "0"
         }
       }}
@@ -1067,7 +803,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-05-31 16:53:56 -0700",
+    "Time": "2019-06-02 19:45:08 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

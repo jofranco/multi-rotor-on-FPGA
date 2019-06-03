@@ -38,6 +38,12 @@ module pid_CTRL_s_axi
     input  wire                          ap_done,
     input  wire                          ap_ready,
     input  wire                          ap_idle,
+    input  wire [2:0]                    cmdIn_V_address0,
+    input  wire                          cmdIn_V_ce0,
+    output wire [15:0]                   cmdIn_V_q0,
+    input  wire [2:0]                    measured_V_address0,
+    input  wire                          measured_V_ce0,
+    output wire [15:0]                   measured_V_q0,
     input  wire [2:0]                    kp_V_address0,
     input  wire                          kp_V_ce0,
     output wire [31:0]                   kp_V_q0,
@@ -67,36 +73,48 @@ module pid_CTRL_s_axi
 //        bit 0  - Channel 0 (ap_done)
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
+// 0x10 ~
+// 0x1f : Memory 'cmdIn_V' (6 * 16b)
+//        Word n : bit [15: 0] - cmdIn_V[2n]
+//                 bit [31:16] - cmdIn_V[2n+1]
 // 0x20 ~
-// 0x3f : Memory 'kp_V' (6 * 32b)
-//        Word n : bit [31:0] - kp_V[n]
+// 0x2f : Memory 'measured_V' (6 * 16b)
+//        Word n : bit [15: 0] - measured_V[2n]
+//                 bit [31:16] - measured_V[2n+1]
 // 0x40 ~
-// 0x4f : Memory 'kd_V' (4 * 32b)
+// 0x5f : Memory 'kp_V' (6 * 32b)
+//        Word n : bit [31:0] - kp_V[n]
+// 0x60 ~
+// 0x6f : Memory 'kd_V' (4 * 32b)
 //        Word n : bit [31:0] - kd_V[n]
-// 0x50 ~
-// 0x5f : Memory 'ki_V' (4 * 32b)
+// 0x70 ~
+// 0x7f : Memory 'ki_V' (4 * 32b)
 //        Word n : bit [31:0] - ki_V[n]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL   = 7'h00,
-    ADDR_GIE       = 7'h04,
-    ADDR_IER       = 7'h08,
-    ADDR_ISR       = 7'h0c,
-    ADDR_KP_V_BASE = 7'h20,
-    ADDR_KP_V_HIGH = 7'h3f,
-    ADDR_KD_V_BASE = 7'h40,
-    ADDR_KD_V_HIGH = 7'h4f,
-    ADDR_KI_V_BASE = 7'h50,
-    ADDR_KI_V_HIGH = 7'h5f,
-    WRIDLE         = 2'd0,
-    WRDATA         = 2'd1,
-    WRRESP         = 2'd2,
-    WRRESET        = 2'd3,
-    RDIDLE         = 2'd0,
-    RDDATA         = 2'd1,
-    RDRESET        = 2'd2,
+    ADDR_AP_CTRL         = 7'h00,
+    ADDR_GIE             = 7'h04,
+    ADDR_IER             = 7'h08,
+    ADDR_ISR             = 7'h0c,
+    ADDR_CMDIN_V_BASE    = 7'h10,
+    ADDR_CMDIN_V_HIGH    = 7'h1f,
+    ADDR_MEASURED_V_BASE = 7'h20,
+    ADDR_MEASURED_V_HIGH = 7'h2f,
+    ADDR_KP_V_BASE       = 7'h40,
+    ADDR_KP_V_HIGH       = 7'h5f,
+    ADDR_KD_V_BASE       = 7'h60,
+    ADDR_KD_V_HIGH       = 7'h6f,
+    ADDR_KI_V_BASE       = 7'h70,
+    ADDR_KI_V_HIGH       = 7'h7f,
+    WRIDLE               = 2'd0,
+    WRDATA               = 2'd1,
+    WRRESP               = 2'd2,
+    WRRESET              = 2'd3,
+    RDIDLE               = 2'd0,
+    RDDATA               = 2'd1,
+    RDRESET              = 2'd2,
     ADDR_BITS         = 7;
 
 //------------------------Local signal-------------------
@@ -121,6 +139,36 @@ localparam
     reg  [1:0]                    int_ier = 2'b0;
     reg  [1:0]                    int_isr = 2'b0;
     // memory signals
+    wire [1:0]                    int_cmdIn_V_address0;
+    wire                          int_cmdIn_V_ce0;
+    wire                          int_cmdIn_V_we0;
+    wire [3:0]                    int_cmdIn_V_be0;
+    wire [31:0]                   int_cmdIn_V_d0;
+    wire [31:0]                   int_cmdIn_V_q0;
+    wire [1:0]                    int_cmdIn_V_address1;
+    wire                          int_cmdIn_V_ce1;
+    wire                          int_cmdIn_V_we1;
+    wire [3:0]                    int_cmdIn_V_be1;
+    wire [31:0]                   int_cmdIn_V_d1;
+    wire [31:0]                   int_cmdIn_V_q1;
+    reg                           int_cmdIn_V_read;
+    reg                           int_cmdIn_V_write;
+    reg  [0:0]                    int_cmdIn_V_shift;
+    wire [1:0]                    int_measured_V_address0;
+    wire                          int_measured_V_ce0;
+    wire                          int_measured_V_we0;
+    wire [3:0]                    int_measured_V_be0;
+    wire [31:0]                   int_measured_V_d0;
+    wire [31:0]                   int_measured_V_q0;
+    wire [1:0]                    int_measured_V_address1;
+    wire                          int_measured_V_ce1;
+    wire                          int_measured_V_we1;
+    wire [3:0]                    int_measured_V_be1;
+    wire [31:0]                   int_measured_V_d1;
+    wire [31:0]                   int_measured_V_q1;
+    reg                           int_measured_V_read;
+    reg                           int_measured_V_write;
+    reg  [0:0]                    int_measured_V_shift;
     wire [2:0]                    int_kp_V_address0;
     wire                          int_kp_V_ce0;
     wire                          int_kp_V_we0;
@@ -165,6 +213,46 @@ localparam
     reg                           int_ki_V_write;
 
 //------------------------Instantiation------------------
+// int_cmdIn_V
+pid_CTRL_s_axi_ram #(
+    .BYTES    ( 4 ),
+    .DEPTH    ( 3 )
+) int_cmdIn_V (
+    .clk0     ( ACLK ),
+    .address0 ( int_cmdIn_V_address0 ),
+    .ce0      ( int_cmdIn_V_ce0 ),
+    .we0      ( int_cmdIn_V_we0 ),
+    .be0      ( int_cmdIn_V_be0 ),
+    .d0       ( int_cmdIn_V_d0 ),
+    .q0       ( int_cmdIn_V_q0 ),
+    .clk1     ( ACLK ),
+    .address1 ( int_cmdIn_V_address1 ),
+    .ce1      ( int_cmdIn_V_ce1 ),
+    .we1      ( int_cmdIn_V_we1 ),
+    .be1      ( int_cmdIn_V_be1 ),
+    .d1       ( int_cmdIn_V_d1 ),
+    .q1       ( int_cmdIn_V_q1 )
+);
+// int_measured_V
+pid_CTRL_s_axi_ram #(
+    .BYTES    ( 4 ),
+    .DEPTH    ( 3 )
+) int_measured_V (
+    .clk0     ( ACLK ),
+    .address0 ( int_measured_V_address0 ),
+    .ce0      ( int_measured_V_ce0 ),
+    .we0      ( int_measured_V_we0 ),
+    .be0      ( int_measured_V_be0 ),
+    .d0       ( int_measured_V_d0 ),
+    .q0       ( int_measured_V_q0 ),
+    .clk1     ( ACLK ),
+    .address1 ( int_measured_V_address1 ),
+    .ce1      ( int_measured_V_ce1 ),
+    .we1      ( int_measured_V_we1 ),
+    .be1      ( int_measured_V_be1 ),
+    .d1       ( int_measured_V_d1 ),
+    .q1       ( int_measured_V_q1 )
+);
 // int_kp_V
 pid_CTRL_s_axi_ram #(
     .BYTES    ( 4 ),
@@ -278,7 +366,7 @@ end
 assign ARREADY = (rstate == RDIDLE);
 assign RDATA   = rdata;
 assign RRESP   = 2'b00;  // OKAY
-assign RVALID  = (rstate == RDDATA) & !int_kp_V_read & !int_kd_V_read & !int_ki_V_read;
+assign RVALID  = (rstate == RDDATA) & !int_cmdIn_V_read & !int_measured_V_read & !int_kp_V_read & !int_kd_V_read & !int_ki_V_read;
 assign ar_hs   = ARVALID & ARREADY;
 assign raddr   = ARADDR[ADDR_BITS-1:0];
 
@@ -331,6 +419,12 @@ always @(posedge ACLK) begin
                     rdata <= int_isr;
                 end
             endcase
+        end
+        else if (int_cmdIn_V_read) begin
+            rdata <= int_cmdIn_V_q1;
+        end
+        else if (int_measured_V_read) begin
+            rdata <= int_measured_V_q1;
         end
         else if (int_kp_V_read) begin
             rdata <= int_kp_V_q1;
@@ -446,42 +540,130 @@ end
 
 
 //------------------------Memory logic-------------------
+// cmdIn_V
+assign int_cmdIn_V_address0    = cmdIn_V_address0 >> 1;
+assign int_cmdIn_V_ce0         = cmdIn_V_ce0;
+assign int_cmdIn_V_we0         = 1'b0;
+assign int_cmdIn_V_be0         = 1'b0;
+assign int_cmdIn_V_d0          = 1'b0;
+assign cmdIn_V_q0              = int_cmdIn_V_q0 >> (int_cmdIn_V_shift * 16);
+assign int_cmdIn_V_address1    = ar_hs? raddr[3:2] : waddr[3:2];
+assign int_cmdIn_V_ce1         = ar_hs | (int_cmdIn_V_write & WVALID);
+assign int_cmdIn_V_we1         = int_cmdIn_V_write & WVALID;
+assign int_cmdIn_V_be1         = WSTRB;
+assign int_cmdIn_V_d1          = WDATA;
+// measured_V
+assign int_measured_V_address0 = measured_V_address0 >> 1;
+assign int_measured_V_ce0      = measured_V_ce0;
+assign int_measured_V_we0      = 1'b0;
+assign int_measured_V_be0      = 1'b0;
+assign int_measured_V_d0       = 1'b0;
+assign measured_V_q0           = int_measured_V_q0 >> (int_measured_V_shift * 16);
+assign int_measured_V_address1 = ar_hs? raddr[3:2] : waddr[3:2];
+assign int_measured_V_ce1      = ar_hs | (int_measured_V_write & WVALID);
+assign int_measured_V_we1      = int_measured_V_write & WVALID;
+assign int_measured_V_be1      = WSTRB;
+assign int_measured_V_d1       = WDATA;
 // kp_V
-assign int_kp_V_address0 = kp_V_address0;
-assign int_kp_V_ce0      = kp_V_ce0;
-assign int_kp_V_we0      = 1'b0;
-assign int_kp_V_be0      = 1'b0;
-assign int_kp_V_d0       = 1'b0;
-assign kp_V_q0           = int_kp_V_q0;
-assign int_kp_V_address1 = ar_hs? raddr[4:2] : waddr[4:2];
-assign int_kp_V_ce1      = ar_hs | (int_kp_V_write & WVALID);
-assign int_kp_V_we1      = int_kp_V_write & WVALID;
-assign int_kp_V_be1      = WSTRB;
-assign int_kp_V_d1       = WDATA;
+assign int_kp_V_address0       = kp_V_address0;
+assign int_kp_V_ce0            = kp_V_ce0;
+assign int_kp_V_we0            = 1'b0;
+assign int_kp_V_be0            = 1'b0;
+assign int_kp_V_d0             = 1'b0;
+assign kp_V_q0                 = int_kp_V_q0;
+assign int_kp_V_address1       = ar_hs? raddr[4:2] : waddr[4:2];
+assign int_kp_V_ce1            = ar_hs | (int_kp_V_write & WVALID);
+assign int_kp_V_we1            = int_kp_V_write & WVALID;
+assign int_kp_V_be1            = WSTRB;
+assign int_kp_V_d1             = WDATA;
 // kd_V
-assign int_kd_V_address0 = kd_V_address0;
-assign int_kd_V_ce0      = kd_V_ce0;
-assign int_kd_V_we0      = 1'b0;
-assign int_kd_V_be0      = 1'b0;
-assign int_kd_V_d0       = 1'b0;
-assign kd_V_q0           = int_kd_V_q0;
-assign int_kd_V_address1 = ar_hs? raddr[3:2] : waddr[3:2];
-assign int_kd_V_ce1      = ar_hs | (int_kd_V_write & WVALID);
-assign int_kd_V_we1      = int_kd_V_write & WVALID;
-assign int_kd_V_be1      = WSTRB;
-assign int_kd_V_d1       = WDATA;
+assign int_kd_V_address0       = kd_V_address0;
+assign int_kd_V_ce0            = kd_V_ce0;
+assign int_kd_V_we0            = 1'b0;
+assign int_kd_V_be0            = 1'b0;
+assign int_kd_V_d0             = 1'b0;
+assign kd_V_q0                 = int_kd_V_q0;
+assign int_kd_V_address1       = ar_hs? raddr[3:2] : waddr[3:2];
+assign int_kd_V_ce1            = ar_hs | (int_kd_V_write & WVALID);
+assign int_kd_V_we1            = int_kd_V_write & WVALID;
+assign int_kd_V_be1            = WSTRB;
+assign int_kd_V_d1             = WDATA;
 // ki_V
-assign int_ki_V_address0 = ki_V_address0;
-assign int_ki_V_ce0      = ki_V_ce0;
-assign int_ki_V_we0      = 1'b0;
-assign int_ki_V_be0      = 1'b0;
-assign int_ki_V_d0       = 1'b0;
-assign ki_V_q0           = int_ki_V_q0;
-assign int_ki_V_address1 = ar_hs? raddr[3:2] : waddr[3:2];
-assign int_ki_V_ce1      = ar_hs | (int_ki_V_write & WVALID);
-assign int_ki_V_we1      = int_ki_V_write & WVALID;
-assign int_ki_V_be1      = WSTRB;
-assign int_ki_V_d1       = WDATA;
+assign int_ki_V_address0       = ki_V_address0;
+assign int_ki_V_ce0            = ki_V_ce0;
+assign int_ki_V_we0            = 1'b0;
+assign int_ki_V_be0            = 1'b0;
+assign int_ki_V_d0             = 1'b0;
+assign ki_V_q0                 = int_ki_V_q0;
+assign int_ki_V_address1       = ar_hs? raddr[3:2] : waddr[3:2];
+assign int_ki_V_ce1            = ar_hs | (int_ki_V_write & WVALID);
+assign int_ki_V_we1            = int_ki_V_write & WVALID;
+assign int_ki_V_be1            = WSTRB;
+assign int_ki_V_d1             = WDATA;
+// int_cmdIn_V_read
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_cmdIn_V_read <= 1'b0;
+    else if (ACLK_EN) begin
+        if (ar_hs && raddr >= ADDR_CMDIN_V_BASE && raddr <= ADDR_CMDIN_V_HIGH)
+            int_cmdIn_V_read <= 1'b1;
+        else
+            int_cmdIn_V_read <= 1'b0;
+    end
+end
+
+// int_cmdIn_V_write
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_cmdIn_V_write <= 1'b0;
+    else if (ACLK_EN) begin
+        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_CMDIN_V_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_CMDIN_V_HIGH)
+            int_cmdIn_V_write <= 1'b1;
+        else if (WVALID)
+            int_cmdIn_V_write <= 1'b0;
+    end
+end
+
+// int_cmdIn_V_shift
+always @(posedge ACLK) begin
+    if (ACLK_EN) begin
+        if (cmdIn_V_ce0)
+            int_cmdIn_V_shift <= cmdIn_V_address0[0];
+    end
+end
+
+// int_measured_V_read
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_measured_V_read <= 1'b0;
+    else if (ACLK_EN) begin
+        if (ar_hs && raddr >= ADDR_MEASURED_V_BASE && raddr <= ADDR_MEASURED_V_HIGH)
+            int_measured_V_read <= 1'b1;
+        else
+            int_measured_V_read <= 1'b0;
+    end
+end
+
+// int_measured_V_write
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_measured_V_write <= 1'b0;
+    else if (ACLK_EN) begin
+        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_MEASURED_V_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_MEASURED_V_HIGH)
+            int_measured_V_write <= 1'b1;
+        else if (WVALID)
+            int_measured_V_write <= 1'b0;
+    end
+end
+
+// int_measured_V_shift
+always @(posedge ACLK) begin
+    if (ACLK_EN) begin
+        if (measured_V_ce0)
+            int_measured_V_shift <= measured_V_address0[0];
+    end
+end
+
 // int_kp_V_read
 always @(posedge ACLK) begin
     if (ARESET)

@@ -27,6 +27,7 @@
 								<option id="gnu.cpp.compiler.option.include.paths.262420904" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
@@ -44,6 +45,7 @@
 								<option id="gnu.c.compiler.option.include.paths.767822828" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
@@ -78,6 +80,21 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.395067939.597075031" name="main.cpp" rcbsApplicability="disable" resourcePath="testbench/main.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.2016774243.106606591">
+						<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.2016774243.106606591" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.2016774243">
+							<option id="gnu.cpp.compiler.option.preprocessor.def.1254189318" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
+							<option id="gnu.cpp.compiler.option.include.paths.1621662136" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+								<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
+							</option>
+							<option id="gnu.cpp.compiler.option.other.other.293396550" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.837502515" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
 					<sourceEntries>
 						<entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
@@ -111,6 +128,7 @@
 								<option id="gnu.cpp.compiler.option.include.paths.1355926697" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
@@ -123,6 +141,7 @@
 								<option id="gnu.c.compiler.option.include.paths.479358243" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
@@ -152,6 +171,21 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.release.1313625144.234056259" name="main.cpp" rcbsApplicability="disable" resourcePath="testbench/main.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.660453895.676244073">
+						<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.660453895.676244073" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.660453895">
+							<option id="gnu.cpp.compiler.option.preprocessor.def.620433724" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
+							<option id="gnu.cpp.compiler.option.include.paths.84726508" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/etc"/>
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/auto_cc/include"/>
+								<listOptionValue builtIn="false" value="C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores"/>
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include"/>
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/include/ap_sysc"/>
+								<listOptionValue builtIn="false" value="C:/CAD/Vivado/2018.2/win64/tools/systemc/include"/>
+							</option>
+							<option id="gnu.cpp.compiler.option.other.other.1495974844" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-Wno-unknown-pragmas -c -fmessage-length=0" valueType="string"/>
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.713935791" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
 					<sourceEntries>
 						<entry excluding="solution1|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>

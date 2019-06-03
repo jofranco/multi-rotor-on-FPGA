@@ -2,7 +2,7 @@
 #include "RC_Receiver.hpp"
 
 
-void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], float test[SIZE_4k])
+void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k])
 {
     // HLS PRAGMAS
 	#pragma HLS PIPELINE II=1 enable_flush
@@ -10,11 +10,6 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], float tes
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 	#pragma HLS INTERFACE s_axilite port=SBUS_data bundle=CTRL
 	#pragma HLS INTERFACE m_axi depth=4096 port=norm_out offset=off bundle=OUT
-
-	// python test code
-	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
-	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
-
 
 	// variable declarations
     static uint8_t       buffer[NUM_BYTES];
@@ -70,8 +65,10 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], float tes
     	{	// throttle, ARM, MODE is scaled [0:999]
     		norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN_ZERO, DEST_MAX);
     	}
-    	// scale Roll, Pitch, Yaw [-1:999]
-    	norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN, DEST_MAX);
+    	else
+    	{	// scale Roll, Pitch, Yaw [-1:999]
+    		norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN, DEST_MAX);
+    	}
     }
 
     // ARM switch state select
@@ -79,23 +76,6 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], float tes
 
     // Flight Mode switch state select
     norm_out[MODE_CHAN] = F16_t(selectFlightModeState(norm_out[MODE_CHAN]));
-
-    // python test code
-    test[0] = (float)channels[0]; // throttle
-    test[1] = (float)channels[1]; // roll
-    test[2] = (float)channels[2]; // pitch
-    test[3] = (float)channels[3]; // yaw
-    test[4] = (float)channels[4]; // arm
-    test[5] = (float)channels[5]; // mode
-
-    test[6] = (float)norm_out[0]; // throttle
-    test[7] = (float)norm_out[1]; // roll
-    test[8] = (float)norm_out[2]; // pitch
-    test[9] = (float)norm_out[3]; // yaw
-    test[10] = (float)norm_out[4]; // arm
-    test[11] = (float)norm_out[5]; // mode
-
-
 }
 
 // scales raw RC channel data to [0:1)
@@ -104,7 +84,7 @@ F16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, F16_t destFrom, F
 	F32_t a, b;
 	a = ((F32_t)destTo - (F32_t)destFrom) * ((F32_t)x - (F32_t)srcFrom);
 	b = ((F32_t)srcTo - (F32_t)srcFrom);
-	return F16_t((a/b) + destFrom);
+	return F16_t(((a/b) + (F32_t)destFrom));
 }
 
 motorState_e selectMotorState(F16_t value)

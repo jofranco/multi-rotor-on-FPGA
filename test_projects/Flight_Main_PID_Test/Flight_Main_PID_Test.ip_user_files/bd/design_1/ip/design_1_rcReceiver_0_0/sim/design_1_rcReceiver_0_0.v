@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:hls:rcReceiver:1.0
-// IP Revision: 1905290035
+// IP Revision: 1906012230
 
 `timescale 1ns/1ps
 

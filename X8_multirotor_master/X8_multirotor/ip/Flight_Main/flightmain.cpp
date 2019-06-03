@@ -8,21 +8,17 @@
 */
 
 // main function call
-void flightmain (F16_t rcCmdIn[RC_CHANNELS], F16_t obj_avd_cmd[RC_CHANNELS], F16_t cmdOut[SIZE_4k], F32_t test[SIZE_4k])
+void flightmain (F16_t rcCmdIn[RC_CHANNELS], F16_t obj_avd_cmd[RC_CHANNELS], F16_t cmdOut[SIZE_4k])
 {
 	#pragma HLS PIPELINE II=1 enable_flush
 
     #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
 	// input commands port
-    #pragma HLS INTERFACE s_axilite port=rcCmdIn bundle=CMD
-    #pragma HLS INTERFACE s_axilite port=obj_avd_cmd bundle=CMD
+    #pragma HLS INTERFACE s_axilite port=rcCmdIn bundle=CTRL
+    #pragma HLS INTERFACE s_axilite port=obj_avd_cmd bundle=CTRL
 	// output port
     #pragma HLS INTERFACE m_axi port=cmdOut  bundle=OUT offset=off
-
-	// python test code
-	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
-	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
 
 
     // variable declarations
@@ -148,19 +144,4 @@ void flightmain (F16_t rcCmdIn[RC_CHANNELS], F16_t obj_avd_cmd[RC_CHANNELS], F16
 		cmdOut[ARM_CHAN] = buffer[ARM_CHAN];
         cmdOut[MODE_CHAN] = buffer[MODE_CHAN];
     }
-
-    // python test code
-	test[0] = (F32_t)buffer[0]; // throttle
-	test[1] = (F32_t)buffer[1]; // roll
-	test[2] = (F32_t)buffer[2]; // pitch
-	test[3] = (F32_t)buffer[3]; // yaw
-	test[4] = (F32_t)buffer[4]; // arm
-	test[5] = (F32_t)buffer[5]; // mode
-
-	test[6] = (F32_t)cmdOut[0]; // throttle
-	test[7] = (F32_t)cmdOut[1]; // roll
-	test[8] = (F32_t)cmdOut[2]; // pitch
-	test[9] = (F32_t)cmdOut[3]; // yaw
-	test[10] = (F32_t)cmdOut[4]; // arm
-	test[11] = (F32_t)cmdOut[5]; // mode
 }

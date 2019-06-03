@@ -24606,11 +24606,12 @@ inline bool operator!=(
 # 29 "PID/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
-typedef ap_fixed<32, 16> F32_t;
+typedef ap_fixed<32, 19> F32_t;
 typedef ap_fixed<19, 4> F19_t;
 typedef ap_fixed<16,3> F16_t;
 
-typedef ap_uint<6> uint6_t;
+
+typedef ap_uint<8> uint6_t;
 
 
 typedef enum
@@ -24641,19 +24642,19 @@ static const F32_t MIX_X8[8][3] = {
             { 1.000, 1.000, -1.000},
             { 1.000, -1.000, 1.000},
 };
-# 83 "PID/pid.hpp"
-void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[4096]);
+# 82 "PID/pid.hpp"
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9]);
 # 3 "PID/pid.cpp" 2
-# 16 "PID/pid.cpp"
-void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[4096])
-{_ssdm_SpecArrayDimSize(cmdIn, 6);_ssdm_SpecArrayDimSize(measured, 6);_ssdm_SpecArrayDimSize(kp, 6);_ssdm_SpecArrayDimSize(kd, 4);_ssdm_SpecArrayDimSize(ki, 4);_ssdm_SpecArrayDimSize(commandOut, 9);_ssdm_SpecArrayDimSize(test, 4096);
+# 15 "PID/pid.cpp"
+void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
+{_ssdm_SpecArrayDimSize(cmdIn, 6);_ssdm_SpecArrayDimSize(measured, 6);_ssdm_SpecArrayDimSize(kp, 6);_ssdm_SpecArrayDimSize(kd, 4);_ssdm_SpecArrayDimSize(ki, 4);_ssdm_SpecArrayDimSize(commandOut, 9);
 
 _ssdm_op_SpecPipeline(1, 2, 1, 0, "");
 
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
 
-_ssdm_op_SpecInterface(cmdIn, "s_axilite", 0, 0, "", 0, 0, "INPUT", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecInterface(measured, "s_axilite", 0, 0, "", 0, 0, "INPUT", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(cmdIn, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(measured, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
 
 
 _ssdm_op_SpecInterface(kp, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
@@ -24662,10 +24663,6 @@ _ssdm_op_SpecInterface(ki, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0,
 
 
 _ssdm_op_SpecInterface(commandOut, "m_axi", 0, 0, "", 0, 0, "OUT", "off", "", 16, 16, 16, 16, "", "");
-
-
-_ssdm_op_SpecInterface(test, "s_axilite", 0, 0, "", 0, 0, "TEST", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
 
 
@@ -24752,7 +24749,7 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
   rateCmd[1] = buffer[2];
   rateCmd[2] = buffer[3];
  }
-# 134 "PID/pid.cpp"
+# 129 "PID/pid.cpp"
    curr_error_rate[0]= rateCmd[0] - measured[3];
    integral_rate[0] = ((F32_t(integral_rate[0] + curr_error_rate[0]))<(F32_t(-100))?(F32_t(-100)):((F32_t(integral_rate[0] + curr_error_rate[0]))>(F32_t(100))?(F32_t(100)):(F32_t(integral_rate[0] + curr_error_rate[0]))));
    deriv_rate[0] = (curr_error_rate[0] - last_error_rate[0]);
@@ -24777,7 +24774,7 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
 
 
    pid_o_rate[2] = kp[5]*(rateCmd[2] - measured[5]);
-# 167 "PID/pid.cpp"
+# 162 "PID/pid.cpp"
    F19_t t_command = (F19_t)buffer[0];
    F19_t r_command = (F19_t)pid_o_rate[0];
    F19_t p_command = (F19_t)pid_o_rate[1];

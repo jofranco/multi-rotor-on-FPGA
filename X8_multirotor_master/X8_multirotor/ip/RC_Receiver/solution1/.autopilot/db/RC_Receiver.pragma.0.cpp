@@ -24606,7 +24606,7 @@ inline bool operator!=(
 # 29 "RC_Receiver/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
-typedef ap_fixed<32, 16> F32_t;
+typedef ap_fixed<32, 19> F32_t;
 typedef ap_fixed<19, 4> F19_t;
 typedef ap_fixed<16,3> F16_t;
 
@@ -24644,19 +24644,14 @@ flightMode_e selectFlightModeState(F16_t value);
 # 3 "RC_Receiver/RC_Receiver.cpp" 2
 
 
-void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096], F32_t test[4096])
-{_ssdm_SpecArrayDimSize(SBUS_data, 25);_ssdm_SpecArrayDimSize(norm_out, 4096);_ssdm_SpecArrayDimSize(test, 4096);
+void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096])
+{_ssdm_SpecArrayDimSize(SBUS_data, 25);_ssdm_SpecArrayDimSize(norm_out, 4096);
 
 #pragma HLS PIPELINE II=1 enable_flush
 
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=&SBUS_data bundle=CTRL
 #pragma HLS INTERFACE m_axi depth=4096 port=&norm_out offset=off bundle=OUT
-
-
-#pragma HLS RESOURCE variable=&test core=RAM_1P_BRAM
-#pragma HLS INTERFACE s_axilite port=&test bundle=TEST
-
 
 
  static uint8_t buffer[25];
@@ -24712,8 +24707,10 @@ void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096], F32_t test[4096])
      {
       norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(0.000), F16_t(0.999));
      }
-
-     norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(-1.000), F16_t(0.999));
+     else
+     {
+      norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(-1.000), F16_t(0.999));
+     }
     }
 
 
@@ -24721,23 +24718,6 @@ void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096], F32_t test[4096])
 
 
     norm_out[5] = F16_t(selectFlightModeState(norm_out[5]));
-
-
-    test[0] = (F32_t)channels[0];
-    test[1] = (F32_t)channels[1];
-    test[2] = (F32_t)channels[2];
-    test[3] = (F32_t)channels[3];
-    test[4] = (F32_t)channels[4];
-    test[5] = (F32_t)channels[5];
-
-    test[6] = (F32_t)norm_out[0];
-    test[7] = (F32_t)norm_out[1];
-    test[8] = (F32_t)norm_out[2];
-    test[9] = (F32_t)norm_out[3];
-    test[10] = (F32_t)norm_out[4];
-    test[11] = (F32_t)norm_out[5];
-
-
 }
 
 
@@ -24746,7 +24726,7 @@ F16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, F16_t destFrom, F
  F32_t a, b;
  a = ((F32_t)destTo - (F32_t)destFrom) * ((F32_t)x - (F32_t)srcFrom);
  b = ((F32_t)srcTo - (F32_t)srcFrom);
- return F16_t((a/b) + destFrom);
+ return F16_t(((a/b) + (F32_t)destFrom));
 }
 
 motorState_e selectMotorState(F16_t value)

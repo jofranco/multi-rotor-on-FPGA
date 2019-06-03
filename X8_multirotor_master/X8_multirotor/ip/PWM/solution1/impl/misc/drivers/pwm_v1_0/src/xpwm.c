@@ -15,6 +15,7 @@ int XPwm_CfgInitialize(XPwm *InstancePtr, XPwm_Config *ConfigPtr) {
     Xil_AssertNonvoid(ConfigPtr != NULL);
 
     InstancePtr->Ctrl_BaseAddress = ConfigPtr->Ctrl_BaseAddress;
+    InstancePtr->Test_BaseAddress = ConfigPtr->Test_BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -218,6 +219,101 @@ u32 XPwm_Read_m_V_Bytes(XPwm *InstancePtr, int offset, char *data, int length) {
 
     for (i = 0; i < length; i++) {
         *(data + i) = *(char *)(InstancePtr->Ctrl_BaseAddress + XPWM_CTRL_ADDR_M_V_BASE + offset + i);
+    }
+    return length;
+}
+
+u32 XPwm_Get_test_BaseAddress(XPwm *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return (InstancePtr->Test_BaseAddress + XPWM_TEST_ADDR_TEST_BASE);
+}
+
+u32 XPwm_Get_test_HighAddress(XPwm *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return (InstancePtr->Test_BaseAddress + XPWM_TEST_ADDR_TEST_HIGH);
+}
+
+u32 XPwm_Get_test_TotalBytes(XPwm *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return (XPWM_TEST_ADDR_TEST_HIGH - XPWM_TEST_ADDR_TEST_BASE + 1);
+}
+
+u32 XPwm_Get_test_BitWidth(XPwm *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return XPWM_TEST_WIDTH_TEST;
+}
+
+u32 XPwm_Get_test_Depth(XPwm *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return XPWM_TEST_DEPTH_TEST;
+}
+
+u32 XPwm_Write_test_Words(XPwm *InstancePtr, int offset, int *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length)*4 > (XPWM_TEST_ADDR_TEST_HIGH - XPWM_TEST_ADDR_TEST_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(int *)(InstancePtr->Test_BaseAddress + XPWM_TEST_ADDR_TEST_BASE + (offset + i)*4) = *(data + i);
+    }
+    return length;
+}
+
+u32 XPwm_Read_test_Words(XPwm *InstancePtr, int offset, int *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length)*4 > (XPWM_TEST_ADDR_TEST_HIGH - XPWM_TEST_ADDR_TEST_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(data + i) = *(int *)(InstancePtr->Test_BaseAddress + XPWM_TEST_ADDR_TEST_BASE + (offset + i)*4);
+    }
+    return length;
+}
+
+u32 XPwm_Write_test_Bytes(XPwm *InstancePtr, int offset, char *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length) > (XPWM_TEST_ADDR_TEST_HIGH - XPWM_TEST_ADDR_TEST_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(char *)(InstancePtr->Test_BaseAddress + XPWM_TEST_ADDR_TEST_BASE + offset + i) = *(data + i);
+    }
+    return length;
+}
+
+u32 XPwm_Read_test_Bytes(XPwm *InstancePtr, int offset, char *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length) > (XPWM_TEST_ADDR_TEST_HIGH - XPWM_TEST_ADDR_TEST_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(data + i) = *(char *)(InstancePtr->Test_BaseAddress + XPWM_TEST_ADDR_TEST_BASE + offset + i);
     }
     return length;
 }

@@ -1,3 +1,4 @@
-pwm_mul_mul_17s_1bkb
-pwm_ctrl_s_axi
+pwm_mul_mul_16s_1bkb
+pwm_CTRL_s_axi
+pwm_TEST_s_axi
 pwm

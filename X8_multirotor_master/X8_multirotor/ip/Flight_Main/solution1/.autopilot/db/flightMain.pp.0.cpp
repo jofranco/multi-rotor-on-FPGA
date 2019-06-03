@@ -24605,11 +24605,12 @@ inline bool operator!=(
 # 29 "Flight_Main/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
-typedef ap_fixed<32, 16> F32_t;
+typedef ap_fixed<32, 19> F32_t;
 typedef ap_fixed<19, 4> F19_t;
 typedef ap_fixed<16,3> F16_t;
 
-typedef ap_uint<6> uint6_t;
+
+typedef ap_uint<8> uint6_t;
 
 
 typedef enum
@@ -24629,8 +24630,8 @@ typedef enum
 
 uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
 # 3 "Flight_Main/flightmain.hpp" 2
-# 14 "Flight_Main/flightmain.hpp"
-void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32_t test[4096]);
+# 12 "Flight_Main/flightmain.hpp"
+void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096]);
 
 typedef enum
 {
@@ -24645,21 +24646,17 @@ typedef enum
 }cmdMode_e;
 # 2 "Flight_Main/flightMain.cpp" 2
 # 11 "Flight_Main/flightMain.cpp"
-void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32_t test[4096])
-{_ssdm_SpecArrayDimSize(rcCmdIn, 6);_ssdm_SpecArrayDimSize(obj_avd_cmd, 6);_ssdm_SpecArrayDimSize(cmdOut, 4096);_ssdm_SpecArrayDimSize(test, 4096);
+void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096])
+{_ssdm_SpecArrayDimSize(rcCmdIn, 6);_ssdm_SpecArrayDimSize(obj_avd_cmd, 6);_ssdm_SpecArrayDimSize(cmdOut, 4096);
 #pragma HLS PIPELINE II=1 enable_flush
 
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
 
-#pragma HLS INTERFACE s_axilite port=&rcCmdIn bundle=CMD
-#pragma HLS INTERFACE s_axilite port=&obj_avd_cmd bundle=CMD
+#pragma HLS INTERFACE s_axilite port=&rcCmdIn bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=&obj_avd_cmd bundle=CTRL
 
 #pragma HLS INTERFACE m_axi port=&cmdOut bundle=OUT offset=off
-
-
-#pragma HLS RESOURCE variable=&test core=RAM_1P_BRAM
-#pragma HLS INTERFACE s_axilite port=&test bundle=TEST
 
 
 
@@ -24701,8 +24698,8 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32
             case HORIZON_MODE:
 
 
-                noRollCmd = ((buffer[1] > F16_t(-0.015)) && (buffer[1] < F16_t(0.015)));
-                noPitchCmd = ((buffer[2] > F16_t(-0.015)) && (buffer[2] < F16_t(0.015)));
+                noRollCmd = ((buffer[1] > F16_t(-0.05)) && (buffer[1] < F16_t(0.05)));
+                noPitchCmd = ((buffer[2] > F16_t(-0.05)) && (buffer[2] < F16_t(0.05)));
 
 
                 if(noRollCmd && noPitchCmd)
@@ -24736,8 +24733,8 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32
                 {
 
 
-                    noRollCmd = (buffer[1] > F16_t(-0.015)) && (buffer[1] < F16_t(0.015));
-                    noPitchCmd = (buffer[2] > F16_t(-0.015)) && (buffer[2] < F16_t(0.015));
+                    noRollCmd = (buffer[1] > F16_t(-0.05)) && (buffer[1] < F16_t(0.05));
+                    noPitchCmd = (buffer[2] > F16_t(-0.05)) && (buffer[2] < F16_t(0.05));
 
 
                     if(noRollCmd && noPitchCmd)
@@ -24785,19 +24782,4 @@ void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32
   cmdOut[4] = buffer[4];
         cmdOut[5] = buffer[5];
     }
-
-
- test[0] = (F32_t)buffer[0];
- test[1] = (F32_t)buffer[1];
- test[2] = (F32_t)buffer[2];
- test[3] = (F32_t)buffer[3];
- test[4] = (F32_t)buffer[4];
- test[5] = (F32_t)buffer[5];
-
- test[6] = (F32_t)cmdOut[0];
- test[7] = (F32_t)cmdOut[1];
- test[8] = (F32_t)cmdOut[2];
- test[9] = (F32_t)cmdOut[3];
- test[10] = (F32_t)cmdOut[4];
- test[11] = (F32_t)cmdOut[5];
 }

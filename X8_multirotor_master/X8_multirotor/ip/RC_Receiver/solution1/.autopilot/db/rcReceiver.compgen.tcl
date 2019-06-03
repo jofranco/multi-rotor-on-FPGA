@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
 set id 1
-set name rcReceiver_mul_45bkb
+set name rcReceiver_mul_39bkb
 set corename simcore_mul
 set op mul
 set stage_num 2
@@ -11,13 +11,13 @@ set clk_width 1
 set clk_signed 0
 set reset_width 1
 set reset_signed 0
-set in0_width 45
+set in0_width 39
 set in0_signed 1
-set in1_width 47
+set in1_width 41
 set in1_signed 0
 set ce_width 1
 set ce_signed 0
-set out_width 91
+set out_width 79
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_mul] == "ap_gen_simcore_mul"} {
 eval "ap_gen_simcore_mul { \
@@ -112,7 +112,7 @@ SBUS_data {
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 8 \
+			id 5 \
 			corename rcReceiver_CTRL_axilite \
 			name rcReceiver_CTRL_s_axi \
 			ports {$port_CTRL} \
@@ -128,43 +128,11 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler rcReceiver_CTRL_s_axi
 }
 
-set port_TEST {
-test_V { 
-	dir O
-	width 32
-	depth 4096
-	mode ap_memory
-	offset 16384
-	offset_end 32767
-}
-}
-
-
-# Native S_AXILite:
-if {${::AESL::PGuard_simmodel_gen}} {
-	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
-		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 9 \
-			corename rcReceiver_TEST_axilite \
-			name rcReceiver_TEST_s_axi \
-			ports {$port_TEST} \
-			op interface \
-			is_flushable 0 \ 
-		} "
-	} else {
-		puts "@W \[IMPL-110\] Cannot find AXI Lite interface model in the library. Ignored generation of AXI Lite  interface for 'TEST'"
-	}
-}
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler rcReceiver_TEST_s_axi
-}
-
 # Native M_AXI:
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
 eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
-    id 10 \
+    id 6 \
     corename {m_axi} \
     op interface \
     max_latency -1 \ 

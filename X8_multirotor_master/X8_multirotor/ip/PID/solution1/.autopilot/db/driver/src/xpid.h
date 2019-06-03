@@ -41,15 +41,11 @@ typedef uint32_t u32;
 typedef struct {
     u16 DeviceId;
     u32 Ctrl_BaseAddress;
-    u32 Input_BaseAddress;
-    u32 Test_BaseAddress;
 } XPid_Config;
 #endif
 
 typedef struct {
     u32 Ctrl_BaseAddress;
-    u32 Input_BaseAddress;
-    u32 Test_BaseAddress;
     u32 IsReady;
 } XPid;
 
@@ -91,6 +87,24 @@ u32 XPid_IsReady(XPid *InstancePtr);
 void XPid_EnableAutoRestart(XPid *InstancePtr);
 void XPid_DisableAutoRestart(XPid *InstancePtr);
 
+u32 XPid_Get_cmdIn_V_BaseAddress(XPid *InstancePtr);
+u32 XPid_Get_cmdIn_V_HighAddress(XPid *InstancePtr);
+u32 XPid_Get_cmdIn_V_TotalBytes(XPid *InstancePtr);
+u32 XPid_Get_cmdIn_V_BitWidth(XPid *InstancePtr);
+u32 XPid_Get_cmdIn_V_Depth(XPid *InstancePtr);
+u32 XPid_Write_cmdIn_V_Words(XPid *InstancePtr, int offset, int *data, int length);
+u32 XPid_Read_cmdIn_V_Words(XPid *InstancePtr, int offset, int *data, int length);
+u32 XPid_Write_cmdIn_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
+u32 XPid_Read_cmdIn_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
+u32 XPid_Get_measured_V_BaseAddress(XPid *InstancePtr);
+u32 XPid_Get_measured_V_HighAddress(XPid *InstancePtr);
+u32 XPid_Get_measured_V_TotalBytes(XPid *InstancePtr);
+u32 XPid_Get_measured_V_BitWidth(XPid *InstancePtr);
+u32 XPid_Get_measured_V_Depth(XPid *InstancePtr);
+u32 XPid_Write_measured_V_Words(XPid *InstancePtr, int offset, int *data, int length);
+u32 XPid_Read_measured_V_Words(XPid *InstancePtr, int offset, int *data, int length);
+u32 XPid_Write_measured_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
+u32 XPid_Read_measured_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
 u32 XPid_Get_kp_V_BaseAddress(XPid *InstancePtr);
 u32 XPid_Get_kp_V_HighAddress(XPid *InstancePtr);
 u32 XPid_Get_kp_V_TotalBytes(XPid *InstancePtr);
@@ -118,33 +132,6 @@ u32 XPid_Write_ki_V_Words(XPid *InstancePtr, int offset, int *data, int length);
 u32 XPid_Read_ki_V_Words(XPid *InstancePtr, int offset, int *data, int length);
 u32 XPid_Write_ki_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
 u32 XPid_Read_ki_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
-u32 XPid_Get_cmdIn_V_BaseAddress(XPid *InstancePtr);
-u32 XPid_Get_cmdIn_V_HighAddress(XPid *InstancePtr);
-u32 XPid_Get_cmdIn_V_TotalBytes(XPid *InstancePtr);
-u32 XPid_Get_cmdIn_V_BitWidth(XPid *InstancePtr);
-u32 XPid_Get_cmdIn_V_Depth(XPid *InstancePtr);
-u32 XPid_Write_cmdIn_V_Words(XPid *InstancePtr, int offset, int *data, int length);
-u32 XPid_Read_cmdIn_V_Words(XPid *InstancePtr, int offset, int *data, int length);
-u32 XPid_Write_cmdIn_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
-u32 XPid_Read_cmdIn_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
-u32 XPid_Get_measured_V_BaseAddress(XPid *InstancePtr);
-u32 XPid_Get_measured_V_HighAddress(XPid *InstancePtr);
-u32 XPid_Get_measured_V_TotalBytes(XPid *InstancePtr);
-u32 XPid_Get_measured_V_BitWidth(XPid *InstancePtr);
-u32 XPid_Get_measured_V_Depth(XPid *InstancePtr);
-u32 XPid_Write_measured_V_Words(XPid *InstancePtr, int offset, int *data, int length);
-u32 XPid_Read_measured_V_Words(XPid *InstancePtr, int offset, int *data, int length);
-u32 XPid_Write_measured_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
-u32 XPid_Read_measured_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
-u32 XPid_Get_test_V_BaseAddress(XPid *InstancePtr);
-u32 XPid_Get_test_V_HighAddress(XPid *InstancePtr);
-u32 XPid_Get_test_V_TotalBytes(XPid *InstancePtr);
-u32 XPid_Get_test_V_BitWidth(XPid *InstancePtr);
-u32 XPid_Get_test_V_Depth(XPid *InstancePtr);
-u32 XPid_Write_test_V_Words(XPid *InstancePtr, int offset, int *data, int length);
-u32 XPid_Read_test_V_Words(XPid *InstancePtr, int offset, int *data, int length);
-u32 XPid_Write_test_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
-u32 XPid_Read_test_V_Bytes(XPid *InstancePtr, int offset, char *data, int length);
 
 void XPid_InterruptGlobalEnable(XPid *InstancePtr);
 void XPid_InterruptGlobalDisable(XPid *InstancePtr);

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 30 03:27:11 2019" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Jun  1 23:40:47 2019" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -8076,8 +8076,8 @@
         <PARAMETER NAME="clk_period" VALUE="10"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
-        <PARAMETER NAME="latency" VALUE="23"/>
-        <PARAMETER NAME="II" VALUE="23"/>
+        <PARAMETER NAME="latency" VALUE="26"/>
+        <PARAMETER NAME="II" VALUE="22"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S_AXI_CTRL_BASEADDR" VALUE="0x40030000"/>
         <PARAMETER NAME="C_S_AXI_CTRL_HIGHADDR" VALUE="0x40030FFF"/>
@@ -9921,7 +9921,6 @@
             <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="AXI_UART_DRIVER_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="rst_ps7_0_100M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="rcReceiver_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ACLK"/>
@@ -9940,6 +9939,7 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S04_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S05_ACLK"/>
             <CONNECTION INSTANCE="flightmain_0" PORT="ap_clk"/>
+            <CONNECTION INSTANCE="rcReceiver_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="pid_0" PORT="ap_clk"/>
           </CONNECTIONS>
         </PORT>
@@ -14082,8 +14082,8 @@
         <PARAMETER NAME="clk_period" VALUE="10"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
-        <PARAMETER NAME="latency" VALUE="39"/>
-        <PARAMETER NAME="II" VALUE="26"/>
+        <PARAMETER NAME="latency" VALUE="28"/>
+        <PARAMETER NAME="II" VALUE="23"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S_AXI_CTRL_BASEADDR" VALUE="0x40000000"/>
         <PARAMETER NAME="C_S_AXI_CTRL_HIGHADDR" VALUE="0x40000FFF"/>
@@ -14690,7 +14690,6 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="AXI_UART_DRIVER_0" PORT="ap_rst_n"/>
-            <CONNECTION INSTANCE="rcReceiver_0" PORT="ap_rst_n"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_ARESETN"/>
@@ -14708,6 +14707,7 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S04_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S05_ARESETN"/>
             <CONNECTION INSTANCE="flightmain_0" PORT="ap_rst_n"/>
+            <CONNECTION INSTANCE="rcReceiver_0" PORT="ap_rst_n"/>
             <CONNECTION INSTANCE="pid_0" PORT="ap_rst_n"/>
           </CONNECTIONS>
         </PORT>

@@ -352,19 +352,19 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>rcReceiver_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="hls" spirit:name="rcReceiver" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_rcReceiver_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_OUT_R_TARGET_ADDR">0x40020010</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>flightmain_0</spirit:instanceName>
         <spirit:componentRef spirit:library="hls" spirit:name="flightmain" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_flightmain_0_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_M_AXI_OUT_R_TARGET_ADDR">0x40040010</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>rcReceiver_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="hls" spirit:name="rcReceiver" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_rcReceiver_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_M_AXI_OUT_R_TARGET_ADDR">0x40020010</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -470,7 +470,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_uart16550_0" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="AXI_UART_DRIVER_0" spirit:portRef="ap_clk"/>
         <spirit:internalPortReference spirit:componentRef="rst_ps7_0_100M" spirit:portRef="slowest_sync_clk"/>
-        <spirit:internalPortReference spirit:componentRef="rcReceiver_0" spirit:portRef="ap_clk"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="M00_ACLK"/>
@@ -489,6 +488,7 @@
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="S04_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="S05_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="flightmain_0" spirit:portRef="ap_clk"/>
+        <spirit:internalPortReference spirit:componentRef="rcReceiver_0" spirit:portRef="ap_clk"/>
         <spirit:internalPortReference spirit:componentRef="pid_0" spirit:portRef="ap_clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
@@ -511,7 +511,6 @@
         <spirit:internalPortReference spirit:componentRef="rst_ps7_0_100M" spirit:portRef="peripheral_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_uart16550_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="AXI_UART_DRIVER_0" spirit:portRef="ap_rst_n"/>
-        <spirit:internalPortReference spirit:componentRef="rcReceiver_0" spirit:portRef="ap_rst_n"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="M01_ARESETN"/>
@@ -529,6 +528,7 @@
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="S04_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="ps7_0_axi_periph" spirit:portRef="S05_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="flightmain_0" spirit:portRef="ap_rst_n"/>
+        <spirit:internalPortReference spirit:componentRef="rcReceiver_0" spirit:portRef="ap_rst_n"/>
         <spirit:internalPortReference spirit:componentRef="pid_0" spirit:portRef="ap_rst_n"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
@@ -5549,108 +5549,6 @@
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
-    <spirit:library>Addressing/rcReceiver_0</spirit:library>
-    <spirit:name>rcReceiver</spirit:name>
-    <spirit:version>1.0</spirit:version>
-    <spirit:busInterfaces>
-      <spirit:busInterface>
-        <spirit:name>s_axi_CTRL</spirit:name>
-        <spirit:slave>
-          <spirit:memoryMapRef spirit:memoryMapRef="s_axi_CTRL"/>
-        </spirit:slave>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>s_axi_TEST</spirit:name>
-        <spirit:slave>
-          <spirit:memoryMapRef spirit:memoryMapRef="s_axi_TEST"/>
-        </spirit:slave>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>m_axi_OUT_r</spirit:name>
-        <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="Data_m_axi_OUT_r"/>
-        </spirit:master>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-    </spirit:busInterfaces>
-    <spirit:addressSpaces>
-      <spirit:addressSpace>
-        <spirit:name>Data_m_axi_OUT_r</spirit:name>
-        <spirit:range>4G</spirit:range>
-        <spirit:width>32</spirit:width>
-        <spirit:segments>
-          <spirit:segment>
-            <spirit:name>SEG_flightmain_0_Reg</spirit:name>
-            <spirit:displayName>/flightmain_0/s_axi_CMD/Reg</spirit:displayName>
-            <spirit:addressOffset>0x40020000</spirit:addressOffset>
-            <spirit:range>4K</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_AXI_UART_DRIVER_0_Reg</spirit:name>
-            <spirit:displayName>/AXI_UART_DRIVER_0/s_axi_CTRL/Reg</spirit:displayName>
-            <spirit:addressOffset>0x43C10000</spirit:addressOffset>
-            <spirit:range>4K</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_axi_uart16550_0_Reg</spirit:name>
-            <spirit:displayName>/axi_uart16550_0/S_AXI/Reg</spirit:displayName>
-            <spirit:addressOffset>0x43C00000</spirit:addressOffset>
-            <spirit:range>64K</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_flightmain_0_Reg1</spirit:name>
-            <spirit:displayName>/flightmain_0/s_axi_TEST/Reg</spirit:displayName>
-            <spirit:addressOffset>0x40064000</spirit:addressOffset>
-            <spirit:range>16K</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_flightmain_0_Reg4</spirit:name>
-            <spirit:displayName>/flightmain_0/s_axi_CTRL/Reg</spirit:displayName>
-            <spirit:addressOffset>0x40010000</spirit:addressOffset>
-            <spirit:range>4K</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_pid_0_Reg</spirit:name>
-            <spirit:displayName>/pid_0/s_axi_CTRL/Reg</spirit:displayName>
-            <spirit:addressOffset>0x40030000</spirit:addressOffset>
-            <spirit:range>4K</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_pid_0_Reg7</spirit:name>
-            <spirit:displayName>/pid_0/s_axi_INPUT/Reg</spirit:displayName>
-            <spirit:addressOffset>0x40040000</spirit:addressOffset>
-            <spirit:range>4K</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_pid_0_Reg9</spirit:name>
-            <spirit:displayName>/pid_0/s_axi_TEST/Reg</spirit:displayName>
-            <spirit:addressOffset>0x40054000</spirit:addressOffset>
-            <spirit:range>16K</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_rcReceiver_0_Reg</spirit:name>
-            <spirit:displayName>/rcReceiver_0/s_axi_CTRL/Reg</spirit:displayName>
-            <spirit:addressOffset>0x40000000</spirit:addressOffset>
-            <spirit:range>4K</spirit:range>
-          </spirit:segment>
-          <spirit:segment bd:isExcluded="true">
-            <spirit:name>SEG_rcReceiver_0_Reg3</spirit:name>
-            <spirit:displayName>/rcReceiver_0/s_axi_TEST/Reg</spirit:displayName>
-            <spirit:addressOffset>0x40004000</spirit:addressOffset>
-            <spirit:range>16K</spirit:range>
-          </spirit:segment>
-        </spirit:segments>
-      </spirit:addressSpace>
-    </spirit:addressSpaces>
-  </spirit:component>
-
-  <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
-    <spirit:vendor>xilinx.com</spirit:vendor>
     <spirit:library>Addressing/flightmain_0</spirit:library>
     <spirit:name>flightmain</spirit:name>
     <spirit:version>1.0</spirit:version>
@@ -5734,6 +5632,108 @@
             <spirit:name>SEG_pid_0_Reg</spirit:name>
             <spirit:displayName>/pid_0/s_axi_CTRL/Reg</spirit:displayName>
             <spirit:addressOffset>0x40030000</spirit:addressOffset>
+            <spirit:range>4K</spirit:range>
+          </spirit:segment>
+          <spirit:segment bd:isExcluded="true">
+            <spirit:name>SEG_pid_0_Reg9</spirit:name>
+            <spirit:displayName>/pid_0/s_axi_TEST/Reg</spirit:displayName>
+            <spirit:addressOffset>0x40054000</spirit:addressOffset>
+            <spirit:range>16K</spirit:range>
+          </spirit:segment>
+          <spirit:segment bd:isExcluded="true">
+            <spirit:name>SEG_rcReceiver_0_Reg</spirit:name>
+            <spirit:displayName>/rcReceiver_0/s_axi_CTRL/Reg</spirit:displayName>
+            <spirit:addressOffset>0x40000000</spirit:addressOffset>
+            <spirit:range>4K</spirit:range>
+          </spirit:segment>
+          <spirit:segment bd:isExcluded="true">
+            <spirit:name>SEG_rcReceiver_0_Reg3</spirit:name>
+            <spirit:displayName>/rcReceiver_0/s_axi_TEST/Reg</spirit:displayName>
+            <spirit:addressOffset>0x40004000</spirit:addressOffset>
+            <spirit:range>16K</spirit:range>
+          </spirit:segment>
+        </spirit:segments>
+      </spirit:addressSpace>
+    </spirit:addressSpaces>
+  </spirit:component>
+
+  <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+    <spirit:vendor>xilinx.com</spirit:vendor>
+    <spirit:library>Addressing/rcReceiver_0</spirit:library>
+    <spirit:name>rcReceiver</spirit:name>
+    <spirit:version>1.0</spirit:version>
+    <spirit:busInterfaces>
+      <spirit:busInterface>
+        <spirit:name>s_axi_CTRL</spirit:name>
+        <spirit:slave>
+          <spirit:memoryMapRef spirit:memoryMapRef="s_axi_CTRL"/>
+        </spirit:slave>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>s_axi_TEST</spirit:name>
+        <spirit:slave>
+          <spirit:memoryMapRef spirit:memoryMapRef="s_axi_TEST"/>
+        </spirit:slave>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>m_axi_OUT_r</spirit:name>
+        <spirit:master>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="Data_m_axi_OUT_r"/>
+        </spirit:master>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+    </spirit:busInterfaces>
+    <spirit:addressSpaces>
+      <spirit:addressSpace>
+        <spirit:name>Data_m_axi_OUT_r</spirit:name>
+        <spirit:range>4G</spirit:range>
+        <spirit:width>32</spirit:width>
+        <spirit:segments>
+          <spirit:segment>
+            <spirit:name>SEG_flightmain_0_Reg</spirit:name>
+            <spirit:displayName>/flightmain_0/s_axi_CMD/Reg</spirit:displayName>
+            <spirit:addressOffset>0x40020000</spirit:addressOffset>
+            <spirit:range>4K</spirit:range>
+          </spirit:segment>
+          <spirit:segment bd:isExcluded="true">
+            <spirit:name>SEG_AXI_UART_DRIVER_0_Reg</spirit:name>
+            <spirit:displayName>/AXI_UART_DRIVER_0/s_axi_CTRL/Reg</spirit:displayName>
+            <spirit:addressOffset>0x43C10000</spirit:addressOffset>
+            <spirit:range>4K</spirit:range>
+          </spirit:segment>
+          <spirit:segment bd:isExcluded="true">
+            <spirit:name>SEG_axi_uart16550_0_Reg</spirit:name>
+            <spirit:displayName>/axi_uart16550_0/S_AXI/Reg</spirit:displayName>
+            <spirit:addressOffset>0x43C00000</spirit:addressOffset>
+            <spirit:range>64K</spirit:range>
+          </spirit:segment>
+          <spirit:segment bd:isExcluded="true">
+            <spirit:name>SEG_flightmain_0_Reg1</spirit:name>
+            <spirit:displayName>/flightmain_0/s_axi_TEST/Reg</spirit:displayName>
+            <spirit:addressOffset>0x40064000</spirit:addressOffset>
+            <spirit:range>16K</spirit:range>
+          </spirit:segment>
+          <spirit:segment bd:isExcluded="true">
+            <spirit:name>SEG_flightmain_0_Reg4</spirit:name>
+            <spirit:displayName>/flightmain_0/s_axi_CTRL/Reg</spirit:displayName>
+            <spirit:addressOffset>0x40010000</spirit:addressOffset>
+            <spirit:range>4K</spirit:range>
+          </spirit:segment>
+          <spirit:segment bd:isExcluded="true">
+            <spirit:name>SEG_pid_0_Reg</spirit:name>
+            <spirit:displayName>/pid_0/s_axi_CTRL/Reg</spirit:displayName>
+            <spirit:addressOffset>0x40030000</spirit:addressOffset>
+            <spirit:range>4K</spirit:range>
+          </spirit:segment>
+          <spirit:segment bd:isExcluded="true">
+            <spirit:name>SEG_pid_0_Reg7</spirit:name>
+            <spirit:displayName>/pid_0/s_axi_INPUT/Reg</spirit:displayName>
+            <spirit:addressOffset>0x40040000</spirit:addressOffset>
             <spirit:range>4K</spirit:range>
           </spirit:segment>
           <spirit:segment bd:isExcluded="true">

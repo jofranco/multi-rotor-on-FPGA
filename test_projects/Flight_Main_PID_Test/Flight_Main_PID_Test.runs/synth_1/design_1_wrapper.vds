@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Thu May 30 03:28:45 2019
-# Process ID: 22784
+# Start of session at: Sat Jun  1 23:40:57 2019
+# Process ID: 29040
 # Current directory: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1
 # Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/design_1_wrapper.vds
@@ -15,33 +15,34 @@ INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Aaron/Desktop/School
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/AXI_SPI_Driver'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PWM'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/CAD/Vivado/2018.2/data/ip'.
-add_files: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 301.266 ; gain = 56.309
 Command: synth_design -top design_1_wrapper -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6216 
+INFO: Helper process launched with PID 22960 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 413.672 ; gain = 105.531
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 413.875 ; gain = 105.617
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_AXI_UART_DRIVER_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_AXI_UART_DRIVER_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_AXI_UART_DRIVER_0_0' (1#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_AXI_UART_DRIVER_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_AXI_UART_DRIVER_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_AXI_UART_DRIVER_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_AXI_UART_DRIVER_0_0' (1#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_AXI_UART_DRIVER_0_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'AXI_UART_DRIVER_0' of module 'design_1_AXI_UART_DRIVER_0_0' requires 90 connections, but only 89 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:475]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uart16550_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_axi_uart16550_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uart16550_0_0' (2#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_axi_uart16550_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uart16550_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_axi_uart16550_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uart16550_0_0' (2#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_axi_uart16550_0_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'axi_uart16550_0' of module 'design_1_axi_uart16550_0_0' requires 35 connections, but only 26 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:565]
-INFO: [Synth 8-6157] synthesizing module 'design_1_flightmain_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_flightmain_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_flightmain_0_0' (3#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_flightmain_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_flightmain_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_flightmain_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_flightmain_0_0' (3#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_flightmain_0_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'flightmain_0' of module 'design_1_flightmain_0_0' requires 89 connections, but only 88 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:592]
-INFO: [Synth 8-6157] synthesizing module 'design_1_pid_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_pid_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_pid_0_0' (4#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_pid_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_pid_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_pid_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_pid_0_0' (4#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_pid_0_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'pid_0' of module 'design_1_pid_0_0' requires 89 connections, but only 88 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:681]
-INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (5#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (5#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_processing_system7_0_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'design_1_ps7_0_axi_periph_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:1336]
 INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_15SPJYW' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:4079]
 INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_15SPJYW' (6#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:4079]
@@ -64,41 +65,41 @@ INFO: [Synth 8-6155] done synthesizing module 'm08_couplers_imp_1024TAS' (14#1) 
 INFO: [Synth 8-6157] synthesizing module 'm09_couplers_imp_UP9YUT' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:5267]
 INFO: [Synth 8-6155] done synthesizing module 'm09_couplers_imp_UP9YUT' (15#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:5267]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_UYSKKA' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:5399]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (16#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (16#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_UYSKKA' (17#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:5399]
 INFO: [Synth 8-6157] synthesizing module 's01_couplers_imp_ZQDCSB' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:5704]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (18#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (18#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_1_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's01_couplers_imp_ZQDCSB' (19#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:5704]
 INFO: [Synth 8-6157] synthesizing module 's02_couplers_imp_THVDEH' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:5994]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_2' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_2' (20#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_2' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_2' (20#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_2_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's02_couplers_imp_THVDEH' (21#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:5994]
 INFO: [Synth 8-6157] synthesizing module 's03_couplers_imp_10XLKL4' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:6284]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_3' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_3_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_3' (22#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_3_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_3' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_3_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_3' (22#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_3_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's03_couplers_imp_10XLKL4' (23#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:6284]
 INFO: [Synth 8-6157] synthesizing module 's04_couplers_imp_RSTU70' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:6574]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_4' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_4_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_4' (24#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_4_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_4' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_4_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_4' (24#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_4_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's04_couplers_imp_RSTU70' (25#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:6574]
 INFO: [Synth 8-6157] synthesizing module 's05_couplers_imp_12O77CT' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:6864]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_5' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_5_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_5' (26#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_5_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_5' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_5_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_5' (26#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_auto_pc_5_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's05_couplers_imp_12O77CT' (27#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:6864]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_xbar_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (28#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_xbar_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_xbar_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (28#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_xbar_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'xbar' of module 'design_1_xbar_0' requires 40 connections, but only 38 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:4038]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_ps7_0_axi_periph_0' (29#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:1336]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rcReceiver_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_rcReceiver_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rcReceiver_0_0' (30#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_rcReceiver_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rcReceiver_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_rcReceiver_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rcReceiver_0_0' (30#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_rcReceiver_0_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'rcReceiver_0' of module 'design_1_rcReceiver_0_0' requires 72 connections, but only 71 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:1251]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_100M_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_rst_ps7_0_100M_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_100M_1' (31#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_rst_ps7_0_100M_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_100M_1' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_rst_ps7_0_100M_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_100M_1' (31#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_rst_ps7_0_100M_1_stub.v:6]
 WARNING: [Synth 8-350] instance 'rst_ps7_0_100M' of module 'design_1_rst_ps7_0_100M_1' requires 10 connections, but only 7 given [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:1323]
-INFO: [Synth 8-6157] synthesizing module 'design_1_util_vector_logic_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_util_vector_logic_0_0' (32#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-22784-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_util_vector_logic_0_0' [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_util_vector_logic_0_0' (32#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/.Xil/Vivado-29040-DESKTOP-9NGIUQU/realtime/design_1_util_vector_logic_0_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'design_1' (33#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/synth/design_1.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (34#1) [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 WARNING: [Synth 8-3331] design s05_couplers_imp_12O77CT has unconnected port M_ACLK
@@ -164,7 +165,7 @@ WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port M_A
 WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port S_ACLK
 WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port S_ARESETN
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 469.875 ; gain = 161.734
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 470.871 ; gain = 162.613
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -177,10 +178,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 469.875 ; gain = 161.734
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 470.871 ; gain = 162.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 469.875 ; gain = 161.734
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 470.871 ; gain = 162.613
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -205,18 +206,18 @@ Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Fligh
 Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1_in_context.xdc] for cell 'design_1_i/rst_ps7_0_100M'
 Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0/design_1_xbar_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/xbar'
 Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0/design_1_xbar_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/xbar'
-Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_5/design_1_auto_pc_5/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s05_couplers/auto_pc'
-Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_5/design_1_auto_pc_5/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s05_couplers/auto_pc'
-Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_4/design_1_auto_pc_4/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s04_couplers/auto_pc'
-Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_4/design_1_auto_pc_4/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s04_couplers/auto_pc'
-Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3/design_1_auto_pc_3/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s03_couplers/auto_pc'
-Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3/design_1_auto_pc_3/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s03_couplers/auto_pc'
-Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s02_couplers/auto_pc'
-Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s02_couplers/auto_pc'
-Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s01_couplers/auto_pc'
-Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s01_couplers/auto_pc'
-Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_6_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
-Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_6_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
+Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_5_1/design_1_auto_pc_5/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s05_couplers/auto_pc'
+Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_5_1/design_1_auto_pc_5/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s05_couplers/auto_pc'
+Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_4_1/design_1_auto_pc_4/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s04_couplers/auto_pc'
+Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_4_1/design_1_auto_pc_4/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s04_couplers/auto_pc'
+Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3_1/design_1_auto_pc_3/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s03_couplers/auto_pc'
+Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3_1/design_1_auto_pc_3/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s03_couplers/auto_pc'
+Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2_1/design_1_auto_pc_2/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s02_couplers/auto_pc'
+Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2_1/design_1_auto_pc_2/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s02_couplers/auto_pc'
+Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1_1/design_1_auto_pc_1/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s01_couplers/auto_pc'
+Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1_1/design_1_auto_pc_1/design_1_auto_pc_10_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s01_couplers/auto_pc'
+Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0_1/design_1_auto_pc_0/design_1_auto_pc_6_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
+Finished Parsing XDC File [c:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0_1/design_1_auto_pc_0/design_1_auto_pc_6_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
 Parsing XDC File [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/constrs_1/new/design_1.xdc]
 WARNING: [Vivado 12-584] No ports matched 'inv_sbus'. [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/constrs_1/new/design_1.xdc:13]
 Finished Parsing XDC File [C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.srcs/constrs_1/new/design_1.xdc]
@@ -230,16 +231,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 814.297 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 814.855 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 814.297 ; gain = 506.156
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 814.855 ; gain = 506.598
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 814.297 ; gain = 506.156
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 814.855 ; gain = 506.598
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -522,10 +523,10 @@ Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s02_coupl
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s01_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 814.297 ; gain = 506.156
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 814.855 ; gain = 506.598
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 814.297 ; gain = 506.156
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 814.855 ; gain = 506.598
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -591,7 +592,7 @@ WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port 
 WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port S05_AXI_arlock[1]
 WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port S05_AXI_awlock[1]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 814.297 ; gain = 506.156
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 814.855 ; gain = 506.598
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -605,13 +606,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'design_1_i/processing_system7_0/FCLK_CLK0' to pin 'design_1_i/processing_system7_0/bbstub_FCLK_CLK0/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 819.148 ; gain = 511.008
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 817.980 ; gain = 509.723
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 819.594 ; gain = 511.453
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 818.504 ; gain = 510.246
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -623,7 +624,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 823.148 ; gain = 515.008
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 821.973 ; gain = 513.715
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -647,7 +648,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 823.148 ; gain = 515.008
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 821.973 ; gain = 513.715
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -660,7 +661,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 823.148 ; gain = 515.008
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 821.973 ; gain = 513.715
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -672,25 +673,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 823.148 ; gain = 515.008
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 821.973 ; gain = 513.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 823.148 ; gain = 515.008
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 821.973 ; gain = 513.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 823.148 ; gain = 515.008
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 821.973 ; gain = 513.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 823.148 ; gain = 515.008
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 821.973 ; gain = 513.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -755,11 +756,11 @@ Report Instance Areas:
 |9     |      s05_couplers   |s05_couplers_imp_12O77CT    |   153|
 +------+---------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 823.148 ; gain = 515.008
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 821.973 ; gain = 513.715
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 30 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 823.148 ; gain = 170.586
-Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 823.148 ; gain = 515.008
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 821.973 ; gain = 169.730
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 821.973 ; gain = 513.715
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -769,11 +770,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-88 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
+90 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 845.098 ; gain = 543.832
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 842.684 ; gain = 541.301
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Aaron/Desktop/School/WES_Capstone/Jupyter_Demos/Flight_Main_PID_Test/Flight_Main_PID_Test.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 845.414 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu May 30 03:29:27 2019...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 842.684 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Jun  1 23:41:38 2019...

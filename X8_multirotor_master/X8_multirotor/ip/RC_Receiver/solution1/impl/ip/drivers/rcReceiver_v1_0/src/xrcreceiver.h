@@ -41,13 +41,11 @@ typedef uint32_t u32;
 typedef struct {
     u16 DeviceId;
     u32 Ctrl_BaseAddress;
-    u32 Test_BaseAddress;
 } XRcreceiver_Config;
 #endif
 
 typedef struct {
     u32 Ctrl_BaseAddress;
-    u32 Test_BaseAddress;
     u32 IsReady;
 } XRcreceiver;
 
@@ -98,15 +96,6 @@ u32 XRcreceiver_Write_SBUS_data_Words(XRcreceiver *InstancePtr, int offset, int 
 u32 XRcreceiver_Read_SBUS_data_Words(XRcreceiver *InstancePtr, int offset, int *data, int length);
 u32 XRcreceiver_Write_SBUS_data_Bytes(XRcreceiver *InstancePtr, int offset, char *data, int length);
 u32 XRcreceiver_Read_SBUS_data_Bytes(XRcreceiver *InstancePtr, int offset, char *data, int length);
-u32 XRcreceiver_Get_test_V_BaseAddress(XRcreceiver *InstancePtr);
-u32 XRcreceiver_Get_test_V_HighAddress(XRcreceiver *InstancePtr);
-u32 XRcreceiver_Get_test_V_TotalBytes(XRcreceiver *InstancePtr);
-u32 XRcreceiver_Get_test_V_BitWidth(XRcreceiver *InstancePtr);
-u32 XRcreceiver_Get_test_V_Depth(XRcreceiver *InstancePtr);
-u32 XRcreceiver_Write_test_V_Words(XRcreceiver *InstancePtr, int offset, int *data, int length);
-u32 XRcreceiver_Read_test_V_Words(XRcreceiver *InstancePtr, int offset, int *data, int length);
-u32 XRcreceiver_Write_test_V_Bytes(XRcreceiver *InstancePtr, int offset, char *data, int length);
-u32 XRcreceiver_Read_test_V_Bytes(XRcreceiver *InstancePtr, int offset, char *data, int length);
 
 void XRcreceiver_InterruptGlobalEnable(XRcreceiver *InstancePtr);
 void XRcreceiver_InterruptGlobalDisable(XRcreceiver *InstancePtr);

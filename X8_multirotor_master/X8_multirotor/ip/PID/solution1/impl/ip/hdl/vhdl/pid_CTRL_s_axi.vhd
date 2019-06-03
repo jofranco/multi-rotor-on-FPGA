@@ -41,6 +41,12 @@ port (
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
     ap_idle               :in   STD_LOGIC;
+    cmdIn_V_address0      :in   STD_LOGIC_VECTOR(2 downto 0);
+    cmdIn_V_ce0           :in   STD_LOGIC;
+    cmdIn_V_q0            :out  STD_LOGIC_VECTOR(15 downto 0);
+    measured_V_address0   :in   STD_LOGIC_VECTOR(2 downto 0);
+    measured_V_ce0        :in   STD_LOGIC;
+    measured_V_q0         :out  STD_LOGIC_VECTOR(15 downto 0);
     kp_V_address0         :in   STD_LOGIC_VECTOR(2 downto 0);
     kp_V_ce0              :in   STD_LOGIC;
     kp_V_q0               :out  STD_LOGIC_VECTOR(31 downto 0);
@@ -72,14 +78,22 @@ end entity pid_CTRL_s_axi;
 --        bit 0  - Channel 0 (ap_done)
 --        bit 1  - Channel 1 (ap_ready)
 --        others - reserved
+-- 0x10 ~
+-- 0x1f : Memory 'cmdIn_V' (6 * 16b)
+--        Word n : bit [15: 0] - cmdIn_V[2n]
+--                 bit [31:16] - cmdIn_V[2n+1]
 -- 0x20 ~
--- 0x3f : Memory 'kp_V' (6 * 32b)
---        Word n : bit [31:0] - kp_V[n]
+-- 0x2f : Memory 'measured_V' (6 * 16b)
+--        Word n : bit [15: 0] - measured_V[2n]
+--                 bit [31:16] - measured_V[2n+1]
 -- 0x40 ~
--- 0x4f : Memory 'kd_V' (4 * 32b)
+-- 0x5f : Memory 'kp_V' (6 * 32b)
+--        Word n : bit [31:0] - kp_V[n]
+-- 0x60 ~
+-- 0x6f : Memory 'kd_V' (4 * 32b)
 --        Word n : bit [31:0] - kd_V[n]
--- 0x50 ~
--- 0x5f : Memory 'ki_V' (4 * 32b)
+-- 0x70 ~
+-- 0x7f : Memory 'ki_V' (4 * 32b)
 --        Word n : bit [31:0] - ki_V[n]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
@@ -88,16 +102,20 @@ architecture behave of pid_CTRL_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL   : INTEGER := 16#00#;
-    constant ADDR_GIE       : INTEGER := 16#04#;
-    constant ADDR_IER       : INTEGER := 16#08#;
-    constant ADDR_ISR       : INTEGER := 16#0c#;
-    constant ADDR_KP_V_BASE : INTEGER := 16#20#;
-    constant ADDR_KP_V_HIGH : INTEGER := 16#3f#;
-    constant ADDR_KD_V_BASE : INTEGER := 16#40#;
-    constant ADDR_KD_V_HIGH : INTEGER := 16#4f#;
-    constant ADDR_KI_V_BASE : INTEGER := 16#50#;
-    constant ADDR_KI_V_HIGH : INTEGER := 16#5f#;
+    constant ADDR_AP_CTRL         : INTEGER := 16#00#;
+    constant ADDR_GIE             : INTEGER := 16#04#;
+    constant ADDR_IER             : INTEGER := 16#08#;
+    constant ADDR_ISR             : INTEGER := 16#0c#;
+    constant ADDR_CMDIN_V_BASE    : INTEGER := 16#10#;
+    constant ADDR_CMDIN_V_HIGH    : INTEGER := 16#1f#;
+    constant ADDR_MEASURED_V_BASE : INTEGER := 16#20#;
+    constant ADDR_MEASURED_V_HIGH : INTEGER := 16#2f#;
+    constant ADDR_KP_V_BASE       : INTEGER := 16#40#;
+    constant ADDR_KP_V_HIGH       : INTEGER := 16#5f#;
+    constant ADDR_KD_V_BASE       : INTEGER := 16#60#;
+    constant ADDR_KD_V_HIGH       : INTEGER := 16#6f#;
+    constant ADDR_KI_V_BASE       : INTEGER := 16#70#;
+    constant ADDR_KI_V_HIGH       : INTEGER := 16#7f#;
     constant ADDR_BITS         : INTEGER := 7;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -121,6 +139,36 @@ architecture behave of pid_CTRL_s_axi is
     signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
     -- memory signals
+    signal int_cmdIn_V_address0 : UNSIGNED(1 downto 0);
+    signal int_cmdIn_V_ce0     : STD_LOGIC;
+    signal int_cmdIn_V_we0     : STD_LOGIC;
+    signal int_cmdIn_V_be0     : UNSIGNED(3 downto 0);
+    signal int_cmdIn_V_d0      : UNSIGNED(31 downto 0);
+    signal int_cmdIn_V_q0      : UNSIGNED(31 downto 0);
+    signal int_cmdIn_V_address1 : UNSIGNED(1 downto 0);
+    signal int_cmdIn_V_ce1     : STD_LOGIC;
+    signal int_cmdIn_V_we1     : STD_LOGIC;
+    signal int_cmdIn_V_be1     : UNSIGNED(3 downto 0);
+    signal int_cmdIn_V_d1      : UNSIGNED(31 downto 0);
+    signal int_cmdIn_V_q1      : UNSIGNED(31 downto 0);
+    signal int_cmdIn_V_read    : STD_LOGIC;
+    signal int_cmdIn_V_write   : STD_LOGIC;
+    signal int_cmdIn_V_shift   : UNSIGNED(0 downto 0);
+    signal int_measured_V_address0 : UNSIGNED(1 downto 0);
+    signal int_measured_V_ce0  : STD_LOGIC;
+    signal int_measured_V_we0  : STD_LOGIC;
+    signal int_measured_V_be0  : UNSIGNED(3 downto 0);
+    signal int_measured_V_d0   : UNSIGNED(31 downto 0);
+    signal int_measured_V_q0   : UNSIGNED(31 downto 0);
+    signal int_measured_V_address1 : UNSIGNED(1 downto 0);
+    signal int_measured_V_ce1  : STD_LOGIC;
+    signal int_measured_V_we1  : STD_LOGIC;
+    signal int_measured_V_be1  : UNSIGNED(3 downto 0);
+    signal int_measured_V_d1   : UNSIGNED(31 downto 0);
+    signal int_measured_V_q1   : UNSIGNED(31 downto 0);
+    signal int_measured_V_read : STD_LOGIC;
+    signal int_measured_V_write : STD_LOGIC;
+    signal int_measured_V_shift : UNSIGNED(0 downto 0);
     signal int_kp_V_address0   : UNSIGNED(2 downto 0);
     signal int_kp_V_ce0        : STD_LOGIC;
     signal int_kp_V_we0        : STD_LOGIC;
@@ -200,6 +248,48 @@ architecture behave of pid_CTRL_s_axi is
 
 begin
 -- ----------------------- Instantiation------------------
+-- int_cmdIn_V
+int_cmdIn_V : pid_CTRL_s_axi_ram
+generic map (
+     BYTES    => 4,
+     DEPTH    => 3,
+     AWIDTH   => log2(3))
+port map (
+     clk0     => ACLK,
+     address0 => int_cmdIn_V_address0,
+     ce0      => int_cmdIn_V_ce0,
+     we0      => int_cmdIn_V_we0,
+     be0      => int_cmdIn_V_be0,
+     d0       => int_cmdIn_V_d0,
+     q0       => int_cmdIn_V_q0,
+     clk1     => ACLK,
+     address1 => int_cmdIn_V_address1,
+     ce1      => int_cmdIn_V_ce1,
+     we1      => int_cmdIn_V_we1,
+     be1      => int_cmdIn_V_be1,
+     d1       => int_cmdIn_V_d1,
+     q1       => int_cmdIn_V_q1);
+-- int_measured_V
+int_measured_V : pid_CTRL_s_axi_ram
+generic map (
+     BYTES    => 4,
+     DEPTH    => 3,
+     AWIDTH   => log2(3))
+port map (
+     clk0     => ACLK,
+     address0 => int_measured_V_address0,
+     ce0      => int_measured_V_ce0,
+     we0      => int_measured_V_we0,
+     be0      => int_measured_V_be0,
+     d0       => int_measured_V_d0,
+     q0       => int_measured_V_q0,
+     clk1     => ACLK,
+     address1 => int_measured_V_address1,
+     ce1      => int_measured_V_ce1,
+     we1      => int_measured_V_we1,
+     be1      => int_measured_V_be1,
+     d1       => int_measured_V_d1,
+     q1       => int_measured_V_q1);
 -- int_kp_V
 int_kp_V : pid_CTRL_s_axi_ram
 generic map (
@@ -329,7 +419,7 @@ port map (
     ARREADY <= ARREADY_t;
     RDATA   <= STD_LOGIC_VECTOR(rdata_data);
     RRESP   <= "00";  -- OKAY
-    RVALID_t  <= '1' when (rstate = rddata) and (int_kp_V_read = '0') and (int_kd_V_read = '0') and (int_ki_V_read = '0') else '0';
+    RVALID_t  <= '1' when (rstate = rddata) and (int_cmdIn_V_read = '0') and (int_measured_V_read = '0') and (int_kp_V_read = '0') and (int_kd_V_read = '0') and (int_ki_V_read = '0') else '0';
     RVALID    <= RVALID_t;
     ar_hs   <= ARVALID and ARREADY_t;
     raddr   <= UNSIGNED(ARADDR(ADDR_BITS-1 downto 0));
@@ -383,6 +473,10 @@ port map (
                     when others =>
                         rdata_data <= (others => '0');
                     end case;
+                elsif (int_cmdIn_V_read = '1') then
+                    rdata_data <= int_cmdIn_V_q1;
+                elsif (int_measured_V_read = '1') then
+                    rdata_data <= int_measured_V_q1;
                 elsif (int_kp_V_read = '1') then
                     rdata_data <= int_kp_V_q1;
                 elsif (int_kd_V_read = '1') then
@@ -525,6 +619,30 @@ port map (
 
 
 -- ----------------------- Memory logic ------------------
+    -- cmdIn_V
+    int_cmdIn_V_address0 <= SHIFT_RIGHT(UNSIGNED(cmdIn_V_address0), 1)(1 downto 0);
+    int_cmdIn_V_ce0      <= cmdIn_V_ce0;
+    int_cmdIn_V_we0      <= '0';
+    int_cmdIn_V_be0      <= (others => '0');
+    int_cmdIn_V_d0       <= (others => '0');
+    cmdIn_V_q0           <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_cmdIn_V_q0, TO_INTEGER(int_cmdIn_V_shift) * 16)(15 downto 0));
+    int_cmdIn_V_address1 <= raddr(3 downto 2) when ar_hs = '1' else waddr(3 downto 2);
+    int_cmdIn_V_ce1      <= '1' when ar_hs = '1' or (int_cmdIn_V_write = '1' and WVALID  = '1') else '0';
+    int_cmdIn_V_we1      <= '1' when int_cmdIn_V_write = '1' and WVALID = '1' else '0';
+    int_cmdIn_V_be1      <= UNSIGNED(WSTRB);
+    int_cmdIn_V_d1       <= UNSIGNED(WDATA);
+    -- measured_V
+    int_measured_V_address0 <= SHIFT_RIGHT(UNSIGNED(measured_V_address0), 1)(1 downto 0);
+    int_measured_V_ce0   <= measured_V_ce0;
+    int_measured_V_we0   <= '0';
+    int_measured_V_be0   <= (others => '0');
+    int_measured_V_d0    <= (others => '0');
+    measured_V_q0        <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_measured_V_q0, TO_INTEGER(int_measured_V_shift) * 16)(15 downto 0));
+    int_measured_V_address1 <= raddr(3 downto 2) when ar_hs = '1' else waddr(3 downto 2);
+    int_measured_V_ce1   <= '1' when ar_hs = '1' or (int_measured_V_write = '1' and WVALID  = '1') else '0';
+    int_measured_V_we1   <= '1' when int_measured_V_write = '1' and WVALID = '1' else '0';
+    int_measured_V_be1   <= UNSIGNED(WSTRB);
+    int_measured_V_d1    <= UNSIGNED(WDATA);
     -- kp_V
     int_kp_V_address0    <= UNSIGNED(kp_V_address0);
     int_kp_V_ce0         <= kp_V_ce0;
@@ -561,6 +679,88 @@ port map (
     int_ki_V_we1         <= '1' when int_ki_V_write = '1' and WVALID = '1' else '0';
     int_ki_V_be1         <= UNSIGNED(WSTRB);
     int_ki_V_d1          <= UNSIGNED(WDATA);
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_cmdIn_V_read <= '0';
+            elsif (ACLK_EN = '1') then
+                if (ar_hs = '1' and raddr >= ADDR_CMDIN_V_BASE and raddr <= ADDR_CMDIN_V_HIGH) then
+                    int_cmdIn_V_read <= '1';
+                else
+                    int_cmdIn_V_read <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_cmdIn_V_write <= '0';
+            elsif (ACLK_EN = '1') then
+                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_CMDIN_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_CMDIN_V_HIGH) then
+                    int_cmdIn_V_write <= '1';
+                elsif (WVALID = '1') then
+                    int_cmdIn_V_write <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (cmdIn_V_ce0 = '1') then
+                    int_cmdIn_V_shift(0) <= cmdIn_V_address0(0);
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_measured_V_read <= '0';
+            elsif (ACLK_EN = '1') then
+                if (ar_hs = '1' and raddr >= ADDR_MEASURED_V_BASE and raddr <= ADDR_MEASURED_V_HIGH) then
+                    int_measured_V_read <= '1';
+                else
+                    int_measured_V_read <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_measured_V_write <= '0';
+            elsif (ACLK_EN = '1') then
+                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_MEASURED_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_MEASURED_V_HIGH) then
+                    int_measured_V_write <= '1';
+                elsif (WVALID = '1') then
+                    int_measured_V_write <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (measured_V_ce0 = '1') then
+                    int_measured_V_shift(0) <= measured_V_address0(0);
+                end if;
+            end if;
+        end if;
+    end process;
 
     process (ACLK)
     begin

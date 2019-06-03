@@ -24,35 +24,6 @@
 //        bit 0  - Channel 0 (ap_done)
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
-// 0x20 ~
-// 0x3f : Memory 'kp_V' (6 * 32b)
-//        Word n : bit [31:0] - kp_V[n]
-// 0x40 ~
-// 0x4f : Memory 'kd_V' (4 * 32b)
-//        Word n : bit [31:0] - kd_V[n]
-// 0x50 ~
-// 0x5f : Memory 'ki_V' (4 * 32b)
-//        Word n : bit [31:0] - ki_V[n]
-// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
-
-#define XPID_CTRL_ADDR_AP_CTRL   0x00
-#define XPID_CTRL_ADDR_GIE       0x04
-#define XPID_CTRL_ADDR_IER       0x08
-#define XPID_CTRL_ADDR_ISR       0x0c
-#define XPID_CTRL_ADDR_KP_V_BASE 0x20
-#define XPID_CTRL_ADDR_KP_V_HIGH 0x3f
-#define XPID_CTRL_WIDTH_KP_V     32
-#define XPID_CTRL_DEPTH_KP_V     6
-#define XPID_CTRL_ADDR_KD_V_BASE 0x40
-#define XPID_CTRL_ADDR_KD_V_HIGH 0x4f
-#define XPID_CTRL_WIDTH_KD_V     32
-#define XPID_CTRL_DEPTH_KD_V     4
-#define XPID_CTRL_ADDR_KI_V_BASE 0x50
-#define XPID_CTRL_ADDR_KI_V_HIGH 0x5f
-#define XPID_CTRL_WIDTH_KI_V     32
-#define XPID_CTRL_DEPTH_KI_V     4
-
-// INPUT
 // 0x10 ~
 // 0x1f : Memory 'cmdIn_V' (6 * 16b)
 //        Word n : bit [15: 0] - cmdIn_V[2n]
@@ -61,25 +32,39 @@
 // 0x2f : Memory 'measured_V' (6 * 16b)
 //        Word n : bit [15: 0] - measured_V[2n]
 //                 bit [31:16] - measured_V[2n+1]
+// 0x40 ~
+// 0x5f : Memory 'kp_V' (6 * 32b)
+//        Word n : bit [31:0] - kp_V[n]
+// 0x60 ~
+// 0x6f : Memory 'kd_V' (4 * 32b)
+//        Word n : bit [31:0] - kd_V[n]
+// 0x70 ~
+// 0x7f : Memory 'ki_V' (4 * 32b)
+//        Word n : bit [31:0] - ki_V[n]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XPID_INPUT_ADDR_CMDIN_V_BASE    0x10
-#define XPID_INPUT_ADDR_CMDIN_V_HIGH    0x1f
-#define XPID_INPUT_WIDTH_CMDIN_V        16
-#define XPID_INPUT_DEPTH_CMDIN_V        6
-#define XPID_INPUT_ADDR_MEASURED_V_BASE 0x20
-#define XPID_INPUT_ADDR_MEASURED_V_HIGH 0x2f
-#define XPID_INPUT_WIDTH_MEASURED_V     16
-#define XPID_INPUT_DEPTH_MEASURED_V     6
-
-// TEST
-// 0x4000 ~
-// 0x7fff : Memory 'test_V' (4096 * 32b)
-//          Word n : bit [31:0] - test_V[n]
-// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
-
-#define XPID_TEST_ADDR_TEST_V_BASE 0x4000
-#define XPID_TEST_ADDR_TEST_V_HIGH 0x7fff
-#define XPID_TEST_WIDTH_TEST_V     32
-#define XPID_TEST_DEPTH_TEST_V     4096
+#define XPID_CTRL_ADDR_AP_CTRL         0x00
+#define XPID_CTRL_ADDR_GIE             0x04
+#define XPID_CTRL_ADDR_IER             0x08
+#define XPID_CTRL_ADDR_ISR             0x0c
+#define XPID_CTRL_ADDR_CMDIN_V_BASE    0x10
+#define XPID_CTRL_ADDR_CMDIN_V_HIGH    0x1f
+#define XPID_CTRL_WIDTH_CMDIN_V        16
+#define XPID_CTRL_DEPTH_CMDIN_V        6
+#define XPID_CTRL_ADDR_MEASURED_V_BASE 0x20
+#define XPID_CTRL_ADDR_MEASURED_V_HIGH 0x2f
+#define XPID_CTRL_WIDTH_MEASURED_V     16
+#define XPID_CTRL_DEPTH_MEASURED_V     6
+#define XPID_CTRL_ADDR_KP_V_BASE       0x40
+#define XPID_CTRL_ADDR_KP_V_HIGH       0x5f
+#define XPID_CTRL_WIDTH_KP_V           32
+#define XPID_CTRL_DEPTH_KP_V           6
+#define XPID_CTRL_ADDR_KD_V_BASE       0x60
+#define XPID_CTRL_ADDR_KD_V_HIGH       0x6f
+#define XPID_CTRL_WIDTH_KD_V           32
+#define XPID_CTRL_DEPTH_KD_V           4
+#define XPID_CTRL_ADDR_KI_V_BASE       0x70
+#define XPID_CTRL_ADDR_KI_V_HIGH       0x7f
+#define XPID_CTRL_WIDTH_KI_V           32
+#define XPID_CTRL_DEPTH_KI_V           4
 

@@ -19,8 +19,8 @@
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
     "IsCombLogic": "0",
-    "II": "7",
-    "Latency": "8",
+    "II": "9",
+    "Latency": "17",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -37,13 +37,15 @@
   "Files": {
     "CSource": ["..\/pwm.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/pwm_ctrl_s_axi.vhd",
-      "impl\/vhdl\/pwm_mul_mul_17s_1bkb.vhd",
+      "impl\/vhdl\/pwm_CTRL_s_axi.vhd",
+      "impl\/vhdl\/pwm_mul_mul_16s_1bkb.vhd",
+      "impl\/vhdl\/pwm_TEST_s_axi.vhd",
       "impl\/vhdl\/pwm.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/pwm_ctrl_s_axi.v",
-      "impl\/verilog\/pwm_mul_mul_17s_1bkb.v",
+      "impl\/verilog\/pwm_CTRL_s_axi.v",
+      "impl\/verilog\/pwm_mul_mul_16s_1bkb.v",
+      "impl\/verilog\/pwm_TEST_s_axi.v",
       "impl\/verilog\/pwm.v"
     ],
     "SwDriver": [
@@ -67,7 +69,7 @@
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
-      "buses": "s_axi_ctrl",
+      "buses": "s_axi_CTRL s_axi_TEST",
       "reset": "ap_rst_n"
     },
     "ap_rst_n": {
@@ -82,19 +84,19 @@
     "out_V": {
       "type": "data",
       "dir": "out",
-      "width": "6",
+      "width": "8",
       "ctype": {"DATA": {
           "Type": "integer unsigned",
-          "Width": "6"
+          "Width": "8"
         }}
     },
-    "s_axi_ctrl": {
+    "s_axi_CTRL": {
       "type": "axi4lite",
       "is_adaptor": "true",
       "mode": "slave",
-      "port_prefix": "s_axi_ctrl",
+      "port_prefix": "s_axi_CTRL",
       "param_prefix": "C_S_AXI_CTRL",
-      "addr_bits": "6",
+      "addr_bits": "7",
       "registers": [
         {
           "offset": "0x00",
@@ -258,24 +260,14 @@
           "access": "W",
           "reset_value": "0x0",
           "description": "Data signal of min_duty",
-          "fields": [
-            {
+          "fields": [{
               "offset": "0",
-              "width": "16",
+              "width": "32",
               "name": "min_duty",
               "access": "W",
               "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of min_duty"
-            },
-            {
-              "offset": "16",
-              "width": "16",
-              "name": "RESERVED",
-              "access": "R",
-              "reset_value": "0",
-              "description": "Reserved.  0s on read."
-            }
-          ]
+              "description": "Bit 31 to 0 Data signal of min_duty"
+            }]
         },
         {
           "offset": "0x18",
@@ -283,24 +275,14 @@
           "access": "W",
           "reset_value": "0x0",
           "description": "Data signal of max_duty",
-          "fields": [
-            {
+          "fields": [{
               "offset": "0",
-              "width": "16",
+              "width": "32",
               "name": "max_duty",
               "access": "W",
               "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of max_duty"
-            },
-            {
-              "offset": "16",
-              "width": "16",
-              "name": "RESERVED",
-              "access": "R",
-              "reset_value": "0",
-              "description": "Reserved.  0s on read."
-            }
-          ]
+              "description": "Bit 31 to 0 Data signal of max_duty"
+            }]
         },
         {
           "offset": "0x20",
@@ -308,27 +290,17 @@
           "access": "W",
           "reset_value": "0x0",
           "description": "Data signal of period",
-          "fields": [
-            {
+          "fields": [{
               "offset": "0",
-              "width": "16",
+              "width": "32",
               "name": "period",
               "access": "W",
               "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of period"
-            },
-            {
-              "offset": "16",
-              "width": "16",
-              "name": "RESERVED",
-              "access": "R",
-              "reset_value": "0",
-              "description": "Reserved.  0s on read."
-            }
-          ]
+              "description": "Bit 31 to 0 Data signal of period"
+            }]
         }
       ],
-      "memories": "m_V {base_address 48 range 16}",
+      "memories": "m_V {base_address 64 range 32}",
       "ctype": {
         "AWVALID": {"Type": "bool"},
         "AWREADY": {"Type": "bool"},
@@ -350,10 +322,10 @@
         },
         "AWADDR": {
           "Type": "integer unsigned",
-          "Width": "6"
+          "Width": "7"
         },
         "WDATA": {
-          "Type": "real fixed signed 15",
+          "Type": "real fixed signed 13",
           "Width": "16"
         },
         "WSTRB": {
@@ -362,17 +334,75 @@
         },
         "ARADDR": {
           "Type": "integer unsigned",
-          "Width": "6"
+          "Width": "7"
         },
         "RDATA": {
-          "Type": "real fixed signed 15",
+          "Type": "real fixed signed 13",
           "Width": "16"
         }
       },
       "data_width": "32",
       "port_width": {
-        "ARADDR": "6",
-        "AWADDR": "6",
+        "ARADDR": "7",
+        "AWADDR": "7",
+        "RDATA": "32",
+        "WDATA": "32",
+        "WSTRB": "4"
+      }
+    },
+    "s_axi_TEST": {
+      "type": "axi4lite",
+      "is_adaptor": "true",
+      "mode": "slave",
+      "port_prefix": "s_axi_TEST",
+      "param_prefix": "C_S_AXI_TEST",
+      "addr_bits": "15",
+      "registers": [],
+      "memories": "test {base_address 16384 range 16384}",
+      "ctype": {
+        "AWVALID": {"Type": "bool"},
+        "AWREADY": {"Type": "bool"},
+        "WVALID": {"Type": "bool"},
+        "WREADY": {"Type": "bool"},
+        "BVALID": {"Type": "bool"},
+        "BREADY": {"Type": "bool"},
+        "BRESP": {
+          "Type": "integer unsigned",
+          "Width": "2"
+        },
+        "ARVALID": {"Type": "bool"},
+        "ARREADY": {"Type": "bool"},
+        "RVALID": {"Type": "bool"},
+        "RREADY": {"Type": "bool"},
+        "RRESP": {
+          "Type": "integer unsigned",
+          "Width": "2"
+        },
+        "AWADDR": {
+          "Type": "integer unsigned",
+          "Width": "15"
+        },
+        "WDATA": {
+          "Type": "integer unsigned",
+          "Width": "32"
+        },
+        "WSTRB": {
+          "Type": "integer unsigned",
+          "Width": "4"
+        },
+        "ARADDR": {
+          "Type": "integer unsigned",
+          "Width": "15"
+        },
+        "RDATA": {
+          "Type": "integer unsigned",
+          "Width": "32"
+        }
+      },
+      "data_width": "32",
+      "port_width": {
+        "ARADDR": "15",
+        "AWADDR": "15",
         "RDATA": "32",
         "WDATA": "32",
         "WSTRB": "4"
@@ -380,71 +410,139 @@
     }
   },
   "RtlPorts": {
-    "s_axi_ctrl_AWVALID": {
+    "s_axi_CTRL_AWVALID": {
       "dir": "in",
       "width": "1"
     },
-    "s_axi_ctrl_AWREADY": {
+    "s_axi_CTRL_AWREADY": {
       "dir": "out",
       "width": "1"
     },
-    "s_axi_ctrl_AWADDR": {
+    "s_axi_CTRL_AWADDR": {
       "dir": "in",
-      "width": "6"
+      "width": "7"
     },
-    "s_axi_ctrl_WVALID": {
+    "s_axi_CTRL_WVALID": {
       "dir": "in",
       "width": "1"
     },
-    "s_axi_ctrl_WREADY": {
+    "s_axi_CTRL_WREADY": {
       "dir": "out",
       "width": "1"
     },
-    "s_axi_ctrl_WDATA": {
+    "s_axi_CTRL_WDATA": {
       "dir": "in",
       "width": "32"
     },
-    "s_axi_ctrl_WSTRB": {
+    "s_axi_CTRL_WSTRB": {
       "dir": "in",
       "width": "4"
     },
-    "s_axi_ctrl_ARVALID": {
+    "s_axi_CTRL_ARVALID": {
       "dir": "in",
       "width": "1"
     },
-    "s_axi_ctrl_ARREADY": {
+    "s_axi_CTRL_ARREADY": {
       "dir": "out",
       "width": "1"
     },
-    "s_axi_ctrl_ARADDR": {
+    "s_axi_CTRL_ARADDR": {
       "dir": "in",
-      "width": "6"
+      "width": "7"
     },
-    "s_axi_ctrl_RVALID": {
+    "s_axi_CTRL_RVALID": {
       "dir": "out",
       "width": "1"
     },
-    "s_axi_ctrl_RREADY": {
+    "s_axi_CTRL_RREADY": {
       "dir": "in",
       "width": "1"
     },
-    "s_axi_ctrl_RDATA": {
+    "s_axi_CTRL_RDATA": {
       "dir": "out",
       "width": "32"
     },
-    "s_axi_ctrl_RRESP": {
+    "s_axi_CTRL_RRESP": {
       "dir": "out",
       "width": "2"
     },
-    "s_axi_ctrl_BVALID": {
+    "s_axi_CTRL_BVALID": {
       "dir": "out",
       "width": "1"
     },
-    "s_axi_ctrl_BREADY": {
+    "s_axi_CTRL_BREADY": {
       "dir": "in",
       "width": "1"
     },
-    "s_axi_ctrl_BRESP": {
+    "s_axi_CTRL_BRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_TEST_AWVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST_AWREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST_AWADDR": {
+      "dir": "in",
+      "width": "15"
+    },
+    "s_axi_TEST_WVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST_WREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST_WDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "s_axi_TEST_WSTRB": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_TEST_ARVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST_ARREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST_ARADDR": {
+      "dir": "in",
+      "width": "15"
+    },
+    "s_axi_TEST_RVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST_RREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST_RDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "s_axi_TEST_RRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_TEST_BVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST_BREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST_BRESP": {
       "dir": "out",
       "width": "2"
     },
@@ -463,63 +561,71 @@
     },
     "out_V": {
       "dir": "out",
-      "width": "6"
+      "width": "8"
     }
   },
   "CPorts": {
     "min_duty": {
-      "interfaceRef": "s_axi_ctrl",
+      "interfaceRef": "s_axi_CTRL",
       "dir": "in",
       "offset": "16",
       "statusOffset": "NA",
       "handshakeRef": "ap_none",
-      "Object": "ctrl"
+      "Object": "CTRL"
     },
     "max_duty": {
-      "interfaceRef": "s_axi_ctrl",
+      "interfaceRef": "s_axi_CTRL",
       "dir": "in",
       "offset": "24",
       "statusOffset": "NA",
       "handshakeRef": "ap_none",
-      "Object": "ctrl"
+      "Object": "CTRL"
     },
     "period": {
-      "interfaceRef": "s_axi_ctrl",
+      "interfaceRef": "s_axi_CTRL",
       "dir": "in",
       "offset": "32",
       "statusOffset": "NA",
       "handshakeRef": "ap_none",
-      "Object": "ctrl"
+      "Object": "CTRL"
     },
     "m_V": {
-      "interfaceRef": "s_axi_ctrl",
+      "interfaceRef": "s_axi_CTRL",
       "dir": "in",
-      "offset": "48",
+      "offset": "64",
       "statusOffset": "NA",
-      "Object": "ctrl"
+      "Object": "CTRL"
     },
     "ap_ctrl": {
-      "interfaceRef": "s_axi_ctrl",
+      "interfaceRef": "s_axi_CTRL",
       "dir": "in",
       "offset": "0"
+    },
+    "test": {
+      "interfaceRef": "s_axi_TEST",
+      "dir": "out",
+      "offset": "16384",
+      "statusOffset": "NA",
+      "Object": "TEST",
+      "firstOutLatency": "10"
     },
     "out_V": {
       "interfaceRef": "out_V",
       "dir": "out",
-      "dataWidth": "6",
+      "dataWidth": "8",
       "handshakeRef": "ap_none",
-      "firstOutLatency": "8"
+      "firstOutLatency": "17"
     }
   },
   "ModuleInfo": {
     "Hierarchy": {"ModuleName": "pwm"},
     "Metrics": {"pwm": {
         "Latency": {
-          "LatencyBest": "8",
-          "LatencyAvg": "8",
-          "LatencyWorst": "8",
-          "PipelineII": "7",
-          "PipelineDepth": "9",
+          "LatencyBest": "17",
+          "LatencyAvg": "17",
+          "LatencyWorst": "17",
+          "PipelineII": "9",
+          "PipelineDepth": "18",
           "PipelineType": "function"
         },
         "Timing": {
@@ -528,10 +634,10 @@
           "Estimate": "8.702"
         },
         "Area": {
-          "BRAM_18K": "2",
-          "DSP48E": "6",
-          "FF": "628",
-          "LUT": "1224"
+          "BRAM_18K": "10",
+          "DSP48E": "8",
+          "FF": "848",
+          "LUT": "1785"
         }
       }}
   },
@@ -542,7 +648,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-05-30 22:38:11 -0700",
+    "Time": "2019-06-02 13:54:50 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

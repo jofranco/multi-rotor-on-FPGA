@@ -41,11 +41,13 @@ typedef uint32_t u32;
 typedef struct {
     u16 DeviceId;
     u32 Ctrl_BaseAddress;
+    u32 Test_BaseAddress;
 } XPwm_Config;
 #endif
 
 typedef struct {
     u32 Ctrl_BaseAddress;
+    u32 Test_BaseAddress;
     u32 IsReady;
 } XPwm;
 
@@ -102,6 +104,15 @@ u32 XPwm_Write_m_V_Words(XPwm *InstancePtr, int offset, int *data, int length);
 u32 XPwm_Read_m_V_Words(XPwm *InstancePtr, int offset, int *data, int length);
 u32 XPwm_Write_m_V_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
 u32 XPwm_Read_m_V_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
+u32 XPwm_Get_test_BaseAddress(XPwm *InstancePtr);
+u32 XPwm_Get_test_HighAddress(XPwm *InstancePtr);
+u32 XPwm_Get_test_TotalBytes(XPwm *InstancePtr);
+u32 XPwm_Get_test_BitWidth(XPwm *InstancePtr);
+u32 XPwm_Get_test_Depth(XPwm *InstancePtr);
+u32 XPwm_Write_test_Words(XPwm *InstancePtr, int offset, int *data, int length);
+u32 XPwm_Read_test_Words(XPwm *InstancePtr, int offset, int *data, int length);
+u32 XPwm_Write_test_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
+u32 XPwm_Read_test_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
 
 void XPwm_InterruptGlobalEnable(XPwm *InstancePtr);
 void XPwm_InterruptGlobalDisable(XPwm *InstancePtr);

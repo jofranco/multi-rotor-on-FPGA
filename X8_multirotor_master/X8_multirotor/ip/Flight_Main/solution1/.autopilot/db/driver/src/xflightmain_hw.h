@@ -5,7 +5,25 @@
 // 
 // ==============================================================
 
-// CMD
+// CTRL
+// 0x00 : Control signals
+//        bit 0  - ap_start (Read/Write/COH)
+//        bit 1  - ap_done (Read/COR)
+//        bit 2  - ap_idle (Read)
+//        bit 3  - ap_ready (Read)
+//        bit 7  - auto_restart (Read/Write)
+//        others - reserved
+// 0x04 : Global Interrupt Enable Register
+//        bit 0  - Global Interrupt Enable (Read/Write)
+//        others - reserved
+// 0x08 : IP Interrupt Enable Register (Read/Write)
+//        bit 0  - Channel 0 (ap_done)
+//        bit 1  - Channel 1 (ap_ready)
+//        others - reserved
+// 0x0c : IP Interrupt Status Register (Read/TOW)
+//        bit 0  - Channel 0 (ap_done)
+//        bit 1  - Channel 1 (ap_ready)
+//        others - reserved
 // 0x10 ~
 // 0x1f : Memory 'rcCmdIn_V' (6 * 16b)
 //        Word n : bit [15: 0] - rcCmdIn_V[2n]
@@ -16,49 +34,16 @@
 //                 bit [31:16] - obj_avd_cmd_V[2n+1]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XFLIGHTMAIN_CMD_ADDR_RCCMDIN_V_BASE     0x10
-#define XFLIGHTMAIN_CMD_ADDR_RCCMDIN_V_HIGH     0x1f
-#define XFLIGHTMAIN_CMD_WIDTH_RCCMDIN_V         16
-#define XFLIGHTMAIN_CMD_DEPTH_RCCMDIN_V         6
-#define XFLIGHTMAIN_CMD_ADDR_OBJ_AVD_CMD_V_BASE 0x20
-#define XFLIGHTMAIN_CMD_ADDR_OBJ_AVD_CMD_V_HIGH 0x2f
-#define XFLIGHTMAIN_CMD_WIDTH_OBJ_AVD_CMD_V     16
-#define XFLIGHTMAIN_CMD_DEPTH_OBJ_AVD_CMD_V     6
-
-// CTRL
-// 0x0 : Control signals
-//       bit 0  - ap_start (Read/Write/COH)
-//       bit 1  - ap_done (Read/COR)
-//       bit 2  - ap_idle (Read)
-//       bit 3  - ap_ready (Read)
-//       bit 7  - auto_restart (Read/Write)
-//       others - reserved
-// 0x4 : Global Interrupt Enable Register
-//       bit 0  - Global Interrupt Enable (Read/Write)
-//       others - reserved
-// 0x8 : IP Interrupt Enable Register (Read/Write)
-//       bit 0  - Channel 0 (ap_done)
-//       bit 1  - Channel 1 (ap_ready)
-//       others - reserved
-// 0xc : IP Interrupt Status Register (Read/TOW)
-//       bit 0  - Channel 0 (ap_done)
-//       bit 1  - Channel 1 (ap_ready)
-//       others - reserved
-// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
-
-#define XFLIGHTMAIN_CTRL_ADDR_AP_CTRL 0x0
-#define XFLIGHTMAIN_CTRL_ADDR_GIE     0x4
-#define XFLIGHTMAIN_CTRL_ADDR_IER     0x8
-#define XFLIGHTMAIN_CTRL_ADDR_ISR     0xc
-
-// TEST
-// 0x4000 ~
-// 0x7fff : Memory 'test_V' (4096 * 32b)
-//          Word n : bit [31:0] - test_V[n]
-// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
-
-#define XFLIGHTMAIN_TEST_ADDR_TEST_V_BASE 0x4000
-#define XFLIGHTMAIN_TEST_ADDR_TEST_V_HIGH 0x7fff
-#define XFLIGHTMAIN_TEST_WIDTH_TEST_V     32
-#define XFLIGHTMAIN_TEST_DEPTH_TEST_V     4096
+#define XFLIGHTMAIN_CTRL_ADDR_AP_CTRL            0x00
+#define XFLIGHTMAIN_CTRL_ADDR_GIE                0x04
+#define XFLIGHTMAIN_CTRL_ADDR_IER                0x08
+#define XFLIGHTMAIN_CTRL_ADDR_ISR                0x0c
+#define XFLIGHTMAIN_CTRL_ADDR_RCCMDIN_V_BASE     0x10
+#define XFLIGHTMAIN_CTRL_ADDR_RCCMDIN_V_HIGH     0x1f
+#define XFLIGHTMAIN_CTRL_WIDTH_RCCMDIN_V         16
+#define XFLIGHTMAIN_CTRL_DEPTH_RCCMDIN_V         6
+#define XFLIGHTMAIN_CTRL_ADDR_OBJ_AVD_CMD_V_BASE 0x20
+#define XFLIGHTMAIN_CTRL_ADDR_OBJ_AVD_CMD_V_HIGH 0x2f
+#define XFLIGHTMAIN_CTRL_WIDTH_OBJ_AVD_CMD_V     16
+#define XFLIGHTMAIN_CTRL_DEPTH_OBJ_AVD_CMD_V     6
 

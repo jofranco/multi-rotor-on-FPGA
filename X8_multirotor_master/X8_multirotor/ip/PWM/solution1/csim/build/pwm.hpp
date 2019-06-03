@@ -37,25 +37,12 @@
 // DAMAGE.
 //##############################################################################
 
-
-#include "ap_int.h"
-#include "ap_fixed.h"
-
-#define MOTOR_COUNT 6
-#define RC_CHANNELS 6
-#define clip(in,low,high) ((in)<(low)?(low):((in)>(high)?(high):(in)))
-
-//Constants
-typedef ap_fixed<128,96> F128_t;
-
-typedef ap_fixed<64,32> F64_t;
-typedef ap_fixed<32, 16> F32_t;
-typedef ap_fixed<19, 4> F19_t;
-typedef ap_fixed<16,1> F16_t;
-
-typedef ap_uint<6> uint6_t;
+// include libraries
+#include "../common/x8_common.hpp"
 
 
+
+// main PWM function call
 void pwm(uint16_t min_duty,uint16_t max_duty, uint16_t period,F16_t m[MOTOR_COUNT] , uint6_t& out);
 
-//#endif
+

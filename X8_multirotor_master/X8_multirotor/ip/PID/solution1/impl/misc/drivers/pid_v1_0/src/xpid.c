@@ -15,8 +15,6 @@ int XPid_CfgInitialize(XPid *InstancePtr, XPid_Config *ConfigPtr) {
     Xil_AssertNonvoid(ConfigPtr != NULL);
 
     InstancePtr->Ctrl_BaseAddress = ConfigPtr->Ctrl_BaseAddress;
-    InstancePtr->Input_BaseAddress = ConfigPtr->Input_BaseAddress;
-    InstancePtr->Test_BaseAddress = ConfigPtr->Test_BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -76,6 +74,196 @@ void XPid_DisableAutoRestart(XPid *InstancePtr) {
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     XPid_WriteReg(InstancePtr->Ctrl_BaseAddress, XPID_CTRL_ADDR_AP_CTRL, 0);
+}
+
+u32 XPid_Get_cmdIn_V_BaseAddress(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return (InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_CMDIN_V_BASE);
+}
+
+u32 XPid_Get_cmdIn_V_HighAddress(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return (InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_CMDIN_V_HIGH);
+}
+
+u32 XPid_Get_cmdIn_V_TotalBytes(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return (XPID_CTRL_ADDR_CMDIN_V_HIGH - XPID_CTRL_ADDR_CMDIN_V_BASE + 1);
+}
+
+u32 XPid_Get_cmdIn_V_BitWidth(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return XPID_CTRL_WIDTH_CMDIN_V;
+}
+
+u32 XPid_Get_cmdIn_V_Depth(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return XPID_CTRL_DEPTH_CMDIN_V;
+}
+
+u32 XPid_Write_cmdIn_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length)*4 > (XPID_CTRL_ADDR_CMDIN_V_HIGH - XPID_CTRL_ADDR_CMDIN_V_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(int *)(InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_CMDIN_V_BASE + (offset + i)*4) = *(data + i);
+    }
+    return length;
+}
+
+u32 XPid_Read_cmdIn_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length)*4 > (XPID_CTRL_ADDR_CMDIN_V_HIGH - XPID_CTRL_ADDR_CMDIN_V_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(data + i) = *(int *)(InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_CMDIN_V_BASE + (offset + i)*4);
+    }
+    return length;
+}
+
+u32 XPid_Write_cmdIn_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length) > (XPID_CTRL_ADDR_CMDIN_V_HIGH - XPID_CTRL_ADDR_CMDIN_V_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(char *)(InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_CMDIN_V_BASE + offset + i) = *(data + i);
+    }
+    return length;
+}
+
+u32 XPid_Read_cmdIn_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length) > (XPID_CTRL_ADDR_CMDIN_V_HIGH - XPID_CTRL_ADDR_CMDIN_V_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(data + i) = *(char *)(InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_CMDIN_V_BASE + offset + i);
+    }
+    return length;
+}
+
+u32 XPid_Get_measured_V_BaseAddress(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return (InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_MEASURED_V_BASE);
+}
+
+u32 XPid_Get_measured_V_HighAddress(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return (InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_MEASURED_V_HIGH);
+}
+
+u32 XPid_Get_measured_V_TotalBytes(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return (XPID_CTRL_ADDR_MEASURED_V_HIGH - XPID_CTRL_ADDR_MEASURED_V_BASE + 1);
+}
+
+u32 XPid_Get_measured_V_BitWidth(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return XPID_CTRL_WIDTH_MEASURED_V;
+}
+
+u32 XPid_Get_measured_V_Depth(XPid *InstancePtr) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    return XPID_CTRL_DEPTH_MEASURED_V;
+}
+
+u32 XPid_Write_measured_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length)*4 > (XPID_CTRL_ADDR_MEASURED_V_HIGH - XPID_CTRL_ADDR_MEASURED_V_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(int *)(InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_MEASURED_V_BASE + (offset + i)*4) = *(data + i);
+    }
+    return length;
+}
+
+u32 XPid_Read_measured_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length)*4 > (XPID_CTRL_ADDR_MEASURED_V_HIGH - XPID_CTRL_ADDR_MEASURED_V_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(data + i) = *(int *)(InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_MEASURED_V_BASE + (offset + i)*4);
+    }
+    return length;
+}
+
+u32 XPid_Write_measured_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length) > (XPID_CTRL_ADDR_MEASURED_V_HIGH - XPID_CTRL_ADDR_MEASURED_V_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(char *)(InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_MEASURED_V_BASE + offset + i) = *(data + i);
+    }
+    return length;
+}
+
+u32 XPid_Read_measured_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
+
+    int i;
+
+    if ((offset + length) > (XPID_CTRL_ADDR_MEASURED_V_HIGH - XPID_CTRL_ADDR_MEASURED_V_BASE + 1))
+        return 0;
+
+    for (i = 0; i < length; i++) {
+        *(data + i) = *(char *)(InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_MEASURED_V_BASE + offset + i);
+    }
+    return length;
 }
 
 u32 XPid_Get_kp_V_BaseAddress(XPid *InstancePtr) {
@@ -359,291 +547,6 @@ u32 XPid_Read_ki_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) 
 
     for (i = 0; i < length; i++) {
         *(data + i) = *(char *)(InstancePtr->Ctrl_BaseAddress + XPID_CTRL_ADDR_KI_V_BASE + offset + i);
-    }
-    return length;
-}
-
-u32 XPid_Get_cmdIn_V_BaseAddress(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_CMDIN_V_BASE);
-}
-
-u32 XPid_Get_cmdIn_V_HighAddress(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_CMDIN_V_HIGH);
-}
-
-u32 XPid_Get_cmdIn_V_TotalBytes(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (XPID_INPUT_ADDR_CMDIN_V_HIGH - XPID_INPUT_ADDR_CMDIN_V_BASE + 1);
-}
-
-u32 XPid_Get_cmdIn_V_BitWidth(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XPID_INPUT_WIDTH_CMDIN_V;
-}
-
-u32 XPid_Get_cmdIn_V_Depth(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XPID_INPUT_DEPTH_CMDIN_V;
-}
-
-u32 XPid_Write_cmdIn_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XPID_INPUT_ADDR_CMDIN_V_HIGH - XPID_INPUT_ADDR_CMDIN_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(int *)(InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_CMDIN_V_BASE + (offset + i)*4) = *(data + i);
-    }
-    return length;
-}
-
-u32 XPid_Read_cmdIn_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XPID_INPUT_ADDR_CMDIN_V_HIGH - XPID_INPUT_ADDR_CMDIN_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(int *)(InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_CMDIN_V_BASE + (offset + i)*4);
-    }
-    return length;
-}
-
-u32 XPid_Write_cmdIn_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XPID_INPUT_ADDR_CMDIN_V_HIGH - XPID_INPUT_ADDR_CMDIN_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(char *)(InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_CMDIN_V_BASE + offset + i) = *(data + i);
-    }
-    return length;
-}
-
-u32 XPid_Read_cmdIn_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XPID_INPUT_ADDR_CMDIN_V_HIGH - XPID_INPUT_ADDR_CMDIN_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(char *)(InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_CMDIN_V_BASE + offset + i);
-    }
-    return length;
-}
-
-u32 XPid_Get_measured_V_BaseAddress(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_MEASURED_V_BASE);
-}
-
-u32 XPid_Get_measured_V_HighAddress(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_MEASURED_V_HIGH);
-}
-
-u32 XPid_Get_measured_V_TotalBytes(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (XPID_INPUT_ADDR_MEASURED_V_HIGH - XPID_INPUT_ADDR_MEASURED_V_BASE + 1);
-}
-
-u32 XPid_Get_measured_V_BitWidth(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XPID_INPUT_WIDTH_MEASURED_V;
-}
-
-u32 XPid_Get_measured_V_Depth(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XPID_INPUT_DEPTH_MEASURED_V;
-}
-
-u32 XPid_Write_measured_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XPID_INPUT_ADDR_MEASURED_V_HIGH - XPID_INPUT_ADDR_MEASURED_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(int *)(InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_MEASURED_V_BASE + (offset + i)*4) = *(data + i);
-    }
-    return length;
-}
-
-u32 XPid_Read_measured_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XPID_INPUT_ADDR_MEASURED_V_HIGH - XPID_INPUT_ADDR_MEASURED_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(int *)(InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_MEASURED_V_BASE + (offset + i)*4);
-    }
-    return length;
-}
-
-u32 XPid_Write_measured_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XPID_INPUT_ADDR_MEASURED_V_HIGH - XPID_INPUT_ADDR_MEASURED_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(char *)(InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_MEASURED_V_BASE + offset + i) = *(data + i);
-    }
-    return length;
-}
-
-u32 XPid_Read_measured_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XPID_INPUT_ADDR_MEASURED_V_HIGH - XPID_INPUT_ADDR_MEASURED_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(char *)(InstancePtr->Input_BaseAddress + XPID_INPUT_ADDR_MEASURED_V_BASE + offset + i);
-    }
-    return length;
-}
-
-u32 XPid_Get_test_V_BaseAddress(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Test_BaseAddress + XPID_TEST_ADDR_TEST_V_BASE);
-}
-
-u32 XPid_Get_test_V_HighAddress(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (InstancePtr->Test_BaseAddress + XPID_TEST_ADDR_TEST_V_HIGH);
-}
-
-u32 XPid_Get_test_V_TotalBytes(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return (XPID_TEST_ADDR_TEST_V_HIGH - XPID_TEST_ADDR_TEST_V_BASE + 1);
-}
-
-u32 XPid_Get_test_V_BitWidth(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XPID_TEST_WIDTH_TEST_V;
-}
-
-u32 XPid_Get_test_V_Depth(XPid *InstancePtr) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    return XPID_TEST_DEPTH_TEST_V;
-}
-
-u32 XPid_Write_test_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XPID_TEST_ADDR_TEST_V_HIGH - XPID_TEST_ADDR_TEST_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(int *)(InstancePtr->Test_BaseAddress + XPID_TEST_ADDR_TEST_V_BASE + (offset + i)*4) = *(data + i);
-    }
-    return length;
-}
-
-u32 XPid_Read_test_V_Words(XPid *InstancePtr, int offset, int *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length)*4 > (XPID_TEST_ADDR_TEST_V_HIGH - XPID_TEST_ADDR_TEST_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(int *)(InstancePtr->Test_BaseAddress + XPID_TEST_ADDR_TEST_V_BASE + (offset + i)*4);
-    }
-    return length;
-}
-
-u32 XPid_Write_test_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XPID_TEST_ADDR_TEST_V_HIGH - XPID_TEST_ADDR_TEST_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(char *)(InstancePtr->Test_BaseAddress + XPID_TEST_ADDR_TEST_V_BASE + offset + i) = *(data + i);
-    }
-    return length;
-}
-
-u32 XPid_Read_test_V_Bytes(XPid *InstancePtr, int offset, char *data, int length) {
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr -> IsReady == XIL_COMPONENT_IS_READY);
-
-    int i;
-
-    if ((offset + length) > (XPID_TEST_ADDR_TEST_V_HIGH - XPID_TEST_ADDR_TEST_V_BASE + 1))
-        return 0;
-
-    for (i = 0; i < length; i++) {
-        *(data + i) = *(char *)(InstancePtr->Test_BaseAddress + XPID_TEST_ADDR_TEST_V_BASE + offset + i);
     }
     return length;
 }

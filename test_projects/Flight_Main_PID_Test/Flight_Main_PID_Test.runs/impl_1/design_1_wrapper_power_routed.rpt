@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Thu May 30 03:33:57 2019
+| Date             : Sat Jun  1 23:45:45 2019
 | Host             : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.928        |
+| Total On-Chip Power (W)  | 1.942        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.779        |
+| Dynamic (W)              | 1.793        |
 | Device Static (W)        | 0.149        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 62.8         |
-| Junction Temperature (C) | 47.2         |
+| Max Ambient (C)          | 62.6         |
+| Junction Temperature (C) | 47.4         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,21 +52,21 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.028 |        3 |       --- |             --- |
-| Slice Logic             |     0.045 |    22767 |       --- |             --- |
-|   LUT as Logic          |     0.039 |     9700 |     53200 |           18.23 |
-|   CARRY4                |     0.005 |     1273 |     13300 |            9.57 |
-|   Register              |     0.001 |     7934 |    106400 |            7.46 |
-|   LUT as Shift Register |    <0.001 |      196 |     17400 |            1.13 |
-|   F7/F8 Muxes           |    <0.001 |       16 |     53200 |            0.03 |
-|   Others                |     0.000 |      596 |       --- |             --- |
-| Signals                 |     0.052 |    21452 |       --- |             --- |
-| Block RAM               |     0.090 |       23 |       140 |           16.43 |
-| DSPs                    |     0.053 |       81 |       220 |           36.82 |
+| Clocks                  |     0.029 |        3 |       --- |             --- |
+| Slice Logic             |     0.045 |    22445 |       --- |             --- |
+|   LUT as Logic          |     0.038 |    10070 |     53200 |           18.93 |
+|   CARRY4                |     0.005 |     1472 |     13300 |           11.07 |
+|   Register              |     0.001 |     7710 |    106400 |            7.25 |
+|   LUT as Shift Register |    <0.001 |      194 |     17400 |            1.11 |
+|   F7/F8 Muxes           |    <0.001 |       13 |     53200 |            0.02 |
+|   Others                |     0.000 |      572 |       --- |             --- |
+| Signals                 |     0.057 |    20313 |       --- |             --- |
+| Block RAM               |     0.103 |       23 |       140 |           16.43 |
+| DSPs                    |     0.048 |       59 |       220 |           26.82 |
 | I/O                     |    <0.001 |        2 |       125 |            1.60 |
 | PS7                     |     1.511 |        1 |       --- |             --- |
 | Static Power            |     0.149 |          |           |                 |
-| Total                   |     1.928 |          |           |                 |
+| Total                   |     1.942 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.279 |       0.262 |      0.018 |
+| Vccint    |       1.000 |     0.292 |       0.275 |      0.018 |
 | Vccaux    |       1.800 |     0.016 |       0.000 |      0.016 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -85,7 +85,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.009 |       0.006 |      0.003 |
+| Vccbram   |       1.000 |     0.010 |       0.007 |      0.003 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
@@ -152,12 +152,12 @@ Table of Contents
 +--------------------------------------------------+-----------+
 | Name                                             | Power (W) |
 +--------------------------------------------------+-----------+
-| design_1_wrapper                                 |     1.779 |
-|   design_1_i                                     |     1.779 |
-|     AXI_UART_DRIVER_0                            |     0.013 |
-|       inst                                       |     0.013 |
+| design_1_wrapper                                 |     1.793 |
+|   design_1_i                                     |     1.793 |
+|     AXI_UART_DRIVER_0                            |     0.014 |
+|       inst                                       |     0.014 |
 |         AXI_UART_DRIVER_CTRL_s_axi_U             |    <0.001 |
-|         AXI_UART_DRIVER_OUT_r_m_axi_U            |     0.003 |
+|         AXI_UART_DRIVER_OUT_r_m_axi_U            |     0.004 |
 |           bus_read                               |    <0.001 |
 |             buff_rdata                           |    <0.001 |
 |             rs_rdata                             |    <0.001 |
@@ -218,14 +218,14 @@ Table of Contents
 |             buff_wdata                           |     0.003 |
 |             bus_wide_gen.fifo_burst              |    <0.001 |
 |             fifo_resp                            |    <0.001 |
-|             fifo_resp_to_user                    |    <0.001 |
+|             fifo_resp_to_user                    |     0.001 |
 |             fifo_wreq                            |    <0.001 |
 |             rs_wreq                              |    <0.001 |
 |           wreq_throttl                           |    <0.001 |
-|         flightmain_TEST_s_axi_U                  |     0.019 |
-|           int_test_V                             |     0.019 |
-|     pid_0                                        |     0.145 |
-|       inst                                       |     0.145 |
+|         flightmain_TEST_s_axi_U                  |     0.018 |
+|           int_test_V                             |     0.018 |
+|     pid_0                                        |     0.144 |
+|       inst                                       |     0.144 |
 |         pid_CTRL_s_axi_U                         |     0.016 |
 |           int_kd_V                               |     0.005 |
 |           int_ki_V                               |     0.005 |
@@ -245,24 +245,8 @@ Table of Contents
 |             fifo_wreq                            |    <0.001 |
 |             rs_wreq                              |    <0.001 |
 |           wreq_throttl                           |    <0.001 |
-|         pid_TEST_s_axi_U                         |     0.018 |
-|           int_test_V                             |     0.017 |
-|         pid_mul_16ns_50s_bkb_U1                  |     0.002 |
-|           pid_mul_16ns_50s_bkb_MulnS_0_U         |     0.002 |
-|         pid_mul_16ns_50s_bkb_U2                  |     0.002 |
-|           pid_mul_16ns_50s_bkb_MulnS_0_U         |     0.002 |
-|         pid_mul_16ns_50s_bkb_U3                  |     0.002 |
-|           pid_mul_16ns_50s_bkb_MulnS_0_U         |     0.002 |
-|         pid_mul_16ns_50s_bkb_U4                  |     0.002 |
-|           pid_mul_16ns_50s_bkb_MulnS_0_U         |     0.002 |
-|         pid_mul_16ns_50s_bkb_U5                  |     0.002 |
-|           pid_mul_16ns_50s_bkb_MulnS_0_U         |     0.002 |
-|         pid_mul_16ns_50s_bkb_U6                  |     0.002 |
-|           pid_mul_16ns_50s_bkb_MulnS_0_U         |     0.002 |
-|         pid_mul_16ns_50s_bkb_U7                  |     0.002 |
-|           pid_mul_16ns_50s_bkb_MulnS_0_U         |     0.002 |
-|         pid_mul_16ns_50s_bkb_U8                  |     0.002 |
-|           pid_mul_16ns_50s_bkb_MulnS_0_U         |     0.002 |
+|         pid_TEST_s_axi_U                         |     0.020 |
+|           int_test_V                             |     0.020 |
 |     processing_system7_0                         |     1.512 |
 |       inst                                       |     1.512 |
 |     ps7_0_axi_periph                             |     0.020 |
@@ -424,23 +408,8 @@ Table of Contents
 |             reg_slice_r                          |    <0.001 |
 |             splitter_ar                          |    <0.001 |
 |             splitter_aw                          |    <0.001 |
-|     rcReceiver_0                                 |     0.054 |
-|       inst                                       |     0.054 |
-|         grp_scaleRange_fu_937                    |     0.008 |
-|           rcReceiver_mul_43bkb_U1                |     0.007 |
-|             rcReceiver_mul_43bkb_MulnS_0_U       |     0.007 |
-|         grp_scaleRange_fu_942                    |     0.007 |
-|           rcReceiver_mul_43bkb_U1                |     0.006 |
-|             rcReceiver_mul_43bkb_MulnS_0_U       |     0.006 |
-|         grp_scaleRange_fu_947                    |     0.006 |
-|           rcReceiver_mul_43bkb_U1                |     0.006 |
-|             rcReceiver_mul_43bkb_MulnS_0_U       |     0.006 |
-|         grp_scaleRange_fu_952                    |     0.006 |
-|           rcReceiver_mul_43bkb_U1                |     0.006 |
-|             rcReceiver_mul_43bkb_MulnS_0_U       |     0.006 |
-|         grp_scaleRange_fu_957                    |     0.005 |
-|           rcReceiver_mul_43bkb_U1                |     0.005 |
-|             rcReceiver_mul_43bkb_MulnS_0_U       |     0.005 |
+|     rcReceiver_0                                 |     0.068 |
+|       inst                                       |     0.068 |
 |         rcReceiver_CTRL_s_axi_U                  |     0.005 |
 |           int_SBUS_data                          |     0.005 |
 |         rcReceiver_OUT_r_m_axi_U                 |     0.005 |
@@ -455,8 +424,14 @@ Table of Contents
 |             fifo_wreq                            |    <0.001 |
 |             rs_wreq                              |    <0.001 |
 |           wreq_throttl                           |    <0.001 |
-|         rcReceiver_TEST_s_axi_U                  |     0.009 |
-|           int_test_V                             |     0.009 |
+|         rcReceiver_TEST_s_axi_U                  |     0.020 |
+|           int_test_V                             |     0.020 |
+|         rcReceiver_mul_39bkb_U1                  |     0.004 |
+|           rcReceiver_mul_39bkb_MulnS_0_U         |     0.004 |
+|         rcReceiver_mul_39bkb_U2                  |     0.005 |
+|           rcReceiver_mul_39bkb_MulnS_0_U         |     0.005 |
+|         rcReceiver_mul_39bkb_U3                  |     0.005 |
+|           rcReceiver_mul_39bkb_MulnS_0_U         |     0.005 |
 |     rst_ps7_0_100M                               |    <0.001 |
 |       U0                                         |    <0.001 |
 |         EXT_LPF                                  |    <0.001 |

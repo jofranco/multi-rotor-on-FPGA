@@ -1,4 +1,7 @@
 obj/main.o: ../../../main.cpp ../../../pwm.hpp \
+ ../../../../common/x8_common.hpp C:/CAD/Vivado/2018.2/include/ap_utils.h \
+ C:/CAD/Vivado/2018.2/include/etc/autopilot_enum.h \
+ C:/CAD/Vivado/2018.2/include/etc/autopilot_ssdm_op.h \
  C:/CAD/Vivado/2018.2/include/ap_int.h \
  C:/CAD/Vivado/2018.2/include/ap_int_sim.h \
  C:/CAD/Vivado/2018.2/include/hls_half.h \
