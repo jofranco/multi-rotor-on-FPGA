@@ -1,7 +1,11 @@
 //##############################################################################
-// Author: Brennan Cain
+// 
+// Contributing Author: Aaron Coffman
+// 
+// Original Author: Brennan Cain
 // Email: Brennan@BrennanCain.com
-// Last Modified: 15 August 2018
+// 
+// Last Modified: 3 June 2019
 //
 //
 // Copyright (c) 2018, The Regents of the University of California All
