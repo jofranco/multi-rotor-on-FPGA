@@ -1,4 +1,4 @@
-#include "AXI_SPI_Driver.h"
+#include "AXI_SPI_Driver.hpp"
 #include "navSpi.hpp"
 #include "stdio.h"
 
@@ -60,7 +60,7 @@ int main()
 		count++;
 	}
 	// testing bit masking that is done in xspi_write()
-	uint8_t tempByte;
+/*	uint8_t tempByte;
 	uint16_t tempTwoByte;
 
 	uint16_t message1, message2;
@@ -99,5 +99,6 @@ int main()
 
 	printf("outThree (int32_t) is: %d\n", outThree);
 	printf("outFour (int32_t) is: %d\n", outFour);
+	*/
 	return 0;
 }
