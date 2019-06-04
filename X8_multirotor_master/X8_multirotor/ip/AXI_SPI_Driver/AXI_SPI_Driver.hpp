@@ -1,15 +1,11 @@
 //include libraries
-//#include "navSpi.hpp"
-//#include "ap_utils.h"
-//#include "ap_int.h"
-//#include "stdint.h"
 #include "../common/x8_common.hpp"
 
 // AXI QUAD SPI IP CORE REGISTER DEFINITIONS
 
 #define QSPI_BASE_ADDR	(0x41E00000 >> 2)
 #define NOT_SUPPORTED	(0x00)
-#define DATA_MASK 		(0x000000FF)
+#define DATA_MASK 		(0x00FF)
 // Core Grouping
 #define SRR 		(0x40 >> 2)	// software reset register
 #define SPICR		(0x60 >> 2)  // SPI control register
@@ -82,54 +78,12 @@
 #define MAKE_LONGER  (0x00000000)
 
 
-//typedef volatile int DTYPE;
-
-/*
-struct DTYPE2
-{
-	// Constructors
-	DTYPE2(DTYPE data2 = 0)
-	{
-		data = data2;
-		last = 0;
-	}
-	DTYPE2(DTYPE data2, ap_uint<1> last2)
-	{
-		data = data2;
-		last = last2;
-	}
-
-	DTYPE data;
-	ap_int<1> last;
-};
-*/
-
-
 /*
  * Function definitions
  */
-uint16_t xspi_write(uint8_t address, uint8_t val);
-uint16_t xspi_read(uint8_t address);
-int32_t signBitExtend(int32_t testByte);
+int16_t formatWriteSpiMessage(uint8_t address, uint8_t val);
+int16_t formatReadSpiMessage(uint8_t address);
+//int16_t spiTransaction(volatile int spi_bus[SIZE_4k], int16_t message);
 
 // main driver
-//void AXI_SPI_DRIVER(volatile int spi_bus[4096], uint32_t pmod_data[4096], uint16_t pmod_test[4096]);
-//void axiSpiDriver(volatile int spi_bus[SIZE_4k], F32_t pmod_data[SIZE_4k]);
 void axiSpiDriver(volatile int spi_bus[SIZE_4k], int pmod_data[SIZE_4k]);
-
-
-//delay function in milliseconds
-template <unsigned long long MILLISECONDS, unsigned long long F_OVERLAY_HZ = 100000000ULL>
-void delay_until_ms(){
-#define MSEC_PER_SEC 1000ULL
-#pragma HLS INLINE
-#pragma HLS PROTOCOL floating
-	volatile char dummy;
-	ap_uint<64> ctr;
-	ap_uint<64> cyc = (F_OVERLAY_HZ * MILLISECONDS / MSEC_PER_SEC);
-	for (ctr = 0; ctr < cyc; ++ctr){
-		dummy = dummy;
-	}
-	return;
-#undef MSEC_PER_SEC
-}
