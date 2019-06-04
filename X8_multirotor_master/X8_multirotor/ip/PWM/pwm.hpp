@@ -40,10 +40,10 @@
 // include libraries
 #include "../common/x8_common.hpp"
 
-
+#define duty_range uint16_t(max_duty - min_duty)
 
 // main PWM function call
-//void pwm(uint16_t min_duty,uint16_t max_duty, uint16_t period,F16_t m[MOTOR_COUNT] , uint6_t& out);
-void pwm(uint32_t  min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint6_t& out, uint32_t test[4096], F32_t test2[4096]);
+void pwm(F16_t m[9], uint32_t  min_duty, uint32_t max_duty, uint32_t period, uint8bit_t& out, int32_t test[4096]);
 
-
+// select ARM switch state
+motorState_e selectMotorState(F16_t value);

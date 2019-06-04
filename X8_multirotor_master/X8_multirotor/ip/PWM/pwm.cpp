@@ -1,11 +1,7 @@
 //##############################################################################
-// 
-// Contributing Author: Aaron Coffman
-// 
-// Original Author: Brennan Cain
+// Author: Brennan Cain
 // Email: Brennan@BrennanCain.com
-// 
-// Last Modified: 3 June 2019
+// Last Modified: 15 August 2018
 //
 //
 // Copyright (c) 2018, The Regents of the University of California All
@@ -44,9 +40,10 @@
 
 #include "pwm.hpp"
 
-#define duty_range (max_duty - min_duty)
 
-void pwm(uint32_t  min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint6_t& out, uint32_t test[4096], F32_t test2[4096])
+
+void pwm(F16_t m[9], uint32_t  min_duty, uint32_t max_duty, uint32_t period, uint8bit_t& out, int32_t test[4096])
+//void pwm(uint32_t  min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint8bit_t& out)
 {
 	// HLS pragmas
 	#pragma HLS PIPELINE
@@ -61,27 +58,21 @@ void pwm(uint32_t  min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uin
 	// output port
 	#pragma HLS INTERFACE ap_none port=out
 
-	// test code for python
+	// test code for python ------------------------------------------------------------
 	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
 	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
 
 
 	static uint16_t acc = 0;
 
-	static uint16_t in_p[MOTOR_COUNT]; //saves input for integrity
-	static uint6_t out_p = 0x3F; //prepares output
-	static bool stop;
-
-	static F16_t buffer;
-
-	for(int i = 0; i < MOTOR_COUNT; i++)
-	{
-		buffer[i] = m[i];
-	}
+	static uint16_t in_p[MOTOR_COUNT];   // saves input for integrity
+	static uint8bit_t out_p = 0xFF;      // prepares output with ones 11111111b
+	static bool ARMED;
 
 
 	// checking ARM state
-	stop = (m[8]*3 < 1);
+	//stop = (m[8] < F16_t(0.50));
+	ARMED = selectMotorState(m[8]);
 
 	for(char u = 0; u < MOTOR_COUNT; u++)
 	{ // move inputs to buffer
@@ -96,19 +87,43 @@ void pwm(uint32_t  min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uin
 		out_p[u] = ((acc < (uint16_t)min_duty) | ((acc < in_p[u]) & out_p[u] )) & (acc < (uint16_t)max_duty);
 	}
 
-	acc = (acc < (uint16_t)period) ? uint16_t(acc + 1) : uint16_t(0); //inc acc if > per else reset
+	acc = (acc < (uint16_t)period) ? uint16_t(acc + 1) : uint16_t(0); // inc acc if (acc < per) else reset
 
-	out = stop ? uint6_t(0) : out_p;
+	out = ARMED ? out_p : uint8bit_t(0);
+
 
 	// test code for python  -------------------------------------------
-	test[0] = (uint32_t)out[0];
-	test[1] = (uint32_t)out[1];
-	test[2] = (uint32_t)out[2];
-	test[3] = (uint32_t)out[3];
-	test[4] = (uint32_t)out[4];
-	test[5] = (uint32_t)out[5];
-	test[6] = (uint32_t)out[6];
-	test[7] = (uint32_t)out[7];
+	test[0] = (uint32_t)out;
+	//test[1] = (uint32_t)out[1];
+	//test[2] = (uint32_t)out[2];
+	//test[3] = (uint32_t)out[3];
+	//test[4] = (uint32_t)out[4];
+	//test[5] = (uint32_t)out[5];
+	//test[6] = (uint32_t)out[6];
+	//test[7] = (uint32_t)out[7];
+	test[1] = (uint32_t)m[8];  // ARM flag
+	test[2] = ARMED;
+	test[3] = 1;
+	test[4] = 0;
+	test[5] = 1;
+	test[6] = 0;
+    test[7] = 1;
+    test[8] = 69;
 
+    test[9] = (uint32_t)m[0];
+    test[10] = (uint32_t)m[1];
+    test[11] = (uint32_t)m[2];
+    test[12] = (uint32_t)m[3];
+    test[13] = (uint32_t)m[4];
+    test[14] = (uint32_t)m[5];
+    test[15] = (uint32_t)m[6];
+    test[16] = (uint32_t)m[7];
 
+}
+
+motorState_e selectMotorState(F16_t value)
+{
+	F16_t midValue = 0.500;
+
+	return value < midValue ? MOTOR_OFF : MOTOR_ON;
 }

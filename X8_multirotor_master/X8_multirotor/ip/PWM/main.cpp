@@ -44,30 +44,34 @@
 
 int main()
 {
-	/*
+
 	char delim = '\t';
 	std::ofstream myfile;
 	myfile.open("out.csv");
-    F16_t regs[6] = { 0x0,0x0,0x0,0x0,0x0,0x0 };
-    ap_uint<6> out;
 
-    for(long int i =0; i < 65000; i+=10000)
+    F16_t regs[9] = { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 1.000 };
+
+    uint8bit_t out;
+
+    for(long int i = 0; i < 140000; i++)
     {
-    	for( int j=0; j < 70000; ++j)
-    	{
-			for(int k =0; k<6;++k) {
-				regs[k]=i+k*16;
-			}
-			pwm(0x0,0xf,0xf,regs, out);
+		for(int k = 0; k < 8; ++k)
+		{
+			regs[k] = 0.500; // motor command
+		}
 
-			for(int k =0; k<6;++k) {
-				myfile << ((out&(1<<k))>>k) << ",";
-			}
-			myfile <<std::endl;
-    	}
+		// min_duty, max_duty, period, inputs, outputs
+		pwm(0x3F00, 0x6820, 0x8880, regs, out);
+
+		for(int k = 0; k < 8; k++)
+		{
+			myfile << ( (out & (1<<k)) >> k) << ",";
+		}
+
+		myfile << std::endl;
     }
     myfile.close();
-	*/
+
 
     return 0;
 }

@@ -19,8 +19,8 @@
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
     "IsCombLogic": "0",
-    "II": "9",
-    "Latency": "17",
+    "II": "17",
+    "Latency": "16",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -607,25 +607,25 @@
       "offset": "16384",
       "statusOffset": "NA",
       "Object": "TEST",
-      "firstOutLatency": "10"
+      "firstOutLatency": "0"
     },
     "out_V": {
       "interfaceRef": "out_V",
       "dir": "out",
       "dataWidth": "8",
       "handshakeRef": "ap_none",
-      "firstOutLatency": "17"
+      "firstOutLatency": "16"
     }
   },
   "ModuleInfo": {
     "Hierarchy": {"ModuleName": "pwm"},
     "Metrics": {"pwm": {
         "Latency": {
-          "LatencyBest": "17",
-          "LatencyAvg": "17",
-          "LatencyWorst": "17",
-          "PipelineII": "9",
-          "PipelineDepth": "18",
+          "LatencyBest": "16",
+          "LatencyAvg": "16",
+          "LatencyWorst": "16",
+          "PipelineII": "17",
+          "PipelineDepth": "17",
           "PipelineType": "function"
         },
         "Timing": {
@@ -636,8 +636,8 @@
         "Area": {
           "BRAM_18K": "10",
           "DSP48E": "8",
-          "FF": "848",
-          "LUT": "1785"
+          "FF": "871",
+          "LUT": "2032"
         }
       }}
   },
@@ -648,7 +648,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-06-02 13:54:50 -0700",
+    "Time": "2019-06-04 00:28:12 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }
