@@ -1,18 +1,18 @@
 set C_TypeInfoList {{ 
 "pwm" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"min_duty": [[],"0"] }, {"max_duty": [[],"0"] }, {"period": [[],"0"] }, {"m": [[], {"array": ["1", [9]]}] }, {"out": [[], {"reference": "2"}] }, {"test": [[], {"array": ["0", [4096]]}] }],[],""], 
-"2": [ "uint6_t", {"typedef": [[[],"3"],""]}], 
-"0": [ "uint32_t", {"typedef": [[[], {"scalar": "unsigned int"}],""]}], 
+"2": [ "uint8bit_t", {"typedef": [[[],"3"],""]}], 
 "1": [ "F16_t", {"typedef": [[[],"4"],""]}], 
-"3": [ "ap_uint<8>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 8}}]],""]}}], 
 "4": [ "ap_fixed<16, 3, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 16}}],[[], {"scalar": { "int": 3}}],[[], {"scalar": { "5": 5}}],[[], {"scalar": { "6": 3}}],[[], {"scalar": { "int": 0}}]],""]}}], 
 "6": [ "ap_o_mode", {"enum": [[],[],[{"SC_SAT":  {"scalar": "__integer__"}},{"SC_SAT_ZERO":  {"scalar": "__integer__"}},{"SC_SAT_SYM":  {"scalar": "__integer__"}},{"SC_WRAP":  {"scalar": "__integer__"}},{"SC_WRAP_SM":  {"scalar": "__integer__"}}],""]}], 
-"5": [ "ap_q_mode", {"enum": [[],[],[{"SC_RND":  {"scalar": "__integer__"}},{"SC_RND_ZERO":  {"scalar": "__integer__"}},{"SC_RND_MIN_INF":  {"scalar": "__integer__"}},{"SC_RND_INF":  {"scalar": "__integer__"}},{"SC_RND_CONV":  {"scalar": "__integer__"}},{"SC_TRN":  {"scalar": "__integer__"}},{"SC_TRN_ZERO":  {"scalar": "__integer__"}}],""]}]
+"5": [ "ap_q_mode", {"enum": [[],[],[{"SC_RND":  {"scalar": "__integer__"}},{"SC_RND_ZERO":  {"scalar": "__integer__"}},{"SC_RND_MIN_INF":  {"scalar": "__integer__"}},{"SC_RND_INF":  {"scalar": "__integer__"}},{"SC_RND_CONV":  {"scalar": "__integer__"}},{"SC_TRN":  {"scalar": "__integer__"}},{"SC_TRN_ZERO":  {"scalar": "__integer__"}}],""]}], 
+"0": [ "uint32_t", {"typedef": [[[], {"scalar": "unsigned int"}],""]}], 
+"3": [ "ap_uint<8>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 8}}]],""]}}]
 }}
 set moduleName pwm
 set isTaskLevelControl 1
 set isCombinational 0
 set isDatapathOnly 0
-set isPipelined 1
+set isPipelined 0
 set pipeline_type function
 set FunctionProtocol ap_ctrl_hs
 set isOneStateSeq 0
@@ -123,9 +123,9 @@ set RtlHierarchyInfo {[
 		"CDFG" : "pwm",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "9",
-		"VariableLatency" : "0", "ExactLatency" : "17", "EstimateLatencyMin" : "17", "EstimateLatencyMax" : "17",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "17",
+		"VariableLatency" : "0", "ExactLatency" : "16", "EstimateLatencyMin" : "16", "EstimateLatencyMax" : "16",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -159,20 +159,19 @@ set ArgLastReadFirstWriteLatency {
 		max_duty {Type I LastRead 0 FirstWrite -1}
 		period {Type I LastRead 0 FirstWrite -1}
 		m_V {Type I LastRead 8 FirstWrite -1}
-		out_V {Type O LastRead -1 FirstWrite 17}
-		test {Type O LastRead -1 FirstWrite 10}
+		out_V {Type O LastRead -1 FirstWrite 16}
+		test {Type O LastRead -1 FirstWrite 0}
 		acc {Type IO LastRead -1 FirstWrite -1}
 		out_p_V {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "17", "Max" : "17"}
-	, {"Name" : "Interval", "Min" : "9", "Max" : "9"}
+	{"Name" : "Latency", "Min" : "16", "Max" : "16"}
+	, {"Name" : "Interval", "Min" : "17", "Max" : "17"}
 ]}
 
 set PipelineEnableSignalInfo {[
-	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 

@@ -24771,7 +24771,8 @@ typedef ap_fixed<32, 19> F32_t;
 typedef ap_fixed<19, 4> F19_t;
 typedef ap_fixed<16,3> F16_t;
 
-typedef ap_uint<8> uint6_t;
+
+typedef ap_uint<8> uint8bit_t;
 
 
 typedef enum
@@ -24795,12 +24796,17 @@ uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destF
 
 
 
-void pwm(uint16_t min_duty,uint16_t max_duty, uint16_t period,F16_t m[8] , uint6_t& out);
+void pwm(uint32_t min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint8bit_t& out, uint32_t test[4096]);
+
+
+
+motorState_e selectMotorState(F16_t value);
 # 42 "PWM/pwm.cpp" 2
 
 
 
-void pwm(uint32_t min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint6_t& out, uint32_t test[4096])
+void pwm(uint32_t min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint8bit_t& out, uint32_t test[4096])
+
 {_ssdm_SpecArrayDimSize(m, 9);_ssdm_SpecArrayDimSize(test, 4096);
 
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
@@ -24823,15 +24829,17 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
  static uint16_t acc = 0;
 
  static uint16_t in_p[8];
- static uint6_t out_p = 0x3F;
- static bool stop;
+ static uint8bit_t out_p = 0xFF;
+ static bool ARMED;
 
 
- stop = (m[8]*3 < 1);
+
+
+ ARMED = selectMotorState(m[8]);
 
  for(char u = 0; u < 8; u++)
  {
-  in_p[u] = (uint16_t)(max_duty - min_duty) * m[u] + (uint16_t)min_duty;
+  in_p[u] = (uint16_t)uint16_t(max_duty - min_duty) * m[u] + (uint16_t)min_duty;
  }
 
 
@@ -24839,22 +24847,46 @@ _ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
  {
 _ssdm_Unroll(0,0,0, "");
 
- out_p[u]=((acc < (uint16_t)min_duty) | ((acc < in_p[u]) & out_p[u] )) & (acc < (uint16_t)max_duty);
+ out_p[u] = ((acc < (uint16_t)min_duty) | ((acc < in_p[u]) & out_p[u] )) & (acc < (uint16_t)max_duty);
  }
 
  acc = (acc < (uint16_t)period) ? uint16_t(acc + 1) : uint16_t(0);
 
- out = stop ? uint6_t(0) : out_p;
+ out = ARMED ? out_p : uint8bit_t(0);
 
 
- test[0] = (uint32_t)out[0];
- test[1] = (uint32_t)out[1];
- test[2] = (uint32_t)out[2];
- test[3] = (uint32_t)out[3];
- test[4] = (uint32_t)out[4];
- test[5] = (uint32_t)out[5];
- test[6] = (uint32_t)out[6];
- test[7] = (uint32_t)out[7];
+
+ test[0] = (uint32_t)out;
 
 
+
+
+
+
+
+ test[1] = (uint32_t)m[8];
+ test[2] = ARMED;
+ test[3] = 1;
+ test[4] = 0;
+ test[5] = 1;
+ test[6] = 0;
+    test[7] = 1;
+    test[8] = 69;
+
+    test[9] = (uint32_t)m[0];
+    test[10] = (uint32_t)m[1];
+    test[11] = (uint32_t)m[2];
+    test[12] = (uint32_t)m[3];
+    test[13] = (uint32_t)m[4];
+    test[14] = (uint32_t)m[5];
+    test[15] = (uint32_t)m[6];
+    test[16] = (uint32_t)m[7];
+
+}
+
+motorState_e selectMotorState(F16_t value)
+{
+ F16_t midValue = 0.500;
+
+ return value < midValue ? MOTOR_OFF : MOTOR_ON;
 }

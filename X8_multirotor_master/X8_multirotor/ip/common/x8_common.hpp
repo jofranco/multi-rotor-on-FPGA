@@ -33,7 +33,7 @@ typedef ap_fixed<19, 4> F19_t;
 typedef ap_fixed<16,3> F16_t;
 
 // PWM output
-typedef ap_uint<8> uint6_t;
+typedef ap_uint<8> uint8bit_t;
 
 
 typedef enum

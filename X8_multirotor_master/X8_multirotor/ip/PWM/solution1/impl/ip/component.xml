@@ -860,7 +860,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>057320b6</spirit:value>
+            <spirit:value>5e5be9cc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -876,7 +876,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a1091949</spirit:value>
+            <spirit:value>bf157e0f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -892,7 +892,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4236d970</spirit:value>
+            <spirit:value>ab1fc870</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -908,7 +908,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>9b70c2be</spirit:value>
+            <spirit:value>751055fa</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1622,7 +1622,7 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
       <spirit:file>
         <spirit:name>hdl/vhdl/pwm.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_cf78e1e3</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_6a403262</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1735,11 +1735,11 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">17</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">16</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>II</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="6">9</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.II" spirit:order="6">17</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -1752,17 +1752,17 @@ esolve_type immediate dependency {} format string minimum {} maximum {}} value {
       </xilinx:taxonomies>
       <xilinx:displayName>Pwm</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1906021355</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-06-02T20:55:12Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1906040029</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-06-04T07:29:09Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="79d988f9"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="0dea9bc0"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b4984767"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ba2f135f"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="153e2657"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="ae16155d"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="4e11473b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="5ef465ac"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
