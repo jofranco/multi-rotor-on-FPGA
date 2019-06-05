@@ -42,12 +42,14 @@ typedef struct {
     u16 DeviceId;
     u32 Ctrl_BaseAddress;
     u32 Test_BaseAddress;
+    u32 Test2_BaseAddress;
 } XPwm_Config;
 #endif
 
 typedef struct {
     u32 Ctrl_BaseAddress;
     u32 Test_BaseAddress;
+    u32 Test2_BaseAddress;
     u32 IsReady;
 } XPwm;
 
@@ -95,15 +97,15 @@ void XPwm_Set_max_duty(XPwm *InstancePtr, u32 Data);
 u32 XPwm_Get_max_duty(XPwm *InstancePtr);
 void XPwm_Set_period(XPwm *InstancePtr, u32 Data);
 u32 XPwm_Get_period(XPwm *InstancePtr);
-u32 XPwm_Get_m_V_BaseAddress(XPwm *InstancePtr);
-u32 XPwm_Get_m_V_HighAddress(XPwm *InstancePtr);
-u32 XPwm_Get_m_V_TotalBytes(XPwm *InstancePtr);
-u32 XPwm_Get_m_V_BitWidth(XPwm *InstancePtr);
-u32 XPwm_Get_m_V_Depth(XPwm *InstancePtr);
-u32 XPwm_Write_m_V_Words(XPwm *InstancePtr, int offset, int *data, int length);
-u32 XPwm_Read_m_V_Words(XPwm *InstancePtr, int offset, int *data, int length);
-u32 XPwm_Write_m_V_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
-u32 XPwm_Read_m_V_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
+u32 XPwm_Get_motorCmd_V_BaseAddress(XPwm *InstancePtr);
+u32 XPwm_Get_motorCmd_V_HighAddress(XPwm *InstancePtr);
+u32 XPwm_Get_motorCmd_V_TotalBytes(XPwm *InstancePtr);
+u32 XPwm_Get_motorCmd_V_BitWidth(XPwm *InstancePtr);
+u32 XPwm_Get_motorCmd_V_Depth(XPwm *InstancePtr);
+u32 XPwm_Write_motorCmd_V_Words(XPwm *InstancePtr, int offset, int *data, int length);
+u32 XPwm_Read_motorCmd_V_Words(XPwm *InstancePtr, int offset, int *data, int length);
+u32 XPwm_Write_motorCmd_V_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
+u32 XPwm_Read_motorCmd_V_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
 u32 XPwm_Get_test_BaseAddress(XPwm *InstancePtr);
 u32 XPwm_Get_test_HighAddress(XPwm *InstancePtr);
 u32 XPwm_Get_test_TotalBytes(XPwm *InstancePtr);
@@ -113,6 +115,15 @@ u32 XPwm_Write_test_Words(XPwm *InstancePtr, int offset, int *data, int length);
 u32 XPwm_Read_test_Words(XPwm *InstancePtr, int offset, int *data, int length);
 u32 XPwm_Write_test_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
 u32 XPwm_Read_test_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
+u32 XPwm_Get_test2_V_BaseAddress(XPwm *InstancePtr);
+u32 XPwm_Get_test2_V_HighAddress(XPwm *InstancePtr);
+u32 XPwm_Get_test2_V_TotalBytes(XPwm *InstancePtr);
+u32 XPwm_Get_test2_V_BitWidth(XPwm *InstancePtr);
+u32 XPwm_Get_test2_V_Depth(XPwm *InstancePtr);
+u32 XPwm_Write_test2_V_Words(XPwm *InstancePtr, int offset, int *data, int length);
+u32 XPwm_Read_test2_V_Words(XPwm *InstancePtr, int offset, int *data, int length);
+u32 XPwm_Write_test2_V_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
+u32 XPwm_Read_test2_V_Bytes(XPwm *InstancePtr, int offset, char *data, int length);
 
 void XPwm_InterruptGlobalEnable(XPwm *InstancePtr);
 void XPwm_InterruptGlobalDisable(XPwm *InstancePtr);

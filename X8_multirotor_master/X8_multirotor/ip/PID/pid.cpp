@@ -12,10 +12,11 @@
 */
 
 // PID function call
-void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
+//void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9])
+void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[SIZE_4k])
 {
 	//SETUP PRAGMAS
-	#pragma HLS PIPELINE II=1 enable_flush
+	//#pragma HLS PIPELINE II=1 enable_flush
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
@@ -29,6 +30,10 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 
 	// output to PWM
 	#pragma HLS INTERFACE m_axi port=commandOut bundle=OUT offset=off
+
+	// test code for python ---------------------------------------------------------------
+	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
+	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
 
 
 	// variable declarations
@@ -53,10 +58,15 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 	F32_t deriv_rate[2]             = {0.0, 0.0};
 	F32_t correction_rate[2]        = {0.0, 0.0};
 
+	F16_t test1 = 0.0;
+
 	// moving input to buffer for processing
 	for(int i = 0; i < RC_CHANNELS; i++)
 	{
 		buffer[i] = cmdIn[i];
+
+		// test code for python  -----------------------------------------------
+		test[i] = (F32_t)buffer[i];
 	}
 
 	// checking if pilot selected Horizon mode
@@ -173,7 +183,13 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 									 p_command * MIX_X8[i][1]  + \
 									 y_command * MIX_X8[i][2]) * F19_t(0.33);
 
-				commandOut[i] = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
+				//commandOut[i] = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
+				test1 = (F16_t)clip(scaled_power, F19_t(0.000), F19_t(0.999));
+				commandOut[i] = test1;
+
+				// test code for python -------------------------------------------------------
+				test[i + RC_CHANNELS] = (F32_t)test1;
+
 			}
 	}
 

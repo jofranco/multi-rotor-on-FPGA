@@ -88,37 +88,37 @@ ap_start { }
 ap_done { }
 ap_ready { }
 ap_idle { }
+motorCmd_V { 
+	dir I
+	width 16
+	depth 9
+	mode ap_memory
+	offset 32
+	offset_end 63
+}
 min_duty { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
-	offset 16
-	offset_end 23
+	offset 64
+	offset_end 71
 }
 max_duty { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
-	offset 24
-	offset_end 31
+	offset 72
+	offset_end 79
 }
 period { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
-	offset 32
-	offset_end 39
-}
-m_V { 
-	dir I
-	width 16
-	depth 9
-	mode ap_memory
-	offset 64
-	offset_end 95
+	offset 80
+	offset_end 87
 }
 }
 
@@ -175,10 +175,42 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler pwm_TEST_s_axi
 }
 
+set port_TEST2 {
+test2_V { 
+	dir O
+	width 32
+	depth 4096
+	mode ap_memory
+	offset 16384
+	offset_end 32767
+}
+}
+
+
+# Native S_AXILite:
+if {${::AESL::PGuard_simmodel_gen}} {
+	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
+		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
+			id 12 \
+			corename pwm_TEST2_axilite \
+			name pwm_TEST2_s_axi \
+			ports {$port_TEST2} \
+			op interface \
+			is_flushable 0 \ 
+		} "
+	} else {
+		puts "@W \[IMPL-110\] Cannot find AXI Lite interface model in the library. Ignored generation of AXI Lite  interface for 'TEST2'"
+	}
+}
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler pwm_TEST2_s_axi
+}
+
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 12 \
+    id 13 \
     name out_V \
     type other \
     dir O \

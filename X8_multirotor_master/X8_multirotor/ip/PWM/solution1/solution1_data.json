@@ -19,8 +19,8 @@
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
     "IsCombLogic": "0",
-    "II": "17",
-    "Latency": "16",
+    "II": "11",
+    "Latency": "11",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -39,12 +39,14 @@
     "Vhdl": [
       "impl\/vhdl\/pwm_CTRL_s_axi.vhd",
       "impl\/vhdl\/pwm_mul_mul_16s_1bkb.vhd",
+      "impl\/vhdl\/pwm_TEST2_s_axi.vhd",
       "impl\/vhdl\/pwm_TEST_s_axi.vhd",
       "impl\/vhdl\/pwm.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/pwm_CTRL_s_axi.v",
       "impl\/verilog\/pwm_mul_mul_16s_1bkb.v",
+      "impl\/verilog\/pwm_TEST2_s_axi.v",
       "impl\/verilog\/pwm_TEST_s_axi.v",
       "impl\/verilog\/pwm.v"
     ],
@@ -69,7 +71,7 @@
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
-      "buses": "s_axi_CTRL s_axi_TEST",
+      "buses": "s_axi_CTRL s_axi_TEST s_axi_TEST2",
       "reset": "ap_rst_n"
     },
     "ap_rst_n": {
@@ -255,7 +257,7 @@
           ]
         },
         {
-          "offset": "0x10",
+          "offset": "0x40",
           "name": "min_duty",
           "access": "W",
           "reset_value": "0x0",
@@ -270,7 +272,7 @@
             }]
         },
         {
-          "offset": "0x18",
+          "offset": "0x48",
           "name": "max_duty",
           "access": "W",
           "reset_value": "0x0",
@@ -285,7 +287,7 @@
             }]
         },
         {
-          "offset": "0x20",
+          "offset": "0x50",
           "name": "period",
           "access": "W",
           "reset_value": "0x0",
@@ -300,7 +302,7 @@
             }]
         }
       ],
-      "memories": "m_V {base_address 64 range 32}",
+      "memories": "motorCmd_V {base_address 32 range 32}",
       "ctype": {
         "AWVALID": {"Type": "bool"},
         "AWREADY": {"Type": "bool"},
@@ -325,8 +327,8 @@
           "Width": "7"
         },
         "WDATA": {
-          "Type": "real fixed signed 13",
-          "Width": "16"
+          "Type": "integer unsigned",
+          "Width": "32"
         },
         "WSTRB": {
           "Type": "integer unsigned",
@@ -337,8 +339,8 @@
           "Width": "7"
         },
         "RDATA": {
-          "Type": "real fixed signed 13",
-          "Width": "16"
+          "Type": "integer unsigned",
+          "Width": "32"
         }
       },
       "data_width": "32",
@@ -396,6 +398,64 @@
         },
         "RDATA": {
           "Type": "integer unsigned",
+          "Width": "32"
+        }
+      },
+      "data_width": "32",
+      "port_width": {
+        "ARADDR": "15",
+        "AWADDR": "15",
+        "RDATA": "32",
+        "WDATA": "32",
+        "WSTRB": "4"
+      }
+    },
+    "s_axi_TEST2": {
+      "type": "axi4lite",
+      "is_adaptor": "true",
+      "mode": "slave",
+      "port_prefix": "s_axi_TEST2",
+      "param_prefix": "C_S_AXI_TEST2",
+      "addr_bits": "15",
+      "registers": [],
+      "memories": "test2_V {base_address 16384 range 16384}",
+      "ctype": {
+        "AWVALID": {"Type": "bool"},
+        "AWREADY": {"Type": "bool"},
+        "WVALID": {"Type": "bool"},
+        "WREADY": {"Type": "bool"},
+        "BVALID": {"Type": "bool"},
+        "BREADY": {"Type": "bool"},
+        "BRESP": {
+          "Type": "integer unsigned",
+          "Width": "2"
+        },
+        "ARVALID": {"Type": "bool"},
+        "ARREADY": {"Type": "bool"},
+        "RVALID": {"Type": "bool"},
+        "RREADY": {"Type": "bool"},
+        "RRESP": {
+          "Type": "integer unsigned",
+          "Width": "2"
+        },
+        "AWADDR": {
+          "Type": "integer unsigned",
+          "Width": "15"
+        },
+        "WDATA": {
+          "Type": "real fixed signed 13",
+          "Width": "32"
+        },
+        "WSTRB": {
+          "Type": "integer unsigned",
+          "Width": "4"
+        },
+        "ARADDR": {
+          "Type": "integer unsigned",
+          "Width": "15"
+        },
+        "RDATA": {
+          "Type": "real fixed signed 13",
           "Width": "32"
         }
       },
@@ -546,6 +606,74 @@
       "dir": "out",
       "width": "2"
     },
+    "s_axi_TEST2_AWVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST2_AWREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST2_AWADDR": {
+      "dir": "in",
+      "width": "15"
+    },
+    "s_axi_TEST2_WVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST2_WREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST2_WDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "s_axi_TEST2_WSTRB": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_TEST2_ARVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST2_ARREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST2_ARADDR": {
+      "dir": "in",
+      "width": "15"
+    },
+    "s_axi_TEST2_RVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST2_RREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST2_RDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "s_axi_TEST2_RRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_TEST2_BVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_TEST2_BREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_TEST2_BRESP": {
+      "dir": "out",
+      "width": "2"
+    },
     "ap_clk": {
       "dir": "in",
       "width": "1"
@@ -565,10 +693,17 @@
     }
   },
   "CPorts": {
+    "motorCmd_V": {
+      "interfaceRef": "s_axi_CTRL",
+      "dir": "in",
+      "offset": "32",
+      "statusOffset": "NA",
+      "Object": "CTRL"
+    },
     "min_duty": {
       "interfaceRef": "s_axi_CTRL",
       "dir": "in",
-      "offset": "16",
+      "offset": "64",
       "statusOffset": "NA",
       "handshakeRef": "ap_none",
       "Object": "CTRL"
@@ -576,7 +711,7 @@
     "max_duty": {
       "interfaceRef": "s_axi_CTRL",
       "dir": "in",
-      "offset": "24",
+      "offset": "72",
       "statusOffset": "NA",
       "handshakeRef": "ap_none",
       "Object": "CTRL"
@@ -584,16 +719,9 @@
     "period": {
       "interfaceRef": "s_axi_CTRL",
       "dir": "in",
-      "offset": "32",
+      "offset": "80",
       "statusOffset": "NA",
       "handshakeRef": "ap_none",
-      "Object": "CTRL"
-    },
-    "m_V": {
-      "interfaceRef": "s_axi_CTRL",
-      "dir": "in",
-      "offset": "64",
-      "statusOffset": "NA",
       "Object": "CTRL"
     },
     "ap_ctrl": {
@@ -607,25 +735,33 @@
       "offset": "16384",
       "statusOffset": "NA",
       "Object": "TEST",
-      "firstOutLatency": "0"
+      "firstOutLatency": "1"
+    },
+    "test2_V": {
+      "interfaceRef": "s_axi_TEST2",
+      "dir": "out",
+      "offset": "16384",
+      "statusOffset": "NA",
+      "Object": "TEST2",
+      "firstOutLatency": "1"
     },
     "out_V": {
       "interfaceRef": "out_V",
       "dir": "out",
       "dataWidth": "8",
       "handshakeRef": "ap_none",
-      "firstOutLatency": "16"
+      "firstOutLatency": "11"
     }
   },
   "ModuleInfo": {
     "Hierarchy": {"ModuleName": "pwm"},
     "Metrics": {"pwm": {
         "Latency": {
-          "LatencyBest": "16",
-          "LatencyAvg": "16",
-          "LatencyWorst": "16",
-          "PipelineII": "17",
-          "PipelineDepth": "17",
+          "LatencyBest": "11",
+          "LatencyAvg": "11",
+          "LatencyWorst": "11",
+          "PipelineII": "11",
+          "PipelineDepth": "12",
           "PipelineType": "function"
         },
         "Timing": {
@@ -634,10 +770,10 @@
           "Estimate": "8.702"
         },
         "Area": {
-          "BRAM_18K": "10",
+          "BRAM_18K": "18",
           "DSP48E": "8",
-          "FF": "871",
-          "LUT": "2032"
+          "FF": "996",
+          "LUT": "2016"
         }
       }}
   },
@@ -648,7 +784,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-06-04 00:28:12 -0700",
+    "Time": "2019-06-05 02:20:43 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

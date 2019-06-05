@@ -24635,8 +24635,7 @@ uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destF
 
 
 
-void pwm(uint32_t min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint8bit_t& out, uint32_t test[4096]);
-
+void pwm(F16_t m[9], uint32_t min_duty, uint32_t max_duty, uint32_t period, uint8bit_t& out, int32_t test[4096], F32_t test2[4096]);
 
 
 motorState_e selectMotorState(F16_t value);
@@ -24644,9 +24643,9 @@ motorState_e selectMotorState(F16_t value);
 
 
 
-void pwm(uint32_t min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint8bit_t& out, uint32_t test[4096])
+void pwm(F16_t motorCmd[9], uint32_t min_duty, uint32_t max_duty, uint32_t period, uint8bit_t& out, uint32_t test[4096], F32_t test2[4096])
 
-{_ssdm_SpecArrayDimSize(m, 9);_ssdm_SpecArrayDimSize(test, 4096);
+{_ssdm_SpecArrayDimSize(motorCmd, 9);_ssdm_SpecArrayDimSize(test, 4096);_ssdm_SpecArrayDimSize(test2, 4096);
 
 #pragma HLS PIPELINE
 
@@ -24655,7 +24654,7 @@ void pwm(uint32_t min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint
 #pragma HLS INTERFACE s_axilite port=&min_duty bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=&max_duty bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=&period bundle=CTRL
-#pragma HLS INTERFACE s_axilite port=&m bundle=CTRL
+#pragma HLS INTERFACE s_axilite port=&motorCmd bundle=CTRL
 
 
 #pragma HLS INTERFACE ap_none port=&out
@@ -24665,20 +24664,35 @@ void pwm(uint32_t min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint
 #pragma HLS RESOURCE variable=&test core=RAM_1P_BRAM
 
 
+#pragma HLS INTERFACE s_axilite port=&test2 bundle=TEST2
+#pragma HLS RESOURCE variable=&test2 core=RAM_1P_BRAM
+
+
  static uint16_t acc = 0;
 
  static uint16_t in_p[8];
  static uint8bit_t out_p = 0xFF;
- static bool ARMED;
+ static uint8_t ARMED;
+ static F16_t buffer[9] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+
+ for(int i = 0; i < (8 +1); i++)
+ {
+  buffer[i] = motorCmd[i];
 
 
+  test2[i] = buffer[i];
+ }
+
+ test2[9] = 0.500;
+ test2[10] = 0.100;
 
 
- ARMED = selectMotorState(m[8]);
+ ARMED = (uint8_t)selectMotorState(buffer[8]);
+
 
  for(char u = 0; u < 8; u++)
  {
-  in_p[u] = (uint16_t)uint16_t(max_duty - min_duty) * m[u] + (uint16_t)min_duty;
+  in_p[u] = (uint16_t)uint16_t(max_duty - min_duty) * buffer[u] + (uint16_t)min_duty;
  }
 
 
@@ -24695,15 +24709,8 @@ void pwm(uint32_t min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint
 
 
 
- test[0] = (uint32_t)out;
-
-
-
-
-
-
-
- test[1] = (uint32_t)m[8];
+ test[0] = out;
+ test[1] = (uint32_t)buffer[8];
  test[2] = ARMED;
  test[3] = 1;
  test[4] = 0;
@@ -24712,14 +24719,6 @@ void pwm(uint32_t min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint
     test[7] = 1;
     test[8] = 69;
 
-    test[9] = (uint32_t)m[0];
-    test[10] = (uint32_t)m[1];
-    test[11] = (uint32_t)m[2];
-    test[12] = (uint32_t)m[3];
-    test[13] = (uint32_t)m[4];
-    test[14] = (uint32_t)m[5];
-    test[15] = (uint32_t)m[6];
-    test[16] = (uint32_t)m[7];
 
 }
 

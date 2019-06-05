@@ -1,60 +1,64 @@
 {
    ExpandedHierarchyInLayout: "",
    commentid: "",
-   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
+   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS-threadsafe
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -y 250 -defaultsOSRD
-preplace port SPI_CLK -pg 1 -y 170 -defaultsOSRD
-preplace port MISO -pg 1 -y 20 -defaultsOSRD
-preplace port MOSI -pg 1 -y 190 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 270 -defaultsOSRD
-preplace portBus SS_AG -pg 1 -y 650 -defaultsOSRD
-preplace portBus SBUS_in -pg 1 -y 620 -defaultsOSRD
-preplace portBus out_PWM -pg 1 -y 230 -defaultsOSRD
-preplace inst pid_0 -pg 1 -lvl 2 -y 590 -defaultsOSRD
-preplace inst AXI_UART_DRIVER_0 -pg 1 -lvl 2 -y 110 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 1 -y 620 -defaultsOSRD
-preplace inst rcReceiver_0 -pg 1 -lvl 2 -y 420 -defaultsOSRD
-preplace inst pwm_0 -pg 1 -lvl 4 -y 10 -defaultsOSRD
-preplace inst ps7_0_axi_periph -pg 1 -lvl 3 -y 320 -defaultsOSRD
-preplace inst flightmain_0 -pg 1 -lvl 2 -y 260 -defaultsOSRD
-preplace inst axi_uart16550_0 -pg 1 -lvl 4 -y 420 -defaultsOSRD
-preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -y 390 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 200 -defaultsOSRD
-preplace inst axi_quad_spi_0 -pg 1 -lvl 4 -y 620 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 4 360 30 810J 730 1390J 250 NJ
-preplace netloc ps7_0_axi_periph_M02_AXI 1 1 3 390 780 NJ 780 1330
-preplace netloc rst_ps7_0_100M_peripheral_aresetn1 1 1 3 380 0 830 800 1400
-preplace netloc Op1_0_1 1 0 1 NJ
-preplace netloc pid_0_m_axi_OUT_r 1 2 1 870
-preplace netloc axi_quad_spi_0_ss_o 1 4 1 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 2 330 -30 N
-preplace netloc ps7_0_axi_periph_M07_AXI 1 1 3 410 770 NJ 770 1300
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 -80 100 320J
-preplace netloc util_vector_logic_0_Res 1 1 4 350J 740 760J 820 NJ 820 1750
-preplace netloc flightmain_0_m_axi_OUT_r 1 2 1 850
-preplace netloc rcReceiver_0_m_axi_OUT_r 1 2 1 840
-preplace netloc AXI_UART_DRIVER_0_m_axi_UART 1 2 1 790
-preplace netloc ps7_0_axi_periph_M03_AXI 1 3 1 1340
-preplace netloc ps7_0_axi_periph_M01_AXI 1 3 1 1360
-preplace netloc axi_quad_spi_0_io0_o 1 4 1 1770J
-preplace netloc axi_quad_spi_0_sck_o 1 4 1 1760J
-preplace netloc processing_system7_0_FIXED_IO 1 1 4 350 20 820J 740 1410J 270 NJ
-preplace netloc ps7_0_axi_periph_M06_AXI 1 1 3 400 760 NJ 760 1310
-preplace netloc AXI_UART_DRIVER_0_m_axi_OUT_r 1 2 1 800
-preplace netloc ps7_0_axi_periph_M05_AXI 1 1 3 420 750 NJ 750 1320
-preplace netloc ps7_0_axi_periph_M04_AXI 1 3 1 1350
-preplace netloc MISO_1 1 0 5 NJ 20 320J -10 770J 810 NJ 810 1740
-preplace netloc ps7_0_axi_periph_M00_AXI 1 3 1 1370
-preplace netloc processing_system7_0_FCLK_CLK1 1 0 4 -90 90 340 -40 860 790 1380
-preplace netloc pwm_0_out_V 1 4 1 1750J
-preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 1 2 370J 10 780
-levelinfo -pg 1 -110 120 590 1150 1588 1790 -top -90 -bot 1460
+preplace port DDR -pg 1 -y -180 -defaultsOSRD
+preplace port SPI_CLK -pg 1 -y -240 -defaultsOSRD
+preplace port MISO -pg 1 -y -150 -defaultsOSRD
+preplace port MOSI -pg 1 -y -210 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y -130 -defaultsOSRD
+preplace portBus SS_AG -pg 1 -y -40 -defaultsOSRD
+preplace portBus SBUS_in -pg 1 -y -120 -defaultsOSRD
+preplace portBus out_PWM -pg 1 -y -80 -defaultsOSRD
+preplace inst pid_0 -pg 1 -lvl 2 -y -440 -defaultsOSRD
+preplace inst AXI_UART_DRIVER_0 -pg 1 -lvl 2 -y 340 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -y 20 -defaultsOSRD
+preplace inst rcReceiver_0 -pg 1 -lvl 2 -y 180 -defaultsOSRD
+preplace inst pwm_0 -pg 1 -lvl 4 -y -290 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 3 -y -70 -defaultsOSRD
+preplace inst flightmain_0 -pg 1 -lvl 2 -y -240 -defaultsOSRD
+preplace inst axi_uart16550_0 -pg 1 -lvl 4 -y 120 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -y -130 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y -330 -defaultsOSRD
+preplace inst axi_quad_spi_0 -pg 1 -lvl 4 -y -80 -defaultsOSRD
+preplace netloc ps7_0_axi_periph_M02_AXI 1 1 3 630 -650 N -650 1630
+preplace netloc processing_system7_0_DDR 1 1 4 570 -680 N -680 NJ -680 2060J
+preplace netloc ps7_0_axi_periph_M09_AXI 1 3 1 1700
+preplace netloc rst_ps7_0_100M_peripheral_aresetn1 1 1 3 620 -150 1120 -560 1660
+preplace netloc Op1_0_1 1 0 1 30J
+preplace netloc pid_0_m_axi_OUT_r 1 2 1 1090
+preplace netloc axi_quad_spi_0_ss_o 1 4 1 2040J
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 2 N -330 1070
+preplace netloc ps7_0_axi_periph_M07_AXI 1 3 1 1640J
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 40 -230 570
+preplace netloc util_vector_logic_0_Res 1 1 4 600 -600 N -600 N -600 2000
+preplace netloc flightmain_0_m_axi_OUT_r 1 2 1 1150
+preplace netloc rcReceiver_0_m_axi_OUT_r 1 2 1 1140
+preplace netloc AXI_UART_DRIVER_0_m_axi_UART 1 2 1 1080
+preplace netloc ps7_0_axi_periph_M03_AXI 1 1 3 640 -640 N -640 1620
+preplace netloc ps7_0_axi_periph_M01_AXI 1 3 1 1650J
+preplace netloc axi_quad_spi_0_io0_o 1 4 1 2040J
+preplace netloc axi_quad_spi_0_sck_o 1 4 1 2030J
+preplace netloc ps7_0_axi_periph_M11_AXI 1 1 3 690 -570 N -570 1570
+preplace netloc ps7_0_axi_periph_M08_AXI 1 3 1 1670
+preplace netloc ps7_0_axi_periph_M06_AXI 1 1 3 670 -610 N -610 1590
+preplace netloc processing_system7_0_FIXED_IO 1 1 4 580 -660 N -660 NJ -660 2050J
+preplace netloc AXI_UART_DRIVER_0_m_axi_OUT_r 1 2 1 1100
+preplace netloc ps7_0_axi_periph_M05_AXI 1 1 3 660 -620 N -620 1600
+preplace netloc ps7_0_axi_periph_M04_AXI 1 1 3 650 -630 N -630 1610
+preplace netloc MISO_1 1 0 5 20J -670 NJ -670 NJ -670 N -670 2010
+preplace netloc ps7_0_axi_periph_M10_AXI 1 1 3 680 -580 N -580 1580
+preplace netloc ps7_0_axi_periph_M00_AXI 1 3 1 1680J
+preplace netloc processing_system7_0_FCLK_CLK1 1 0 4 30 -430 590 -340 1110 -590 1690
+preplace netloc pwm_0_out_V 1 4 1 2020J
+preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 1 2 610 -350 1130
+levelinfo -pg 1 0 370 900 1420 1880 2120 -top -1160 -bot 1460
 ",
 }
 {
-   da_axi4_cnt: "59",
+   da_axi4_cnt: "196",
    da_board_cnt: "3",
-   da_clkrst_cnt: "6",
+   da_clkrst_cnt: "7",
    da_ps7_cnt: "5",
 }

@@ -42,7 +42,7 @@
 
 
 
-void pwm(F16_t m[9], uint32_t  min_duty, uint32_t max_duty, uint32_t period, uint8bit_t& out, int32_t test[4096])
+void pwm(F16_t motorCmd[9], uint32_t  min_duty, uint32_t max_duty, uint32_t period, uint8bit_t& out, uint32_t test[4096], F32_t test2[4096])
 //void pwm(uint32_t  min_duty, uint32_t max_duty, uint32_t period, F16_t m[9], uint8bit_t& out)
 {
 	// HLS pragmas
@@ -53,7 +53,7 @@ void pwm(F16_t m[9], uint32_t  min_duty, uint32_t max_duty, uint32_t period, uin
 	#pragma HLS INTERFACE s_axilite port=min_duty bundle=CTRL
 	#pragma HLS INTERFACE s_axilite port=max_duty bundle=CTRL
 	#pragma HLS INTERFACE s_axilite port=period bundle=CTRL
-	#pragma HLS INTERFACE s_axilite port=m bundle=CTRL
+	#pragma HLS INTERFACE s_axilite port=motorCmd bundle=CTRL
 
 	// output port
 	#pragma HLS INTERFACE ap_none port=out
@@ -62,21 +62,36 @@ void pwm(F16_t m[9], uint32_t  min_duty, uint32_t max_duty, uint32_t period, uin
 	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
 	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
 
+	// test code for python ------------------------------------------------------------
+	#pragma HLS INTERFACE s_axilite port=test2 bundle=TEST2
+	#pragma HLS RESOURCE variable=test2 core=RAM_1P_BRAM
+
 
 	static uint16_t acc = 0;
 
 	static uint16_t in_p[MOTOR_COUNT];   // saves input for integrity
 	static uint8bit_t out_p = 0xFF;      // prepares output with ones 11111111b
-	static bool ARMED;
+	static uint8_t ARMED;
+	static F16_t buffer[9] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
+	for(int i = 0; i < (MOTOR_COUNT+1); i++)
+	{
+		buffer[i] = motorCmd[i]; // saving input to buffer for processing
+
+		// test code for python -----------------------------------------------------
+		test2[i] = buffer[i];
+	}
+
+	test2[9] = 0.500;
+	test2[10] = 0.100;
 
 	// checking ARM state
-	//stop = (m[8] < F16_t(0.50));
-	ARMED = selectMotorState(m[8]);
+	ARMED = (uint8_t)selectMotorState(buffer[8]);
+	//ARMED = 1;
 
 	for(char u = 0; u < MOTOR_COUNT; u++)
 	{ // move inputs to buffer
-		in_p[u] = (uint16_t)duty_range * m[u] + (uint16_t)min_duty;
+		in_p[u] = (uint16_t)duty_range * buffer[u] + (uint16_t)min_duty;
 	}
 
 
@@ -93,15 +108,8 @@ void pwm(F16_t m[9], uint32_t  min_duty, uint32_t max_duty, uint32_t period, uin
 
 
 	// test code for python  -------------------------------------------
-	test[0] = (uint32_t)out;
-	//test[1] = (uint32_t)out[1];
-	//test[2] = (uint32_t)out[2];
-	//test[3] = (uint32_t)out[3];
-	//test[4] = (uint32_t)out[4];
-	//test[5] = (uint32_t)out[5];
-	//test[6] = (uint32_t)out[6];
-	//test[7] = (uint32_t)out[7];
-	test[1] = (uint32_t)m[8];  // ARM flag
+	test[0] = out;
+	test[1] = (uint32_t)buffer[8];  // ARM flag
 	test[2] = ARMED;
 	test[3] = 1;
 	test[4] = 0;
@@ -110,14 +118,6 @@ void pwm(F16_t m[9], uint32_t  min_duty, uint32_t max_duty, uint32_t period, uin
     test[7] = 1;
     test[8] = 69;
 
-    test[9] = (uint32_t)m[0];
-    test[10] = (uint32_t)m[1];
-    test[11] = (uint32_t)m[2];
-    test[12] = (uint32_t)m[3];
-    test[13] = (uint32_t)m[4];
-    test[14] = (uint32_t)m[5];
-    test[15] = (uint32_t)m[6];
-    test[16] = (uint32_t)m[7];
 
 }
 

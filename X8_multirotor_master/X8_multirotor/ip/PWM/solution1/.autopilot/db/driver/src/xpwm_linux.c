@@ -133,6 +133,10 @@ int XPwm_Initialize(XPwm *InstancePtr, const char* InstanceName) {
     InstancePtr->Test_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[1].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 1 * getpagesize());
     assert(InstancePtr->Test_BaseAddress);
 
+    // NOTE: slave interface 'Test2' should be mapped to uioX/map2
+    InstancePtr->Test2_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[2].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 2 * getpagesize());
+    assert(InstancePtr->Test2_BaseAddress);
+
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
     return XST_SUCCESS;
@@ -146,6 +150,7 @@ int XPwm_Release(XPwm *InstancePtr) {
 
     munmap((void*)InstancePtr->Ctrl_BaseAddress, InfoPtr->maps[0].size);
     munmap((void*)InstancePtr->Test_BaseAddress, InfoPtr->maps[1].size);
+    munmap((void*)InstancePtr->Test2_BaseAddress, InfoPtr->maps[2].size);
 
     close(InfoPtr->uio_fd);
 

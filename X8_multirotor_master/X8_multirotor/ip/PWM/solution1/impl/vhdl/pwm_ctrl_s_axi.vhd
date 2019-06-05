@@ -41,12 +41,12 @@ port (
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
     ap_idle               :in   STD_LOGIC;
+    motorCmd_V_address0   :in   STD_LOGIC_VECTOR(3 downto 0);
+    motorCmd_V_ce0        :in   STD_LOGIC;
+    motorCmd_V_q0         :out  STD_LOGIC_VECTOR(15 downto 0);
     min_duty              :out  STD_LOGIC_VECTOR(31 downto 0);
     max_duty              :out  STD_LOGIC_VECTOR(31 downto 0);
-    period                :out  STD_LOGIC_VECTOR(31 downto 0);
-    m_V_address0          :in   STD_LOGIC_VECTOR(3 downto 0);
-    m_V_ce0               :in   STD_LOGIC;
-    m_V_q0                :out  STD_LOGIC_VECTOR(15 downto 0)
+    period                :out  STD_LOGIC_VECTOR(31 downto 0)
 );
 end entity pwm_CTRL_s_axi;
 
@@ -69,19 +69,19 @@ end entity pwm_CTRL_s_axi;
 --        bit 0  - Channel 0 (ap_done)
 --        bit 1  - Channel 1 (ap_ready)
 --        others - reserved
--- 0x10 : Data signal of min_duty
+-- 0x40 : Data signal of min_duty
 --        bit 31~0 - min_duty[31:0] (Read/Write)
--- 0x14 : reserved
--- 0x18 : Data signal of max_duty
+-- 0x44 : reserved
+-- 0x48 : Data signal of max_duty
 --        bit 31~0 - max_duty[31:0] (Read/Write)
--- 0x1c : reserved
--- 0x20 : Data signal of period
+-- 0x4c : reserved
+-- 0x50 : Data signal of period
 --        bit 31~0 - period[31:0] (Read/Write)
--- 0x24 : reserved
--- 0x40 ~
--- 0x5f : Memory 'm_V' (9 * 16b)
---        Word n : bit [15: 0] - m_V[2n]
---                 bit [31:16] - m_V[2n+1]
+-- 0x54 : reserved
+-- 0x20 ~
+-- 0x3f : Memory 'motorCmd_V' (9 * 16b)
+--        Word n : bit [15: 0] - motorCmd_V[2n]
+--                 bit [31:16] - motorCmd_V[2n+1]
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of pwm_CTRL_s_axi is
@@ -93,14 +93,14 @@ architecture behave of pwm_CTRL_s_axi is
     constant ADDR_GIE             : INTEGER := 16#04#;
     constant ADDR_IER             : INTEGER := 16#08#;
     constant ADDR_ISR             : INTEGER := 16#0c#;
-    constant ADDR_MIN_DUTY_DATA_0 : INTEGER := 16#10#;
-    constant ADDR_MIN_DUTY_CTRL   : INTEGER := 16#14#;
-    constant ADDR_MAX_DUTY_DATA_0 : INTEGER := 16#18#;
-    constant ADDR_MAX_DUTY_CTRL   : INTEGER := 16#1c#;
-    constant ADDR_PERIOD_DATA_0   : INTEGER := 16#20#;
-    constant ADDR_PERIOD_CTRL     : INTEGER := 16#24#;
-    constant ADDR_M_V_BASE        : INTEGER := 16#40#;
-    constant ADDR_M_V_HIGH        : INTEGER := 16#5f#;
+    constant ADDR_MIN_DUTY_DATA_0 : INTEGER := 16#40#;
+    constant ADDR_MIN_DUTY_CTRL   : INTEGER := 16#44#;
+    constant ADDR_MAX_DUTY_DATA_0 : INTEGER := 16#48#;
+    constant ADDR_MAX_DUTY_CTRL   : INTEGER := 16#4c#;
+    constant ADDR_PERIOD_DATA_0   : INTEGER := 16#50#;
+    constant ADDR_PERIOD_CTRL     : INTEGER := 16#54#;
+    constant ADDR_MOTORCMD_V_BASE : INTEGER := 16#20#;
+    constant ADDR_MOTORCMD_V_HIGH : INTEGER := 16#3f#;
     constant ADDR_BITS         : INTEGER := 7;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -127,21 +127,21 @@ architecture behave of pwm_CTRL_s_axi is
     signal int_max_duty        : UNSIGNED(31 downto 0) := (others => '0');
     signal int_period          : UNSIGNED(31 downto 0) := (others => '0');
     -- memory signals
-    signal int_m_V_address0    : UNSIGNED(2 downto 0);
-    signal int_m_V_ce0         : STD_LOGIC;
-    signal int_m_V_we0         : STD_LOGIC;
-    signal int_m_V_be0         : UNSIGNED(3 downto 0);
-    signal int_m_V_d0          : UNSIGNED(31 downto 0);
-    signal int_m_V_q0          : UNSIGNED(31 downto 0);
-    signal int_m_V_address1    : UNSIGNED(2 downto 0);
-    signal int_m_V_ce1         : STD_LOGIC;
-    signal int_m_V_we1         : STD_LOGIC;
-    signal int_m_V_be1         : UNSIGNED(3 downto 0);
-    signal int_m_V_d1          : UNSIGNED(31 downto 0);
-    signal int_m_V_q1          : UNSIGNED(31 downto 0);
-    signal int_m_V_read        : STD_LOGIC;
-    signal int_m_V_write       : STD_LOGIC;
-    signal int_m_V_shift       : UNSIGNED(0 downto 0);
+    signal int_motorCmd_V_address0 : UNSIGNED(2 downto 0);
+    signal int_motorCmd_V_ce0  : STD_LOGIC;
+    signal int_motorCmd_V_we0  : STD_LOGIC;
+    signal int_motorCmd_V_be0  : UNSIGNED(3 downto 0);
+    signal int_motorCmd_V_d0   : UNSIGNED(31 downto 0);
+    signal int_motorCmd_V_q0   : UNSIGNED(31 downto 0);
+    signal int_motorCmd_V_address1 : UNSIGNED(2 downto 0);
+    signal int_motorCmd_V_ce1  : STD_LOGIC;
+    signal int_motorCmd_V_we1  : STD_LOGIC;
+    signal int_motorCmd_V_be1  : UNSIGNED(3 downto 0);
+    signal int_motorCmd_V_d1   : UNSIGNED(31 downto 0);
+    signal int_motorCmd_V_q1   : UNSIGNED(31 downto 0);
+    signal int_motorCmd_V_read : STD_LOGIC;
+    signal int_motorCmd_V_write : STD_LOGIC;
+    signal int_motorCmd_V_shift : UNSIGNED(0 downto 0);
 
     component pwm_CTRL_s_axi_ram is
         generic (
@@ -179,27 +179,27 @@ architecture behave of pwm_CTRL_s_axi is
 
 begin
 -- ----------------------- Instantiation------------------
--- int_m_V
-int_m_V : pwm_CTRL_s_axi_ram
+-- int_motorCmd_V
+int_motorCmd_V : pwm_CTRL_s_axi_ram
 generic map (
      BYTES    => 4,
      DEPTH    => 5,
      AWIDTH   => log2(5))
 port map (
      clk0     => ACLK,
-     address0 => int_m_V_address0,
-     ce0      => int_m_V_ce0,
-     we0      => int_m_V_we0,
-     be0      => int_m_V_be0,
-     d0       => int_m_V_d0,
-     q0       => int_m_V_q0,
+     address0 => int_motorCmd_V_address0,
+     ce0      => int_motorCmd_V_ce0,
+     we0      => int_motorCmd_V_we0,
+     be0      => int_motorCmd_V_be0,
+     d0       => int_motorCmd_V_d0,
+     q0       => int_motorCmd_V_q0,
      clk1     => ACLK,
-     address1 => int_m_V_address1,
-     ce1      => int_m_V_ce1,
-     we1      => int_m_V_we1,
-     be1      => int_m_V_be1,
-     d1       => int_m_V_d1,
-     q1       => int_m_V_q1);
+     address1 => int_motorCmd_V_address1,
+     ce1      => int_motorCmd_V_ce1,
+     we1      => int_motorCmd_V_we1,
+     be1      => int_motorCmd_V_be1,
+     d1       => int_motorCmd_V_d1,
+     q1       => int_motorCmd_V_q1);
 
 -- ----------------------- AXI WRITE ---------------------
     AWREADY_t <=  '1' when wstate = wridle else '0';
@@ -266,7 +266,7 @@ port map (
     ARREADY <= ARREADY_t;
     RDATA   <= STD_LOGIC_VECTOR(rdata_data);
     RRESP   <= "00";  -- OKAY
-    RVALID_t  <= '1' when (rstate = rddata) and (int_m_V_read = '0') else '0';
+    RVALID_t  <= '1' when (rstate = rddata) and (int_motorCmd_V_read = '0') else '0';
     RVALID    <= RVALID_t;
     ar_hs   <= ARVALID and ARREADY_t;
     raddr   <= UNSIGNED(ARADDR(ADDR_BITS-1 downto 0));
@@ -326,8 +326,8 @@ port map (
                     when others =>
                         rdata_data <= (others => '0');
                     end case;
-                elsif (int_m_V_read = '1') then
-                    rdata_data <= int_m_V_q1;
+                elsif (int_motorCmd_V_read = '1') then
+                    rdata_data <= int_motorCmd_V_q1;
                 end if;
             end if;
         end if;
@@ -500,29 +500,29 @@ port map (
 
 
 -- ----------------------- Memory logic ------------------
-    -- m_V
-    int_m_V_address0     <= SHIFT_RIGHT(UNSIGNED(m_V_address0), 1)(2 downto 0);
-    int_m_V_ce0          <= m_V_ce0;
-    int_m_V_we0          <= '0';
-    int_m_V_be0          <= (others => '0');
-    int_m_V_d0           <= (others => '0');
-    m_V_q0               <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_m_V_q0, TO_INTEGER(int_m_V_shift) * 16)(15 downto 0));
-    int_m_V_address1     <= raddr(4 downto 2) when ar_hs = '1' else waddr(4 downto 2);
-    int_m_V_ce1          <= '1' when ar_hs = '1' or (int_m_V_write = '1' and WVALID  = '1') else '0';
-    int_m_V_we1          <= '1' when int_m_V_write = '1' and WVALID = '1' else '0';
-    int_m_V_be1          <= UNSIGNED(WSTRB);
-    int_m_V_d1           <= UNSIGNED(WDATA);
+    -- motorCmd_V
+    int_motorCmd_V_address0 <= SHIFT_RIGHT(UNSIGNED(motorCmd_V_address0), 1)(2 downto 0);
+    int_motorCmd_V_ce0   <= motorCmd_V_ce0;
+    int_motorCmd_V_we0   <= '0';
+    int_motorCmd_V_be0   <= (others => '0');
+    int_motorCmd_V_d0    <= (others => '0');
+    motorCmd_V_q0        <= STD_LOGIC_VECTOR(SHIFT_RIGHT(int_motorCmd_V_q0, TO_INTEGER(int_motorCmd_V_shift) * 16)(15 downto 0));
+    int_motorCmd_V_address1 <= raddr(4 downto 2) when ar_hs = '1' else waddr(4 downto 2);
+    int_motorCmd_V_ce1   <= '1' when ar_hs = '1' or (int_motorCmd_V_write = '1' and WVALID  = '1') else '0';
+    int_motorCmd_V_we1   <= '1' when int_motorCmd_V_write = '1' and WVALID = '1' else '0';
+    int_motorCmd_V_be1   <= UNSIGNED(WSTRB);
+    int_motorCmd_V_d1    <= UNSIGNED(WDATA);
 
     process (ACLK)
     begin
         if (ACLK'event and ACLK = '1') then
             if (ARESET = '1') then
-                int_m_V_read <= '0';
+                int_motorCmd_V_read <= '0';
             elsif (ACLK_EN = '1') then
-                if (ar_hs = '1' and raddr >= ADDR_M_V_BASE and raddr <= ADDR_M_V_HIGH) then
-                    int_m_V_read <= '1';
+                if (ar_hs = '1' and raddr >= ADDR_MOTORCMD_V_BASE and raddr <= ADDR_MOTORCMD_V_HIGH) then
+                    int_motorCmd_V_read <= '1';
                 else
-                    int_m_V_read <= '0';
+                    int_motorCmd_V_read <= '0';
                 end if;
             end if;
         end if;
@@ -532,12 +532,12 @@ port map (
     begin
         if (ACLK'event and ACLK = '1') then
             if (ARESET = '1') then
-                int_m_V_write <= '0';
+                int_motorCmd_V_write <= '0';
             elsif (ACLK_EN = '1') then
-                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_M_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_M_V_HIGH) then
-                    int_m_V_write <= '1';
+                if (aw_hs = '1' and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) >= ADDR_MOTORCMD_V_BASE and UNSIGNED(AWADDR(ADDR_BITS-1 downto 0)) <= ADDR_MOTORCMD_V_HIGH) then
+                    int_motorCmd_V_write <= '1';
                 elsif (WVALID = '1') then
-                    int_m_V_write <= '0';
+                    int_motorCmd_V_write <= '0';
                 end if;
             end if;
         end if;
@@ -547,8 +547,8 @@ port map (
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (m_V_ce0 = '1') then
-                    int_m_V_shift(0) <= m_V_address0(0);
+                if (motorCmd_V_ce0 = '1') then
+                    int_motorCmd_V_shift(0) <= motorCmd_V_address0(0);
                 end if;
             end if;
         end if;

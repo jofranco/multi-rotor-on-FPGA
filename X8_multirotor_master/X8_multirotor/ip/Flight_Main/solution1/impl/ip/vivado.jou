@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sun Jun  2 19:45:24 2019
-# Process ID: 22524
+# Start of session at: Tue Jun  4 22:42:26 2019
+# Process ID: 34704
 # Current directory: C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main/solution1/impl/ip
 # Command line: vivado.exe -notrace -mode batch -source run_ippack.tcl
 # Log file: C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main/solution1/impl/ip/vivado.log

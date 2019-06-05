@@ -24,35 +24,35 @@
 //        bit 0  - Channel 0 (ap_done)
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
-// 0x10 : Data signal of min_duty
+// 0x40 : Data signal of min_duty
 //        bit 31~0 - min_duty[31:0] (Read/Write)
-// 0x14 : reserved
-// 0x18 : Data signal of max_duty
+// 0x44 : reserved
+// 0x48 : Data signal of max_duty
 //        bit 31~0 - max_duty[31:0] (Read/Write)
-// 0x1c : reserved
-// 0x20 : Data signal of period
+// 0x4c : reserved
+// 0x50 : Data signal of period
 //        bit 31~0 - period[31:0] (Read/Write)
-// 0x24 : reserved
-// 0x40 ~
-// 0x5f : Memory 'm_V' (9 * 16b)
-//        Word n : bit [15: 0] - m_V[2n]
-//                 bit [31:16] - m_V[2n+1]
+// 0x54 : reserved
+// 0x20 ~
+// 0x3f : Memory 'motorCmd_V' (9 * 16b)
+//        Word n : bit [15: 0] - motorCmd_V[2n]
+//                 bit [31:16] - motorCmd_V[2n+1]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XPWM_CTRL_ADDR_AP_CTRL       0x00
-#define XPWM_CTRL_ADDR_GIE           0x04
-#define XPWM_CTRL_ADDR_IER           0x08
-#define XPWM_CTRL_ADDR_ISR           0x0c
-#define XPWM_CTRL_ADDR_MIN_DUTY_DATA 0x10
-#define XPWM_CTRL_BITS_MIN_DUTY_DATA 32
-#define XPWM_CTRL_ADDR_MAX_DUTY_DATA 0x18
-#define XPWM_CTRL_BITS_MAX_DUTY_DATA 32
-#define XPWM_CTRL_ADDR_PERIOD_DATA   0x20
-#define XPWM_CTRL_BITS_PERIOD_DATA   32
-#define XPWM_CTRL_ADDR_M_V_BASE      0x40
-#define XPWM_CTRL_ADDR_M_V_HIGH      0x5f
-#define XPWM_CTRL_WIDTH_M_V          16
-#define XPWM_CTRL_DEPTH_M_V          9
+#define XPWM_CTRL_ADDR_AP_CTRL         0x00
+#define XPWM_CTRL_ADDR_GIE             0x04
+#define XPWM_CTRL_ADDR_IER             0x08
+#define XPWM_CTRL_ADDR_ISR             0x0c
+#define XPWM_CTRL_ADDR_MIN_DUTY_DATA   0x40
+#define XPWM_CTRL_BITS_MIN_DUTY_DATA   32
+#define XPWM_CTRL_ADDR_MAX_DUTY_DATA   0x48
+#define XPWM_CTRL_BITS_MAX_DUTY_DATA   32
+#define XPWM_CTRL_ADDR_PERIOD_DATA     0x50
+#define XPWM_CTRL_BITS_PERIOD_DATA     32
+#define XPWM_CTRL_ADDR_MOTORCMD_V_BASE 0x20
+#define XPWM_CTRL_ADDR_MOTORCMD_V_HIGH 0x3f
+#define XPWM_CTRL_WIDTH_MOTORCMD_V     16
+#define XPWM_CTRL_DEPTH_MOTORCMD_V     9
 
 // TEST
 // 0x4000 ~
@@ -64,4 +64,15 @@
 #define XPWM_TEST_ADDR_TEST_HIGH 0x7fff
 #define XPWM_TEST_WIDTH_TEST     32
 #define XPWM_TEST_DEPTH_TEST     4096
+
+// TEST2
+// 0x4000 ~
+// 0x7fff : Memory 'test2_V' (4096 * 32b)
+//          Word n : bit [31:0] - test2_V[n]
+// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
+
+#define XPWM_TEST2_ADDR_TEST2_V_BASE 0x4000
+#define XPWM_TEST2_ADDR_TEST2_V_HIGH 0x7fff
+#define XPWM_TEST2_WIDTH_TEST2_V     32
+#define XPWM_TEST2_DEPTH_TEST2_V     4096
 

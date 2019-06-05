@@ -30,6 +30,7 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_repo_paths {
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/AXI_PWM_VHDL_1.0
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/RC_Receiver
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main

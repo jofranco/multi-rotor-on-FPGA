@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:hls:rcReceiver:1.0
--- IP Revision: 1906021248
+-- IP Revision: 1906042026
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -72,6 +72,23 @@ ENTITY design_1_rcReceiver_0_0 IS
     s_axi_CTRL_RRESP : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_CTRL_RVALID : OUT STD_LOGIC;
     s_axi_CTRL_RREADY : IN STD_LOGIC;
+    s_axi_TEST_AWADDR : IN STD_LOGIC_VECTOR(14 DOWNTO 0);
+    s_axi_TEST_AWVALID : IN STD_LOGIC;
+    s_axi_TEST_AWREADY : OUT STD_LOGIC;
+    s_axi_TEST_WDATA : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s_axi_TEST_WSTRB : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    s_axi_TEST_WVALID : IN STD_LOGIC;
+    s_axi_TEST_WREADY : OUT STD_LOGIC;
+    s_axi_TEST_BRESP : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    s_axi_TEST_BVALID : OUT STD_LOGIC;
+    s_axi_TEST_BREADY : IN STD_LOGIC;
+    s_axi_TEST_ARADDR : IN STD_LOGIC_VECTOR(14 DOWNTO 0);
+    s_axi_TEST_ARVALID : IN STD_LOGIC;
+    s_axi_TEST_ARREADY : OUT STD_LOGIC;
+    s_axi_TEST_RDATA : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s_axi_TEST_RRESP : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    s_axi_TEST_RVALID : OUT STD_LOGIC;
+    s_axi_TEST_RREADY : IN STD_LOGIC;
     ap_clk : IN STD_LOGIC;
     ap_rst_n : IN STD_LOGIC;
     interrupt : OUT STD_LOGIC;
@@ -120,6 +137,8 @@ ARCHITECTURE design_1_rcReceiver_0_0_arch OF design_1_rcReceiver_0_0 IS
     GENERIC (
       C_S_AXI_CTRL_ADDR_WIDTH : INTEGER;
       C_S_AXI_CTRL_DATA_WIDTH : INTEGER;
+      C_S_AXI_TEST_ADDR_WIDTH : INTEGER;
+      C_S_AXI_TEST_DATA_WIDTH : INTEGER;
       C_M_AXI_OUT_R_ID_WIDTH : INTEGER;
       C_M_AXI_OUT_R_ADDR_WIDTH : INTEGER;
       C_M_AXI_OUT_R_DATA_WIDTH : INTEGER;
@@ -151,6 +170,23 @@ ARCHITECTURE design_1_rcReceiver_0_0_arch OF design_1_rcReceiver_0_0 IS
       s_axi_CTRL_RRESP : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
       s_axi_CTRL_RVALID : OUT STD_LOGIC;
       s_axi_CTRL_RREADY : IN STD_LOGIC;
+      s_axi_TEST_AWADDR : IN STD_LOGIC_VECTOR(14 DOWNTO 0);
+      s_axi_TEST_AWVALID : IN STD_LOGIC;
+      s_axi_TEST_AWREADY : OUT STD_LOGIC;
+      s_axi_TEST_WDATA : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      s_axi_TEST_WSTRB : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      s_axi_TEST_WVALID : IN STD_LOGIC;
+      s_axi_TEST_WREADY : OUT STD_LOGIC;
+      s_axi_TEST_BRESP : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+      s_axi_TEST_BVALID : OUT STD_LOGIC;
+      s_axi_TEST_BREADY : IN STD_LOGIC;
+      s_axi_TEST_ARADDR : IN STD_LOGIC_VECTOR(14 DOWNTO 0);
+      s_axi_TEST_ARVALID : IN STD_LOGIC;
+      s_axi_TEST_ARREADY : OUT STD_LOGIC;
+      s_axi_TEST_RDATA : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      s_axi_TEST_RRESP : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+      s_axi_TEST_RVALID : OUT STD_LOGIC;
+      s_axi_TEST_RREADY : IN STD_LOGIC;
       ap_clk : IN STD_LOGIC;
       ap_rst_n : IN STD_LOGIC;
       interrupt : OUT STD_LOGIC;
@@ -246,9 +282,28 @@ ARCHITECTURE design_1_rcReceiver_0_0_arch OF design_1_rcReceiver_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF interrupt: SIGNAL IS "xilinx.com:signal:interrupt:1.0 interrupt INTERRUPT";
   ATTRIBUTE X_INTERFACE_PARAMETER OF ap_rst_n: SIGNAL IS "XIL_INTERFACENAME ap_rst_n, POLARITY ACTIVE_LOW, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {RST {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}}}";
   ATTRIBUTE X_INTERFACE_INFO OF ap_rst_n: SIGNAL IS "xilinx.com:signal:reset:1.0 ap_rst_n RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF ap_clk: SIGNAL IS "XIL_INTERFACENAME ap_clk, ASSOCIATED_BUSIF s_axi_CTRL:m_axi_OUT_r, ASSOCIATED_RESET ap_rst_n, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}}}, FREQ_HZ 100000000, PHASE 0.000, CL" & 
-"K_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF ap_clk: SIGNAL IS "XIL_INTERFACENAME ap_clk, ASSOCIATED_BUSIF s_axi_CTRL:s_axi_TEST:m_axi_OUT_r, ASSOCIATED_RESET ap_rst_n, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}}}, FREQ_HZ 100000000, PHAS" & 
+"E 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0";
   ATTRIBUTE X_INTERFACE_INFO OF ap_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 ap_clk CLK";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_RREADY: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST RREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_RVALID: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST RVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_RRESP: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST RRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_RDATA: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST RDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_ARREADY: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST ARREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_ARVALID: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST ARVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_ARADDR: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST ARADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_BREADY: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST BREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_BVALID: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST BVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_BRESP: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST BRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_WREADY: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST WREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_WVALID: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST WVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_WSTRB: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST WSTRB";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_WDATA: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST WDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_AWREADY: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST AWREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_AWVALID: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST AWVALID";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axi_TEST_AWADDR: SIGNAL IS "XIL_INTERFACENAME s_axi_TEST, ADDR_WIDTH 15, DATA_WIDTH 32, PROTOCOL AXI4LITE, READ_WRITE_MODE READ_WRITE, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}}}, FREQ_HZ 100000000, ID" & 
+"_WIDTH 0, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  ATTRIBUTE X_INTERFACE_INFO OF s_axi_TEST_AWADDR: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_TEST AWADDR";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_CTRL_RREADY: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_CTRL RREADY";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_CTRL_RVALID: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_CTRL RVALID";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_CTRL_RRESP: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi_CTRL RRESP";
@@ -273,6 +328,8 @@ BEGIN
     GENERIC MAP (
       C_S_AXI_CTRL_ADDR_WIDTH => 6,
       C_S_AXI_CTRL_DATA_WIDTH => 32,
+      C_S_AXI_TEST_ADDR_WIDTH => 15,
+      C_S_AXI_TEST_DATA_WIDTH => 32,
       C_M_AXI_OUT_R_ID_WIDTH => 1,
       C_M_AXI_OUT_R_ADDR_WIDTH => 32,
       C_M_AXI_OUT_R_DATA_WIDTH => 32,
@@ -304,6 +361,23 @@ BEGIN
       s_axi_CTRL_RRESP => s_axi_CTRL_RRESP,
       s_axi_CTRL_RVALID => s_axi_CTRL_RVALID,
       s_axi_CTRL_RREADY => s_axi_CTRL_RREADY,
+      s_axi_TEST_AWADDR => s_axi_TEST_AWADDR,
+      s_axi_TEST_AWVALID => s_axi_TEST_AWVALID,
+      s_axi_TEST_AWREADY => s_axi_TEST_AWREADY,
+      s_axi_TEST_WDATA => s_axi_TEST_WDATA,
+      s_axi_TEST_WSTRB => s_axi_TEST_WSTRB,
+      s_axi_TEST_WVALID => s_axi_TEST_WVALID,
+      s_axi_TEST_WREADY => s_axi_TEST_WREADY,
+      s_axi_TEST_BRESP => s_axi_TEST_BRESP,
+      s_axi_TEST_BVALID => s_axi_TEST_BVALID,
+      s_axi_TEST_BREADY => s_axi_TEST_BREADY,
+      s_axi_TEST_ARADDR => s_axi_TEST_ARADDR,
+      s_axi_TEST_ARVALID => s_axi_TEST_ARVALID,
+      s_axi_TEST_ARREADY => s_axi_TEST_ARREADY,
+      s_axi_TEST_RDATA => s_axi_TEST_RDATA,
+      s_axi_TEST_RRESP => s_axi_TEST_RRESP,
+      s_axi_TEST_RVALID => s_axi_TEST_RVALID,
+      s_axi_TEST_RREADY => s_axi_TEST_RREADY,
       ap_clk => ap_clk,
       ap_rst_n => ap_rst_n,
       interrupt => interrupt,

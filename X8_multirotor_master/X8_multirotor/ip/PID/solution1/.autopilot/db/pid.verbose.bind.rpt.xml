@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'pid'" level="0">
-<item name = "Date">Sun Jun  2 19:50:37 2019
+<item name = "Date">Tue Jun  4 22:40:57 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">PID</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">27, 27, 8, 8, function</column>
+<column name="">37, 43, 37, 43, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,6 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">12, 12, 2, -, -, 6, no</column>
 </table>
 </item>
 </section>

@@ -1,4 +1,5 @@
 rcReceiver_mul_39bkb
 rcReceiver_CTRL_s_axi
+rcReceiver_TEST_s_axi
 rcReceiver_OUT_r_m_axi
 rcReceiver

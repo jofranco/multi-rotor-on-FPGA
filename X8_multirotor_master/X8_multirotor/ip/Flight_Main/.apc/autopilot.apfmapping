@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="flightMain.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\Flight_Main\flightMain.cpp"/>
     <originFiles name="flightMain.hpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\Flight_Main\flightMain.hpp"/>
+    <originFiles name="flightMain.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\Flight_Main\flightMain.cpp"/>
   </source>
   <testbench>
     <originFiles name="main.cpp" path="C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores\Flight_Main\main.cpp"/>

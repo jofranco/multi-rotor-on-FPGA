@@ -12,12 +12,12 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'out_p_V' is power-on initialization." projectName="PWM" solutionName="solution1" date="2019-06-04T00:28:10.695-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'acc' is power-on initialization." projectName="PWM" solutionName="solution1" date="2019-06-04T00:28:10.690-0700" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Port 'out_V' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="PWM" solutionName="solution1" date="2019-06-04T00:28:10.675-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (PWM/pwm.cpp:116) of variable 'tmp_32', PWM/pwm.cpp:116 on array 'test' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'test'." projectName="PWM" solutionName="solution1" date="2019-06-04T00:28:10.176-0700" type="Warning"/>
-        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('__Val2__', PWM/pwm.cpp:79) on array 'm_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'm_V'." projectName="PWM" solutionName="solution1" date="2019-06-04T00:28:10.133-0700" type="Warning"/>
-        <logs message="WARNING: [SYNCHK 200-23] PWM/pwm.cpp:87: variable-indexed range selection may cause suboptimal QoR." projectName="PWM" solutionName="solution1" date="2019-06-04T00:28:08.724-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'out_p_V' is power-on initialization." projectName="PWM" solutionName="solution1" date="2019-06-05T02:20:41.972-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'acc' is power-on initialization." projectName="PWM" solutionName="solution1" date="2019-06-05T02:20:41.968-0700" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'out_V' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port." projectName="PWM" solutionName="solution1" date="2019-06-05T02:20:41.953-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (PWM/pwm.cpp:82) of variable 'tmp_4_7', PWM/pwm.cpp:82 on array 'test2_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'test2_V'." projectName="PWM" solutionName="solution1" date="2019-06-05T02:20:41.501-0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('motorCmd_V_load_1', PWM/pwm.cpp:79) on array 'motorCmd_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'motorCmd_V'." projectName="PWM" solutionName="solution1" date="2019-06-05T02:20:41.485-0700" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] PWM/pwm.cpp:102: variable-indexed range selection may cause suboptimal QoR." projectName="PWM" solutionName="solution1" date="2019-06-05T02:20:40.306-0700" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

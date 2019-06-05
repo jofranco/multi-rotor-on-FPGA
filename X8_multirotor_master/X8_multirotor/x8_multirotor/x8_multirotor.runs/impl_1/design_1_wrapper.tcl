@@ -71,11 +71,15 @@ set rc [catch {
   set_property webtalk.parent_dir C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.cache/wt [current_project]
   set_property parent.project_path C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.xpr [current_project]
   set_property ip_repo_paths {
-  C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/RC_Receiver
-  C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver
-  C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main
-  C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID
-  C:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PWM
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/AXI_PWM_VHDL_1.0
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/RC_Receiver
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PWM
+  c:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/AXI_SPI_Driver
+  c:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/POSITION_CTRL
+  C:/Users/Aaron/Desktop/School/WES_Capstone/TEMP/POSITION_CTRL
 } [current_project]
   set_property ip_output_repo C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
@@ -124,7 +128,7 @@ set rc [catch {
   if { [llength [get_debug_cores -quiet] ] > 0 }  { 
     implement_debug_core 
   } 
-  place_design 
+  place_design -directive SSI_SpreadSLLs
   write_checkpoint -force design_1_wrapper_placed.dcp
   create_report "impl_1_place_report_io_0" "report_io -file design_1_wrapper_io_placed.rpt"
   create_report "impl_1_place_report_utilization_0" "report_utilization -file design_1_wrapper_utilization_placed.rpt -pb design_1_wrapper_utilization_placed.pb"
@@ -139,11 +143,27 @@ if {$rc} {
   unset ACTIVE_STEP 
 }
 
+start_step phys_opt_design
+set ACTIVE_STEP phys_opt_design
+set rc [catch {
+  create_msg_db phys_opt_design.pb
+  phys_opt_design -directive Explore
+  write_checkpoint -force design_1_wrapper_physopt.dcp
+  close_msg_db -file phys_opt_design.pb
+} RESULT]
+if {$rc} {
+  step_failed phys_opt_design
+  return -code error $RESULT
+} else {
+  end_step phys_opt_design
+  unset ACTIVE_STEP 
+}
+
 start_step route_design
 set ACTIVE_STEP route_design
 set rc [catch {
   create_msg_db route_design.pb
-  route_design 
+  route_design -directive Explore
   write_checkpoint -force design_1_wrapper_routed.dcp
   create_report "impl_1_route_report_drc_0" "report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx"
   create_report "impl_1_route_report_methodology_0" "report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx"
@@ -161,26 +181,6 @@ if {$rc} {
   return -code error $RESULT
 } else {
   end_step route_design
-  unset ACTIVE_STEP 
-}
-
-start_step write_bitstream
-set ACTIVE_STEP write_bitstream
-set rc [catch {
-  create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  catch { write_mem_info -force design_1_wrapper.mmi }
-  write_bitstream -force design_1_wrapper.bit 
-  catch { write_sysdef -hwdef design_1_wrapper.hwdef -bitfile design_1_wrapper.bit -meminfo design_1_wrapper.mmi -file design_1_wrapper.sysdef }
-  catch {write_debug_probes -quiet -force design_1_wrapper}
-  catch {file copy -force design_1_wrapper.ltx debug_nets.ltx}
-  close_msg_db -file write_bitstream.pb
-} RESULT]
-if {$rc} {
-  step_failed write_bitstream
-  return -code error $RESULT
-} else {
-  end_step write_bitstream
   unset ACTIVE_STEP 
 }
 

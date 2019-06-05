@@ -193,7 +193,7 @@ proc create_root_design { parentCell } {
   # Create instance: pid_0, and set properties
   set pid_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:pid:1.0 pid_0 ]
   set_property -dict [ list \
-   CONFIG.C_M_AXI_OUT_R_TARGET_ADDR {0x40006040} \
+   CONFIG.C_M_AXI_OUT_R_TARGET_ADDR {0x40006020} \
  ] $pid_0
 
   # Create instance: processing_system7_0, and set properties
@@ -270,7 +270,7 @@ proc create_root_design { parentCell } {
   # Create instance: ps7_0_axi_periph, and set properties
   set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
   set_property -dict [ list \
-   CONFIG.NUM_MI {8} \
+   CONFIG.NUM_MI {12} \
    CONFIG.NUM_SI {6} \
  ] $ps7_0_axi_periph
 
@@ -297,19 +297,23 @@ proc create_root_design { parentCell } {
   # Create interface connections
   connect_bd_intf_net -intf_net AXI_UART_DRIVER_0_m_axi_OUT_r [get_bd_intf_pins AXI_UART_DRIVER_0/m_axi_OUT_r] [get_bd_intf_pins ps7_0_axi_periph/S02_AXI]
   connect_bd_intf_net -intf_net AXI_UART_DRIVER_0_m_axi_UART [get_bd_intf_pins AXI_UART_DRIVER_0/m_axi_UART] [get_bd_intf_pins ps7_0_axi_periph/S01_AXI]
-  connect_bd_intf_net -intf_net flightmain_0_m_axi_OUT_r [get_bd_intf_pins flightmain_0/m_axi_OUT_r] [get_bd_intf_pins ps7_0_axi_periph/S04_AXI]
-  connect_bd_intf_net -intf_net pid_0_m_axi_OUT_r [get_bd_intf_pins pid_0/m_axi_OUT_r] [get_bd_intf_pins ps7_0_axi_periph/S05_AXI]
+  connect_bd_intf_net -intf_net flightmain_0_m_axi_OUT_r [get_bd_intf_pins flightmain_0/m_axi_OUT_r] [get_bd_intf_pins ps7_0_axi_periph/S05_AXI]
+  connect_bd_intf_net -intf_net pid_0_m_axi_OUT_r [get_bd_intf_pins pid_0/m_axi_OUT_r] [get_bd_intf_pins ps7_0_axi_periph/S04_AXI]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins axi_quad_spi_0/AXI_LITE] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M01_AXI [get_bd_intf_pins axi_uart16550_0/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M01_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M02_AXI [get_bd_intf_pins AXI_UART_DRIVER_0/s_axi_CTRL] [get_bd_intf_pins ps7_0_axi_periph/M02_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins ps7_0_axi_periph/M03_AXI] [get_bd_intf_pins pwm_0/s_axi_CTRL]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M04_AXI [get_bd_intf_pins ps7_0_axi_periph/M04_AXI] [get_bd_intf_pins pwm_0/s_axi_TEST]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M05_AXI [get_bd_intf_pins ps7_0_axi_periph/M05_AXI] [get_bd_intf_pins rcReceiver_0/s_axi_CTRL]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M06_AXI [get_bd_intf_pins flightmain_0/s_axi_CTRL] [get_bd_intf_pins ps7_0_axi_periph/M06_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M07_AXI [get_bd_intf_pins pid_0/s_axi_CTRL] [get_bd_intf_pins ps7_0_axi_periph/M07_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins ps7_0_axi_periph/M03_AXI] [get_bd_intf_pins rcReceiver_0/s_axi_CTRL]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M04_AXI [get_bd_intf_pins ps7_0_axi_periph/M04_AXI] [get_bd_intf_pins rcReceiver_0/s_axi_TEST]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M05_AXI [get_bd_intf_pins pid_0/s_axi_CTRL] [get_bd_intf_pins ps7_0_axi_periph/M05_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M06_AXI [get_bd_intf_pins pid_0/s_axi_TEST] [get_bd_intf_pins ps7_0_axi_periph/M06_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M07_AXI [get_bd_intf_pins ps7_0_axi_periph/M07_AXI] [get_bd_intf_pins pwm_0/s_axi_CTRL]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M08_AXI [get_bd_intf_pins ps7_0_axi_periph/M08_AXI] [get_bd_intf_pins pwm_0/s_axi_TEST]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M09_AXI [get_bd_intf_pins ps7_0_axi_periph/M09_AXI] [get_bd_intf_pins pwm_0/s_axi_TEST2]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M10_AXI [get_bd_intf_pins flightmain_0/s_axi_CTRL] [get_bd_intf_pins ps7_0_axi_periph/M10_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M11_AXI [get_bd_intf_pins flightmain_0/s_axi_TEST] [get_bd_intf_pins ps7_0_axi_periph/M11_AXI]
   connect_bd_intf_net -intf_net rcReceiver_0_m_axi_OUT_r [get_bd_intf_pins ps7_0_axi_periph/S03_AXI] [get_bd_intf_pins rcReceiver_0/m_axi_OUT_r]
 
   # Create port connections
@@ -318,11 +322,11 @@ proc create_root_design { parentCell } {
   connect_bd_net -net axi_quad_spi_0_io0_o [get_bd_ports MOSI] [get_bd_pins axi_quad_spi_0/io0_o]
   connect_bd_net -net axi_quad_spi_0_sck_o [get_bd_ports SPI_CLK] [get_bd_pins axi_quad_spi_0/sck_o]
   connect_bd_net -net axi_quad_spi_0_ss_o [get_bd_ports SS_AG] [get_bd_pins axi_quad_spi_0/ss_o]
-  connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins AXI_UART_DRIVER_0/ap_clk] [get_bd_pins axi_quad_spi_0/ext_spi_clk] [get_bd_pins axi_quad_spi_0/s_axi_aclk] [get_bd_pins axi_uart16550_0/s_axi_aclk] [get_bd_pins flightmain_0/ap_clk] [get_bd_pins pid_0/ap_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/M06_ACLK] [get_bd_pins ps7_0_axi_periph/M07_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins ps7_0_axi_periph/S01_ACLK] [get_bd_pins ps7_0_axi_periph/S02_ACLK] [get_bd_pins ps7_0_axi_periph/S03_ACLK] [get_bd_pins ps7_0_axi_periph/S04_ACLK] [get_bd_pins ps7_0_axi_periph/S05_ACLK] [get_bd_pins pwm_0/ap_clk] [get_bd_pins rcReceiver_0/ap_clk] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins AXI_UART_DRIVER_0/ap_clk] [get_bd_pins axi_quad_spi_0/ext_spi_clk] [get_bd_pins axi_quad_spi_0/s_axi_aclk] [get_bd_pins axi_uart16550_0/s_axi_aclk] [get_bd_pins flightmain_0/ap_clk] [get_bd_pins pid_0/ap_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/M06_ACLK] [get_bd_pins ps7_0_axi_periph/M07_ACLK] [get_bd_pins ps7_0_axi_periph/M08_ACLK] [get_bd_pins ps7_0_axi_periph/M09_ACLK] [get_bd_pins ps7_0_axi_periph/M10_ACLK] [get_bd_pins ps7_0_axi_periph/M11_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins ps7_0_axi_periph/S01_ACLK] [get_bd_pins ps7_0_axi_periph/S02_ACLK] [get_bd_pins ps7_0_axi_periph/S03_ACLK] [get_bd_pins ps7_0_axi_periph/S04_ACLK] [get_bd_pins ps7_0_axi_periph/S05_ACLK] [get_bd_pins pwm_0/ap_clk] [get_bd_pins rcReceiver_0/ap_clk] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_100M/ext_reset_in]
   connect_bd_net -net pwm_0_out_V [get_bd_ports out_PWM] [get_bd_pins pwm_0/out_V]
   connect_bd_net -net rst_ps7_0_100M_interconnect_aresetn [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins rst_ps7_0_100M/interconnect_aresetn]
-  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn1 [get_bd_pins AXI_UART_DRIVER_0/ap_rst_n] [get_bd_pins axi_quad_spi_0/s_axi_aresetn] [get_bd_pins axi_uart16550_0/s_axi_aresetn] [get_bd_pins flightmain_0/ap_rst_n] [get_bd_pins pid_0/ap_rst_n] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/M06_ARESETN] [get_bd_pins ps7_0_axi_periph/M07_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins ps7_0_axi_periph/S02_ARESETN] [get_bd_pins ps7_0_axi_periph/S03_ARESETN] [get_bd_pins ps7_0_axi_periph/S04_ARESETN] [get_bd_pins ps7_0_axi_periph/S05_ARESETN] [get_bd_pins pwm_0/ap_rst_n] [get_bd_pins rcReceiver_0/ap_rst_n] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn1 [get_bd_pins AXI_UART_DRIVER_0/ap_rst_n] [get_bd_pins axi_quad_spi_0/s_axi_aresetn] [get_bd_pins axi_uart16550_0/s_axi_aresetn] [get_bd_pins flightmain_0/ap_rst_n] [get_bd_pins pid_0/ap_rst_n] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/M06_ARESETN] [get_bd_pins ps7_0_axi_periph/M07_ARESETN] [get_bd_pins ps7_0_axi_periph/M08_ARESETN] [get_bd_pins ps7_0_axi_periph/M09_ARESETN] [get_bd_pins ps7_0_axi_periph/M10_ARESETN] [get_bd_pins ps7_0_axi_periph/M11_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins ps7_0_axi_periph/S02_ARESETN] [get_bd_pins ps7_0_axi_periph/S03_ARESETN] [get_bd_pins ps7_0_axi_periph/S04_ARESETN] [get_bd_pins ps7_0_axi_periph/S05_ARESETN] [get_bd_pins pwm_0/ap_rst_n] [get_bd_pins rcReceiver_0/ap_rst_n] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins axi_uart16550_0/sin] [get_bd_pins util_vector_logic_0/Res]
 
   # Create address segments
@@ -334,10 +338,14 @@ proc create_root_design { parentCell } {
   create_bd_addr_seg -range 0x00001000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_quad_spi_0/AXI_LITE/Reg] SEG_axi_quad_spi_0_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0x40020000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_uart16550_0/S_AXI/Reg] SEG_axi_uart16550_0_Reg
   create_bd_addr_seg -range 0x00001000 -offset 0x40004000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs flightmain_0/s_axi_CTRL/Reg] SEG_flightmain_0_Reg
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C04000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs flightmain_0/s_axi_TEST/Reg] SEG_flightmain_0_Reg1
   create_bd_addr_seg -range 0x00001000 -offset 0x40005000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pid_0/s_axi_CTRL/Reg] SEG_pid_0_Reg
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C14000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pid_0/s_axi_TEST/Reg] SEG_pid_0_Reg2
   create_bd_addr_seg -range 0x00001000 -offset 0x40006000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pwm_0/s_axi_CTRL/Reg] SEG_pwm_0_Reg
   create_bd_addr_seg -range 0x00004000 -offset 0x40014000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pwm_0/s_axi_TEST/Reg] SEG_pwm_0_Reg1
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C34000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs pwm_0/s_axi_TEST2/Reg] SEG_pwm_0_Reg2
   create_bd_addr_seg -range 0x00001000 -offset 0x40003000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs rcReceiver_0/s_axi_CTRL/Reg] SEG_rcReceiver_0_Reg
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C24000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs rcReceiver_0/s_axi_TEST/Reg] SEG_rcReceiver_0_Reg1
   create_bd_addr_seg -range 0x00001000 -offset 0x40004000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs flightmain_0/s_axi_CTRL/Reg] SEG_flightmain_0_Reg
 
   # Exclude Address Segments
@@ -353,14 +361,26 @@ proc create_root_design { parentCell } {
   create_bd_addr_seg -range 0x00001000 -offset 0x40004000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs flightmain_0/s_axi_CTRL/Reg] SEG_flightmain_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_flightmain_0_Reg]
 
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C04000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs flightmain_0/s_axi_TEST/Reg] SEG_flightmain_0_Reg2
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_flightmain_0_Reg2]
+
   create_bd_addr_seg -range 0x00001000 -offset 0x40005000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs pid_0/s_axi_CTRL/Reg] SEG_pid_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_pid_0_Reg]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C14000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs pid_0/s_axi_TEST/Reg] SEG_pid_0_Reg3
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_pid_0_Reg3]
 
   create_bd_addr_seg -range 0x00001000 -offset 0x40006000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_CTRL/Reg] SEG_pwm_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg]
 
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C34000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_TEST2/Reg] SEG_pwm_0_Reg1
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg1]
+
   create_bd_addr_seg -range 0x00004000 -offset 0x40014000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_TEST/Reg] SEG_pwm_0_Reg7
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg7]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C24000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_OUT_r] [get_bd_addr_segs rcReceiver_0/s_axi_TEST/Reg] SEG_rcReceiver_0_Reg3
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_OUT_r/SEG_rcReceiver_0_Reg3]
 
   create_bd_addr_seg -range 0x00001000 -offset 0x40002000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs AXI_UART_DRIVER_0/s_axi_CTRL/Reg] SEG_AXI_UART_DRIVER_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_AXI_UART_DRIVER_0_Reg]
@@ -371,17 +391,29 @@ proc create_root_design { parentCell } {
   create_bd_addr_seg -range 0x00001000 -offset 0x40004000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs flightmain_0/s_axi_CTRL/Reg] SEG_flightmain_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_flightmain_0_Reg]
 
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C04000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs flightmain_0/s_axi_TEST/Reg] SEG_flightmain_0_Reg2
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_flightmain_0_Reg2]
+
   create_bd_addr_seg -range 0x00001000 -offset 0x40005000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs pid_0/s_axi_CTRL/Reg] SEG_pid_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_pid_0_Reg]
 
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C14000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs pid_0/s_axi_TEST/Reg] SEG_pid_0_Reg3
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_pid_0_Reg3]
+
   create_bd_addr_seg -range 0x00001000 -offset 0x40006000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs pwm_0/s_axi_CTRL/Reg] SEG_pwm_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_pwm_0_Reg]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C34000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs pwm_0/s_axi_TEST2/Reg] SEG_pwm_0_Reg1
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_pwm_0_Reg1]
 
   create_bd_addr_seg -range 0x00004000 -offset 0x40014000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs pwm_0/s_axi_TEST/Reg] SEG_pwm_0_Reg7
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_pwm_0_Reg7]
 
   create_bd_addr_seg -range 0x00001000 -offset 0x40003000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs rcReceiver_0/s_axi_CTRL/Reg] SEG_rcReceiver_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_rcReceiver_0_Reg]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C24000 [get_bd_addr_spaces AXI_UART_DRIVER_0/Data_m_axi_UART] [get_bd_addr_segs rcReceiver_0/s_axi_TEST/Reg] SEG_rcReceiver_0_Reg3
+  exclude_bd_addr_seg [get_bd_addr_segs AXI_UART_DRIVER_0/Data_m_axi_UART/SEG_rcReceiver_0_Reg3]
 
   create_bd_addr_seg -range 0x00001000 -offset 0x40002000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs AXI_UART_DRIVER_0/s_axi_CTRL/Reg] SEG_AXI_UART_DRIVER_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_AXI_UART_DRIVER_0_Reg]
@@ -395,14 +427,26 @@ proc create_root_design { parentCell } {
   create_bd_addr_seg -range 0x00001000 -offset 0x40004000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs flightmain_0/s_axi_CTRL/Reg] SEG_flightmain_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_flightmain_0_Reg]
 
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C04000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs flightmain_0/s_axi_TEST/Reg] SEG_flightmain_0_Reg5
+  exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_flightmain_0_Reg5]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C14000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs pid_0/s_axi_TEST/Reg] SEG_pid_0_Reg8
+  exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_pid_0_Reg8]
+
   create_bd_addr_seg -range 0x00001000 -offset 0x40006000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_CTRL/Reg] SEG_pwm_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg]
 
-  create_bd_addr_seg -range 0x00004000 -offset 0x40014000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_TEST/Reg] SEG_pwm_0_Reg7
-  exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg7]
+  create_bd_addr_seg -range 0x00004000 -offset 0x40014000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_TEST/Reg] SEG_pwm_0_Reg11
+  exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg11]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C34000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_TEST2/Reg] SEG_pwm_0_Reg13
+  exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg13]
 
   create_bd_addr_seg -range 0x00001000 -offset 0x40003000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs rcReceiver_0/s_axi_CTRL/Reg] SEG_rcReceiver_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_rcReceiver_0_Reg]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C24000 [get_bd_addr_spaces flightmain_0/Data_m_axi_OUT_r] [get_bd_addr_segs rcReceiver_0/s_axi_TEST/Reg] SEG_rcReceiver_0_Reg16
+  exclude_bd_addr_seg [get_bd_addr_segs flightmain_0/Data_m_axi_OUT_r/SEG_rcReceiver_0_Reg16]
 
   create_bd_addr_seg -range 0x00001000 -offset 0x40002000 [get_bd_addr_spaces pid_0/Data_m_axi_OUT_r] [get_bd_addr_segs AXI_UART_DRIVER_0/s_axi_CTRL/Reg] SEG_AXI_UART_DRIVER_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs pid_0/Data_m_axi_OUT_r/SEG_AXI_UART_DRIVER_0_Reg]
@@ -416,14 +460,26 @@ proc create_root_design { parentCell } {
   create_bd_addr_seg -range 0x00001000 -offset 0x40004000 [get_bd_addr_spaces pid_0/Data_m_axi_OUT_r] [get_bd_addr_segs flightmain_0/s_axi_CTRL/Reg] SEG_flightmain_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs pid_0/Data_m_axi_OUT_r/SEG_flightmain_0_Reg]
 
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C04000 [get_bd_addr_spaces pid_0/Data_m_axi_OUT_r] [get_bd_addr_segs flightmain_0/s_axi_TEST/Reg] SEG_flightmain_0_Reg2
+  exclude_bd_addr_seg [get_bd_addr_segs pid_0/Data_m_axi_OUT_r/SEG_flightmain_0_Reg2]
+
   create_bd_addr_seg -range 0x00001000 -offset 0x40005000 [get_bd_addr_spaces pid_0/Data_m_axi_OUT_r] [get_bd_addr_segs pid_0/s_axi_CTRL/Reg] SEG_pid_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs pid_0/Data_m_axi_OUT_r/SEG_pid_0_Reg]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C14000 [get_bd_addr_spaces pid_0/Data_m_axi_OUT_r] [get_bd_addr_segs pid_0/s_axi_TEST/Reg] SEG_pid_0_Reg3
+  exclude_bd_addr_seg [get_bd_addr_segs pid_0/Data_m_axi_OUT_r/SEG_pid_0_Reg3]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C34000 [get_bd_addr_spaces pid_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_TEST2/Reg] SEG_pwm_0_Reg1
+  exclude_bd_addr_seg [get_bd_addr_segs pid_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg1]
 
   create_bd_addr_seg -range 0x00004000 -offset 0x40014000 [get_bd_addr_spaces pid_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_TEST/Reg] SEG_pwm_0_Reg7
   exclude_bd_addr_seg [get_bd_addr_segs pid_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg7]
 
   create_bd_addr_seg -range 0x00001000 -offset 0x40003000 [get_bd_addr_spaces pid_0/Data_m_axi_OUT_r] [get_bd_addr_segs rcReceiver_0/s_axi_CTRL/Reg] SEG_rcReceiver_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs pid_0/Data_m_axi_OUT_r/SEG_rcReceiver_0_Reg]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C24000 [get_bd_addr_spaces pid_0/Data_m_axi_OUT_r] [get_bd_addr_segs rcReceiver_0/s_axi_TEST/Reg] SEG_rcReceiver_0_Reg3
+  exclude_bd_addr_seg [get_bd_addr_segs pid_0/Data_m_axi_OUT_r/SEG_rcReceiver_0_Reg3]
 
   create_bd_addr_seg -range 0x00001000 -offset 0x40002000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs AXI_UART_DRIVER_0/s_axi_CTRL/Reg] SEG_AXI_UART_DRIVER_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_AXI_UART_DRIVER_0_Reg]
@@ -434,17 +490,29 @@ proc create_root_design { parentCell } {
   create_bd_addr_seg -range 0x00010000 -offset 0x40020000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs axi_uart16550_0/S_AXI/Reg] SEG_axi_uart16550_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_axi_uart16550_0_Reg]
 
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C04000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs flightmain_0/s_axi_TEST/Reg] SEG_flightmain_0_Reg2
+  exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_flightmain_0_Reg2]
+
   create_bd_addr_seg -range 0x00001000 -offset 0x40005000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs pid_0/s_axi_CTRL/Reg] SEG_pid_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_pid_0_Reg]
 
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C14000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs pid_0/s_axi_TEST/Reg] SEG_pid_0_Reg3
+  exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_pid_0_Reg3]
+
   create_bd_addr_seg -range 0x00001000 -offset 0x40006000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_CTRL/Reg] SEG_pwm_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C34000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_TEST2/Reg] SEG_pwm_0_Reg1
+  exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg1]
 
   create_bd_addr_seg -range 0x00004000 -offset 0x40014000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs pwm_0/s_axi_TEST/Reg] SEG_pwm_0_Reg7
   exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_pwm_0_Reg7]
 
   create_bd_addr_seg -range 0x00001000 -offset 0x40003000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs rcReceiver_0/s_axi_CTRL/Reg] SEG_rcReceiver_0_Reg
   exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_rcReceiver_0_Reg]
+
+  create_bd_addr_seg -range 0x00004000 -offset 0x43C24000 [get_bd_addr_spaces rcReceiver_0/Data_m_axi_OUT_r] [get_bd_addr_segs rcReceiver_0/s_axi_TEST/Reg] SEG_rcReceiver_0_Reg3
+  exclude_bd_addr_seg [get_bd_addr_segs rcReceiver_0/Data_m_axi_OUT_r/SEG_rcReceiver_0_Reg3]
 
 
 

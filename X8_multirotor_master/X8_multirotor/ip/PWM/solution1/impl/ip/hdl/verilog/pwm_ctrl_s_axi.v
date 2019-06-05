@@ -38,12 +38,12 @@ module pwm_CTRL_s_axi
     input  wire                          ap_done,
     input  wire                          ap_ready,
     input  wire                          ap_idle,
+    input  wire [3:0]                    motorCmd_V_address0,
+    input  wire                          motorCmd_V_ce0,
+    output wire [15:0]                   motorCmd_V_q0,
     output wire [31:0]                   min_duty,
     output wire [31:0]                   max_duty,
-    output wire [31:0]                   period,
-    input  wire [3:0]                    m_V_address0,
-    input  wire                          m_V_ce0,
-    output wire [15:0]                   m_V_q0
+    output wire [31:0]                   period
 );
 //------------------------Address Info-------------------
 // 0x00 : Control signals
@@ -64,19 +64,19 @@ module pwm_CTRL_s_axi
 //        bit 0  - Channel 0 (ap_done)
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
-// 0x10 : Data signal of min_duty
+// 0x40 : Data signal of min_duty
 //        bit 31~0 - min_duty[31:0] (Read/Write)
-// 0x14 : reserved
-// 0x18 : Data signal of max_duty
+// 0x44 : reserved
+// 0x48 : Data signal of max_duty
 //        bit 31~0 - max_duty[31:0] (Read/Write)
-// 0x1c : reserved
-// 0x20 : Data signal of period
+// 0x4c : reserved
+// 0x50 : Data signal of period
 //        bit 31~0 - period[31:0] (Read/Write)
-// 0x24 : reserved
-// 0x40 ~
-// 0x5f : Memory 'm_V' (9 * 16b)
-//        Word n : bit [15: 0] - m_V[2n]
-//                 bit [31:16] - m_V[2n+1]
+// 0x54 : reserved
+// 0x20 ~
+// 0x3f : Memory 'motorCmd_V' (9 * 16b)
+//        Word n : bit [15: 0] - motorCmd_V[2n]
+//                 bit [31:16] - motorCmd_V[2n+1]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
@@ -85,14 +85,14 @@ localparam
     ADDR_GIE             = 7'h04,
     ADDR_IER             = 7'h08,
     ADDR_ISR             = 7'h0c,
-    ADDR_MIN_DUTY_DATA_0 = 7'h10,
-    ADDR_MIN_DUTY_CTRL   = 7'h14,
-    ADDR_MAX_DUTY_DATA_0 = 7'h18,
-    ADDR_MAX_DUTY_CTRL   = 7'h1c,
-    ADDR_PERIOD_DATA_0   = 7'h20,
-    ADDR_PERIOD_CTRL     = 7'h24,
-    ADDR_M_V_BASE        = 7'h40,
-    ADDR_M_V_HIGH        = 7'h5f,
+    ADDR_MIN_DUTY_DATA_0 = 7'h40,
+    ADDR_MIN_DUTY_CTRL   = 7'h44,
+    ADDR_MAX_DUTY_DATA_0 = 7'h48,
+    ADDR_MAX_DUTY_CTRL   = 7'h4c,
+    ADDR_PERIOD_DATA_0   = 7'h50,
+    ADDR_PERIOD_CTRL     = 7'h54,
+    ADDR_MOTORCMD_V_BASE = 7'h20,
+    ADDR_MOTORCMD_V_HIGH = 7'h3f,
     WRIDLE               = 2'd0,
     WRDATA               = 2'd1,
     WRRESP               = 2'd2,
@@ -127,42 +127,42 @@ localparam
     reg  [31:0]                   int_max_duty = 'b0;
     reg  [31:0]                   int_period = 'b0;
     // memory signals
-    wire [2:0]                    int_m_V_address0;
-    wire                          int_m_V_ce0;
-    wire                          int_m_V_we0;
-    wire [3:0]                    int_m_V_be0;
-    wire [31:0]                   int_m_V_d0;
-    wire [31:0]                   int_m_V_q0;
-    wire [2:0]                    int_m_V_address1;
-    wire                          int_m_V_ce1;
-    wire                          int_m_V_we1;
-    wire [3:0]                    int_m_V_be1;
-    wire [31:0]                   int_m_V_d1;
-    wire [31:0]                   int_m_V_q1;
-    reg                           int_m_V_read;
-    reg                           int_m_V_write;
-    reg  [0:0]                    int_m_V_shift;
+    wire [2:0]                    int_motorCmd_V_address0;
+    wire                          int_motorCmd_V_ce0;
+    wire                          int_motorCmd_V_we0;
+    wire [3:0]                    int_motorCmd_V_be0;
+    wire [31:0]                   int_motorCmd_V_d0;
+    wire [31:0]                   int_motorCmd_V_q0;
+    wire [2:0]                    int_motorCmd_V_address1;
+    wire                          int_motorCmd_V_ce1;
+    wire                          int_motorCmd_V_we1;
+    wire [3:0]                    int_motorCmd_V_be1;
+    wire [31:0]                   int_motorCmd_V_d1;
+    wire [31:0]                   int_motorCmd_V_q1;
+    reg                           int_motorCmd_V_read;
+    reg                           int_motorCmd_V_write;
+    reg  [0:0]                    int_motorCmd_V_shift;
 
 //------------------------Instantiation------------------
-// int_m_V
+// int_motorCmd_V
 pwm_CTRL_s_axi_ram #(
     .BYTES    ( 4 ),
     .DEPTH    ( 5 )
-) int_m_V (
+) int_motorCmd_V (
     .clk0     ( ACLK ),
-    .address0 ( int_m_V_address0 ),
-    .ce0      ( int_m_V_ce0 ),
-    .we0      ( int_m_V_we0 ),
-    .be0      ( int_m_V_be0 ),
-    .d0       ( int_m_V_d0 ),
-    .q0       ( int_m_V_q0 ),
+    .address0 ( int_motorCmd_V_address0 ),
+    .ce0      ( int_motorCmd_V_ce0 ),
+    .we0      ( int_motorCmd_V_we0 ),
+    .be0      ( int_motorCmd_V_be0 ),
+    .d0       ( int_motorCmd_V_d0 ),
+    .q0       ( int_motorCmd_V_q0 ),
     .clk1     ( ACLK ),
-    .address1 ( int_m_V_address1 ),
-    .ce1      ( int_m_V_ce1 ),
-    .we1      ( int_m_V_we1 ),
-    .be1      ( int_m_V_be1 ),
-    .d1       ( int_m_V_d1 ),
-    .q1       ( int_m_V_q1 )
+    .address1 ( int_motorCmd_V_address1 ),
+    .ce1      ( int_motorCmd_V_ce1 ),
+    .we1      ( int_motorCmd_V_we1 ),
+    .be1      ( int_motorCmd_V_be1 ),
+    .d1       ( int_motorCmd_V_d1 ),
+    .q1       ( int_motorCmd_V_q1 )
 );
 
 //------------------------AXI write fsm------------------
@@ -217,7 +217,7 @@ end
 assign ARREADY = (rstate == RDIDLE);
 assign RDATA   = rdata;
 assign RRESP   = 2'b00;  // OKAY
-assign RVALID  = (rstate == RDDATA) & !int_m_V_read;
+assign RVALID  = (rstate == RDDATA) & !int_motorCmd_V_read;
 assign ar_hs   = ARVALID & ARREADY;
 assign raddr   = ARADDR[ADDR_BITS-1:0];
 
@@ -280,8 +280,8 @@ always @(posedge ACLK) begin
                 end
             endcase
         end
-        else if (int_m_V_read) begin
-            rdata <= int_m_V_q1;
+        else if (int_motorCmd_V_read) begin
+            rdata <= int_motorCmd_V_q1;
         end
     end
 end
@@ -421,47 +421,47 @@ end
 
 
 //------------------------Memory logic-------------------
-// m_V
-assign int_m_V_address0 = m_V_address0 >> 1;
-assign int_m_V_ce0      = m_V_ce0;
-assign int_m_V_we0      = 1'b0;
-assign int_m_V_be0      = 1'b0;
-assign int_m_V_d0       = 1'b0;
-assign m_V_q0           = int_m_V_q0 >> (int_m_V_shift * 16);
-assign int_m_V_address1 = ar_hs? raddr[4:2] : waddr[4:2];
-assign int_m_V_ce1      = ar_hs | (int_m_V_write & WVALID);
-assign int_m_V_we1      = int_m_V_write & WVALID;
-assign int_m_V_be1      = WSTRB;
-assign int_m_V_d1       = WDATA;
-// int_m_V_read
+// motorCmd_V
+assign int_motorCmd_V_address0 = motorCmd_V_address0 >> 1;
+assign int_motorCmd_V_ce0      = motorCmd_V_ce0;
+assign int_motorCmd_V_we0      = 1'b0;
+assign int_motorCmd_V_be0      = 1'b0;
+assign int_motorCmd_V_d0       = 1'b0;
+assign motorCmd_V_q0           = int_motorCmd_V_q0 >> (int_motorCmd_V_shift * 16);
+assign int_motorCmd_V_address1 = ar_hs? raddr[4:2] : waddr[4:2];
+assign int_motorCmd_V_ce1      = ar_hs | (int_motorCmd_V_write & WVALID);
+assign int_motorCmd_V_we1      = int_motorCmd_V_write & WVALID;
+assign int_motorCmd_V_be1      = WSTRB;
+assign int_motorCmd_V_d1       = WDATA;
+// int_motorCmd_V_read
 always @(posedge ACLK) begin
     if (ARESET)
-        int_m_V_read <= 1'b0;
+        int_motorCmd_V_read <= 1'b0;
     else if (ACLK_EN) begin
-        if (ar_hs && raddr >= ADDR_M_V_BASE && raddr <= ADDR_M_V_HIGH)
-            int_m_V_read <= 1'b1;
+        if (ar_hs && raddr >= ADDR_MOTORCMD_V_BASE && raddr <= ADDR_MOTORCMD_V_HIGH)
+            int_motorCmd_V_read <= 1'b1;
         else
-            int_m_V_read <= 1'b0;
+            int_motorCmd_V_read <= 1'b0;
     end
 end
 
-// int_m_V_write
+// int_motorCmd_V_write
 always @(posedge ACLK) begin
     if (ARESET)
-        int_m_V_write <= 1'b0;
+        int_motorCmd_V_write <= 1'b0;
     else if (ACLK_EN) begin
-        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_M_V_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_M_V_HIGH)
-            int_m_V_write <= 1'b1;
+        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_MOTORCMD_V_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_MOTORCMD_V_HIGH)
+            int_motorCmd_V_write <= 1'b1;
         else if (WVALID)
-            int_m_V_write <= 1'b0;
+            int_motorCmd_V_write <= 1'b0;
     end
 end
 
-// int_m_V_shift
+// int_motorCmd_V_shift
 always @(posedge ACLK) begin
     if (ACLK_EN) begin
-        if (m_V_ce0)
-            int_m_V_shift <= m_V_address0[0];
+        if (motorCmd_V_ce0)
+            int_motorCmd_V_shift <= motorCmd_V_address0[0];
     end
 end
 

@@ -12,18 +12,23 @@ proc generate {drv_handle} {
         "C_S_AXI_CTRL_BASEADDR" \
         "C_S_AXI_CTRL_HIGHADDR" \
         "C_S_AXI_TEST_BASEADDR" \
-        "C_S_AXI_TEST_HIGHADDR"
+        "C_S_AXI_TEST_HIGHADDR" \
+        "C_S_AXI_TEST2_BASEADDR" \
+        "C_S_AXI_TEST2_HIGHADDR"
 
     xdefine_config_file $drv_handle "xpwm_g.c" "XPwm" \
         "DEVICE_ID" \
         "C_S_AXI_CTRL_BASEADDR" \
-        "C_S_AXI_TEST_BASEADDR"
+        "C_S_AXI_TEST_BASEADDR" \
+        "C_S_AXI_TEST2_BASEADDR"
 
     xdefine_canonical_xpars $drv_handle "xparameters.h" "XPwm" \
         "DEVICE_ID" \
         "C_S_AXI_CTRL_BASEADDR" \
         "C_S_AXI_CTRL_HIGHADDR" \
         "C_S_AXI_TEST_BASEADDR" \
-        "C_S_AXI_TEST_HIGHADDR"
+        "C_S_AXI_TEST_HIGHADDR" \
+        "C_S_AXI_TEST2_BASEADDR" \
+        "C_S_AXI_TEST2_HIGHADDR"
 }
 

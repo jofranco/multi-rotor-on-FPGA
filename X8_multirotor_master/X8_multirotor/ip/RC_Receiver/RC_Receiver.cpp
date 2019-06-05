@@ -2,7 +2,7 @@
 #include "RC_Receiver.hpp"
 
 
-void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k])
+void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], F32_t test[SIZE_4k])
 {
     // HLS PRAGMAS
 	#pragma HLS PIPELINE II=1 enable_flush
@@ -10,6 +10,13 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k])
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 	#pragma HLS INTERFACE s_axilite port=SBUS_data bundle=CTRL
 	#pragma HLS INTERFACE m_axi depth=4096 port=norm_out offset=off bundle=OUT
+
+	// python test code
+	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
+	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
+	float test1 = 0;
+	float test2 = 0;
+
 
 	// variable declarations
     static uint8_t       buffer[NUM_BYTES];
@@ -63,11 +70,15 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k])
     {
     	if( (i == THROT_CHAN) || (i == ARM_CHAN) || (i == MODE_CHAN) )
     	{	// throttle, ARM, MODE is scaled [0:999]
+    		test1 = channels[i];
     		norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN_ZERO, DEST_MAX);
+    		test1 = norm_out[i];
     	}
     	else
     	{	// scale Roll, Pitch, Yaw [-1:999]
+    		test2 = channels[i];
     		norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN, DEST_MAX);
+    		test2 = norm_out[i];
     	}
     }
 
@@ -76,6 +87,23 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k])
 
     // Flight Mode switch state select
     norm_out[MODE_CHAN] = F16_t(selectFlightModeState(norm_out[MODE_CHAN]));
+
+    // python test code
+    test[0] = (F32_t)channels[0]; // throttle
+    test[1] = (F32_t)channels[1]; // roll
+    test[2] = (F32_t)channels[2]; // pitch
+    test[3] = (F32_t)channels[3]; // yaw
+    test[4] = (F32_t)channels[4]; // arm
+    test[5] = (F32_t)channels[5]; // mode
+
+    test[6] = (F32_t)norm_out[0]; // throttle
+    test[7] = (F32_t)norm_out[1]; // roll
+    test[8] = (F32_t)norm_out[2]; // pitch
+    test[9] = (F32_t)norm_out[3]; // yaw
+    test[10] = (F32_t)norm_out[4]; // arm
+    test[11] = (F32_t)norm_out[5]; // mode
+
+
 }
 
 // scales raw RC channel data to [0:1)

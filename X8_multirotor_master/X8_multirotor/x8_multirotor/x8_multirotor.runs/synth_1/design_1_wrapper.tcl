@@ -29,11 +29,15 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_repo_paths {
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/AXI_PWM_VHDL_1.0
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/RC_Receiver
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PWM
+  c:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/AXI_SPI_Driver
+  c:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/POSITION_CTRL
+  c:/Users/Aaron/Desktop/School/WES_Capstone/TEMP/POSITION_CTRL
 } [current_project]
 set_property ip_output_repo c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
@@ -49,13 +53,13 @@ set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_1/constraints/AXI_UART_DRIVER_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_rcReceiver_0_0/constraints/rcReceiver_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_pwm_0_0/constraints/pwm_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_flightmain_0_1/constraints/flightmain_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_pid_0_1/constraints/pid_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_xbar_2/design_1_xbar_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_flightmain_0_0/constraints/flightmain_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_5/design_1_auto_pc_5_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_4/design_1_auto_pc_4_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3/design_1_auto_pc_3_ooc.xdc]
@@ -80,7 +84,7 @@ set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 
-synth_design -top design_1_wrapper -part xc7z020clg400-1
+synth_design -top design_1_wrapper -part xc7z020clg400-1 -fanout_limit 400 -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
 
 
 # disable binary constraint mode for synth run checkpoints

@@ -1,3 +1,5 @@
+flightmain_buffer_V
 flightmain_CTRL_s_axi
+flightmain_TEST_s_axi
 flightmain_OUT_r_m_axi
 flightmain

@@ -24610,7 +24610,8 @@ typedef ap_fixed<32, 19> F32_t;
 typedef ap_fixed<19, 4> F19_t;
 typedef ap_fixed<16,3> F16_t;
 
-typedef ap_uint<6> uint6_t;
+
+typedef ap_uint<8> uint8bit_t;
 
 
 typedef enum
@@ -24630,8 +24631,8 @@ typedef enum
 
 uint16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, uint16_t destFrom, uint16_t destTo);
 # 3 "RC_Receiver/RC_Receiver.hpp" 2
-# 20 "RC_Receiver/RC_Receiver.hpp"
-void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096]);
+# 21 "RC_Receiver/RC_Receiver.hpp"
+void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096], F32_t test[4096]);
 
 
 F16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, F16_t destFrom, F16_t destTo);
@@ -24644,8 +24645,8 @@ flightMode_e selectFlightModeState(F16_t value);
 # 3 "RC_Receiver/RC_Receiver.cpp" 2
 
 
-void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096])
-{_ssdm_SpecArrayDimSize(SBUS_data, 25);_ssdm_SpecArrayDimSize(norm_out, 4096);
+void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096], F32_t test[4096])
+{_ssdm_SpecArrayDimSize(SBUS_data, 25);_ssdm_SpecArrayDimSize(norm_out, 4096);_ssdm_SpecArrayDimSize(test, 4096);
 
 _ssdm_op_SpecPipeline(1, 2, 1, 0, "");
 
@@ -24654,7 +24655,14 @@ _ssdm_op_SpecInterface(SBUS_data, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0
 _ssdm_op_SpecInterface(norm_out, "m_axi", 0, 0, "", 0, 4096, "OUT", "off", "", 16, 16, 16, 16, "", "");
 
 
- static uint8_t buffer[25];
+_ssdm_op_SpecResource(test, "", "RAM_1P_BRAM", "", -1, "", "", "", "", "");
+_ssdm_op_SpecInterface(test, "s_axilite", 0, 0, "", 0, 0, "TEST", "", "", 0, 0, 0, 0, "", "");
+ float test1 = 0;
+ float test2 = 0;
+
+
+
+    static uint8_t buffer[25];
     static uint16_t channels[18];
     static uint32_t errors = 0;
     static bool failsafe = false;
@@ -24705,11 +24713,15 @@ _ssdm_op_SpecInterface(norm_out, "m_axi", 0, 0, "", 0, 4096, "OUT", "off", "", 1
     {
      if( (i == 0) || (i == 4) || (i == 5) )
      {
+      test1 = channels[i];
       norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(0.000), F16_t(0.999));
+      test1 = norm_out[i];
      }
      else
      {
+      test2 = channels[i];
       norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(-1.000), F16_t(0.999));
+      test2 = norm_out[i];
      }
     }
 
@@ -24718,6 +24730,23 @@ _ssdm_op_SpecInterface(norm_out, "m_axi", 0, 0, "", 0, 4096, "OUT", "off", "", 1
 
 
     norm_out[5] = F16_t(selectFlightModeState(norm_out[5]));
+
+
+    test[0] = (F32_t)channels[0];
+    test[1] = (F32_t)channels[1];
+    test[2] = (F32_t)channels[2];
+    test[3] = (F32_t)channels[3];
+    test[4] = (F32_t)channels[4];
+    test[5] = (F32_t)channels[5];
+
+    test[6] = (F32_t)norm_out[0];
+    test[7] = (F32_t)norm_out[1];
+    test[8] = (F32_t)norm_out[2];
+    test[9] = (F32_t)norm_out[3];
+    test[10] = (F32_t)norm_out[4];
+    test[11] = (F32_t)norm_out[5];
+
+
 }
 
 
