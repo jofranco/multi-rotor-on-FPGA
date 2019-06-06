@@ -26,7 +26,7 @@ void AXI_UART_DRIVER(volatile int uart_bus[SIZE_4k], uint8_t SBUS_data[SIZE_4k])
 {
 
 	//SETUP PRAGMAS
-	#pragma HLS PIPELINE II=1 enable_flush off
+	#pragma HLS PIPELINE enable_flush off
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 	#pragma HLS INTERFACE m_axi depth=4096 port=uart_bus offset=off bundle=UART		/*use ap_ctrl_none for autorestart*/

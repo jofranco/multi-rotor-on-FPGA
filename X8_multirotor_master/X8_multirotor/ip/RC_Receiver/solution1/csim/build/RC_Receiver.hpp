@@ -17,7 +17,8 @@
 // function declarations
 
 // Main RC Receiver SBUS Decode function, parses Channel Data
-void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k]);
+//void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k]);
+void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], F32_t test[SIZE_4k]);
 
 // scales raw RC channel data to [0:1000)
 F16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, F16_t destFrom, F16_t destTo);

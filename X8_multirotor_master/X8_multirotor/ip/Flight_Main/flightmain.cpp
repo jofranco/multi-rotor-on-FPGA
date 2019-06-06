@@ -10,7 +10,7 @@
 // main function call
 void flightmain (F16_t rcCmdIn[RC_CHANNELS], F16_t obj_avd_cmd[RC_CHANNELS], F16_t cmdOut[SIZE_4k], F32_t test[SIZE_4k])
 {
-	//#pragma HLS PIPELINE II=1 enable_flush
+	#pragma HLS PIPELINE enable_flush
 
     #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 

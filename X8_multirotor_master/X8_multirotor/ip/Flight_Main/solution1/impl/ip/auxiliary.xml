@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="flightmain" xd:componentRef="flightmain" xd:initiationInterval="54" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="flightmain" xd:componentRef="flightmain" xd:initiationInterval="18" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
   <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
   <xd:arg xd:name="rcCmdIn[]" xd:originalName="rcCmdIn" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x10" xd:arraySize="6" xd:dataWidth="16"/>
   <xd:arg xd:name="obj_avd_cmd[]" xd:originalName="obj_avd_cmd" xd:direction="in" xd:interfaceRef="s_axi_CTRL" xd:busTypeRef="axilite" xd:offset="0x20" xd:arraySize="6" xd:dataWidth="16"/>
-  <xd:arg xd:name="cmdOut[]" xd:originalName="cmdOut" xd:direction="inout" xd:interfaceRef="m_axi_OUT_r" xd:busTypeRef="aximm" xd:arraySize="4096" xd:dataWidth="16" xd:bufferDirection="inout"/>
+  <xd:arg xd:name="cmdOut[]" xd:originalName="cmdOut" xd:direction="inout" xd:interfaceRef="m_axi_OUT_r" xd:busTypeRef="aximm" xd:arraySize="4096" xd:dataWidth="16" xd:bufferDirection="out"/>
   <xd:arg xd:name="test[]" xd:originalName="test" xd:direction="out" xd:interfaceRef="s_axi_TEST" xd:busTypeRef="axilite" xd:offset="0x4000" xd:arraySize="4096" xd:dataWidth="32"/>
-  <xd:latencyEstimates xd:best-case="40" xd:worst-case="53" xd:average-case="44"/>
-  <xd:resourceEstimates xd:LUT="1968" xd:FF="1060" xd:BRAM="14" xd:DSP="0"/>
+  <xd:latencyEstimates xd:best-case="24" xd:worst-case="24" xd:average-case="24"/>
+  <xd:resourceEstimates xd:LUT="1657" xd:FF="1139" xd:BRAM="14" xd:DSP="0"/>
 </xd:acceleratorMap>

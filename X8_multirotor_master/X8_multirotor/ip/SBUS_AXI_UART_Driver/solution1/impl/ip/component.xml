@@ -4031,8 +4031,8 @@ ng minimum {} maximum {}} value 0}}}}</spirit:value>
       </xilinx:taxonomies>
       <xilinx:displayName>Axi_uart_driver</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1905271549</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-05-27T22:49:38Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1906051928</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-06-06T02:28:11Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>

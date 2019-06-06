@@ -5,17 +5,18 @@
 void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], F32_t test[SIZE_4k])
 {
     // HLS PRAGMAS
-	#pragma HLS PIPELINE II=1 enable_flush
+	#pragma HLS PIPELINE enable_flush
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 	#pragma HLS INTERFACE s_axilite port=SBUS_data bundle=CTRL
-	#pragma HLS INTERFACE m_axi depth=4096 port=norm_out offset=off bundle=OUT
+	#pragma HLS INTERFACE m_axi port=norm_out offset=off bundle=OUT
 
 	// python test code
 	#pragma HLS RESOURCE variable=test core=RAM_1P_BRAM
 	#pragma HLS INTERFACE s_axilite port=test bundle=TEST
-	float test1 = 0;
-	float test2 = 0;
+	//float test1 = 0;
+	//float test2 = 0;
+	F32_t temp[6] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
 
 	// variable declarations
@@ -36,12 +37,12 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], F32_t tes
     {  // decode
 
     	// parse received data into 18 channels
-        channels[0]  = ((  buffer[1]        | ( buffer[2]<<8  ))                         & 0x07FF);
-        channels[1]  = ((( buffer[2]>>3  )  | ( buffer[3]<<5  ))                         & 0x07FF);
-        channels[2]  = ((((buffer[3]>>6  )  | ( buffer[4]<<2  )   | ( buffer[5]<<10 )))  & 0x07FF);
-        channels[3]  = ((( buffer[5]>>1  )  | ( buffer[6]<<7  ))                         & 0x07FF);
-        channels[4]  = ((( buffer[6]>>4  )  | ( buffer[7]<<4  ))                         & 0x07FF);
-        channels[5]  = ((((buffer[7]>>7  )  | ( buffer[8]<<1  )   | ( buffer[9]<<9 )))   & 0x07FF);
+        channels[0]  = ((  buffer[1]        | ( buffer[2]<<8  ))                         & 0x07FF); // throttle
+        channels[1]  = ((( buffer[2]>>3  )  | ( buffer[3]<<5  ))                         & 0x07FF); // roll
+        channels[2]  = ((((buffer[3]>>6  )  | ( buffer[4]<<2  )   | ( buffer[5]<<10 )))  & 0x07FF); // pitch
+        channels[3]  = ((( buffer[5]>>1  )  | ( buffer[6]<<7  ))                         & 0x07FF); // yaw
+        channels[4]  = ((( buffer[6]>>4  )  | ( buffer[7]<<4  ))                         & 0x07FF); // arm
+        channels[5]  = ((((buffer[7]>>7  )  | ( buffer[8]<<1  )   | ( buffer[9]<<9 )))   & 0x07FF); // flight mode
         channels[6]  = ((( buffer[9]>>2  )  | ( buffer[10]<<6 ))                         & 0x07FF);
         channels[7]  = ((( buffer[10]>>5 )  | ( buffer[11]<<3 ))                         & 0x07FF);
         channels[8]  = ((  buffer[12]       | ( buffer[13]<<8 ))                         & 0x07FF);
@@ -68,25 +69,45 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], F32_t tes
     //  Map  ~ [200 : 1800]   -->   [-1 : 0.999]  or  [0:0.999]
     for(int i = 0; i < RC_CHANNELS; i++)  // only scaling used RC Channels
     {
-    	if( (i == THROT_CHAN) || (i == ARM_CHAN) || (i == MODE_CHAN) )
+		#pragma HLS PIPELINE enable_flush
+
+    	if( i == THROT_CHAN )
     	{	// throttle, ARM, MODE is scaled [0:999]
-    		test1 = channels[i];
+    		//test1 = channels[i];
     		norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN_ZERO, DEST_MAX);
-    		test1 = norm_out[i];
+    		//test1 = norm_out[i];
+    		temp[i] = norm_out[i];
+    	}
+    	else if( i == ARM_CHAN )
+    	{
+    		// throttle, ARM, MODE is scaled [0:999]
+			//test1 = channels[i];
+			norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN_ZERO, DEST_MAX);
+			//test1 = norm_out[i];
+			temp[i] = norm_out[i];
+    	}
+    	else if( i == MODE_CHAN )
+    	{
+    		// throttle, ARM, MODE is scaled [0:999]
+			//test1 = channels[i];
+			norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN_ZERO, DEST_MAX);
+			//test1 = norm_out[i];
+			temp[i] = norm_out[i];
     	}
     	else
     	{	// scale Roll, Pitch, Yaw [-1:999]
-    		test2 = channels[i];
+    		//test2 = channels[i];
     		norm_out[i] = scaleRange(clip(channels[i], SRC_MIN, SRC_MAX), SRC_MIN, SRC_MAX, DEST_MIN, DEST_MAX);
-    		test2 = norm_out[i];
+    		//test2 = norm_out[i];
+    		temp[i] = norm_out[i];
     	}
     }
 
     // ARM switch state select
-    norm_out[ARM_CHAN] = F16_t(selectMotorState(norm_out[ARM_CHAN]));
+    norm_out[ARM_CHAN] = selectMotorState(norm_out[ARM_CHAN]);
 
     // Flight Mode switch state select
-    norm_out[MODE_CHAN] = F16_t(selectFlightModeState(norm_out[MODE_CHAN]));
+    norm_out[MODE_CHAN] = selectFlightModeState(norm_out[MODE_CHAN]);
 
     // python test code
     test[0] = (F32_t)channels[0]; // throttle
@@ -109,6 +130,11 @@ void rcReceiver(uint8_t SBUS_data[NUM_BYTES], F16_t norm_out[SIZE_4k], F32_t tes
 // scales raw RC channel data to [0:1)
 F16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, F16_t destFrom, F16_t destTo)
 {
+	//#pragma HLS UNROLL
+	#pragma HLS PIPELINE enable_flush
+
+	// need to make this a look up table
+
 	F32_t a, b;
 	a = ((F32_t)destTo - (F32_t)destFrom) * ((F32_t)x - (F32_t)srcFrom);
 	b = ((F32_t)srcTo - (F32_t)srcFrom);

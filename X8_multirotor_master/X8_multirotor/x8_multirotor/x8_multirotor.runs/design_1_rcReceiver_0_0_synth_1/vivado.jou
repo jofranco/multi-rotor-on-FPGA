@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Jun  4 20:45:03 2019
-# Process ID: 26696
+# Start of session at: Thu Jun  6 02:11:41 2019
+# Process ID: 3872
 # Current directory: C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.runs/design_1_rcReceiver_0_0_synth_1
 # Command line: vivado.exe -log design_1_rcReceiver_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_rcReceiver_0_0.tcl
 # Log file: C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.runs/design_1_rcReceiver_0_0_synth_1/design_1_rcReceiver_0_0.vds

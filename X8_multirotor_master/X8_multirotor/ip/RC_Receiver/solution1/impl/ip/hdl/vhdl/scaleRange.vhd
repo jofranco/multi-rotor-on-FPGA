@@ -14,139 +14,96 @@ port (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
     x : IN STD_LOGIC_VECTOR (10 downto 0);
-    ap_return : OUT STD_LOGIC_VECTOR (12 downto 0);
+    destFrom_V : IN STD_LOGIC_VECTOR (14 downto 0);
+    ap_return : OUT STD_LOGIC_VECTOR (14 downto 0);
     ap_ce : IN STD_LOGIC );
 end;
 
 
 architecture behav of scaleRange is 
     constant ap_const_logic_1 : STD_LOGIC := '1';
-    constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_const_boolean_1 : BOOLEAN := true;
-    constant ap_const_lv16_0 : STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";
-    constant ap_const_lv27_7380000 : STD_LOGIC_VECTOR (26 downto 0) := "111001110000000000000000000";
-    constant ap_const_lv43_FFB8 : STD_LOGIC_VECTOR (42 downto 0) := "0000000000000000000000000001111111110111000";
-    constant ap_const_lv32_10 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010000";
-    constant ap_const_lv32_2A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000101010";
-    constant ap_const_lv87_A3D70A3D70B : STD_LOGIC_VECTOR (86 downto 0) := "000000000000000000000000000000000000000000010100011110101110000101000111101011100001011";
-    constant ap_const_lv32_49 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001001001";
-    constant ap_const_lv32_55 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001010101";
+    constant ap_const_lv14_1FF7 : STD_LOGIC_VECTOR (13 downto 0) := "01111111110111";
+    constant ap_const_lv13_0 : STD_LOGIC_VECTOR (12 downto 0) := "0000000000000";
+    constant ap_const_lv32_D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001101";
+    constant ap_const_lv32_25 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100101";
+    constant ap_const_lv77_51EB851EB9 : STD_LOGIC_VECTOR (76 downto 0) := "00000000000000000000000000000000000000101000111101011100001010001111010111001";
+    constant ap_const_lv32_3E : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000111110";
+    constant ap_const_lv32_4C : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001001100";
+    constant ap_const_lv24_E70000 : STD_LOGIC_VECTOR (23 downto 0) := "111001110000000000000000";
+    constant ap_const_logic_0 : STD_LOGIC := '0';
 
-    signal r_V_fu_42_p2 : STD_LOGIC_VECTOR (26 downto 0);
-    signal r_V_reg_94 : STD_LOGIC_VECTOR (26 downto 0);
+    signal destFrom_V_read_reg_128 : STD_LOGIC_VECTOR (14 downto 0);
     signal ap_block_state1_pp0_stage0_iter0 : BOOLEAN;
     signal ap_block_state2_pp0_stage0_iter1 : BOOLEAN;
-    signal ap_block_state3_pp0_stage0_iter2 : BOOLEAN;
-    signal ap_block_state4_pp0_stage0_iter3 : BOOLEAN;
-    signal tmp_1_reg_99 : STD_LOGIC_VECTOR (26 downto 0);
-    signal p_Val2_s_fu_34_p3 : STD_LOGIC_VECTOR (26 downto 0);
-    signal p_Val2_1_fu_51_p0 : STD_LOGIC_VECTOR (26 downto 0);
-    signal p_Val2_1_fu_51_p2 : STD_LOGIC_VECTOR (42 downto 0);
-    signal tmp_4_fu_67_p3 : STD_LOGIC_VECTOR (42 downto 0);
-    signal grp_fu_78_p0 : STD_LOGIC_VECTOR (42 downto 0);
-    signal grp_fu_78_p1 : STD_LOGIC_VECTOR (44 downto 0);
-    signal grp_fu_78_p2 : STD_LOGIC_VECTOR (86 downto 0);
-    signal grp_fu_78_ce : STD_LOGIC;
-    signal ap_ce_reg : STD_LOGIC;
-    signal x_int_reg : STD_LOGIC_VECTOR (10 downto 0);
-    signal ap_return_int_reg : STD_LOGIC_VECTOR (12 downto 0);
-    signal grp_fu_78_p00 : STD_LOGIC_VECTOR (86 downto 0);
-    signal p_Val2_1_fu_51_p00 : STD_LOGIC_VECTOR (42 downto 0);
+    signal tmp_4_cast_reg_133 : STD_LOGIC_VECTOR (14 downto 0);
+    signal tmp_1_fu_56_p1 : STD_LOGIC_VECTOR (13 downto 0);
+    signal r_V_fu_60_p2 : STD_LOGIC_VECTOR (13 downto 0);
+    signal grp_fu_119_p3 : STD_LOGIC_VECTOR (37 downto 0);
+    signal tmp_fu_78_p4 : STD_LOGIC_VECTOR (24 downto 0);
+    signal tmp_2_fu_87_p3 : STD_LOGIC_VECTOR (37 downto 0);
+    signal mul_fu_99_p1 : STD_LOGIC_VECTOR (37 downto 0);
+    signal mul_fu_99_p2 : STD_LOGIC_VECTOR (76 downto 0);
+    signal grp_fu_119_p1 : STD_LOGIC_VECTOR (23 downto 0);
+    signal grp_fu_119_p2 : STD_LOGIC_VECTOR (13 downto 0);
+    signal grp_fu_119_p20 : STD_LOGIC_VECTOR (37 downto 0);
+    signal mul_fu_99_p10 : STD_LOGIC_VECTOR (76 downto 0);
 
-    component rcReceiver_mul_43bkb IS
+    component rcReceiver_am_addbkb IS
     generic (
         ID : INTEGER;
         NUM_STAGE : INTEGER;
         din0_WIDTH : INTEGER;
         din1_WIDTH : INTEGER;
+        din2_WIDTH : INTEGER;
         dout_WIDTH : INTEGER );
     port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        din0 : IN STD_LOGIC_VECTOR (42 downto 0);
-        din1 : IN STD_LOGIC_VECTOR (44 downto 0);
-        ce : IN STD_LOGIC;
-        dout : OUT STD_LOGIC_VECTOR (86 downto 0) );
+        din0 : IN STD_LOGIC_VECTOR (23 downto 0);
+        din1 : IN STD_LOGIC_VECTOR (23 downto 0);
+        din2 : IN STD_LOGIC_VECTOR (13 downto 0);
+        dout : OUT STD_LOGIC_VECTOR (37 downto 0) );
     end component;
 
 
 
 begin
-    rcReceiver_mul_43bkb_U1 : component rcReceiver_mul_43bkb
+    rcReceiver_am_addbkb_U1 : component rcReceiver_am_addbkb
     generic map (
         ID => 1,
-        NUM_STAGE => 2,
-        din0_WIDTH => 43,
-        din1_WIDTH => 45,
-        dout_WIDTH => 87)
+        NUM_STAGE => 1,
+        din0_WIDTH => 24,
+        din1_WIDTH => 24,
+        din2_WIDTH => 14,
+        dout_WIDTH => 38)
     port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        din0 => grp_fu_78_p0,
-        din1 => grp_fu_78_p1,
-        ce => grp_fu_78_ce,
-        dout => grp_fu_78_p2);
+        din0 => ap_const_lv24_E70000,
+        din1 => grp_fu_119_p1,
+        din2 => grp_fu_119_p2,
+        dout => grp_fu_119_p3);
 
 
 
 
-
-    ap_ce_reg_assign_proc : process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            ap_ce_reg <= ap_ce;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_ce_reg)) then
-                ap_return_int_reg <= grp_fu_78_p2(85 downto 73);
-                    r_V_reg_94(26 downto 16) <= r_V_fu_42_p2(26 downto 16);
-                tmp_1_reg_99 <= p_Val2_1_fu_51_p2(42 downto 16);
-            end if;
-        end if;
-    end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_ce)) then
-                x_int_reg <= x;
+                destFrom_V_read_reg_128 <= destFrom_V;
+                tmp_4_cast_reg_133 <= mul_fu_99_p2(76 downto 62);
             end if;
         end if;
     end process;
-    r_V_reg_94(15 downto 0) <= "0000000000000000";
         ap_block_state1_pp0_stage0_iter0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
         ap_block_state2_pp0_stage0_iter1 <= not((ap_const_boolean_1 = ap_const_boolean_1));
-        ap_block_state3_pp0_stage0_iter2 <= not((ap_const_boolean_1 = ap_const_boolean_1));
-        ap_block_state4_pp0_stage0_iter3 <= not((ap_const_boolean_1 = ap_const_boolean_1));
-
-    ap_return_assign_proc : process(grp_fu_78_p2, ap_ce_reg, ap_return_int_reg)
-    begin
-        if ((ap_const_logic_0 = ap_ce_reg)) then 
-            ap_return <= ap_return_int_reg;
-        elsif ((ap_const_logic_1 = ap_ce_reg)) then 
-            ap_return <= grp_fu_78_p2(85 downto 73);
-        end if; 
-    end process;
-
-
-    grp_fu_78_ce_assign_proc : process(ap_ce_reg)
-    begin
-        if ((ap_const_logic_1 = ap_ce_reg)) then 
-            grp_fu_78_ce <= ap_const_logic_1;
-        else 
-            grp_fu_78_ce <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    grp_fu_78_p0 <= grp_fu_78_p00(43 - 1 downto 0);
-    grp_fu_78_p00 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(tmp_4_fu_67_p3),87));
-    grp_fu_78_p1 <= ap_const_lv87_A3D70A3D70B(45 - 1 downto 0);
-    p_Val2_1_fu_51_p0 <= p_Val2_1_fu_51_p00(27 - 1 downto 0);
-    p_Val2_1_fu_51_p00 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(r_V_reg_94),43));
-    p_Val2_1_fu_51_p2 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(p_Val2_1_fu_51_p0) * unsigned(ap_const_lv43_FFB8), 43));
-    p_Val2_s_fu_34_p3 <= (x_int_reg & ap_const_lv16_0);
-    r_V_fu_42_p2 <= std_logic_vector(unsigned(p_Val2_s_fu_34_p3) + unsigned(ap_const_lv27_7380000));
-    tmp_4_fu_67_p3 <= (tmp_1_reg_99 & ap_const_lv16_0);
+    ap_return <= std_logic_vector(unsigned(tmp_4_cast_reg_133) + unsigned(destFrom_V_read_reg_128));
+    grp_fu_119_p1 <= (x & ap_const_lv13_0);
+    grp_fu_119_p2 <= grp_fu_119_p20(14 - 1 downto 0);
+    grp_fu_119_p20 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(r_V_fu_60_p2),38));
+    mul_fu_99_p1 <= mul_fu_99_p10(38 - 1 downto 0);
+    mul_fu_99_p10 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(tmp_2_fu_87_p3),77));
+    mul_fu_99_p2 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(ap_const_lv77_51EB851EB9) * unsigned(mul_fu_99_p1), 77));
+    r_V_fu_60_p2 <= std_logic_vector(unsigned(ap_const_lv14_1FF7) - unsigned(tmp_1_fu_56_p1));
+    tmp_1_fu_56_p1 <= destFrom_V(14 - 1 downto 0);
+    tmp_2_fu_87_p3 <= (tmp_fu_78_p4 & ap_const_lv13_0);
+    tmp_fu_78_p4 <= grp_fu_119_p3(37 downto 13);
 end behav;

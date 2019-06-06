@@ -11,53 +11,53 @@ preplace port FIXED_IO -pg 1 -y -130 -defaultsOSRD
 preplace portBus SS_AG -pg 1 -y -40 -defaultsOSRD
 preplace portBus SBUS_in -pg 1 -y -120 -defaultsOSRD
 preplace portBus out_PWM -pg 1 -y -80 -defaultsOSRD
-preplace inst pid_0 -pg 1 -lvl 2 -y -440 -defaultsOSRD
+preplace inst pid_0 -pg 1 -lvl 2 -y -320 -defaultsOSRD
 preplace inst AXI_UART_DRIVER_0 -pg 1 -lvl 2 -y 340 -defaultsOSRD
 preplace inst util_vector_logic_0 -pg 1 -lvl 1 -y 20 -defaultsOSRD
 preplace inst rcReceiver_0 -pg 1 -lvl 2 -y 180 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 3 -y 80 -defaultsOSRD
 preplace inst pwm_0 -pg 1 -lvl 4 -y -290 -defaultsOSRD
-preplace inst ps7_0_axi_periph -pg 1 -lvl 3 -y -70 -defaultsOSRD
-preplace inst flightmain_0 -pg 1 -lvl 2 -y -240 -defaultsOSRD
+preplace inst flightmain_0 -pg 1 -lvl 2 -y -160 -defaultsOSRD
 preplace inst axi_uart16550_0 -pg 1 -lvl 4 -y 120 -defaultsOSRD
 preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -y -130 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y -330 -defaultsOSRD
 preplace inst axi_quad_spi_0 -pg 1 -lvl 4 -y -80 -defaultsOSRD
-preplace netloc ps7_0_axi_periph_M02_AXI 1 1 3 630 -650 N -650 1630
-preplace netloc processing_system7_0_DDR 1 1 4 570 -680 N -680 NJ -680 2060J
-preplace netloc ps7_0_axi_periph_M09_AXI 1 3 1 1700
-preplace netloc rst_ps7_0_100M_peripheral_aresetn1 1 1 3 620 -150 1120 -560 1660
+preplace netloc ps7_0_axi_periph_M02_AXI 1 1 3 620 -530 N -530 1620
+preplace netloc processing_system7_0_DDR 1 1 4 570 -460 N -460 NJ -460 2090J
+preplace netloc ps7_0_axi_periph_M09_AXI 1 3 1 1680
+preplace netloc rst_ps7_0_100M_peripheral_aresetn1 1 1 3 610 -70 1110 -410 1650
 preplace netloc Op1_0_1 1 0 1 30J
 preplace netloc pid_0_m_axi_OUT_r 1 2 1 1090
-preplace netloc axi_quad_spi_0_ss_o 1 4 1 2040J
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 2 N -330 1070
-preplace netloc ps7_0_axi_periph_M07_AXI 1 3 1 1640J
+preplace netloc axi_quad_spi_0_ss_o 1 4 1 2070J
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 2 610 -410 1090
+preplace netloc ps7_0_axi_periph_M07_AXI 1 3 1 1640
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 40 -230 570
-preplace netloc util_vector_logic_0_Res 1 1 4 600 -600 N -600 N -600 2000
-preplace netloc flightmain_0_m_axi_OUT_r 1 2 1 1150
-preplace netloc rcReceiver_0_m_axi_OUT_r 1 2 1 1140
-preplace netloc AXI_UART_DRIVER_0_m_axi_UART 1 2 1 1080
-preplace netloc ps7_0_axi_periph_M03_AXI 1 1 3 640 -640 N -640 1620
-preplace netloc ps7_0_axi_periph_M01_AXI 1 3 1 1650J
-preplace netloc axi_quad_spi_0_io0_o 1 4 1 2040J
-preplace netloc axi_quad_spi_0_sck_o 1 4 1 2030J
-preplace netloc ps7_0_axi_periph_M11_AXI 1 1 3 690 -570 N -570 1570
-preplace netloc ps7_0_axi_periph_M08_AXI 1 3 1 1670
-preplace netloc ps7_0_axi_periph_M06_AXI 1 1 3 670 -610 N -610 1590
-preplace netloc processing_system7_0_FIXED_IO 1 1 4 580 -660 N -660 NJ -660 2050J
-preplace netloc AXI_UART_DRIVER_0_m_axi_OUT_r 1 2 1 1100
-preplace netloc ps7_0_axi_periph_M05_AXI 1 1 3 660 -620 N -620 1600
-preplace netloc ps7_0_axi_periph_M04_AXI 1 1 3 650 -630 N -630 1610
-preplace netloc MISO_1 1 0 5 20J -670 NJ -670 NJ -670 N -670 2010
-preplace netloc ps7_0_axi_periph_M10_AXI 1 1 3 680 -580 N -580 1580
-preplace netloc ps7_0_axi_periph_M00_AXI 1 3 1 1680J
-preplace netloc processing_system7_0_FCLK_CLK1 1 0 4 30 -430 590 -340 1110 -590 1690
-preplace netloc pwm_0_out_V 1 4 1 2020J
-preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 1 2 610 -350 1130
-levelinfo -pg 1 0 370 900 1420 1880 2120 -top -1160 -bot 1460
+preplace netloc util_vector_logic_0_Res 1 1 4 N 20 1080 -420 N -420 2030
+preplace netloc rcReceiver_0_m_axi_OUT_r 1 2 1 1120
+preplace netloc flightmain_0_m_axi_OUT_r 1 2 1 1100
+preplace netloc AXI_UART_DRIVER_0_m_axi_UART 1 2 1 1140
+preplace netloc ps7_0_axi_periph_M03_AXI 1 1 3 630 -520 N -520 1610
+preplace netloc ps7_0_axi_periph_M01_AXI 1 3 1 1660J
+preplace netloc axi_quad_spi_0_io0_o 1 4 1 2070J
+preplace netloc axi_quad_spi_0_sck_o 1 4 1 2060J
+preplace netloc ps7_0_axi_periph_M11_AXI 1 1 3 660 -430 N -430 1560
+preplace netloc ps7_0_axi_periph_M08_AXI 1 3 1 1630
+preplace netloc ps7_0_axi_periph_M06_AXI 1 1 3 680 -490 N -490 1580
+preplace netloc processing_system7_0_FIXED_IO 1 1 4 580 -440 N -440 NJ -440 2080J
+preplace netloc AXI_UART_DRIVER_0_m_axi_OUT_r 1 2 1 1150
+preplace netloc ps7_0_axi_periph_M05_AXI 1 1 3 670 -500 N -500 1590
+preplace netloc ps7_0_axi_periph_M04_AXI 1 1 3 640 -510 N -510 1600
+preplace netloc MISO_1 1 0 5 20J -470 NJ -470 NJ -470 N -470 2040
+preplace netloc ps7_0_axi_periph_M10_AXI 1 1 3 650 -480 N -480 1570
+preplace netloc ps7_0_axi_periph_M00_AXI 1 3 1 1660J
+preplace netloc processing_system7_0_FCLK_CLK1 1 0 4 30 -430 590 -450 1130 -450 1670
+preplace netloc pwm_0_out_V 1 4 1 2050J
+preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 1 2 600 -420 1070
+levelinfo -pg 1 0 370 900 1410 1880 2110 -top -1160 -bot 1570
 ",
 }
 {
-   da_axi4_cnt: "196",
+   da_axi4_cnt: "213",
    da_board_cnt: "3",
    da_clkrst_cnt: "7",
    da_ps7_cnt: "5",

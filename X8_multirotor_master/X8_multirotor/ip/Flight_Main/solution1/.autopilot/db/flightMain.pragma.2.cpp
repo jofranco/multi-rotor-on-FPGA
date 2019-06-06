@@ -24809,7 +24809,7 @@ typedef enum
 # 11 "Flight_Main/flightMain.cpp"
 void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32_t test[4096])
 {_ssdm_SpecArrayDimSize(rcCmdIn, 6);_ssdm_SpecArrayDimSize(obj_avd_cmd, 6);_ssdm_SpecArrayDimSize(cmdOut, 4096);_ssdm_SpecArrayDimSize(test, 4096);
-
+_ssdm_op_SpecPipeline(-1, 2, 1, 0, "");
 
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
 

@@ -2,8 +2,8 @@ set clock_constraint { \
     name clk \
     module rcReceiver \
     port ap_clk \
-    period 10 \
-    uncertainty 1.25 \
+    period 20 \
+    uncertainty 2.5 \
 }
 
 set all_path {}

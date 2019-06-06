@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Mon Jun  3 22:59:56 2019
-# Process ID: 2940
+# Start of session at: Thu Jun  6 02:09:28 2019
+# Process ID: 21620
 # Current directory: C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.runs/design_1_AXI_UART_DRIVER_0_1_synth_1
 # Command line: vivado.exe -log design_1_AXI_UART_DRIVER_0_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_AXI_UART_DRIVER_0_1.tcl
 # Log file: C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.runs/design_1_AXI_UART_DRIVER_0_1_synth_1/design_1_AXI_UART_DRIVER_0_1.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 17684 
+INFO: Helper process launched with PID 22344 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 389.176 ; gain = 99.043
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 389.660 ; gain = 98.285
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_AXI_UART_DRIVER_0_1' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_1/synth/design_1_AXI_UART_DRIVER_0_1.vhd:151]
 	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 4 - type: integer 
@@ -33,7 +33,7 @@ INFO: [Synth 8-638] synthesizing module 'design_1_AXI_UART_DRIVER_0_1' [c:/Users
 	Parameter C_M_AXI_UART_USER_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_UART_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_UART_CACHE_VALUE bound to: 3 - type: integer 
-	Parameter C_M_AXI_UART_TARGET_ADDR bound to: 1073872896 - type: integer 
+	Parameter C_M_AXI_UART_TARGET_ADDR bound to: 1088552960 - type: integer 
 	Parameter C_M_AXI_OUT_R_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_OUT_R_ADDR_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_OUT_R_DATA_WIDTH bound to: 32 - type: integer 
@@ -45,9 +45,9 @@ INFO: [Synth 8-638] synthesizing module 'design_1_AXI_UART_DRIVER_0_1' [c:/Users
 	Parameter C_M_AXI_OUT_R_USER_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_OUT_R_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_OUT_R_CACHE_VALUE bound to: 3 - type: integer 
-	Parameter C_M_AXI_OUT_R_TARGET_ADDR bound to: 1073754144 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:12' bound to instance 'U0' of component 'AXI_UART_DRIVER' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_1/synth/design_1_AXI_UART_DRIVER_0_1.vhd:408]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:154]
+	Parameter C_M_AXI_OUT_R_TARGET_ADDR bound to: 1088434208 - type: integer 
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:12' bound to instance 'U0' of component 'AXI_UART_DRIVER' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_1/synth/design_1_AXI_UART_DRIVER_0_1.vhd:408]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:154]
 	Parameter C_M_AXI_UART_ADDR_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_UART_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_UART_AWUSER_WIDTH bound to: 1 - type: integer 
@@ -66,48 +66,48 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER' [c:/Users/Aaron/Deskto
 	Parameter C_M_AXI_OUT_R_BUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
-	Parameter C_M_AXI_UART_TARGET_ADDR bound to: 1073872896 - type: integer 
+	Parameter C_M_AXI_UART_TARGET_ADDR bound to: 1088552960 - type: integer 
 	Parameter C_M_AXI_UART_USER_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_UART_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_UART_CACHE_VALUE bound to: 3 - type: integer 
-	Parameter C_M_AXI_OUT_R_TARGET_ADDR bound to: 1073754144 - type: integer 
+	Parameter C_M_AXI_OUT_R_TARGET_ADDR bound to: 1088434208 - type: integer 
 	Parameter C_M_AXI_OUT_R_USER_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_OUT_R_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_M_AXI_OUT_R_CACHE_VALUE bound to: 3 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:282]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:285]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:294]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:297]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:300]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:303]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:305]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:307]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:309]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:311]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:313]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:315]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:317]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:319]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:321]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:323]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:325]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:328]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:330]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:333]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:336]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:339]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:343]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:346]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:348]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:350]
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:432]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:282]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:285]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:294]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:297]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:300]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:303]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:305]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:307]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:309]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:311]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:313]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:315]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:317]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:319]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:321]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:323]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:325]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:328]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:330]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:333]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:336]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:339]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:343]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:346]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:348]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:350]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:432]
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_CTRL_s_axi' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_CTRL_s_axi.vhd:12' bound to instance 'AXI_UART_DRIVER_CTRL_s_axi_U' of component 'AXI_UART_DRIVER_CTRL_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:717]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_CTRL_s_axi.vhd:68]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_CTRL_s_axi' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_CTRL_s_axi.vhd:12' bound to instance 'AXI_UART_DRIVER_CTRL_s_axi_U' of component 'AXI_UART_DRIVER_CTRL_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:717]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_CTRL_s_axi.vhd:68]
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' (1#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_CTRL_s_axi.vhd:68]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' (1#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_CTRL_s_axi.vhd:68]
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
 	Parameter USER_DW bound to: 32 - type: integer 
 	Parameter USER_AW bound to: 32 - type: integer 
@@ -124,12 +124,12 @@ INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_CTRL_s_axi' (1#1) 
 	Parameter C_M_AXI_WUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_RUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_BUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073872896 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088552960 - type: integer 
 	Parameter C_USER_VALUE bound to: 0 - type: integer 
 	Parameter C_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_CACHE_VALUE bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:12' bound to instance 'AXI_UART_DRIVER_UART_m_axi_U' of component 'AXI_UART_DRIVER_UART_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:748]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:143]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:12' bound to instance 'AXI_UART_DRIVER_UART_m_axi_U' of component 'AXI_UART_DRIVER_UART_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:748]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:143]
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
@@ -137,7 +137,7 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi' [c:/Users/A
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073872896 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088552960 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
@@ -157,8 +157,8 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi' [c:/Users/A
 	Parameter DEPTH bound to: 16 - type: integer 
 	Parameter USER_MAXREQS bound to: 16 - type: integer 
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_throttl' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:954' bound to instance 'wreq_throttl' of component 'AXI_UART_DRIVER_UART_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:309]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1010]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_throttl' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:954' bound to instance 'wreq_throttl' of component 'AXI_UART_DRIVER_UART_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:309]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1010]
 	Parameter USED_FIX bound to: 0 - type: bool 
 	Parameter FIX_VALUE bound to: 4 - type: integer 
 	Parameter ADDR_WIDTH bound to: 32 - type: integer 
@@ -166,12 +166,12 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' [c:
 	Parameter DEPTH bound to: 16 - type: integer 
 	Parameter USER_MAXREQS bound to: 16 - type: integer 
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' (2#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1010]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl' (2#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1010]
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073872896 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088552960 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_WUSER_WIDTH bound to: 1 - type: integer 
@@ -182,13 +182,13 @@ INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_throttl
 	Parameter USER_DW bound to: 32 - type: integer 
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_write' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2136' bound to instance 'bus_write' of component 'AXI_UART_DRIVER_UART_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:347]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2224]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_write' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2136' bound to instance 'bus_write' of component 'AXI_UART_DRIVER_UART_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:347]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2224]
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073872896 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088552960 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_WUSER_WIDTH bound to: 1 - type: integer 
@@ -200,68 +200,68 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' [c:/U
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
 	Parameter N bound to: 64 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:471' bound to instance 'rs_wreq' of component 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2360]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:488]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:471' bound to instance 'rs_wreq' of component 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2360]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:488]
 	Parameter N bound to: 64 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' (3#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:488]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' (3#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:488]
 	Parameter DATA_BITS bound to: 64 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_wreq' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2373]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_wreq' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2373]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 64 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:705]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo' (4#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
+WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:705]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo' (4#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 36 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_buffer' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:722' bound to instance 'buff_wdata' of component 'AXI_UART_DRIVER_UART_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2772]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:744]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_buffer' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:722' bound to instance 'buff_wdata' of component 'AXI_UART_DRIVER_UART_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2772]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:744]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 36 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:744]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:744]
 	Parameter DATA_BITS bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_burst' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2804]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_burst' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2804]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:705]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
+WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:705]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 15 - type: integer 
 	Parameter DEPTH_BITS bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_resp' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:3236]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized3' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_resp' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:3236]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized3' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 15 - type: integer 
 	Parameter DEPTH_BITS bound to: 4 - type: integer 
-WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:705]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized3' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
+WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:705]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized3' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_resp_to_user' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:3252]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized5' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_resp_to_user' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:3252]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized5' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:705]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized5' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
-WARNING: [Synth 8-6014] Unused sequential element sect_end_buf_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2585]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2224]
+WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:705]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_fifo__parameterized5' (5#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:612]
+WARNING: [Synth 8-6014] Unused sequential element sect_end_buf_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2585]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:2224]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073872896 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088552960 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_RUSER_WIDTH bound to: 1 - type: integer 
@@ -271,13 +271,13 @@ INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_write' 
 	Parameter USER_DW bound to: 32 - type: integer 
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_read' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1193' bound to instance 'bus_read' of component 'AXI_UART_DRIVER_UART_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:411]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1271]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_read' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1193' bound to instance 'bus_read' of component 'AXI_UART_DRIVER_UART_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:411]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1271]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073872896 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088552960 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_RUSER_WIDTH bound to: 1 - type: integer 
@@ -288,36 +288,36 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' [c:/Us
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
 	Parameter N bound to: 64 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:471' bound to instance 'rs_rreq' of component 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1404]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:471' bound to instance 'rs_rreq' of component 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1404]
 	Parameter DATA_BITS bound to: 64 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_rreq' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1417]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_rreq' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1417]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 35 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_buffer' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:722' bound to instance 'fifo_rdata' of component 'AXI_UART_DRIVER_UART_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1794]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:744]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_buffer' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:722' bound to instance 'fifo_rdata' of component 'AXI_UART_DRIVER_UART_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1794]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:744]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 35 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer__parameterized1' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:744]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_buffer__parameterized1' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:744]
 	Parameter N bound to: 34 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:471' bound to instance 'rs_rdata' of component 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1812]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:488]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:471' bound to instance 'rs_rdata' of component 'AXI_UART_DRIVER_UART_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1812]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:488]
 	Parameter N bound to: 34 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized2' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:488]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized2' (6#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:488]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 15 - type: integer 
 	Parameter DEPTH_BITS bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_rctl' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1825]
-WARNING: [Synth 8-6014] Unused sequential element invalid_len_event_1_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1571]
-WARNING: [Synth 8-6014] Unused sequential element sect_end_buf_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1625]
-WARNING: [Synth 8-6014] Unused sequential element invalid_len_event_2_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1639]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' (7#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1271]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi' (8#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:143]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_UART_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:595' bound to instance 'fifo_rctl' of component 'AXI_UART_DRIVER_UART_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1825]
+WARNING: [Synth 8-6014] Unused sequential element invalid_len_event_1_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1571]
+WARNING: [Synth 8-6014] Unused sequential element sect_end_buf_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1625]
+WARNING: [Synth 8-6014] Unused sequential element invalid_len_event_2_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1639]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi_read' (7#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:1271]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi' (8#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:143]
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
 	Parameter USER_DW bound to: 8 - type: integer 
 	Parameter USER_AW bound to: 32 - type: integer 
@@ -334,12 +334,12 @@ INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_UART_m_axi' (8#1) 
 	Parameter C_M_AXI_WUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_RUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_BUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073754144 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088434208 - type: integer 
 	Parameter C_USER_VALUE bound to: 0 - type: integer 
 	Parameter C_PROT_VALUE bound to: 0 - type: integer 
 	Parameter C_CACHE_VALUE bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:12' bound to instance 'AXI_UART_DRIVER_OUT_r_m_axi_U' of component 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:865]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:143]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:12' bound to instance 'AXI_UART_DRIVER_OUT_r_m_axi_U' of component 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:865]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:143]
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
@@ -347,7 +347,7 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users/
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073754144 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088434208 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
@@ -367,8 +367,8 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' [c:/Users/
 	Parameter DEPTH bound to: 16 - type: integer 
 	Parameter USER_MAXREQS bound to: 16 - type: integer 
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:954' bound to instance 'wreq_throttl' of component 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:309]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1010]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:954' bound to instance 'wreq_throttl' of component 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:309]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1010]
 	Parameter USED_FIX bound to: 0 - type: bool 
 	Parameter FIX_VALUE bound to: 4 - type: integer 
 	Parameter ADDR_WIDTH bound to: 32 - type: integer 
@@ -376,12 +376,12 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' [c
 	Parameter DEPTH bound to: 16 - type: integer 
 	Parameter USER_MAXREQS bound to: 16 - type: integer 
 	Parameter CONSERVATIVE bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' (9#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1010]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_throttl' (9#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1010]
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073754144 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088434208 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_WUSER_WIDTH bound to: 1 - type: integer 
@@ -392,13 +392,13 @@ INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_thrott
 	Parameter USER_DW bound to: 8 - type: integer 
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_write' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2136' bound to instance 'bus_write' of component 'AXI_UART_DRIVER_OUT_r_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:347]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2224]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_write' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2136' bound to instance 'bus_write' of component 'AXI_UART_DRIVER_OUT_r_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:347]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2224]
 	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073754144 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088434208 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_WUSER_WIDTH bound to: 1 - type: integer 
@@ -410,80 +410,80 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' [c:/
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
 	Parameter N bound to: 64 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:471' bound to instance 'rs_wreq' of component 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2360]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:488]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:471' bound to instance 'rs_wreq' of component 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2360]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:488]
 	Parameter N bound to: 64 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:488]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' (10#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:488]
 	Parameter DATA_BITS bound to: 64 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_wreq' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2373]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_wreq' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2373]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 64 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:705]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
+WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:705]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' (11#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 9 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:722' bound to instance 'buff_wdata' of component 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2772]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:744]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:722' bound to instance 'buff_wdata' of component 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2772]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:744]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 9 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:744]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:744]
 	Parameter DATA_BITS bound to: 12 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_burst' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3068]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_burst' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3068]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 12 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:705]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
+WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:705]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1' (12#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
 	Parameter DIN_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:931' bound to instance 'head_pad_decoder' of component 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3091]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:939]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:931' bound to instance 'head_pad_decoder' of component 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3091]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:939]
 	Parameter DIN_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-6054] Found Dynamic range expression with variable size [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:945]
-WARNING: [Synth 8-614] signal 'dout' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:941]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:939]
+INFO: [Synth 8-6054] Found Dynamic range expression with variable size [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:945]
+WARNING: [Synth 8-614] signal 'dout' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:941]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:939]
 	Parameter DIN_WIDTH bound to: 2 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:931' bound to instance 'tail_pad_decoder' of component 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3098]
-WARNING: [Synth 8-614] signal 'ACLK_EN' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3173]
-WARNING: [Synth 8-614] signal 'ACLK_EN' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3173]
-WARNING: [Synth 8-614] signal 'ACLK_EN' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3173]
-WARNING: [Synth 8-614] signal 'ACLK_EN' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3173]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:931' bound to instance 'tail_pad_decoder' of component 'AXI_UART_DRIVER_OUT_r_m_axi_decoder' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3098]
+WARNING: [Synth 8-614] signal 'ACLK_EN' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3173]
+WARNING: [Synth 8-614] signal 'ACLK_EN' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3173]
+WARNING: [Synth 8-614] signal 'ACLK_EN' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3173]
+WARNING: [Synth 8-614] signal 'ACLK_EN' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3173]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 15 - type: integer 
 	Parameter DEPTH_BITS bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_resp' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3236]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized3' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_resp' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3236]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized3' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 15 - type: integer 
 	Parameter DEPTH_BITS bound to: 4 - type: integer 
-WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:705]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized3' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
+WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:705]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized3' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_resp_to_user' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3252]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized5' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_resp_to_user' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:3252]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized5' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:705]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized5' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2224]
+WARNING: [Synth 8-614] signal 'sclk_en' is read in the process but is not in the sensitivity list [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:705]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized5' (13#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:612]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:2224]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073754144 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088434208 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_RUSER_WIDTH bound to: 1 - type: integer 
@@ -493,13 +493,13 @@ INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_write'
 	Parameter USER_DW bound to: 8 - type: integer 
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_read' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1193' bound to instance 'bus_read' of component 'AXI_UART_DRIVER_OUT_r_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:411]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1271]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_read' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1193' bound to instance 'bus_read' of component 'AXI_UART_DRIVER_OUT_r_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:411]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1271]
 	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
 	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
 	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_TARGET_ADDR bound to: 1073754144 - type: integer 
+	Parameter C_TARGET_ADDR bound to: 1088434208 - type: integer 
 	Parameter C_M_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXI_RUSER_WIDTH bound to: 1 - type: integer 
@@ -510,40 +510,40 @@ INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' [c:/U
 	Parameter USER_AW bound to: 32 - type: integer 
 	Parameter USER_MAXREQS bound to: 5 - type: integer 
 	Parameter N bound to: 64 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:471' bound to instance 'rs_rreq' of component 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1404]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:471' bound to instance 'rs_rreq' of component 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1404]
 	Parameter DATA_BITS bound to: 64 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_rreq' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1417]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_rreq' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1417]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 35 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:722' bound to instance 'fifo_rdata' of component 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1794]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:744]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:722' bound to instance 'fifo_rdata' of component 'AXI_UART_DRIVER_OUT_r_m_axi_buffer' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1794]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized1' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:744]
 	Parameter MEM_STYLE bound to: block - type: string 
 	Parameter DATA_WIDTH bound to: 35 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DEPTH bound to: 256 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized1' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:744]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized1' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:744]
 	Parameter N bound to: 10 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:471' bound to instance 'rs_rdata' of component 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1812]
-INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:488]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:471' bound to instance 'rs_rdata' of component 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1812]
+INFO: [Synth 8-638] synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized2' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:488]
 	Parameter N bound to: 10 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized2' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:488]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized2' (14#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:488]
 	Parameter DATA_BITS bound to: 2 - type: integer 
 	Parameter DEPTH bound to: 15 - type: integer 
 	Parameter DEPTH_BITS bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_rctl' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1825]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_rctl' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1825]
 	Parameter DATA_BITS bound to: 12 - type: integer 
 	Parameter DEPTH bound to: 5 - type: integer 
 	Parameter DEPTH_BITS bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_burst' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1918]
-WARNING: [Synth 8-6014] Unused sequential element invalid_len_event_1_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1571]
-WARNING: [Synth 8-6014] Unused sequential element invalid_len_event_2_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1639]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' (15#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1271]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' (16#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:143]
-INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER' (17#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER.vhd:154]
+INFO: [Synth 8-3491] module 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' declared at 'c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:595' bound to instance 'fifo_burst' of component 'AXI_UART_DRIVER_OUT_r_m_axi_fifo' [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1918]
+WARNING: [Synth 8-6014] Unused sequential element invalid_len_event_1_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1571]
+WARNING: [Synth 8-6014] Unused sequential element invalid_len_event_2_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1639]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi_read' (15#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:1271]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER_OUT_r_m_axi' (16#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:143]
+INFO: [Synth 8-256] done synthesizing module 'AXI_UART_DRIVER' (17#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER.vhd:154]
 INFO: [Synth 8-256] done synthesizing module 'design_1_AXI_UART_DRIVER_0_1' (18#1) [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_1/synth/design_1_AXI_UART_DRIVER_0_1.vhd:151]
 WARNING: [Synth 8-3331] design AXI_UART_DRIVER_OUT_r_m_axi_read has unconnected port RID[0]
 WARNING: [Synth 8-3331] design AXI_UART_DRIVER_OUT_r_m_axi_read has unconnected port RUSER[0]
@@ -647,7 +647,7 @@ WARNING: [Synth 8-3331] design AXI_UART_DRIVER_CTRL_s_axi has unconnected port W
 WARNING: [Synth 8-3331] design AXI_UART_DRIVER_CTRL_s_axi has unconnected port WDATA[10]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 472.348 ; gain = 182.215
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 472.016 ; gain = 180.641
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -660,10 +660,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 472.348 ; gain = 182.215
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 472.016 ; gain = 180.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 472.348 ; gain = 182.215
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 472.016 ; gain = 180.641
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -679,23 +679,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.176 . Memory (MB): peak = 853.668 ; gain = 2.996
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.250 . Memory (MB): peak = 856.016 ; gain = 3.211
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 853.668 ; gain = 563.535
+Finished Constraint Validation : Time (s): cpu = 00:00:41 ; elapsed = 00:00:53 . Memory (MB): peak = 856.016 ; gain = 564.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 853.668 ; gain = 563.535
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:41 ; elapsed = 00:00:53 . Memory (MB): peak = 856.016 ; gain = 564.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.runs/design_1_AXI_UART_DRIVER_0_1_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 853.668 ; gain = 563.535
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:53 . Memory (MB): peak = 856.016 ; gain = 564.641
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'AXI_UART_DRIVER_CTRL_s_axi'
 INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'AXI_UART_DRIVER_CTRL_s_axi'
@@ -714,11 +714,11 @@ INFO: [Synth 8-5544] ROM "load_p1_from_p2" won't be mapped to Block RAM because 
 INFO: [Synth 8-5544] ROM "next_st" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_st" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_st" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:804]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:804]
 INFO: [Synth 8-5546] ROM "full_n" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "empty_n" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:696]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:804]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:696]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:804]
 INFO: [Synth 8-5546] ROM "full_n" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "empty_n" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized2'
@@ -732,11 +732,11 @@ INFO: [Synth 8-5544] ROM "load_p1_from_p2" won't be mapped to Block RAM because 
 INFO: [Synth 8-5544] ROM "next_st" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_st" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_st" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:804]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:804]
 INFO: [Synth 8-5546] ROM "full_n" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "empty_n" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:696]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:804]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:696]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:804]
 INFO: [Synth 8-5546] ROM "full_n" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "empty_n" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized2'
@@ -826,7 +826,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized2'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 853.668 ; gain = 563.535
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:47 ; elapsed = 00:01:01 . Memory (MB): peak = 856.016 ; gain = 564.641
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1328,10 +1328,10 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-6014] Unused sequential element bus_read/fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:638]
+WARNING: [Synth 8-6014] Unused sequential element bus_read/fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_UART_m_axi.vhd:638]
 INFO: [Synth 8-5546] ROM "wreq_throttl/req_en" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "req_en" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/093b/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:638]
+WARNING: [Synth 8-6014] Unused sequential element fifo_rctl/q_reg was removed.  [c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ipshared/66a5/hdl/vhdl/AXI_UART_DRIVER_OUT_r_m_axi.vhd:638]
 INFO: [Synth 8-5546] ROM "tmp_fu_321_p2" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "tmp_5_fu_357_p2" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U0/AXI_UART_DRIVER_OUT_r_m_axi_U/\bus_read/rs_rreq/data_p2_reg[4] )
@@ -1638,7 +1638,7 @@ WARNING: [Synth 8-3332] Sequential element (bus_read/bus_equal_gen.data_buf_reg[
 WARNING: [Synth 8-3332] Sequential element (bus_read/bus_equal_gen.data_buf_reg[20]) is unused and will be removed from module AXI_UART_DRIVER_UART_m_axi.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 853.668 ; gain = 563.535
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:08 ; elapsed = 00:01:27 . Memory (MB): peak = 856.016 ; gain = 564.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1670,13 +1670,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:08 ; elapsed = 00:01:14 . Memory (MB): peak = 853.668 ; gain = 563.535
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:31 ; elapsed = 00:01:58 . Memory (MB): peak = 856.016 ; gain = 564.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:11 ; elapsed = 00:01:17 . Memory (MB): peak = 858.805 ; gain = 568.672
+Finished Timing Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:02:03 . Memory (MB): peak = 856.016 ; gain = 564.641
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1707,7 +1707,7 @@ INFO: [Synth 8-4480] The timing for the instance U0/AXI_UART_DRIVER_UART_m_axi_U
 INFO: [Synth 8-4480] The timing for the instance U0/AXI_UART_DRIVER_UART_m_axi_U/bus_read/fifo_rdata/mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance U0/AXI_UART_DRIVER_OUT_r_m_axi_U/bus_write/buff_wdata/mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:13 ; elapsed = 00:01:19 . Memory (MB): peak = 868.957 ; gain = 578.824
+Finished Technology Mapping : Time (s): cpu = 00:01:39 ; elapsed = 00:02:06 . Memory (MB): peak = 866.461 ; gain = 575.086
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1731,7 +1731,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:15 ; elapsed = 00:01:21 . Memory (MB): peak = 868.957 ; gain = 578.824
+Finished IO Insertion : Time (s): cpu = 00:01:41 ; elapsed = 00:02:09 . Memory (MB): peak = 866.461 ; gain = 575.086
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1744,7 +1744,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:15 ; elapsed = 00:01:21 . Memory (MB): peak = 868.957 ; gain = 578.824
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:41 ; elapsed = 00:02:09 . Memory (MB): peak = 866.461 ; gain = 575.086
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1756,25 +1756,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:16 ; elapsed = 00:01:22 . Memory (MB): peak = 868.957 ; gain = 578.824
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:42 ; elapsed = 00:02:10 . Memory (MB): peak = 866.461 ; gain = 575.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:16 ; elapsed = 00:01:22 . Memory (MB): peak = 868.957 ; gain = 578.824
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:42 ; elapsed = 00:02:10 . Memory (MB): peak = 866.461 ; gain = 575.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:16 ; elapsed = 00:01:22 . Memory (MB): peak = 868.957 ; gain = 578.824
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:42 ; elapsed = 00:02:10 . Memory (MB): peak = 866.461 ; gain = 575.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:16 ; elapsed = 00:01:22 . Memory (MB): peak = 868.957 ; gain = 578.824
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:42 ; elapsed = 00:02:10 . Memory (MB): peak = 866.461 ; gain = 575.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1813,11 +1813,11 @@ Report Cell Usage:
 +------+-----------+------+
 |1     |CARRY4     |    92|
 |2     |LUT1       |    20|
-|3     |LUT2       |   276|
-|4     |LUT3       |   223|
-|5     |LUT4       |   159|
-|6     |LUT5       |   160|
-|7     |LUT6       |   213|
+|3     |LUT2       |   267|
+|4     |LUT3       |   237|
+|5     |LUT4       |   164|
+|6     |LUT5       |   161|
+|7     |LUT6       |   212|
 |8     |RAMB18E1   |     2|
 |9     |RAMB18E1_1 |     1|
 |10    |SRL16E     |    32|
@@ -1829,15 +1829,15 @@ Report Instance Areas:
 +------+-----------------------------------+------------------------------------------------------+------+
 |      |Instance                           |Module                                                |Cells |
 +------+-----------------------------------+------------------------------------------------------+------+
-|1     |top                                |                                                      |  2232|
-|2     |  U0                               |AXI_UART_DRIVER                                       |  2232|
+|1     |top                                |                                                      |  2242|
+|2     |  U0                               |AXI_UART_DRIVER                                       |  2242|
 |3     |    AXI_UART_DRIVER_CTRL_s_axi_U   |AXI_UART_DRIVER_CTRL_s_axi                            |    59|
-|4     |    AXI_UART_DRIVER_OUT_r_m_axi_U  |AXI_UART_DRIVER_OUT_r_m_axi                           |   756|
+|4     |    AXI_UART_DRIVER_OUT_r_m_axi_U  |AXI_UART_DRIVER_OUT_r_m_axi                           |   759|
 |5     |      bus_read                     |AXI_UART_DRIVER_OUT_r_m_axi_read                      |    45|
 |6     |        fifo_rdata                 |AXI_UART_DRIVER_OUT_r_m_axi_buffer__parameterized1    |    29|
 |7     |        rs_rdata                   |AXI_UART_DRIVER_OUT_r_m_axi_reg_slice__parameterized2 |     8|
 |8     |        rs_rreq                    |AXI_UART_DRIVER_OUT_r_m_axi_reg_slice_3               |     3|
-|9     |      bus_write                    |AXI_UART_DRIVER_OUT_r_m_axi_write                     |   692|
+|9     |      bus_write                    |AXI_UART_DRIVER_OUT_r_m_axi_write                     |   695|
 |10    |        buff_wdata                 |AXI_UART_DRIVER_OUT_r_m_axi_buffer                    |   112|
 |11    |        \bus_wide_gen.fifo_burst   |AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized1      |    94|
 |12    |        fifo_resp                  |AXI_UART_DRIVER_OUT_r_m_axi_fifo__parameterized3      |    28|
@@ -1845,16 +1845,16 @@ Report Instance Areas:
 |14    |        fifo_wreq                  |AXI_UART_DRIVER_OUT_r_m_axi_fifo                      |    57|
 |15    |        rs_wreq                    |AXI_UART_DRIVER_OUT_r_m_axi_reg_slice                 |    28|
 |16    |      wreq_throttl                 |AXI_UART_DRIVER_OUT_r_m_axi_throttl                   |    19|
-|17    |    AXI_UART_DRIVER_UART_m_axi_U   |AXI_UART_DRIVER_UART_m_axi                            |  1256|
-|18    |      bus_read                     |AXI_UART_DRIVER_UART_m_axi_read                       |   553|
+|17    |    AXI_UART_DRIVER_UART_m_axi_U   |AXI_UART_DRIVER_UART_m_axi                            |  1263|
+|18    |      bus_read                     |AXI_UART_DRIVER_UART_m_axi_read                       |   556|
 |19    |        fifo_rctl                  |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized3_0     |    33|
 |20    |        fifo_rdata                 |AXI_UART_DRIVER_UART_m_axi_buffer__parameterized1     |   101|
 |21    |        fifo_rreq                  |AXI_UART_DRIVER_UART_m_axi_fifo_1                     |    60|
 |22    |        rs_rdata                   |AXI_UART_DRIVER_UART_m_axi_reg_slice__parameterized2  |    65|
 |23    |        rs_rreq                    |AXI_UART_DRIVER_UART_m_axi_reg_slice_2                |    28|
-|24    |      bus_write                    |AXI_UART_DRIVER_UART_m_axi_write                      |   684|
-|25    |        buff_wdata                 |AXI_UART_DRIVER_UART_m_axi_buffer                     |   168|
-|26    |        \bus_equal_gen.fifo_burst  |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1       |    36|
+|24    |      bus_write                    |AXI_UART_DRIVER_UART_m_axi_write                      |   688|
+|25    |        buff_wdata                 |AXI_UART_DRIVER_UART_m_axi_buffer                     |   167|
+|26    |        \bus_equal_gen.fifo_burst  |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized1       |    38|
 |27    |        fifo_resp                  |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized3       |    55|
 |28    |        fifo_resp_to_user          |AXI_UART_DRIVER_UART_m_axi_fifo__parameterized5       |    36|
 |29    |        fifo_wreq                  |AXI_UART_DRIVER_UART_m_axi_fifo                       |    41|
@@ -1862,11 +1862,11 @@ Report Instance Areas:
 |31    |      wreq_throttl                 |AXI_UART_DRIVER_UART_m_axi_throttl                    |    19|
 +------+-----------------------------------+------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:16 ; elapsed = 00:01:22 . Memory (MB): peak = 868.957 ; gain = 578.824
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:42 ; elapsed = 00:02:10 . Memory (MB): peak = 866.461 ; gain = 575.086
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 895 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:50 ; elapsed = 00:01:03 . Memory (MB): peak = 868.957 ; gain = 197.504
-Synthesis Optimization Complete : Time (s): cpu = 00:01:16 ; elapsed = 00:01:22 . Memory (MB): peak = 868.957 ; gain = 578.824
+Synthesis finished with 0 errors, 0 critical warnings and 877 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:07 ; elapsed = 00:01:42 . Memory (MB): peak = 866.461 ; gain = 191.086
+Synthesis Optimization Complete : Time (s): cpu = 00:01:42 ; elapsed = 00:02:11 . Memory (MB): peak = 866.461 ; gain = 575.086
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 95 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1878,7 +1878,7 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 427 Infos, 221 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:20 ; elapsed = 00:01:26 . Memory (MB): peak = 868.957 ; gain = 585.746
+synth_design: Time (s): cpu = 00:01:47 ; elapsed = 00:02:17 . Memory (MB): peak = 866.461 ; gain = 583.754
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.runs/design_1_AXI_UART_DRIVER_0_1_synth_1/design_1_AXI_UART_DRIVER_0_1.dcp' has been generated.
 INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_AXI_UART_DRIVER_0_1/design_1_AXI_UART_DRIVER_0_1.xci
@@ -1886,5 +1886,5 @@ INFO: [Coretcl 2-1174] Renamed 30 cell refs.
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.runs/design_1_AXI_UART_DRIVER_0_1_synth_1/design_1_AXI_UART_DRIVER_0_1.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_AXI_UART_DRIVER_0_1_utilization_synth.rpt -pb design_1_AXI_UART_DRIVER_0_1_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.102 . Memory (MB): peak = 868.957 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Jun  3 23:01:36 2019...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.164 . Memory (MB): peak = 866.461 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Jun  6 02:12:11 2019...

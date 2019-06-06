@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'rcReceiver'" level="0">
-<item name = "Date">Tue Jun  4 20:26:22 2019
+<item name = "Date">Thu Jun  6 02:01:45 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">RC_Receiver</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 8.750, 1.25</column>
+<column name="ap_clk">20.00, 17.500, 2.50</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">28, 28, 23, 23, function</column>
+<column name="">24, 24, 23, 23, function</column>
 </table>
 </item>
 <item name = "Detail">

@@ -1,18 +1,18 @@
 set C_TypeInfoList {{ 
 "pid" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"cmdIn": [[], {"array": ["0", [6]]}] }, {"measured": [[], {"array": ["0", [6]]}] }, {"kp": [[], {"array": ["1", [6]]}] }, {"kd": [[], {"array": ["1", [4]]}] }, {"ki": [[], {"array": ["1", [4]]}] }, {"commandOut": [[], {"array": ["0", [9]]}] }, {"test": [[], {"array": ["1", [4096]]}] }],[],""], 
-"1": [ "F32_t", {"typedef": [[[],"2"],""]}], 
-"0": [ "F16_t", {"typedef": [[[],"3"],""]}], 
-"3": [ "ap_fixed<16, 3, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 16}}],[[], {"scalar": { "int": 3}}],[[], {"scalar": { "4": 5}}],[[], {"scalar": { "5": 3}}],[[], {"scalar": { "int": 0}}]],""]}}], 
-"5": [ "ap_o_mode", {"enum": [[],[],[{"SC_SAT":  {"scalar": "__integer__"}},{"SC_SAT_ZERO":  {"scalar": "__integer__"}},{"SC_SAT_SYM":  {"scalar": "__integer__"}},{"SC_WRAP":  {"scalar": "__integer__"}},{"SC_WRAP_SM":  {"scalar": "__integer__"}}],""]}], 
-"4": [ "ap_q_mode", {"enum": [[],[],[{"SC_RND":  {"scalar": "__integer__"}},{"SC_RND_ZERO":  {"scalar": "__integer__"}},{"SC_RND_MIN_INF":  {"scalar": "__integer__"}},{"SC_RND_INF":  {"scalar": "__integer__"}},{"SC_RND_CONV":  {"scalar": "__integer__"}},{"SC_TRN":  {"scalar": "__integer__"}},{"SC_TRN_ZERO":  {"scalar": "__integer__"}}],""]}], 
-"2": [ "ap_fixed<32, 19, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 32}}],[[], {"scalar": { "int": 19}}],[[], {"scalar": { "4": 5}}],[[], {"scalar": { "5": 3}}],[[], {"scalar": { "int": 0}}]],""]}}]
+"0": [ "F16_t", {"typedef": [[[],"2"],""]}], 
+"2": [ "ap_fixed<16, 3, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 16}}],[[], {"scalar": { "int": 3}}],[[], {"scalar": { "3": 5}}],[[], {"scalar": { "4": 3}}],[[], {"scalar": { "int": 0}}]],""]}}], 
+"3": [ "ap_q_mode", {"enum": [[],[],[{"SC_RND":  {"scalar": "__integer__"}},{"SC_RND_ZERO":  {"scalar": "__integer__"}},{"SC_RND_MIN_INF":  {"scalar": "__integer__"}},{"SC_RND_INF":  {"scalar": "__integer__"}},{"SC_RND_CONV":  {"scalar": "__integer__"}},{"SC_TRN":  {"scalar": "__integer__"}},{"SC_TRN_ZERO":  {"scalar": "__integer__"}}],""]}], 
+"1": [ "F32_t", {"typedef": [[[],"5"],""]}], 
+"5": [ "ap_fixed<32, 19, 5, 3, 0>", {"hls_type": {"ap_fixed": [[[[], {"scalar": { "int": 32}}],[[], {"scalar": { "int": 19}}],[[], {"scalar": { "3": 5}}],[[], {"scalar": { "4": 3}}],[[], {"scalar": { "int": 0}}]],""]}}], 
+"4": [ "ap_o_mode", {"enum": [[],[],[{"SC_SAT":  {"scalar": "__integer__"}},{"SC_SAT_ZERO":  {"scalar": "__integer__"}},{"SC_SAT_SYM":  {"scalar": "__integer__"}},{"SC_WRAP":  {"scalar": "__integer__"}},{"SC_WRAP_SM":  {"scalar": "__integer__"}}],""]}]
 }}
 set moduleName pid
 set isTaskLevelControl 1
 set isCombinational 0
 set isDatapathOnly 0
-set isPipelined 0
-set pipeline_type none
+set isPipelined 1
+set pipeline_type function_flushable
 set FunctionProtocol ap_ctrl_hs
 set isOneStateSeq 0
 set ProfileFlag 0
@@ -208,13 +208,13 @@ set NewPortList {[
  	{ "name": "m_axi_OUT_r_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "OUT_r", "role": "BUSER" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3"],
 		"CDFG" : "pid",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "37", "EstimateLatencyMax" : "43",
+		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "22",
+		"VariableLatency" : "0", "ExactLatency" : "26", "EstimateLatencyMin" : "26", "EstimateLatencyMax" : "26",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -233,7 +233,6 @@ set RtlHierarchyInfo {[
 					{"Name" : "OUT_r_blk_n_W", "Type" : "RtlSignal"},
 					{"Name" : "OUT_r_blk_n_B", "Type" : "RtlSignal"}]},
 			{"Name" : "test_V", "Type" : "Memory", "Direction" : "O"},
-			{"Name" : "buffer_V", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "integral_pos_V_0", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "last_error_pos_V_0", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "integral_pos_V_1", "Type" : "OVld", "Direction" : "IO"},
@@ -242,22 +241,20 @@ set RtlHierarchyInfo {[
 			{"Name" : "last_error_rate_V_0", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "integral_rate_V_1", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "last_error_rate_V_1", "Type" : "OVld", "Direction" : "IO"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.buffer_V_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pid_CTRL_s_axi_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pid_TEST_s_axi_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pid_OUT_r_m_axi_U", "Parent" : "0"}]}
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pid_CTRL_s_axi_U", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pid_TEST_s_axi_U", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pid_OUT_r_m_axi_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	pid {
-		cmdIn_V {Type I LastRead 1 FirstWrite -1}
-		measured_V {Type I LastRead 13 FirstWrite -1}
-		kp_V {Type I LastRead 13 FirstWrite -1}
-		kd_V {Type I LastRead 12 FirstWrite -1}
-		ki_V {Type I LastRead 11 FirstWrite -1}
-		OUT_r {Type O LastRead 27 FirstWrite 19}
-		test_V {Type O LastRead -1 FirstWrite 2}
-		buffer_V {Type IO LastRead -1 FirstWrite -1}
+		cmdIn_V {Type I LastRead 5 FirstWrite -1}
+		measured_V {Type I LastRead 5 FirstWrite -1}
+		kp_V {Type I LastRead 5 FirstWrite -1}
+		kd_V {Type I LastRead 3 FirstWrite -1}
+		ki_V {Type I LastRead 3 FirstWrite -1}
+		OUT_r {Type O LastRead 22 FirstWrite 14}
+		test_V {Type O LastRead -1 FirstWrite 4}
 		integral_pos_V_0 {Type IO LastRead -1 FirstWrite -1}
 		last_error_pos_V_0 {Type IO LastRead -1 FirstWrite -1}
 		integral_pos_V_1 {Type IO LastRead -1 FirstWrite -1}
@@ -270,8 +267,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "37", "Max" : "43"}
-	, {"Name" : "Interval", "Min" : "38", "Max" : "44"}
+	{"Name" : "Latency", "Min" : "26", "Max" : "26"}
+	, {"Name" : "Interval", "Min" : "22", "Max" : "22"}
 ]}
 
 set PipelineEnableSignalInfo {[

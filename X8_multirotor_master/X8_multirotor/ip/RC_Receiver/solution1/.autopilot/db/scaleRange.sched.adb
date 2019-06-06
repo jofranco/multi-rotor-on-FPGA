@@ -6,9 +6,9 @@
 	<userIPName></userIPName>
 	<cdfg class_id="1" tracking_level="1" version="0" object_id="_0">
 		<name>scaleRange</name>
-		<ret_bitwidth>13</ret_bitwidth>
+		<ret_bitwidth>15</ret_bitwidth>
 		<ports class_id="2" tracking_level="0" version="0">
-			<count>1</count>
+			<count>2</count>
 			<item_version>0</item_version>
 			<item class_id="3" tracking_level="1" version="0" object_id="_1">
 				<Value class_id="4" tracking_level="0" version="0">
@@ -38,15 +38,75 @@
 					<item_version>0</item_version>
 				</bit_vecs>
 			</item>
+			<item class_id_reference="3" object_id="_2">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>2</id>
+						<name>destFrom_V</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>op.V</originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>15</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
 		</ports>
 		<nodes class_id="8" tracking_level="0" version="0">
-			<count>11</count>
+			<count>16</count>
 			<item_version>0</item_version>
-			<item class_id="9" tracking_level="1" version="0" object_id="_2">
+			<item class_id="9" tracking_level="1" version="0" object_id="_3">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>2</id>
+						<id>3</id>
+						<name>destFrom_V_read</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>op.V</originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>15</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>22</item>
+					<item>23</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_delay>0.00</m_delay>
+			</item>
+			<item class_id_reference="9" object_id="_4">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>4</id>
 						<name>x_read</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -65,8 +125,8 @@
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>15</item>
-					<item>16</item>
+					<item>25</item>
+					<item>26</item>
 				</oprand_edges>
 				<opcode>read</opcode>
 				<m_Display>0</m_Display>
@@ -74,15 +134,15 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_delay>0.00</m_delay>
 			</item>
-			<item class_id_reference="9" object_id="_3">
+			<item class_id_reference="9" object_id="_5">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>3</id>
-						<name>p_Val2_s</name>
+						<id>6</id>
+						<name>tmp_1</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>100</lineNumber>
+						<lineNumber>138</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -97,100 +157,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>100</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName>__Val2__</originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>27</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>3</count>
-					<item_version>0</item_version>
-					<item>18</item>
-					<item>19</item>
-					<item>21</item>
-				</oprand_edges>
-				<opcode>bitconcatenate</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>0.00</m_delay>
-			</item>
-			<item class_id_reference="9" object_id="_4">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>4</id>
-						<name>r_V</name>
-						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
-						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>100</lineNumber>
-						<contextFuncName>scaleRange</contextFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>RC_Receiver/RC_Receiver.cpp</first>
-											<second>scaleRange</second>
-										</first>
-										<second>100</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName>r.V</originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>27</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>22</item>
-					<item>24</item>
-				</oprand_edges>
-				<opcode>add</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>2.40</m_delay>
-			</item>
-			<item class_id_reference="9" object_id="_5">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>5</id>
-						<name>OP2_V_cast</name>
-						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
-						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>100</lineNumber>
-						<contextFuncName>scaleRange</contextFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>RC_Receiver/RC_Receiver.cpp</first>
-											<second>scaleRange</second>
-										</first>
-										<second>100</second>
+										<second>138</second>
 									</item>
 								</second>
 							</item>
@@ -199,14 +166,14 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>43</bitwidth>
+					<bitwidth>14</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>25</item>
+					<item>27</item>
 				</oprand_edges>
-				<opcode>zext</opcode>
+				<opcode>trunc</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
@@ -216,11 +183,11 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>6</id>
-						<name>p_Val2_1</name>
+						<id>7</id>
+						<name>r_V</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>100</lineNumber>
+						<lineNumber>138</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -235,38 +202,38 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>100</second>
+										<second>138</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName></originalName>
+						<originalName>r.V</originalName>
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>43</bitwidth>
+					<bitwidth>14</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
-					<item>26</item>
-					<item>28</item>
+					<item>29</item>
+					<item>30</item>
 				</oprand_edges>
-				<opcode>mul</opcode>
+				<opcode>sub</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>7.18</m_delay>
+				<m_delay>1.81</m_delay>
 			</item>
 			<item class_id_reference="9" object_id="_7">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>7</id>
-						<name>tmp_1</name>
+						<id>8</id>
+						<name>p_Val2_s</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>100</lineNumber>
+						<lineNumber>138</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -281,26 +248,25 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>100</second>
+										<second>138</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName></originalName>
+						<originalName>__Val2__</originalName>
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>27</bitwidth>
+					<bitwidth>24</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>4</count>
+					<count>3</count>
 					<item_version>0</item_version>
-					<item>30</item>
-					<item>31</item>
+					<item>32</item>
 					<item>33</item>
 					<item>35</item>
 				</oprand_edges>
-				<opcode>partselect</opcode>
+				<opcode>bitconcatenate</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
@@ -310,11 +276,11 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>8</id>
-						<name>tmp_4</name>
+						<id>9</id>
+						<name>r_V_1</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>102</lineNumber>
+						<lineNumber>138</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -329,25 +295,24 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>102</second>
+										<second>138</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName></originalName>
+						<originalName>r.V</originalName>
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>43</bitwidth>
+					<bitwidth>24</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>3</count>
+					<count>2</count>
 					<item_version>0</item_version>
 					<item>37</item>
 					<item>38</item>
-					<item>39</item>
 				</oprand_edges>
-				<opcode>bitconcatenate</opcode>
+				<opcode>add</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
@@ -357,11 +322,11 @@
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>9</id>
-						<name>zext_cast</name>
+						<id>10</id>
+						<name>OP1_V_cast</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>102</lineNumber>
+						<lineNumber>138</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -376,7 +341,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>102</second>
+										<second>138</second>
 									</item>
 								</second>
 							</item>
@@ -385,7 +350,52 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>87</bitwidth>
+					<bitwidth>38</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>39</item>
+				</oprand_edges>
+				<opcode>zext</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_delay>0.00</m_delay>
+			</item>
+			<item class_id_reference="9" object_id="_10">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>11</id>
+						<name>OP2_V_cast</name>
+						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
+						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
+						<lineNumber>138</lineNumber>
+						<contextFuncName>scaleRange</contextFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>RC_Receiver/RC_Receiver.cpp</first>
+											<second>scaleRange</second>
+										</first>
+										<second>138</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>38</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>1</count>
@@ -398,15 +408,15 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_delay>0.00</m_delay>
 			</item>
-			<item class_id_reference="9" object_id="_10">
+			<item class_id_reference="9" object_id="_11">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>10</id>
-						<name>mul</name>
+						<id>12</id>
+						<name>p_Val2_1</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>102</lineNumber>
+						<lineNumber>138</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -421,7 +431,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>102</second>
+										<second>138</second>
 									</item>
 								</second>
 							</item>
@@ -430,29 +440,29 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>87</bitwidth>
+					<bitwidth>38</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
 					<item>41</item>
-					<item>43</item>
+					<item>42</item>
 				</oprand_edges>
 				<opcode>mul</opcode>
 				<m_Display>0</m_Display>
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
-				<m_delay>8.62</m_delay>
+				<m_delay>6.38</m_delay>
 			</item>
-			<item class_id_reference="9" object_id="_11">
+			<item class_id_reference="9" object_id="_12">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>11</id>
+						<id>13</id>
 						<name>tmp</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>102</lineNumber>
+						<lineNumber>138</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -467,7 +477,7 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>102</second>
+										<second>138</second>
 									</item>
 								</second>
 							</item>
@@ -476,15 +486,15 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>13</bitwidth>
+					<bitwidth>25</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
 					<item_version>0</item_version>
+					<item>44</item>
 					<item>45</item>
-					<item>46</item>
-					<item>48</item>
-					<item>50</item>
+					<item>47</item>
+					<item>49</item>
 				</oprand_edges>
 				<opcode>partselect</opcode>
 				<m_Display>0</m_Display>
@@ -492,15 +502,15 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_delay>0.00</m_delay>
 			</item>
-			<item class_id_reference="9" object_id="_12">
+			<item class_id_reference="9" object_id="_13">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>12</id>
-						<name></name>
+						<id>14</id>
+						<name>tmp_2</name>
 						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
 						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
-						<lineNumber>102</lineNumber>
+						<lineNumber>140</lineNumber>
 						<contextFuncName>scaleRange</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -515,7 +525,239 @@
 											<first>RC_Receiver/RC_Receiver.cpp</first>
 											<second>scaleRange</second>
 										</first>
-										<second>102</second>
+										<second>140</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>38</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>3</count>
+					<item_version>0</item_version>
+					<item>51</item>
+					<item>52</item>
+					<item>53</item>
+				</oprand_edges>
+				<opcode>bitconcatenate</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_delay>0.00</m_delay>
+			</item>
+			<item class_id_reference="9" object_id="_14">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>15</id>
+						<name>zext_cast</name>
+						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
+						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
+						<lineNumber>140</lineNumber>
+						<contextFuncName>scaleRange</contextFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>RC_Receiver/RC_Receiver.cpp</first>
+											<second>scaleRange</second>
+										</first>
+										<second>140</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>77</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>54</item>
+				</oprand_edges>
+				<opcode>zext</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_delay>0.00</m_delay>
+			</item>
+			<item class_id_reference="9" object_id="_15">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>16</id>
+						<name>mul</name>
+						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
+						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
+						<lineNumber>140</lineNumber>
+						<contextFuncName>scaleRange</contextFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>RC_Receiver/RC_Receiver.cpp</first>
+											<second>scaleRange</second>
+										</first>
+										<second>140</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>77</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>56</item>
+					<item>57</item>
+				</oprand_edges>
+				<opcode>mul</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_delay>8.51</m_delay>
+			</item>
+			<item class_id_reference="9" object_id="_16">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>17</id>
+						<name>tmp_4_cast</name>
+						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
+						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
+						<lineNumber>140</lineNumber>
+						<contextFuncName>scaleRange</contextFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>RC_Receiver/RC_Receiver.cpp</first>
+											<second>scaleRange</second>
+										</first>
+										<second>140</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>15</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>4</count>
+					<item_version>0</item_version>
+					<item>59</item>
+					<item>60</item>
+					<item>62</item>
+					<item>64</item>
+				</oprand_edges>
+				<opcode>partselect</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_delay>0.00</m_delay>
+			</item>
+			<item class_id_reference="9" object_id="_17">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>18</id>
+						<name>p_Val2_8</name>
+						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
+						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
+						<lineNumber>140</lineNumber>
+						<contextFuncName>scaleRange</contextFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>RC_Receiver/RC_Receiver.cpp</first>
+											<second>scaleRange</second>
+										</first>
+										<second>140</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>15</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>65</item>
+					<item>66</item>
+				</oprand_edges>
+				<opcode>add</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_delay>1.94</m_delay>
+			</item>
+			<item class_id_reference="9" object_id="_18">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>19</id>
+						<name></name>
+						<fileName>RC_Receiver/RC_Receiver.cpp</fileName>
+						<fileDirectory>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</fileDirectory>
+						<lineNumber>140</lineNumber>
+						<contextFuncName>scaleRange</contextFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>C:\Users\Aaron\Desktop\School\WES_Capstone\IP_cores</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>RC_Receiver/RC_Receiver.cpp</first>
+											<second>scaleRange</second>
+										</first>
+										<second>140</second>
 									</item>
 								</second>
 							</item>
@@ -529,7 +771,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>51</item>
+					<item>67</item>
 				</oprand_edges>
 				<opcode>ret</opcode>
 				<m_Display>0</m_Display>
@@ -541,11 +783,11 @@
 		<consts class_id="15" tracking_level="0" version="0">
 			<count>8</count>
 			<item_version>0</item_version>
-			<item class_id="16" tracking_level="1" version="0" object_id="_13">
+			<item class_id="16" tracking_level="1" version="0" object_id="_19">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>20</id>
+						<id>28</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -559,81 +801,12 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>16</bitwidth>
+					<bitwidth>14</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>0</content>
+				<content>8183</content>
 			</item>
-			<item class_id_reference="16" object_id="_14">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>23</id>
-						<name>empty</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>27</bitwidth>
-				</Value>
-				<const_type>0</const_type>
-				<content>121110528</content>
-			</item>
-			<item class_id_reference="16" object_id="_15">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>27</id>
-						<name>empty</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>43</bitwidth>
-				</Value>
-				<const_type>0</const_type>
-				<content>65464</content>
-			</item>
-			<item class_id_reference="16" object_id="_16">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>32</id>
-						<name>empty</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>32</bitwidth>
-				</Value>
-				<const_type>0</const_type>
-				<content>16</content>
-			</item>
-			<item class_id_reference="16" object_id="_17">
+			<item class_id_reference="16" object_id="_20">
 				<Value>
 					<Obj>
 						<type>2</type>
@@ -651,16 +824,16 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>32</bitwidth>
+					<bitwidth>13</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>42</content>
+				<content>0</content>
 			</item>
-			<item class_id_reference="16" object_id="_18">
+			<item class_id_reference="16" object_id="_21">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>42</id>
+						<id>36</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -674,39 +847,16 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>87</bitwidth>
+					<bitwidth>24</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>11258999068427</content>
+				<content>15138816</content>
 			</item>
-			<item class_id_reference="16" object_id="_19">
+			<item class_id_reference="16" object_id="_22">
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>47</id>
-						<name>empty</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<coreName></coreName>
-					</Obj>
-					<bitwidth>32</bitwidth>
-				</Value>
-				<const_type>0</const_type>
-				<content>73</content>
-			</item>
-			<item class_id_reference="16" object_id="_20">
-				<Value>
-					<Obj>
-						<type>2</type>
-						<id>49</id>
+						<id>46</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -723,16 +873,108 @@
 					<bitwidth>32</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>85</content>
+				<content>13</content>
+			</item>
+			<item class_id_reference="16" object_id="_23">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>48</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>37</content>
+			</item>
+			<item class_id_reference="16" object_id="_24">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>55</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>77</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>351843720889</content>
+			</item>
+			<item class_id_reference="16" object_id="_25">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>61</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>62</content>
+			</item>
+			<item class_id_reference="16" object_id="_26">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>63</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<coreName></coreName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>76</content>
 			</item>
 		</consts>
 		<blocks class_id="17" tracking_level="0" version="0">
 			<count>1</count>
 			<item_version>0</item_version>
-			<item class_id="18" tracking_level="1" version="0" object_id="_21">
+			<item class_id="18" tracking_level="1" version="0" object_id="_27">
 				<Obj>
 					<type>3</type>
-					<id>13</id>
+					<id>20</id>
 					<name>scaleRange</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
@@ -747,12 +989,10 @@
 					<coreName></coreName>
 				</Obj>
 				<node_objs>
-					<count>11</count>
+					<count>16</count>
 					<item_version>0</item_version>
-					<item>2</item>
 					<item>3</item>
 					<item>4</item>
-					<item>5</item>
 					<item>6</item>
 					<item>7</item>
 					<item>8</item>
@@ -760,150 +1000,206 @@
 					<item>10</item>
 					<item>11</item>
 					<item>12</item>
+					<item>13</item>
+					<item>14</item>
+					<item>15</item>
+					<item>16</item>
+					<item>17</item>
+					<item>18</item>
+					<item>19</item>
 				</node_objs>
 			</item>
 		</blocks>
 		<edges class_id="19" tracking_level="0" version="0">
-			<count>20</count>
+			<count>27</count>
 			<item_version>0</item_version>
-			<item class_id="20" tracking_level="1" version="0" object_id="_22">
-				<id>16</id>
-				<edge_type>1</edge_type>
-				<source_obj>1</source_obj>
-				<sink_obj>2</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_23">
-				<id>19</id>
+			<item class_id="20" tracking_level="1" version="0" object_id="_28">
+				<id>23</id>
 				<edge_type>1</edge_type>
 				<source_obj>2</source_obj>
 				<sink_obj>3</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_24">
-				<id>21</id>
-				<edge_type>1</edge_type>
-				<source_obj>20</source_obj>
-				<sink_obj>3</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_25">
-				<id>22</id>
-				<edge_type>1</edge_type>
-				<source_obj>3</source_obj>
-				<sink_obj>4</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_26">
-				<id>24</id>
-				<edge_type>1</edge_type>
-				<source_obj>23</source_obj>
-				<sink_obj>4</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_27">
-				<id>25</id>
-				<edge_type>1</edge_type>
-				<source_obj>4</source_obj>
-				<sink_obj>5</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_28">
+			<item class_id_reference="20" object_id="_29">
 				<id>26</id>
 				<edge_type>1</edge_type>
-				<source_obj>5</source_obj>
-				<sink_obj>6</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_29">
-				<id>28</id>
-				<edge_type>1</edge_type>
-				<source_obj>27</source_obj>
-				<sink_obj>6</sink_obj>
+				<source_obj>1</source_obj>
+				<sink_obj>4</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_30">
-				<id>31</id>
+				<id>27</id>
+				<edge_type>1</edge_type>
+				<source_obj>3</source_obj>
+				<sink_obj>6</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_31">
+				<id>29</id>
+				<edge_type>1</edge_type>
+				<source_obj>28</source_obj>
+				<sink_obj>7</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_32">
+				<id>30</id>
 				<edge_type>1</edge_type>
 				<source_obj>6</source_obj>
 				<sink_obj>7</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_31">
+			<item class_id_reference="20" object_id="_33">
 				<id>33</id>
 				<edge_type>1</edge_type>
-				<source_obj>32</source_obj>
-				<sink_obj>7</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_32">
-				<id>35</id>
-				<edge_type>1</edge_type>
-				<source_obj>34</source_obj>
-				<sink_obj>7</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_33">
-				<id>38</id>
-				<edge_type>1</edge_type>
-				<source_obj>7</source_obj>
+				<source_obj>4</source_obj>
 				<sink_obj>8</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_34">
-				<id>39</id>
+				<id>35</id>
 				<edge_type>1</edge_type>
-				<source_obj>20</source_obj>
+				<source_obj>34</source_obj>
 				<sink_obj>8</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_35">
-				<id>40</id>
+				<id>37</id>
+				<edge_type>1</edge_type>
+				<source_obj>36</source_obj>
+				<sink_obj>9</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_36">
+				<id>38</id>
 				<edge_type>1</edge_type>
 				<source_obj>8</source_obj>
 				<sink_obj>9</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
-			<item class_id_reference="20" object_id="_36">
-				<id>41</id>
-				<edge_type>1</edge_type>
-				<source_obj>9</source_obj>
-				<sink_obj>10</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
 			<item class_id_reference="20" object_id="_37">
-				<id>43</id>
+				<id>39</id>
 				<edge_type>1</edge_type>
-				<source_obj>42</source_obj>
+				<source_obj>7</source_obj>
 				<sink_obj>10</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_38">
-				<id>46</id>
+				<id>40</id>
 				<edge_type>1</edge_type>
-				<source_obj>10</source_obj>
+				<source_obj>9</source_obj>
 				<sink_obj>11</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_39">
-				<id>48</id>
-				<edge_type>1</edge_type>
-				<source_obj>47</source_obj>
-				<sink_obj>11</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_40">
-				<id>50</id>
-				<edge_type>1</edge_type>
-				<source_obj>49</source_obj>
-				<sink_obj>11</sink_obj>
-				<is_back_edge>0</is_back_edge>
-			</item>
-			<item class_id_reference="20" object_id="_41">
-				<id>51</id>
+				<id>41</id>
 				<edge_type>1</edge_type>
 				<source_obj>11</source_obj>
 				<sink_obj>12</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_40">
+				<id>42</id>
+				<edge_type>1</edge_type>
+				<source_obj>10</source_obj>
+				<sink_obj>12</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_41">
+				<id>45</id>
+				<edge_type>1</edge_type>
+				<source_obj>12</source_obj>
+				<sink_obj>13</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_42">
+				<id>47</id>
+				<edge_type>1</edge_type>
+				<source_obj>46</source_obj>
+				<sink_obj>13</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_43">
+				<id>49</id>
+				<edge_type>1</edge_type>
+				<source_obj>48</source_obj>
+				<sink_obj>13</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_44">
+				<id>52</id>
+				<edge_type>1</edge_type>
+				<source_obj>13</source_obj>
+				<sink_obj>14</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_45">
+				<id>53</id>
+				<edge_type>1</edge_type>
+				<source_obj>34</source_obj>
+				<sink_obj>14</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_46">
+				<id>54</id>
+				<edge_type>1</edge_type>
+				<source_obj>14</source_obj>
+				<sink_obj>15</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_47">
+				<id>56</id>
+				<edge_type>1</edge_type>
+				<source_obj>55</source_obj>
+				<sink_obj>16</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_48">
+				<id>57</id>
+				<edge_type>1</edge_type>
+				<source_obj>15</source_obj>
+				<sink_obj>16</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_49">
+				<id>60</id>
+				<edge_type>1</edge_type>
+				<source_obj>16</source_obj>
+				<sink_obj>17</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_50">
+				<id>62</id>
+				<edge_type>1</edge_type>
+				<source_obj>61</source_obj>
+				<sink_obj>17</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_51">
+				<id>64</id>
+				<edge_type>1</edge_type>
+				<source_obj>63</source_obj>
+				<sink_obj>17</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_52">
+				<id>65</id>
+				<edge_type>1</edge_type>
+				<source_obj>17</source_obj>
+				<sink_obj>18</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_53">
+				<id>66</id>
+				<edge_type>1</edge_type>
+				<source_obj>3</source_obj>
+				<sink_obj>18</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_54">
+				<id>67</id>
+				<edge_type>1</edge_type>
+				<source_obj>18</source_obj>
+				<sink_obj>19</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 		</edges>
@@ -911,7 +1207,7 @@
 	<cdfg_regions class_id="21" tracking_level="0" version="0">
 		<count>1</count>
 		<item_version>0</item_version>
-		<item class_id="22" tracking_level="1" version="0" object_id="_42">
+		<item class_id="22" tracking_level="1" version="0" object_id="_55">
 			<mId>1</mId>
 			<mTag>scaleRange</mTag>
 			<mType>0</mType>
@@ -922,14 +1218,14 @@
 			<basic_blocks>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>13</item>
+				<item>20</item>
 			</basic_blocks>
 			<mII>1</mII>
-			<mDepth>4</mDepth>
+			<mDepth>2</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>3</mMinLatency>
-			<mMaxLatency>3</mMaxLatency>
+			<mMinLatency>1</mMinLatency>
+			<mMaxLatency>1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -937,18 +1233,11 @@
 	<fsm class_id="-1"></fsm>
 	<res class_id="-1"></res>
 	<node_label_latency class_id="26" tracking_level="0" version="0">
-		<count>11</count>
+		<count>16</count>
 		<item_version>0</item_version>
 		<item class_id="27" tracking_level="0" version="0">
-			<first>2</first>
-			<second class_id="28" tracking_level="0" version="0">
-				<first>0</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
 			<first>3</first>
-			<second>
+			<second class_id="28" tracking_level="0" version="0">
 				<first>0</first>
 				<second>0</second>
 			</second>
@@ -961,58 +1250,100 @@
 			</second>
 		</item>
 		<item>
-			<first>5</first>
-			<second>
-				<first>1</first>
-				<second>0</second>
-			</second>
-		</item>
-		<item>
 			<first>6</first>
 			<second>
-				<first>1</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>7</first>
 			<second>
-				<first>1</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>8</first>
 			<second>
-				<first>2</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>9</first>
 			<second>
-				<first>2</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>10</first>
 			<second>
-				<first>2</first>
-				<second>1</second>
+				<first>0</first>
+				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>11</first>
 			<second>
-				<first>3</first>
+				<first>0</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>12</first>
 			<second>
-				<first>3</first>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>13</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>14</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>15</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>16</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>17</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>18</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>19</first>
+			<second>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -1021,22 +1352,22 @@
 		<count>1</count>
 		<item_version>0</item_version>
 		<item class_id="30" tracking_level="0" version="0">
-			<first>13</first>
+			<first>20</first>
 			<second class_id="31" tracking_level="0" version="0">
 				<first>0</first>
-				<second>3</second>
+				<second>1</second>
 			</second>
 		</item>
 	</bblk_ent_exit>
 	<regions class_id="32" tracking_level="0" version="0">
 		<count>1</count>
 		<item_version>0</item_version>
-		<item class_id="33" tracking_level="1" version="0" object_id="_43">
+		<item class_id="33" tracking_level="1" version="0" object_id="_56">
 			<region_name>scaleRange</region_name>
 			<basic_blocks>
 				<count>1</count>
 				<item_version>0</item_version>
-				<item>13</item>
+				<item>20</item>
 			</basic_blocks>
 			<nodes>
 				<count>0</count>
@@ -1045,7 +1376,7 @@
 			<anchor_node>-1</anchor_node>
 			<region_type>8</region_type>
 			<interval>1</interval>
-			<pipe_depth>4</pipe_depth>
+			<pipe_depth>2</pipe_depth>
 		</item>
 	</regions>
 	<dp_fu_nodes class_id="34" tracking_level="0" version="0">

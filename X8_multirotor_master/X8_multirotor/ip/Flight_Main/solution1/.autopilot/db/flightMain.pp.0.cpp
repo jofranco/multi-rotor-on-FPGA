@@ -24648,7 +24648,7 @@ typedef enum
 # 11 "Flight_Main/flightMain.cpp"
 void flightmain (F16_t rcCmdIn[6], F16_t obj_avd_cmd[6], F16_t cmdOut[4096], F32_t test[4096])
 {_ssdm_SpecArrayDimSize(rcCmdIn, 6);_ssdm_SpecArrayDimSize(obj_avd_cmd, 6);_ssdm_SpecArrayDimSize(cmdOut, 4096);_ssdm_SpecArrayDimSize(test, 4096);
-
+#pragma HLS PIPELINE enable_flush
 
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 

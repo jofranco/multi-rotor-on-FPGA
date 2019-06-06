@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'flightmain'" level="0">
-<item name = "Date">Tue Jun  4 22:42:11 2019
+<item name = "Date">Wed Jun  5 19:37:04 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">Flight_Main</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">40, 53, 40, 53, none</column>
+<column name="">24, 24, 18, 18, function</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,10 +35,6 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">12, 12, 2, -, -, 6, no</column>
-<column name="- Loop 2">18, 18, 3, -, -, 6, no</column>
-<column name="- Loop 3">18, 18, 3, -, -, 6, no</column>
-<column name="- Loop 4">18, 18, 3, -, -, 6, no</column>
 </table>
 </item>
 </section>

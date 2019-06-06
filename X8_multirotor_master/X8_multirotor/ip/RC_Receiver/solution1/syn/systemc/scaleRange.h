@@ -11,17 +11,19 @@
 #include "systemc.h"
 #include "AESL_pkg.h"
 
-#include "rcReceiver_mul_43bkb.h"
+#include "rcReceiver_am_addbkb.h"
 
 namespace ap_rtl {
 
 struct scaleRange : public sc_module {
-    // Port declarations 5
+    // Port declarations 6
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst;
     sc_in< sc_lv<11> > x;
-    sc_out< sc_lv<13> > ap_return;
+    sc_in< sc_lv<15> > destFrom_V;
+    sc_out< sc_lv<15> > ap_return;
     sc_in< sc_logic > ap_ce;
+    sc_signal< sc_lv<24> > ap_var_for_const0;
 
 
     // Module declarations
@@ -32,55 +34,49 @@ struct scaleRange : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    rcReceiver_mul_43bkb<1,2,43,45,87>* rcReceiver_mul_43bkb_U1;
-    sc_signal< sc_lv<27> > r_V_fu_42_p2;
-    sc_signal< sc_lv<27> > r_V_reg_94;
+    rcReceiver_am_addbkb<1,1,24,24,14,38>* rcReceiver_am_addbkb_U1;
+    sc_signal< sc_lv<15> > destFrom_V_read_reg_128;
     sc_signal< bool > ap_block_state1_pp0_stage0_iter0;
     sc_signal< bool > ap_block_state2_pp0_stage0_iter1;
-    sc_signal< bool > ap_block_state3_pp0_stage0_iter2;
-    sc_signal< bool > ap_block_state4_pp0_stage0_iter3;
-    sc_signal< sc_lv<27> > tmp_1_reg_99;
-    sc_signal< sc_lv<27> > p_Val2_s_fu_34_p3;
-    sc_signal< sc_lv<27> > p_Val2_1_fu_51_p0;
-    sc_signal< sc_lv<43> > p_Val2_1_fu_51_p2;
-    sc_signal< sc_lv<43> > tmp_4_fu_67_p3;
-    sc_signal< sc_lv<43> > grp_fu_78_p0;
-    sc_signal< sc_lv<45> > grp_fu_78_p1;
-    sc_signal< sc_lv<87> > grp_fu_78_p2;
-    sc_signal< sc_logic > grp_fu_78_ce;
-    sc_signal< sc_logic > ap_ce_reg;
-    sc_signal< sc_lv<11> > x_int_reg;
-    sc_signal< sc_lv<13> > ap_return_int_reg;
-    sc_signal< sc_lv<87> > grp_fu_78_p00;
-    sc_signal< sc_lv<43> > p_Val2_1_fu_51_p00;
+    sc_signal< sc_lv<15> > tmp_4_cast_reg_133;
+    sc_signal< sc_lv<14> > tmp_1_fu_56_p1;
+    sc_signal< sc_lv<14> > r_V_fu_60_p2;
+    sc_signal< sc_lv<38> > grp_fu_119_p3;
+    sc_signal< sc_lv<25> > tmp_fu_78_p4;
+    sc_signal< sc_lv<38> > tmp_2_fu_87_p3;
+    sc_signal< sc_lv<38> > mul_fu_99_p1;
+    sc_signal< sc_lv<77> > mul_fu_99_p2;
+    sc_signal< sc_lv<24> > grp_fu_119_p1;
+    sc_signal< sc_lv<14> > grp_fu_119_p2;
+    sc_signal< sc_lv<38> > grp_fu_119_p20;
+    sc_signal< sc_lv<77> > mul_fu_99_p10;
     static const sc_logic ap_const_logic_1;
-    static const sc_logic ap_const_logic_0;
     static const bool ap_const_boolean_1;
-    static const sc_lv<16> ap_const_lv16_0;
-    static const sc_lv<27> ap_const_lv27_7380000;
-    static const sc_lv<43> ap_const_lv43_FFB8;
-    static const sc_lv<32> ap_const_lv32_10;
-    static const sc_lv<32> ap_const_lv32_2A;
-    static const sc_lv<87> ap_const_lv87_A3D70A3D70B;
-    static const sc_lv<32> ap_const_lv32_49;
-    static const sc_lv<32> ap_const_lv32_55;
+    static const sc_lv<14> ap_const_lv14_1FF7;
+    static const sc_lv<13> ap_const_lv13_0;
+    static const sc_lv<32> ap_const_lv32_D;
+    static const sc_lv<32> ap_const_lv32_25;
+    static const sc_lv<77> ap_const_lv77_51EB851EB9;
+    static const sc_lv<32> ap_const_lv32_3E;
+    static const sc_lv<32> ap_const_lv32_4C;
+    static const sc_lv<24> ap_const_lv24_E70000;
+    static const sc_logic ap_const_logic_0;
     // Thread declarations
+    void thread_ap_var_for_const0();
     void thread_ap_clk_no_reset_();
     void thread_ap_block_state1_pp0_stage0_iter0();
     void thread_ap_block_state2_pp0_stage0_iter1();
-    void thread_ap_block_state3_pp0_stage0_iter2();
-    void thread_ap_block_state4_pp0_stage0_iter3();
     void thread_ap_return();
-    void thread_grp_fu_78_ce();
-    void thread_grp_fu_78_p0();
-    void thread_grp_fu_78_p00();
-    void thread_grp_fu_78_p1();
-    void thread_p_Val2_1_fu_51_p0();
-    void thread_p_Val2_1_fu_51_p00();
-    void thread_p_Val2_1_fu_51_p2();
-    void thread_p_Val2_s_fu_34_p3();
-    void thread_r_V_fu_42_p2();
-    void thread_tmp_4_fu_67_p3();
+    void thread_grp_fu_119_p1();
+    void thread_grp_fu_119_p2();
+    void thread_grp_fu_119_p20();
+    void thread_mul_fu_99_p1();
+    void thread_mul_fu_99_p10();
+    void thread_mul_fu_99_p2();
+    void thread_r_V_fu_60_p2();
+    void thread_tmp_1_fu_56_p1();
+    void thread_tmp_2_fu_87_p3();
+    void thread_tmp_fu_78_p4();
 };
 
 }

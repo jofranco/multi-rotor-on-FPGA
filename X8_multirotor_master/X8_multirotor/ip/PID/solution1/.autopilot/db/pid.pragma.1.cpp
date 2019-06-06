@@ -24649,7 +24649,7 @@ void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[
 void pid (F16_t cmdIn[6], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[4096])
 {_ssdm_SpecArrayDimSize(cmdIn, 6);_ssdm_SpecArrayDimSize(measured, 6);_ssdm_SpecArrayDimSize(kp, 6);_ssdm_SpecArrayDimSize(kd, 4);_ssdm_SpecArrayDimSize(ki, 4);_ssdm_SpecArrayDimSize(commandOut, 9);_ssdm_SpecArrayDimSize(test, 4096);
 
-
+_ssdm_op_SpecPipeline(-1, 2, 1, 0, "");
 
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CTRL", "", "", 0, 0, 0, 0, "", "");
 

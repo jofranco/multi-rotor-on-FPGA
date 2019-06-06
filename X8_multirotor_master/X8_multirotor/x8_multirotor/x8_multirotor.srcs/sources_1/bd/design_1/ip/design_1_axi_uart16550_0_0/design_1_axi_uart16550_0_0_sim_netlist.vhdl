@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sun Jun  2 17:42:34 2019
+-- Date        : Thu Jun  6 02:11:31 2019
 -- Host        : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               C:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.srcs/sources_1/bd/design_1/ip/design_1_axi_uart16550_0_0/design_1_axi_uart16550_0_0_sim_netlist.vhdl
@@ -7972,29 +7972,29 @@ dlab_reg: unisim.vcomponents.FDRE
       Q => clockDiv(0),
       S => bus2ip_reset_int_core
     );
-\dll_reg[1]\: unisim.vcomponents.FDSE
+\dll_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => dll0,
       D => \d_d_reg_n_0_[1]\,
       Q => clockDiv(1),
-      S => bus2ip_reset_int_core
+      R => bus2ip_reset_int_core
     );
-\dll_reg[2]\: unisim.vcomponents.FDRE
+\dll_reg[2]\: unisim.vcomponents.FDSE
      port map (
       C => s_axi_aclk,
       CE => dll0,
       D => \d_d_reg_n_0_[2]\,
       Q => clockDiv(2),
-      R => bus2ip_reset_int_core
+      S => bus2ip_reset_int_core
     );
-\dll_reg[3]\: unisim.vcomponents.FDSE
+\dll_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => dll0,
       D => \d_d_reg_n_0_[3]\,
       Q => clockDiv(3),
-      S => bus2ip_reset_int_core
+      R => bus2ip_reset_int_core
     );
 \dll_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -8012,21 +8012,21 @@ dlab_reg: unisim.vcomponents.FDRE
       Q => clockDiv(5),
       R => bus2ip_reset_int_core
     );
-\dll_reg[6]\: unisim.vcomponents.FDRE
+\dll_reg[6]\: unisim.vcomponents.FDSE
      port map (
       C => s_axi_aclk,
       CE => dll0,
       D => p_2_in(5),
       Q => clockDiv(6),
-      R => bus2ip_reset_int_core
+      S => bus2ip_reset_int_core
     );
-\dll_reg[7]\: unisim.vcomponents.FDSE
+\dll_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => dll0,
       D => p_2_in(6),
       Q => clockDiv(7),
-      S => bus2ip_reset_int_core
+      R => bus2ip_reset_int_core
     );
 \dlm[7]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -8041,21 +8041,21 @@ dlab_reg: unisim.vcomponents.FDRE
       I5 => L(0),
       O => dlm0
     );
-\dlm_reg[0]\: unisim.vcomponents.FDRE
+\dlm_reg[0]\: unisim.vcomponents.FDSE
      port map (
       C => s_axi_aclk,
       CE => dlm0,
       D => \d_d_reg_n_0_[0]\,
       Q => clockDiv(8),
-      R => bus2ip_reset_int_core
+      S => bus2ip_reset_int_core
     );
-\dlm_reg[1]\: unisim.vcomponents.FDSE
+\dlm_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => dlm0,
       D => \d_d_reg_n_0_[1]\,
       Q => clockDiv(9),
-      S => bus2ip_reset_int_core
+      R => bus2ip_reset_int_core
     );
 \dlm_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -9477,7 +9477,7 @@ entity design_1_axi_uart16550_0_0_axi_uart16550 is
   attribute C_IS_A_16550 : integer;
   attribute C_IS_A_16550 of design_1_axi_uart16550_0_0_axi_uart16550 : entity is 1;
   attribute C_S_AXI_ACLK_FREQ_HZ : integer;
-  attribute C_S_AXI_ACLK_FREQ_HZ of design_1_axi_uart16550_0_0_axi_uart16550 : entity is 100000000;
+  attribute C_S_AXI_ACLK_FREQ_HZ of design_1_axi_uart16550_0_0_axi_uart16550 : entity is 50000000;
   attribute C_S_AXI_ADDR_WIDTH : integer;
   attribute C_S_AXI_ADDR_WIDTH of design_1_axi_uart16550_0_0_axi_uart16550 : entity is 13;
   attribute C_S_AXI_DATA_WIDTH : integer;
@@ -9685,7 +9685,7 @@ architecture STRUCTURE of design_1_axi_uart16550_0_0 is
   attribute C_IS_A_16550 : integer;
   attribute C_IS_A_16550 of U0 : label is 1;
   attribute C_S_AXI_ACLK_FREQ_HZ : integer;
-  attribute C_S_AXI_ACLK_FREQ_HZ of U0 : label is 100000000;
+  attribute C_S_AXI_ACLK_FREQ_HZ of U0 : label is 50000000;
   attribute C_S_AXI_ADDR_WIDTH : integer;
   attribute C_S_AXI_ADDR_WIDTH of U0 : label is 13;
   attribute C_S_AXI_DATA_WIDTH : integer;
@@ -9708,7 +9708,7 @@ architecture STRUCTURE of design_1_axi_uart16550_0_0 is
   attribute x_interface_info of rtsn : signal is "xilinx.com:interface:uart:1.0 UART RTSn";
   attribute x_interface_info of rxrdyn : signal is "xilinx.com:interface:uart:1.0 UART RXRDYn";
   attribute x_interface_info of s_axi_aclk : signal is "xilinx.com:signal:clock:1.0 ACLK CLK";
-  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0";
+  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 50000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0";
   attribute x_interface_info of s_axi_aresetn : signal is "xilinx.com:signal:reset:1.0 ARESETN RST";
   attribute x_interface_parameter of s_axi_aresetn : signal is "XIL_INTERFACENAME ARESETN, POLARITY ACTIVE_LOW";
   attribute x_interface_info of s_axi_arready : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARREADY";
@@ -9726,7 +9726,7 @@ architecture STRUCTURE of design_1_axi_uart16550_0_0 is
   attribute x_interface_info of txrdyn : signal is "xilinx.com:interface:uart:1.0 UART TXRDYn";
   attribute x_interface_info of s_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARADDR";
   attribute x_interface_info of s_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWADDR";
-  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 13, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 13, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
   attribute x_interface_info of s_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI BRESP";
   attribute x_interface_info of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 S_AXI RDATA";
   attribute x_interface_info of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI RRESP";

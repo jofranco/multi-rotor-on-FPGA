@@ -16,7 +16,7 @@
 void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4], F32_t ki[4], F16_t commandOut[9], F32_t test[SIZE_4k])
 {
 	//SETUP PRAGMAS
-	//#pragma HLS PIPELINE II=1 enable_flush
+	#pragma HLS PIPELINE enable_flush
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
@@ -29,7 +29,7 @@ void pid (F16_t cmdIn[RC_CHANNELS], F16_t measured[6], F32_t kp[6], F32_t kd[4],
 	#pragma HLS INTERFACE s_axilite port=ki bundle=CTRL
 
 	// output to PWM
-	#pragma HLS INTERFACE m_axi port=commandOut bundle=OUT offset=off
+	#pragma HLS INTERFACE m_axi port=commandOut offset=off bundle=OUT
 
 	// test code for python ---------------------------------------------------------------
 	#pragma HLS INTERFACE s_axilite port=test bundle=TEST

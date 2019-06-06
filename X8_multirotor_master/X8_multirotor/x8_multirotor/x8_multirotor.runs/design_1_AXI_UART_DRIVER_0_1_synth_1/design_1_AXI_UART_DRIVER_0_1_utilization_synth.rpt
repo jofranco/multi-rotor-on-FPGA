@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Mon Jun  3 23:01:35 2019
+| Date         : Thu Jun  6 02:12:09 2019
 | Host         : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_AXI_UART_DRIVER_0_1_utilization_synth.rpt -pb design_1_AXI_UART_DRIVER_0_1_utilization_synth.pb
 | Design       : design_1_AXI_UART_DRIVER_0_1
@@ -30,8 +30,8 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  836 |     0 |     53200 |  1.57 |
-|   LUT as Logic             |  804 |     0 |     53200 |  1.51 |
+| Slice LUTs*                |  845 |     0 |     53200 |  1.59 |
+|   LUT as Logic             |  813 |     0 |     53200 |  1.53 |
 |   LUT as Memory            |   32 |     0 |     17400 |  0.18 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |   32 |     0 |           |       |
@@ -150,11 +150,11 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     | 1040 |        Flop & Latch |
-| LUT2     |  276 |                 LUT |
-| LUT3     |  223 |                 LUT |
-| LUT6     |  213 |                 LUT |
-| LUT5     |  160 |                 LUT |
-| LUT4     |  159 |                 LUT |
+| LUT2     |  267 |                 LUT |
+| LUT3     |  237 |                 LUT |
+| LUT6     |  212 |                 LUT |
+| LUT4     |  164 |                 LUT |
+| LUT5     |  161 |                 LUT |
 | CARRY4   |   92 |          CarryLogic |
 | SRL16E   |   32 |  Distributed Memory |
 | LUT1     |   20 |                 LUT |

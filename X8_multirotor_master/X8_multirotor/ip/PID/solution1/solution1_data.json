@@ -19,8 +19,8 @@
     "ClockName": "ap_clk",
     "ClockPeriod": "10",
     "IsCombLogic": "0",
-    "II": "x",
-    "Latency": "37",
+    "II": "22",
+    "Latency": "26",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -37,15 +37,12 @@
   "Files": {
     "CSource": ["..\/pid.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/pid_buffer_V.vhd",
       "impl\/vhdl\/pid_CTRL_s_axi.vhd",
       "impl\/vhdl\/pid_OUT_r_m_axi.vhd",
       "impl\/vhdl\/pid_TEST_s_axi.vhd",
       "impl\/vhdl\/pid.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/pid_buffer_V.v",
-      "impl\/verilog\/pid_buffer_V_ram.dat",
       "impl\/verilog\/pid_CTRL_s_axi.v",
       "impl\/verilog\/pid_OUT_r_m_axi.v",
       "impl\/verilog\/pid_TEST_s_axi.v",
@@ -925,7 +922,7 @@
       "offset": "16384",
       "statusOffset": "NA",
       "Object": "TEST",
-      "firstOutLatency": "2"
+      "firstOutLatency": "4"
     },
     "OUT_r": {
       "interfaceRef": "m_axi_OUT_r",
@@ -936,32 +933,23 @@
     "Hierarchy": {"ModuleName": "pid"},
     "Metrics": {"pid": {
         "Latency": {
-          "LatencyBest": "37",
-          "LatencyAvg": "40",
-          "LatencyWorst": "43",
-          "PipelineIIMin": "38",
-          "PipelineIIMax": "44",
-          "PipelineII": "38 ~ 44",
-          "PipelineDepth": "",
-          "PipelineType": "none"
+          "LatencyBest": "26",
+          "LatencyAvg": "26",
+          "LatencyWorst": "26",
+          "PipelineII": "22",
+          "PipelineDepth": "27",
+          "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
           "Estimate": "8.750"
         },
-        "Loops": [{
-            "Name": "Loop 1",
-            "TripCount": "6",
-            "Latency": "12",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          }],
         "Area": {
           "BRAM_18K": "20",
           "DSP48E": "74",
-          "FF": "3713",
-          "LUT": "5780"
+          "FF": "3969",
+          "LUT": "5778"
         }
       }}
   },
@@ -972,7 +960,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2019-06-04 22:41:01 -0700",
+    "Time": "2019-06-05 19:43:40 -0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2"
   }

@@ -24603,14 +24603,15 @@ inline bool operator!=(
 }
 # 62 "C:/CAD/Vivado/2018.2/common/technology/autopilot\\ap_fixed.h" 2
 # 8 "SBUS_AXI_UART_Driver/../common/x8_common.hpp" 2
-# 27 "SBUS_AXI_UART_Driver/../common/x8_common.hpp"
+# 29 "SBUS_AXI_UART_Driver/../common/x8_common.hpp"
 typedef ap_fixed<128,96> F128_t;
 typedef ap_fixed<64,32> F64_t;
-typedef ap_fixed<32, 16> F32_t;
+typedef ap_fixed<32, 19> F32_t;
 typedef ap_fixed<19, 4> F19_t;
-typedef ap_fixed<16,1> F16_t;
+typedef ap_fixed<16,3> F16_t;
 
-typedef ap_uint<6> uint6_t;
+
+typedef ap_uint<8> uint8bit_t;
 
 
 typedef enum
@@ -24664,7 +24665,7 @@ void AXI_UART_DRIVER(volatile int uart_bus[4096], uint8_t SBUS_data[4096])
 {_ssdm_SpecArrayDimSize(uart_bus, 4096);_ssdm_SpecArrayDimSize(SBUS_data, 4096);
 
 
-#pragma HLS PIPELINE II=1 enable_flush off
+#pragma HLS PIPELINE enable_flush off
 
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 #pragma HLS INTERFACE m_axi depth=4096 port=&uart_bus offset=off bundle=UART

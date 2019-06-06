@@ -24648,17 +24648,18 @@ flightMode_e selectFlightModeState(F16_t value);
 void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096], F32_t test[4096])
 {_ssdm_SpecArrayDimSize(SBUS_data, 25);_ssdm_SpecArrayDimSize(norm_out, 4096);_ssdm_SpecArrayDimSize(test, 4096);
 
-#pragma HLS PIPELINE II=1 enable_flush
+#pragma HLS PIPELINE enable_flush
 
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=&SBUS_data bundle=CTRL
-#pragma HLS INTERFACE m_axi depth=4096 port=&norm_out offset=off bundle=OUT
+#pragma HLS INTERFACE m_axi port=&norm_out offset=off bundle=OUT
 
 
 #pragma HLS RESOURCE variable=&test core=RAM_1P_BRAM
 #pragma HLS INTERFACE s_axilite port=&test bundle=TEST
- float test1 = 0;
- float test2 = 0;
+
+
+ F32_t temp[6] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
 
 
@@ -24711,25 +24712,45 @@ void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096], F32_t test[4096])
 
     for(int i = 0; i < 6; i++)
     {
-     if( (i == 0) || (i == 4) || (i == 5) )
+#pragma HLS PIPELINE enable_flush
+
+ if( i == 0 )
      {
-      test1 = channels[i];
+
       norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(0.000), F16_t(0.999));
-      test1 = norm_out[i];
+
+      temp[i] = norm_out[i];
+     }
+     else if( i == 4 )
+     {
+
+
+   norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(0.000), F16_t(0.999));
+
+   temp[i] = norm_out[i];
+     }
+     else if( i == 5 )
+     {
+
+
+   norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(0.000), F16_t(0.999));
+
+   temp[i] = norm_out[i];
      }
      else
      {
-      test2 = channels[i];
+
       norm_out[i] = scaleRange(((channels[i])<(200)?(200):((channels[i])>(1800)?(1800):(channels[i]))), 200, 1800, F16_t(-1.000), F16_t(0.999));
-      test2 = norm_out[i];
+
+      temp[i] = norm_out[i];
      }
     }
 
 
-    norm_out[4] = F16_t(selectMotorState(norm_out[4]));
+    norm_out[4] = selectMotorState(norm_out[4]);
 
 
-    norm_out[5] = F16_t(selectFlightModeState(norm_out[5]));
+    norm_out[5] = selectFlightModeState(norm_out[5]);
 
 
     test[0] = (F32_t)channels[0];
@@ -24752,6 +24773,10 @@ void rcReceiver(uint8_t SBUS_data[25], F16_t norm_out[4096], F32_t test[4096])
 
 F16_t scaleRange(uint16_t x, uint16_t srcFrom, uint16_t srcTo, F16_t destFrom, F16_t destTo)
 {
+#pragma HLS UNROLL
+#pragma HLS PIPELINE enable_flush
+
+
  F32_t a, b;
  a = ((F32_t)destTo - (F32_t)destFrom) * ((F32_t)x - (F32_t)srcFrom);
  b = ((F32_t)srcTo - (F32_t)srcFrom);

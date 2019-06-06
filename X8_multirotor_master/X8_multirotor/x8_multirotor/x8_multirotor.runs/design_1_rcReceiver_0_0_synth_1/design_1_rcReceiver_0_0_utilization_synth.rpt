@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Tue Jun  4 20:46:31 2019
+| Date         : Thu Jun  6 02:13:53 2019
 | Host         : DESKTOP-9NGIUQU running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_rcReceiver_0_0_utilization_synth.rpt -pb design_1_rcReceiver_0_0_utilization_synth.pb
 | Design       : design_1_rcReceiver_0_0
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 2562 |     0 |     53200 |  4.82 |
-|   LUT as Logic             | 2552 |     0 |     53200 |  4.80 |
-|   LUT as Memory            |   10 |     0 |     17400 |  0.06 |
+| Slice LUTs*                |  766 |     0 |     53200 |  1.44 |
+|   LUT as Logic             |  757 |     0 |     53200 |  1.42 |
+|   LUT as Memory            |    9 |     0 |     17400 |  0.05 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
-|     LUT as Shift Register  |   10 |     0 |           |       |
-| Slice Registers            | 1584 |     0 |    106400 |  1.49 |
-|   Register as Flip Flop    | 1584 |     0 |    106400 |  1.49 |
+|     LUT as Shift Register  |    9 |     0 |           |       |
+| Slice Registers            |  931 |     0 |    106400 |  0.88 |
+|   Register as Flip Flop    |  931 |     0 |    106400 |  0.88 |
 |   Register as Latch        |    0 |     0 |    106400 |  0.00 |
 | F7 Muxes                   |    8 |     0 |     26600 |  0.03 |
 | F8 Muxes                   |    0 |     0 |     13300 |  0.00 |
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 11    |          Yes |         Set |            - |
-| 1573  |          Yes |       Reset |            - |
+| 29    |          Yes |         Set |            - |
+| 902   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -84,8 +84,8 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Fixed | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |   24 |     0 |       220 | 10.91 |
-|   DSP48E1 only |   24 |       |           |       |
+| DSPs           |    6 |     0 |       220 |  2.73 |
+|   DSP48E1 only |    6 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
 
@@ -151,18 +151,18 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 1573 |        Flop & Latch |
-| LUT2     |  742 |                 LUT |
-| LUT3     |  690 |                 LUT |
-| LUT1     |  635 |                 LUT |
-| CARRY4   |  499 |          CarryLogic |
-| LUT6     |  375 |                 LUT |
-| LUT4     |  373 |                 LUT |
-| LUT5     |  192 |                 LUT |
-| DSP48E1  |   24 |    Block Arithmetic |
-| FDSE     |   11 |        Flop & Latch |
-| SRL16E   |   10 |  Distributed Memory |
+| FDRE     |  902 |        Flop & Latch |
+| LUT3     |  259 |                 LUT |
+| LUT6     |  213 |                 LUT |
+| LUT5     |  167 |                 LUT |
+| LUT2     |  157 |                 LUT |
+| LUT4     |  133 |                 LUT |
+| CARRY4   |   48 |          CarryLogic |
+| FDSE     |   29 |        Flop & Latch |
+| LUT1     |   12 |                 LUT |
+| SRL16E   |    9 |  Distributed Memory |
 | MUXF7    |    8 |               MuxFx |
+| DSP48E1  |    6 |    Block Arithmetic |
 | RAMB36E1 |    5 |        Block Memory |
 | RAMB18E1 |    1 |        Block Memory |
 +----------+------+---------------------+

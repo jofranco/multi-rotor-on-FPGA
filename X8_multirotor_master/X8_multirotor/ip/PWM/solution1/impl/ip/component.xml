@@ -2239,8 +2239,8 @@ ncy {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve
       </xilinx:taxonomies>
       <xilinx:displayName>Pwm</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1906050221</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-06-05T09:21:26Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1906052013</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-06-06T03:14:02Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>

@@ -9,24 +9,24 @@
 <ProductFamily>zynq</ProductFamily>
 <Part>xc7z020clg400-1</Part>
 <TopModelName>rcReceiver</TopModelName>
-<TargetClockPeriod>10.00</TargetClockPeriod>
-<ClockUncertainty>1.25</ClockUncertainty>
-<TargetInitiationInterval>1</TargetInitiationInterval>
+<TargetClockPeriod>20.00</TargetClockPeriod>
+<ClockUncertainty>2.50</ClockUncertainty>
+<TargetInitiationInterval>4294967295</TargetInitiationInterval>
 </UserAssignments>
 
 <PerformanceEstimates>
 <PipelineType>function</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>8.750</EstimatedClockPeriod>
+<EstimatedClockPeriod>17.873</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>28</Best-caseLatency>
-<Average-caseLatency>28</Average-caseLatency>
-<Worst-caseLatency>28</Worst-caseLatency>
+<Best-caseLatency>24</Best-caseLatency>
+<Average-caseLatency>24</Average-caseLatency>
+<Worst-caseLatency>24</Worst-caseLatency>
 <PipelineInitiationInterval>23</PipelineInitiationInterval>
-<PipelineDepth>29</PipelineDepth>
+<PipelineDepth>25</PipelineDepth>
 <Interval-min>23</Interval-min>
 <Interval-max>23</Interval-max>
 </SummaryOfOverallLatency>
@@ -35,9 +35,9 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>12</BRAM_18K>
-<DSP48E>51</DSP48E>
-<FF>2525</FF>
-<LUT>3374</LUT>
+<DSP48E>5</DSP48E>
+<FF>1259</FF>
+<LUT>1916</LUT>
 </Resources>
 <AvailableResources>
 <BRAM_18K>280</BRAM_18K>

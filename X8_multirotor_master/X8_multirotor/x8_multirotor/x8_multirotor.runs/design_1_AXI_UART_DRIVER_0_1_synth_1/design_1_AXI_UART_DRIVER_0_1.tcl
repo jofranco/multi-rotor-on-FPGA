@@ -17,6 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_msg_config -id {Common 17-41} -limit 10000000
 set_param project.vivado.isBlockSynthRun true
 create_project -in_memory -part xc7z020clg400-1
 
@@ -30,11 +31,15 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_repo_paths {
+  c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/AXI_PWM_VHDL_1.0
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/RC_Receiver
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/SBUS_AXI_UART_Driver
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/Flight_Main
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PID
   c:/Users/Aaron/Desktop/School/WES_Capstone/IP_cores/PWM
+  c:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/AXI_SPI_Driver
+  c:/Users/Aaron/Desktop/School/WES_Capstone/GIT_Repo/X8_multirotor_master/X8_multirotor/ip/POSITION_CTRL
+  c:/Users/Aaron/Desktop/School/WES_Capstone/TEMP/POSITION_CTRL
 } [current_project]
 set_property ip_output_repo c:/Users/Aaron/Desktop/School/WES_Capstone/x8_multirotor/x8_multirotor.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]

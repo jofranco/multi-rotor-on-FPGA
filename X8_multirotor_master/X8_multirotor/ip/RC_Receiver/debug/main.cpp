@@ -113,8 +113,8 @@ int main()
 		SBUS_data[5]  = 0xF0;
 		SBUS_data[6]  = 0xC3;
 		SBUS_data[7]  = 0x0A;
-		SBUS_data[8]  = 0xF0;
-		SBUS_data[9]  = 0x00;
+		SBUS_data[8]  = 0xFA;
+		SBUS_data[9]  = 0x01;
 		SBUS_data[10] = 0x00;
 		SBUS_data[11] = 0x00;
 		SBUS_data[12] = 0x00;

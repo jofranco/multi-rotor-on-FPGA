@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'scaleRange'" level="0">
-<item name = "Date">Wed May 29 00:35:20 2019
+<item name = "Date">Thu Jun  6 02:01:44 2019
 </item>
 <item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
 <item name = "Project">RC_Receiver</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 8.625, 1.25</column>
+<column name="ap_clk">20.00, 16.702, 2.50</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">3, 3, 1, 1, function</column>
+<column name="">1, 1, 1, 1, function</column>
 </table>
 </item>
 <item name = "Detail">

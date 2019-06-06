@@ -11,6 +11,7 @@ module scaleRange (
         ap_clk,
         ap_rst,
         x,
+        destFrom_V,
         ap_return,
         ap_ce
 );
@@ -19,78 +20,44 @@ module scaleRange (
 input   ap_clk;
 input   ap_rst;
 input  [10:0] x;
-output  [12:0] ap_return;
+input  [14:0] destFrom_V;
+output  [14:0] ap_return;
 input   ap_ce;
 
-reg[12:0] ap_return;
-
-wire   [26:0] r_V_fu_42_p2;
-reg   [26:0] r_V_reg_94;
+reg   [14:0] destFrom_V_read_reg_128;
 wire    ap_block_state1_pp0_stage0_iter0;
 wire    ap_block_state2_pp0_stage0_iter1;
-wire    ap_block_state3_pp0_stage0_iter2;
-wire    ap_block_state4_pp0_stage0_iter3;
-reg   [26:0] tmp_1_reg_99;
-wire   [26:0] p_Val2_s_fu_34_p3;
-wire   [26:0] p_Val2_1_fu_51_p0;
-wire   [42:0] p_Val2_1_fu_51_p2;
-wire   [42:0] tmp_4_fu_67_p3;
-wire   [42:0] grp_fu_78_p0;
-wire   [44:0] grp_fu_78_p1;
-wire   [86:0] grp_fu_78_p2;
-reg    grp_fu_78_ce;
-reg    ap_ce_reg;
-reg   [10:0] x_int_reg;
-reg   [12:0] ap_return_int_reg;
-wire   [86:0] grp_fu_78_p00;
-wire   [42:0] p_Val2_1_fu_51_p00;
+reg   [14:0] tmp_4_cast_reg_133;
+wire   [13:0] tmp_1_fu_56_p1;
+wire   [13:0] r_V_fu_60_p2;
+wire   [37:0] grp_fu_119_p3;
+wire   [24:0] tmp_fu_78_p4;
+wire   [37:0] tmp_2_fu_87_p3;
+wire   [37:0] mul_fu_99_p1;
+wire   [76:0] mul_fu_99_p2;
+wire   [23:0] grp_fu_119_p1;
+wire   [13:0] grp_fu_119_p2;
+wire   [37:0] grp_fu_119_p20;
+wire   [76:0] mul_fu_99_p10;
 
-rcReceiver_mul_43bkb #(
+rcReceiver_am_addbkb #(
     .ID( 1 ),
-    .NUM_STAGE( 2 ),
-    .din0_WIDTH( 43 ),
-    .din1_WIDTH( 45 ),
-    .dout_WIDTH( 87 ))
-rcReceiver_mul_43bkb_U1(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .din0(grp_fu_78_p0),
-    .din1(grp_fu_78_p1),
-    .ce(grp_fu_78_ce),
-    .dout(grp_fu_78_p2)
+    .NUM_STAGE( 1 ),
+    .din0_WIDTH( 24 ),
+    .din1_WIDTH( 24 ),
+    .din2_WIDTH( 14 ),
+    .dout_WIDTH( 38 ))
+rcReceiver_am_addbkb_U1(
+    .din0(24'd15138816),
+    .din1(grp_fu_119_p1),
+    .din2(grp_fu_119_p2),
+    .dout(grp_fu_119_p3)
 );
 
 always @ (posedge ap_clk) begin
-    ap_ce_reg <= ap_ce;
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_ce_reg)) begin
-        ap_return_int_reg <= {{grp_fu_78_p2[85:73]}};
-        r_V_reg_94[26 : 16] <= r_V_fu_42_p2[26 : 16];
-        tmp_1_reg_99 <= {{p_Val2_1_fu_51_p2[42:16]}};
-    end
-end
-
-always @ (posedge ap_clk) begin
     if ((1'b1 == ap_ce)) begin
-        x_int_reg <= x;
-    end
-end
-
-always @ (*) begin
-    if ((1'b0 == ap_ce_reg)) begin
-        ap_return = ap_return_int_reg;
-    end else if ((1'b1 == ap_ce_reg)) begin
-        ap_return = {{grp_fu_78_p2[85:73]}};
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_ce_reg)) begin
-        grp_fu_78_ce = 1'b1;
-    end else begin
-        grp_fu_78_ce = 1'b0;
+        destFrom_V_read_reg_128 <= destFrom_V;
+        tmp_4_cast_reg_133 <= {{mul_fu_99_p2[76:62]}};
     end
 end
 
@@ -98,30 +65,26 @@ assign ap_block_state1_pp0_stage0_iter0 = ~(1'b1 == 1'b1);
 
 assign ap_block_state2_pp0_stage0_iter1 = ~(1'b1 == 1'b1);
 
-assign ap_block_state3_pp0_stage0_iter2 = ~(1'b1 == 1'b1);
+assign ap_return = (tmp_4_cast_reg_133 + destFrom_V_read_reg_128);
 
-assign ap_block_state4_pp0_stage0_iter3 = ~(1'b1 == 1'b1);
+assign grp_fu_119_p1 = {{x}, {13'd0}};
 
-assign grp_fu_78_p0 = grp_fu_78_p00;
+assign grp_fu_119_p2 = grp_fu_119_p20;
 
-assign grp_fu_78_p00 = tmp_4_fu_67_p3;
+assign grp_fu_119_p20 = r_V_fu_60_p2;
 
-assign grp_fu_78_p1 = 87'd11258999068427;
+assign mul_fu_99_p1 = mul_fu_99_p10;
 
-assign p_Val2_1_fu_51_p0 = p_Val2_1_fu_51_p00;
+assign mul_fu_99_p10 = tmp_2_fu_87_p3;
 
-assign p_Val2_1_fu_51_p00 = r_V_reg_94;
+assign mul_fu_99_p2 = (77'd351843720889 * mul_fu_99_p1);
 
-assign p_Val2_1_fu_51_p2 = (p_Val2_1_fu_51_p0 * $signed('hFFB8));
+assign r_V_fu_60_p2 = (14'd8183 - tmp_1_fu_56_p1);
 
-assign p_Val2_s_fu_34_p3 = {{x_int_reg}, {16'd0}};
+assign tmp_1_fu_56_p1 = destFrom_V[13:0];
 
-assign r_V_fu_42_p2 = ($signed(p_Val2_s_fu_34_p3) + $signed(27'd121110528));
+assign tmp_2_fu_87_p3 = {{tmp_fu_78_p4}, {13'd0}};
 
-assign tmp_4_fu_67_p3 = {{tmp_1_reg_99}, {16'd0}};
-
-always @ (posedge ap_clk) begin
-    r_V_reg_94[15:0] <= 16'b0000000000000000;
-end
+assign tmp_fu_78_p4 = {{grp_fu_119_p3[37:13]}};
 
 endmodule //scaleRange
